@@ -17,7 +17,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src/app/index.tpl.html'),
+      template: path.join(__dirname, 'src/app/index.html'),
       inject: 'body',
       filename: 'index.html'
     }),
