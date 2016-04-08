@@ -16,7 +16,7 @@ Using Ambassador's react components is very straightforward.
 
 ```js
 import React from 'react';
-import Button from 'src/lib/button';
+import Button from 'react-conventions/lib/Button';
 
 const MyComponent = () => (
   <Button />

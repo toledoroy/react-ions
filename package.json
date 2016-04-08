@@ -2,7 +2,7 @@
   "name": "react-conventions",
   "version": "0.1.0",
   "description": "An open source React component library.",
-  "main": "server.js",
+  "main": "./lib",
   "repository": {
     "type": "git",
     "url": "https://github.com/GetAmbassador/react-conventions.git"
