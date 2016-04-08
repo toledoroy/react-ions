@@ -1,0 +1,8 @@
+logs/*
+dist/*
+.env
+.DS_Store
+node_modules
+bower_components
+npm-debug.log
+coverage
