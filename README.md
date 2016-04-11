@@ -37,4 +37,4 @@ export default MyComponent;
 5. Merge pull request
 6. Create release on Github
 7. Run: `npm publish`
-8. Test: https://npmjs.com/package/<package>
+8. Ensure new version is published https://npmjs.com/react-conventions
