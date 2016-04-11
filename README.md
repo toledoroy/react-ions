@@ -28,3 +28,13 @@ const MyComponent = () => (
 
 export default MyComponent;
 ```
+
+## Release Process
+- Create release branch & pull request
+- Run: npm version <semantic_version>
+- Edit CHANGELOG.md to reflect changes
+- Review CHANGELOG.md
+- Merge
+- Create release on github
+- Run: npm publish
+- Test: https://npmjs.com/package/<package>
