@@ -1,0 +1,16 @@
+$link-color: blue;
+$link-color-active: red;
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+a.active {
+  color: $link-color-active;
+  text-decoration: underline;
+}
