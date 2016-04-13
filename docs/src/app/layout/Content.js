@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import NavLink from '../modules/NavLink'
 
 class Content extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class Content extends React.Component {
   render() {
     return (
       <div>
-        <h3>{this.props.route.header}</h3>
+        <h3>{this.props.params.content}</h3>
       </div>
     )
   }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { IndexLink, Link } from 'react-router'
 import NavLink from '../modules/NavLink'
 
 class Base extends React.Component {
@@ -10,14 +10,14 @@ class Base extends React.Component {
   render() {
     return (
       <div>
-        <h1>Ambassador React Conventions</h1>
         <ul role='nav'>
+          <li><NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink></li>
           <li><NavLink to="/foundations">Foundations</NavLink>
             <ul>
-              <li><Link to="/foundations/colors">Colors</Link></li>
-              <li><Link to="/foundations/typography">Typography</Link></li>
-              <li><Link to="/foundations/iconography">Iconography</Link></li>
-              <li><Link to="/foundations/layout">Layout</Link></li>
+              <li><NavLink to="/foundations/colors">Colors</NavLink></li>
+              <li><NavLink to="/foundations/typography">Typography</NavLink></li>
+              <li><NavLink to="/foundations/iconography">Iconography</NavLink></li>
+              <li><NavLink to="/foundations/layout">Layout</NavLink></li>
             </ul>
           </li>
           <li><NavLink to="/components">Components</NavLink></li>

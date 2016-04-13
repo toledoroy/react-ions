@@ -1,5 +1,10 @@
 $link-color: blue;
 $link-color-active: red;
+$body-color: #ccc;
+
+body {
+  background-color: $body-color;
+}
 
 a {
   color: $link-color;
