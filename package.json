@@ -52,6 +52,7 @@
     "json-loader": "^0.5.3",
     "mocha": "^2.3.3",
     "mocha-jsdom": "^1.0.0",
+    "postcss-loader": "^0.6.0",
     "precss": "^1.4.0",
     "node-sass": "^3.4.2",
     "normalize": "^0.3.1",
