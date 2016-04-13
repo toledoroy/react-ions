@@ -28,3 +28,13 @@ const MyComponent = () => (
 
 export default MyComponent;
 ```
+
+## Release Process
+1. Create release branch & pull request
+2. Run: `npm version <semantic_version>`
+3. Edit `CHANGELOG.md` to reflect changes
+4. Review `CHANGELOG.md`
+5. Merge pull request
+6. Create release on Github
+7. Run: `npm publish`
+8. Ensure new version is published https://npmjs.com/react-conventions
