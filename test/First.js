@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import Foo from '../src/components/First';
+import First from '../src/components/First/First';
 
 describe("First", function() {
   it("contains spec with an expectation", function() {

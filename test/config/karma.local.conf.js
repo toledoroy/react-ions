@@ -1,27 +1,28 @@
 var path = require('path');
+// var precss = require('precss');
+// var autoprefixer = require('autoprefixer');
 
 module.exports = function(config) {
   config.set({
-    basePath: '',
+    basePath: '../../',
     frameworks: ['jasmine'],
     files: [
-      'test/**/*.js'
+      './test/*.js'
     ],
 
     preprocessors: {
-      // add webpack as preprocessor
-      'src/components/**/*.js': ['webpack', 'sourcemap'],
-      'test/*.js': ['webpack', 'sourcemap']
+      './src/components/**/*.js': ['webpack', 'sourcemap'],
+      './test/*.js': ['webpack', 'sourcemap']
     },
 
     webpack: { //kind of a copy of your webpack config
-      devtool: 'inline-source-map', //just do inline source maps instead of the default
+      //devtool: 'inline-source-map', //just do inline source maps instead of the default
       module: {
         loaders: [
           {
             test: /\.js$/,
             loader: 'babel',
-            exclude: path.resolve(__dirname, 'node_modules'),
+            exclude: /node_modules/,
             query: {
               presets: ['airbnb']
             }
@@ -30,11 +31,20 @@ module.exports = function(config) {
             test: /\.json$/,
             loader: 'json',
           },
+          {
+            test: /\.(css|scss)$/,
+            loaders: [
+              'style?sourceMap',
+              'css?modules&localIdentName=ga-[name]--[local]---[hash:base64:5]!postcss-loader',
+              'sass?sourceMap'
+            ]
+          }
         ]
       },
       externals: {
         'react/lib/ExecutionEnvironment': true,
-        'react/lib/ReactContext': true
+        'react/lib/ReactContext': true,
+        'react/addons': true
       }
     },
 
