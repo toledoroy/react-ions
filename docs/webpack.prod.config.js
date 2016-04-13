@@ -1,14 +1,15 @@
-'use strict';
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const precss = require('precss');
+const autoprefixer = require('autoprefixer');
+const StatsPlugin = require('stats-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var StatsPlugin = require('stats-webpack-plugin');
-
-module.exports = {
+const config = {
   entry: [
-    path.join(__dirname, 'app/main.js')
+    path.join(__dirname, 'src/app/main.js')
   ],
   output: {
     path: path.join(__dirname, '/dist/'),
@@ -16,9 +17,12 @@ module.exports = {
     publicPath: '/'
   },
   plugins: [
+    new CleanWebpackPlugin(['dist'], {
+      root: path.join(__dirname, '/')
+    }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new HtmlWebpackPlugin({
-      template: 'app/index.html',
+      template: path.join(__dirname, 'src/app/index.html'),
       inject: 'body',
       filename: 'index.html'
     }),
@@ -49,18 +53,13 @@ module.exports = {
       test: /\.json?$/,
       loader: 'json'
     }, {
-      test: /(\.scss|\.css)$/,
-      loaders: [
-        'style?sourceMap',
-        'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-        'sass?sourceMap'
-      ],
-      include: [
-        path.resolve(__dirname, 'app')
-      ],
+      test: /\.(css|scss)$/,
+      loader: ExtractTextPlugin.extract(
+        'style',
+        'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass!postcss-loader')
     }]
   },
-  postcss: [
-    require('autoprefixer')
-  ]
+  postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]
 };
+
+module.exports = config;
