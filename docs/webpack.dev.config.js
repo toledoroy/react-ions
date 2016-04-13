@@ -1,14 +1,14 @@
 const path = require('path');
-const precss = require('precss');
-const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const precss = require('precss');
+const autoprefixer = require('autoprefixer');
 
 const config = {
   devtool: 'eval-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    path.join(__dirname, 'src/app/app.js')
+    path.join(__dirname, 'src/app/main.js')
   ],
   output: {
     path: path.join(__dirname, '/dist/'),
