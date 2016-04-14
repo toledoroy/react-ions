@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
 // Routes
-import Routes from './Routes'
+import Routes from './routes'
 
 ReactDOM.render((
   <Router history={browserHistory}>

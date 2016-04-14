@@ -3,10 +3,10 @@ import style from './style.scss';
 
 const ProgressBar = (props) => {
   // Make sure the percentage is always below 100%
-  //<div className={"container ga-progress-bar-" + (props.size || 'sm') + " ga-progress-bar-" + (props.color || 'success')}>
   let percentage = props.value > props.denominator ? 100 : (props.value / props.denominator) * 100;
 
   return (
+    //<div className={"ga-progress-bar-container ga-progress-bar-" + (props.size || 'sm') + " ga-progress-bar-" + (props.color || 'success')}>
     <div className={style.container}>
       { props.label ? <ProgressBarLabel text={ props.label } showPercentage={ props.showPercentage } percentage={ percentage } /> : null }
       <div className={style.outer}>
