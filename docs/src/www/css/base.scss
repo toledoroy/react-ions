@@ -1,0 +1,24 @@
+@import 'normalize';
+@import 'variables';
+
+body {
+  background-color: $body-color;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+a.active {
+  color: $link-color-active;
+  text-decoration: underline;
+}
+
+[role="main"] {
+  padding: 0 1em;
+}

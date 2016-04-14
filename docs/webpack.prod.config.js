@@ -9,7 +9,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const config = {
   entry: [
-    path.join(__dirname, 'src/app/main.js')
+    path.join(__dirname, 'src/app/index.js')
   ],
   output: {
     path: path.join(__dirname, '/dist/'),
