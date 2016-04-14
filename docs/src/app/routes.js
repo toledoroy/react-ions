@@ -10,6 +10,7 @@ import ColorsPage from './pages/ColorsPage'
 import TypographyPage from './pages/TypographyPage'
 import IconographyPage from './pages/IconographyPage'
 import LayoutPage from './pages/LayoutPage'
+import FirstPage from './pages/FirstPage'
 import ProgressBarPage from './pages/ProgressBarPage'
 
 const Routes = (
@@ -21,6 +22,7 @@ const Routes = (
       <Route path="/foundations/iconography" component={IconographyPage} />
       <Route path="/foundations/layout" component={LayoutPage} />
     <Route path="/components" />
+      <Route path="/components/first" component={FirstPage} />
       <Route path="/components/progress-bar" component={ProgressBarPage} />
   </Route>
 )

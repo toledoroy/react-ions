@@ -1,10 +1,11 @@
 // Progress Bar Component
-$info-color: #3c97d3;
-$success-color: #26b894;
-$warning-color: #f29c1e;
-$danger-color: #e54c3b;
-$track-color: #dee0e3;
-$label-color: #233040;
+$progress-bar-info-color: #3c97d3;
+$progress-bar-success-color: #26b894;
+$progress-bar-warning-color: #f29c1e;
+$progress-bar-danger-color: #e54c3b;
+$progress-bar-track-color: #dee0e3;
+$progress-bar-label-color: #233040;
+
 $animation-in-out-quadratic: cubic-bezier(0.46, 0.03, 0.52, 0.96);
 
 .container {
@@ -19,16 +20,16 @@ $animation-in-out-quadratic: cubic-bezier(0.46, 0.03, 0.52, 0.96);
     }
   }
   &.info .inner {
-    background-color: $info-color;
+    background-color: $progress-bar-info-color;
   }
   &.success .inner {
-    background-color: $success-color;
+    background-color: $progress-bar-success-color;
   }
   &.warning .inner {
-    background-color: $warning-color;
+    background-color: $progress-bar-warning-color;
   }
   &.danger .inner {
-    background-color: $danger-color;
+    background-color: $progress-bar-danger-color;
   }
 
   .outer {
@@ -37,7 +38,7 @@ $animation-in-out-quadratic: cubic-bezier(0.46, 0.03, 0.52, 0.96);
     border-radius: 9px;
     overflow: hidden;
     position: relative;
-    background-color: $track-color;
+    background-color: $progress-bar-track-color;
   }
 
   .inner {
@@ -50,7 +51,7 @@ $animation-in-out-quadratic: cubic-bezier(0.46, 0.03, 0.52, 0.96);
   }
 
   .label {
-    color: $label-color;
+    color: $progress-bar-label-color;
     font-size: 14px;
     margin-bottom: 3px;
     font-weight: normal;

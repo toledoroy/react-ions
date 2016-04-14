@@ -1,5 +1,6 @@
 import React from 'react'
 import ProgressBar from '../../../../src/components/ProgressBar'
+import ProgressBarLabel from '../../../../src/components/ProgressBar'
 
 class ProgressBarPage extends React.Component {
   constructor(props) {
@@ -8,7 +9,11 @@ class ProgressBarPage extends React.Component {
   render() {
     return (
       <div>
-        <ProgressBar value={10} denominator={1000} />
+        <h2>Title here</h2>
+        <p>Info about the component here.</p>
+        <ProgressBar value={20} denominator={100} />
+        <br />
+        <code>Code here</code>
       </div>
     )
   }
