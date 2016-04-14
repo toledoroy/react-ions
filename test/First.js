@@ -4,6 +4,6 @@ import First from '../src/components/First/First';
 
 describe("First", function() {
   it("contains spec with an expectation", function() {
-    expect(shallow(<First />).contains(<div className="foo" />)).toBe(true);
+    expect(shallow(<First test='test'/>).contains(<div className='foo'>Foo</div>)).to.be.true;
   });
 });

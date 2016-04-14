@@ -5,14 +5,19 @@ var path = require('path');
 module.exports = function(config) {
   config.set({
     basePath: '../../',
-    frameworks: ['jasmine'],
+    frameworks: ['mocha', 'chai'],
     files: [
       './test/*.js'
     ],
 
     preprocessors: {
-      './src/components/**/*.js': ['webpack', 'sourcemap'],
-      './test/*.js': ['webpack', 'sourcemap']
+      './src/components/**/*.js': ['webpack'],// 'sourcemap'],
+      './test/*.js': ['webpack'],//, 'sourcemap']
+      './src/components/**/*.js': ['coverage'],// 'sourcemap'],
+    },
+
+    coverageReporter: {
+      type : 'text'
     },
 
     webpack: { //kind of a copy of your webpack config
@@ -24,7 +29,8 @@ module.exports = function(config) {
             loader: 'babel',
             exclude: /node_modules/,
             query: {
-              presets: ['airbnb']
+              presets: ['airbnb'],
+              plugins: ['transform-class-properties', 'transform-export-extensions']
             }
           },
           {
@@ -54,9 +60,12 @@ module.exports = function(config) {
 
     plugins: [
       'karma-webpack',
-      'karma-jasmine',
-      'karma-sourcemap-loader',
-      'karma-phantomjs-launcher'
+      'karma-mocha',
+      'karma-mocha-reporter',
+      'karma-chai',
+      //'karma-sourcemap-loader',
+      'karma-phantomjs-launcher',
+      'karma-coverage'
     ],
 
     babelPreprocessor: {
@@ -64,12 +73,13 @@ module.exports = function(config) {
         presets: ['airbnb']
       }
     },
-    reporters: ['progress'],
-    port: 9876,
+
+    reporters: ['progress', 'mocha', 'coverage'],
+    port: 8080,
+    browserNoActivityTimeout: 100000,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
+    browsers: ['PhantomJS'],
+    singleRun: true
   })
 };
