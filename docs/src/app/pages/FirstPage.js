@@ -10,7 +10,7 @@ class FirstPage extends React.Component {
       <div>
         <h2>First</h2>
         <p>Info about the component here.</p>
-        <First />
+        <First test='test' />
         <br />
         <code>Code here</code>
       </div>
