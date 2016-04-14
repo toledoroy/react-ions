@@ -19,6 +19,7 @@ class Nav extends React.Component {
         </li>
         <li>Components
           <ul>
+            <li><NavLink to="/components/first">First</NavLink></li>
             <li><NavLink to="/components/progress-bar">Progress Bar</NavLink></li>
           </ul>
         </li>
