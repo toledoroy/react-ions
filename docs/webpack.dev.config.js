@@ -10,6 +10,14 @@ const config = {
     'webpack-hot-middleware/client?reload=true',
     path.join(__dirname, 'src/app/index.js')
   ],
+  resolve: {
+    extensions: ['', '.js', '.md', '.txt', '.scss'],
+    alias: {
+      'css': path.resolve(__dirname, 'src/www/css'),
+      'images': path.resolve(__dirname, 'src/www/images'),
+      'components': path.resolve(__dirname, '../src/components')
+    },
+  },
   output: {
     path: path.join(__dirname, '/dist/'),
     filename: '[name].js',
@@ -47,9 +55,15 @@ const config = {
         'css?modules&localIdentName=[local]-[hash:base64:5]!postcss-loader',
         'sass?sourceMap'
       ]
+      // TODO: figure out why this is breaking
       // include: [
-      //   path.resolve(__dirname, '../app')
-      // ],
+      //   path.resolve(__dirname, '../app'),
+      //   path.resolve(__dirname, '../src/components'),
+      //   path.resolve(__dirname, '../src/styles'),
+      // ]
+    }, {
+      test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+      loader: 'file'
     }]
   },
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]

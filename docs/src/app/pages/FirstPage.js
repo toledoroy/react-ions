@@ -8,11 +8,7 @@ class FirstPage extends React.Component {
   render() {
     return (
       <div>
-        <h2>First</h2>
-        <p>Info about the component here.</p>
-        <First test='test' />
-        <br />
-        <code>Code here</code>
+        <First />
       </div>
     )
   }

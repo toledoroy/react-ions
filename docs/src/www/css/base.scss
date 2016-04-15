@@ -1,21 +1,25 @@
-@import '../../../../src/styles/global/normalize';
-@import '../../../../src/styles/global/flexboxgrid';
-@import 'variables';
+@import 'src/styles/global/normalize';
+@import 'src/styles/global/flexboxgrid';
+@import 'colors';
+@import 'nav';
 
 body {
-  background-color: $body-color;
+  background-color: $bg-primary;
 }
 
-a {
-  color: $link-color;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
+.sidebar {
+  background-color: $mbsy-navy;
+  height: 100%;
+  position: fixed;
+  width: 205px;
 }
 
-a.active {
-  color: $link-color-active;
-  text-decoration: underline;
+.content {
+  padding-left: 205px;
+  width: 100%;
+}
+
+.logo {
+  padding: 15px 0 0 15px;
+  width: 150px;
 }

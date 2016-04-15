@@ -11,6 +11,14 @@ const config = {
   entry: [
     path.join(__dirname, 'src/app/index.js')
   ],
+  resolve: {
+    extensions: ['', '.js', '.md', '.txt', '.scss'],
+    alias: {
+      'css': path.resolve(__dirname, 'src/www/css'),
+      'images': path.resolve(__dirname, 'src/www/images'),
+      'components': path.resolve(__dirname, '../src/components')
+    },
+  },
   output: {
     path: path.join(__dirname, '/dist/'),
     filename: '[name]-[hash].min.js',
@@ -47,7 +55,7 @@ const config = {
       exclude: /node_modules/,
       loader: 'babel',
       query: {
-        'presets': ['react', 'es2015', 'react-hmre'],
+        'presets': ['react', 'es2015'],
         'plugins': ['transform-class-properties', 'transform-export-extensions']
       }
     }, {
@@ -57,7 +65,10 @@ const config = {
       test: /\.(css|scss)$/,
       loader: ExtractTextPlugin.extract(
         'style',
-        'css?modules&localIdentName=[name]-[local]-[hash:base64:5]!sass!postcss-loader')
+        'css?modules&localIdentName=[local]-[hash:base64:5]!sass!postcss-loader')
+    }, {
+      test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+      loader: 'file'
     }]
   },
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]

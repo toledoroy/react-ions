@@ -1,5 +1,6 @@
 import React from 'react'
 import NavLink from '../modules/NavLink'
+import styles from 'css/nav'
 
 class Nav extends React.Component {
   constructor(props) {
@@ -7,7 +8,7 @@ class Nav extends React.Component {
   }
   render() {
     return (
-      <ul role='nav'>
+      <ul role={styles.nav}>
         <li><NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink></li>
         <li>Foundations
           <ul>

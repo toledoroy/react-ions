@@ -1,6 +1,6 @@
 import React from 'react'
-import ProgressBar from '../../../../src/components/ProgressBar'
-import ProgressBarLabel from '../../../../src/components/ProgressBar'
+import ProgressBar from 'components/ProgressBar'
+import ProgressBarLabel from 'components/ProgressBar'
 
 class ProgressBarPage extends React.Component {
   constructor(props) {
