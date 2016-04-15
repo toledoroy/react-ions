@@ -1,6 +1,6 @@
-@import 'normalize';
+@import '../../../../src/styles/global/normalize';
+@import '../../../../src/styles/global/flexboxgrid';
 @import 'variables';
-@import 'flexboxgrid';
 
 body {
   background-color: $body-color;
