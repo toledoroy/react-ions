@@ -5,7 +5,6 @@ import style from './style.scss'
 const ProgressBar = (props) => {
   // Make sure the percentage is always below 100%
   let percentage = props.value > props.denominator ? 100 : (props.value / props.denominator) * 100;
-
   let progressStyles = classNames(style.container, style.danger);
 
   return (

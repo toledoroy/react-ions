@@ -1,5 +1,6 @@
 @import 'normalize';
 @import 'variables';
+@import 'flexboxgrid';
 
 body {
   background-color: $body-color;
@@ -17,8 +18,4 @@ a {
 a.active {
   color: $link-color-active;
   text-decoration: underline;
-}
-
-[role="main"] {
-  padding: 0 1em;
 }
