@@ -43,7 +43,7 @@ const config = {
       test: /\.(css|scss)$/,
       loaders: [
         'style?sourceMap',
-        'css?modules&localIdentName=ga--[local]---[hash:base64:5]!postcss-loader',
+        'css?modules&localIdentName=[local]-[hash:base64:5]!postcss-loader',
         'sass?sourceMap'
       ]
       // include: [

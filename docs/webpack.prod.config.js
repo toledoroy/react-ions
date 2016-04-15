@@ -56,7 +56,7 @@ const config = {
       test: /\.(css|scss)$/,
       loader: ExtractTextPlugin.extract(
         'style',
-        'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass!postcss-loader')
+        'css?modules&localIdentName=[name]-[local]-[hash:base64:5]!sass!postcss-loader')
     }]
   },
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]

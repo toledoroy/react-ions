@@ -1,6 +1,6 @@
 @import 'normalize';
 @import 'variables';
-$flexboxgrid: '../../../../node_modules/flexboxgrid/dist/flexboxgrid.css';
+@import 'flexboxgrid';
 
 body {
   background-color: $body-color;
@@ -18,20 +18,4 @@ a {
 a.active {
   color: $link-color-active;
   text-decoration: underline;
-}
-
-[role="main"] {
-  padding: 0 1em;
-}
-
-.row {
-  composes: row from $flexboxgrid;
-}
-
-.nav {
-  composes: col-lg-3 from $flexboxgrid;
-}
-
-.content {
-  composes: col-lg-9 from $flexboxgrid;
 }
