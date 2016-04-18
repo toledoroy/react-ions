@@ -5,13 +5,13 @@ import { Route, Redirect, IndexRoute } from 'react-router'
 import Base from './layout/Base'
 
 // Pages
-import HomePage from './pages/HomePage'
-import ColorsPage from './pages/ColorsPage'
-import TypographyPage from './pages/TypographyPage'
-import IconographyPage from './pages/IconographyPage'
-import LayoutPage from './pages/LayoutPage'
-import FirstPage from './pages/FirstPage'
-import ProgressBarPage from './pages/ProgressBarPage'
+import HomePage from './pages/Home/Page'
+import ColorsPage from './pages/Colors/Page'
+import TypographyPage from './pages/Typography/Page'
+import IconographyPage from './pages/Iconography/Page'
+import LayoutPage from './pages/Layout/Page'
+import FirstPage from './pages/First/Page'
+import ProgressBarPage from './pages/ProgressBar/Page'
 
 const Routes = (
   <Route path="/" component={Base}>
@@ -24,7 +24,7 @@ const Routes = (
       <Route path="layout" component={LayoutPage} />
     </Route>
     <Redirect from="components" to="/components/first" />
-    <Route path="components" component={FirstPage}>
+    <Route path="components">
       <Route path="first" component={FirstPage} />
       <Route path="progress-bar" component={ProgressBarPage} />
     </Route>
