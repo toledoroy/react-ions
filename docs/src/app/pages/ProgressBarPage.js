@@ -1,6 +1,7 @@
 import React from 'react'
+import Breadcrumb from 'modules/Breadcrumb'
+import style from 'css/content-wrapper'
 import ProgressBar from 'components/ProgressBar'
-import ProgressBarLabel from 'components/ProgressBar'
 
 class ProgressBarPage extends React.Component {
   constructor(props) {
@@ -9,11 +10,10 @@ class ProgressBarPage extends React.Component {
   render() {
     return (
       <div>
-        <h2>Title here</h2>
-        <p>Info about the component here.</p>
-        <ProgressBar value={20} denominator={100} />
-        <br />
-        <code>Code here</code>
+        <Breadcrumb routeDetails={this.props.route} />
+        <div className={style.wrapper}>
+          <ProgressBar value={20} denominator={100} />
+        </div>
       </div>
     )
   }

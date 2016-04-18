@@ -1,5 +1,6 @@
 import React from 'react'
-import style from 'css/base'
+import NavLink from 'modules/NavLink'
+import style from 'css/header'
 import logo from 'images/ambassador-logo.svg'
 
 class Header extends React.Component {
@@ -8,8 +9,10 @@ class Header extends React.Component {
   }
   render() {
     return (
-      <header>
-        <img src={logo} className={style.logo} alt="Ambassador React Conventions" />
+      <header className={style.header}>
+        <NavLink to="/">
+          <img src={logo} className={style.logo} alt="Ambassador React Conventions" />
+        </NavLink>
       </header>
     )
   }

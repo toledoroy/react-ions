@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, IndexRoute } from 'react-router'
+import { Route, Redirect, IndexRoute } from 'react-router'
 
 // Base Layout
 import Base from './layout/Base'
@@ -16,14 +16,18 @@ import ProgressBarPage from './pages/ProgressBarPage'
 const Routes = (
   <Route path="/" component={Base}>
     <IndexRoute component={HomePage} />
-    <Route path="/foundations" />
-      <Route path="/foundations/colors" component={ColorsPage} />
-      <Route path="/foundations/typography" component={TypographyPage} />
-      <Route path="/foundations/iconography" component={IconographyPage} />
-      <Route path="/foundations/layout" component={LayoutPage} />
-    <Route path="/components" />
-      <Route path="/components/first" component={FirstPage} />
-      <Route path="/components/progress-bar" component={ProgressBarPage} />
+    <Redirect from="foundations" to="/foundations/colors" />
+    <Route path="foundations">
+      <Route path="colors" component={ColorsPage} />
+      <Route path="typography" component={TypographyPage} />
+      <Route path="iconography" component={IconographyPage} />
+      <Route path="layout" component={LayoutPage} />
+    </Route>
+    <Redirect from="components" to="/components/first" />
+    <Route path="components" component={FirstPage}>
+      <Route path="first" component={FirstPage} />
+      <Route path="progress-bar" component={ProgressBarPage} />
+    </Route>
   </Route>
 )
 

@@ -1,5 +1,7 @@
 import React from 'react'
-import First from '../../../../src/components/First'
+import Breadcrumb from 'modules/Breadcrumb'
+import style from 'css/content-wrapper'
+import First from 'components/First'
 
 class FirstPage extends React.Component {
   constructor(props) {
@@ -8,7 +10,12 @@ class FirstPage extends React.Component {
   render() {
     return (
       <div>
-        <First />
+        <Breadcrumb routeDetails={this.props.route} />
+        <div className={style.wrapper}>
+          <h2>First</h2>
+          <p>Info about the component here.</p>
+          <First test="okay" />
+        </div>
       </div>
     )
   }

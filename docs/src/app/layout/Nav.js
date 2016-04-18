@@ -1,5 +1,5 @@
 import React from 'react'
-import NavLink from '../modules/NavLink'
+import NavLink from 'modules/NavLink'
 import styles from 'css/nav'
 
 class Nav extends React.Component {
@@ -8,23 +8,24 @@ class Nav extends React.Component {
   }
   render() {
     return (
-      <ul role={styles.nav}>
-        <li><NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink></li>
-        <li>Foundations
+      <div role='nav'>
+        <ul>
+          <li><NavLink to='/foundations'>Foundations</NavLink>
           <ul>
-            <li><NavLink to="/foundations/colors">Colors</NavLink></li>
-            <li><NavLink to="/foundations/typography">Typography</NavLink></li>
-            <li><NavLink to="/foundations/iconography">Iconography</NavLink></li>
-            <li><NavLink to="/foundations/layout">Layout</NavLink></li>
+            <li><NavLink to='/foundations/colors'>Colors</NavLink></li>
+            <li><NavLink to='/foundations/typography'>Typography</NavLink></li>
+            <li><NavLink to='/foundations/iconography'>Iconography</NavLink></li>
+            <li><NavLink to='/foundations/layout'>Layout</NavLink></li>
           </ul>
         </li>
-        <li>Components
+        <li><NavLink to='/components'>Components</NavLink>
           <ul>
-            <li><NavLink to="/components/first">First</NavLink></li>
-            <li><NavLink to="/components/progress-bar">Progress Bar</NavLink></li>
+            <li><NavLink to='/components/first'>First</NavLink></li>
+            <li><NavLink to='/components/progress-bar'>Progress Bar</NavLink></li>
           </ul>
         </li>
       </ul>
+    </div>
     )
   }
 }

@@ -1,0 +1,16 @@
+.breadcrumb {
+  box-sizing: border-box;
+  height: 65px;
+  padding: 0 10px;
+
+  h2 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: normal;
+  }
+
+  span {
+    color: grey;
+    font-size: 14px;
+  }
+}

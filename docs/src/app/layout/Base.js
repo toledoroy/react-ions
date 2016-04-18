@@ -14,10 +14,10 @@ class Base extends React.Component {
     return (
       <div className={style['container-fluid']}>
         <div className={style.row}>
-          <nav className={style.sidebar}>
-            <Header page={this.props.params.content} />
+          <div className={style.sidebar}>
+            <Header />
             <Nav />
-          </nav>
+          </div>
           <div className={style.content}>
             <section role='main'>
               {this.props.children}
