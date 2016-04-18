@@ -9,9 +9,9 @@ class Nav extends React.Component {
   render() {
     return (
       <div role='nav'>
-        <ul>
+        <ul className={styles['list']}>
           <li><NavLink to='/foundations'>Foundations</NavLink>
-          <ul>
+          <ul className={styles['nested-list']}>
             <li><NavLink to='/foundations/colors'>Colors</NavLink></li>
             <li><NavLink to='/foundations/typography'>Typography</NavLink></li>
             <li><NavLink to='/foundations/iconography'>Iconography</NavLink></li>
@@ -19,7 +19,7 @@ class Nav extends React.Component {
           </ul>
         </li>
         <li><NavLink to='/components'>Components</NavLink>
-          <ul>
+          <ul className={styles['nested-list']}>
             <li><NavLink to='/components/first'>First</NavLink></li>
             <li><NavLink to='/components/progress-bar'>Progress Bar</NavLink></li>
           </ul>

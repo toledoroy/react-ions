@@ -1,30 +1,27 @@
-:global [role='nav'] {
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+@import '_colors';
+@import '_fonts';
 
-  ul a {
-    color: #c8f0ff;
-    display: block;
-    font-size: 16px;
-    padding: 20px 15px;
-    text-decoration: none;
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-    &[class^=active] {
-      background-color: #364b60;
-      color: #fff;
-    }
-  }
+.nested-list {
+  composes: list;
+}
 
-  ul li ul a {
-    color: #c8f0ff;
-    font-size: 14px;
-    padding: 10px 15px;
+.item {
+  color: $blue-light;
+  display: block;
+  font-size: 16px;
+  font-family: $proxima-nova-regular;
+  padding: 20px 15px;
+  text-decoration: none;
+}
 
-    &[class^=active] {
-      color: #c8f0ff;
-    }
-  }
+.active {
+  composes: item;
+  background-color: $blue-dark;
+  color: $white;
 }

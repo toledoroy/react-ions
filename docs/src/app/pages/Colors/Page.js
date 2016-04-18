@@ -1,5 +1,5 @@
 import React from 'react'
-import Breadcrumb from 'modules/Breadcrumb'
+import Breadcrumb from 'components/Breadcrumb'
 
 class ColorsPage extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class ColorsPage extends React.Component {
   render() {
     return (
       <div>
-        <Breadcrumb routeDetails={this.props.route} />
+        <Breadcrumb routeLocation="Hey" />
         Colors stuff here.
       </div>
     )

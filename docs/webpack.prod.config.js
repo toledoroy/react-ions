@@ -17,7 +17,8 @@ const config = {
       'css': path.resolve(__dirname, 'src/www/css'),
       'images': path.resolve(__dirname, 'src/www/images'),
       'components': path.resolve(__dirname, '../src/components'),
-      'modules': path.resolve(__dirname, 'src/app/modules')
+      'modules': path.resolve(__dirname, 'src/app/modules'),
+      'fonts': path.resolve(__dirname, '../src/assets/fonts')
     },
   },
   output: {
@@ -68,9 +69,13 @@ const config = {
         'style',
         'css?modules&localIdentName=[local]-[hash:base64:5]!sass!postcss-loader')
     }, {
-      test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
-      loader: 'file'
-    }]
+      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: 'url-loader?limit=10000&minetype=application/font-woff'
+    }, {
+      test: /\.(jpe?g|gif|png|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: 'file-loader'
+    }
+  ]
   },
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]
 };

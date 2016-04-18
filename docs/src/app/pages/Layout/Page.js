@@ -1,5 +1,5 @@
 import React from 'react'
-import Breadcrumb from 'modules/Breadcrumb'
+import Breadcrumb from 'components/Breadcrumb'
 
 class LayoutPage extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class LayoutPage extends React.Component {
   render() {
     return (
       <div>
-        <Breadcrumb routeDetails={this.props.route} />
+        <Breadcrumb routeLocation={location.pathname} />
         Layout stuff here
       </div>
     )

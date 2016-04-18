@@ -1,5 +1,5 @@
 import React from 'react'
-import Breadcrumb from 'modules/Breadcrumb'
+import Breadcrumb from 'components/Breadcrumb'
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -8,7 +8,6 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <Breadcrumb routeDetails={this.props.route} />
         <h1>Ambassador React Conventions</h1>
       </div>
     )
