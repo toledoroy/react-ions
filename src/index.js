@@ -1,1 +1,1 @@
-export First from './components/First';
+export ProgressBar from './components/ProgressBar';
