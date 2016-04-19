@@ -12,13 +12,16 @@ const config = {
     path.join(__dirname, 'src/app/index.js')
   ],
   resolve: {
-    extensions: ['', '.js', '.md', '.txt', '.scss'],
+    extensions: ['', '.js', '.md', '.txt', '.scss', '.css'],
     alias: {
-      'css': path.resolve(__dirname, 'src/www/css'),
-      'images': path.resolve(__dirname, 'src/www/images'),
-      'components': path.resolve(__dirname, '../src/components'),
-      'modules': path.resolve(__dirname, 'src/app/modules'),
-      'fonts': path.resolve(__dirname, '../src/assets/fonts')
+      'global/css': path.resolve(__dirname, '../src/styles/global'),
+      'global/mixins': path.resolve(__dirname, '../src/styles/mixins'),
+      'global/components': path.resolve(__dirname, '../src/components'),
+      'global/fonts': path.resolve(__dirname, '../src/assets/fonts'),
+      'global/icons': path.resolve(__dirname, '../src/assets/icons'),
+      'private/css': path.resolve(__dirname, 'src/www/css'),
+      'private/images': path.resolve(__dirname, 'src/www/images'),
+      'private/modules': path.resolve(__dirname, 'src/app/modules')
     },
   },
   output: {
@@ -74,6 +77,9 @@ const config = {
     }, {
       test: /\.(jpe?g|gif|png|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: 'file-loader'
+    }, {
+      test: /\.svg$/,
+      loader: 'raw-loader'
     }
   ]
   },

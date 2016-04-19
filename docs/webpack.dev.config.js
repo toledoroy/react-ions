@@ -11,13 +11,15 @@ const config = {
     path.join(__dirname, 'src/app/index.js')
   ],
   resolve: {
-    extensions: ['', '.js', '.md', '.txt', '.scss'],
+    extensions: ['', '.js', '.md', '.txt', '.scss', '.css'],
     alias: {
-      'css': path.resolve(__dirname, 'src/www/css'),
-      'images': path.resolve(__dirname, 'src/www/images'),
-      'components': path.resolve(__dirname, '../src/components'),
-      'modules': path.resolve(__dirname, 'src/app/modules'),
-      'fonts': path.resolve(__dirname, '../src/assets/fonts')
+      'global/base': path.resolve(__dirname, '../src/styles/common/base'),
+      'global/components': path.resolve(__dirname, '../src/components'),
+      'global/fonts': path.resolve(__dirname, '../src/assets/fonts'),
+      'global/icons': path.resolve(__dirname, '../src/assets/icons'),
+      'private/base': path.resolve(__dirname, 'src/www/css/base'),
+      'private/images': path.resolve(__dirname, 'src/www/images'),
+      'private/modules': path.resolve(__dirname, 'src/app/modules')
     },
   },
   output: {

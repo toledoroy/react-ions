@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
-import style from 'css/header'
-import logo from 'images/ambassador-logo.svg'
+import style from '../../www/css/header'
+import logo from 'private/images/ambassador-logo.svg'
 
 class Header extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class Header extends React.Component {
   render() {
     return (
       <header>
-        <Link to="/">
+        <Link to="/" className={style['logo-wrap']}>
           <img src={logo} className={style.logo} alt="Ambassador React Conventions" />
         </Link>
       </header>

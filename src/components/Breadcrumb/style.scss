@@ -1,7 +1,9 @@
+@import 'src/styles/mixins/vertical-align';
+
 .breadcrumb {
-  box-sizing: border-box;
+  @include vertical-align;
   height: 65px;
-  padding: 0 10px;
+  padding: 0 15px;
 
   .primary {
     display: inline-block;

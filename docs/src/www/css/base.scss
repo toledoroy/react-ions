@@ -1,21 +1,5 @@
-//
-// Normalize
-// --------------------------------------------------
-@import 'src/styles/global/normalize';
-
-//
-// Flexbox Grid
-@import 'src/styles/global/flexboxgrid';
-
-//
-// Streamline Icons
-// --------------------------------------------------
-// $ionicons-font-path: "../bower_components/ionicons/fonts";
-// @import "ionicons/scss/ionicons.scss";
-
-
-// "Global" styles to be applied to the React-Conventions app
-@import '_colors';
+@import '../../../../src/styles/common/base';
+@import '../../../../src/styles/common/colors';
 
 body {
   background-color: $bg-primary;

@@ -1,7 +1,7 @@
 import React from 'react'
 import { IndexLink, Link } from 'react-router'
 import classNames from 'classnames'
-import style from 'css/base'
+import style from '../../www/css/base'
 import Sidebar from './Sidebar'
 
 class Base extends React.Component {
