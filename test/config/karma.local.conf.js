@@ -5,7 +5,7 @@ var path = require('path');
 module.exports = function(config) {
   config.set({
     basePath: '../../',
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha', 'chai', 'sinon'],
     files: [
       './test/*.js'
     ],
@@ -62,6 +62,7 @@ module.exports = function(config) {
       'karma-webpack',
       'karma-mocha',
       'karma-mocha-reporter',
+      'karma-sinon',
       'karma-chai',
       //'karma-sourcemap-loader',
       'karma-phantomjs-launcher',
