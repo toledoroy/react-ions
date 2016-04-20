@@ -1,1 +1,1 @@
-export default from './Svgify';
+export default from './Icon';
