@@ -41,7 +41,7 @@ module.exports = function(config) {
             test: /\.(css|scss)$/,
             loaders: [
               'style?sourceMap',
-              'css?modules&localIdentName=ga-[name]--[local]---[hash:base64:5]!postcss-loader',
+              'css?modules&localIdentName=[local]!postcss-loader',
               'sass?sourceMap'
             ]
           }

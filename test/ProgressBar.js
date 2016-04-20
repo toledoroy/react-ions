@@ -19,7 +19,13 @@ describe('ProgressBar', () => {
     // let innerDiv = outerDiv.props.children;
 
     expect(wrapper.find('div')).to.have.length(3);
-    // expect(result.type).to.equal('div');
+    expect(wrapper.first().hasClass('container')).to.equal(true);
+    expect(wrapper.first().hasClass('danger')).to.equal(true);
+
+    expect(wrapper.children().at(1).hasClass('outer')).to.equal(true);
+    expect(wrapper.children().at(1).children(0).hasClass('inner')).to.equal(true);
+    expect(wrapper.children().at(1).children(0).contains(<div className='inner' style='-90%'></div>)).to.equal(true);
+
     // expect(result.props.className).toBe('ga-progress-bar-container ga-progress-bar-sm ga-progress-bar-success');
     // expect(outerDiv.type).toBe('div');
     // expect(outerDiv.props.className).toBe('ga-progress-bar-outer');
