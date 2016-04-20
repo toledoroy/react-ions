@@ -28,6 +28,10 @@ const Routes = (
       <Route path="first" component={FirstPage} />
       <Route path="progress-bar" component={ProgressBarPage} />
     </Route>
+    <Route path="patterns">
+    </Route>
+    <Route path="resources">
+    </Route>
   </Route>
 )
 

@@ -1,11 +1,18 @@
 @import '../../../../src/styles/common/colors';
+@import '../../../../src/styles/common/fonts';
 
 .nav {
 
   ul {
+    font-family: $proxima-nova-semibold;
     list-style: none;
     margin: 0;
     padding: 0;
+  }
+
+  ul ul {
+    display: none;
+    font-family: $proxima-nova-regular;
   }
 
   li a {
@@ -14,17 +21,29 @@
     font-size: 16px;
     padding: 20px 15px;
     text-decoration: none;
+
+    &.active {
+      color: $white;
+    }
+  }
+
+  li.active {
+    background-color: $blue-dark;
+
+    ul {
+      display: block;
+    }
   }
 
   li li a {
+    color: $blue-light;
     padding: 10px 15px;
     font-size: 14px;
+
+    &.active {
+      background-color: lighten($blue-dark, 20%);
+      color: $blue-light;
+    }
   }
 
-}
-
-.active {
-  // composes: item;
-  // background-color: $blue-dark;
-  // color: $white;
 }

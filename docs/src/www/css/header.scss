@@ -1,8 +1,10 @@
+@import '../../../../src/styles/mixins/vertical-align';
+
 .logo-wrap {
-  display: block;
+  @include vertical-align;
+  height: 65px;
 }
 .logo {
-  padding: 15px 0 0 15px;
-  height: 40px;
+  padding-left: 15px;
   width: 150px;
 }
