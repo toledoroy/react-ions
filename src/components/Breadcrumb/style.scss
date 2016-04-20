@@ -8,7 +8,7 @@
 
   .primary {
     display: inline-block;
-    font-weight: bold;
+    font-weight: 200;
     font-size: 20px;
   }
 
@@ -17,8 +17,7 @@
     font-size: 14px;
   }
 
-  .separator {
-    color: $base-text;
-    margin: 0 10px;
+  .icon-arrow-68 {
+    margin: 6px;
   }
 }
