@@ -1,6 +1,6 @@
 @import 'src/styles/mixins/vertical-align';
 @import 'src/styles/common/colors';
-@import 'src/styles/common/fonts';
+// @import 'src/styles/common/fonts';
 
 .breadcrumb {
   @include vertical-align;
@@ -9,13 +9,13 @@
 
   .primary {
     display: inline-block;
-    font-family: $proxima-nova-semibold;
+    // font-family: $proxima-nova-semibold;
     font-size: 20px;
   }
 
   .secondary {
     color: $base-text;
-    font-family: $proxima-nova-regular;
+    // font-family: $proxima-nova-regular;
     font-size: 14px;
   }
 

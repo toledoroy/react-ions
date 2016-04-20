@@ -72,8 +72,10 @@ const config = {
       test: /\.(jpe?g|gif|png|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: 'file-loader'
     }
-  ]
-  },
+  ]},
+  // sassLoader: {
+  //   includePaths: [path.resolve(__dirname, "./some-folder")]
+  // }
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]
 };
 
