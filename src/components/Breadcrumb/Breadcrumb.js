@@ -1,6 +1,6 @@
 import React from 'react'
+import Icon from '../../'
 import style from './style'
-import icon from '../../assets/icons/icons.svg'
 
 class Breadcrumb extends React.Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class Breadcrumb extends React.Component {
     return (
       <div className={style.breadcrumb}>
         <h2 className={style.primary}>Primary</h2>
-        <svg className={style['icon-arrow-68']}><use xlinkHref={icon+'#icon-arrow-68'}></use></svg>
+        <Icon name='icon-arrow-68' />
         <span className={style.secondary}>Secondary Page</span>
       </div>
     )
