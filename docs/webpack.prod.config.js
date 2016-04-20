@@ -77,9 +77,6 @@ const config = {
     }, {
       test: /\.(jpe?g|gif|png|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: 'file-loader'
-    }, {
-      test: /\.svg$/,
-      loader: 'raw-loader'
     }
   ]
   },
