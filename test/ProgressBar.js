@@ -54,33 +54,33 @@ describe('ProgressBar', () => {
 });
 
 describe('ProgressBarLabel', () => {
-//   it('should shallow render itself with proper tags and show percentage', () => {
-//     const text = 'Ambassador export';
-//     const percentage = 44;
-//     const showPercentage = true;
-//     const renderer = TestUtils.createRenderer();
-//     renderer.render(<ProgressBarLabel text={text} showPercentage={showPercentage} percentage={percentage} />);
-//     const result = renderer.getRenderOutput();
+  let wrapper;
+  let showPercentage = true;
+  const text = "Ambassador export";
+  const percentage = 10;
 
-//     expect(result.type).toBe('label');
-//     expect(result.props.children.length).toBe(3);
-//     expect(result.props.children[0]).toBe(text);
-//     expect(result.props.children[2].type).toBe('span');
-//     expect(result.props.children[2].props.className).toBe('ga-progress-bar-percentage');
-//     expect(result.props.children[2].props.children.join('')).toBe('(44%)');
-//   });
+  it('should shallow render itself with proper tags and show percentage', () => {
+    wrapper = shallow(<ProgressBarLabel text={text} showPercentage={showPercentage} percentage={percentage} />);
 
-//   it('should shallow render itself with proper tags and don\'t show percentage', () => {
-//     const text = 'Ambassador export';
-//     const percentage = 44;
-//     const showPercentage = false;
-//     const renderer = TestUtils.createRenderer();
-//     renderer.render(<ProgressBarLabel text={text} showPercentage={showPercentage} percentage={percentage}/>);
-//     const result = renderer.getRenderOutput();
+    expect(wrapper.find('label')).to.have.length(1);
+    expect(wrapper.first().props().className).to.equal('label');
+    expect(wrapper.first().hasClass('label')).to.equal(true);
+    expect(wrapper.childAt(0).text()).to.equal(text);
+    expect(wrapper.first().find('span')).to.have.length(1);
+    expect(wrapper.first().children().length).to.equal(2);
+    expect(wrapper.childAt(1).props().className).to.equal('percentage');
+    expect(wrapper.childAt(1).hasClass('percentage')).to.equal(true);
+  });
 
-//     expect(result.type).toBe('label');
-//     expect(result.props.children.length).toBe(3);
-//     expect(result.props.children[0]).toBe(text);
-//     expect(result.props.children[2]).toBeNull();
-//   });
+  it('should shallow render itself with proper tags and show percentage', () => {
+    showPercentage = false;
+    wrapper = shallow(<ProgressBarLabel text={text} showPercentage={showPercentage} percentage={percentage} />);
+
+    expect(wrapper.find('label')).to.have.length(1);
+    expect(wrapper.first().props().className).to.equal('label');
+    expect(wrapper.first().hasClass('label')).to.equal(true);
+    expect(wrapper.first().children().length).to.equal(1);
+    expect(wrapper.childAt(0).text()).to.equal(text);
+    expect(wrapper.first().find('span')).to.have.length(0);
+  });
 });
