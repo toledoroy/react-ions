@@ -1,0 +1,24 @@
+@import 'src/styles/mixins/vertical-align';
+@import 'src/styles/common/colors';
+
+.breadcrumb {
+  @include vertical-align;
+  height: 65px;
+  padding: 0 15px;
+
+  .primary {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .secondary {
+    color: $base-text;
+    font-size: 14px;
+  }
+
+  .separator {
+    color: $base-text;
+    margin: 0 10px;
+  }
+}

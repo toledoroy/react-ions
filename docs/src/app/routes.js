@@ -1,29 +1,37 @@
 import React from 'react'
-import { Route, IndexRoute } from 'react-router'
+import { Route, Redirect, IndexRoute } from 'react-router'
 
 // Base Layout
 import Base from './layout/Base'
 
 // Pages
-import HomePage from './pages/HomePage'
-import ColorsPage from './pages/ColorsPage'
-import TypographyPage from './pages/TypographyPage'
-import IconographyPage from './pages/IconographyPage'
-import LayoutPage from './pages/LayoutPage'
-import FirstPage from './pages/FirstPage'
-import ProgressBarPage from './pages/ProgressBarPage'
+import HomePage from './pages/Home/Page'
+import ColorsPage from './pages/Colors/Page'
+import TypographyPage from './pages/Typography/Page'
+import IconographyPage from './pages/Iconography/Page'
+import LayoutPage from './pages/Layout/Page'
+import FirstPage from './pages/First/Page'
+import ProgressBarPage from './pages/ProgressBar/Page'
 
 const Routes = (
   <Route path="/" component={Base}>
     <IndexRoute component={HomePage} />
-    <Route path="/foundations" />
-      <Route path="/foundations/colors" component={ColorsPage} />
-      <Route path="/foundations/typography" component={TypographyPage} />
-      <Route path="/foundations/iconography" component={IconographyPage} />
-      <Route path="/foundations/layout" component={LayoutPage} />
-    <Route path="/components" />
-      <Route path="/components/first" component={FirstPage} />
-      <Route path="/components/progress-bar" component={ProgressBarPage} />
+    <Redirect from="foundations" to="/foundations/colors" />
+    <Route path="foundations">
+      <Route path="colors" component={ColorsPage} />
+      <Route path="typography" component={TypographyPage} />
+      <Route path="iconography" component={IconographyPage} />
+      <Route path="layout" component={LayoutPage} />
+    </Route>
+    <Redirect from="components" to="/components/first" />
+    <Route path="components">
+      <Route path="first" component={FirstPage} />
+      <Route path="progress-bar" component={ProgressBarPage} />
+    </Route>
+    <Route path="patterns">
+    </Route>
+    <Route path="resources">
+    </Route>
   </Route>
 )
 

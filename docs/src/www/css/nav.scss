@@ -1,0 +1,48 @@
+@import '../../../../src/styles/common/colors';
+
+.nav {
+
+  ul {
+    font-weight: 200;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul ul {
+    display: none;
+    font-weight: normal;
+  }
+
+  li a {
+    color: $blue-light;
+    display: block;
+    font-size: 16px;
+    padding: 20px 15px;
+    text-decoration: none;
+
+    &.active {
+      color: $white;
+    }
+  }
+
+  li.active {
+    background-color: $blue-dark;
+
+    ul {
+      display: block;
+    }
+  }
+
+  li li a {
+    color: $blue-light;
+    padding: 10px 15px;
+    font-size: 14px;
+
+    &.active {
+      background-color: lighten($blue-dark, 5%);
+      color: $blue-light;
+    }
+  }
+
+}
