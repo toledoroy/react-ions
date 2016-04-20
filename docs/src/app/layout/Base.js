@@ -1,9 +1,8 @@
 import React from 'react'
 import { IndexLink, Link } from 'react-router'
 import classNames from 'classnames'
-import style from '../../www/css/base.scss'
-import Header from './Header'
-import Nav from './Nav'
+import style from '../../www/css/base'
+import Sidebar from './Sidebar'
 
 class Base extends React.Component {
   constructor(props) {
@@ -14,11 +13,8 @@ class Base extends React.Component {
     return (
       <div className={style['container-fluid']}>
         <div className={style.row}>
-          <nav className={style['col-xs-3']}>
-            <Header page={this.props.params.content} />
-            <Nav />
-          </nav>
-          <div className={style['col-xs-9']}>
+          <Sidebar />
+          <div className={style['content-wrap']}>
             <section role='main'>
               {this.props.children}
             </section>

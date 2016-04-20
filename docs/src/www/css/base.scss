@@ -1,21 +1,13 @@
-@import 'normalize';
-@import 'variables';
-@import 'flexboxgrid';
+$ga-font-folder: '../../../../src/assets/fonts';
+@import '../../../../src/styles/common/base';
 
 body {
-  background-color: $body-color;
+  background-color: $bg-primary;
+  font-family: proxima_nova;
+  -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: $link-color;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-a.active {
-  color: $link-color-active;
-  text-decoration: underline;
+.content-wrap {
+  padding-left: 205px;
+  width: 100%;
 }

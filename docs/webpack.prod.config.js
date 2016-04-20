@@ -11,6 +11,19 @@ const config = {
   entry: [
     path.join(__dirname, 'src/app/index.js')
   ],
+  resolve: {
+    extensions: ['', '.js', '.md', '.txt', '.scss', '.css'],
+    alias: {
+      'global/css': path.resolve(__dirname, '../src/styles/global'),
+      'global/mixins': path.resolve(__dirname, '../src/styles/mixins'),
+      'global/components': path.resolve(__dirname, '../src/components'),
+      'global/fonts': path.resolve(__dirname, '../src/assets/fonts'),
+      'global/icons': path.resolve(__dirname, '../src/assets/icons'),
+      'private/css': path.resolve(__dirname, 'src/www/css'),
+      'private/images': path.resolve(__dirname, 'src/www/images'),
+      'private/modules': path.resolve(__dirname, 'src/app/modules')
+    },
+  },
   output: {
     path: path.join(__dirname, '/dist/'),
     filename: '[name]-[hash].min.js',
@@ -47,7 +60,7 @@ const config = {
       exclude: /node_modules/,
       loader: 'babel',
       query: {
-        'presets': ['react', 'es2015', 'react-hmre'],
+        'presets': ['react', 'es2015'],
         'plugins': ['transform-class-properties', 'transform-export-extensions']
       }
     }, {
@@ -57,8 +70,15 @@ const config = {
       test: /\.(css|scss)$/,
       loader: ExtractTextPlugin.extract(
         'style',
-        'css?modules&localIdentName=[name]-[local]-[hash:base64:5]!sass!postcss-loader')
-    }]
+        'css?modules&localIdentName=[local]-[hash:base64:5]!sass!postcss-loader')
+    }, {
+      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: 'url-loader?limit=10000&minetype=application/font-woff'
+    }, {
+      test: /\.(jpe?g|gif|png|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: 'file-loader'
+    }
+  ]
   },
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]
 };

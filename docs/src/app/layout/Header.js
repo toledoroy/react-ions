@@ -1,5 +1,7 @@
 import React from 'react'
-import style from '../../www/css/header.scss'
+import { Link } from 'react-router'
+import style from '../../www/css/header'
+import logo from 'private/images/ambassador-logo.svg'
 
 class Header extends React.Component {
   constructor(props) {
@@ -8,8 +10,9 @@ class Header extends React.Component {
   render() {
     return (
       <header>
-        <h1 className={style.text}>{this.props.page}</h1>
-        <img src="images/ambassador-logo.svg" alt="Ambassador React Conventions" />
+        <Link to="/" className={style['logo-wrap']}>
+          <img src={logo} className={style.logo} alt="Ambassador React Conventions" />
+        </Link>
       </header>
     )
   }

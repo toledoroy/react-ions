@@ -10,6 +10,18 @@ const config = {
     'webpack-hot-middleware/client?reload=true',
     path.join(__dirname, 'src/app/index.js')
   ],
+  resolve: {
+    extensions: ['', '.js', '.md', '.txt', '.scss', '.css'],
+    alias: {
+      'global/base': path.resolve(__dirname, '../src/styles/common/base'),
+      'global/components': path.resolve(__dirname, '../src/components'),
+      'global/fonts': path.resolve(__dirname, '../src/assets/fonts'),
+      'global/icons': path.resolve(__dirname, '../src/assets/icons'),
+      'private/base': path.resolve(__dirname, 'src/www/css/base'),
+      'private/images': path.resolve(__dirname, 'src/www/images'),
+      'private/modules': path.resolve(__dirname, 'src/app/modules')
+    },
+  },
   output: {
     path: path.join(__dirname, '/dist/'),
     filename: '[name].js',
@@ -47,11 +59,23 @@ const config = {
         'css?modules&localIdentName=[local]-[hash:base64:5]!postcss-loader',
         'sass?sourceMap'
       ]
+      // TODO: figure out how to fix this
       // include: [
-      //   path.resolve(__dirname, '../app')
-      // ],
-    }]
-  },
+      //   path.resolve(__dirname, '../app'),
+      //   path.resolve(__dirname, '../src/components'),
+      //   path.resolve(__dirname, '../src/styles'),
+      // ]
+    }, {
+      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: 'url-loader?limit=10000&minetype=application/font-woff'
+    }, {
+      test: /\.(jpe?g|gif|png|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: 'file-loader'
+    }
+  ]},
+  // sassLoader: {
+  //   includePaths: [path.resolve(__dirname, "./some-folder")]
+  // }
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]
 };
 
