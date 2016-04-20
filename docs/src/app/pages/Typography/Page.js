@@ -1,5 +1,6 @@
 import React from 'react'
 import Breadcrumb from 'global/components/Breadcrumb'
+import styles from '../../../www/css/content'
 
 class TypographyPage extends React.Component {
   constructor(props) {
@@ -9,7 +10,12 @@ class TypographyPage extends React.Component {
     return (
       <div>
         <Breadcrumb routeLocation={location.pathname} />
-        Typography stuff here.
+        <div className={styles.content}>
+          <div className={styles.block}>
+            <h3>Typography</h3>
+            <p>Toy mouse squeak roll over ears back wide eyed eat the fat cats.</p>
+          </div>
+        </div>
       </div>
     )
   }
