@@ -75,7 +75,7 @@ module.exports = function(config) {
       }
     },
 
-    reporters: ['progress', 'mocha', 'coverage'],
+    reporters: ['mocha', 'coverage'],
     port: 8080,
     browserNoActivityTimeout: 100000,
     colors: true,
