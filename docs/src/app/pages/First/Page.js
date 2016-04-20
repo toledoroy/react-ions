@@ -1,6 +1,6 @@
 import React from 'react'
-import Breadcrumb from 'global/components'
-import First from 'global/components'
+import Breadcrumb from 'global/components/Breadcrumb'
+import First from 'global/components/First'
 
 class FirstPage extends React.Component {
   constructor(props) {

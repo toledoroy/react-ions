@@ -1,6 +1,4 @@
 import React from 'react'
-import SVGInline from 'react-svg-inline'
-import Icon from 'global/icons/icons.svg'
 import style from './style'
 
 class Breadcrumb extends React.Component {
@@ -30,7 +28,8 @@ class Breadcrumb extends React.Component {
     return (
       <div className={style.breadcrumb}>
         <h2 className={style.primary}>Primary</h2>
-        <SVGInline svg={'<svg className="icon-arrow-68"><use xlink:href="#icon-arrow-68"></use></svg>'} />
+        {/* TODO: replace with SVG/icon version*/}
+        <span className={style.separator}> > </span>
         <span className={style.secondary}>Secondary Page</span>
       </div>
     )

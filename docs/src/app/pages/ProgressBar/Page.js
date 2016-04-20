@@ -1,5 +1,5 @@
 import React from 'react'
-import { Breadcrumb, ProgressBar } from 'global/components'
+import { Breadcrumb, ProgressBar } from 'global/components/Breadcrumb'
 
 class ProgressBarPage extends React.Component {
   constructor(props) {

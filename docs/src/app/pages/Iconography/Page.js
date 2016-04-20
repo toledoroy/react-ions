@@ -1,5 +1,5 @@
 import React from 'react'
-import Breadcrumb from 'global/components'
+import Breadcrumb from 'global/components/Breadcrumb'
 
 class IconographyPage extends React.Component {
   constructor(props) {
