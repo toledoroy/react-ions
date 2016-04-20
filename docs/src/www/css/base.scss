@@ -1,11 +1,13 @@
+$ga-font-folder: '../../../../src/assets/fonts';
 @import '../../../../src/styles/common/base';
-@import '../../../../src/styles/common/colors';
 
 body {
   background-color: $bg-primary;
+  font-family: proxima_nova;
+  -webkit-font-smoothing: antialiased;
 }
 
-.content {
+.content-wrap {
   padding-left: 205px;
   width: 100%;
 }

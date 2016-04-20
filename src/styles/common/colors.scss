@@ -1,16 +1,16 @@
 //
 // Colors
 // --------------------------------------------------
-
-$bg-primary: #ECF0F0;
-
 $white: #fff;
 $black: #000;
+$gray-4: #ECF0F0;
 $blue-dark: #2D3E50;
 $blue-light: #c8f0ff;
 $mbsy-navy: #243141;
 
-$base-text: #233040;
+$bg-primary: $gray-4;
+$bg-sidebar: $mbsy-navy;
+$base-text: #879098;
 
 // New 2015 colors, brought to you by Maciej
 // $mbsy-blue: #2f95d8;
@@ -63,7 +63,6 @@ $base-text: #233040;
 // $gray-1: #7F8C8D;
 // $gray-2: #94A4A5;
 // $gray-3: $gray;
-// $gray-4: #ECF0F0;
 //
 // $green: #26B894;
 //

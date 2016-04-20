@@ -13,9 +13,6 @@ class First extends React.Component {
   render() {
     return (
       <div>
-        <div className='foo'>
-          Foo
-        </div>
         <div className={style.box}>
           Box
         </div>

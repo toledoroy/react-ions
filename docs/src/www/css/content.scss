@@ -1,3 +1,21 @@
-.wrapper {
-  padding: 20px;
+@import '../../../../src/styles/common/colors';
+
+.content {
+  padding: 30px;
+}
+
+.block {
+  margin-bottom: 30px;
+
+  h3 {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 16px;
+  }
+
+  p {
+    color: $base-text;
+    font-size: 14px;
+  }
+
 }

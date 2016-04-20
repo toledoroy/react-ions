@@ -14,7 +14,7 @@ class Base extends React.Component {
       <div className={style['container-fluid']}>
         <div className={style.row}>
           <Sidebar />
-          <div className={style.content}>
+          <div className={style['content-wrap']}>
             <section role='main'>
               {this.props.children}
             </section>
