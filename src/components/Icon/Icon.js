@@ -3,7 +3,7 @@ import svg from '../../assets/icons/icons.svg'
 
 const Icon = (props) => {
   return (
-    <svg className={props.name}>
+    <svg name={props.name} className={props.css} fill={props.color} height={props.size} width={props.size}>
       <use xlinkHref={svg+'#'+props.name}></use>
     </svg>
   )
@@ -11,8 +11,9 @@ const Icon = (props) => {
 
 Icon.propTypes = {
   name: React.PropTypes.string.isRequired,
-  width: React.PropTypes.number,
-  height: React.PropTypes.number
+  size: React.PropTypes.string,
+  color: React.PropTypes.string,
+  css: React.PropTypes.string
 };
 
 export default Icon;
