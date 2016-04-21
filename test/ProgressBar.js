@@ -24,7 +24,7 @@ describe('ProgressBar', () => {
     expect(wrapper.find(ProgressBarLabel)).to.have.length(1);
     expect(wrapper.childAt(0).type()).to.equal(ProgressBarLabel);
     expect(wrapper.childAt(0).props().text).to.equal(label);
-    expect(wrapper.childAt(0).props().showPercentage).to.equal(undefined);
+    expect(wrapper.childAt(0).props().showPercentage).to.equal(false);
     expect(wrapper.childAt(0).props().percentage).to.equal(10);
 
     processed_actions=100;
@@ -43,7 +43,7 @@ describe('ProgressBar', () => {
     expect(wrapper.find(ProgressBarLabel)).to.have.length(1);
     expect(wrapper.childAt(0).type()).to.equal(ProgressBarLabel);
     expect(wrapper.childAt(0).props().text).to.equal(label);
-    expect(wrapper.childAt(0).props().showPercentage).to.equal(undefined);
+    expect(wrapper.childAt(0).props().showPercentage).to.equal(false);
     expect(wrapper.childAt(0).props().percentage).to.equal(100);
   });
 
