@@ -1,8 +1,8 @@
-@import 'src/styles/mixins/vertical-align';
+@import 'src/styles/mixins/index';
 @import 'src/styles/common/colors';
 
 .breadcrumb {
-  @include vertical-align;
+  @include vertical-align('inline');
   height: 65px;
   padding: 0 15px;
 

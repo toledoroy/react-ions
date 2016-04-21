@@ -11,9 +11,9 @@ class IconographyPage extends React.Component {
   render() {
     let iconsList = list.map(function(icon) {
       return (
-        <div>
+        <div className={styles['icon-block']}>
           <Icon name={icon} color='#879098' css={styles.icon}></Icon>
-          <p>{icon}</p>
+          <code>{icon}</code>
         </div>
       );
     });
@@ -26,8 +26,7 @@ class IconographyPage extends React.Component {
             <h3>Iconography</h3>
             <p>The SvgIcon component takes an SVG path element as its child, and converts it to a React component which displays the path and allows the icon to be styled and respond to mouse events.</p>
             <p>The resulting icon can be used as is, or included as a child for other Material-UI components that use icons, such as Icon Button.</p>
-
-            <h4>Examples</h4>
+            <h4>Current Library</h4>
             { iconsList }
           </div>
         </div>
