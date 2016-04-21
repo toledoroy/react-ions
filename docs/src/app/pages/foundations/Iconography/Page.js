@@ -1,7 +1,7 @@
 import React from 'react'
 import Breadcrumb from 'global/components/Breadcrumb'
 import Icon from 'global/components/Icon'
-import styles from '../../../www/css/content'
+import styles from '../../../../www/css/content'
 import list from './IconList'
 
 class IconographyPage extends React.Component {

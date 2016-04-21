@@ -1,6 +1,6 @@
 import React from 'react'
 import Breadcrumb from 'global/components/Breadcrumb'
-import styles from '../../../www/css/content'
+import styles from '../../../../www/css/content'
 
 class TypographyPage extends React.Component {
   constructor(props) {

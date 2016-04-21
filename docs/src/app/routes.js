@@ -6,12 +6,13 @@ import Base from './layout/Base'
 
 // Pages
 import HomePage from './pages/Home/Page'
-import ColorsPage from './pages/Colors/Page'
-import TypographyPage from './pages/Typography/Page'
-import IconographyPage from './pages/Iconography/Page'
-import LayoutPage from './pages/Layout/Page'
-import FirstPage from './pages/First/Page'
-import ProgressBarPage from './pages/ProgressBar/Page'
+import ColorsPage from './pages/foundations/Colors/Page'
+import TypographyPage from './pages/foundations/Typography/Page'
+import IconographyPage from './pages/foundations/Iconography/Page'
+import LayoutPage from './pages/foundations/Layout/Page'
+import ProgressBarPage from './pages/components/ProgressBar/Page'
+import BreadcrumbPage from './pages/components/Breadcrumb/Page'
+import IconsPage from './pages/components/Icons/Page'
 
 const Routes = (
   <Route path="/" component={Base}>
@@ -23,9 +24,10 @@ const Routes = (
       <Route path="iconography" component={IconographyPage} />
       <Route path="layout" component={LayoutPage} />
     </Route>
-    <Redirect from="components" to="/components/first" />
+    <Redirect from="components" to="/components/icons" />
     <Route path="components">
-      <Route path="first" component={FirstPage} />
+      <Route path="icons" component={IconsPage} />
+      <Route path="breadcrumb" component={BreadcrumbPage} />
       <Route path="progress-bar" component={ProgressBarPage} />
     </Route>
     <Route path="patterns">

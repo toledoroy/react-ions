@@ -1,9 +1,8 @@
 import React from 'react'
 import Breadcrumb from 'global/components/Breadcrumb'
-import First from 'global/components/First'
-import styles from '../../../www/css/content'
+import styles from '../../../../www/css/content'
 
-class FirstPage extends React.Component {
+class LayoutPage extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -13,9 +12,8 @@ class FirstPage extends React.Component {
         <Breadcrumb routeLocation={location.pathname} />
         <div className={styles.content}>
           <div className={styles.block}>
-            <h3>First</h3>
-            <p>Info about the component here.</p>
-            <First test="okay" />
+            <h3>Layout</h3>
+            <p>Toy mouse squeak roll over ears back wide eyed eat the fat cats.</p>
           </div>
         </div>
       </div>
@@ -23,4 +21,4 @@ class FirstPage extends React.Component {
   }
 }
 
-export default FirstPage;
+export default LayoutPage;
