@@ -1,0 +1,9 @@
+@mixin vertical-align($display: 'block') {
+  align-items: center;
+  box-sizing: border-box;
+  @if $display == 'inline' {
+    display: inline-flex;
+  } else {
+    display: flex;
+  }
+}
