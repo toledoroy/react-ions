@@ -1,14 +1,14 @@
-@import 'src/styles/mixins/vertical-align';
+@import 'src/styles/mixins/index';
 @import 'src/styles/common/colors';
 
 .breadcrumb {
-  @include vertical-align;
+  @include vertical-align('inline');
   height: 65px;
   padding: 0 15px;
 
   .primary {
     display: inline-block;
-    font-weight: bold;
+    font-weight: 200;
     font-size: 20px;
   }
 
@@ -17,8 +17,7 @@
     font-size: 14px;
   }
 
-  .separator {
-    color: $base-text;
-    margin: 0 10px;
+  .icon-arrow-68 {
+    margin: 0 6px;
   }
 }
