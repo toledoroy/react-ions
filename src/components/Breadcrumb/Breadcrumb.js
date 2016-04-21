@@ -20,6 +20,7 @@ const Breadcrumb = (props) => {
       return (prep && ' ') + letter.toUpperCase();
     });
   }
+
   return (
     <div className={style.breadcrumb}>
       <h2 className={style.primary}>Primary</h2>
