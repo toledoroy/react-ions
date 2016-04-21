@@ -1,14 +1,14 @@
-@import 'src/styles/mixins/vertical-align';
+@import 'src/styles/mixins/index';
 @import 'src/styles/common/colors';
 
 .breadcrumb {
-  @include vertical-align;
+  @include vertical-align('inline');
   height: 65px;
   padding: 0 15px;
 
   .primary {
     display: inline-block;
-    font-weight: bold;
+    font-weight: 200;
     font-size: 20px;
   }
 
@@ -18,7 +18,6 @@
   }
 
   .icon-arrow-68 {
-    color: $base-text;
-    height: 14px;
+    margin: 0 6px;
   }
 }
