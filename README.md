@@ -6,12 +6,39 @@ Stay tuned.
 React Conventions is a set of [React](http://facebook.github.io/react/) components that implement [Ambassador's](https://www.getambassador.com) Design and UX patterns.
 
 ## Installation
-```
-git clone git@github.com:GetAmbassador/react-conventions.git
-cd react-conventions
-npm install
-npm start
-```
+
+### Pull down the repository
+
+Make sure you `cd` to your favorite directory. Then we'll clone the react-conventions repo:
+
+    $ git clone git@github.com:GetAmbassador/react-conventions.git
+
+Move into the project:
+
+    $ cd react-conventions
+
+### Install Git hooks
+
+    $ ln -s ../../git-hooks/prepare-commit-msg .git/hooks/prepare-commit-msg
+    $ ln -s ../../git-hooks/pre-push .git/hooks/pre-push
+
+The `pre-push` hook requires re-initialization of the repo:
+
+    $ git init
+
+Make sure the `pre-push` hook is executable:
+
+    $ chmod +x .git/hooks/pre-push
+
+### Configure your environment
+
+Install Node packages:
+
+    $ npm install
+
+Run the app
+
+    $ npm start
 
 Once the app is installed and running, point your browser to: [http://localhost:3000](http://localhost:3000)
 
