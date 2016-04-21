@@ -9,7 +9,7 @@ class LayoutPage extends React.Component {
   render() {
     return (
       <div>
-        <Breadcrumb routeLocation={location.pathname} />
+        <Breadcrumb routes={this.props.routes} />
         <div className={styles.content}>
           <div className={styles.block}>
             <h3>Layout</h3>

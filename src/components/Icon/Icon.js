@@ -1,5 +1,5 @@
 import React from 'react';
-import svg from '../../assets/icons/icons.svg'
+import svg from '../../assets/icons/icons.svg';
 
 const Icon = (props) => {
   return (
