@@ -1,36 +1,39 @@
 import React from 'react'
-import Icon from '../Icon'
 import style from './style'
 
-const Breadcrumb = (props) => {
-  const getBreadcrumb = () => {
+class Breadcrumb extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  propTypes: {
+    routeLocation: React.PropTypes.string.isRequired
+  }
+  componentWillMount() {
     var routes = this.parseRouteLocation();
     var pages = this.prepareRouteText(routes);
-    return pages;
   }
-  const parseRouteLocation = () => {
+  parseRouteLocation = () => {
     var routeLocation = this.props.routeLocation.split('/').slice(1);
     return routeLocation;
   }
-  const prepareRouteText = (arr) => {
+  prepareRouteText = (arr) => {
     return arr.map(elem => this.prettify(elem));
   }
-  const prettify = (str) => {
+  prettify = (str) => {
     return str.replace(/(-|^)([^-]?)/g, function(_, prep, letter) {
       return (prep && ' ') + letter.toUpperCase();
     });
   }
-  return (
-    <div className={style.breadcrumb}>
-      <h2 className={style.primary}>Primary</h2>
-      <Icon name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />
-      <span className={style.secondary}>Secondary Page</span>
-    </div>
-  )
-};
-
-React.propTypes = {
-  routeLocation: React.PropTypes.string.isRequired
-};
+  render() {
+    return (
+      <div className={style.breadcrumb}>
+        <h2 className={style.primary}>Primary</h2>
+        {/* TODO: replace with SVG/icon version*/}
+        <span className={style.separator}> > </span>
+        <span className={style.secondary}>Secondary Page</span>
+      </div>
+    )
+  }
+}
 
 export default Breadcrumb
