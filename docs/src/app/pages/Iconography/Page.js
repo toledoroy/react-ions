@@ -12,7 +12,7 @@ class IconographyPage extends React.Component {
     let iconsList = list.map(function(icon) {
       return (
         <div className={styles['icon-block']}>
-          <Icon name={icon} color='#879098' css={styles.icon}></Icon>
+          <Icon name={icon} className={styles.icon}></Icon>
           <code>{icon}</code>
         </div>
       );
