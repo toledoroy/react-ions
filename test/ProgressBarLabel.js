@@ -21,7 +21,7 @@ describe('ProgressBarLabel', () => {
     expect(wrapper.childAt(1).hasClass('percentage')).to.equal(true);
   });
 
-  it('should shallow render itself with proper tags and show percentage', () => {
+  it('should not show percentage', () => {
     showPercentage = false;
     wrapper = shallow(<ProgressBarLabel text={text} showPercentage={showPercentage} percentage={percentage} />);
 
