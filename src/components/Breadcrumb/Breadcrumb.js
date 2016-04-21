@@ -23,7 +23,7 @@ const Breadcrumb = (props) => {
   return (
     <div className={style.breadcrumb}>
       <h2 className={style.primary}>Primary</h2>
-      <Icon name='icon-arrow-68' css={style['icon-arrow-68']} size='14' color='#879098' />
+      <Icon name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />
       <span className={style.secondary}>Secondary Page</span>
     </div>
   )
