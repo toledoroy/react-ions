@@ -28,7 +28,6 @@ ProgressBar.propTypes = {
 };
 
 const ProgressBarLabel = (props) => {
-  console.log(props);
   return (
     <label className={style.label}>{ props.text } { props.showPercentage ? <span className={style.percentage}>({ props.percentage }%)</span> : null }</label>
   );
