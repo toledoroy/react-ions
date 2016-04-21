@@ -10,7 +10,6 @@ import ColorsPage from './pages/Colors/Page'
 import TypographyPage from './pages/Typography/Page'
 import IconographyPage from './pages/Iconography/Page'
 import LayoutPage from './pages/Layout/Page'
-import FirstPage from './pages/First/Page'
 import ProgressBarPage from './pages/ProgressBar/Page'
 
 const Routes = (
@@ -23,9 +22,8 @@ const Routes = (
       <Route path="iconography" component={IconographyPage} />
       <Route path="layout" component={LayoutPage} />
     </Route>
-    <Redirect from="components" to="/components/first" />
+    <Redirect from="components" to="/components/progress-bar" />
     <Route path="components">
-      <Route path="first" component={FirstPage} />
       <Route path="progress-bar" component={ProgressBarPage} />
     </Route>
     <Route path="patterns">
