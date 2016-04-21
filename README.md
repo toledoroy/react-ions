@@ -9,7 +9,7 @@ React Conventions is a set of [React](http://facebook.github.io/react/) componen
 
 ### Pull down the repository
 
-Make sure you `cd` to your favorite directory. Then we'll clone the ambassador-snippet repo:
+Make sure you `cd` to your favorite directory. Then we'll clone the react-conventions repo:
 
     $ git clone git@github.com:GetAmbassador/react-conventions.git
 
