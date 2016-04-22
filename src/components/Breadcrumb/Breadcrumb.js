@@ -3,7 +3,6 @@ import Icon from '../Icon';
 import style from './style';
 
 const Breadcrumb = (props) => {
-  console.log(props.routes);
   const depth = props.routes.length;
 
   const getTags = () => {
