@@ -13,7 +13,7 @@ Icon.propTypes = {
   name: React.PropTypes.string.isRequired,
   width: React.PropTypes.string,
   height: React.PropTypes.string,
-  color: React.PropTypes.string,
+  fill: React.PropTypes.string,
   className: React.PropTypes.string
 };
 
