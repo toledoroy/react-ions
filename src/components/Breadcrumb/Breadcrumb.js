@@ -31,7 +31,7 @@ const Breadcrumb = (props) => {
 };
 
 React.propTypes = {
-  routeLocation: React.PropTypes.string.isRequired
+  routes: React.PropTypes.array.isRequired
 };
 
 export default Breadcrumb;

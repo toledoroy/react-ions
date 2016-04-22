@@ -8,10 +8,10 @@ class IconographyPage extends React.Component {
     super(props);
   }
   render() {
-    let iconsList = list.map(function(index, icon) {
+    let iconsList = list.map(function(icon, index) {
       return (
-        <div className={styles['icon-block']}>
-          <Icon key={index} name={icon} className={styles.icon}></Icon>
+        <div key={index} className={styles['icon-block']}>
+          <Icon name={icon} className={styles.icon}></Icon>
           <code>{icon}</code>
         </div>
       );

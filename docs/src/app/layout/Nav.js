@@ -26,7 +26,7 @@ class Nav extends React.Component {
           <li><NavLink to='/patterns'>Patterns</NavLink></li>
           <li><NavLink to='/resources'>Resources</NavLink></li>
         </ul>
-    </div>
+      </div>
     )
   }
 }
