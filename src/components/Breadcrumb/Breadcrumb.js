@@ -4,12 +4,29 @@ import style from './style';
 
 const Breadcrumb = (props) => {
   console.log(props.routes);
+  const depth = props.routes.length;
+
+  const getTags = () => {
+    return props.routes.map(function(item, index) {
+      let tags = [];
+      if (index === 1) {
+        tags.push(<h2 className={style.primary}>{item.title}</h2>);
+      }
+      else if (index > 1) {
+        tags.push(<span className={style.secondary}>{item.title}</span>);
+      }
+
+      //display arrow if there's another level
+      if ((index + 1) < depth && index !== 0) {
+        tags.push(<Icon key={index} name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />);
+      }
+
+      return tags;
+    })
+  }
+
   return (
-    <div className={style.breadcrumb}>
-      <h2 className={style.primary}>{props.routes[1].title}</h2>
-      <Icon name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />
-      <span className={style.secondary}>{props.routes[2].title}</span>
-    </div>
+    <div className={style.breadcrumb}>{getTags()}</div>
   )
 };
 
@@ -17,4 +34,4 @@ React.propTypes = {
   routeLocation: React.PropTypes.string.isRequired
 };
 
-export default Breadcrumb
+export default Breadcrumb;
