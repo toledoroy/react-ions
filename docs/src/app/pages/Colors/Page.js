@@ -1,5 +1,4 @@
 import React from 'react'
-import Breadcrumb from 'global/components/Breadcrumb'
 import styles from '../../../www/css/content'
 
 class ColorsPage extends React.Component {
@@ -9,7 +8,6 @@ class ColorsPage extends React.Component {
   render() {
     return (
       <div>
-        <Breadcrumb routes={this.props.routes} />
         <div className={styles.content}>
           <div className={styles.block}>
             <h3>Color</h3>

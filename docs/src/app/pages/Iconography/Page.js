@@ -1,5 +1,4 @@
 import React from 'react'
-import Breadcrumb from 'global/components/Breadcrumb'
 import Icon from 'global/components/Icon'
 import styles from '../../../www/css/content'
 import list from './IconList'
@@ -9,10 +8,10 @@ class IconographyPage extends React.Component {
     super(props);
   }
   render() {
-    let iconsList = list.map(function(icon) {
+    let iconsList = list.map(function(index, icon) {
       return (
         <div className={styles['icon-block']}>
-          <Icon name={icon} className={styles.icon}></Icon>
+          <Icon key={index} name={icon} className={styles.icon}></Icon>
           <code>{icon}</code>
         </div>
       );
@@ -20,7 +19,6 @@ class IconographyPage extends React.Component {
 
     return (
       <div>
-        <Breadcrumb routes={this.props.routes} />
         <div className={styles.content}>
           <div className={styles.block}>
             <h3>Iconography</h3>

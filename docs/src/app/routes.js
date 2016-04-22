@@ -23,7 +23,7 @@ const Routes = (
       <Route path="layout" title="Layout" component={LayoutPage} />
     </Route>
     <Redirect from="components" to="/components/progress-bar" />
-    <Route path="components">
+    <Route path="components" title="Components">
       <Route path="progress-bar" title="Progress Bar" component={ProgressBarPage} />
     </Route>
     <Route path="patterns" title="Patterns">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumb, ProgressBar } from 'global/components';
+import ProgressBar from 'global/components';
 import styles from '../../../www/css/content';
 
 class ProgressBarPage extends React.Component {
@@ -9,7 +9,6 @@ class ProgressBarPage extends React.Component {
   render() {
     return (
       <div>
-        <Breadcrumb routes={this.props.routes} />
         <div className={styles.content}>
           <div className={styles.block}>
             <h3>Progress Bar</h3>
