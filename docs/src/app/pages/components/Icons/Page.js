@@ -6,7 +6,7 @@ import exampleIconDefaultCode from '!raw!./ExampleIconDefault'
 import styles from '../../../../www/css/content'
 
 const description = {
-  iconDefault: 'This is the `default icon` description passed in through a constant.'
+  iconDefault: 'This is the `default icon` description [passed](https://www.getambassador.com) in through a constant.'
 };
 
 const IconsPage = () => (

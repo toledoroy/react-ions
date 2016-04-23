@@ -24,13 +24,25 @@ class CodeExample extends React.Component {
       smartLists: true,
       smartypants: false,
       highlight: function (code) {
-        return require('highlight.js').highlightAuto(code).value;
+        return highlight.highlightAuto(code).value;
       }
     });
   }
 
   componentDidMount() {
     highlight.initHighlightingOnLoad();
+  }
+
+  createDescription() {
+    return {
+      __html: marked(this.props.description)
+    };
+  }
+
+  generateRawMarkup() {
+    return {
+      __html: marked(this.props.code)
+    };
   }
 
   render() {
@@ -40,11 +52,11 @@ class CodeExample extends React.Component {
         <div className={style.body}>
           <pre>
             <code class='lang-js' className={'markdown-body'}>
-              <div dangerouslySetInnerHTML={{__html: marked(this.props.code)}} />
+              <div dangerouslySetInnerHTML={this.generateRawMarkup()} />
             </code>
           </pre>
         </div>
-        <p className={style.description}>{this.props.description}</p>
+        <div className={style.description} dangerouslySetInnerHTML={this.createDescription()} />
       </div>
     );
   }
