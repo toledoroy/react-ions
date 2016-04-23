@@ -79,7 +79,6 @@
     "react-addons-pure-render-mixin": "^15.0.1",
     "react-addons-test-utils": "^15.0.0-rc.1",
     "react-dom": "^15.0.0-rc.1",
-    "react-highlight": "^0.8.0",
     "react-router": "^2.0.0",
     "react-svg-inline": "^1.1.0",
     "react-transform-hmr": "^1.0.0",

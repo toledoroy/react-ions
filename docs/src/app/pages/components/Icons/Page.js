@@ -17,7 +17,7 @@ const IconsPage = () => (
         <CodeExample
           title='Default Icon'
           description={description.iconDefault}
-          code={exampleIconDefaultCode}
+          markup={exampleIconDefaultCode}
         >
           <ExampleIconDefault />
         </CodeExample>
