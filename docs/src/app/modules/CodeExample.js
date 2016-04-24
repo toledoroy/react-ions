@@ -67,9 +67,12 @@ class CodeExample extends React.Component {
           <h3>{this.props.title}</h3>
           <Icon name='icon-arrow-37' width='16' height='16' fill='white' onClick={this.handleToggle} />
         </header>
+        <div className={styles.component}>
+          {this.props.children}
+        </div>
         <div className={toggleClass}>
           <pre>
-            <code class='lang-js'>
+            <code className='hljs'>
               <div dangerouslySetInnerHTML={this.generateRawMarkup()} />
             </code>
           </pre>

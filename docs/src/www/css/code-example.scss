@@ -1,6 +1,7 @@
 @import '../../../../src/styles/common/colors';
 
 .code-example-wrap {
+  background: $white;
   border-radius: 2px;
   box-sizing: border-box;
   margin-bottom: 32px;
@@ -23,6 +24,10 @@
     }
   }
 
+  .component {
+    padding: 20px 24px;
+  }
+
   .body {
     height: 0;
     max-height: 0;
@@ -36,10 +41,18 @@
       overflow: auto;
       transition: max-height 350ms ease-out;
     }
+
+    p {
+      margin: 0;
+    }
+
+    pre, code {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .description {
-    background: $white;
     padding: 20px 24px;
 
     code {
@@ -50,6 +63,31 @@
       font-size: 85%;
       background-color: rgba(0,0,0,.04);
       border-radius: 3px;
+    }
+  }
+}
+
+:global {
+  .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+
+    .hljs-string,
+    .hljs-section,
+    .hljs-function,
+    .hljs-selector-class,
+    .hljs-template-variable,
+    .hljs-deletion {
+      color: $red;
+    }
+    .hljs-keyword {
+      color: $black;
+      font-weight: bold;
+    }
+
+    .hljs-subst {
+      color: $black;
     }
   }
 }
