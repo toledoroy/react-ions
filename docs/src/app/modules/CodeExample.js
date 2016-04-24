@@ -1,8 +1,9 @@
 import React from 'react'
-import highlight from 'highlight.js'
+import hljs from 'highlight.js'
 import Icon from 'global/components/Icon'
 import styles from '../../www/css/code-example'
 import marked from 'marked'
+import shallowCompare from 'react-addons-shallow-compare'
 import classNames from 'classnames/bind'
 
 let cx = classNames.bind(styles);
@@ -19,9 +20,6 @@ class CodeExample extends React.Component {
       sanitize: false,
       smartLists: true,
       smartypants: false,
-      highlight: function (code) {
-        return highlight.highlightAuto(code).value;
-      }
     });
   }
 
@@ -35,8 +33,12 @@ class CodeExample extends React.Component {
     expand: false
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return shallowCompare(this, nextProps, nextState);
+  }
+
   componentDidMount() {
-    highlight.initHighlightingOnLoad();
+    hljs.initHighlightingOnLoad();
   }
 
   handleToggle = () => {
@@ -72,7 +74,7 @@ class CodeExample extends React.Component {
         </div>
         <div className={toggleClass}>
           <pre>
-            <code className='hljs'>
+            <code className={styles.hljs}>
               <div dangerouslySetInnerHTML={this.generateRawMarkup()} />
             </code>
           </pre>

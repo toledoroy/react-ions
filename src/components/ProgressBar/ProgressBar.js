@@ -18,6 +18,11 @@ const ProgressBar = (props) => {
   );
 }
 
+ProgressBar.defaultProps = {
+  value: 0,
+  denominator: 100,
+}
+
 ProgressBar.propTypes = {
   value: React.PropTypes.number.isRequired,
   denominator: React.PropTypes.number.isRequired,
@@ -25,7 +30,7 @@ ProgressBar.propTypes = {
   size: React.PropTypes.string,
   color: React.PropTypes.string,
   showPercentage: React.PropTypes.bool
-};
+}
 
 const ProgressBarLabel = (props) => {
   console.log(props);
@@ -38,6 +43,6 @@ ProgressBarLabel.propTypes = {
   text: React.PropTypes.string,
   percentage: React.PropTypes.number,
   showPercentage: React.PropTypes.bool
-};
+}
 
-export default ProgressBar;
+export default ProgressBar

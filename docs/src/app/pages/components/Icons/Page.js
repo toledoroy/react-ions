@@ -3,10 +3,13 @@ import Breadcrumb from 'global/components/Breadcrumb'
 import CodeExample from 'global/modules/CodeExample'
 import ExampleIconDefault from './ExampleIconDefault'
 import exampleIconDefaultCode from '!raw!./ExampleIconDefault'
+import ExampleIconCustom from './ExampleIconCustom'
+import exampleIconCustomCode from '!raw!./ExampleIconCustom'
 import styles from '../../../../www/css/content'
 
 const description = {
-  iconDefault: 'This is the `default icon` description [passed](https://www.getambassador.com) in through a constant.'
+  iconDefault: 'This is the `icon component` with only a `name` property, which is required. See our [full list of icons](/foundations/iconography).',
+  iconCustom: 'This is the `icon component` customized with additional `width`, `height`, `fill`, and `className` properties.'
 };
 
 const IconsPage = () => (
@@ -20,6 +23,14 @@ const IconsPage = () => (
           markup={exampleIconDefaultCode}
         >
           <ExampleIconDefault />
+        </CodeExample>
+
+        <CodeExample
+          title='Default Icon'
+          description={description.iconCustom}
+          markup={exampleIconCustomCode}
+        >
+          <ExampleIconCustom />
         </CodeExample>
       </div>
     </div>

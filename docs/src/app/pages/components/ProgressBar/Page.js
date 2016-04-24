@@ -1,25 +1,29 @@
 import React from 'react'
-import { Breadcrumb, ProgressBar } from 'global/components'
+import Breadcrumb from 'global/components/Breadcrumb'
+import CodeExample from 'global/modules/CodeExample'
+import ExampleProgressBarDefault from './ExampleProgressBarDefault'
+import exampleProgressBarDefaultCode from '!raw!./ExampleProgressBarDefault'
 import styles from '../../../../www/css/content'
 
-class ProgressBarPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <div>
-        <Breadcrumb routeLocation={location.pathname} />
-        <div className={styles.content}>
-          <div className={styles.block}>
-            <h3>Progress Bar</h3>
-            <p>Toy mouse squeak roll over ears back wide eyed eat the fat cats.</p>
-            <ProgressBar value={20} denominator={100} />
-          </div>
-        </div>
+const description = {
+  progressBarDefault: 'This is the `default Progress Bar` description [passed](https://www.getambassador.com) in through a constant.'
+};
+
+const ProgressBarPage = () => (
+  <div>
+    <Breadcrumb routeLocation={location.pathname} />
+    <div className={styles.content}>
+      <div className={styles.block}>
+        <CodeExample
+          title='Default Progress Bar'
+          description={description.progressBarDefault}
+          markup={exampleProgressBarDefaultCode}
+        >
+          <ExampleProgressBarDefault />
+        </CodeExample>
       </div>
-    )
-  }
-}
+    </div>
+  </div>
+);
 
 export default ProgressBarPage;
