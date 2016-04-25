@@ -7,22 +7,38 @@ module.exports = function(config) {
     basePath: '../../',
     frameworks: ['mocha', 'chai', 'sinon'],
     files: [
+      //'./src/components/**/*.js',
       './test/*.js'
     ],
 
     preprocessors: {
-      './src/components/**/*.js': ['webpack'],// 'sourcemap'],
-      './test/*.js': ['webpack'],//, 'sourcemap']
-      './src/components/**/*.js': ['coverage'],// 'sourcemap'],
+      './src/components/**/*.js': ['webpack'],
+      './test/*.js': ['webpack'],
+      './src/components/**/*.js': ['coverage'],
     },
 
     coverageReporter: {
-      type : 'text'
+      type : 'text',
+      includeAllSources: true,
+      instrumenters: { isparta : require('isparta') },
+      instrumenter: {
+        '**/*.js': 'isparta'
+      }
     },
 
     webpack: { //kind of a copy of your webpack config
-      //devtool: 'inline-source-map', //just do inline source maps instead of the default
       module: {
+        preLoaders: [
+          {
+            test: /\.js$/,
+            loader: 'isparta',
+            include: './src/components/**/*.js'
+            // exclude: [
+            //   /svg-icons/,
+            //   /node_modules/,
+            // ],
+          },
+        ],
         loaders: [
           {
             test: /\.js$/,
@@ -71,7 +87,6 @@ module.exports = function(config) {
       'karma-mocha-reporter',
       'karma-sinon',
       'karma-chai',
-      //'karma-sourcemap-loader',
       'karma-phantomjs-launcher',
       'karma-coverage'
     ],
