@@ -21,6 +21,7 @@ class Nav extends React.Component {
           <li className={style.active}><NavLink to='/components'>Components</NavLink>
             <ul>
               <li><NavLink to='/components/progress-bar'>Progress Bar</NavLink></li>
+                <li><NavLink to='/components/icons'>Icons</NavLink></li>
             </ul>
           </li>
           <li><NavLink to='/patterns'>Patterns</NavLink></li>
