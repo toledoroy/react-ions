@@ -1,36 +1,38 @@
-import React from 'react'
-import Icon from '../Icon'
-import style from './style'
+import React from 'react';
+import Icon from '../Icon';
+import style from './style';
 
 const Breadcrumb = (props) => {
-  const getBreadcrumb = () => {
-    var routes = this.parseRouteLocation();
-    var pages = this.prepareRouteText(routes);
-    return pages;
+  const depth = props.routes.length;
+
+  const getTags = () => {
+    return props.routes.map(function(item, index) {
+      if (index === 0) return;
+
+      let tags = [];
+      if (index === 1) {
+        tags.push(<h2 className={style.primary}>{item.title}</h2>);
+      }
+      else {
+        tags.push(<span className={style.secondary}>{item.title}</span>);
+      }
+
+      //display arrow if there's another level
+      if ((index + 1) < depth) {
+        tags.push(<Icon key={index} name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />);
+      }
+
+      return tags;
+    })
   }
-  const parseRouteLocation = () => {
-    var routeLocation = this.props.routeLocation.split('/').slice(1);
-    return routeLocation;
-  }
-  const prepareRouteText = (arr) => {
-    return arr.map(elem => this.prettify(elem));
-  }
-  const prettify = (str) => {
-    return str.replace(/(-|^)([^-]?)/g, function(_, prep, letter) {
-      return (prep && ' ') + letter.toUpperCase();
-    });
-  }
+
   return (
-    <div className={style.breadcrumb}>
-      <h2 className={style.primary}>Primary</h2>
-      <Icon name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />
-      <span className={style.secondary}>Secondary Page</span>
-    </div>
+    <div className={style.breadcrumb}>{getTags()}</div>
   )
 };
 
 React.propTypes = {
-  routeLocation: React.PropTypes.string.isRequired
+  routes: React.PropTypes.array.isRequired
 };
 
-export default Breadcrumb
+export default Breadcrumb;

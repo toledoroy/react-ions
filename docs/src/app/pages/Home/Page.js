@@ -1,5 +1,4 @@
 import React from 'react'
-import Breadcrumb from 'global/components/Breadcrumb'
 import styles from '../../../www/css/content'
 
 class HomePage extends React.Component {

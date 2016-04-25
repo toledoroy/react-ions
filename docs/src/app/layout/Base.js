@@ -3,6 +3,7 @@ import { IndexLink, Link } from 'react-router'
 import classNames from 'classnames'
 import style from '../../www/css/base'
 import Sidebar from './Sidebar'
+import Breadcrumb from 'global/components/Breadcrumb'
 
 class Base extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class Base extends React.Component {
         <div className={style.row}>
           <Sidebar />
           <div className={style['content-wrap']}>
+            <Breadcrumb routes={this.props.routes} />
             <section role='main'>
               {this.props.children}
             </section>
