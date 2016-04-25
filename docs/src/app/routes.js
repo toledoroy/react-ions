@@ -17,20 +17,20 @@ const Routes = (
   <Route path="/" component={Base}>
     <IndexRoute component={HomePage} />
     <Redirect from="foundations" to="/foundations/colors" />
-    <Route path="foundations">
-      <Route path="colors" component={ColorsPage} />
-      <Route path="typography" component={TypographyPage} />
-      <Route path="iconography" component={IconographyPage} />
-      <Route path="layout" component={LayoutPage} />
+    <Route path="foundations" title="Foundations">
+      <Route path="colors" title="Colors" component={ColorsPage} />
+      <Route path="typography" title="Typography" component={TypographyPage} />
+      <Route path="iconography" title="Iconography" component={IconographyPage} />
+      <Route path="layout" title="Layout" component={LayoutPage} />
     </Route>
     <Redirect from="components" to="/components/progress-bar" />
-    <Route path="components">
-      <Route path="progress-bar" component={ProgressBarPage} />
-      <Route path="icons" component={IconPage} />
+    <Route path="components" title="Components">
+      <Route path="progress-bar" title="Progress Bar" component={ProgressBarPage} />
+      <Route path="icons" title="Icons" component={IconPage} />
     </Route>
-    <Route path="patterns">
+    <Route path="patterns" title="Patterns">
     </Route>
-    <Route path="resources">
+    <Route path="resources" title="Resources">
     </Route>
   </Route>
 )
