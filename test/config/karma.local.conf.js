@@ -44,6 +44,13 @@ module.exports = function(config) {
               'css?modules&localIdentName=[local]!postcss-loader',
               'sass?sourceMap'
             ]
+          },
+          {
+            test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            loader: 'url-loader?limit=10000&minetype=application/font-woff'
+          }, {
+            test: /\.(jpe?g|gif|png|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            loader: 'file-loader'
           }
         ]
       },
