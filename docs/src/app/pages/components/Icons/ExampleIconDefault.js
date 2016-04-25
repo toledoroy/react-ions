@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from 'global/components/Icon'
+import Icon from 'conventions/Icon'
 
 const ExampleIconDefault = () => (
   <Icon name='icon-check-1-1'></Icon>

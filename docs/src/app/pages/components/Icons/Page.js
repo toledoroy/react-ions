@@ -1,5 +1,5 @@
 import React from 'react'
-import Breadcrumb from 'global/components/Breadcrumb'
+import Breadcrumb from 'conventions/Breadcrumb'
 import CodeExample from 'global/modules/CodeExample'
 import ExampleIconDefault from './ExampleIconDefault'
 import exampleIconDefaultCode from '!raw!./ExampleIconDefault'

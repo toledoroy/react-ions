@@ -1,5 +1,5 @@
 import React from 'react'
-import ProgressBar from 'global/components/ProgressBar'
+import ProgressBar from 'conventions/ProgressBar'
 
 const ExampleProgressBarDefault = () => (
   <ProgressBar />

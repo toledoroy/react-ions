@@ -1,6 +1,6 @@
 import React from 'react'
-import Breadcrumb from 'global/components/Breadcrumb'
-import Icon from 'global/components/Icon'
+import Breadcrumb from 'conventions/Breadcrumb'
+import Icon from 'conventions/Icon'
 import styles from '../../../../www/css/content'
 import list from './IconList'
 

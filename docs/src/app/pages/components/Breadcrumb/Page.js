@@ -1,5 +1,5 @@
 import React from 'react'
-import Breadcrumb from 'global/components/Breadcrumb'
+import Breadcrumb from 'conventions/Breadcrumb'
 import CodeExample from 'global/modules/CodeExample'
 import styles from '../../../../www/css/content'
 

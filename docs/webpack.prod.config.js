@@ -16,7 +16,7 @@ const config = {
     alias: {
       'global/css': path.resolve(__dirname, '../src/styles/global'),
       'global/mixins': path.resolve(__dirname, '../src/styles/mixins'),
-      'global/components': path.resolve(__dirname, '../src/components'),
+      'conventions': path.resolve(__dirname, '../src/components'),
       'global/fonts': path.resolve(__dirname, '../src/assets/fonts'),
       'global/icons': path.resolve(__dirname, '../src/assets/icons'),
       'private/css': path.resolve(__dirname, 'src/www/css'),

@@ -1,6 +1,6 @@
 import React from 'react'
 import hljs from 'highlight.js'
-import Icon from 'global/components/Icon'
+import Icon from 'conventions/Icon'
 import styles from '../../www/css/code-example'
 import marked from 'marked'
 import shallowCompare from 'react-addons-shallow-compare'
@@ -52,8 +52,12 @@ class CodeExample extends React.Component {
   }
 
   generateRawMarkup() {
+    const text = `\`\`\`js
+${this.props.markup}
+    \`\`\``;
+
     return {
-      __html: marked(this.props.markup)
+      __html: marked(text)
     };
   }
 

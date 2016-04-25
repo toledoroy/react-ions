@@ -1,5 +1,5 @@
 import React from 'react'
-import Breadcrumb from 'global/components/Breadcrumb'
+import Breadcrumb from 'conventions/Breadcrumb'
 import styles from '../../../../www/css/content'
 
 class TypographyPage extends React.Component {
