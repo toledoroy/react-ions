@@ -3,6 +3,9 @@ import classNames from 'classnames';
 import ProgressBarLabel from './ProgressBarLabel';
 import style from './style.scss';
 
+/**
+ * The ProgressBar fills from 0% to 100% to show the progress of a task.
+ */
 const ProgressBar = (props) => {
   let percentage = props.value > props.denominator ? 100 : (props.value / props.denominator) * 100;
   let progressStyles = classNames(style.container, style.danger);
@@ -17,10 +20,28 @@ const ProgressBar = (props) => {
   );
 }
 
+ProgressBar.defaultProps = {
+  value: 0,
+  denominator: 100,
+  showPercentage: false
+}
+
 ProgressBar.propTypes = {
+  /**
+   * The value of progress.
+   */
   value: React.PropTypes.number.isRequired,
+  /**
+   * The max value of progress.
+   */
   denominator: React.PropTypes.number.isRequired,
+  /**
+   * Text shown above the progress bar.
+   */
   label: React.PropTypes.string,
+  /**
+   * Show or hide the percentage with the progress bar.
+   */
   showPercentage: React.PropTypes.bool
 };
 
