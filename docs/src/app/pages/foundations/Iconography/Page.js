@@ -19,7 +19,6 @@ class IconographyPage extends React.Component {
 
     return (
       <div>
-        <Breadcrumb routeLocation={location.pathname} />
         <div className={baseStyle.content}>
           <div className={baseStyle.block}>
             <h3>Iconography</h3>

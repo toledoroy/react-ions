@@ -1,5 +1,4 @@
 import React from 'react'
-import Breadcrumb from 'react-conventions/lib/Breadcrumb'
 import PropsList from 'private/modules/PropsList';
 import docs from '!!docgen!react-conventions/lib/ProgressBar/ProgressBar';
 import CodeExample from 'private/modules/CodeExample'
@@ -13,7 +12,6 @@ const description = {
 
 const ProgressBarPage = () => (
   <div>
-    <Breadcrumb routeLocation={location.pathname} />
     <div className={styles.content}>
       <div className={styles.block}>
         <CodeExample
