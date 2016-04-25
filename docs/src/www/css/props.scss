@@ -1,0 +1,44 @@
+@import '../../../../src/styles/common/colors';
+
+.wrapper {
+  overflow-x: auto;
+}
+
+.table {
+  border-collapse: collapse;
+  font-size: 14px;
+  width: 100%;
+  min-width: 400px;
+  color: $primary-3;
+
+  th {
+    font-weight: 200;
+    border-style: solid;
+    border-color: $neutral-3;
+    border-width: 2px 0;
+    color: $neutral-4;
+  }
+
+  th, td {
+    padding: 10px 15px;
+    text-align: left;
+  }
+
+  td {
+    border-bottom: 1px solid $neutral-3;
+  }
+}
+
+.cell-monospaced {
+  font-family: monospace;
+  color: $primary-6;
+  font-size: 13px;
+}
+
+.cell-sm {
+  width: 5%;
+}
+
+.cell-md {
+  width: 10%;
+}

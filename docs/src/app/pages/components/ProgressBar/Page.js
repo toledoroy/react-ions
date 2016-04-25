@@ -1,5 +1,7 @@
 import React from 'react'
 import Breadcrumb from 'conventions/Breadcrumb'
+import PropsList from 'private/modules/PropsList';
+import docs from '!!docgen!conventions/ProgressBar';
 import CodeExample from 'global/modules/CodeExample'
 import ExampleProgressBarDefault from './ExampleProgressBarDefault'
 import exampleProgressBarDefaultCode from '!raw!./ExampleProgressBarDefault'
@@ -21,6 +23,10 @@ const ProgressBarPage = () => (
         >
           <ExampleProgressBarDefault />
         </CodeExample>
+      </div>
+      <div className={styles.block}>
+        <h3>Props</h3>
+        <PropsList list={docs[0].props} />
       </div>
     </div>
   </div>

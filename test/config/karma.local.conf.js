@@ -5,7 +5,7 @@ var path = require('path');
 module.exports = function(config) {
   config.set({
     basePath: '../../',
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha', 'chai', 'sinon'],
     files: [
       './test/*.js'
     ],
@@ -41,7 +41,7 @@ module.exports = function(config) {
             test: /\.(css|scss)$/,
             loaders: [
               'style?sourceMap',
-              'css?modules&localIdentName=ga-[name]--[local]---[hash:base64:5]!postcss-loader',
+              'css?modules&localIdentName=[local]!postcss-loader',
               'sass?sourceMap'
             ]
           }
@@ -62,6 +62,7 @@ module.exports = function(config) {
       'karma-webpack',
       'karma-mocha',
       'karma-mocha-reporter',
+      'karma-sinon',
       'karma-chai',
       //'karma-sourcemap-loader',
       'karma-phantomjs-launcher',
@@ -74,7 +75,7 @@ module.exports = function(config) {
       }
     },
 
-    reporters: ['progress', 'mocha', 'coverage'],
+    reporters: ['mocha', 'coverage'],
     port: 8080,
     browserNoActivityTimeout: 100000,
     colors: true,

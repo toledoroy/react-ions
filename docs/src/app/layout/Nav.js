@@ -10,7 +10,7 @@ class Nav extends React.Component {
     return (
       <div role='nav' className={style.nav}>
         <ul>
-          <li><NavLink to='/foundations'>Foundations</NavLink>
+          <li className={style.active}><NavLink to='/foundations'>Foundations</NavLink>
           <ul>
             <li><NavLink to='/foundations/colors'>Colors</NavLink></li>
             <li><NavLink to='/foundations/typography'>Typography</NavLink></li>
@@ -18,10 +18,8 @@ class Nav extends React.Component {
             <li><NavLink to='/foundations/layout'>Layout</NavLink></li>
           </ul>
         </li>
-        <li className={style.active}><NavLink to='/components'>Components</NavLink>
+        <li><NavLink to='/components'>Components</NavLink>
           <ul>
-            <li><NavLink to='/components/icons'>Icons</NavLink></li>
-            <li><NavLink to='/components/breadcrumb'>Breadcrumb</NavLink></li>
             <li><NavLink to='/components/progress-bar'>Progress Bar</NavLink></li>
           </ul>
         </li>

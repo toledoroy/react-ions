@@ -1,14 +1,16 @@
-import React from 'react'
-import classNames from 'classnames'
-import style from './style.scss'
+import React from 'react';
+import classNames from 'classnames';
+import ProgressBarLabel from './ProgressBarLabel';
+import style from './style.scss';
 
+/**
+ * The ProgressBar fills from 0% to 100% to show the progress of a task.
+ */
 const ProgressBar = (props) => {
-  // Make sure the percentage is always below 100%
   let percentage = props.value > props.denominator ? 100 : (props.value / props.denominator) * 100;
   let progressStyles = classNames(style.container, style.danger);
 
   return (
-    //<div className={"ga-progress-bar-container ga-progress-bar-" + (props.size || 'sm') + " ga-progress-bar-" + (props.color || 'success')}>
     <div className={progressStyles}>
       { props.label ? <ProgressBarLabel text={ props.label } showPercentage={ props.showPercentage } percentage={ percentage } /> : null }
       <div className={style.outer}>
@@ -21,28 +23,26 @@ const ProgressBar = (props) => {
 ProgressBar.defaultProps = {
   value: 0,
   denominator: 100,
+  showPercentage: false
 }
 
 ProgressBar.propTypes = {
+  /**
+   * The value of progress.
+   */
   value: React.PropTypes.number.isRequired,
+  /**
+   * The max value of progress.
+   */
   denominator: React.PropTypes.number.isRequired,
+  /**
+   * Text shown above the progress bar.
+   */
   label: React.PropTypes.string,
-  size: React.PropTypes.string,
-  color: React.PropTypes.string,
+  /**
+   * Show or hide the percentage with the progress bar.
+   */
   showPercentage: React.PropTypes.bool
-}
+};
 
-const ProgressBarLabel = (props) => {
-  console.log(props);
-  return (
-    <label className={style.label}>{ props.text } { props.showPercentage ? <span className={style.percentage}>({ props.percentage }%)</span> : null }</label>
-  );
-}
-
-ProgressBarLabel.propTypes = {
-  text: React.PropTypes.string,
-  percentage: React.PropTypes.number,
-  showPercentage: React.PropTypes.bool
-}
-
-export default ProgressBar
+export default ProgressBar;
