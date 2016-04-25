@@ -1,6 +1,6 @@
 import React from 'react'
-import Breadcrumb from 'conventions/Breadcrumb'
-import CodeExample from 'global/modules/CodeExample'
+import Breadcrumb from 'react-conventions/lib/Breadcrumb'
+import CodeExample from 'private/modules/CodeExample'
 import styles from '../../../../www/css/content'
 
 class BreadcrumbPage extends React.Component {

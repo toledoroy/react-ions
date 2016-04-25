@@ -1,6 +1,6 @@
 import React from 'react'
 import hljs from 'highlight.js'
-import Icon from 'conventions/Icon'
+import Icon from 'react-conventions/lib/Icon'
 import styles from '../../www/css/code-example'
 import marked from 'marked'
 import shallowCompare from 'react-addons-shallow-compare'

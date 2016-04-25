@@ -1,4 +1,5 @@
 @import '../../../../src/styles/common/colors';
+@import '../../../../src/styles/mixins/index';
 
 .wrapper {
   overflow-x: auto;
@@ -30,7 +31,7 @@
 }
 
 .cell-monospaced {
-  font-family: monospace;
+  @include monospace;
   color: $primary-6;
   font-size: 13px;
 }

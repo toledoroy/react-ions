@@ -12,6 +12,6 @@
   }
 
   code {
-    font-size: 14px;
+    @include monospace;
   }
 }

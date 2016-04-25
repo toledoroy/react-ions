@@ -1,6 +1,7 @@
 @import '../../../../src/styles/common/colors';
 @import '../../../../src/styles/mixins/index';
 
+// TODO: replace all font sizes with variables
 .code-example-wrap {
   background: $white;
   border-radius: 2px;
@@ -53,14 +54,21 @@
     }
 
     pre, code {
-      font-size: 14px;
       margin: 0;
       padding: 0;
+    }
+
+    code {
+      @include monospace;
     }
   }
 
   .description {
     padding: 20px 24px;
+
+    a {
+      color: $primary-6;
+    }
 
     p {
       color: $base-text;
@@ -68,11 +76,11 @@
     }
 
     code {
-      padding: .2em;
-      margin: 0;
-      font-size: 85%;
+      @include monospace;
       background-color: rgba(0,0,0,.04);
       border-radius: 3px;
+      margin: 0;
+      padding: .2em;
     }
   }
 }

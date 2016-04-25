@@ -14,12 +14,11 @@ const config = {
   resolve: {
     extensions: ['', '.js', '.md', '.txt', '.scss', '.css'],
     alias: {
-      'global/css': path.resolve(__dirname, '../src/styles/global'),
-      'global/mixins': path.resolve(__dirname, '../src/styles/mixins'),
-      'conventions': path.resolve(__dirname, '../src/components'),
+      'global/base': path.resolve(__dirname, '../src/styles/common/base'),
+      'react-conventions/lib': path.resolve(__dirname, '../src/components'),
       'global/fonts': path.resolve(__dirname, '../src/assets/fonts'),
       'global/icons': path.resolve(__dirname, '../src/assets/icons'),
-      'private/css': path.resolve(__dirname, 'src/www/css'),
+      'private/base': path.resolve(__dirname, 'src/www/css/base'),
       'private/images': path.resolve(__dirname, 'src/www/images'),
       'private/modules': path.resolve(__dirname, 'src/app/modules')
     },

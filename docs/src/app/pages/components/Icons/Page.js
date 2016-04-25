@@ -1,6 +1,8 @@
 import React from 'react'
-import Breadcrumb from 'conventions/Breadcrumb'
-import CodeExample from 'global/modules/CodeExample'
+import Breadcrumb from 'react-conventions/lib/Breadcrumb'
+import PropsList from 'private/modules/PropsList';
+import docs from '!!docgen!react-conventions/lib/ProgressBar/ProgressBar';
+import CodeExample from 'private/modules/CodeExample'
 import ExampleIconDefault from './ExampleIconDefault'
 import exampleIconDefaultCode from '!raw!./ExampleIconDefault'
 import ExampleIconCustom from './ExampleIconCustom'
@@ -32,6 +34,10 @@ const IconsPage = () => (
         >
           <ExampleIconCustom />
         </CodeExample>
+      </div>
+      <div className={styles.block}>
+        <h3>Props</h3>
+        <PropsList list={docs[0].props} />
       </div>
     </div>
   </div>

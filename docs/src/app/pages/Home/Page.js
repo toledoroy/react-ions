@@ -1,5 +1,5 @@
 import React from 'react'
-import Breadcrumb from 'conventions/Breadcrumb'
+import Breadcrumb from 'react-conventions/lib/Breadcrumb'
 import styles from '../../../www/css/content'
 
 class HomePage extends React.Component {
