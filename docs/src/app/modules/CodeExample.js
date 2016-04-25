@@ -71,7 +71,7 @@ ${this.props.markup}
       <div className={styles['code-example-wrap']}>
         <header>
           <h3>{this.props.title}</h3>
-          <Icon name='icon-arrow-37' width='16' height='16' fill='white' onClick={this.handleToggle} />
+          <button onClick={this.handleToggle}><Icon name='icon-arrow-37' width='16' height='16' fill='white' /></button>
         </header>
         <div className={styles.component}>
           {this.props.children}
