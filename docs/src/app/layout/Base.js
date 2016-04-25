@@ -3,7 +3,7 @@ import { IndexLink, Link } from 'react-router'
 import classNames from 'classnames'
 import style from '../../www/css/base'
 import Sidebar from './Sidebar'
-import Breadcrumb from 'global/components/Breadcrumb'
+import Breadcrumb from 'react-conventions/lib/Breadcrumb'
 
 class Base extends React.Component {
   constructor(props) {

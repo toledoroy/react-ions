@@ -1,7 +1,8 @@
 import React from 'react'
-import styles from '../../../www/css/content'
+import CodeExample from 'private/modules/CodeExample'
+import styles from '../../../../www/css/content'
 
-class LayoutPage extends React.Component {
+class BreadcrumbPage extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -10,8 +11,7 @@ class LayoutPage extends React.Component {
       <div>
         <div className={styles.content}>
           <div className={styles.block}>
-            <h3>Layout</h3>
-            <p>Toy mouse squeak roll over ears back wide eyed eat the fat cats.</p>
+            <h3>Examples</h3>
           </div>
         </div>
       </div>
@@ -19,4 +19,4 @@ class LayoutPage extends React.Component {
   }
 }
 
-export default LayoutPage;
+export default BreadcrumbPage;

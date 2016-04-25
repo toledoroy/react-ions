@@ -1,0 +1,113 @@
+@import '../../../../src/styles/common/colors';
+@import '../../../../src/styles/mixins/index';
+
+// TODO: replace all font sizes with variables
+.code-example-wrap {
+  background: $white;
+  border-radius: 2px;
+  box-sizing: border-box;
+  margin-bottom: 32px;
+
+  header {
+    padding: 20px 24px;
+
+    h3 {
+      display: inline;
+    }
+
+    // TODO: Replace once button component is ready
+    button {
+      @include vertical-align('inline');
+      background-color: $mbsy-blue;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      float: right;
+      margin-top: -7px;
+      margin-right: -7px;
+      padding: 8px 10px;
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+
+  .component {
+    padding: 20px 24px;
+  }
+
+  .body {
+    height: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+
+    &.open {
+      height: auto;
+      padding: 20px 24px;
+      max-height: 1000px;
+      overflow: auto;
+      transition: max-height 800ms ease-out;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    pre, code {
+      margin: 0;
+      padding: 0;
+    }
+
+    code {
+      @include monospace;
+    }
+  }
+
+  .description {
+    padding: 20px 24px;
+
+    a {
+      color: $primary-6;
+    }
+
+    p {
+      color: $base-text;
+      font-size: 14px;
+    }
+
+    code {
+      @include monospace;
+      background-color: rgba(0,0,0,.04);
+      border-radius: 3px;
+      margin: 0;
+      padding: .2em;
+    }
+  }
+}
+
+// Styles for Highlight.js
+// http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
+:global {
+  .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+
+    .hljs-string,
+    .hljs-section,
+    .hljs-function,
+    .hljs-selector-class,
+    .hljs-template-variable,
+    .hljs-deletion {
+      color: $red;
+    }
+    .hljs-keyword {
+      color: $black;
+      font-weight: bold;
+    }
+
+    .hljs-subst {
+      color: $black;
+    }
+  }
+}
