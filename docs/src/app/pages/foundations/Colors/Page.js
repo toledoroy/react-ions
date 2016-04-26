@@ -6,17 +6,17 @@ import localStyles from './styles.scss'
 
 const ColorsPage = (props) => {
   let neutralColorList = list.neutralColors.map((color, index) =>
-    <div className={localStyles['color-wrapper']}>
+    <div key={index} className={localStyles['color-wrapper']}>
       <Color hex={color.hex} sass={color.sass} />
     </div>
   );
   let primaryColorList = list.primaryColors.map((color, index) =>
-    <div className={localStyles['color-wrapper']}>
+    <div key={index} className={localStyles['color-wrapper']}>
       <Color hex={color.hex} sass={color.sass} />
     </div>
   );
   let secondaryColorList = list.secondaryColors.map((color, index) =>
-    <div className={localStyles['color-wrapper']}>
+    <div key={index} className={localStyles['color-wrapper']}>
       <Color hex={color.hex} sass={color.sass} />
     </div>
   );
