@@ -1,0 +1,27 @@
+@import '../../../../../../src/styles/mixins/index';
+
+.color-box {
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 90px;
+  .color-box-color {
+    height: 80px;
+  }
+  .color-box-value {
+    align-items: center;
+    background-color: #fff;
+    color: #233040;
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: 13px;
+    justify-content: center;
+    min-height: 33px;
+    padding: 8px;
+    text-align: center;
+    .hex-value {
+      text-transform: uppercase;
+      padding-top: 5px;
+    }
+  }
+}
