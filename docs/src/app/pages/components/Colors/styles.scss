@@ -1,8 +1,6 @@
 @import '../../../../../../src/styles/common/colors';
 @import '../../../../../../src/styles/mixins/index';
 
-$color-box-text-color: #233040;
-
 .color-box {
   border-radius: 3px;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
@@ -14,7 +12,7 @@ $color-box-text-color: #233040;
   .color-box-value {
     align-items: center;
     background-color: $white;
-    color: $color-box-text-color;
+    color: $dark-blue-text;
     display: flex;
     flex-flow: column nowrap;
     font-size: 13px;
