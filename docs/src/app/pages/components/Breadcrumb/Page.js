@@ -1,5 +1,4 @@
 import React from 'react'
-import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 
 class BreadcrumbPage extends React.Component {

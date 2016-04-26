@@ -1,5 +1,4 @@
 import React from 'react'
-import Breadcrumb from 'react-conventions/lib/Breadcrumb'
 import Icon from 'react-conventions/lib/Icon'
 import baseStyle from 'private/css/content'
 import localStyle from './styles'
