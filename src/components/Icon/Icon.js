@@ -15,10 +15,25 @@ Icon.defaultProps = {
 }
 
 Icon.propTypes = {
+  /**
+   * The name of the button (see Iconography).
+   */
   name: React.PropTypes.string.isRequired,
+  /**
+   * The width of the button.
+   */
   width: React.PropTypes.string,
+  /**
+   * The height of the button.
+   */
   height: React.PropTypes.string,
+  /**
+   * The color (fill) of the icon.
+   */
   fill: React.PropTypes.string,
+  /**
+   * The CSS class of the icon.
+   */
   className: React.PropTypes.string
 }
 
