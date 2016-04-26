@@ -1,31 +1,37 @@
 //
 // Colors
 // --------------------------------------------------
-$white: #fff;
-$black: #000;
-$red: #CA2028;
+$white: #FFFFFF;
+$black: #000000;
 
-$gray-4: #ECF0F0;
-$blue-dark: #2D3E50;
-$blue-light: #c8f0ff;
-$mbsy-navy: #243141;
-$mbsy-blue: #2f95d8;
+// Neutral colors
+$primary: #ECF0F0;
+$secondary: #F7F7F9;
+$light-gray: #DEE0E3;
+$dark-gray: #9198A0;
 
-$bg-primary: $gray-4;
+// Primary Colors
+$mbsy-blue: #3C97D3;
+$editor-blue: #3178B7;
+$dark-blue-1: #1B252F;
+$dark-blue-2: #243140;
+$dark-blue-3: #2D3E50;
+$dark-blue-4: #4F6A92;
+
+// Secondary Colors
+$green: #26B894;
+$orange: #F29C1E;
+$red: #E54C3B;
+$aqua: #62CAF3;
+
+
+$bg-primary: $primary;
 $bg-sidebar: $mbsy-navy;
+$light-blue: #C8F0FF;
+$code-button-blue: #2f95d8;
+$mbsy-navy: #243141;
 $base-text: #879098;
-
-$neutral-1: #ECF0F0;
-$neutral-2: #F7F7F9;
-$neutral-3: #DEE0E3;
-$neutral-4: #9198A0;
-
-$primary-1: #3C97D3;
-$primary-2: #3178B7;
-$primary-3: #1B252F;
-$primary-4: #243140;
-$primary-5: #2D3E50;
-$primary-6: #4F6A92;
+$code-example-red: #CA2028;
 
 // New 2015 colors, brought to you by Maciej
 // $mbsy-blue: #2f95d8;

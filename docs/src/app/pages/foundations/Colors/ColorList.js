@@ -1,52 +1,52 @@
 const colorList = {
   neutralColors: [
     {
-      sass: '$variable',
+      sass: '$primary',
       hex: '#ECF0F0'
     },{
-      sass: '$variable',
+      sass: '$secondary',
       hex: '#F7F7F9'
     },{
-      sass: '$variable',
+      sass: '$light-gray',
       hex: '#DEE0E3'
     },{
-      sass: '$variable',
+      sass: '$dark-gray',
       hex: '#9198A0'
     }
   ],
   primaryColors: [
     {
-      sass: '$variable',
+      sass: '$mbsy-blue',
       hex: '#3C97D3'
     },{
-      sass: '$variable',
+      sass: '$editor-blue',
       hex: '#3178B7'
     },{
-      sass: '$variable',
+      sass: '$dark-blue-1',
       hex: '#1B252F'
     },{
-      sass: '$variable',
+      sass: '$dark-blue-2',
       hex: '#243140'
     },{
-      sass: '$variable',
+      sass: '$dark-blue-3',
       hex: '#2D3E50'
     },{
-      sass: '$variable',
+      sass: '$dark-blue-4',
       hex: '#4F6A92'
     }
   ],
   secondaryColors: [
     {
-      sass: '$variable',
+      sass: '$green',
       hex: '#26B894'
     },{
-      sass: '$variable',
+      sass: '$orange',
       hex: '#F29C1E'
     },{
-      sass: '$variable',
+      sass: '$red',
       hex: '#E54C3B'
     },{
-      sass: '$variable',
+      sass: '$aqua',
       hex: '#62CAF3'
     }
   ]

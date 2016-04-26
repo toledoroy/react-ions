@@ -18,7 +18,7 @@
     // TODO: Replace once button component is ready
     button {
       @include vertical-align('inline');
-      background-color: $mbsy-blue;
+      background-color: $code-button-blue;
       border: 1px solid transparent;
       border-radius: 2px;
       float: right;
@@ -67,7 +67,7 @@
     padding: 20px 24px;
 
     a {
-      color: $primary-6;
+      color: $dark-blue-4;
     }
 
     p {
@@ -99,7 +99,7 @@
     .hljs-selector-class,
     .hljs-template-variable,
     .hljs-deletion {
-      color: $red;
+      color: $code-example-red;
     }
     .hljs-keyword {
       color: $black;
