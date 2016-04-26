@@ -58,8 +58,13 @@
     margin-left: 6px;
   }
 
-  svg + span {
+  svg,
+  svg ~ span {
     float: left; // for Firefox
+  }
+
+  svg + svg {
+    float: none;
   }
 
 }
