@@ -3,7 +3,7 @@ import Breadcrumb from 'react-conventions/lib/Breadcrumb'
 import Color from '../../components/Colors/Color'
 import baseStyles from 'private/css/content'
 import list from './ColorList'
-import localStyles from './styles.scss';
+import localStyles from './styles.scss'
 
 class ColorsPage extends React.Component {
   constructor(props) {
@@ -66,4 +66,4 @@ class ColorsPage extends React.Component {
   }
 }
 
-export default ColorsPage;
+export default ColorsPage

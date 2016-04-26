@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './styles.scss';
+import styles from './styles.scss'
 
 const Color = (props) => {
   return (
@@ -19,4 +19,4 @@ Color.propTypes = {
   sass: React.PropTypes.string.isRequired
 }
 
-export default Color;
+export default Color

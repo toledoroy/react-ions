@@ -52,4 +52,4 @@ const colorList = {
   ]
 };
 
-export default colorList;
+export default colorList
