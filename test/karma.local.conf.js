@@ -20,7 +20,7 @@ module.exports = function(config) {
       statements: 95,
       branches: 95,
       functions: 90,
-      lines: 99
+      lines: 95
     },
 
     webpack: { //kind of a copy of your webpack config
