@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react'
 import hljs from 'highlight.js'
+import Button from 'react-conventions/lib/Button'
 import Icon from 'react-conventions/lib/Icon'
 import styles from 'private/css/code-example'
 import marked from 'marked'
@@ -85,12 +86,12 @@ ${this.props.markup}
       <div className={styles['code-example-wrap']}>
         <header>
           <h3>{this.props.title}</h3>
-          <button onClick={this.handleToggle} className={codeExampleBtnClass}>
+          <Button onClick={this.handleToggle} optClass={codeExampleBtnClass}>
             <div className={styles['button-icon-wrap']}>
               <Icon name='icon-arrow-67' width='12' height='12' fill='white' />
               <Icon name='icon-arrow-68' width='12' height='12' fill='white' />
             </div>
-          </button>
+          </Button>
         </header>
         <div className={codeExampleClass}>
           <div ref='example' className={styles.hljs} dangerouslySetInnerHTML={this.generateRawMarkup()} />

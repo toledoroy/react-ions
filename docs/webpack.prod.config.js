@@ -14,7 +14,6 @@ const config = {
   resolve: {
     extensions: ['', '.js', '.md', '.txt', '.scss', '.css'],
     alias: {
-      'global/base': path.resolve(__dirname, '../src/styles/common/base'),
       'react-conventions/lib': path.resolve(__dirname, '../src/components'),
       'global/fonts': path.resolve(__dirname, '../src/assets/fonts'),
       'global/icons': path.resolve(__dirname, '../src/assets/icons'),

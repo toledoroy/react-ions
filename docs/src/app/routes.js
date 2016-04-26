@@ -11,7 +11,8 @@ import TypographyPage from './pages/foundations/Typography/Page'
 import IconographyPage from './pages/foundations/Iconography/Page'
 import LayoutPage from './pages/foundations/Layout/Page'
 import ProgressBarPage from './pages/components/ProgressBar/Page'
-import IconPage from './pages/components/Icons/Page'
+import IconsPage from './pages/components/Icons/Page'
+import ButtonsPage from './pages/components/Buttons/Page'
 
 const Routes = (
   <Route path="/" component={Base}>
@@ -26,7 +27,8 @@ const Routes = (
     <Redirect from="components" to="/components/progress-bar" />
     <Route path="components" title="Components">
       <Route path="progress-bar" title="Progress Bar" component={ProgressBarPage} />
-      <Route path="icons" title="Icons" component={IconPage} />
+      <Route path="icons" title="Icons" component={IconsPage} />
+      <Route path="buttons" title="Buttons" component={ButtonsPage} />
     </Route>
     <Route path="patterns" title="Patterns">
     </Route>

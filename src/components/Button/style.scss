@@ -1,0 +1,38 @@
+@import 'src/styles/mixins/index';
+@import 'src/styles/common/colors';
+
+.btn {
+  @include vertical-align('inline');
+  background-color: $mbsy-blue;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: $white;
+  padding: 8px;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+
+  &.sm {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  &.lg  {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  &.success {
+    background-color: $success;
+    color: $white;
+  }
+
+  &.danger {
+    background-color: $red-ga-light;
+    color: $white;
+  }
+
+  &.info {
+
+  }
+}
