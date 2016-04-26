@@ -13,9 +13,6 @@ const Button = (props) => {
   )
 }
 
-Button.defaultProps = {
-}
-
 Button.propTypes = {
   /**
    * Optional styles to add to the button.
@@ -29,10 +26,6 @@ Button.propTypes = {
    * Whether the button is disabled.
    */
   disabled: React.PropTypes.bool,
-  /**
-   * Whether the button should span full width of it's parent.
-   */
-  block: React.PropTypes.bool
 }
 
 export default Button
