@@ -1,7 +1,7 @@
 import React from 'react'
 import Breadcrumb from 'react-conventions/lib/Breadcrumb'
 import Color from '../../components/Colors/Color'
-import baseStyles from '../../../../www/css/content'
+import baseStyles from 'private/css/content'
 import list from './ColorList'
 import localStyles from './styles.scss';
 

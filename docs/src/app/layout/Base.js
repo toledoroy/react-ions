@@ -1,7 +1,7 @@
 import React from 'react'
 import { IndexLink, Link } from 'react-router'
 import classNames from 'classnames'
-import style from '../../www/css/base'
+import style from 'private/css/base'
 import Sidebar from './Sidebar'
 import Breadcrumb from 'react-conventions/lib/Breadcrumb'
 

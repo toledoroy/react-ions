@@ -6,7 +6,7 @@ import ExampleIconDefault from './ExampleIconDefault'
 import exampleIconDefaultCode from '!raw!./ExampleIconDefault'
 import ExampleIconCustom from './ExampleIconCustom'
 import exampleIconCustomCode from '!raw!./ExampleIconCustom'
-import styles from '../../../../www/css/content'
+import styles from 'private/css/content'
 
 const description = {
   iconDefault: 'This is the `icon component` with only a `name` property, which is required. See our [full list of icons](/foundations/iconography).',
