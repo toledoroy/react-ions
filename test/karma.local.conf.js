@@ -1,20 +1,15 @@
 var path = require('path');
-// var precss = require('precss');
-// var autoprefixer = require('autoprefixer');
 
 module.exports = function(config) {
   config.set({
     basePath: '../',
     frameworks: ['mocha', 'chai', 'sinon'],
     files: [
-      './src/components/**/*.js',
       './test/*.js'
     ],
 
     preprocessors: {
-      './src/components/**/*.js': ['webpack'],
       './test/*.js': ['webpack'],
-      './src/components/**/*.js': ['coverage'],
     },
 
     coverageReporter: {
@@ -23,6 +18,19 @@ module.exports = function(config) {
 
     webpack: { //kind of a copy of your webpack config
       module: {
+        preLoaders: [
+            {
+              test: /\.js$/,
+              exclude: /(test|node_modules)\//,
+              loader: 'isparta-instrumenter-loader',
+              query: {
+                babel: {
+                  presets: ['airbnb'],
+                  plugins: ['transform-class-properties', 'transform-export-extensions']
+                }
+              }
+            },
+        ],
         loaders: [
           {
             test: /\.js$/,
@@ -82,11 +90,17 @@ module.exports = function(config) {
     },
 
     reporters: ['mocha', 'coverage'],
+
     port: 8080,
+
     browserNoActivityTimeout: 100000,
+
     colors: true,
+
     logLevel: config.LOG_INFO,
+
     browsers: ['PhantomJS'],
+
     singleRun: true
   })
 };
