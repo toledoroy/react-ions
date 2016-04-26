@@ -1,28 +1,36 @@
 var path = require('path');
-// var precss = require('precss');
-// var autoprefixer = require('autoprefixer');
 
 module.exports = function(config) {
   config.set({
-    basePath: '../../',
+    basePath: '../',
     frameworks: ['mocha', 'chai', 'sinon'],
     files: [
       './test/*.js'
     ],
 
     preprocessors: {
-      './src/components/**/*.js': ['webpack'],// 'sourcemap'],
-      './test/*.js': ['webpack'],//, 'sourcemap']
-      './src/components/**/*.js': ['coverage'],// 'sourcemap'],
+      './test/*.js': ['webpack'],
     },
 
     coverageReporter: {
-      type : 'text'
+      type : 'text',
     },
 
     webpack: { //kind of a copy of your webpack config
-      //devtool: 'inline-source-map', //just do inline source maps instead of the default
       module: {
+        preLoaders: [
+            {
+              test: /\.js$/,
+              exclude: /(test|node_modules)\//,
+              loader: 'isparta-instrumenter-loader',
+              query: {
+                babel: {
+                  presets: ['airbnb'],
+                  plugins: ['transform-class-properties', 'transform-export-extensions']
+                }
+              }
+            },
+        ],
         loaders: [
           {
             test: /\.js$/,
@@ -44,6 +52,13 @@ module.exports = function(config) {
               'css?modules&localIdentName=[local]!postcss-loader',
               'sass?sourceMap'
             ]
+          },
+          {
+            test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            loader: 'url-loader?limit=10000&minetype=application/font-woff'
+          }, {
+            test: /\.(jpe?g|gif|png|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            loader: 'file-loader'
           }
         ]
       },
@@ -64,7 +79,6 @@ module.exports = function(config) {
       'karma-mocha-reporter',
       'karma-sinon',
       'karma-chai',
-      //'karma-sourcemap-loader',
       'karma-phantomjs-launcher',
       'karma-coverage'
     ],
@@ -76,11 +90,17 @@ module.exports = function(config) {
     },
 
     reporters: ['mocha', 'coverage'],
+
     port: 8080,
+
     browserNoActivityTimeout: 100000,
+
     colors: true,
+
     logLevel: config.LOG_INFO,
+
     browsers: ['PhantomJS'],
+
     singleRun: true
   })
 };
