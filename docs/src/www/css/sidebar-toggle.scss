@@ -1,0 +1,49 @@
+@import '../../../../src/styles/common/colors';
+
+.sidebar-toggle {
+  background-color: $bg-sidebar;
+  border: medium none;
+  display: none;
+  height: 65px;
+  left: 0;
+  outline: 0 none;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  transition: left 0.25s ease 0s;
+  width: 65px;
+  cursor: pointer;
+  .burger-piece {
+    background-color: $light-gray;
+    border-radius: 2px;
+    height: 4px;
+    margin: 8px 12px;
+    transition: all 0.25s ease 0s;
+    width: 40px;
+  }
+}
+
+@media (max-width: 991px) {
+  .sidebar-toggle {
+    display: block;
+    left: 0;
+    &.sidebar-visible {
+      left: 205px;
+      .burger-piece {
+        &:first-of-type {
+          transform: rotate(-40deg);
+          top: 5px;
+        }
+        &:last-of-type {
+          transform: rotate(40deg);
+          top: -5px;
+        }
+        &:first-of-type, &:last-of-type {
+          position: relative;
+          left: -2px;
+          width: 24px;
+        }
+      }
+    }
+  }
+}

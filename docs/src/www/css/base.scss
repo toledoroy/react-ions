@@ -10,4 +10,18 @@ body {
 .content-wrap {
   margin-left: 205px;
   width: 100%;
+  transition: all 0.25s ease 0s;
+  .breadcrumbs {
+    padding-left: 0;
+    transition: all 0.25s ease 0s;
+  }
+}
+
+@media (max-width: 991px) {
+  .content-wrap {
+    margin-left: 0;
+    .breadcrumbs {
+      padding-left: 65px;
+    }
+  }
 }

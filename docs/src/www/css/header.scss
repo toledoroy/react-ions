@@ -1,4 +1,11 @@
+@import '../../../../src/styles/common/colors';
 @import '../../../../src/styles/mixins/index';
+
+header {
+  background-color: $bg-sidebar;
+  position: relative;
+  z-index: 1;
+}
 
 .logo-wrap {
   @include vertical-align('inline');
