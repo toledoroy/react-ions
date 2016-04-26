@@ -1,3 +1,11 @@
+@mixin clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
 @mixin vertical-align($display: 'block') {
   align-items: center;
   box-sizing: border-box;
