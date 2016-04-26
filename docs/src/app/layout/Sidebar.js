@@ -1,5 +1,5 @@
 import React from 'react'
-import style from '../../www/css/sidebar'
+import style from 'private/css/sidebar'
 import Header from './Header'
 import Nav from './Nav'
 

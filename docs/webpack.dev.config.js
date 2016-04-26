@@ -17,6 +17,7 @@ const config = {
       'react-conventions/lib': path.resolve(__dirname, '../src/components'),
       'global/fonts': path.resolve(__dirname, '../src/assets/fonts'),
       'global/icons': path.resolve(__dirname, '../src/assets/icons'),
+      'private/css': path.resolve(__dirname, 'src/www/css'),
       'private/base': path.resolve(__dirname, 'src/www/css/base'),
       'private/images': path.resolve(__dirname, 'src/www/images'),
       'private/modules': path.resolve(__dirname, 'src/app/modules')

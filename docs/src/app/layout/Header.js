@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-import style from '../../www/css/header'
+import style from 'private/css/header'
 import logo from 'private/images/ambassador-logo.svg'
 
 class Header extends React.Component {

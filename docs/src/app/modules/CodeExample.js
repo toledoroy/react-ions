@@ -1,7 +1,8 @@
 import React from 'react'
+import ReactDOM from 'react'
 import hljs from 'highlight.js'
 import Icon from 'react-conventions/lib/Icon'
-import styles from '../../www/css/code-example'
+import styles from 'private/css/code-example'
 import marked from 'marked'
 import shallowCompare from 'react-addons-shallow-compare'
 import classNames from 'classnames/bind'
@@ -19,7 +20,7 @@ class CodeExample extends React.Component {
       pedantic: false,
       sanitize: false,
       smartLists: true,
-      smartypants: false,
+      smartypants: false
     });
   }
 
@@ -38,7 +39,7 @@ class CodeExample extends React.Component {
   }
 
   componentDidMount() {
-    hljs.initHighlightingOnLoad();
+    this.highlightCode();
   }
 
   handleToggle = () => {
@@ -49,6 +50,16 @@ class CodeExample extends React.Component {
     return {
       __html: marked(this.props.description)
     };
+  }
+
+  highlightCode() {
+    var ref = this.refs.example;
+    var nodes = ref.querySelectorAll('pre code');
+    if (nodes.length > 0) {
+      for (var i = 0; i < nodes.length; i = i+1) {
+        hljs.highlightBlock(nodes[i]);
+      }
+    }
   }
 
   generateRawMarkup() {
@@ -62,26 +73,30 @@ ${this.props.markup}
   }
 
   render() {
-    let toggleClass = cx({
+    let codeExampleClass = cx({
       'body': true,
       'open': this.state.expand
+    })
+    let codeExampleBtnClass = cx({
+      'active': this.state.expand
     })
 
     return (
       <div className={styles['code-example-wrap']}>
         <header>
           <h3>{this.props.title}</h3>
-          <button onClick={this.handleToggle}><Icon name='icon-arrow-37' width='16' height='16' fill='white' /></button>
+          <button onClick={this.handleToggle} className={codeExampleBtnClass}>
+            <div className={styles['button-icon-wrap']}>
+              <Icon name='icon-arrow-67' width='12' height='12' fill='white' />
+              <Icon name='icon-arrow-68' width='12' height='12' fill='white' />
+            </div>
+          </button>
         </header>
+        <div className={codeExampleClass}>
+          <div ref='example' className={styles.hljs} dangerouslySetInnerHTML={this.generateRawMarkup()} />
+        </div>
         <div className={styles.component}>
           {this.props.children}
-        </div>
-        <div className={toggleClass}>
-          <pre>
-            <code className={styles.hljs}>
-              <div dangerouslySetInnerHTML={this.generateRawMarkup()} />
-            </code>
-          </pre>
         </div>
         <div className={styles.description} dangerouslySetInnerHTML={this.createDescription()} />
       </div>

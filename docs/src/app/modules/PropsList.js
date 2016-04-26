@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../../www/css/props';
+import style from 'private/css/props';
 
 class PropsList extends React.Component {
   constructor(props) {

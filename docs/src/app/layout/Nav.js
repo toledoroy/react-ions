@@ -1,6 +1,6 @@
 import React from 'react'
 import NavLink from 'private/modules/NavLink'
-import style from '../../www/css/nav'
+import style from 'private/css/nav'
 
 class Nav extends React.Component {
   constructor(props) {
