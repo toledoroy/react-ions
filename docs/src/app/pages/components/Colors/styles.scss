@@ -1,4 +1,7 @@
+@import '../../../../../../src/styles/common/colors';
 @import '../../../../../../src/styles/mixins/index';
+
+$color-box-text-color: #233040;
 
 .color-box {
   border-radius: 3px;
@@ -10,8 +13,8 @@
   }
   .color-box-value {
     align-items: center;
-    background-color: #fff;
-    color: #233040;
+    background-color: $white;
+    color: $color-box-text-color;
     display: flex;
     flex-flow: column nowrap;
     font-size: 13px;
