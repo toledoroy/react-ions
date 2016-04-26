@@ -7,7 +7,7 @@ module.exports = function(config) {
     basePath: '../',
     frameworks: ['mocha', 'chai', 'sinon'],
     files: [
-      //'./src/components/**/*.js',
+      './src/components/**/*.js',
       './test/*.js'
     ],
 
@@ -19,26 +19,10 @@ module.exports = function(config) {
 
     coverageReporter: {
       type : 'text',
-      includeAllSources: true,
-      instrumenters: { isparta : require('isparta') },
-      instrumenter: {
-        '**/*.js': 'isparta'
-      }
     },
 
     webpack: { //kind of a copy of your webpack config
       module: {
-        preLoaders: [
-          {
-            test: /\.js$/,
-            loader: 'isparta',
-            include: './src/components/**/*.js'
-            // exclude: [
-            //   /svg-icons/,
-            //   /node_modules/,
-            // ],
-          },
-        ],
         loaders: [
           {
             test: /\.js$/,
