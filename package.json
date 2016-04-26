@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/GetAmbassador/react-conventions",
   "scripts": {
-    "test": "node_modules/karma/bin/karma start test/config/karma.local.conf.js",
+    "test": "node_modules/karma/bin/karma start test/karma.local.conf.js",
     "start": "node docs/server",
     "build": "rimraf dist && set NODE_ENV=production && webpack --config ./docs/webpack.prod.config.js --progress --profile --colors",
     "lint": "eslint . --ext .js --ext .jsx",

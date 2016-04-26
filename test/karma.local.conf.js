@@ -4,7 +4,7 @@ var path = require('path');
 
 module.exports = function(config) {
   config.set({
-    basePath: '../../',
+    basePath: '../',
     frameworks: ['mocha', 'chai', 'sinon'],
     files: [
       //'./src/components/**/*.js',
