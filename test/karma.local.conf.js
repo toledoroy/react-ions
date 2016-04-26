@@ -16,6 +16,13 @@ module.exports = function(config) {
       type : 'text',
     },
 
+    thresholdReporter: {
+      statements: 95,
+      branches: 95,
+      functions: 90,
+      lines: 95
+    },
+
     webpack: { //kind of a copy of your webpack config
       module: {
         preLoaders: [
@@ -80,7 +87,8 @@ module.exports = function(config) {
       'karma-sinon',
       'karma-chai',
       'karma-phantomjs-launcher',
-      'karma-coverage'
+      'karma-coverage',
+      'karma-threshold-reporter'
     ],
 
     babelPreprocessor: {
@@ -89,7 +97,7 @@ module.exports = function(config) {
       }
     },
 
-    reporters: ['mocha', 'coverage'],
+    reporters: ['mocha', 'coverage', 'threshold'],
 
     port: 8080,
 
