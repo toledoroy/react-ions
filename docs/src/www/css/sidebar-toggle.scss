@@ -1,4 +1,5 @@
 @import '../../../../src/styles/common/colors';
+@import '../../../../src/styles/common/screen';
 
 .sidebar-toggle {
   background-color: $bg-sidebar;
@@ -13,22 +14,14 @@
   transition: left 0.25s ease 0s;
   width: 65px;
   cursor: pointer;
-  .burger-piece {
-    background-color: $light-gray;
-    border-radius: 2px;
-    height: 4px;
-    margin: 8px 12px;
-    transition: all 0.25s ease 0s;
-    width: 40px;
-  }
-}
 
-@media (max-width: 991px) {
-  .sidebar-toggle {
+  @media #{$media-small-minus} {
     display: block;
     left: 0;
+
     &.sidebar-visible {
       left: 205px;
+
       .burger-piece {
         &:first-of-type {
           transform: rotate(-40deg);
@@ -45,5 +38,14 @@
         }
       }
     }
+  }
+
+  .burger-piece {
+    background-color: $light-gray;
+    border-radius: 2px;
+    height: 4px;
+    margin: 8px 12px;
+    transition: all 0.25s ease 0s;
+    width: 40px;
   }
 }

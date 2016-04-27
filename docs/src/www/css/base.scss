@@ -1,5 +1,6 @@
 $ga-font-folder: '../../../../src/assets/fonts';
 @import '../../../../src/styles/common/base';
+@import '../../../../src/styles/common/screen';
 
 body {
   background-color: $bg-primary;
@@ -12,6 +13,11 @@ body {
   width: 100%;
   padding-top: 65px;
   transition: all 0.25s ease 0s;
+
+  @media #{$media-small-minus} {
+    margin-left: 0;
+  }
+
   .breadcrumbs {
     left: 205px;
     right: 0;
@@ -21,13 +27,8 @@ body {
     background-color: $bg-primary;
     border-bottom: 1px solid $light-gray;
     transition: all 0.25s ease 0s;
-  }
-}
 
-@media (max-width: 991px) {
-  .content-wrap {
-    margin-left: 0;
-    .breadcrumbs {
+    @media #{$media-small-minus} {
       left: 65px;
     }
   }
