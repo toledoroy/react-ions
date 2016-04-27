@@ -39,16 +39,16 @@
   }
 
   &.flat {
-    @include button-context($neutral-2, $dark-gray);
+    @include button-context($neutral-2, $neutral-4);
   }
 
   &.info {
-    @include button-context($dark-gray, $white);
+    @include button-context($neutral-4, $white);
   }
 
   &.secondary {
     @include button-context($white, $primary-4);
-    border: 1px solid $dark-gray;
+    border: 1px solid $neutral-4;
   }
 
   &.plain {
@@ -61,7 +61,7 @@
   }
 
   &.inverted {
-    @include button-context($white, $mbsy-blue);
+    @include button-context($white, $primary-1);
   }
 
   // Disabled
