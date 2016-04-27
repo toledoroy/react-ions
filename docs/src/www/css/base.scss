@@ -10,4 +10,25 @@ body {
 .content-wrap {
   margin-left: 205px;
   width: 100%;
+  padding-top: 65px;
+  transition: all 0.25s ease 0s;
+  .breadcrumbs {
+    left: 205px;
+    right: 0;
+    top: 0;
+    position: fixed;
+    height: 64px;
+    background-color: $bg-primary;
+    border-bottom: 1px solid $light-gray;
+    transition: all 0.25s ease 0s;
+  }
+}
+
+@media (max-width: 991px) {
+  .content-wrap {
+    margin-left: 0;
+    .breadcrumbs {
+      left: 65px;
+    }
+  }
 }

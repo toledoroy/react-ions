@@ -16,7 +16,9 @@ class Base extends React.Component {
         <div className={style.row}>
           <Sidebar />
           <div className={style['content-wrap']}>
-            <Breadcrumb routes={this.props.routes} />
+            <div className={style.breadcrumbs}>
+              <Breadcrumb routes={this.props.routes} />
+            </div>
             <section role='main'>
               {this.props.children}
             </section>
