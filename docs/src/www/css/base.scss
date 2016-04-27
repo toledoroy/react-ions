@@ -10,9 +10,16 @@ body {
 .content-wrap {
   margin-left: 205px;
   width: 100%;
+  padding-top: 65px;
   transition: all 0.25s ease 0s;
   .breadcrumbs {
-    padding-left: 0;
+    left: 205px;
+    right: 0;
+    top: 0;
+    position: fixed;
+    height: 64px;
+    background-color: $bg-primary;
+    border-bottom: 1px solid $light-gray;
     transition: all 0.25s ease 0s;
   }
 }
@@ -21,7 +28,7 @@ body {
   .content-wrap {
     margin-left: 0;
     .breadcrumbs {
-      padding-left: 65px;
+      left: 65px;
     }
   }
 }
