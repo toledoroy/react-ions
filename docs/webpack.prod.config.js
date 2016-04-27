@@ -69,7 +69,7 @@ const config = {
       test: /\.(css|scss)$/,
       loader: ExtractTextPlugin.extract(
         'style',
-        'css?modules&localIdentName=[local]-[hash:base64:5]!sass!postcss-loader')
+        'css?modules&localIdentName=[local]-[hash:base64:5]!postcss-loader!sass')
     }, {
       test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: 'url-loader?limit=10000&minetype=application/font-woff'
