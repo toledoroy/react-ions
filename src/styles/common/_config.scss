@@ -3,3 +3,5 @@ $z-layers: (
   'default': 1,
   'below': -1
 );
+
+$animation-in-out-quadratic: cubic-bezier(0.46, 0.03, 0.52, 0.96);

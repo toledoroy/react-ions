@@ -3,7 +3,7 @@
 
 .btn {
   @include vertical-align('inline');
-  background-color: $mbsy-blue;
+  background-color: $primary-1;
   border: 1px solid transparent;
   border-radius: 3px;
   color: $white;
@@ -27,12 +27,12 @@
   }
 
   &.success {
-    background-color: $success;
+    background-color: $green;
     color: $white;
   }
 
   &.danger {
-    background-color: $red-ga-light;
+    background-color: $red;
     color: $white;
   }
 

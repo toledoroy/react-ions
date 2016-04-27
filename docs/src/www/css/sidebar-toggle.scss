@@ -2,7 +2,7 @@
 @import '../../../../src/styles/common/screen';
 
 .sidebar-toggle {
-  background-color: $bg-sidebar;
+  background-color: $primary-4;
   border: medium none;
   display: none;
   height: 65px;
@@ -41,7 +41,7 @@
   }
 
   .burger-piece {
-    background-color: $light-gray;
+    background-color: $neutral-3;
     border-radius: 2px;
     height: 4px;
     margin: 8px 12px;

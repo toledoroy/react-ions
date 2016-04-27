@@ -15,7 +15,7 @@
   }
 
   li a {
-    color: $light-blue;
+    color: $sky-text;
     display: block;
     font-size: 16px;
     padding: 20px 15px;
@@ -27,7 +27,7 @@
   }
 
   li.active {
-    background-color: $dark-blue-3;
+    background-color: $primary-5;
 
     ul {
       display: block;
@@ -35,13 +35,13 @@
   }
 
   li li a {
-    color: $light-blue;
+    color: $sky-text;
     padding: 10px 15px;
     font-size: 14px;
 
     &.active {
-      background-color: lighten($dark-blue-3, 5%);
-      color: $light-blue;
+      background-color: lighten($primary-5, 5%);
+      color: $sky-text;
     }
   }
 

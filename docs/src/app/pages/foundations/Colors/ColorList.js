@@ -1,37 +1,37 @@
 const colorList = {
   neutralColors: [
     {
-      sass: '$primary',
+      sass: '$neutral-1',
       hex: '#ECF0F0'
     },{
-      sass: '$secondary',
+      sass: '$neutral-2',
       hex: '#F7F7F9'
     },{
-      sass: '$light-gray',
+      sass: '$neutral-3',
       hex: '#DEE0E3'
     },{
-      sass: '$dark-gray',
+      sass: '$neutral-4',
       hex: '#9198A0'
     }
   ],
   primaryColors: [
     {
-      sass: '$mbsy-blue',
+      sass: '$primary-1',
       hex: '#3C97D3'
     },{
-      sass: '$editor-blue',
+      sass: '$primary-2',
       hex: '#3178B7'
     },{
-      sass: '$dark-blue-1',
+      sass: '$primary-3',
       hex: '#1B252F'
     },{
-      sass: '$dark-blue-2',
+      sass: '$primary-4',
       hex: '#243140'
     },{
-      sass: '$dark-blue-3',
+      sass: '$primary-5',
       hex: '#2D3E50'
     },{
-      sass: '$dark-blue-4',
+      sass: '$primary-6',
       hex: '#4F6A92'
     }
   ],
