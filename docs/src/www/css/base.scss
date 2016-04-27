@@ -1,6 +1,7 @@
 $ga-font-folder: '../../../../src/assets/fonts';
 @import '../../../../src/styles/common/base';
 @import '../../../../src/styles/common/screen';
+@import '../../../../src/styles/common/functions';
 
 body {
   background-color: $bg-primary;
@@ -27,6 +28,7 @@ body {
     background-color: $bg-primary;
     border-bottom: 1px solid $light-gray;
     transition: all 0.25s ease 0s;
+    z-index: z('default');
 
     @media #{$media-small-minus} {
       left: 65px;
