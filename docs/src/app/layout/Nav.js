@@ -19,6 +19,7 @@ const Nav = (props) => {
             <li><NavLink to='/components/progress-bar'>Progress Bar</NavLink></li>
             <li><NavLink to='/components/icons'>Icons</NavLink></li>
             <li><NavLink to='/components/buttons'>Buttons</NavLink></li>
+            <li><NavLink to='/components/checkbox'>Checkbox</NavLink></li>
           </ul>
         </li>
         <li><NavLink to='/patterns'>Patterns</NavLink></li>

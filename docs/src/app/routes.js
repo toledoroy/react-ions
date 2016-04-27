@@ -13,6 +13,7 @@ import LayoutPage from './pages/foundations/Layout/Page'
 import ProgressBarPage from './pages/components/ProgressBar/Page'
 import IconsPage from './pages/components/Icons/Page'
 import ButtonsPage from './pages/components/Buttons/Page'
+import CheckboxPage from './pages/components/Checkbox/Page'
 
 const Routes = (
   <Route path="/" component={Base}>
@@ -29,6 +30,7 @@ const Routes = (
       <Route path="progress-bar" title="Progress Bar" component={ProgressBarPage} />
       <Route path="icons" title="Icons" component={IconsPage} />
       <Route path="buttons" title="Buttons" component={ButtonsPage} />
+      <Route path="checkbox" title="Checkbox" component={CheckboxPage} />
     </Route>
     <Route path="patterns" title="Patterns">
     </Route>

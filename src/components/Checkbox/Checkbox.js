@@ -1,31 +1,50 @@
 import React from 'react'
-import style from './style.scss'
+//import style from './style.scss'
 import classNames from 'classnames/bind'
 
-const Button = (props) => {
-  const cx = classNames.bind(style);
-  const btnClasses = cx(style.btn, props.optClass, props.size);
+class Checkbox extends React.Component {
+  static propTypes = {
+    /**
+     * Whether the checkbox is checked.
+     */
+    checked: React.PropTypes.bool,
+    /**
+     * Text displayed with the checkbox.
+     */
+    label: React.PropTypes.string,
+    /**
+     * Whether the label shouild appear on the right or left.
+     */
+    labelPosition: React.PropTypes.string,
+    /**
+     * Optional styles to add to the checkbox.
+     */
+    optClass: React.PropTypes.string,
+    /**
+     * Whether the checkbox is disabled.
+     */
+    disabled: React.PropTypes.bool,
+    /**
+     * Value provided when checked.
+     */
+    label: React.PropTypes.string
+  };
 
-  return (
-    <button type='button' className={btnClasses} {...props}>
-      {props.children}
-    </button>
-  )
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    //const cx = classNames.bind(style);
+    //const btnClasses = cx(style.btn, props.optClass, props.size);
+
+    return (
+      <h2>test</h2>
+      // <button type='button' className={btnClasses} {...props}>
+      //   {props.children}
+      // </button>
+    )
+  }
 }
 
-Button.propTypes = {
-  /**
-   * Optional styles to add to the button.
-   */
-  optClass: React.PropTypes.string,
-  /**
-   * The size of button.
-   */
-  size: React.PropTypes.string,
-  /**
-   * Whether the button is disabled.
-   */
-  disabled: React.PropTypes.bool,
-}
-
-export default Button
+export default Checkbox
