@@ -2,14 +2,14 @@ import React from 'react';
 import style from 'private/css/props';
 
 class PropsList extends React.Component {
+  static defaultProps = {
+    list: {}
+  }
+
   constructor(props) {
     super(props);
   }
-  setDefaultProps() {
-    return {
-      list: {}
-    }
-  }
+
   render() {
     let propsList = Object.keys(this.props.list).map((name) => {
       return (
