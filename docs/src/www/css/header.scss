@@ -1,7 +1,7 @@
 @import '../../../../src/styles/common/colors';
 @import '../../../../src/styles/mixins/index';
 
-header {
+.header {
   background-color: $bg-sidebar;
   position: relative;
   z-index: 1;
@@ -11,6 +11,7 @@ header {
   @include vertical-align('inline');
   height: 65px;
 }
+
 .logo {
   padding-left: 15px;
   width: 150px;

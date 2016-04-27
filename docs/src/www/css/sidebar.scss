@@ -1,4 +1,5 @@
 @import '../../../../src/styles/common/colors';
+@import '../../../../src/styles/common/screen';
 
 .sidebar {
   background-color: $bg-sidebar;
@@ -8,10 +9,8 @@
   z-index: 1;
   left: 0;
   transition: all 0.25s ease 0s;
-}
 
-@media (max-width: 991px) {
-  .sidebar {
+  @media #{$media-small-minus} {
     left: -205px;
     &.visible {
       left: 0;
