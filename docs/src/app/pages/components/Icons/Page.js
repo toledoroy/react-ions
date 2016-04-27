@@ -26,7 +26,7 @@ const IconsPage = () => (
         </CodeExample>
 
         <CodeExample
-          title='Default Icon'
+          title='Custom Icon'
           description={description.iconCustom}
           markup={exampleIconCustomCode}
         >

@@ -10,8 +10,8 @@ const Icon = (props) => {
 }
 
 Icon.defaultProps = {
-  height: '48',
-  width: '48'
+  height: '24',
+  width: '24'
 }
 
 Icon.propTypes = {
