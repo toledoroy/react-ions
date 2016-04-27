@@ -5,7 +5,7 @@ import logo from 'private/images/ambassador-logo.svg'
 
 const Header = (props) => {
   return (
-    <header>
+    <header className={style.header}>
       <Link to="/" className={style['logo-wrap']}>
         <img src={logo} className={style.logo} alt="Ambassador React Conventions" />
       </Link>
