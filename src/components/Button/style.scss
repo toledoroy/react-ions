@@ -13,40 +13,58 @@
   line-height: 1em;
   margin-right: 12px;
   padding: 8px;
+  transform: translateY(0);
   user-select: none;
+  vertical-align: middle;
   white-space: nowrap;
 
-  &.sm {
-    font-size: 12px;
-    padding: 4px;
+  svg {
+    height: 12px;
+    fill: $white;
+    width: 12px;
   }
 
+  // Button size(s)
   &.lg  {
-    font-size: 16px;
-    padding: 12px;
+    padding: 10px 8px;
   }
 
+  // Button types
   &.success {
-    background-color: $green;
-    color: $white;
+    @include button-context($green, $white);
   }
 
   &.danger {
-    background-color: $red;
-    color: $white;
+    @include button-context($danger, $white);
   }
 
   &.flat {
-    background-color: $white;
-    border: 1px solid #d7d9dd;
-    color: $primary-4;
+    @include button-context($neutral-2, $dark-gray);
+  }
+
+  &.info {
+    @include button-context($dark-gray, $white);
   }
 
   &.secondary {
-    background-color: $neutral-2;
-    color: rgba(36, 49, 64, 0.5);
+    @include button-context($white, $primary-4);
+    border: 1px solid $dark-gray;
   }
 
+  &.plain {
+    @include button-context(transparent, $primary-4);
+    font-weight: normal;
+  }
+
+  &.plain-light {
+    @include button-context(transparent, lighten($primary-4, 40%));
+  }
+
+  &.inverted {
+    @include button-context($white, $mbsy-blue);
+  }
+
+  // Disabled
   &:disabled {
     cursor: not-allowed;
     opacity: .65;

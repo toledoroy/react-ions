@@ -16,7 +16,7 @@ const description = {
   buttonDefault: 'This is the `button component` as it appears by default.',
   buttonIcon: 'This is the `button component` with a single icon. The icon can be displayed on the left or right.',
   buttonDisabled: 'This is the disabled `button component`.',
-  buttonTypes: 'Here are a few of the button types available on the `button component`.'
+  buttonTypes: 'Here are a more than a few of the button types available on the `button component`.'
 };
 
 const ButtonsPage = () => (
@@ -46,7 +46,7 @@ const ButtonsPage = () => (
           <ExampleButtonDisabled />
         </CodeExample>
         <CodeExample
-          title='Button Types'
+          title='Button Types (aka variety pack)'
           description={description.buttonTypes}
           markup={exampleButtonTypesCode}
         >
