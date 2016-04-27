@@ -23,3 +23,12 @@
   word-wrap: normal;
   white-space: pre;
 }
+
+@mixin button-context($bg-color, $color) {
+  background-color: $bg-color;
+  color: $color;
+
+  svg {
+    fill: $color;
+  }
+}
