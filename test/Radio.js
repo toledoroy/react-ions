@@ -17,17 +17,6 @@ describe('Radio', () => {
     expect(wrapper.childAt(1).childAt(1).hasClass('label-right')).to.equal(true);
   });
 
-  it('should be selected', () => {
-    const selected = true;
-    wrapper = mount(<Radio value="test" label="Test label" selected={selected}></Radio>);
-
-    expect(wrapper.props().value).to.equal('test');
-    expect(wrapper.props().label).to.equal('Test label');
-    expect(wrapper.props().selected).to.equal(true);
-    expect(wrapper.props().disabled).to.equal(false);
-    expect(wrapper.props().labelPosition).to.equal('right');
-  });
-
   it('should be disabled', () => {
     wrapper = shallow(<Radio value="test" label="Test label" disabled></Radio>);
     expect(wrapper.hasClass('radio-component')).to.equal(true);
