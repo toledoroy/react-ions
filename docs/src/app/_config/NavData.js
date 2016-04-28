@@ -24,7 +24,7 @@ const nav = [
           {
             id: 15,
             name: 'Another layer',
-            route: '/foundations/layout'
+            route: 'http://www.test.com'
           }
         ]
       }

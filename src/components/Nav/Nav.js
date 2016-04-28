@@ -1,10 +1,9 @@
 import React from 'react'
 import Node from './Node'
-import nav from 'private/config/NavData'
 import style from './style'
 
-const Nav = () => {
-  let nodes = nav.map(function(item, index) {
+const Nav = (props) => {
+  let nodes = props.data.map(function(item, index) {
     return (
       <Node node={item} children={item.nav} key={index} />
     );
@@ -23,14 +22,10 @@ Nav.defaultProps = {
 }
 
 Nav.propTypes = {
-  // /**
-  //  * The name of the nav button.
-  //  */
-  // name: React.PropTypes.string.isRequired,
-  // /**
-  //  * The route to where the link goes.
-  //  */
-  // route: React.PropTypes.string.required
+  /**
+   * The name of the nav button.
+   */
+  data: React.PropTypes.array.isRequired
 }
 
 export default Nav

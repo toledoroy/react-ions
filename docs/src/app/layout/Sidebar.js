@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import style from 'private/css/sidebar'
 import Header from './Header'
 import Nav from 'react-conventions/lib/Nav'
+import NavData from 'private/config/NavData'
 import SidebarToggle from './SidebarToggle'
 
 class Sidebar extends React.Component {
@@ -26,7 +27,7 @@ class Sidebar extends React.Component {
       <div className={sidebarClass}>
         <SidebarToggle toggle={this.toggle.bind(this)} collapsed={this.state.collapsed} />
         <Header />
-        <Nav />
+        <Nav data={NavData} />
       </div>
     )
   }
