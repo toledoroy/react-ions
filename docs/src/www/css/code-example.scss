@@ -83,8 +83,8 @@
     pre {
       background: linear-gradient(
         to bottom,
-        $secondary 50%,
-        $secondary,
+        $neutral-2 50%,
+        $neutral-2,
         $white,
         $white 50%
       );
@@ -102,7 +102,7 @@
     padding: 20px 24px;
 
     a {
-      color: $code-example-blue;
+      color: $primary-1;
     }
 
     p {
@@ -135,7 +135,7 @@
     .hljs-selector-class,
     .hljs-template-variable,
     .hljs-deletion {
-      color: $red-ga-light;
+      color: $red;
     }
     .hljs-keyword {
       color: $black;
