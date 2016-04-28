@@ -48,8 +48,8 @@ class Checkbox extends React.Component {
 
   render() {
     const cx = classNames.bind(style);
-    //var disabledClass = this.props.disabled ? style['checkbox-disabled'] : '';
-    var checkboxClass = cx(style['checkbox-component'], this.props.optClass);//, disabledClass);
+    var disabledClass = this.props.disabled ? style['checkbox-disabled'] : '';
+    var checkboxClass = cx(style['checkbox-component'], this.props.optClass, disabledClass);
 
     return (
       <div className={checkboxClass}>

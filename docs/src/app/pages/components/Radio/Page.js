@@ -30,36 +30,31 @@ const RadioPage = () => (
           <CodeExample
             title='Default Radio'
             description={description.radioDefault}
-            markup={exampleRadioDefaultCode}
-          >
+            markup={exampleRadioDefaultCode}>
             <ExampleRadioDefault />
           </CodeExample>
           <CodeExample
             title='Selected Radio'
             description={description.radioSelected}
-            markup={exampleRadioSelectedCode}
-          >
+            markup={exampleRadioSelectedCode}>
             <ExampleRadioSelected />
           </CodeExample>
           <CodeExample
             title='Disabled Radio'
             description={description.radioDisabled}
-            markup={exampleRadioDisabledCode}
-          >
+            markup={exampleRadioDisabledCode}>
             <ExampleRadioDisabled />
           </CodeExample>
           <CodeExample
             title='Error Radio'
             description={description.radioError}
-            markup={exampleRadioErrorCode}
-          >
+            markup={exampleRadioErrorCode}>
             <ExampleRadioError />
           </CodeExample>
           <CodeExample
             title='Radio Left Label'
             description={description.radioLeft}
-            markup={exampleRadioLeftCode}
-          >
+            markup={exampleRadioLeftCode}>
             <ExampleRadioLeft />
           </CodeExample>
           <div className={styles.block}>

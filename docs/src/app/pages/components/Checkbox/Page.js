@@ -4,10 +4,13 @@ import docs from '!!docgen!react-conventions/lib/Checkbox/Checkbox';
 import CodeExample from 'private/modules/CodeExample'
 import ExampleCheckboxDefault from './ExampleCheckboxDefault'
 import exampleCheckboxDefaultCode from '!raw!./ExampleCheckboxDefault'
+import ExampleCheckboxDisabled from './ExampleCheckboxDisabled'
+import exampleCheckboxDisabledCode from '!raw!./ExampleCheckboxDisabled'
 import styles from 'private/css/content'
 
 const description = {
-  checkboxDefault: 'This is the `checkbox component` as it appears by default.'
+  checkboxDefault: 'This is the `checkbox component` as it appears by default.',
+  checkboxDisabled: 'This is the disabled `checkbox component`.'
 };
 
 const CheckboxPage = () => (
@@ -17,9 +20,14 @@ const CheckboxPage = () => (
         <CodeExample
           title='Default Checkbox'
           description={description.checkboxDefault}
-          markup={exampleCheckboxDefaultCode}
-        >
+          markup={exampleCheckboxDefaultCode}>
           <ExampleCheckboxDefault />
+        </CodeExample>
+        <CodeExample
+          title='Disabled Checkbox'
+          description={description.checkboxDisabled}
+          markup={exampleCheckboxDisabledCode}>
+          <ExampleCheckboxDisabled />
         </CodeExample>
       </div>
       <div className={styles.block}>
