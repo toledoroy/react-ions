@@ -5,4 +5,4 @@ const ExampleProgressBarDefault = () => (
   <ProgressBar />
 )
 
-export default ExampleProgressBarDefault;
+export default ExampleProgressBarDefault

@@ -15,4 +15,4 @@ const SidebarToggle = (props) => {
   )
 }
 
-export default SidebarToggle;
+export default SidebarToggle

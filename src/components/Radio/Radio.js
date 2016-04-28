@@ -1,6 +1,6 @@
-import React from 'react';
-import classNames from 'classnames/bind';
-import style from './style.scss';
+import React from 'react'
+import classNames from 'classnames/bind'
+import style from './style.scss'
 
 /**
  * The Radio component.
@@ -66,4 +66,4 @@ class Radio extends React.Component {
   }
 }
 
-export default Radio;
+export default Radio

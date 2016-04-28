@@ -5,4 +5,4 @@ const ExampleRadioError = () => (
   <Radio label="Radio with error" value="error" optClass="radio-error" />
 )
 
-export default ExampleRadioError;
+export default ExampleRadioError

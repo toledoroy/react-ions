@@ -5,4 +5,4 @@ const ExampleCheckboxDisabled = () => (
   <Checkbox label="Disabled checkbox" value="disabled" disabled />
 )
 
-export default ExampleCheckboxDisabled;
+export default ExampleCheckboxDisabled

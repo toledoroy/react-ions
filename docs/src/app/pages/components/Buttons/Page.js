@@ -57,4 +57,4 @@ const ButtonsPage = () => (
   </div>
 )
 
-export default ButtonsPage;
+export default ButtonsPage

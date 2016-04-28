@@ -23,4 +23,4 @@ const Base = (props) => {
   )
 }
 
-export default Base;
+export default Base

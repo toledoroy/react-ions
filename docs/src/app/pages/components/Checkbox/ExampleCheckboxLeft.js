@@ -5,4 +5,4 @@ const ExampleCheckboxLeft = () => (
   <Checkbox label="Checkbox with the label on the left side" value="left" labelPosition="left" />
 )
 
-export default ExampleCheckboxLeft;
+export default ExampleCheckboxLeft

@@ -5,4 +5,4 @@ const ExampleIconDefault = () => (
   <Icon name='icon-check-1-1' />
 )
 
-export default ExampleIconDefault;
+export default ExampleIconDefault

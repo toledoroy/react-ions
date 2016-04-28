@@ -42,4 +42,4 @@ class PropsList extends React.Component {
   }
 }
 
-export default PropsList;
+export default PropsList

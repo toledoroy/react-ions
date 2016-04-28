@@ -5,4 +5,4 @@ const ExampleCheckboxError = () => (
   <Checkbox label="Checkbox with error" value="error" optClass="checkbox-error" />
 )
 
-export default ExampleCheckboxError;
+export default ExampleCheckboxError

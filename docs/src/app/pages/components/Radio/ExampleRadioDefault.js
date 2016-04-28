@@ -5,4 +5,4 @@ const ExampleRadioDefault = () => (
   <Radio label="Default radio" value="default"></Radio>
 )
 
-export default ExampleRadioDefault;
+export default ExampleRadioDefault

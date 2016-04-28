@@ -6,4 +6,4 @@ const NavLink = (props) => {
   return <Link {...props} activeClassName={style.active} />
 }
 
-export default NavLink;
+export default NavLink

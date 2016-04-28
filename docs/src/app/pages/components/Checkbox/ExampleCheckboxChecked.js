@@ -7,4 +7,4 @@ const ExampleCheckboxChecked = () => (
   <Checkbox label="Checked checkbox" value="checked" checked={checked} />
 )
 
-export default ExampleCheckboxChecked;
+export default ExampleCheckboxChecked

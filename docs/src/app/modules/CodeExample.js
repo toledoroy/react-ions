@@ -105,4 +105,4 @@ ${this.props.markup}
   }
 };
 
-export default CodeExample;
+export default CodeExample
