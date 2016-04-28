@@ -57,7 +57,7 @@ class Checkbox extends React.Component {
         <div>
           { this.props.label && this.props.labelPosition === 'left' ? <label className={style['label-left']}>{this.props.label}</label> : null }
           <div className={style['checkbox-input']}>
-            <Icon name='icon-check-1-1' />
+            <Icon name='icon-check-1-1' fill='#3C97D3' />
           </div>
           { this.props.label && this.props.labelPosition === 'right' ? <label className={style['label-right']}>{this.props.label}</label> : null }
         </div>
