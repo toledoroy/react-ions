@@ -3,6 +3,16 @@ import React from 'react'
 import classNames from 'classnames/bind'
 
 class Checkbox extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  static defaultProps = {
+    selected: false,
+    disabled: false,
+    labelPosition: 'right'
+  }
+
   static propTypes = {
     /**
      * Whether the checkbox is checked.
@@ -29,10 +39,6 @@ class Checkbox extends React.Component {
      */
     label: React.PropTypes.string
   };
-
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     //const cx = classNames.bind(style);
