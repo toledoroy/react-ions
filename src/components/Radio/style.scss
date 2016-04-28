@@ -1,3 +1,5 @@
+@import 'src/styles/common/colors';
+
 .radio-component {
   cursor: pointer;
   margin-bottom: 15px;
@@ -17,10 +19,10 @@
   }
   &:not(.radio-disabled) {
     > input:checked + div .radio-input {
-      border-color: #3c97d3;
+      border-color: $primary-1;
       &:before {
         content: "";
-        background-color: #3c97d3;
+        background-color: $primary-1;
         border-radius: 50%;
         display: block;
         height: 9px;
@@ -38,12 +40,12 @@
     align-items: center;
     .radio-input {
       border-radius: 50%;
-      border: solid 1px #dee0e3;
+      border: solid 1px $neutral-3;
       height: 15px;
       width: 15px;
     }
     label {
-      color: #233040;
+      color: $navy-text;
       font-size: 14px;
       &.label-left{
         margin-right: 10px;
@@ -56,7 +58,7 @@
 
   &.radio-error {
     > div .radio-input {
-      border-color: #e54c3b;
+      border-color: $red;
     }
   }
 
@@ -67,11 +69,11 @@
     }
     > div {
       label {
-        color: #dee0e3;
+        color: $neutral-3;
       }
       .radio-input {
-        background-color: #dee0e3;
-        border-color: #dee0e3;
+        background-color: $neutral-3;
+        border-color: $neutral-3;
         &:before {
           display: none;
         }
