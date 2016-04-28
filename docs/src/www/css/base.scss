@@ -4,7 +4,7 @@ $ga-font-folder: '../../../../src/assets/fonts';
 @import '../../../../src/styles/common/functions';
 
 body {
-  background-color: $bg-primary;
+  background-color: $neutral-1;
   font-family: proxima_nova;
   -webkit-font-smoothing: antialiased;
 }
@@ -20,13 +20,13 @@ body {
   }
 
   .breadcrumbs {
+    background-color: $neutral-1;
+    border-bottom: 1px solid $neutral-3;
+    height: 64px;
     left: 205px;
+    position: fixed;
     right: 0;
     top: 0;
-    position: fixed;
-    height: 64px;
-    background-color: $bg-primary;
-    border-bottom: 1px solid $light-gray;
     transition: all 0.25s ease 0s;
     z-index: z('default');
 

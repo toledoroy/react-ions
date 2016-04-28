@@ -10,14 +10,14 @@
   font-size: 14px;
   width: 100%;
   min-width: 400px;
-  color: $dark-blue-1;
+  color: $primary-3;
 
   th {
     font-weight: 200;
     border-style: solid;
-    border-color: $light-gray;
+    border-color: $neutral-3;
     border-width: 2px 0;
-    color: $dark-gray;
+    color: $neutral-4;
   }
 
   th, td {
@@ -26,13 +26,13 @@
   }
 
   td {
-    border-bottom: 1px solid $light-gray;
+    border-bottom: 1px solid $neutral-3;
   }
 }
 
 .cell-monospaced {
   @include monospace;
-  color: $dark-blue-4;
+  color: $primary-6;
   font-size: 13px;
 }
 

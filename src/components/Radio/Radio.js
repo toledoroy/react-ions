@@ -10,6 +10,39 @@ class Radio extends React.Component {
     super(props);
   }
 
+  static defaultProps = {
+    selected: false,
+    disabled: false,
+    labelPosition: 'right'
+  }
+
+  static propTypes = {
+    /**
+     * True if the option is selected.
+     */
+    selected: React.PropTypes.bool,
+    /**
+     * Whether the option is disabled.
+     */
+    disabled: React.PropTypes.bool,
+    /**
+     * Text shown next to the radio input element.
+     */
+    label: React.PropTypes.string,
+    /**
+     * The position of the label.
+     */
+    labelPosition: React.PropTypes.string,
+    /**
+     * Value of the option.
+     */
+    value: React.PropTypes.string,
+    /**
+     * Optional styles to add to the radio component.
+     */
+    optClass: React.PropTypes.string
+  };
+
   componentDidMount() {
     this.refs.radio.checked = this.props.selected || false;
     this.refs.radio.disabled = this.props.disabled || false;
@@ -32,38 +65,5 @@ class Radio extends React.Component {
     )
   }
 }
-
-Radio.defaultProps = {
-  selected: false,
-  disabled: false,
-  labelPosition: 'right'
-}
-
-Radio.propTypes = {
-  /**
-   * True if the option is selected.
-   */
-  selected: React.PropTypes.bool,
-  /**
-   * Whether the option is disabled.
-   */
-  disabled: React.PropTypes.bool,
-  /**
-   * Text shown next to the radio input element.
-   */
-  label: React.PropTypes.string,
-  /**
-   * The position of the label.
-   */
-  labelPosition: React.PropTypes.string,
-  /**
-   * Value of the option.
-   */
-  value: React.PropTypes.string,
-  /**
-   * Optional styles to add to the radio component.
-   */
-  optClass: React.PropTypes.string
-};
 
 export default Radio;

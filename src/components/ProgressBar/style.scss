@@ -1,12 +1,5 @@
-// Progress Bar Component
-$progress-bar-info-color: #3c97d3;
-$progress-bar-success-color: #26b894;
-$progress-bar-warning-color: #f29c1e;
-$progress-bar-danger-color: #e54c3b;
-$progress-bar-track-color: #dee0e3;
-$progress-bar-label-color: #233040;
-
-$animation-in-out-quadratic: cubic-bezier(0.46, 0.03, 0.52, 0.96);
+@import 'src/styles/common/colors';
+@import 'src/styles/common/_config';
 
 .container {
   &.lg {
@@ -20,16 +13,16 @@ $animation-in-out-quadratic: cubic-bezier(0.46, 0.03, 0.52, 0.96);
     }
   }
   &.info .inner {
-    background-color: $progress-bar-info-color;
+    background-color: $neutral-1;
   }
   &.success .inner {
-    background-color: $progress-bar-success-color;
+    background-color: $success;
   }
   &.warning .inner {
-    background-color: $progress-bar-warning-color;
+    background-color: $warning;
   }
   &.danger .inner {
-    background-color: $progress-bar-danger-color;
+    background-color: $danger;
   }
 
   .outer {
@@ -38,7 +31,7 @@ $animation-in-out-quadratic: cubic-bezier(0.46, 0.03, 0.52, 0.96);
     border-radius: 9px;
     overflow: hidden;
     position: relative;
-    background-color: $progress-bar-track-color;
+    background-color: $neutral-3;
   }
 
   .inner {
@@ -51,11 +44,13 @@ $animation-in-out-quadratic: cubic-bezier(0.46, 0.03, 0.52, 0.96);
   }
 
   .label {
-    color: $progress-bar-label-color;
+    color: $navy-text;
+    display: block;
     font-size: 14px;
     margin-bottom: 3px;
-    font-weight: normal;
+
     .percentage {
+      margin-left: 4px;
       opacity: 0.6;
     }
   }
