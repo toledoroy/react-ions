@@ -1,8 +1,8 @@
 import React from 'react'
-import Radio from 'react-conventions/lib/Radio'
+import RadioGroup from 'react-conventions/lib/Radio'
 
 const ExampleRadioDefault = () => (
-  <Radio label="Default radio" value="default"></Radio>
+  <RadioGroup label="Radio group label" options={ [{value: "test", label: "test"}, {value: "test1", label: "test1"}] } selectedOption={1}></RadioGroup>
 )
 
 export default ExampleRadioDefault;
