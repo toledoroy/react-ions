@@ -1,6 +1,7 @@
 import React from 'react'
-//import style from './style.scss'
+import style from './style.scss'
 import classNames from 'classnames/bind'
+import Icon from 'react-conventions/lib/Icon'
 
 class Checkbox extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class Checkbox extends React.Component {
   }
 
   static defaultProps = {
-    selected: false,
+    checked: false,
     disabled: false,
     labelPosition: 'right'
   }
@@ -40,15 +41,27 @@ class Checkbox extends React.Component {
     label: React.PropTypes.string
   };
 
+  componentDidMount() {
+    this.refs.checkbox.checked = this.props.checked || false;
+    this.refs.checkbox.disabled = this.props.disabled || false;
+  }
+
   render() {
-    //const cx = classNames.bind(style);
-    //const btnClasses = cx(style.btn, props.optClass, props.size);
+    const cx = classNames.bind(style);
+    //var disabledClass = this.props.disabled ? style['checkbox-disabled'] : '';
+    var checkboxClass = cx(style['checkbox-component'], this.props.optClass);//, disabledClass);
 
     return (
-      <h2>test</h2>
-      // <button type='button' className={btnClasses} {...props}>
-      //   {props.children}
-      // </button>
+      <div className={checkboxClass}>
+        <input type="checkbox" ref="checkbox" value={this.props.value}></input>
+        <div>
+          { this.props.label && this.props.labelPosition === 'left' ? <label className={style['label-left']}>{this.props.label}</label> : null }
+          <div className={style['checkbox-input']}>
+            <Icon name='icon-check-1-1' />
+          </div>
+          { this.props.label && this.props.labelPosition === 'right' ? <label className={style['label-right']}>{this.props.label}</label> : null }
+        </div>
+      </div>
     )
   }
 }

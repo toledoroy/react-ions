@@ -7,7 +7,7 @@ import exampleCheckboxDefaultCode from '!raw!./ExampleCheckboxDefault'
 import styles from 'private/css/content'
 
 const description = {
-  checkboxDefault: 'This is the `default Checkbox` with only a `label` property.'
+  checkboxDefault: 'This is the `checkbox component` as it appears by default.'
 };
 
 const CheckboxPage = () => (
