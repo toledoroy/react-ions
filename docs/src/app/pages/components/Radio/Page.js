@@ -27,40 +27,40 @@ const RadioPage = () => (
     <div className={styles.content}>
       <div className={styles.block}>
         <h3>Examples</h3>
-          <CodeExample
-            title='Default Radio'
-            description={description.radioDefault}
-            markup={exampleRadioDefaultCode}>
-            <ExampleRadioDefault />
-          </CodeExample>
-          <CodeExample
-            title='Selected Radio'
-            description={description.radioSelected}
-            markup={exampleRadioSelectedCode}>
-            <ExampleRadioSelected />
-          </CodeExample>
-          <CodeExample
-            title='Disabled Radio'
-            description={description.radioDisabled}
-            markup={exampleRadioDisabledCode}>
-            <ExampleRadioDisabled />
-          </CodeExample>
-          <CodeExample
-            title='Error Radio'
-            description={description.radioError}
-            markup={exampleRadioErrorCode}>
-            <ExampleRadioError />
-          </CodeExample>
-          <CodeExample
-            title='Radio Left Label'
-            description={description.radioLeft}
-            markup={exampleRadioLeftCode}>
-            <ExampleRadioLeft />
-          </CodeExample>
-          <div className={styles.block}>
-            <h3>Props</h3>
-            <PropsList list={docs[0].props} />
-          </div>
+        <CodeExample
+          title='Default Radio'
+          description={description.radioDefault}
+          markup={exampleRadioDefaultCode}>
+          <ExampleRadioDefault />
+        </CodeExample>
+        <CodeExample
+          title='Selected Radio'
+          description={description.radioSelected}
+          markup={exampleRadioSelectedCode}>
+          <ExampleRadioSelected />
+        </CodeExample>
+        <CodeExample
+          title='Disabled Radio'
+          description={description.radioDisabled}
+          markup={exampleRadioDisabledCode}>
+          <ExampleRadioDisabled />
+        </CodeExample>
+        <CodeExample
+          title='Error Radio'
+          description={description.radioError}
+          markup={exampleRadioErrorCode}>
+          <ExampleRadioError />
+        </CodeExample>
+        <CodeExample
+          title='Radio Left Label'
+          description={description.radioLeft}
+          markup={exampleRadioLeftCode}>
+          <ExampleRadioLeft />
+        </CodeExample>
+        <div className={styles.block}>
+          <h3>Props</h3>
+          <PropsList list={docs[0].props} />
+        </div>
       </div>
     </div>
   </div>

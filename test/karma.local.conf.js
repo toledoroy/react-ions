@@ -14,6 +14,7 @@ module.exports = function(config) {
 
     coverageReporter: {
       type : 'text',
+      includeAllSources: true
     },
 
     thresholdReporter: {

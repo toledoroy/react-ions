@@ -6,17 +6,21 @@ import ExampleCheckboxDefault from './ExampleCheckboxDefault'
 import exampleCheckboxDefaultCode from '!raw!./ExampleCheckboxDefault'
 import ExampleCheckboxDisabled from './ExampleCheckboxDisabled'
 import exampleCheckboxDisabledCode from '!raw!./ExampleCheckboxDisabled'
+import ExampleCheckboxError from './ExampleCheckboxError'
+import exampleCheckboxErrorCode from '!raw!./ExampleCheckboxError'
 import styles from 'private/css/content'
 
 const description = {
   checkboxDefault: 'This is the `checkbox component` as it appears by default.',
-  checkboxDisabled: 'This is the disabled `checkbox component`.'
+  checkboxDisabled: 'This is the disabled `checkbox component`.',
+  checkboxError: 'This is the `radio component` with error.'
 };
 
 const CheckboxPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
+        <h3>Examples</h3>
         <CodeExample
           title='Default Checkbox'
           description={description.checkboxDefault}
@@ -30,6 +34,12 @@ const CheckboxPage = () => (
           <ExampleCheckboxDisabled />
         </CodeExample>
       </div>
+      <CodeExample
+        title='Error Checkbox'
+        description={description.checkboxError}
+        markup={exampleCheckboxErrorCode}>
+        <ExampleCheckboxError />
+      </CodeExample>
       <div className={styles.block}>
         <h3>Props</h3>
         <PropsList list={docs[0].props} />

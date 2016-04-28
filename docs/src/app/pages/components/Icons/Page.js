@@ -17,19 +17,17 @@ const IconsPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
+        <h3>Examples</h3>
         <CodeExample
           title='Default Icon'
           description={description.iconDefault}
-          markup={exampleIconDefaultCode}
-        >
+          markup={exampleIconDefaultCode}>
           <ExampleIconDefault />
         </CodeExample>
-
         <CodeExample
           title='Custom Icon'
           description={description.iconCustom}
-          markup={exampleIconCustomCode}
-        >
+          markup={exampleIconCustomCode}>
           <ExampleIconCustom />
         </CodeExample>
       </div>

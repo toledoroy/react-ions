@@ -17,18 +17,17 @@ const ProgressBarPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
+        <h3>Examples</h3>
         <CodeExample
           title='Default Progress Bar'
           description={description.progressBarDefault}
-          markup={exampleProgressBarDefaultCode}
-        >
+          markup={exampleProgressBarDefaultCode}>
           <ExampleProgressBarDefault />
         </CodeExample>
         <CodeExample
           title='Progress Bar with Label and percentage'
           description={description.progressBarLabel}
-          markup={exampleProgressBarLabelCode}
-        >
+          markup={exampleProgressBarLabelCode}>
           <ExampleProgressBarLabel />
         </CodeExample>
       </div>
