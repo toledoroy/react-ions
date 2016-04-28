@@ -20,7 +20,8 @@ const config = {
       'private/css': path.resolve(__dirname, 'src/www/css'),
       'private/base': path.resolve(__dirname, 'src/www/css/base'),
       'private/images': path.resolve(__dirname, 'src/www/images'),
-      'private/modules': path.resolve(__dirname, 'src/app/modules')
+      'private/modules': path.resolve(__dirname, 'src/app/modules'),
+      'private/config': path.resolve(__dirname, 'src/app/_config')
     },
   },
   output: {

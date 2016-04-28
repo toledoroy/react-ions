@@ -1,4 +1,4 @@
-@import '../../../../src/styles/common/colors';
+@import '../../../src/styles/common/colors';
 
 .nav {
 
@@ -10,8 +10,11 @@
   }
 
   ul ul {
-    display: none;
     font-weight: normal;
+    height: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
   }
 
   li a {
@@ -43,6 +46,12 @@
       background-color: lighten($primary-5, 5%);
       color: $sky-text;
     }
+  }
+
+  a.active + ul {
+    height: auto;
+    max-height: 1000px;
+    transition: max-height 1200ms ease-in-out;
   }
 
 }
