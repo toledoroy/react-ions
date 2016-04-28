@@ -12,6 +12,7 @@ class Radio extends React.Component {
 
   componentDidMount() {
     this.refs.radio.checked = this.props.selected || false;
+    this.refs.radio.disabled = this.props.disabled || false;
   }
 
   render() {
