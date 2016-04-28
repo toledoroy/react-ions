@@ -13,11 +13,8 @@ import LayoutPage from './pages/foundations/Layout/Page'
 import ProgressBarPage from './pages/components/ProgressBar/Page'
 import IconsPage from './pages/components/Icons/Page'
 import ButtonsPage from './pages/components/Buttons/Page'
-<<<<<<< HEAD
 import CheckboxPage from './pages/components/Checkbox/Page'
-=======
 import RadioPage from './pages/components/Radio/Page'
->>>>>>> 116805587_build_out_radio_component
 
 const Routes = (
   <Route path="/" component={Base}>
