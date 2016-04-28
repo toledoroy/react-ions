@@ -4,10 +4,13 @@ import docs from '!!docgen!react-conventions/lib/ProgressBar/ProgressBar';
 import CodeExample from 'private/modules/CodeExample'
 import ExampleProgressBarDefault from './ExampleProgressBarDefault'
 import exampleProgressBarDefaultCode from '!raw!./ExampleProgressBarDefault'
+import ExampleProgressBarLabel from './ExampleProgressBarLabel'
+import exampleProgressBarLabelCode from '!raw!./ExampleProgressBarLabel'
 import styles from 'private/css/content'
 
 const description = {
-  progressBarDefault: 'This is the `default Progress Bar` description [passed](https://www.getambassador.com) in through a constant.'
+  progressBarDefault: 'This is the `default Progress Bar`',
+  progressBarLabel: 'This is the `Progress Bar` with a `label` and `percentage`.'
 };
 
 const ProgressBarPage = () => (
@@ -20,6 +23,13 @@ const ProgressBarPage = () => (
           markup={exampleProgressBarDefaultCode}
         >
           <ExampleProgressBarDefault />
+        </CodeExample>
+        <CodeExample
+          title='Progress Bar with Label and percentage'
+          description={description.progressBarLabel}
+          markup={exampleProgressBarLabelCode}
+        >
+          <ExampleProgressBarLabel />
         </CodeExample>
       </div>
       <div className={styles.block}>

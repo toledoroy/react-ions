@@ -8,7 +8,9 @@ import style from './style.scss';
  */
 const ProgressBar = (props) => {
   let percentage = props.value > props.denominator ? 100 : (props.value / props.denominator) * 100;
-  let progressStyles = classNames(style.container, style.danger);
+  let progressStyles = classNames(style.container, style[props.className]);
+
+  console.log(progressStyles);
 
   return (
     <div className={progressStyles}>
@@ -21,8 +23,9 @@ const ProgressBar = (props) => {
 }
 
 ProgressBar.defaultProps = {
-  value: 0,
+  className: 'danger',
   denominator: 100,
+  value: 0,
   showPercentage: false
 }
 
@@ -42,7 +45,11 @@ ProgressBar.propTypes = {
   /**
    * Show or hide the percentage with the progress bar.
    */
-  showPercentage: React.PropTypes.bool
+  showPercentage: React.PropTypes.bool,
+  /**
+   * The CSS class of the progress bar.
+   */
+  className: React.PropTypes.string
 };
 
 export default ProgressBar;
