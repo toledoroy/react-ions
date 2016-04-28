@@ -3,6 +3,7 @@ const nav = [
     id: 1,
     name: 'Foundations',
     route: '/foundations',
+    icon: 'icon-megaphone-1',
     nav: [
       {
         id: 2,
@@ -19,20 +20,14 @@ const nav = [
       }, {
         id: 5,
         name: 'Layout',
-        route: '/foundations/layout',
-        nav: [
-          {
-            id: 15,
-            name: 'Another layer',
-            route: 'http://www.test.com'
-          }
-        ]
+        route: '/foundations/layout'
       }
     ]
   }, {
     id: 6,
     name: 'Components',
     route: '/components',
+    icon: 'icon-pulse-1',
     nav: [
       {
         id: 7,
@@ -51,11 +46,13 @@ const nav = [
   }, {
     id: 10,
     name: 'Patterns',
-    route: '/patterns'
+    route: '/patterns',
+    icon: 'icon-hotspot-2'
   }, {
     id: 11,
     name: 'Resources',
-    route: '/resources'
+    route: '/resources',
+    icon: 'icon-bell-1'
   }
 ]
 

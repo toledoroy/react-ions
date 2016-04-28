@@ -18,9 +18,6 @@ const Nav = (props) => {
   );
 }
 
-Nav.defaultProps = {
-}
-
 Nav.propTypes = {
   /**
    * The name of the nav button.
