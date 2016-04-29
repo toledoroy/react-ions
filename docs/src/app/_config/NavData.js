@@ -2,6 +2,7 @@ const nav = [
   {
     name: 'Foundations',
     route: '/foundations',
+    // icon: 'icon-award-3',
     nav: [
       {
         name: 'Colors',

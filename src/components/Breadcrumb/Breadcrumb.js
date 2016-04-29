@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from '../Icon';
-import style from './style';
+import style from './style.scss';
 
 const Breadcrumb = (props) => {
   const depth = props.routes.length;

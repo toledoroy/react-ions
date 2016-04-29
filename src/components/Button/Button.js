@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './style'
+import style from './style.scss'
 import classNames from 'classnames/bind'
 
 const Button = (props) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import Icon from '../Icon'
-import style from './style'
+import style from './style.scss'
 
 const Node = (props) => {
   let childnodes = null;

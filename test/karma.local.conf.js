@@ -5,7 +5,7 @@ module.exports = function(config) {
     basePath: '../',
     frameworks: ['mocha', 'chai', 'sinon'],
     files: [
-      './test/Nav.js'
+      './test/*.js'
     ],
 
     preprocessors: {
@@ -24,9 +24,6 @@ module.exports = function(config) {
     },
 
     webpack: { //kind of a copy of your webpack config
-      resolve: {
-        extensions: ['', '.js', '.md', '.txt', '.scss', '.css']
-      },
       module: {
         preLoaders: [
             {
