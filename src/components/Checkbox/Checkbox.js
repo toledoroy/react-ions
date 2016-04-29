@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './style.scss'
 import classNames from 'classnames/bind'
-import Icon from 'react-conventions/lib/Icon'
+import Icon from '../Icon'
 
 class Checkbox extends React.Component {
   constructor(props) {
@@ -20,6 +20,10 @@ class Checkbox extends React.Component {
      */
     checked: React.PropTypes.bool,
     /**
+     * Whether the checkbox is disabled.
+     */
+    disabled: React.PropTypes.bool,
+    /**
      * Text displayed with the checkbox.
      */
     label: React.PropTypes.string,
@@ -28,17 +32,13 @@ class Checkbox extends React.Component {
      */
     labelPosition: React.PropTypes.string,
     /**
-     * Optional styles to add to the checkbox.
-     */
-    optClass: React.PropTypes.string,
-    /**
-     * Whether the checkbox is disabled.
-     */
-    disabled: React.PropTypes.bool,
-    /**
      * Value provided when checked.
      */
-    label: React.PropTypes.string
+    value: React.PropTypes.string,
+    /**
+     * Optional styles to add to the checkbox.
+     */
+    optClass: React.PropTypes.string
   };
 
   componentDidMount() {
