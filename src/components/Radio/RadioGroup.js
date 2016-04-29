@@ -12,8 +12,10 @@ class RadioGroup extends React.Component {
   }
 
   static defaultProps = {
-    name: 'radio-group'
-  }
+    disabled: false,
+    required: false,
+    labelPosition: 'right'
+  };
 
   static propTypes = {
     /**
@@ -35,12 +37,16 @@ class RadioGroup extends React.Component {
     /**
      * Which option is selected by default.
      */
-    selectedOption: React.PropTypes.number
+    defaultOption: React.PropTypes.number,
+    /**
+     * Where the label will be placed for all radio buttons. This will override any labelPosition properties defined for an individual radio button.
+     */
+    labelPosition: React.PropTypes.oneOf(['left', 'right'])
   };
 
   componentWillMount() {
-    if (this.props.selectedOption) {
-      this.props.options[this.props.selectedOption].selected = true;
+    if (this.props.defaultOption) {
+      this.props.options[this.props.defaultOption].selected = true;
     }
   }
 
@@ -49,10 +55,25 @@ class RadioGroup extends React.Component {
   }
 
   getOptions() {
-    let name = this.props.name;
+    let groupName = this.props.name;
+    let groupLabelPosition = this.props.labelPosition;
     let callback = this.handleChange;
+    // Pass along the disabled attribute
+    let { label, name, required, defaultOption, labelPosition, ...other } = this.props;
+
     return this.props.options.map((radio, index) =>
-      <Radio key={index} value={radio.value} label={radio.label} name={name} selected={radio.selected} labelPosition={radio.labelPosition} optClass={radio.optClass} selectCallback={callback}></Radio>
+      <Radio
+        key={radio.value}
+        ref={radio.value}
+        value={radio.value}
+        label={radio.label}
+        name={groupName}
+        selected={radio.selected}
+        labelPosition={groupLabelPosition || radio.labelPosition}
+        optClass={radio.optClass}
+        selectCallback={callback}
+        {...other}
+      />
     );
   }
 

@@ -32,7 +32,7 @@ class Radio extends React.Component {
     /**
      * The position of the label.
      */
-    labelPosition: React.PropTypes.string,
+    labelPosition: React.PropTypes.oneOf(['left', 'right']),
     /**
      * Value of the option.
      */

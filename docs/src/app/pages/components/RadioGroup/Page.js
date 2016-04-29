@@ -3,23 +3,23 @@ import PropsList from 'private/modules/PropsList';
 import docs from '!!docgen!react-conventions/lib/Radio/RadioGroup';
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
-import ExampleRadioDefault from './ExampleRadioDefault'
-import exampleRadioDefaultCode from '!raw!./ExampleRadioDefault'
-// import ExampleRadioSelected from './ExampleRadioSelected'
-// import exampleRadioSelectedCode from '!raw!./ExampleRadioSelected'
-// import ExampleRadioDisabled from './ExampleRadioDisabled'
-// import exampleRadioDisabledCode from '!raw!./ExampleRadioDisabled'
-// import ExampleRadioError from './ExampleRadioError'
-// import exampleRadioErrorCode from '!raw!./ExampleRadioError'
-// import ExampleRadioLeft from './ExampleRadioLeft'
-// import exampleRadioLeftCode from '!raw!./ExampleRadioLeft'
+import ExampleRadioGroupDefault from './ExampleRadioGroupDefault'
+import exampleRadioGroupDefaultCode from '!raw!./ExampleRadioGroupDefault'
+import ExampleRadioGroupSelected from './ExampleRadioGroupSelected'
+import exampleRadioGroupSelectedCode from '!raw!./ExampleRadioGroupSelected'
+import ExampleRadioGroupRequired from './ExampleRadioGroupRequired'
+import exampleRadioGroupRequiredCode from '!raw!./ExampleRadioGroupRequired'
+import ExampleRadioGroupDisabled from './ExampleRadioGroupDisabled'
+import exampleRadioGroupDisabledCode from '!raw!./ExampleRadioGroupDisabled'
+import ExampleRadioGroupLeft from './ExampleRadioGroupLeft'
+import exampleRadioGroupLeftCode from '!raw!./ExampleRadioGroupLeft'
 
 const description = {
-  radioDefault: 'This is the `radio component` as it appears by default.',
-  radioSelected: 'This is the selected `radio component`.',
-  radioDisabled: 'This is the disabled `radio component`.',
-  radioError: 'This is the `radio component` with error.',
-  radioLeft: 'This is a `radio component` with the label on the left side.'
+  radioGroupDefault: 'This is the `radio group component` as it appears by default.',
+  radioGroupSelected: 'This is the selected `radio group component`.',
+  radioGroupDisabled: 'This is the disabled `radio group component`.',
+  radioGroupRequired: 'This is the required `radio group component`.',
+  radioGroupLeft: 'This is the `radio group component` with labels on the left side.'
 };
 
 const RadioGroupPage = () => (
@@ -28,11 +28,39 @@ const RadioGroupPage = () => (
       <div className={styles.block}>
         <h3>Examples</h3>
           <CodeExample
-            title='Default Radio'
-            description={description.radioDefault}
-            markup={exampleRadioDefaultCode}
+            title='Default Radio Group'
+            description={description.radioGroupDefault}
+            markup={exampleRadioGroupDefaultCode}
           >
-            <ExampleRadioDefault />
+            <ExampleRadioGroupDefault />
+          </CodeExample>
+          <CodeExample
+            title='Selected Radio Group'
+            description={description.radioGroupSelected}
+            markup={exampleRadioGroupSelectedCode}
+          >
+            <ExampleRadioGroupSelected />
+          </CodeExample>
+          <CodeExample
+            title='Disabled Radio Group'
+            description={description.radioGroupDisabled}
+            markup={exampleRadioGroupDisabledCode}
+          >
+            <ExampleRadioGroupDisabled />
+          </CodeExample>
+          <CodeExample
+            title='Required Radio Group'
+            description={description.radioGroupRequired}
+            markup={exampleRadioGroupRequiredCode}
+          >
+            <ExampleRadioGroupRequired />
+          </CodeExample>
+          <CodeExample
+            title='Radio Group with labels on the left side'
+            description={description.radioGroupLeft}
+            markup={exampleRadioGroupLeftCode}
+          >
+            <ExampleRadioGroupLeft />
           </CodeExample>
           <div className={styles.block}>
             <h3>Props</h3>
