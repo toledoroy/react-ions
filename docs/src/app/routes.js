@@ -34,6 +34,9 @@ const Routes = (
       <Route path='icons' title='Icons' component={IconsPage} />
       <Route path='buttons' title='Buttons' component={ButtonsPage} />
       <Route path='nav' title='Nav' component={NavPage} />
+      <Route path='checkbox' title='Checkbox' component={CheckboxPage} />
+      <Route path='radio' title='Radio' component={RadioPage} />
+      <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
     </Route>
     <Redirect from="components" to="/components/progress-bar" />
     <Route path="components" title="Components">

@@ -16,10 +16,6 @@ const nav = [
       }, {
         name: 'Layout',
         route: '/foundations/layout'
-      }, {
-        name: 'Editor',
-        external: true,
-        route: 'https://cdn.getambassador.com/index.html?mbsy_editor=true'
       }
     ]
   }, {
@@ -38,6 +34,15 @@ const nav = [
       }, {
         name: 'Nav',
         route: '/components/nav'
+      }, {
+        name: 'Checkbox',
+        route: '/components/checkbox'
+      }, {
+        name: 'Radio',
+        route: '/components/radio'
+      }, {
+        name: 'Radio Group',
+        route: '/components/radio-group'
       }
     ]
   }, {

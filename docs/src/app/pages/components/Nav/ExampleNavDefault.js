@@ -18,7 +18,7 @@ const data = [
       }, {
         name: 'External Link',
         external: true,
-        route: 'https://cdn.getambassador.com/index.html?mbsy_editor=true'
+        route: 'https://google.com'
       }
     ]
   }, {
