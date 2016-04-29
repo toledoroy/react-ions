@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from 'react-conventions/lib/Nav'
+import Icon from 'react-conventions/lib/Icon'
 import Nav from 'react-conventions/lib/Nav'
 import style from './style'
 
