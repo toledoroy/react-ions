@@ -59,7 +59,7 @@ class RadioGroup extends React.Component {
     let groupLabelPosition = this.props.labelPosition;
     let callback = this.handleChange;
     // Pass along the disabled attribute
-    let { label, name, required, defaultOption, labelPosition, ...other } = this.props;
+    let { options, label, name, required, defaultOption, labelPosition, ...other } = this.props;
 
     return this.props.options.map((radio, index) =>
       <Radio
