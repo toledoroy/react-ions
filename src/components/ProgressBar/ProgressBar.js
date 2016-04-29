@@ -10,8 +10,6 @@ const ProgressBar = (props) => {
   let percentage = props.value > props.denominator ? 100 : (props.value / props.denominator) * 100;
   let progressStyles = classNames(style.container, style[props.className]);
 
-  console.log(progressStyles);
-
   return (
     <div className={progressStyles}>
       { props.label ? <ProgressBarLabel text={ props.label } showPercentage={ props.showPercentage } percentage={ percentage } /> : null }
