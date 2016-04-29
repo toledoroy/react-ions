@@ -1,4 +1,5 @@
 export Breadcrumb from './Breadcrumb'
 export ProgressBar from './ProgressBar'
 export Icon from './Icon'
-export RadioGroup from './Radio'
+export Radio from './Radio'
+export RadioGroup from './Radio/RadioGroup'
