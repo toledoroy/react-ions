@@ -11,10 +11,14 @@ class PropsList extends React.Component {
     }
   }
   render() {
+    let hasRequiredProps = false;
     let propsList = Object.keys(this.props.list).map((name) => {
+      if (this.props.list[name].required) {
+        hasRequiredProps = true;
+      }
       return (
         <tr key={name}>
-          <td>{name}</td>
+          <td>{name}{this.props.list[name].required ? '*' : ''}</td>
           <td className={style['cell-monospaced']}>{this.props.list[name].type.name}</td>
           <td className={style['cell-monospaced']}>{this.props.list[name].defaultValue ? this.props.list[name].defaultValue.value : ''}</td>
           <td>{this.props.list[name].description}</td>
@@ -37,6 +41,7 @@ class PropsList extends React.Component {
             {propsList}
           </tbody>
         </table>
+        {hasRequiredProps ? <div className={style['has-required-props']}>* required property</div> : null}
       </div>
     )
   }

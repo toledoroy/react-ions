@@ -30,6 +30,12 @@
   }
 }
 
+.has-required-props {
+  color: $primary-3;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
 .cell-monospaced {
   @include monospace;
   color: $primary-6;
