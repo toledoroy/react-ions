@@ -40,4 +40,15 @@ describe('Radio', () => {
     expect(wrapper.childAt(1).childAt(0).hasClass('label-left')).to.equal(true);
     expect(wrapper.childAt(1).childAt(1).hasClass('radio-input')).to.equal(true);
   });
+
+  it('should have a callback', () => {
+    let clicked = false;
+    const callback = function() {
+      clicked = true;
+    };
+    wrapper = mount(<Radio value="test" label="Test label" selectCallback={callback}></Radio>);
+
+    wrapper.find('input').simulate('change');
+    expect(clicked).to.be.true
+  });
 });
