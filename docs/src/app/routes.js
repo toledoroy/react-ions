@@ -14,6 +14,7 @@ import ProgressBarPage from './pages/components/ProgressBar/Page'
 import IconsPage from './pages/components/Icons/Page'
 import ButtonsPage from './pages/components/Buttons/Page'
 import NavPage from './pages/components/Nav/Page'
+import RadioPage from './pages/components/Radio/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -31,6 +32,13 @@ const Routes = (
       <Route path='icons' title='Icons' component={IconsPage} />
       <Route path='buttons' title='Buttons' component={ButtonsPage} />
       <Route path='nav' title='Nav' component={NavPage} />
+    </Route>
+    <Redirect from="components" to="/components/progress-bar" />
+    <Route path="components" title="Components">
+      <Route path="progress-bar" title="Progress Bar" component={ProgressBarPage} />
+      <Route path="icons" title="Icons" component={IconsPage} />
+      <Route path="buttons" title="Buttons" component={ButtonsPage} />
+      <Route path="radio" title="Radio" component={RadioPage} />
     </Route>
     <Route path='patterns' title='Patterns'>
     </Route>
