@@ -11,6 +11,10 @@ class RadioGroup extends React.Component {
     super(props);
   }
 
+  state = {
+    selectedOption: typeof this.props.defaultOption !== 'undefined' ? this.props.options[this.props.defaultOption].value : ''
+  };
+
   static defaultProps = {
     disabled: false,
     required: false,
@@ -35,23 +39,35 @@ class RadioGroup extends React.Component {
      */
     disabled: React.PropTypes.bool,
     /**
+     * A list of options for the radio group.
+     */
+    options: React.PropTypes.array.isRequired,
+    /**
      * Which option is selected by default.
      */
     defaultOption: React.PropTypes.number,
     /**
      * Where the label will be placed for all radio buttons. This will override any labelPosition properties defined for an individual radio button.
      */
-    labelPosition: React.PropTypes.oneOf(['left', 'right'])
+    labelPosition: React.PropTypes.oneOf(['left', 'right']),
+    /**
+     * A callback function to be called when an option is selected.
+     */
+    onChange: React.PropTypes.func
   };
 
   componentWillMount() {
-    if (this.props.defaultOption) {
+    if (typeof this.props.defaultOption !== 'undefined') {
       this.props.options[this.props.defaultOption].selected = true;
     }
   }
 
-  handleChange() {
-    console.log('callback called');
+  handleChange(event, value) {
+    this.setState({selectedOption: value}, function() {
+      if (typeof this.props.onChange === 'function') {
+        this.props.onChange(event, value);
+      }
+    });
   }
 
   getOptions() {
@@ -71,7 +87,7 @@ class RadioGroup extends React.Component {
         selected={radio.selected}
         labelPosition={groupLabelPosition || radio.labelPosition}
         optClass={radio.optClass}
-        selectCallback={callback}
+        selectCallback={callback.bind(this)}
         {...other}
       />
     );
@@ -79,7 +95,6 @@ class RadioGroup extends React.Component {
 
   render() {
     const cx = classNames.bind(style);
-    // var disabledClass = this.props.disabled ? style['radio-disabled'] : '';
     var radioGroupClass = cx(style['radio-group'], this.props.optClass);
 
     return (

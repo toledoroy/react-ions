@@ -17,6 +17,12 @@ describe('Radio', () => {
     expect(wrapper.childAt(1).childAt(1).hasClass('label-right')).to.equal(true);
   });
 
+  it('should not have a label', () => {
+    wrapper = shallow(<Radio value="test"></Radio>);
+
+    expect(wrapper.find('label')).to.have.length(0);
+  });
+
   it('should be disabled', () => {
     wrapper = shallow(<Radio value="test" label="Test label" disabled></Radio>);
     expect(wrapper.hasClass('radio-component')).to.equal(true);
@@ -43,12 +49,12 @@ describe('Radio', () => {
 
   it('should have a callback', () => {
     let clicked = false;
-    const callback = function() {
-      clicked = true;
+    const callback = function(event, value) {
+      clicked = value;
     };
     wrapper = mount(<Radio value="test" label="Test label" selectCallback={callback}></Radio>);
 
     wrapper.find('input').simulate('change');
-    expect(clicked).to.be.true
+    expect(clicked).to.be.equal('test');
   });
 });

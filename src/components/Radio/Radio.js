@@ -46,7 +46,7 @@ class Radio extends React.Component {
      */
     name: React.PropTypes.string,
     /**
-     * A callback (from RadioGroup) to be called when the option is selected.
+     * A callback function (from RadioGroup) to be called when the option is selected.
      */
     selectCallback: React.PropTypes.func
   };
@@ -56,9 +56,9 @@ class Radio extends React.Component {
     this.refs.radio.disabled = this.props.disabled || false;
   }
 
-  handleChange() {
+  handleChange(event) {
     if (typeof this.props.selectCallback === 'function') {
-      this.props.selectCallback();
+      this.props.selectCallback(event, this.props.value);
     }
   }
 
