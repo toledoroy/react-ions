@@ -28,8 +28,6 @@ describe('Nav', () => {
     expect(wrapper.childAt(0).childAt(1).props().node.name).to.equal(data[1].name);
     expect(wrapper.childAt(0).childAt(1).props().node.route).to.equal(data[1].route);
     expect(wrapper.childAt(0).childAt(1).props().node.icon).to.equal(undefined);
-    // expect(wrapper.childAt(0).childAt(0).props().children).to.equal(false);
-    // expect(wrapper.childAt(0).childAt(0).props().key).to.equal(0);
   });
 
 });
