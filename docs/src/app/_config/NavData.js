@@ -1,8 +1,9 @@
-const navData = [
+const nav = [
   {
     name: 'Foundations',
-    route: '/foundations/colors',
-    children: [
+    route: '/foundations',
+    // icon: 'icon-award-3',
+    nav: [
       {
         name: 'Colors',
         route: '/foundations/colors'
@@ -19,8 +20,8 @@ const navData = [
     ]
   }, {
     name: 'Components',
-    route: '/components/progress-bar',
-    children: [
+    route: '/components',
+    nav: [
       {
         name: 'Progress Bar',
         route: '/components/progress-bar'
@@ -30,7 +31,27 @@ const navData = [
       }, {
         name: 'Buttons',
         route: '/components/buttons'
+      }, {
+        name: 'Nav',
+        route: '/components/nav'
+      }, {
+        name: 'Checkbox',
+        route: '/components/checkbox'
+      }, {
+        name: 'Radio',
+        route: '/components/radio'
+      }, {
+        name: 'Radio Group',
+        route: '/components/radio-group'
       }
     ]
+  }, {
+    name: 'Patterns',
+    route: '/patterns'
+  }, {
+    name: 'Resources',
+    route: '/resources'
   }
 ]
+
+export default nav
