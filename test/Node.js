@@ -42,6 +42,13 @@ describe('Node', () => {
     expect(wrapper.childAt(0).childAt(0).props().to).to.equal(nodes[0].route);
   });
 
+  it('should render a single node with an icon', () => {
+    const wrapper = shallow(<Node node={nodes[0]} node={nodeWithIcon[0]} />);
+    expect(wrapper.childAt(0).childAt(0).childAt(0).type()).to.equal(Icon);
+    expect(wrapper.childAt(0).childAt(0).childAt(0).props().name).to.equal('icon-check-1-1');
+    expect(wrapper.childAt(0).childAt(0).childAt(0).props().fill).to.equal('currentColor');
+  });
+
   it('should render a single external node', () => {
     const wrapper = shallow(<Node node={nodes[1]} />);
     expect(wrapper.childAt(0).childAt(0).childAt(0).text()).to.equal(nodes[1].name);
@@ -54,15 +61,15 @@ describe('Node', () => {
     expect(wrapper.childAt(0).find('ul').children()).to.have.length(children.length);
   });
 
-  it('should render an icon component with an additional class', () => {
-    const wrapper = shallow(<Node node={nodes[0]} children={children} />);
-    // check that iconParent exists (classname on ul)
-  });
-
-  it.skip('should render a group of children when parent is internal', () => {
+  it('should render a group of children when parent is internal', () => {
     const wrapper = shallow(<Node node={nodes[1]} children={children} />);
     expect(wrapper.childAt(0).find('ul').children()).to.have.length(children.length);
-    // check that iconParent exists (classname on ul)
+    expect(wrapper.childAt(0).find('ul').props().className).to.equal(null);
+  });
+
+  it('should render a group of children with an icon parent', () => {
+    const wrapper = shallow(<Node node={nodeWithIcon[0]} children={children} />);
+    expect(wrapper.childAt(0).find('ul').props().className).to.equal('indent');
   });
 
 });
