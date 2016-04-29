@@ -21,6 +21,7 @@ const Nav = (props) => {
             <li><NavLink to='/components/buttons'>Buttons</NavLink></li>
             <li><NavLink to='/components/checkbox'>Checkbox</NavLink></li>
             <li><NavLink to='/components/radio'>Radio</NavLink></li>
+            <li><NavLink to='/components/radio-group'>Radio Group</NavLink></li>
           </ul>
         </li>
         <li><NavLink to='/patterns'>Patterns</NavLink></li>

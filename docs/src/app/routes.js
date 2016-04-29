@@ -15,6 +15,7 @@ import IconsPage from './pages/components/Icons/Page'
 import ButtonsPage from './pages/components/Buttons/Page'
 import CheckboxPage from './pages/components/Checkbox/Page'
 import RadioPage from './pages/components/Radio/Page'
+import RadioGroupPage from './pages/components/RadioGroup/Page'
 
 const Routes = (
   <Route path="/" component={Base}>
@@ -33,6 +34,7 @@ const Routes = (
       <Route path="buttons" title="Buttons" component={ButtonsPage} />
       <Route path="checkbox" title="Checkbox" component={CheckboxPage} />
       <Route path="radio" title="Radio" component={RadioPage} />
+      <Route path="radio-group" title="Radio Group" component={RadioGroupPage} />
     </Route>
     <Route path="patterns" title="Patterns">
     </Route>
