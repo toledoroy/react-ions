@@ -16,4 +16,4 @@ const ExampleButtonTypes = () => (
   </div>
 )
 
-export default ExampleButtonTypes;
+export default ExampleButtonTypes

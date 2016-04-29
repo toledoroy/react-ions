@@ -27,29 +27,25 @@ const ButtonsPage = () => (
         <CodeExample
           title='Default Button'
           description={description.buttonDefault}
-          markup={exampleButtonDefaultCode}
-        >
+          markup={exampleButtonDefaultCode}>
           <ExampleButtonDefault />
         </CodeExample>
         <CodeExample
           title='Button with Icon'
           description={description.buttonIcon}
-          markup={exampleButtonIconCode}
-        >
+          markup={exampleButtonIconCode}>
           <ExampleButtonIcon />
         </CodeExample>
         <CodeExample
           title='Disabled Button'
           description={description.buttonDisabled}
-          markup={exampleButtonDisabledCode}
-        >
+          markup={exampleButtonDisabledCode}>
           <ExampleButtonDisabled />
         </CodeExample>
         <CodeExample
           title='Button Types (aka variety pack)'
           description={description.buttonTypes}
-          markup={exampleButtonTypesCode}
-        >
+          markup={exampleButtonTypesCode}>
           <ExampleButtonTypes />
         </CodeExample>
       </div>
@@ -61,4 +57,4 @@ const ButtonsPage = () => (
   </div>
 )
 
-export default ButtonsPage;
+export default ButtonsPage

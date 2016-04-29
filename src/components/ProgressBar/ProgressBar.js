@@ -1,7 +1,7 @@
-import React from 'react';
-import classNames from 'classnames';
-import ProgressBarLabel from './ProgressBarLabel';
-import style from './style.scss';
+import React from 'react'
+import classNames from 'classnames'
+import ProgressBarLabel from './ProgressBarLabel'
+import style from './style.scss'
 
 /**
  * The ProgressBar fills from 0% to 100% to show the progress of a task.
@@ -50,4 +50,4 @@ ProgressBar.propTypes = {
   className: React.PropTypes.string
 };
 
-export default ProgressBar;
+export default ProgressBar

@@ -1,6 +1,6 @@
 @import 'src/styles/common/colors';
 
-.radio-component {
+.checkbox-component {
   cursor: pointer;
   margin-bottom: 15px;
   overflow: hidden;
@@ -17,19 +17,13 @@
     width: 100%;
     z-index: 2;
   }
-  &:not(.radio-disabled) {
-    > input:checked + div .radio-input {
-      border-color: $primary-1;
-      &:before {
-        content: "";
-        background-color: $primary-1;
-        border-radius: 50%;
+  &:not(.checkbox-disabled) {
+    > input:checked + div .checkbox-input {
+      svg {
         display: block;
-        height: 9px;
-        left: 3px;
-        position: relative;
-        top: 3px;
-        width: 9px;
+        width: 75%;
+        height: 75%;
+        margin: 2px auto;
       }
     }
   }
@@ -38,11 +32,14 @@
     width: 100%;
     display: flex;
     align-items: center;
-    .radio-input {
-      border-radius: 50%;
-      border: solid 1px $neutral-3;
-      height: 15px;
-      width: 15px;
+    .checkbox-input {
+      border: solid 2px $neutral-3;
+      border-radius: 10%;
+      height: 20px;
+      width: 20px;
+      svg {
+        display: none;
+      }
     }
     label {
       color: $navy-text;
@@ -56,13 +53,13 @@
     }
   }
 
-  &.radio-error {
-    > div .radio-input {
+  &.checkbox-error {
+    > div .checkbox-input {
       border-color: $danger;
     }
   }
 
-  &.radio-disabled {
+  &.checkbox-disabled {
     cursor: not-allowed;
     > input {
       cursor: not-allowed;
@@ -71,7 +68,7 @@
       label {
         color: $neutral-3;
       }
-      .radio-input {
+      .checkbox-input {
         background-color: $neutral-3;
         border-color: $neutral-3;
         &:before {
@@ -79,21 +76,5 @@
         }
       }
     }
-  }
-}
-
-.radio-group {
-  > .asterisk {
-    color: $danger;
-    float: left;
-    margin-right: 5px;
-  }
-  > label {
-    display: block;
-    margin-bottom: 10px;
-  	font-size: 16px;
-  	color: $navy-text;
-    font-family: proxima_nova;
-    font-weight: 200;
   }
 }

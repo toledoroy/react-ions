@@ -6,4 +6,4 @@ const ExampleButtonDisabled = () => (
   <Button disabled>Disabled Button</Button>
 )
 
-export default ExampleButtonDisabled;
+export default ExampleButtonDisabled

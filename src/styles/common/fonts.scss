@@ -17,7 +17,7 @@ $ga-font-folder: '../../assets/fonts' !default;
   src: url('#{$ga-font-folder}/proxima-nova/proximanova-semibold-webfont.eot?#iefix') format('embedded-opentype'),
        url('#{$ga-font-folder}/proxima-nova/proximanova-semibold-webfont.woff') format('woff'),
        url('#{$ga-font-folder}/proxima-nova/proximanova-semibold-webfont.ttf') format('truetype'),
-       url('#{$ga-font-folder}/proxima-nova/proximanova-semibold-webfont.svg#proxima_nova_rgbold') format('svg');
+       url('#{$ga-font-folder}/proxima-nova/proximanova-semibold-webfont.svg#proxima_novasemibold') format('svg');
   font-weight: 200;
   font-style: normal;
 }

@@ -5,4 +5,4 @@ const ExampleButtonDefault = () => (
   <Button>I am a Button</Button>
 )
 
-export default ExampleButtonDefault;
+export default ExampleButtonDefault

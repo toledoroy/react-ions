@@ -1,6 +1,6 @@
-import React from 'react';
-import Icon from '../Icon';
-import style from './style.scss';
+import React from 'react'
+import Icon from '../Icon'
+import style from './style.scss'
 
 const Breadcrumb = (props) => {
   const depth = props.routes.length;
@@ -35,4 +35,4 @@ React.propTypes = {
   routes: React.PropTypes.array.isRequired
 };
 
-export default Breadcrumb;
+export default Breadcrumb

@@ -10,4 +10,4 @@ const ExampleButtonIcon = () => (
   </Button>
 )
 
-export default ExampleButtonIcon;
+export default ExampleButtonIcon

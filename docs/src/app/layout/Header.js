@@ -7,10 +7,10 @@ const Header = (props) => {
   return (
     <header>
       <Link to="/" className={style['logo-wrap']}>
-        <img src={logo} className={style.logo} alt="Ambassador React Conventions" />
+        <img src={logo} className={style.logo} alt="Ambassador Reactions" />
       </Link>
     </header>
   )
 }
 
-export default Header;
+export default Header

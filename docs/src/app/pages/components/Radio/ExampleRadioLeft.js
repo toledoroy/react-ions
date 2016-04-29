@@ -2,7 +2,7 @@ import React from 'react'
 import Radio from 'react-conventions/lib/Radio'
 
 const ExampleRadioLeft = () => (
-  <Radio label="Radio with the label on the left side" value="left" labelPosition="left"></Radio>
+  <Radio label="Radio with the label on the left side" value="left" labelPosition="left" />
 )
 
-export default ExampleRadioLeft;
+export default ExampleRadioLeft

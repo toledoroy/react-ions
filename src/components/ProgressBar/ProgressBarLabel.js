@@ -1,6 +1,6 @@
-import React from 'react';
-import classNames from 'classnames';
-import style from './style.scss';
+import React from 'react'
+import classNames from 'classnames'
+import style from './style.scss'
 
 const ProgressBarLabel = (props) => {
   return (
@@ -16,4 +16,4 @@ ProgressBarLabel.propTypes = {
   showPercentage: React.PropTypes.bool
 };
 
-export default ProgressBarLabel;
+export default ProgressBarLabel

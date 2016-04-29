@@ -1,6 +1,6 @@
 import React from 'react'
-import PropsList from 'private/modules/PropsList';
-import docs from '!!docgen!react-conventions/lib/Icon/Icon';
+import PropsList from 'private/modules/PropsList'
+import docs from '!!docgen!react-conventions/lib/Icon/Icon'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleIconDefault from './ExampleIconDefault'
 import exampleIconDefaultCode from '!raw!./ExampleIconDefault'
@@ -17,19 +17,17 @@ const IconsPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
+        <h3>Examples</h3>
         <CodeExample
           title='Default Icon'
           description={description.iconDefault}
-          markup={exampleIconDefaultCode}
-        >
+          markup={exampleIconDefaultCode}>
           <ExampleIconDefault />
         </CodeExample>
-
         <CodeExample
           title='Custom Icon'
           description={description.iconCustom}
-          markup={exampleIconCustomCode}
-        >
+          markup={exampleIconCustomCode}>
           <ExampleIconCustom />
         </CodeExample>
       </div>
@@ -41,4 +39,4 @@ const IconsPage = () => (
   </div>
 );
 
-export default IconsPage;
+export default IconsPage

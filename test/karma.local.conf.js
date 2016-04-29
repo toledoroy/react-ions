@@ -14,6 +14,7 @@ module.exports = function(config) {
 
     coverageReporter: {
       type : 'text',
+      includeAllSources: true
     },
 
     thresholdReporter: {
@@ -32,8 +33,8 @@ module.exports = function(config) {
               loader: 'isparta-instrumenter-loader',
               query: {
                 babel: {
-                  presets: ['airbnb'],
-                  plugins: ['transform-class-properties', 'transform-export-extensions']
+                  presets: ['airbnb', 'es2015'],
+                  plugins: ['transform-object-rest-spread', 'transform-class-properties', 'transform-export-extensions']
                 }
               }
             },

@@ -1,6 +1,6 @@
-import React from 'react';
-import classNames from 'classnames/bind';
-import style from './style.scss';
+import React from 'react'
+import classNames from 'classnames/bind'
+import style from './style.scss'
 
 /**
  * The Radio component.
@@ -32,7 +32,7 @@ class Radio extends React.Component {
     /**
      * The position of the label.
      */
-    labelPosition: React.PropTypes.string,
+    labelPosition: React.PropTypes.oneOf(['left', 'right']),
     /**
      * Value of the option.
      */
@@ -40,12 +40,26 @@ class Radio extends React.Component {
     /**
      * Optional styles to add to the radio component.
      */
-    optClass: React.PropTypes.string
+    optClass: React.PropTypes.string,
+    /**
+     * Name specified in the RadioGroup component.
+     */
+    name: React.PropTypes.string,
+    /**
+     * A callback function (from RadioGroup) to be called when the option is selected.
+     */
+    selectCallback: React.PropTypes.func
   };
 
   componentDidMount() {
     this.refs.radio.checked = this.props.selected || false;
     this.refs.radio.disabled = this.props.disabled || false;
+  }
+
+  handleChange(event) {
+    if (typeof this.props.selectCallback === 'function') {
+      this.props.selectCallback(event, this.props.value);
+    }
   }
 
   render() {
@@ -55,7 +69,7 @@ class Radio extends React.Component {
 
     return (
       <div className={radioClass}>
-        <input type="radio" ref="radio" value={this.props.value}></input>
+        <input type="radio" ref="radio" value={this.props.value} name={this.props.name} onChange={this.handleChange.bind(this)}></input>
         <div>
           { this.props.label && this.props.labelPosition === 'left' ? <label className={style['label-left']}>{this.props.label}</label> : null }
           <div className={style['radio-input']}></div>
@@ -66,4 +80,4 @@ class Radio extends React.Component {
   }
 }
 
-export default Radio;
+export default Radio

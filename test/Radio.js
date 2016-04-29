@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Radio from '../src/components/Radio/Radio';
 
 describe('Radio', () => {
@@ -15,6 +15,12 @@ describe('Radio', () => {
     expect(wrapper.hasClass('radio-component')).to.equal(true);
     expect(wrapper.childAt(1).childAt(0).hasClass('radio-input')).to.equal(true);
     expect(wrapper.childAt(1).childAt(1).hasClass('label-right')).to.equal(true);
+  });
+
+  it('should not have a label', () => {
+    wrapper = shallow(<Radio value="test"></Radio>);
+
+    expect(wrapper.find('label')).to.have.length(0);
   });
 
   it('should be disabled', () => {
@@ -39,5 +45,16 @@ describe('Radio', () => {
     expect(wrapper.hasClass('radio-component'));
     expect(wrapper.childAt(1).childAt(0).hasClass('label-left')).to.equal(true);
     expect(wrapper.childAt(1).childAt(1).hasClass('radio-input')).to.equal(true);
+  });
+
+  it('should have a callback', () => {
+    let clicked = false;
+    const callback = function(event, value) {
+      clicked = value;
+    };
+    wrapper = mount(<Radio value="test" label="Test label" selectCallback={callback}></Radio>);
+
+    wrapper.find('input').simulate('change');
+    expect(clicked).to.be.equal('test');
   });
 });

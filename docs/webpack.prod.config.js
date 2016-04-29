@@ -61,7 +61,7 @@ const config = {
       loader: 'babel',
       query: {
         'presets': ['react', 'es2015'],
-        'plugins': ['transform-class-properties', 'transform-export-extensions']
+        'plugins': ['transform-object-rest-spread', 'transform-class-properties', 'transform-export-extensions']
       }
     }, {
       test: /\.json?$/,
