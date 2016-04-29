@@ -38,12 +38,24 @@ describe('Node', () => {
 
   it('should render a single node', () => {
     const wrapper = shallow(<Node node={nodes[0]} />);
+    expect(wrapper.type()).to.equal('li');
+    expect(wrapper.childAt(0).type()).to.equal('div');
+    expect(wrapper.childAt(0).childAt(0).type()).to.equal(Link);
+    expect(wrapper.childAt(0).childAt(0).childAt(0).text()).to.equal(nodes[0].name);
     expect(wrapper.childAt(0).childAt(0).childAt(0).text()).to.equal(nodes[0].name);
     expect(wrapper.childAt(0).childAt(0).props().to).to.equal(nodes[0].route);
   });
 
-  it('should render a single node with an icon', () => {
-    const wrapper = shallow(<Node node={nodes[0]} node={nodeWithIcon[0]} />);
+  it('should render a single internal node with an icon', () => {
+    const wrapper = shallow(<Node node={nodeWithIcon[0]} />);
+    expect(wrapper.childAt(0).childAt(0).type()).to.equal(Link);
+    expect(wrapper.childAt(0).childAt(0).childAt(0).type()).to.equal(Icon);
+    expect(wrapper.childAt(0).childAt(0).childAt(0).props().name).to.equal('icon-check-1-1');
+    expect(wrapper.childAt(0).childAt(0).childAt(0).props().fill).to.equal('currentColor');
+  });
+
+  it('should render a single external node with an icon', () => {
+    const wrapper = shallow(<Node node={nodeWithIcon[0]} />);
     expect(wrapper.childAt(0).childAt(0).childAt(0).type()).to.equal(Icon);
     expect(wrapper.childAt(0).childAt(0).childAt(0).props().name).to.equal('icon-check-1-1');
     expect(wrapper.childAt(0).childAt(0).childAt(0).props().fill).to.equal('currentColor');
