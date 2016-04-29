@@ -21,9 +21,9 @@ class RadioGroup extends React.Component {
      */
     label: React.PropTypes.string,
     /**
-     * Name of the radio group.
+     * The name that will be applied to all radio buttons inside it.
      */
-    name: React.PropTypes.string,
+    name: React.PropTypes.string.isRequired,
     /**
      * Whether the radio group is required.
      */
@@ -63,7 +63,8 @@ class RadioGroup extends React.Component {
 
     return (
       <div className={radioGroupClass}>
-        { this.props.label ? <label className={style['radio-group-label']}>{this.props.label}</label> : null }
+        {this.props.required ? <span className={style.asterisk}>*</span> : null}
+        {this.props.label ? <label className={style['radio-group-label']}>{this.props.label}</label> : null}
         {this.getOptions()}
       </div>
     )
