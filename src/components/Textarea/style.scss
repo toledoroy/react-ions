@@ -1,0 +1,22 @@
+@import 'src/styles/common/colors';
+
+.textarea-component {
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: $navy-text;
+    font-family: proxima_nova;
+    font-weight: 200;
+  }
+
+  textarea {
+    border: solid 1px #ecf0f0;
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 10px;
+    min-width: 300px;
+  }
+
+}
