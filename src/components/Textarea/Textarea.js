@@ -10,6 +10,10 @@ class Textarea extends React.Component {
     super(props);
   }
 
+  state = {
+    value: this.props.value
+  }
+
   static defaultProps = {
     disabled: false
   }
@@ -31,27 +35,32 @@ class Textarea extends React.Component {
      * Optional styles to add to the textarea component.
      */
     optClass: React.PropTypes.string,
+    /**
+     * A callback function (from RadioGroup) to be called when the option is selected.
+     */
+    selectCallback: React.PropTypes.func
   };
 
   componentDidMount() {
     this.refs.textarea.disabled = this.props.disabled || false;
   }
 
-  handleChange(event) {
-    if (typeof this.props.selectCallback === 'function') {
-      this.props.selectCallback(event, this.props.value);
-    }
+  handleChange = (event) => {
+    this.setState({
+      value: event.target.value
+    });
+    console.log(this.state);
   }
 
   render() {
     const cx = classNames.bind(style);
-    var disabledClass = this.props.disabled ? style['radio-disabled'] : '';
+    var disabledClass = this.props.disabled ? style['textarea-disabled'] : '';
     var textareaClass = cx(style['textarea-component'], this.props.optClass, disabledClass);
 
     return (
-      <div className={style['textarea-component']}>
+      <div className={textareaClass}>
         { this.props.label ? <label>{this.props.label}</label> : null }
-        <textarea type="textarea" ref="textarea" value={this.props.value} name={this.props.name} onChange={this.handleChange.bind(this)}></textarea>
+        <textarea ref="textarea" name={this.props.name} value={this.state.value} onChange={this.handleChange.bind(this)}></textarea>
       </div>
     )
   }

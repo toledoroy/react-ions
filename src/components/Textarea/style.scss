@@ -24,4 +24,10 @@
     }
   }
 
+  &.textarea-error {
+    textarea {
+      border-color: $danger;
+    }
+  }
+
 }
