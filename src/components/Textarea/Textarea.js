@@ -49,7 +49,6 @@ class Textarea extends React.Component {
     this.setState({
       value: event.target.value
     });
-    console.log(this.state);
   }
 
   render() {
