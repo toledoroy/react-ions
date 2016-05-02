@@ -5,11 +5,11 @@ module.exports = function(config) {
     basePath: '../',
     frameworks: ['mocha', 'chai', 'sinon'],
     files: [
-      './test/*.js'
+      'config/index.js'
     ],
 
     preprocessors: {
-      './test/*.js': ['webpack'],
+      'config/index.js': ['webpack'],
     },
 
     coverageReporter: {
@@ -20,7 +20,7 @@ module.exports = function(config) {
     thresholdReporter: {
       statements: 95,
       branches: 95,
-      functions: 90,
+      functions: 95,
       lines: 95
     },
 
