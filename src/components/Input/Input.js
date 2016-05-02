@@ -63,7 +63,7 @@ class Input extends React.Component {
     return (
       <div className={inputClass}>
         { this.props.label ? <label>{this.props.label}</label> : null }
-        <input ref='input' name={this.props.name} placeholder={this.props.placeholder} value={this.state.value} onChange={this.handleChange.bind(this)}></input>
+        <input ref='input' name={this.props.name} placeholder={this.props.placeholder} value={this.state.value} onChange={this.handleChange}></input>
       </div>
     )
   }
