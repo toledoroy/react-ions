@@ -5,15 +5,18 @@ import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleTextareaDefault from './ExampleTextareaDefault'
 import exampleTextareaDefaultCode from '!raw!./ExampleTextareaDefault'
+import ExampleTextareaPlaceholder from './ExampleTextareaPlaceholder'
+import exampleTextareaPlaceholderCode from '!raw!./ExampleTextareaPlaceholder'
 import ExampleTextareaDisabled from './ExampleTextareaDisabled'
 import exampleTextareaDisabledCode from '!raw!./ExampleTextareaDisabled'
 import ExampleTextareaError from './ExampleTextareaError'
 import exampleTextareaErrorCode from '!raw!./ExampleTextareaError'
 
 const description = {
-  textareaDefault: 'This is the `textarea component` as it appears by default.',
-  textareaDisabled: 'This is the disabled `textarea component`.',
-  textareaError: 'This is the `textarea component` with error.'
+  textareaDefault: 'This is the textarea component as it appears by default.',
+  textareaPlaceholder: 'This is the textarea component with placeholder text.',
+  textareaDisabled: 'This is the disabled textarea component.',
+  textareaError: 'This is the textarea component with error.'
 };
 
 const TextareaPage = () => (
@@ -25,6 +28,12 @@ const TextareaPage = () => (
           description={description.textareaDefault}
           markup={exampleTextareaDefaultCode}>
           <ExampleTextareaDefault />
+        </CodeExample>
+        <CodeExample
+          title='Textarea with Placeholder text'
+          description={description.textareaPlaceholder}
+          markup={exampleTextareaPlaceholderCode}>
+          <ExampleTextareaPlaceholder />
         </CodeExample>
         <CodeExample
           title='Disabled Textarea'

@@ -32,6 +32,10 @@ class Textarea extends React.Component {
      */
     value: React.PropTypes.string,
     /**
+     * Optional placeholder text.
+     */
+    placeholder: React.PropTypes.string,
+    /**
      * Optional styles to add to the textarea component.
      */
     optClass: React.PropTypes.string,
@@ -58,8 +62,8 @@ class Textarea extends React.Component {
 
     return (
       <div className={textareaClass}>
-        { this.props.label ? <label>{this.props.label}</label> : null }
-        <textarea ref="textarea" name={this.props.name} value={this.state.value} onChange={this.handleChange.bind(this)}></textarea>
+        {this.props.label ? <label>{this.props.label}</label> : null}
+        <textarea ref='textarea' name={this.props.name} placeholder={this.props.placeholder} value={this.state.value} onChange={this.handleChange}></textarea>
       </div>
     )
   }
