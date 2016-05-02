@@ -6,15 +6,18 @@ const Breadcrumb = (props) => {
   const depth = props.routes.length;
 
   const getTags = () => {
+    let rootRendered = false;
+
     return props.routes.map(function(item, index) {
-      if (index === 0) return;
+      if (item.title === undefined) return;
 
       let tags = [];
-      if (index === 1) {
-        tags.push(<h2 className={style.primary}>{item.title}</h2>);
+      if (rootRendered) {
+        tags.push(<span className={style.secondary}>{item.title}</span>);        
       }
       else {
-        tags.push(<span className={style.secondary}>{item.title}</span>);
+        tags.push(<h2 className={style.primary}>{item.title}</h2>);
+        rootRendered = true;
       }
 
       //display arrow if there's another level
@@ -32,6 +35,9 @@ const Breadcrumb = (props) => {
 };
 
 React.propTypes = {
+  /**
+   * The array of routes to generate the Breadcrumbs.
+   */
   routes: React.PropTypes.array.isRequired
 };
 

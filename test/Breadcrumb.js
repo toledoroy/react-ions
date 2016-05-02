@@ -102,4 +102,29 @@ describe('Breadcrumb', () => {
     expect(wrapper.childAt(3).props().height).to.equal('14');
     expect(wrapper.childAt(3).props().color).to.equal('#879098');
   });
+
+  it('should shallow render and display two levels even if a root was not passed in', () => {
+    routes = [
+      {
+        path: 'foundations',
+        title: 'Foundations'
+      },
+      {
+        path: 'test',
+        title: 'Test'
+      }
+    ];
+
+    wrapper = shallow(<Breadcrumb routes={routes} />);
+    expect(wrapper.find('div')).to.have.length(1);
+    expect(wrapper.first().hasClass('breadcrumb')).to.equal(true);
+
+    expect(wrapper.find('h2')).to.have.length(1);
+    expect(wrapper.childAt(0).hasClass('primary')).to.equal(true);
+    expect(wrapper.contains(<h2 className='primary'>Foundations</h2>)).to.equal(true);
+
+    expect(wrapper.find('span')).to.have.length(1);
+    expect(wrapper.childAt(2).props().className).to.equal('secondary');
+    expect(wrapper.contains(<span className='secondary'>Test</span>)).to.equal(true);
+  });
 });
