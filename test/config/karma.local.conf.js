@@ -27,17 +27,17 @@ module.exports = function(config) {
     webpack: { //kind of a copy of your webpack config
       module: {
         preLoaders: [
-            {
-              test: /\.js$/,
-              exclude: /(test|node_modules)\//,
-              loader: 'isparta-instrumenter-loader',
-              query: {
-                babel: {
-                  presets: ['airbnb', 'es2015'],
-                  plugins: ['transform-object-rest-spread', 'transform-class-properties', 'transform-export-extensions']
-                }
+          {
+            test: /\.js$/,
+            exclude: /(test|node_modules)\//,
+            loader: 'isparta-instrumenter-loader',
+            query: {
+              babel: {
+                presets: ['airbnb', 'es2015'],
+                plugins: ['transform-object-rest-spread', 'transform-class-properties', 'transform-export-extensions']
               }
-            },
+            }
+          }
         ],
         loaders: [
           {
