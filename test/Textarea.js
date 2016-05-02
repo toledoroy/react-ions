@@ -44,9 +44,10 @@ describe('Textarea', () => {
     expect(wrapper.childAt(0).props().value).to.equal('test');
     wrapper.childAt(0).simulate('change', afterChange);
     expect(wrapper.childAt(0).props().value).to.be.equal('New value');
+    expect(spy.calledOnce).to.be.true;
   });
 
-  it('should update the value onBlur', () => {
+  it('should run onBlur callback on blur', () => {
     var spy = sinon.spy();
     wrapper = mount(<Textarea value='test' onBlur={spy} />);
     expect(typeof wrapper.childAt(0).props().onBlur).to.equal('function');
@@ -54,7 +55,7 @@ describe('Textarea', () => {
     expect(spy.calledOnce).to.be.true;
   });
 
-  it('should update the value onFocus', () => {
+  it('should run onFocus callback on focus', () => {
     var spy = sinon.spy();
     wrapper = mount(<Textarea value='test' onFocus={spy} />);
     expect(typeof wrapper.childAt(0).props().onFocus).to.equal('function');
