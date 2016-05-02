@@ -1,7 +1,7 @@
-import React from 'react';
-import classNames from 'classnames/bind';
+import React from 'react'
+import classNames from 'classnames/bind'
 import Radio from './Radio'
-import style from './style.scss';
+import style from './style.scss'
 
 /**
  * The RadioGroup component.
@@ -107,4 +107,4 @@ class RadioGroup extends React.Component {
   }
 }
 
-export default RadioGroup;
+export default RadioGroup
