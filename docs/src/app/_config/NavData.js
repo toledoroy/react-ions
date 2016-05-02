@@ -23,6 +23,9 @@ const nav = [
     route: '/components',
     nav: [
       {
+        name: 'Breadcrumb',
+        route: '/components/breadcrumb'
+      }, {
         name: 'Progress Bar',
         route: '/components/progress-bar'
       }, {
