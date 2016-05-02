@@ -20,7 +20,7 @@ class Textarea extends React.Component {
 
   static propTypes = {
     /**
-     * Whether the texrtarea is disabled.
+     * Whether the textarea is disabled.
      */
     disabled: React.PropTypes.bool,
     /**
@@ -40,15 +40,15 @@ class Textarea extends React.Component {
      */
     optClass: React.PropTypes.string,
     /**
-     * A callback function to be called when the textfield changes.
+     * A callback function to be called when the textarea changes.
      */
     onChange: React.PropTypes.func,
     /**
-     * A callback function to be called when the textfield is focused.
+     * A callback function to be called when the textarea is focused.
      */
     onFocus: React.PropTypes.func,
     /**
-     * A callback function to be called when the textfield is blurred.
+     * A callback function to be called when the textarea is blurred.
      */
     onBlur: React.PropTypes.func
   };
