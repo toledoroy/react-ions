@@ -34,20 +34,14 @@ describe('Textarea', () => {
     expect(wrapper.childAt(1).props().value).to.equal('testing');
   });
 
-  it.skip('should update the value onChange', () => {
-    const initialValue = 'Initial value';
+  it('should update the value onChange', () => {
     const afterChange = {target: {value: 'New value'}};
-    const handleChange = function(event) {
-      wrapper.setState({
-        value: event.target.value
-      });
-    };
 
-    wrapper = mount(<Textarea value='test' onChange={handleChange}></Textarea>);
-    expect(wrapper.childAt(1).props().value).not.to.equal(initialValue);
+    wrapper = mount(<Textarea value='test'></Textarea>);
 
-    wrapper.simulate('change', afterChange);
-    expect(wrapper.childAt(1).props().value).to.be.equal(newVal);
+    expect(wrapper.childAt(0).text()).to.equal('test');
+
+    wrapper.childAt(0).simulate('change', afterChange);
+    expect(wrapper.childAt(0).props().value).to.be.equal('New value');
   });
-
 });
