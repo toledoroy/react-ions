@@ -39,20 +39,46 @@ class Input extends React.Component {
      * Name of the input.
      */
     name: React.PropTypes.string,
-    /**
+    /**don'
      * Optional styles to add to the input component.
      */
-    optClass: React.PropTypes.string
+    optClass: React.PropTypes.string,
+    /**
+     * A callback function to be called when the input changes.
+     */
+    onChange: React.PropTypes.func,
+    /**
+     * A callback function to be called when the input is focused.
+     */
+    onFocus: React.PropTypes.func,
+    /**
+     * A callback function to be called when the input is blurred.
+     */
+    onBlur: React.PropTypes.func
   };
 
   componentDidMount() {
     this.refs.input.disabled = this.props.disabled || false;
   }
 
-  handleChange = (event) => {
-    this.setState({
-      value: event.target.value
+  handleChange(event) {
+    this.setState({value: event.target.value}, function() {
+      if (typeof this.props.onChange === 'function') {
+        this.props.onChange(event);
+      }
     });
+  }
+
+  handleFocus = (event) => {
+    if (typeof this.props.onFocus === 'function') {
+      this.props.onFocus(event);
+    }
+  }
+
+  handleBlur = (event) => {
+    if (typeof this.props.onBlur === 'function') {
+      this.props.onBlur(event);
+    }
   }
 
   render() {
@@ -63,7 +89,14 @@ class Input extends React.Component {
     return (
       <div className={inputClass}>
         { this.props.label ? <label>{this.props.label}</label> : null }
-        <input ref='input' name={this.props.name} placeholder={this.props.placeholder} value={this.state.value} onChange={this.handleChange}></input>
+        <input
+          placeholder={this.props.placeholder}
+          ref='input'
+          value={this.state.value}
+          onFocus={this.handleFocus.bind(this)}
+          onChange={this.handleChange.bind(this)}
+          onBlur={this.handleBlur.bind(this)}>
+        </input>
       </div>
     )
   }

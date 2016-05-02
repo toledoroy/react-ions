@@ -29,18 +29,12 @@ describe('Input', () => {
     expect(wrapper.childAt(1).props().value).to.equal('testing');
   });
 
-  it.skip('should have a callback', () => {
-    const newVal = 'My new value';
-    const callback = function(event) {
-      wrapper.setState({ value: event.target.value });
-    };
-    wrapper = mount(<Input value='test' ref='input' label='Test label' onChange={callback}></Input>);
-    expect(wrapper.props.value).not.to.equal(newVal);
-
-    console.log(wrapper.childAt(1).html());
-
-    wrapper.simulate('change', {target: {value: 'My new value'}});
-    expect(wrapper.props.value).to.be.equal(newVal);
+  it('should update the value onChange', () => {
+    const afterChange = {target: {value: 'New value'}};
+    wrapper = mount(<Input value='test' />);
+    expect(wrapper.childAt(0).text()).to.equal('test');
+    wrapper.childAt(0).simulate('change', afterChange);
+    expect(wrapper.childAt(0).props().value).to.be.equal('New value');
   });
 
 });

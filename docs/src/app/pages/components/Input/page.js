@@ -11,12 +11,15 @@ import ExampleInputDisabled from './ExampleInputDisabled'
 import exampleInputDisabledCode from '!raw!./ExampleInputDisabled'
 import ExampleInputError from './ExampleInputError'
 import exampleInputErrorCode from '!raw!./ExampleInputError'
+import ExampleInputCallback from './ExampleInputCallback'
+import exampleInputCallbackCode from '!raw!./ExampleInputCallback'
 
 const description = {
   inputDefault: 'This is the `input component` as it appears by default.',
   inputPlaceholder: 'This is the `input component` with placeholder text.',
   inputDisabled: 'This is the disabled `input component`.',
-  inputError: 'This is the `input component` with error.'
+  inputError: 'This is the `input component` with error.',
+  inputCallback: 'This is the textarea component with a callback function. __Note__: _the `style import` and `code` tag is for display purposes only._'
 };
 
 const InputPage = () => (
@@ -46,6 +49,12 @@ const InputPage = () => (
           description={description.inputError}
           markup={exampleInputErrorCode}>
           <ExampleInputError />
+        </CodeExample>
+        <CodeExample
+          title='Input with callback function(s)'
+          description={description.inputCallback}
+          markup={exampleInputCallbackCode}>
+          <ExampleInputCallback />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
