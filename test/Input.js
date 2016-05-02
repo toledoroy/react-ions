@@ -9,6 +9,7 @@ describe('Input', () => {
     wrapper = shallow(<Input label='Default input' placeholder='Placeholder text' value='Initial value.' />);
     expect(wrapper.find('input')).to.have.length(1);
     expect(wrapper.find('label')).to.have.length(1);
+    expect(wrapper.find('label').text()).to.equal('Default input');
     expect(wrapper.hasClass('input-component')).to.equal(true);
     expect(wrapper.childAt(1).props().placeholder).to.equal('Placeholder text');
     expect(wrapper.childAt(1).props().value).to.equal('Initial value.');
@@ -39,9 +40,10 @@ describe('Input', () => {
     expect(wrapper.childAt(0).props().value).to.equal('test');
     wrapper.childAt(0).simulate('change', afterChange);
     expect(wrapper.childAt(0).props().value).to.be.equal('New value');
+    expect(spy.calledOnce).to.be.true;
   });
 
-  it('should update the value onBlur', () => {
+  it('should run onBlur callback on blur', () => {
     var spy = sinon.spy();
     wrapper = mount(<Input value='test' onBlur={spy} />);
     expect(typeof wrapper.childAt(0).props().onBlur).to.equal('function');
@@ -49,7 +51,7 @@ describe('Input', () => {
     expect(spy.calledOnce).to.be.true;
   });
 
-  it('should update the value onFocus', () => {
+  it('should run onFocus callback on focus', () => {
     var spy = sinon.spy();
     wrapper = mount(<Input value='test' onFocus={spy} />);
     expect(typeof wrapper.childAt(0).props().onFocus).to.equal('function');

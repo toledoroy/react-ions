@@ -2,8 +2,6 @@
 ### Not ready for production.
 Stay tuned.
 
-{{TOC}}
-
 # Introduction
 **React Conventions** is a set of React components that implement Ambassador's Design and UX patterns. They are designed to be re-usable and composable across large-scale web applications.
 
@@ -64,10 +62,6 @@ Visit the [React Conventions](http://react-conventions.herokuapp.com) for more e
 
 ### ES6 Syntax
 - No semi-colons needed for import statements or top-level functions, variables, constants, etc
-
-## React Components
-
----
 
 ## CSS
 
@@ -137,8 +131,6 @@ Use this function when defining z-index values. Using it only part of the time m
 Try to keep the layer map as _light_ as possible. The more layers we add, the more you make your Z scale complex. Try finding a couple of recurring values, map them to generic keywords, and you should be good to go.
 
 Reference: [A Better Solution for Managing z-index with Sass](http://www.sitepoint.com/better-solution-managing-z-index-sass/)
-
----
 
 ### Release Process
 1) Create release branch & pull request

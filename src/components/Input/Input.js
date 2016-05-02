@@ -20,7 +20,7 @@ class Input extends React.Component {
 
   static propTypes = {
     /**
-     * Whether the texrtarea is disabled.
+     * Whether the input is disabled.
      */
     disabled: React.PropTypes.bool,
     /**
@@ -39,7 +39,7 @@ class Input extends React.Component {
      * Name of the input.
      */
     name: React.PropTypes.string,
-    /**don'
+    /**
      * Optional styles to add to the input component.
      */
     optClass: React.PropTypes.string,
