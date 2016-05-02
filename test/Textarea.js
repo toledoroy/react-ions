@@ -17,6 +17,11 @@ describe('Textarea', () => {
     expect(wrapper.find('textarea').node.hasAttribute('disabled')).to.equal(true);
   });
 
+  it('should be not have a label', () => {
+    wrapper = mount(<Textarea value='' />);
+    expect(wrapper.find('label')).to.have.length(0);
+  });
+
   it('should have an extra class', () => {
     wrapper = shallow(<Textarea label='Textarea with error' value='' optClass='textarea-error' />);
     expect(wrapper.hasClass('textarea-component')).to.equal(true);
@@ -29,18 +34,20 @@ describe('Textarea', () => {
     expect(wrapper.childAt(1).props().value).to.equal('testing');
   });
 
-  it.skip('should have a callback', () => {
-    const newVal = 'My new value';
-    const callback = function(event) {
-      wrapper.setState({ value: event.target.value });
+  it.skip('should update the value onChange', () => {
+    const initialValue = 'Initial value';
+    const afterChange = {target: {value: 'New value'}};
+    const handleChange = function(event) {
+      wrapper.setState({
+        value: event.target.value
+      });
     };
-    wrapper = mount(<Textarea value='test' ref='textarea' label='Test label' onChange={callback}></Textarea>);
-    expect(wrapper.props.value).not.to.equal(newVal);
 
-    console.log(wrapper.childAt(1).html());
+    wrapper = mount(<Textarea value='test' onChange={handleChange}></Textarea>);
+    expect(wrapper.childAt(1).props().value).not.to.equal(initialValue);
 
-    wrapper.simulate('change', {target: {value: 'My new value'}});
-    expect(wrapper.props.value).to.be.equal(newVal);
+    wrapper.simulate('change', afterChange);
+    expect(wrapper.childAt(1).props().value).to.be.equal(newVal);
   });
 
 });
