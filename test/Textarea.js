@@ -19,8 +19,13 @@ describe('Textarea', () => {
     expect(wrapper.find('textarea').node.hasAttribute('disabled')).to.equal(true);
   });
 
-  it('should be not have a label', () => {
-    wrapper = mount(<Textarea value='' />);
+  it('should have an disabled class', () => {
+    wrapper = shallow(<Textarea disabled />);
+    expect(wrapper.hasClass('textarea-disabled')).to.equal(true);
+  });
+
+  it('should not have a label', () => {
+    wrapper = shallow(<Textarea value='' />);
     expect(wrapper.find('label')).to.have.length(0);
   });
 
@@ -30,13 +35,7 @@ describe('Textarea', () => {
     expect(wrapper.hasClass('textarea-error')).to.equal(true);
   });
 
-  it('should have state set to an initial value', () => {
-    wrapper = shallow(<Textarea label='Textarea with initial value' value='' />);
-    wrapper.setState({ value: 'testing' });
-    expect(wrapper.childAt(1).props().value).to.equal('testing');
-  });
-
-  it('should update the value onChange', () => {
+  it('should update the value onChange and run onChange callback', () => {
     var spy = sinon.spy();
     const afterChange = {target: {value: 'New value'}};
     wrapper = mount(<Textarea value='test' onChange={spy} />);

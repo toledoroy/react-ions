@@ -29,10 +29,6 @@
       box-shadow: 0 0 2px $primary-1;
       outline: 0;
     }
-
-    &:disabled {
-      cursor: not-allowed;
-    }
   }
 
   &.textarea-error {
@@ -42,6 +38,13 @@
       &:focus {
         box-shadow: 0 0 2px $danger;
       }
+    }
+  }
+
+  &.textarea-disabled {
+    cursor: not-allowed;
+    textarea {
+      cursor: not-allowed;
     }
   }
 
