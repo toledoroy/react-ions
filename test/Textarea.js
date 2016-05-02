@@ -29,15 +29,18 @@ describe('Textarea', () => {
     expect(wrapper.childAt(1).props().value).to.equal('testing');
   });
 
-  it('should have a callback', () => {
-    let value = '';
+  it.skip('should have a callback', () => {
+    const newVal = 'My new value';
     const callback = function(event) {
-      value = event.target.value;
+      wrapper.setState({ value: event.target.value });
     };
-    wrapper = mount(<Textarea value='test' label='Test label' onChange={callback}></Textarea>);
+    wrapper = mount(<Textarea value='test' ref='textarea' label='Test label' onChange={callback}></Textarea>);
+    expect(wrapper.props.value).not.to.equal(newVal);
 
-    wrapper.find('textarea').simulate('change');
-    expect(value).to.be.equal('test');
+    console.log(wrapper.childAt(1).html());
+
+    wrapper.simulate('change', {target: {value: 'My new value'}});
+    expect(wrapper.props.value).to.be.equal(newVal);
   });
 
 });

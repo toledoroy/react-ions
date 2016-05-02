@@ -5,7 +5,7 @@ module.exports = function(config) {
     basePath: '../',
     frameworks: ['mocha', 'chai', 'sinon'],
     files: [
-      './test/Textarea.js'
+      './test/*.js'
     ],
 
     preprocessors: {
