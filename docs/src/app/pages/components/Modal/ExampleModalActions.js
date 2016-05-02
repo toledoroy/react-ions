@@ -2,7 +2,7 @@ import React from 'react'
 import Modal from 'react-conventions/lib/Modal'
 import Button from 'react-conventions/lib/Button'
 
-class ExampleModalDefault extends React.Component {
+class ExampleModalActions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,20 +19,26 @@ class ExampleModalDefault extends React.Component {
   };
 
   render() {
+    const actions = [
+      <Button onClick={this.handleClose}>Close</Button>
+    ];
+
     return (
       <div>
         <Button onClick={this.handleOpen}>Open Modal</Button>
         <Modal
-          title="Default Modal"
+          title="Modal With Actions"
           open={this.state.open}
           onRequestClose={this.handleClose}
+          actions={actions}
+          overlayClose={false}
         >
-          <p>This is the modal component as it appears by default.</p>
-          <p>You can also close this dialog by clicking outside the dialog, or with the 'Esc' key.</p>
+          <p>The actions in this window were passed in as an array of React objects.</p>
+          <p>This modal can only be closed by selecting one of the actions.</p>
         </Modal>
       </div>
     );
   }
 }
 
-export default ExampleModalDefault
+export default ExampleModalActions

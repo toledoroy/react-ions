@@ -14,7 +14,7 @@ class Modal extends React.Component {
 
   static defaultProps = {
     open: false,
-    modal: false
+    overlayClose: true
   }
 
   static propTypes = {
@@ -32,10 +32,10 @@ class Modal extends React.Component {
      */
     open: React.PropTypes.bool.isRequired,
     /**
-     * Force the user to use one of the actions in the `Modal`.
-     * Clicking outside the `Modal` will not trigger the `onRequestClose`.
+     * When set to false it will force the user to use one of the actions in the `Modal`.
+     * Clicking outside the `Modal` will not trigger the `onRequestClose` in that case.
      */
-    modal: React.PropTypes.bool,
+    overlayClose: React.PropTypes.bool,
     /**
      * Fired when the `Modal` is requested to be closed by a click outside the `Modal` or on the buttons.
      *
@@ -60,7 +60,7 @@ class Modal extends React.Component {
   }
 
   requestClose(buttonClicked) {
-    if (!buttonClicked && this.props.modal) {
+    if (!buttonClicked && !this.props.overlayClose) {
       return;
     }
 
@@ -74,7 +74,14 @@ class Modal extends React.Component {
 
   render() {
     const cx = classNames.bind(style);
-    var modalClass = cx(style['modal-component'], this.props.optClass);
+    var modalOpenClass = this.props.open ? style['modal-open'] : '';
+    var modalClass = cx(style['modal-component'], this.props.optClass, modalOpenClass);
+
+    const actionsContainer = React.Children.count(this.props.actions) > 0 && (
+      <div className={style['modal-actions']}>
+        {React.Children.toArray(this.props.actions)}
+      </div>
+    );
 
     return (
       <div className={modalClass}>
@@ -85,6 +92,17 @@ class Modal extends React.Component {
             onResize={this.handleResize.bind(this)}
           />
         }
+        <div className={style['modal-content']}>
+          <div className={style['modal-header']}>
+            {this.props.title ? <h1>{this.props.title}</h1> : null}
+          </div>
+          <div className={style['modal-body']}>
+            {this.props.children}
+          </div>
+          <div className={style['modal-footer']}>
+            {actionsContainer}
+          </div>
+        </div>
         <Overlay
           show={this.props.open}
           onClick={this.handleClickOverlay.bind(this)}

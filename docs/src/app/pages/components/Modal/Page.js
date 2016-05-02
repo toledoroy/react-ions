@@ -5,9 +5,12 @@ import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleModalDefault from './ExampleModalDefault'
 import exampleModalDefaultCode from '!raw!./ExampleModalDefault'
+import ExampleModalActions from './ExampleModalActions'
+import exampleModalActionsCode from '!raw!./ExampleModalActions'
 
 const description = {
-  modalDefault: 'Default `modal component`.'
+  modalDefault: 'This is the `modal component` as it appears by default.',
+  modalActions: 'This is the `modal component` with actions.'
 };
 
 const RadioPage = () => (
@@ -20,6 +23,12 @@ const RadioPage = () => (
           description={description.modalDefault}
           markup={exampleModalDefaultCode}>
           <ExampleModalDefault />
+        </CodeExample>
+        <CodeExample
+          title='Modal with actions'
+          description={description.modalActions}
+          markup={exampleModalActionsCode}>
+          <ExampleModalActions />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>

@@ -1,1 +1,49 @@
 @import 'src/styles/common/colors';
+@import 'src/styles/common/_config';
+
+.modal-component {
+  &.modal-open {
+    .modal-content {
+      opacity: 1;
+      z-index: 1401;
+      visibility: visible;
+    }
+  }
+  .modal-content {
+    opacity: 0;
+    z-index: -1;
+    visibility: hidden;
+    position: fixed;
+    left: 50%;
+    top: 100px;
+    width: 75%;
+    padding: 30px;
+    max-width: 768px;
+    background: $white;
+    border-radius: 3px;
+    transform: translate(-50%, 0);
+    transition: opacity .4s $animation-in-out-quadratic;
+    h1 {
+      font-family: proxima_nova;
+      font-weight: 200;;
+    	font-size: 20px;
+      margin-bottom: 15px;
+    	color: $navy-text;
+    }
+    .modal-body {
+      font-size: 14px;
+    	line-height: 1.5;
+    	color: $navy-text;
+    }
+    .modal-footer {
+      margin-top: 30px;
+    }
+    .modal-actions {
+      float: right;
+      button {
+        margin-right: 0;
+        margin-left: 12px;
+      }
+    }
+  }
+}
