@@ -6,10 +6,12 @@ describe('Textarea', () => {
   let wrapper;
 
   it('should shallow render itself', () => {
-    wrapper = shallow(<Textarea label='Default textarea' name='textarea' value='Initial value.' />);
+    wrapper = shallow(<Textarea label='Default textarea' placeholder='Placeholder text' value='Initial value.' />);
     expect(wrapper.find('textarea')).to.have.length(1);
     expect(wrapper.find('label')).to.have.length(1);
     expect(wrapper.hasClass('textarea-component')).to.equal(true);
+    expect(wrapper.childAt(1).props().placeholder).to.equal('Placeholder text');
+    expect(wrapper.childAt(1).props().value).to.equal('Initial value.');
   });
 
   it('should be disabled', () => {
@@ -35,26 +37,28 @@ describe('Textarea', () => {
   });
 
   it('should update the value onChange', () => {
+    var spy = sinon.spy();
     const afterChange = {target: {value: 'New value'}};
-    wrapper = mount(<Textarea value='test'></Textarea>);
-    expect(wrapper.childAt(0).text()).to.equal('test');
+    wrapper = mount(<Textarea value='test' onChange={spy} />);
+    expect(typeof wrapper.childAt(0).props().onChange).to.equal('function');
+    expect(wrapper.childAt(0).props().value).to.equal('test');
     wrapper.childAt(0).simulate('change', afterChange);
     expect(wrapper.childAt(0).props().value).to.be.equal('New value');
   });
 
-  it('should handle an onFocus event', () => {
-    const afterFocus = {target: {value: 'After focus'}};
-    wrapper = mount(<Textarea value='test'></Textarea>);
-    expect(wrapper.childAt(0).text()).to.equal('test');
-    wrapper.childAt(0).simulate('focus', afterFocus);
-    expect(wrapper.childAt(0).props().value).to.be.equal('After focus');
+  it('should update the value onBlur', () => {
+    var spy = sinon.spy();
+    wrapper = mount(<Textarea value='test' onBlur={spy} />);
+    expect(typeof wrapper.childAt(0).props().onBlur).to.equal('function');
+    wrapper.childAt(0).simulate('blur');
+    expect(spy.calledOnce).to.be.true;
   });
 
-  it('should handle an onBlur event', () => {
-    const afterBlur = {target: {value: 'After blur'}};
-    wrapper = mount(<Textarea value='test'></Textarea>);
-    expect(wrapper.childAt(0).text()).to.equal('test');
-    wrapper.childAt(0).simulate('blur', afterBlur);
-    expect(wrapper.childAt(0).props().value).to.be.equal('After blur');
+  it('should update the value onFocus', () => {
+    var spy = sinon.spy();
+    wrapper = mount(<Textarea value='test' onFocus={spy} />);
+    expect(typeof wrapper.childAt(0).props().onFocus).to.equal('function');
+    wrapper.childAt(0).simulate('focus');
+    expect(spy.calledOnce).to.be.true;
   });
 });
