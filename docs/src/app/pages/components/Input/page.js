@@ -5,6 +5,8 @@ import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleInputDefault from './ExampleInputDefault'
 import exampleInputDefaultCode from '!raw!./ExampleInputDefault'
+import ExampleInputPlaceholder from './ExampleInputPlaceholder'
+import exampleInputPlaceholderCode from '!raw!./ExampleInputPlaceholder'
 import ExampleInputDisabled from './ExampleInputDisabled'
 import exampleInputDisabledCode from '!raw!./ExampleInputDisabled'
 import ExampleInputError from './ExampleInputError'
@@ -12,6 +14,7 @@ import exampleInputErrorCode from '!raw!./ExampleInputError'
 
 const description = {
   inputDefault: 'This is the `input component` as it appears by default.',
+  inputPlaceholder: 'This is the `input component` with placeholder text.',
   inputDisabled: 'This is the disabled `input component`.',
   inputError: 'This is the `input component` with error.'
 };
@@ -25,6 +28,12 @@ const InputPage = () => (
           description={description.inputDefault}
           markup={exampleInputDefaultCode}>
           <ExampleInputDefault />
+        </CodeExample>
+        <CodeExample
+          title='Input with Placeholder Text'
+          description={description.inputPlaceholder}
+          markup={exampleInputPlaceholderCode}>
+          <ExampleInputPlaceholder />
         </CodeExample>
         <CodeExample
           title='Disabled Input'

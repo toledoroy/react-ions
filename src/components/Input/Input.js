@@ -32,13 +32,17 @@ class Input extends React.Component {
      */
     value: React.PropTypes.string,
     /**
+     * Optional placeholder text.
+     */
+    placeholder: React.PropTypes.string,
+    /**
+     * Name of the input.
+     */
+    name: React.PropTypes.string,
+    /**
      * Optional styles to add to the input component.
      */
-    optClass: React.PropTypes.string,
-    /**
-     * A callback function (from RadioGroup) to be called when the option is selected.
-     */
-    selectCallback: React.PropTypes.func
+    optClass: React.PropTypes.string
   };
 
   componentDidMount() {
@@ -59,7 +63,7 @@ class Input extends React.Component {
     return (
       <div className={inputClass}>
         { this.props.label ? <label>{this.props.label}</label> : null }
-        <input ref="input" name={this.props.name} value={this.state.value} onChange={this.handleChange.bind(this)}></input>
+        <input ref='input' name={this.props.name} placeholder={this.props.placeholder} value={this.state.value} onChange={this.handleChange.bind(this)}></input>
       </div>
     )
   }
