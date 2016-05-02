@@ -43,6 +43,9 @@ const nav = [
       }, {
         name: 'Radio Group',
         route: '/components/radio-group'
+      }, {
+        name: 'Modal',
+        route: '/components/modal'
       }
     ]
   }, {
