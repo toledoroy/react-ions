@@ -6,10 +6,12 @@ describe('Input', () => {
   let wrapper;
 
   it('should shallow render itself', () => {
-    wrapper = shallow(<Input label='Default input' name='input' value='Initial value.' />);
+    wrapper = shallow(<Input label='Default input' placeholder='Placeholder text' value='Initial value.' />);
     expect(wrapper.find('input')).to.have.length(1);
     expect(wrapper.find('label')).to.have.length(1);
     expect(wrapper.hasClass('input-component')).to.equal(true);
+    expect(wrapper.childAt(1).props().placeholder).to.equal('Placeholder text');
+    expect(wrapper.childAt(1).props().value).to.equal('Initial value.');
   });
 
   it('should be disabled', () => {
@@ -30,11 +32,29 @@ describe('Input', () => {
   });
 
   it('should update the value onChange', () => {
+    var spy = sinon.spy();
     const afterChange = {target: {value: 'New value'}};
-    wrapper = mount(<Input value='test' />);
-    expect(wrapper.childAt(0).text()).to.equal('test');
+    wrapper = mount(<Input value='test' onChange={spy} />);
+    expect(typeof wrapper.childAt(0).props().onChange).to.equal('function');
+    expect(wrapper.childAt(0).props().value).to.equal('test');
     wrapper.childAt(0).simulate('change', afterChange);
     expect(wrapper.childAt(0).props().value).to.be.equal('New value');
+  });
+
+  it('should update the value onBlur', () => {
+    var spy = sinon.spy();
+    wrapper = mount(<Input value='test' onBlur={spy} />);
+    expect(typeof wrapper.childAt(0).props().onBlur).to.equal('function');
+    wrapper.childAt(0).simulate('blur');
+    expect(spy.calledOnce).to.be.true;
+  });
+
+  it('should update the value onFocus', () => {
+    var spy = sinon.spy();
+    wrapper = mount(<Input value='test' onFocus={spy} />);
+    expect(typeof wrapper.childAt(0).props().onFocus).to.equal('function');
+    wrapper.childAt(0).simulate('focus');
+    expect(spy.calledOnce).to.be.true;
   });
 
 });

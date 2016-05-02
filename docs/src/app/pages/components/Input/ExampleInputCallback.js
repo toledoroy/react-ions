@@ -20,7 +20,7 @@ class ExampleInputCallback extends React.Component {
   }
 
   handleBlur = () => {
-    this.setState({status: 'Things are a bit blurry.'});
+    this.setState({status: 'I am blurred.'});
   }
 
   render() {
