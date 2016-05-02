@@ -36,12 +36,25 @@ describe('Textarea', () => {
 
   it('should update the value onChange', () => {
     const afterChange = {target: {value: 'New value'}};
-
     wrapper = mount(<Textarea value='test'></Textarea>);
-
     expect(wrapper.childAt(0).text()).to.equal('test');
-
     wrapper.childAt(0).simulate('change', afterChange);
     expect(wrapper.childAt(0).props().value).to.be.equal('New value');
+  });
+
+  it('should handle an onFocus event', () => {
+    const afterFocus = {target: {value: 'After focus'}};
+    wrapper = mount(<Textarea value='test'></Textarea>);
+    expect(wrapper.childAt(0).text()).to.equal('test');
+    wrapper.childAt(0).simulate('focus', afterFocus);
+    expect(wrapper.childAt(0).props().value).to.be.equal('After focus');
+  });
+
+  it('should handle an onBlur event', () => {
+    const afterBlur = {target: {value: 'After blur'}};
+    wrapper = mount(<Textarea value='test'></Textarea>);
+    expect(wrapper.childAt(0).text()).to.equal('test');
+    wrapper.childAt(0).simulate('blur', afterBlur);
+    expect(wrapper.childAt(0).props().value).to.be.equal('After blur');
   });
 });

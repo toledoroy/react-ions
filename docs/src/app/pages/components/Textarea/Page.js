@@ -22,7 +22,7 @@ const description = {
   textareaLabel: 'This is the textarea component with a label.',
   textareaDisabled: 'This is the disabled textarea component.',
   textareaError: 'This is the textarea component with error.',
-  textareaCallback: 'This is the textarea component with a callback function.'
+  textareaCallback: 'This is the textarea component with a callback function. __Note__: _the `style import` and `code` tag is for display purposes only._'
 };
 
 const TextareaPage = () => (
