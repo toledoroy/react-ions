@@ -40,19 +40,41 @@ class Textarea extends React.Component {
      */
     optClass: React.PropTypes.string,
     /**
-     * A callback function (from RadioGroup) to be called when the option is selected.
+     * A callback function to be called when the textfield changes.
      */
-    selectCallback: React.PropTypes.func
+    onChange: React.PropTypes.func,
+    /**
+     * A callback function to be called when the textfield is focused.
+     */
+    onFocus: React.PropTypes.func,
+    /**
+     * A callback function to be called when the textfield is blurred.
+     */
+    onBlur: React.PropTypes.func
   };
 
   componentDidMount() {
     this.refs.textarea.disabled = this.props.disabled || false;
   }
 
-  handleChange = (event) => {
-    this.setState({
-      value: event.target.value
+  handleChange(event) {
+    this.setState({value: event.target.value}, function() {
+      if (typeof this.props.onChange === 'function') {
+        this.props.onChange(event);
+      }
     });
+  }
+
+  handleFocus = (event) => {
+    if (typeof this.props.onFocus === 'function') {
+      this.props.onFocus(event);
+    }
+  }
+
+  handleBlur = (event) => {
+    if (typeof this.props.onBlur === 'function') {
+      this.props.onBlur(event);
+    }
   }
 
   render() {
@@ -63,7 +85,14 @@ class Textarea extends React.Component {
     return (
       <div className={textareaClass}>
         {this.props.label ? <label>{this.props.label}</label> : null}
-        <textarea ref='textarea' name={this.props.name} placeholder={this.props.placeholder} value={this.state.value} onChange={this.handleChange}></textarea>
+        <textarea
+          placeholder={this.props.placeholder}
+          ref='textarea'
+          value={this.state.value}
+          onFocus={this.handleFocus.bind(this)}
+          onChange={this.handleChange.bind(this)}
+          onBlur={this.handleBlur.bind(this)}>
+        </textarea>
       </div>
     )
   }

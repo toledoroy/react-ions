@@ -13,20 +13,27 @@
   }
 
   textarea {
-    border: solid 1px #ecf0f0;
+    border: solid 1px $neutral-3;
     border-radius: 3px;
     font-size: 14px;
     padding: 10px;
     min-width: 300px;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 
     @media #{$media-small-minus} {
       min-width: 240px;
+    }
+
+    &:focus {
+      border-color: $primary-1;
+      box-shadow: 0 0 2px $primary-1;
+      outline: 0;
     }
   }
 
   &.textarea-error {
     textarea {
-      border-color: $danger;
+      border: 2px solid $danger;
     }
   }
 

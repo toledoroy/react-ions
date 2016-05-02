@@ -13,13 +13,16 @@ import ExampleTextareaDisabled from './ExampleTextareaDisabled'
 import exampleTextareaDisabledCode from '!raw!./ExampleTextareaDisabled'
 import ExampleTextareaError from './ExampleTextareaError'
 import exampleTextareaErrorCode from '!raw!./ExampleTextareaError'
+import ExampleTextareaCallback from './ExampleTextareaCallback'
+import exampleTextareaCallbackCode from '!raw!./ExampleTextareaCallback'
 
 const description = {
   textareaDefault: 'This is the textarea component as it appears by default.',
   textareaPlaceholder: 'This is the textarea component with placeholder text.',
   textareaLabel: 'This is the textarea component with a label.',
   textareaDisabled: 'This is the disabled textarea component.',
-  textareaError: 'This is the textarea component with error.'
+  textareaError: 'This is the textarea component with error.',
+  textareaCallback: 'This is the textarea component with a callback function.'
 };
 
 const TextareaPage = () => (
@@ -55,6 +58,12 @@ const TextareaPage = () => (
           description={description.textareaError}
           markup={exampleTextareaErrorCode}>
           <ExampleTextareaError />
+        </CodeExample>
+        <CodeExample
+          title='Textarea with callback function'
+          description={description.textareaCallback}
+          markup={exampleTextareaCallbackCode}>
+          <ExampleTextareaCallback />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
