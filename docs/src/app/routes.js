@@ -40,15 +40,6 @@ const Routes = (
       <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
       <Route path='textarea' title='Textarea' component={TextareaPage} />
     </Route>
-    <Redirect from="components" to="/components/progress-bar" />
-    <Route path="components" title="Components">
-      <Route path="progress-bar" title="Progress Bar" component={ProgressBarPage} />
-      <Route path="icons" title="Icons" component={IconsPage} />
-      <Route path="buttons" title="Buttons" component={ButtonsPage} />
-      <Route path="checkbox" title="Checkbox" component={CheckboxPage} />
-      <Route path="radio" title="Radio" component={RadioPage} />
-      <Route path="radio-group" title="Radio Group" component={RadioGroupPage} />
-    </Route>
     <Route path='patterns' title='Patterns'>
     </Route>
     <Route path='resources' title='Resources'>
