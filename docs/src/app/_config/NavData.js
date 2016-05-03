@@ -45,6 +45,7 @@ const nav = [
       }, {
         name: 'Textarea',
         route: '/components/textarea'
+      }, {
         name: 'Input',
         route: '/components/input'
       }
