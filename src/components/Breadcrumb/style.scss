@@ -1,5 +1,26 @@
 @import 'src/styles/common/mixins';
 @import 'src/styles/common/colors';
+@import 'src/styles/common/screen';
+@import 'src/styles/common/functions';
+
+.breadcrumbs {
+  background-color: $neutral-1;
+  height: 64px;
+  left: 205px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: all 0.25s ease 0s;
+  z-index: z('default');
+
+  &.active {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  @media #{$media-small-minus} {
+    left: 65px;
+  }
+}
 
 .breadcrumb {
   @include vertical-align('inline');

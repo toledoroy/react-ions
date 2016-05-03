@@ -17,7 +17,6 @@ const IconsPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
-        <h3>Examples</h3>
         <CodeExample
           title='Default Icon'
           description={description.iconDefault}

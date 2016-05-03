@@ -139,7 +139,10 @@
     @media #{$media-small-minus} {
       padding: 20px 15px;
     }
+  }
 
+  @media #{$media-small-minus} {
+    margin-bottom: 16px;
   }
 }
 

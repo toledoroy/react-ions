@@ -26,46 +26,45 @@ const RadioGroupPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
-        <h3>Examples</h3>
-          <CodeExample
-            title='Default Radio Group'
-            description={description.radioGroupDefault}
-            markup={exampleRadioGroupDefaultCode}
-          >
-            <ExampleRadioGroupDefault />
-          </CodeExample>
-          <CodeExample
-            title='Selected Radio Group'
-            description={description.radioGroupSelected}
-            markup={exampleRadioGroupSelectedCode}
-          >
-            <ExampleRadioGroupSelected />
-          </CodeExample>
-          <CodeExample
-            title='Disabled Radio Group'
-            description={description.radioGroupDisabled}
-            markup={exampleRadioGroupDisabledCode}
-          >
-            <ExampleRadioGroupDisabled />
-          </CodeExample>
-          <CodeExample
-            title='Required Radio Group'
-            description={description.radioGroupRequired}
-            markup={exampleRadioGroupRequiredCode}
-          >
-            <ExampleRadioGroupRequired />
-          </CodeExample>
-          <CodeExample
-            title='Radio Group with labels on the left side'
-            description={description.radioGroupLeft}
-            markup={exampleRadioGroupLeftCode}
-          >
-            <ExampleRadioGroupLeft />
-          </CodeExample>
-          <div className={styles.block}>
-            <h3>Props</h3>
-            <PropsList list={docs[0].props} />
-          </div>
+        <CodeExample
+          title='Default Radio Group'
+          description={description.radioGroupDefault}
+          markup={exampleRadioGroupDefaultCode}
+        >
+          <ExampleRadioGroupDefault />
+        </CodeExample>
+        <CodeExample
+          title='Selected Radio Group'
+          description={description.radioGroupSelected}
+          markup={exampleRadioGroupSelectedCode}
+        >
+          <ExampleRadioGroupSelected />
+        </CodeExample>
+        <CodeExample
+          title='Disabled Radio Group'
+          description={description.radioGroupDisabled}
+          markup={exampleRadioGroupDisabledCode}
+        >
+          <ExampleRadioGroupDisabled />
+        </CodeExample>
+        <CodeExample
+          title='Required Radio Group'
+          description={description.radioGroupRequired}
+          markup={exampleRadioGroupRequiredCode}
+        >
+          <ExampleRadioGroupRequired />
+        </CodeExample>
+        <CodeExample
+          title='Radio Group with labels on the left side'
+          description={description.radioGroupLeft}
+          markup={exampleRadioGroupLeftCode}
+        >
+          <ExampleRadioGroupLeft />
+        </CodeExample>
+        <div className={styles.block}>
+          <h3>Props</h3>
+          <PropsList list={docs[0].props} />
+        </div>
       </div>
     </div>
   </div>

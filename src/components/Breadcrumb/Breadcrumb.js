@@ -1,12 +1,38 @@
 import React from 'react'
 import Icon from '../Icon'
+import classNames from 'classnames/bind'
 import style from './style.scss'
 
-const Breadcrumb = (props) => {
-  const depth = props.routes.length;
+class Breadcrumb extends React.Component {
+  constructor(props) {
+    super(props);
 
-  const getTags = () => {
-    return props.routes.map(function(item, index) {
+    this.state = {
+      active: false
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = (event) => {
+    let scrollTop = event.srcElement.body.scrollTop;
+    if (scrollTop > 30) {
+      this.setState({ active: true });
+    } else {
+      this.setState({ active: false });
+    }
+  }
+
+  getTags = () => {
+    let depth = this.props.routes.length;
+
+    return this.props.routes.map(function(item, index) {
       if (index === 0) return;
 
       let tags = [];
@@ -26,13 +52,21 @@ const Breadcrumb = (props) => {
     })
   }
 
-  return (
-    <div className={style.breadcrumb}>{getTags()}</div>
-  )
-};
+  render() {
+    const cx = classNames.bind(style);
+    const breadcrumbClass = cx(style.breadcrumbs);
+    const breadcrumbActive = cx(style.breadcrumbs, 'active');
+
+    return (
+      <div className={!this.state.active ? breadcrumbClass : breadcrumbActive}>
+        <div className={style.breadcrumb}>{this.getTags()}</div>
+      </div>
+    )
+  }
+}
 
 React.propTypes = {
   routes: React.PropTypes.array.isRequired
-};
+}
 
 export default Breadcrumb

@@ -18,20 +18,4 @@ body {
   @media #{$media-small-minus} {
     margin-left: 0;
   }
-
-  .breadcrumbs {
-    background-color: $neutral-1;
-    border-bottom: 1px solid $neutral-3;
-    height: 64px;
-    left: 205px;
-    position: fixed;
-    right: 0;
-    top: 0;
-    transition: all 0.25s ease 0s;
-    z-index: z('default');
-
-    @media #{$media-small-minus} {
-      left: 65px;
-    }
-  }
 }
