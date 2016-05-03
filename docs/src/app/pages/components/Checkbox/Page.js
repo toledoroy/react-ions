@@ -45,7 +45,6 @@ const CheckboxPage = () => (
           markup={exampleCheckboxDisabledCode}>
           <ExampleCheckboxDisabled />
         </CodeExample>
-      </div>
       <CodeExample
         title='Error Checkbox'
         description={description.checkboxError}
@@ -64,6 +63,7 @@ const CheckboxPage = () => (
       </div>
     </div>
   </div>
+</div>
 );
 
 export default CheckboxPage

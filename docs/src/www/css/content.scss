@@ -1,8 +1,13 @@
 @import '../../../../src/styles/common/colors';
 @import '../../../../src/styles/common/mixins';
+@import '../../../../src/styles/common/screen';
 
 .content {
   padding: 30px;
+
+  @media #{$media-small-minus} {
+    padding: 15px;
+  }
 }
 
 .block {
