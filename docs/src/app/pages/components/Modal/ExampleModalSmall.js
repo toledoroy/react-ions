@@ -2,11 +2,11 @@ import React from 'react'
 import Modal from 'react-conventions/lib/Modal'
 import Button from 'react-conventions/lib/Button'
 
-class ExampleModalActions extends React.Component {
+class ExampleModalSmall extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false,
+      open: false
     };
   }
 
@@ -18,33 +18,27 @@ class ExampleModalActions extends React.Component {
     this.setState({open: false});
   }
 
-  handleSubmit = () => {
-    console.log('submit');
-    this.setState({open: false});
-  }
-
   render() {
     const actions = [
       <Button onClick={this.handleClose} optClass="inverted">Cancel</Button>,
-      <Button onClick={this.handleSubmit}>Submit</Button>
+      <Button onClick={this.handleClose}>Submit</Button>
     ];
 
     return (
       <div>
         <Button onClick={this.handleOpen}>Open Modal</Button>
         <Modal
-          title="Modal With Actions"
+          title="Small Modal"
           open={this.state.open}
           onRequestClose={this.handleClose}
           actions={actions}
-          overlayClose={false}
+          size='sm'
         >
-          <p>The actions in this window were passed in as an array of React objects.</p>
-          <p>This modal can only be closed by selecting one of the actions.</p>
+          <p>This is a small modal.</p>
         </Modal>
       </div>
     );
   }
 }
 
-export default ExampleModalActions
+export default ExampleModalSmall

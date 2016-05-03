@@ -3,6 +3,8 @@ import EventListener from 'react-event-listener'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 import Overlay from '../internal/Overlay'
+import RenderToLayer from '../internal/RenderToLayer'
+import Icon from '../Icon'
 
 /**
  * The Modal component.
@@ -24,10 +26,6 @@ class Modal extends React.Component {
      */
     actions: React.PropTypes.node,
     /**
-     * The contents of the `Modal`.
-     */
-    children: React.PropTypes.node,
-    /**
      * Controls whether the Modal is opened or not.
      */
     open: React.PropTypes.bool.isRequired,
@@ -45,21 +43,29 @@ class Modal extends React.Component {
     /**
      * The title to display on the `Modal`. Could be number, string, element or an array containing these types.
      */
-    title: React.PropTypes.node
+    title: React.PropTypes.node,
+    /**
+     * Optional styles to add to the modal.
+     */
+    optClass: React.PropTypes.string,
+    /**
+     * The size of the modal. The default is 'md' (medium).
+     */
+    size: React.PropTypes.oneOf(['sm', 'md', 'lg'])
   };
 
-  handleKeyUp(event) {
+  handleKeyUp = (event) => {
     // When Esc is pressed
     if (event.keyCode === 27) {
       this.requestClose(false);
     }
   }
 
-  handleClickOverlay() {
+  handleCloseClick = () => {
     this.requestClose(false);
   }
 
-  requestClose(buttonClicked) {
+  requestClose = (buttonClicked) => {
     if (!buttonClicked && !this.props.overlayClose) {
       return;
     }
@@ -69,13 +75,12 @@ class Modal extends React.Component {
     }
   }
 
-  handleResize() {
-  }
-
-  render() {
+  renderModal = () => {
     const cx = classNames.bind(style);
-    var modalOpenClass = this.props.open ? style['modal-open'] : '';
-    var modalClass = cx(style['modal-component'], this.props.optClass, modalOpenClass);
+    const modalOpenClass = this.props.open ? style['modal-open'] : '';
+    const modalSizeClass = this.props.size ? style['modal-' + this.props.size] : '';
+    const modalClass = cx(style['modal-component'], this.props.optClass, modalOpenClass);
+    const modalContentClass = cx(style['modal-content'], modalSizeClass);
 
     const actionsContainer = React.Children.count(this.props.actions) > 0 && (
       <div className={style['modal-actions']}>
@@ -88,12 +93,18 @@ class Modal extends React.Component {
         {this.props.open &&
           <EventListener
             elementName='window'
-            onKeyUp={this.handleKeyUp.bind(this)}
-            onResize={this.handleResize.bind(this)}
+            onKeyUp={this.handleKeyUp}
           />
         }
-        <div className={style['modal-content']}>
+        <Overlay
+          show={this.props.open}
+          onClick={this.handleCloseClick}
+        />
+        <div className={modalContentClass}>
           <div className={style['modal-header']}>
+            {this.props.overlayClose ? <div className={style['modal-close']}>
+              <Icon name='icon-delete-1' width='12' height='12' onClick={this.handleCloseClick} />
+            </div> : null}
             {this.props.title ? <h1>{this.props.title}</h1> : null}
           </div>
           <div className={style['modal-body']}>
@@ -103,11 +114,14 @@ class Modal extends React.Component {
             {actionsContainer}
           </div>
         </div>
-        <Overlay
-          show={this.props.open}
-          onClick={this.handleClickOverlay.bind(this)}
-        />
       </div>
+    )
+  }
+
+  render() {
+    return (
+      // Render the modal inside a div at the bottom of the document body
+      <RenderToLayer render={this.renderModal} open={true} />
     )
   }
 }
