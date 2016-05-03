@@ -19,7 +19,7 @@ const description = {
   inputPlaceholder: 'This is the input component with placeholder text.',
   inputDisabled: 'This is the disabled input component.',
   inputError: 'This is the input component with error.',
-  inputCallback: 'This is the input component with a callback function. __Note__: _the `style import` and `code` tag is for display purposes only._'
+  inputCallback: 'This is the input component with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.'
 };
 
 const InputPage = () => (
