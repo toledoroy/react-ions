@@ -25,7 +25,7 @@ Button.propTypes = {
   /**
    * Whether the button is disabled.
    */
-  disabled: React.PropTypes.bool,
+  disabled: React.PropTypes.bool
 }
 
 export default Button

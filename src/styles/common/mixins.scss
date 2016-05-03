@@ -24,11 +24,19 @@
   white-space: pre;
 }
 
-@mixin button-context($bg-color, $color) {
+@mixin button-context($bg-color, $color, $fadeOnHover: false) {
   background-color: $bg-color;
   color: $color;
 
   svg {
     fill: $color;
+  }
+
+  @if $fadeOnHover {
+    transition: background-color .35s ease-in-out;
+
+    &:hover {
+      background-color: darken($bg-color, 50%);
+    }
   }
 }
