@@ -18,6 +18,7 @@ import CheckboxPage from './pages/components/Checkbox/Page'
 import RadioPage from './pages/components/Radio/Page'
 import RadioGroupPage from './pages/components/RadioGroup/Page'
 import TextareaPage from './pages/components/Textarea/Page'
+import InputPage from './pages/components/Input/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -39,6 +40,7 @@ const Routes = (
       <Route path='radio' title='Radio' component={RadioPage} />
       <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
       <Route path='textarea' title='Textarea' component={TextareaPage} />
+      <Route path='input' title='Input' component={InputPage} />
     </Route>
     <Route path='patterns' title='Patterns'>
     </Route>
