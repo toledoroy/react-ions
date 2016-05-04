@@ -16,7 +16,7 @@ class Modal extends React.Component {
 
   static defaultProps = {
     open: false,
-    overlayClose: true
+    closeOnAction: false
   }
 
   static propTypes = {
@@ -30,10 +30,10 @@ class Modal extends React.Component {
      */
     open: React.PropTypes.bool.isRequired,
     /**
-     * When set to false it will force the user to use one of the actions in the `Modal`.
+     * When set to true it will force the user to use one of the actions in the `Modal`.
      * Clicking outside the `Modal` will not trigger the `onRequestClose` in that case.
      */
-    overlayClose: React.PropTypes.bool,
+    closeOnAction: React.PropTypes.bool,
     /**
      * Fired when the `Modal` is requested to be closed by a click outside the `Modal` or on the buttons.
      *
@@ -66,7 +66,7 @@ class Modal extends React.Component {
   }
 
   requestClose = (buttonClicked) => {
-    if (!buttonClicked && !this.props.overlayClose) {
+    if (!buttonClicked && this.props.closeOnAction) {
       return;
     }
 
@@ -87,7 +87,7 @@ class Modal extends React.Component {
         {React.Children.toArray(this.props.actions)}
       </div>
     );
-    
+
     return (
       <div className={modalClass}>
         {this.props.open &&
@@ -102,7 +102,7 @@ class Modal extends React.Component {
         />
         <div className={modalContentClass}>
           <div className={style['modal-header']}>
-            {this.props.overlayClose ? <div className={style['modal-close']}>
+            {!this.props.closeOnAction ? <div className={style['modal-close']}>
               <Icon name='icon-delete-1' width='12' height='12' onClick={this.handleCloseClick} />
             </div> : null}
             {this.props.title ? <h1>{this.props.title}</h1> : null}

@@ -37,7 +37,7 @@ class ExampleModalActions extends React.Component {
           open={this.state.open}
           onRequestClose={this.handleClose}
           actions={actions}
-          overlayClose={false}
+          closeOnAction={true}
         >
           <p>The actions in this window were passed in as an array of React objects.</p>
           <p>This modal can only be closed by selecting one of the actions.</p>

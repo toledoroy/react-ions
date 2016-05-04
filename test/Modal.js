@@ -105,14 +105,9 @@ describe('Modal', () => {
     expect(document.body.getElementsByClassName('modal-component')[0].children[0].style.opacity).to.be.equal('0');
   });
 
-
-
-
-
-
-  it('should not close when the overlay is clicked and overlayClose property is set to false', () => {
+  it('should not close when the overlay is clicked and closeOnAction property is set to false', () => {
     modalOpen = true;
-    wrapper = mount(<Modal title="Test title" open={modalOpen} onRequestClose={toggleModal.bind(this, false)} overlayClose={false}>Test modal content</Modal>);
+    wrapper = mount(<Modal title="Test title" open={modalOpen} onRequestClose={toggleModal.bind(this, false)} closeOnAction={true}>Test modal content</Modal>);
 
     expect(document.body.getElementsByClassName('modal-component')[0].children[0].style.left).to.be.equal('0px');
     expect(document.body.getElementsByClassName('modal-component')[0].children[0].style.opacity).to.be.equal('0.6');
@@ -123,9 +118,9 @@ describe('Modal', () => {
     expect(document.body.getElementsByClassName('modal-component')[0].children[0].style.opacity).to.be.equal('0.6');
   });
 
-  it('should not close when Esc is pressed and overlayClose property is set to false', () => {
+  it('should not close when Esc is pressed and closeOnAction property is set to false', () => {
     modalOpen = true;
-    wrapper = mount(<Modal title="Test title" open={modalOpen} onRequestClose={toggleModal.bind(this, false)} overlayClose={false}>Test modal content</Modal>);
+    wrapper = mount(<Modal title="Test title" open={modalOpen} onRequestClose={toggleModal.bind(this, false)} closeOnAction={true}>Test modal content</Modal>);
 
     expect(document.body.getElementsByClassName('modal-component')[0].children[0].style.left).to.be.equal('0px');
     expect(document.body.getElementsByClassName('modal-component')[0].children[0].style.opacity).to.be.equal('0.6');
