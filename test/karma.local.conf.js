@@ -87,7 +87,7 @@ module.exports = function(config) {
       'karma-mocha-reporter',
       'karma-sinon',
       'karma-chai',
-      'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
       'karma-coverage',
       'karma-threshold-reporter'
     ],
@@ -108,7 +108,7 @@ module.exports = function(config) {
 
     logLevel: config.LOG_INFO,
 
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
     singleRun: true
   })

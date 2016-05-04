@@ -87,7 +87,7 @@ class Modal extends React.Component {
         {React.Children.toArray(this.props.actions)}
       </div>
     );
-
+    
     return (
       <div className={modalClass}>
         {this.props.open &&

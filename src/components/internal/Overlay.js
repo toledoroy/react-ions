@@ -45,11 +45,9 @@ class Overlay extends React.Component {
 
     if (this.props.show) {
       document.body.style.overflow = 'hidden';
-      Object.assign(style, {
-        left: 0,
-        opacity: 0.6,
-        transition: `${this.createTransition('0ms', 'left')}, ${this.createTransition('400ms', 'opacity')}`
-      });
+      style.left = 0;
+      style.opacity = 0.6;
+      style.transition = `${this.createTransition('0ms', 'left')}, ${this.createTransition('400ms', 'opacity')}`;
     }
 
     return style;
