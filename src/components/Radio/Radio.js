@@ -16,6 +16,10 @@ class Radio extends React.Component {
     labelPosition: 'right'
   }
 
+  state = {
+    checked: this.props.checked || false
+  }
+
   static propTypes = {
     /**
      * True if the option is checked.
@@ -56,9 +60,11 @@ class Radio extends React.Component {
   }
 
   handleChange(event) {
-    if (typeof this.props.checkCallback === 'function') {
-      this.props.checkCallback(event, this.props.value);
-    }
+    this.setState({checked: event.target.checked}, function() {
+      if (typeof this.props.checkCallback === 'function') {
+        this.props.checkCallback(event, this.props.value);
+      }
+    });
   }
 
   render() {
@@ -68,7 +74,7 @@ class Radio extends React.Component {
 
     return (
       <div className={radioClass}>
-        <input type="radio" ref="radio" value={this.props.value} checked={this.props.checked} name={this.props.name} onChange={this.handleChange.bind(this)}></input>
+        <input type="radio" ref="radio" value={this.props.value} checked={this.state.checked} name={this.props.name} onChange={this.handleChange.bind(this)}></input>
         <div>
           { this.props.label && this.props.labelPosition === 'left' ? <label className={style['label-left']}>{this.props.label}</label> : null }
           <div className={style['radio-input']}></div>
