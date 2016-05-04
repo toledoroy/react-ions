@@ -12,7 +12,7 @@ class RadioGroup extends React.Component {
   }
 
   state = {
-    selectedOption: typeof this.props.defaultOption !== 'undefined' ? this.props.options[this.props.defaultOption].value : ''
+    checkedOption: typeof this.props.defaultOption !== 'undefined' ? this.props.options[this.props.defaultOption].value : ''
   };
 
   static defaultProps = {
@@ -43,7 +43,7 @@ class RadioGroup extends React.Component {
      */
     options: React.PropTypes.array.isRequired,
     /**
-     * Which option is selected by default.
+     * Which option is checked by default.
      */
     defaultOption: React.PropTypes.number,
     /**
@@ -51,19 +51,19 @@ class RadioGroup extends React.Component {
      */
     labelPosition: React.PropTypes.oneOf(['left', 'right']),
     /**
-     * A callback function to be called when an option is selected.
+     * A callback function to be called when an option is checked.
      */
     onChange: React.PropTypes.func
   };
 
   componentWillMount() {
     if (typeof this.props.defaultOption !== 'undefined') {
-      this.props.options[this.props.defaultOption].selected = true;
+      this.props.options[this.props.defaultOption].checked = true;
     }
   }
 
   handleChange(event, value) {
-    this.setState({selectedOption: value}, function() {
+    this.setState({checkedOption: value}, function() {
       if (typeof this.props.onChange === 'function') {
         this.props.onChange(event, value);
       }
@@ -84,7 +84,7 @@ class RadioGroup extends React.Component {
         value={radio.value}
         label={radio.label}
         name={groupName}
-        selected={radio.selected}
+        checked={radio.checked}
         labelPosition={groupLabelPosition || radio.labelPosition}
         optClass={radio.optClass}
         checkCallback={callback.bind(this)}

@@ -5,8 +5,8 @@ import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleRadioGroupDefault from './ExampleRadioGroupDefault'
 import exampleRadioGroupDefaultCode from '!raw!./ExampleRadioGroupDefault'
-import ExampleRadioGroupSelected from './ExampleRadioGroupSelected'
-import exampleRadioGroupSelectedCode from '!raw!./ExampleRadioGroupSelected'
+import ExampleRadioGroupChecked from './ExampleRadioGroupChecked'
+import exampleRadioGroupCheckedCode from '!raw!./ExampleRadioGroupChecked'
 import ExampleRadioGroupRequired from './ExampleRadioGroupRequired'
 import exampleRadioGroupRequiredCode from '!raw!./ExampleRadioGroupRequired'
 import ExampleRadioGroupDisabled from './ExampleRadioGroupDisabled'
@@ -16,7 +16,7 @@ import exampleRadioGroupLeftCode from '!raw!./ExampleRadioGroupLeft'
 
 const description = {
   radioGroupDefault: 'This is the `radio group component` as it appears by default.',
-  radioGroupSelected: 'This is the selected `radio group component`.',
+  radioGroupChecked: 'This is the checked `radio group component`.',
   radioGroupDisabled: 'This is the disabled `radio group component`.',
   radioGroupRequired: 'This is the required `radio group component`.',
   radioGroupLeft: 'This is the `radio group component` with labels on the left side.'
@@ -35,11 +35,11 @@ const RadioGroupPage = () => (
             <ExampleRadioGroupDefault />
           </CodeExample>
           <CodeExample
-            title='Selected Radio Group'
-            description={description.radioGroupSelected}
-            markup={exampleRadioGroupSelectedCode}
+            title='Checked Radio Group'
+            description={description.radioGroupChecked}
+            markup={exampleRadioGroupCheckedCode}
           >
-            <ExampleRadioGroupSelected />
+            <ExampleRadioGroupChecked />
           </CodeExample>
           <CodeExample
             title='Disabled Radio Group'

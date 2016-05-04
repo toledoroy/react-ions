@@ -14,13 +14,13 @@ const options = [
   }
 ];
 
-const ExampleRadioSelected = () => (
+const ExampleRadioChecked = () => (
   <RadioGroup
-    label="Selected radio group label"
-    name="selected-radio-group"
+    label="Checked radio group label"
+    name="checked-radio-group"
     options={options}
     defaultOption={1}>
   </RadioGroup>
 )
 
-export default ExampleRadioSelected;
+export default ExampleRadioChecked;
