@@ -22,11 +22,7 @@ class Breadcrumb extends React.Component {
 
   handleScroll = (event) => {
     let scrollTop = event.srcElement.body.scrollTop;
-    if (scrollTop > 30) {
-      this.setState({ active: true });
-    } else {
-      this.setState({ active: false });
-    }
+    (scrollTop > 30) ? this.setState({ active: true }) : this.setState({ active: false });
   }
 
   getTags = () => {
