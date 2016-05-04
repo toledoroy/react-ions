@@ -11,16 +11,16 @@ class Radio extends React.Component {
   }
 
   static defaultProps = {
-    selected: false,
+    checked: false,
     disabled: false,
     labelPosition: 'right'
   }
 
   static propTypes = {
     /**
-     * True if the option is selected.
+     * True if the option is checked.
      */
-    selected: React.PropTypes.bool,
+    checked: React.PropTypes.bool,
     /**
      * Whether the option is disabled.
      */
@@ -46,19 +46,18 @@ class Radio extends React.Component {
      */
     name: React.PropTypes.string,
     /**
-     * A callback function (from RadioGroup) to be called when the option is selected.
+     * A callback function (from RadioGroup) to be called when the option is checked.
      */
-    selectCallback: React.PropTypes.func
+    checkCallback: React.PropTypes.func
   };
 
   componentDidMount() {
-    this.refs.radio.checked = this.props.selected || false;
     this.refs.radio.disabled = this.props.disabled || false;
   }
 
   handleChange(event) {
-    if (typeof this.props.selectCallback === 'function') {
-      this.props.selectCallback(event, this.props.value);
+    if (typeof this.props.checkCallback === 'function') {
+      this.props.checkCallback(event, this.props.value);
     }
   }
 
@@ -69,7 +68,7 @@ class Radio extends React.Component {
 
     return (
       <div className={radioClass}>
-        <input type="radio" ref="radio" value={this.props.value} name={this.props.name} onChange={this.handleChange.bind(this)}></input>
+        <input type="radio" ref="radio" value={this.props.value} checked={this.props.checked} name={this.props.name} onChange={this.handleChange.bind(this)}></input>
         <div>
           { this.props.label && this.props.labelPosition === 'left' ? <label className={style['label-left']}>{this.props.label}</label> : null }
           <div className={style['radio-input']}></div>

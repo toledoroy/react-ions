@@ -5,8 +5,8 @@ import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleRadioDefault from './ExampleRadioDefault'
 import exampleRadioDefaultCode from '!raw!./ExampleRadioDefault'
-import ExampleRadioSelected from './ExampleRadioSelected'
-import exampleRadioSelectedCode from '!raw!./ExampleRadioSelected'
+import ExampleRadioChecked from './ExampleRadioChecked'
+import exampleRadioCheckedCode from '!raw!./ExampleRadioChecked'
 import ExampleRadioDisabled from './ExampleRadioDisabled'
 import exampleRadioDisabledCode from '!raw!./ExampleRadioDisabled'
 import ExampleRadioError from './ExampleRadioError'
@@ -16,7 +16,7 @@ import exampleRadioLeftCode from '!raw!./ExampleRadioLeft'
 
 const description = {
   radioDefault: 'This is the `radio component` as it appears by default.',
-  radioSelected: 'This is the selected `radio component`.',
+  radioChecked: 'This is the checked `radio component`.',
   radioDisabled: 'This is the disabled `radio component`.',
   radioError: 'This is the `radio component` with error.',
   radioLeft: 'This is a `radio component` with the label on the left side.'
@@ -34,10 +34,10 @@ const RadioPage = () => (
           <ExampleRadioDefault />
         </CodeExample>
         <CodeExample
-          title='Selected Radio'
-          description={description.radioSelected}
-          markup={exampleRadioSelectedCode}>
-          <ExampleRadioSelected />
+          title='Checked Radio'
+          description={description.radioChecked}
+          markup={exampleRadioCheckedCode}>
+          <ExampleRadioChecked />
         </CodeExample>
         <CodeExample
           title='Disabled Radio'

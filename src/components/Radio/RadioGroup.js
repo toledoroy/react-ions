@@ -87,7 +87,7 @@ class RadioGroup extends React.Component {
         selected={radio.selected}
         labelPosition={groupLabelPosition || radio.labelPosition}
         optClass={radio.optClass}
-        selectCallback={callback.bind(this)}
+        checkCallback={callback.bind(this)}
         {...other}
       />
     );
