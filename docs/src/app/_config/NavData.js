@@ -2,7 +2,6 @@ const nav = [
   {
     name: 'Foundations',
     route: '/foundations',
-    // icon: 'icon-award-3',
     nav: [
       {
         name: 'Colors',
@@ -43,6 +42,12 @@ const nav = [
       }, {
         name: 'Radio Group',
         route: '/components/radio-group'
+      }, {
+        name: 'Textarea',
+        route: '/components/textarea'
+      }, {
+        name: 'Input',
+        route: '/components/input'
       }, {
         name: 'Modal',
         route: '/components/modal'
