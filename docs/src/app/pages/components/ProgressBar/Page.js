@@ -9,7 +9,7 @@ import exampleProgressBarLabelCode from '!raw!./ExampleProgressBarLabel'
 import styles from 'private/css/content'
 
 const description = {
-  progressBarDefault: 'This is the `default Progress Bar`',
+  progressBarDefault: 'This is the default `Progress Bar`',
   progressBarLabel: 'This is the `Progress Bar` with a `label` and `percentage`.'
 };
 
