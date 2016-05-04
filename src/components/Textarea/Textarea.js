@@ -90,9 +90,9 @@ class Textarea extends React.Component {
         {this.props.label ? <label>{this.props.label}</label> : null}
         <textarea
           value={this.state.value}
-          onFocus={this.handleFocus.bind(this)}
-          onChange={this.handleChange.bind(this)}
-          onBlur={this.handleBlur.bind(this)}
+          onFocus={this.handleFocus}
+          onChange={this.handleChange}
+          onBlur={this.handleBlur}
           {...other}>
         </textarea>
       </div>
