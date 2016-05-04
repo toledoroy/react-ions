@@ -10,17 +10,26 @@
 }
 
 .skew {
-  background-color: $primary-2;
+  background-color: $primary-1;
+  box-sizing: border-box;
   clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
-  padding: 1em 2em 4em;
+  min-height: 400px;
+  padding: 4em 2em;
 
   h1 {
     color: $white;
-    font-size: 3em;
+    font-size: 52px;
+    line-height: 1em;
+    margin-bottom: 0;
 
     @media #{$media-small-minus} {
       font-size: 2em;
     }
+  }
+
+  h3 {
+    color: $white;
+    margin: 20px 0 30px;
   }
 }
 

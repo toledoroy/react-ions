@@ -11,7 +11,7 @@
   box-sizing: border-box;
   @if $display == 'inline' {
     display: inline-flex;
-  } else {
+  } @else {
     display: flex;
   }
 }

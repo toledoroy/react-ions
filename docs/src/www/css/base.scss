@@ -22,7 +22,7 @@ body {
 
 .breadcrumbs {
   background-color: $neutral-1;
-  height: 64px;
+  height: 65px;
   left: 205px;
   position: fixed;
   right: 0;
@@ -31,7 +31,9 @@ body {
   z-index: z('default');
 
   @media #{$media-small-minus} {
-    left: 65px;
+    height: 50px;
+    left: 0;
+    padding-left: 50px;
   }
 }
 

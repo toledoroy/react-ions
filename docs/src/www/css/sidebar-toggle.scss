@@ -2,22 +2,22 @@
 @import '../../../../src/styles/common/screen';
 
 .sidebar-toggle {
-  background-color: $primary-4;
+  background-color: transparent;
   border: medium none;
   display: none;
-  height: 65px;
+  height: 50px;
   left: 0;
   outline: 0 none;
   padding: 0;
   position: fixed;
   top: 0;
-  transition: left 0.25s ease 0s;
-  width: 65px;
+  transition: left 0.25s ease-in-out .25s;
+  width: 60px;
   cursor: pointer;
 
   @media #{$media-small-minus} {
     display: block;
-    left: 0;
+    left: 5px;
 
     &.sidebar-visible {
       left: 205px;
@@ -34,17 +34,16 @@
         &:first-of-type, &:last-of-type {
           position: relative;
           left: -2px;
-          width: 24px;
+          width: 15px;
         }
       }
     }
   }
 
   .burger-piece {
-    background-color: $neutral-3;
-    border-radius: 2px;
-    height: 4px;
-    margin: 8px 12px;
+    background-color: $primary-3;
+    height: 3px;
+    margin: 6px 9px;
     transition: all 0.25s ease 0s;
     width: 40px;
   }

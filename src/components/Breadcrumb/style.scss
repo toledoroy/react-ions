@@ -24,4 +24,8 @@
   .icon-arrow-68 {
     margin: 0 6px;
   }
+
+  @media #{$media-small-minus} {
+    height: 50px;
+  }
 }

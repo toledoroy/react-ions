@@ -11,6 +11,7 @@
 
   header {
     padding: 20px 24px;
+    position: relative;
 
     h3 {
       display: inline;
@@ -18,11 +19,10 @@
 
     // Local Overrides
     button {
-      float: right;
-      margin-top: -7px;
-      margin-right: -7px;
       padding: 8px 4px;
-      position: relative;
+      position: absolute;
+      top: 15px;
+      right: 5px;
 
       .button-icon-wrap {
         position: relative;
@@ -37,7 +37,7 @@
       }
 
       @media #{$media-small-minus} {
-        margin-right: 0;
+        margin-right: 10px;
       }
     }
 
@@ -57,7 +57,7 @@
     }
 
     @media #{$media-small-minus} {
-      padding: 20px 15px;
+      padding: 15px 60px 15px 15px;
     }
   }
 
