@@ -51,6 +51,9 @@ const nav = [
       }, {
         name: 'Input',
         route: '/components/input'
+      }, {
+        name: 'Modal',
+        route: '/components/modal'
       }
     ]
   }, {

@@ -1,0 +1,67 @@
+@import 'src/styles/common/colors';
+@import 'src/styles/common/_config';
+
+.modal-component {
+  &.modal-open {
+    .modal-content {
+      opacity: 1;
+      z-index: 1400;
+      visibility: visible;
+    }
+  }
+  .modal-content {
+    opacity: 0;
+    z-index: -1;
+    visibility: hidden;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 75%;
+    max-width: 708px;
+    max-height: 75%;
+    padding: 30px;
+    background: $white;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+    transition: opacity .4s $animation-in-out-quadratic;
+    &.modal-sm {
+      max-width: 320px;
+    }
+    &.modal-lg {
+      max-width: 1200px;
+    }
+    .modal-header {
+      .modal-close {
+        text-align: right;
+        > svg {
+          cursor: pointer;
+        }
+      }
+      h1 {
+        font-family: proxima_nova;
+        font-weight: 200;;
+        font-size: 20px;
+        margin: 15px 0;
+        color: $navy-text;
+      }
+    }
+    .modal-body {
+      font-size: 14px;
+      line-height: 1.5;
+      color: $navy-text;
+      overflow: auto;
+      margin: 0 -15px;
+      padding: 0 15px;
+    }
+    .modal-actions {
+      margin-top: 30px;
+      float: right;
+      button {
+        margin-right: 0;
+        margin-left: 12px;
+      }
+    }
+  }
+}
