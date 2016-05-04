@@ -10,6 +10,7 @@ import ColorsPage from './pages/foundations/Colors/Page'
 import TypographyPage from './pages/foundations/Typography/Page'
 import IconographyPage from './pages/foundations/Iconography/Page'
 import LayoutPage from './pages/foundations/Layout/Page'
+import BreadcrumbPage from './pages/components/Breadcrumb/Page'
 import ProgressBarPage from './pages/components/ProgressBar/Page'
 import IconsPage from './pages/components/Icons/Page'
 import ButtonsPage from './pages/components/Buttons/Page'
@@ -19,6 +20,7 @@ import RadioPage from './pages/components/Radio/Page'
 import RadioGroupPage from './pages/components/RadioGroup/Page'
 import TextareaPage from './pages/components/Textarea/Page'
 import InputPage from './pages/components/Input/Page'
+import Modal from './pages/components/Modal/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -33,6 +35,7 @@ const Routes = (
     <Redirect from='components' to='/components/progress-bar' />
     <Route path='components' title='Components'>
       <Route path='progress-bar' title='Progress Bar' component={ProgressBarPage} />
+      <Route path="breadcrumb" title="Breadcrumb" component={BreadcrumbPage} />
       <Route path='icons' title='Icons' component={IconsPage} />
       <Route path='buttons' title='Buttons' component={ButtonsPage} />
       <Route path='nav' title='Nav' component={NavPage} />
@@ -41,6 +44,7 @@ const Routes = (
       <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
       <Route path='textarea' title='Textarea' component={TextareaPage} />
       <Route path='input' title='Input' component={InputPage} />
+      <Route path='modal' title='Modal' component={Modal} />
     </Route>
     <Route path='patterns' title='Patterns'>
     </Route>

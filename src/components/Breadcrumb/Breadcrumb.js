@@ -22,25 +22,23 @@ class Breadcrumb extends React.Component {
 
   handleScroll = (event) => {
     let scrollTop = event.srcElement.body.scrollTop;
-    if (scrollTop > 30) {
-      this.setState({ active: true });
-    } else {
-      this.setState({ active: false });
-    }
+    (scrollTop > 30) ? this.setState({ active: true }) : this.setState({ active: false });
   }
 
   getTags = () => {
     let depth = this.props.routes.length;
+    let rootRendered = false;
 
     return this.props.routes.map(function(item, index) {
-      if (index === 0) return;
+      if (item.title === undefined) return;
 
       let tags = [];
-      if (index === 1) {
-        tags.push(<h2 className={style.primary}>{item.title}</h2>);
+      if (rootRendered) {
+        tags.push(<span className={style.secondary}>{item.title}</span>);
       }
       else {
-        tags.push(<span className={style.secondary}>{item.title}</span>);
+        tags.push(<h2 className={style.primary}>{item.title}</h2>);
+        rootRendered = true;
       }
 
       //display arrow if there's another level
@@ -66,6 +64,9 @@ class Breadcrumb extends React.Component {
 }
 
 React.propTypes = {
+  /**
+   * The array of routes to generate the Breadcrumbs.
+   */
   routes: React.PropTypes.array.isRequired
 }
 

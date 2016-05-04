@@ -25,6 +25,9 @@ const nav = [
         name: 'Progress Bar',
         route: '/components/progress-bar'
       }, {
+        name: 'Breadcrumb',
+        route: '/components/breadcrumb'
+      }, {
         name: 'Icons',
         route: '/components/icons'
       }, {
@@ -48,6 +51,9 @@ const nav = [
       }, {
         name: 'Input',
         route: '/components/input'
+      }, {
+        name: 'Modal',
+        route: '/components/modal'
       }
     ]
   }, {
