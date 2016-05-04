@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames/bind'
 import style from './style.scss'
-import Overlay from '../internal/Overlay'
+import Overlay from './Overlay'
 import RenderToLayer from '../internal/RenderToLayer'
 import Icon from '../Icon'
 

@@ -9,22 +9,6 @@ class Overlay extends React.Component {
     show: false
   };
 
-  createTransition(duration, property, delay, easeFunction) {
-    const easeOutFunction = 'cubic-bezier(0.46, 0.03, 0.52, 0.96)';
-    easeFunction = easeFunction || easeOutFunction;
-
-    function create(duration, property, delay, easeFunction) {
-      duration = duration || '500ms';
-      property = property || 'all';
-      delay = delay || '0ms';
-      easeFunction = easeFunction;
-
-      return `${property} ${duration} ${easeFunction} ${delay}`;
-    }
-
-    return create(duration, property, delay, easeFunction);
-  }
-
   getStyles() {
     var style = {
       position: 'fixed',
@@ -38,7 +22,7 @@ class Overlay extends React.Component {
       willChange: 'opacity',
       transform: 'translateZ(0)',
       zIndex: 1400,
-      transition: `${this.createTransition('0ms', 'left', '400ms')}, ${this.createTransition('400ms', 'opacity')}`
+      transition: 'left 0ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 400ms, opacity 400ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 0ms'
     }
 
     document.body.style.removeProperty('overflow');
@@ -47,7 +31,7 @@ class Overlay extends React.Component {
       document.body.style.overflow = 'hidden';
       style.left = 0;
       style.opacity = 0.6;
-      style.transition = `${this.createTransition('0ms', 'left')}, ${this.createTransition('400ms', 'opacity')}`;
+      style.transition = 'left 0ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 0ms, opacity 400ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 0ms';
     }
 
     return style;
