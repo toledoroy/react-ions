@@ -17,7 +17,7 @@ class Radio extends React.Component {
   }
 
   state = {
-    checked: this.props.checked || false
+    checked: this.props.checked
   }
 
   static propTypes = {
@@ -55,11 +55,7 @@ class Radio extends React.Component {
     checkCallback: React.PropTypes.func
   };
 
-  componentDidMount() {
-    this.refs.radio.disabled = this.props.disabled || false;
-  }
-
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({checked: event.target.checked}, function() {
       if (typeof this.props.checkCallback === 'function') {
         this.props.checkCallback(event, this.props.value);
@@ -68,17 +64,25 @@ class Radio extends React.Component {
   }
 
   render() {
+    const {
+      checked,
+      label,
+      labelPosition,
+      optClass,
+      ...other
+    } = this.props;
+
     const cx = classNames.bind(style);
     var disabledClass = this.props.disabled ? style['radio-disabled'] : '';
-    var radioClass = cx(style['radio-component'], this.props.optClass, disabledClass);
+    var radioClass = cx(style['radio-component'], optClass, disabledClass);
 
     return (
       <div className={radioClass}>
-        <input type="radio" ref="radio" value={this.props.value} checked={this.state.checked} name={this.props.name} onChange={this.handleChange.bind(this)}></input>
+        <input type="radio" checked={this.state.checked} onChange={this.handleChange} {...other}></input>
         <div>
-          { this.props.label && this.props.labelPosition === 'left' ? <label className={style['label-left']}>{this.props.label}</label> : null }
+          { label && labelPosition === 'left' ? <label className={style['label-left']}>{label}</label> : null }
           <div className={style['radio-input']}></div>
-          { this.props.label && this.props.labelPosition === 'right' ? <label className={style['label-right']}>{this.props.label}</label> : null }
+          { label && labelPosition === 'right' ? <label className={style['label-right']}>{label}</label> : null }
         </div>
       </div>
     )
