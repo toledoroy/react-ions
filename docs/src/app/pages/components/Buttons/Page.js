@@ -1,6 +1,7 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList';
-import docs from '!!docgen!react-conventions/lib/Button/Button';
+import buttonDocs from '!!docgen!react-conventions/lib/Button/Button';
+import buttonAnchorDocs from '!!docgen!react-conventions/lib/Button/ButtonAnchor';
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleButtonDefault from './ExampleButtonDefault'
@@ -11,12 +12,15 @@ import ExampleButtonDisabled from './ExampleButtonDisabled'
 import exampleButtonDisabledCode from '!raw!./ExampleButtonDisabled'
 import ExampleButtonTypes from './ExampleButtonTypes'
 import exampleButtonTypesCode from '!raw!./ExampleButtonTypes'
+import ExampleButtonAnchor from './ExampleButtonAnchor'
+import exampleButtonAnchorCode from '!raw!./ExampleButtonAnchor'
 
 const description = {
   buttonDefault: 'This is the `button component` as it appears by default.',
   buttonIcon: 'This is the `button component` with a single icon. The icon can be displayed on the left or right.',
   buttonDisabled: 'This is the disabled `button component`.',
-  buttonTypes: 'Here are a more than a few of the button types available on the `button component`.'
+  buttonTypes: 'Here are a more than a few of the button types available on the `button component`.',
+  buttonAnchor: 'The `<ButtonAnchor />` component generates an anchor tag.'
 };
 
 const ButtonsPage = () => (
@@ -48,10 +52,20 @@ const ButtonsPage = () => (
           markup={exampleButtonTypesCode}>
           <ExampleButtonTypes />
         </CodeExample>
+        <CodeExample
+          title='Button Anchor'
+          description={description.buttonAnchor}
+          markup={exampleButtonAnchorCode}>
+          <ExampleButtonAnchor />
+        </CodeExample>
       </div>
       <div className={styles.block}>
-        <h3>Props</h3>
-        <PropsList list={docs[0].props} />
+        <h3>Button Props</h3>
+        <PropsList list={buttonDocs[0].props} />
+      </div>
+      <div className={styles.block}>
+        <h3>Button Anchor Props</h3>
+        <p>TBD</p>
       </div>
     </div>
   </div>
