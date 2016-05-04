@@ -7,12 +7,14 @@ import Main from './Main'
 import Breadcrumb from 'react-conventions/lib/Breadcrumb'
 
 const Base = (props) => {
+  let currentBasePage = props.routes[1].path ? props.routes[1].path : null;
+
   return (
     <div className={style['container-fluid']}>
       <div className={style.row}>
         <Sidebar />
         <div className={style['content-wrap']}>
-          <Breadcrumb routes={props.routes} />
+          {currentBasePage ? <Breadcrumb routes={props.routes} /> : null}
           <Main children={props.children} />
         </div>
       </div>
