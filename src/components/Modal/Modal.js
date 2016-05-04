@@ -75,6 +75,15 @@ class Modal extends React.Component {
     }
   }
 
+  setKeyupListener = () => {
+    if (this.props.open) {
+      window.addEventListener('keyup', this.handleKeyUp);
+    }
+    else {
+      window.removeEventListener('keyup', this.handleKeyUp);
+    }
+  }
+
   renderModal = () => {
     const cx = classNames.bind(style);
     const modalOpenClass = this.props.open ? style['modal-open'] : '';
@@ -88,14 +97,10 @@ class Modal extends React.Component {
       </div>
     );
 
+    this.setKeyupListener();
+
     return (
       <div className={modalClass}>
-        {this.props.open &&
-          <EventListener
-            elementName='window'
-            onKeyUp={this.handleKeyUp}
-          />
-        }
         <Overlay
           show={this.props.open}
           onClick={this.handleCloseClick}
