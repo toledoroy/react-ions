@@ -2,7 +2,6 @@ const nav = [
   {
     name: 'Foundations',
     route: '/foundations',
-    // icon: 'icon-award-3',
     nav: [
       {
         name: 'Colors',
@@ -23,11 +22,11 @@ const nav = [
     route: '/components',
     nav: [
       {
-        name: 'Breadcrumb',
-        route: '/components/breadcrumb'
-      }, {
         name: 'Progress Bar',
         route: '/components/progress-bar'
+      }, {
+        name: 'Breadcrumb',
+        route: '/components/breadcrumb'
       }, {
         name: 'Icons',
         route: '/components/icons'
@@ -46,6 +45,12 @@ const nav = [
       }, {
         name: 'Radio Group',
         route: '/components/radio-group'
+      }, {
+        name: 'Textarea',
+        route: '/components/textarea'
+      }, {
+        name: 'Input',
+        route: '/components/input'
       }
     ]
   }, {

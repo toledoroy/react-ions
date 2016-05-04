@@ -1,0 +1,51 @@
+@import 'src/styles/common/colors';
+@import 'src/styles/common/screen';
+
+.textarea-component {
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: $navy-text;
+    font-family: proxima_nova;
+    font-weight: 200;
+  }
+
+  textarea {
+    border: solid 1px $neutral-3;
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 10px;
+    min-width: 300px;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+    @media #{$media-small-minus} {
+      min-width: 240px;
+    }
+
+    &:focus {
+      border-color: $primary-1;
+      box-shadow: 0 0 2px $primary-1;
+      outline: 0;
+    }
+  }
+
+  &.textarea-error {
+    textarea {
+      border: 2px solid $danger;
+
+      &:focus {
+        box-shadow: 0 0 2px $danger;
+      }
+    }
+  }
+
+  &.textarea-disabled {
+    cursor: not-allowed;
+    textarea {
+      cursor: not-allowed;
+    }
+  }
+
+}
