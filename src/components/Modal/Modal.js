@@ -1,5 +1,4 @@
 import React from 'react'
-import EventListener from 'react-event-listener'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 import Overlay from '../internal/Overlay'
