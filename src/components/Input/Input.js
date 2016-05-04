@@ -24,7 +24,7 @@ class Input extends React.Component {
      */
     disabled: React.PropTypes.bool,
     /**
-     * Text shown above the input element.
+     * Text shown above the input.
      */
     label: React.PropTypes.string,
     /**
@@ -40,7 +40,7 @@ class Input extends React.Component {
      */
     name: React.PropTypes.string,
     /**
-     * Optional styles to add to the input component.
+     * Optional styles to add to the input.
      */
     optClass: React.PropTypes.string,
     /**
@@ -56,10 +56,6 @@ class Input extends React.Component {
      */
     onBlur: React.PropTypes.func
   };
-
-  componentDidMount() {
-    this.refs.input.disabled = this.props.disabled || false;
-  }
 
   handleChange(event) {
     this.setState({value: event.target.value}, function() {
@@ -82,20 +78,25 @@ class Input extends React.Component {
   }
 
   render() {
+    const {
+      label,
+      optClass,
+      ...other
+    } = this.props;
+
     const cx = classNames.bind(style);
     var disabledClass = this.props.disabled ? style['input-disabled'] : '';
     var inputClass = cx(style['input-component'], this.props.optClass, disabledClass);
 
     return (
       <div className={inputClass}>
-        { this.props.label ? <label>{this.props.label}</label> : null }
+        { label ? <label>{label}</label> : null }
         <input
-          placeholder={this.props.placeholder}
-          ref='input'
           value={this.state.value}
-          onFocus={this.handleFocus.bind(this)}
-          onChange={this.handleChange.bind(this)}
-          onBlur={this.handleBlur.bind(this)}>
+          onFocus={this.handleFocus}
+          onChange={this.handleChange}
+          onBlur={this.handleBlur}
+          {...other}>
         </input>
       </div>
     )
