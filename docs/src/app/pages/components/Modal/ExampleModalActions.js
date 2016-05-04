@@ -19,7 +19,6 @@ class ExampleModalActions extends React.Component {
   }
 
   handleSubmit = () => {
-    console.log('submit');
     this.setState({open: false});
   }
 
