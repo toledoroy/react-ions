@@ -19,3 +19,22 @@ body {
     margin-left: 0;
   }
 }
+
+.breadcrumbs {
+  background-color: $neutral-1;
+  height: 64px;
+  left: 205px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: all 0.25s ease 0s;
+  z-index: z('default');
+
+  @media #{$media-small-minus} {
+    left: 65px;
+  }
+}
+
+.breadcrumb-active {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
