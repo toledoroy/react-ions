@@ -9,7 +9,7 @@
   width: 205px;
   z-index: 1;
   left: 0;
-  transition: all 0.25s ease 0s;
+  transition: all 0.25s ease-in-out .25s;
   z-index: z('nav');
 
   @media #{$media-small-minus} {

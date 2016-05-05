@@ -7,8 +7,8 @@ import NavData from 'private/config/NavData'
 import SidebarToggle from './SidebarToggle'
 
 class Sidebar extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
       collapsed: true

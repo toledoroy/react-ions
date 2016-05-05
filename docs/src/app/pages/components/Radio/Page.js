@@ -26,7 +26,6 @@ const RadioPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
-        <h3>Examples</h3>
         <CodeExample
           title='Default Radio'
           description={description.radioDefault}

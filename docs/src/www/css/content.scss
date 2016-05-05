@@ -13,24 +13,11 @@
 .block {
   margin-bottom: 30px;
 
-  h1 {
+  > h3 {
     font-weight: normal;
   }
 
-  h3 {
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 16px;
-    color: $navy-text;
+  p {
+    line-height: 1.5em;
   }
-
-  h4 {
-    font-weight: normal;
-  }
-
-  > p {
-    color: $base-text;
-    font-size: 14px;
-  }
-
 }

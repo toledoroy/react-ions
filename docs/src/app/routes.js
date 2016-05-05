@@ -50,6 +50,7 @@ const Routes = (
     </Route>
     <Route path='resources' title='Resources'>
     </Route>
+    <Redirect from='*' to='/' />
   </Route>
 )
 
