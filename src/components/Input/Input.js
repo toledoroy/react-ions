@@ -15,6 +15,7 @@ class Input extends React.Component {
   }
 
   static defaultProps = {
+    value: "",
     disabled: false
   }
 
@@ -57,7 +58,7 @@ class Input extends React.Component {
     onBlur: React.PropTypes.func
   };
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({value: event.target.value}, function() {
       if (typeof this.props.onChange === 'function') {
         this.props.onChange(event);
