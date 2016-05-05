@@ -45,6 +45,7 @@
 }
 
 .secondary {
+  @include clearfix;
   padding: 0 30px;
 }
 
