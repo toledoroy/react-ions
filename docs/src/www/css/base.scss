@@ -3,6 +3,10 @@ $ga-font-folder: '../../../../src/assets/fonts';
 @import '../../../../src/styles/common/screen';
 @import '../../../../src/styles/common/functions';
 
+body {
+  background-color: $neutral-1;
+}
+
 .content-wrap {
   margin-left: 205px;
   width: 100%;
