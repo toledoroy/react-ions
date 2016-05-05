@@ -12,7 +12,7 @@ class RadioGroup extends React.Component {
   }
 
   state = {
-    checkedOption: typeof this.props.defaultOption !== 'undefined' ? this.props.options[this.props.defaultOption].value : ''
+    checkedOption: this.props.defaultOption ? this.props.options[this.props.defaultOption].value : ''
   };
 
   static defaultProps = {
@@ -62,7 +62,7 @@ class RadioGroup extends React.Component {
     }
   }
 
-  handleChange(event, value) {
+  handleChange = (event, value) => {
     this.setState({checkedOption: value}, function() {
       if (typeof this.props.onChange === 'function') {
         this.props.onChange(event, value);
@@ -71,11 +71,9 @@ class RadioGroup extends React.Component {
   }
 
   getOptions() {
-    let groupName = this.props.name;
-    let groupLabelPosition = this.props.labelPosition;
-    let callback = this.handleChange;
-    // Pass along the disabled attribute
-    let { options, label, name, required, defaultOption, labelPosition, ...other } = this.props;
+    const groupName = this.props.name;
+    const groupLabelPosition = this.props.labelPosition;
+    const { options, label, name, value, required, defaultOption, labelPosition, ...other } = this.props;
 
     return this.props.options.map((radio, index) =>
       <Radio
@@ -84,12 +82,11 @@ class RadioGroup extends React.Component {
         value={radio.value}
         label={radio.label}
         name={groupName}
-        checked={radio.checked}
+        checked={this.state.checkedOption === radio.value}
         labelPosition={groupLabelPosition || radio.labelPosition}
         optClass={radio.optClass}
-        checkCallback={callback.bind(this)}
-        {...other}
-      />
+        checkCallback={this.handleChange}
+        {...other} />
     );
   }
 
