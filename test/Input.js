@@ -39,7 +39,7 @@ describe('Input', () => {
     expect(typeof wrapper.childAt(0).props().onChange).to.equal('function');
     expect(wrapper.childAt(0).props().value).to.equal('test');
     wrapper.childAt(0).simulate('change', afterChange);
-    expect(wrapper.childAt(0).props().value).to.be.equal('New value');
+    expect(wrapper.childAt(0).props().value).to.equal('New value');
     expect(spy.calledOnce).to.be.true;
   });
 
