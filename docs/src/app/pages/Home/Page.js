@@ -27,17 +27,17 @@ const HomePage = (props) => {
         <div className={localStyles['intro-block']}>
           <Icon name='icon-link' fill='#3c97d3' height='48' width='48' />
           <h4>Coherent Design Language</h4>
-          <span>Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputat.</span>
+          <p>Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputat.</p>
         </div>
         <div className={localStyles['intro-block']}>
           <Icon name='icon-pulse' fill='#3c97d3' height='48' width='48' />
           <h4>Platform Agnostic</h4>
-          <span>In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam.</span>
+          <p>In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam.</p>
         </div>
         <div className={localStyles['intro-block']}>
           <Icon name='icon-dollar-bag' fill='#3c97d3' height='48' width='48' />
           <h4>Style with Ease</h4>
-          <span>Nam dapibus nisl vitae elit fringilla rutrum. Aenean sollicitudin, erat a elementum rutrum, neque.</span>
+          <p>Nam dapibus nisl vitae elit fringilla rutrum. Aenean sollicitudin, erat a elementum rutrum, neque.</p>
         </div>
       </div>
     </div>

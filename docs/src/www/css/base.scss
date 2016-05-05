@@ -5,6 +5,9 @@ $ga-font-folder: '../../../../src/assets/fonts';
 
 body {
   background-color: $neutral-1;
+  font-family: proxima_nova;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
 }
 
 .content-wrap {
