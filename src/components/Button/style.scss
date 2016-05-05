@@ -3,10 +3,9 @@
 
 .btn {
   @include vertical-align('inline');
-  background-color: $primary-1;
+  @include button-context($primary-1, $white, $hover: 'true');
   border: 1px solid transparent;
   border-radius: 3px;
-  color: $white;
   cursor: pointer;
   font-size: 14px;
   font-weight: 200;
