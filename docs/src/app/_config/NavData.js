@@ -40,9 +40,6 @@ const nav = [
         name: 'Checkbox',
         route: '/components/checkbox'
       }, {
-        name: 'Radio',
-        route: '/components/radio'
-      }, {
         name: 'Radio Group',
         route: '/components/radio-group'
       }, {
