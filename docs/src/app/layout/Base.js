@@ -40,9 +40,12 @@ class Base extends React.Component {
         <div className={style.row}>
           <Sidebar />
           <div className={style['content-wrap']}>
+            { currentBasePage ?
             <div className={!this.state.active ? breadcrumbClass : breadcrumbActive}>
-              {currentBasePage ? <Breadcrumb routes={this.props.routes} /> : null}
+              <Breadcrumb routes={this.props.routes} />
             </div>
+            : null
+            }
             <Main children={this.props.children} />
           </div>
         </div>
