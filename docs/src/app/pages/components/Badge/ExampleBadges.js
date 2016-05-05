@@ -1,14 +1,16 @@
 import React from 'react'
 import Badge from 'react-conventions/lib/Badge'
 
-const ExampleBadgeDefault = () => (
+const ExampleBadges = () => (
   <div>
-    <Badge text='1' />
+    <Badge text='1' theme='fog' />
     <Badge icon='icon-link-1' theme='success' />
     <Badge text='3' theme='danger' />
     <Badge text='4' theme='warning' />
     <Badge text='5' theme='sky' />
+    <Badge icon='icon-link-1' text='Word' theme='success' />
+    <Badge icon='icon-bell-1' theme='fog' />
   </div>
 )
 
-export default ExampleBadgeDefault
+export default ExampleBadges

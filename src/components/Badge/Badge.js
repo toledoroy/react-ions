@@ -5,11 +5,12 @@ import Icon from 'react-conventions/lib/Icon'
 
 const Badge = (props) => {
   const cx = classNames.bind(style);
-  const badgeClasses = cx(style.badge, props.theme, props.optClass);
+  const iconPlusText = (props.icon && props.text) ? 'padded' : null;
+  const badgeClasses = cx(style.badge, props.theme, props.optClass, iconPlusText);
 
   return (
     <div className={badgeClasses}>
-      {props.icon ? <Icon name={props.icon} height='16' width='16' /> : null} {props.text ? props.text : null}
+      {props.icon ? <Icon name={props.icon} height='14' width='14' /> : null} {props.text ? <span>{props.text}</span> : null}
     </div>
   )
 }

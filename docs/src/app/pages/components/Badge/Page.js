@@ -3,11 +3,11 @@ import PropsList from 'private/modules/PropsList';
 import docs from '!!docgen!react-conventions/lib/Badge/Badge';
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
-import ExampleBadgeDefault from './ExampleBadgeDefault'
-import exampleBadgeDefaultCode from '!raw!./ExampleBadgeDefault'
+import ExampleBadges from './ExampleBadges'
+import exampleBadgesCode from '!raw!./ExampleBadges'
 
 const description = {
-  badgeDefault: 'This is the `badge component`.'
+  badges: 'This is the `badge component`.'
 };
 
 const BadgePage = () => (
@@ -15,10 +15,10 @@ const BadgePage = () => (
     <div className={styles.content}>
       <div className={styles.block}>
         <CodeExample
-          title='Default Badge'
-          description={description.badgeDefault}
-          markup={exampleBadgeDefaultCode}>
-          <ExampleBadgeDefault />
+          title='Example Badges'
+          description={description.badges}
+          markup={exampleBadgesCode}>
+          <ExampleBadges />
         </CodeExample>
       </div>
       <div className={styles.block}>
