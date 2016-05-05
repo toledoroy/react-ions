@@ -3,7 +3,7 @@
 
 .btn {
   @include vertical-align('inline');
-  @include button-context($primary-1, $white, $fadeOnHover: true);
+  @include button-context($primary-1, $white);
   border: 1px solid transparent;
   border-radius: 3px;
   cursor: pointer;
@@ -60,12 +60,6 @@
 
   &.inverted {
     @include button-context($white, $primary-1);
-  }
-
-  // Disabled
-  &:disabled {
-    cursor: not-allowed;
-    opacity: .65;
   }
 
   // To handle inline icons
