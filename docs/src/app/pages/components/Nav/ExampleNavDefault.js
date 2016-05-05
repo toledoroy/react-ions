@@ -6,15 +6,15 @@ import style from './style'
 const data = [
   {
     name: 'Item 1',
-    route: '/',
+    route: '/components/nav',
     icon: 'icon-hammer-2',
     nav: [
       {
         name: 'Sub Item 1',
-        route: '/components/nav'
+        route: '/sub-item/1'
       }, {
         name: 'Sub Item 2',
-        route: '/'
+        route: '/sub-item/2'
       }, {
         name: 'External Link',
         external: true,
@@ -23,10 +23,10 @@ const data = [
     ]
   }, {
     name: 'Item 2',
-    route: '/'
+    route: '/components/nav'
   }, {
     name: 'Item 3',
-    route: '/'
+    route: '/components/nav'
   }
 ];
 

@@ -2,6 +2,8 @@
 @import '../../../src/styles/common/mixins';
 
 .nav {
+  overflow: auto;
+  height: calc(100% - 65px);
 
   ul {
     font-weight: 200;
