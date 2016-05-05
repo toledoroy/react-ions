@@ -27,8 +27,6 @@ const TypographyPage = (props) => {
         </div>
         <div className={styles.block}>
           <h3>Type Sizes</h3>
-          <p>We use different type sizes and weights to convey a visual</p>
-
           <div>
             <h1>The quick brown fox jumps over the lazy dog.</h1>
             <h5 className={localStyles['typography-type']}>Heading Large</h5>
