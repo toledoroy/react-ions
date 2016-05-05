@@ -11,10 +11,10 @@ const HomePage = (props) => {
   var secondaryClass = cx(baseStyles.block, localStyles.secondary);
 
   return (
-    <div className={heroClass}>
-      <div className={baseStyles.block}>
+    <div>
+      <div className={heroClass}>
         <div className={localStyles.skew}>
-          <h1>Reactant</h1>
+          <h1>React:ions</h1>
           <h3>A set of React Components used for building user interfaces.</h3>
           <ButtonAnchor path='/components' internal={true} size='lg' optClass='inverted'>Get Started</ButtonAnchor>
           <ButtonAnchor path='https://github.com/GetAmbassador/react-conventions' external={true} target='_blank' size='lg' optClass='inverted'>
@@ -24,8 +24,21 @@ const HomePage = (props) => {
         </div>
       </div>
       <div className={secondaryClass}>
-        <h2>Getting Started</h2>
-        <p>What is this anyways?</p>
+        <div className={localStyles['intro-block']}>
+          <Icon name='icon-link' fill='#3c97d3' height='48' width='48' />
+          <h4>Coherent Design Language</h4>
+          <span>Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputat.</span>
+        </div>
+        <div className={localStyles['intro-block']}>
+          <Icon name='icon-pulse' fill='#3c97d3' height='48' width='48' />
+          <h4>Platform Agnostic</h4>
+          <span>In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam.</span>
+        </div>
+        <div className={localStyles['intro-block']}>
+          <Icon name='icon-dollar-bag' fill='#3c97d3' height='48' width='48' />
+          <h4>Style with Ease</h4>
+          <span>Nam dapibus nisl vitae elit fringilla rutrum. Aenean sollicitudin, erat a elementum rutrum, neque.</span>
+        </div>
       </div>
     </div>
   )
