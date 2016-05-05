@@ -15,7 +15,6 @@ class Input extends React.Component {
   }
 
   static defaultProps = {
-    value: "",
     disabled: false
   }
 
@@ -81,6 +80,7 @@ class Input extends React.Component {
   render() {
     const {
       label,
+      value,
       optClass,
       ...other
     } = this.props;
