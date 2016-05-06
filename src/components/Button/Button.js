@@ -38,7 +38,7 @@ Button.propTypes = {
    */
   disabled: React.PropTypes.bool,
   /**
-   * Whether the loading spoinner is displayed.
+   * Whether the loading spinner is displayed.
    */
   loading: React.PropTypes.bool
 }
