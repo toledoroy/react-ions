@@ -15,7 +15,7 @@ describe('Textarea', () => {
   });
 
   it('should be disabled', () => {
-    wrapper = mount(<Textarea label='Disabled textarea' value='' disabled />);
+    wrapper = mount(<Textarea label='Disabled textarea' value='' disabled='disabled' />);
     expect(wrapper.find('textarea').node.hasAttribute('disabled')).to.equal(true);
   });
 
@@ -35,14 +35,19 @@ describe('Textarea', () => {
     expect(wrapper.hasClass('textarea-error')).to.equal(true);
   });
 
-  it('should update the value onChange and run onChange callback', () => {
-    var spy = sinon.spy();
+  it('should update the value onChange', () => {
     const afterChange = {target: {value: 'New value'}};
-    wrapper = mount(<Textarea value='test' onChange={spy} />);
-    expect(typeof wrapper.childAt(0).props().onChange).to.equal('function');
+    wrapper = mount(<Textarea value='test' />);
     expect(wrapper.childAt(0).props().value).to.equal('test');
     wrapper.childAt(0).simulate('change', afterChange);
     expect(wrapper.childAt(0).props().value).to.be.equal('New value');
+  });
+
+  it('should call the onChange function', () => {
+    var spy = sinon.spy();
+    wrapper = mount(<Textarea value='test' onChange={spy} />);
+    expect(typeof wrapper.childAt(0).props().onChange).to.equal('function');
+    wrapper.childAt(0).simulate('change');
     expect(spy.calledOnce).to.be.true;
   });
 

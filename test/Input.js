@@ -16,7 +16,7 @@ describe('Input', () => {
   });
 
   it('should be disabled', () => {
-    wrapper = mount(<Input label='Disabled input' value='' disabled />);
+    wrapper = mount(<Input label='Disabled input' value='' disabled='disabled' />);
     expect(wrapper.find('input').node.hasAttribute('disabled')).to.equal(true);
   });
 
@@ -33,13 +33,18 @@ describe('Input', () => {
   });
 
   it('should update the value onChange', () => {
-    var spy = sinon.spy();
     const afterChange = {target: {value: 'New value'}};
-    wrapper = mount(<Input value='test' onChange={spy} />);
-    expect(typeof wrapper.childAt(0).props().onChange).to.equal('function');
+    wrapper = mount(<Input value='test' />);
     expect(wrapper.childAt(0).props().value).to.equal('test');
     wrapper.childAt(0).simulate('change', afterChange);
     expect(wrapper.childAt(0).props().value).to.equal('New value');
+  });
+
+  it('should call the onChange function', () => {
+    var spy = sinon.spy();
+    wrapper = mount(<Input value='test' onChange={spy} />);
+    expect(typeof wrapper.childAt(0).props().onChange).to.equal('function');
+    wrapper.childAt(0).simulate('change');
     expect(spy.calledOnce).to.be.true;
   });
 
