@@ -22,23 +22,35 @@ const nav = [
     route: '/components',
     nav: [
       {
-        name: 'Progress Bar',
-        route: '/components/progress-bar'
+        name: 'Activity Feed',
+        route: '/components/activity-feed'
+      }, {
+        name: 'Badge',
+        route: '/components/badge'
       }, {
         name: 'Breadcrumb',
         route: '/components/breadcrumb'
       }, {
-        name: 'Icons',
-        route: '/components/icons'
-      }, {
         name: 'Buttons',
         route: '/components/buttons'
       }, {
-        name: 'Nav',
-        route: '/components/nav'
-      }, {
         name: 'Checkbox',
         route: '/components/checkbox'
+      }, {
+        name: 'Icons',
+        route: '/components/icons'
+      }, {
+        name: 'Input',
+        route: '/components/input'
+      }, {
+        name: 'Progress Bar',
+        route: '/components/progress-bar'
+      }, {
+        name: 'Modal',
+        route: '/components/modal'
+      }, {
+        name: 'Nav',
+        route: '/components/nav'
       }, {
         name: 'Radio',
         route: '/components/radio'
@@ -48,15 +60,6 @@ const nav = [
       }, {
         name: 'Textarea',
         route: '/components/textarea'
-      }, {
-        name: 'Input',
-        route: '/components/input'
-      }, {
-        name: 'Modal',
-        route: '/components/modal'
-      }, {
-        name: 'Badge',
-        route: '/components/badge'
       }
     ]
   }, {

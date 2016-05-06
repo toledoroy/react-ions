@@ -162,11 +162,13 @@
     .hljs-deletion {
       color: $red;
     }
+    .hljs-string {
+      white-space: normal;
+    }
     .hljs-keyword {
       color: $black;
       font-weight: bold;
     }
-
     .hljs-subst {
       color: $black;
     }
