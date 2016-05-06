@@ -22,6 +22,11 @@
     fill: $white;
   }
 
+  // Set Loader color
+  > div > div > div > div {
+    background-color: $white !important;
+  }
+
   // Button size(s)
   &.lg  {
     padding: 10px 8px;
@@ -78,4 +83,7 @@
     float: none;
   }
 
+}
+.btn-loader .loader{
+  background-color: $white;
 }

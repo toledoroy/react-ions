@@ -15,6 +15,19 @@ describe('Button', () => {
     expect(wrapper.text()).to.equal('Test');
   });
 
+  it('displays a disabled button with a loader', () => {
+    wrapper = shallow(<Button loading={true}>Test</Button>);
+    expect(wrapper.children().length).to.be.equal(2);
+    expect(wrapper.childAt(0).html()).to.be.equal('<div class="loader"></div>');
+    expect(wrapper.childAt(1).html()).to.be.equal('<span style="opacity:0;">Test</span>');
+    expect(wrapper.is('[disabled]')).to.be.equal(true);
+
+    wrapper.setProps({loading: false});
+
+    expect(wrapper.children().length).to.be.equal(1);
+    expect(wrapper.childAt(0).html()).to.be.equal('<span style="opacity:1;">Test</span>');
+  });
+
   it('displays a button anchor', () => {
     wrapper = shallow(<ButtonAnchor path='http://www.google.com' target='_blank'>External</ButtonAnchor>);
     expect(wrapper.props().path).to.equal('http://www.google.com');
