@@ -77,8 +77,8 @@ class Tooltip extends React.Component {
 
   getStyles = () => {
     var style = {
-      top: '-100%',
-      left: '-100%',
+      top: this.props.appendToBody ? '-100%' : '-99999px',
+      left: this.props.appendToBody ? '-100%' : '-99999px',
       opacity: 0,
       position: this.props.appendToBody ? 'fixed' : 'absolute'
     }
@@ -107,7 +107,7 @@ class Tooltip extends React.Component {
 
   render() {
     return (
-      <span onMouseOver={this.showTooltip} /*onMouseOut={this.hideTooltip}*/ ref={(c) => this._triggerElement = c}>
+      <span onMouseOver={this.showTooltip} onMouseOut={this.hideTooltip} ref={(c) => this._triggerElement = c}>
         {this.props.children}
         {this.props.appendToBody ? <RenderToLayer render={this.renderTooltip} open={true} /> : this.renderTooltip()}
       </span>
