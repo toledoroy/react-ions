@@ -2,7 +2,6 @@
 
 .radio-component {
   cursor: pointer;
-  margin-bottom: 15px;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -83,6 +82,13 @@
 }
 
 .radio-group {
+  .radio-component {
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
   > .asterisk {
     color: $danger;
     float: left;

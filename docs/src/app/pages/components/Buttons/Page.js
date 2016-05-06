@@ -12,6 +12,8 @@ import ExampleButtonDisabled from './ExampleButtonDisabled'
 import exampleButtonDisabledCode from '!raw!./ExampleButtonDisabled'
 import ExampleButtonTypes from './ExampleButtonTypes'
 import exampleButtonTypesCode from '!raw!./ExampleButtonTypes'
+import ExampleButtonLoaders from './ExampleButtonLoaders'
+import exampleButtonLoadersCode from '!raw!./ExampleButtonLoaders'
 import ExampleButtonAnchor from './ExampleButtonAnchor'
 import exampleButtonAnchorCode from '!raw!./ExampleButtonAnchor'
 
@@ -20,6 +22,7 @@ const description = {
   buttonIcon: 'This is the `button component` with a single icon. The icon can be displayed on the left or right.',
   buttonDisabled: 'This is the disabled `button component`.',
   buttonTypes: 'Here are a more than a few of the button types available on the `button component`.',
+  buttonLoaders: 'Here are the available button types with loaders.',
   buttonAnchor: 'The `<ButtonAnchor />` component generates an anchor tag.'
 };
 
@@ -27,7 +30,6 @@ const ButtonsPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
-        <h3>Examples</h3>
         <CodeExample
           title='Default Button'
           description={description.buttonDefault}
@@ -51,6 +53,12 @@ const ButtonsPage = () => (
           description={description.buttonTypes}
           markup={exampleButtonTypesCode}>
           <ExampleButtonTypes />
+        </CodeExample>
+        <CodeExample
+          title='Buttons With Loaders'
+          description={description.buttonLoaders}
+          markup={exampleButtonLoadersCode}>
+          <ExampleButtonLoaders />
         </CodeExample>
         <CodeExample
           title='Button Anchor'

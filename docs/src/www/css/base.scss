@@ -6,6 +6,7 @@ $ga-font-folder: '../../../../src/assets/fonts';
 body {
   background-color: $neutral-1;
   font-family: proxima_nova;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -18,20 +19,25 @@ body {
   @media #{$media-small-minus} {
     margin-left: 0;
   }
+}
 
-  .breadcrumbs {
-    background-color: $neutral-1;
-    border-bottom: 1px solid $neutral-3;
-    height: 64px;
-    left: 205px;
-    position: fixed;
-    right: 0;
-    top: 0;
-    transition: all 0.25s ease 0s;
-    z-index: z('default');
+.breadcrumbs {
+  background-color: $neutral-1;
+  height: 65px;
+  left: 205px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: all 0.25s ease 0s;
+  z-index: z('default');
 
-    @media #{$media-small-minus} {
-      left: 65px;
-    }
+  @media #{$media-small-minus} {
+    height: 50px;
+    left: 0;
+    padding-left: 50px;
   }
+}
+
+.breadcrumb-active {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }

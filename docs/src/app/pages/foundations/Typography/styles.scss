@@ -1,0 +1,15 @@
+@import '../../../../../../src/styles/common/mixins';
+
+.font-list {
+  margin: 0 -7.5px 30px;
+  overflow: hidden;
+  .font-wrapper {
+    padding: 7.5px 7.5px;
+    float: left;
+  }
+}
+
+.typography-type {
+  margin-bottom: 0;
+  margin-top: -8px;
+}

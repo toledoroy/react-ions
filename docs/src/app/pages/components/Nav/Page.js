@@ -7,7 +7,7 @@ import exampleNavDefaultCode from '!raw!./ExampleNavDefault'
 import style from 'private/css/content'
 
 const description = {
-  navDefault: 'This is the `nav component` with an optional `icon` and an `external link`. This nav was designed to be used with `React Router`, however you could use it as a standalone navigation as well by using `external` links for all items. It takes an `array` of objects, each with a required `name` and `route`, and an optional `icon` and `external`.'
+  navDefault: 'This is the `nav component`.'
 };
 
 const NavPage = (props) => {

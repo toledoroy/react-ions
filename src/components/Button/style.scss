@@ -3,10 +3,9 @@
 
 .btn {
   @include vertical-align('inline');
-  background-color: $primary-1;
+  @include button-context($primary-1, $white);
   border: 1px solid transparent;
   border-radius: 3px;
-  color: $white;
   cursor: pointer;
   font-size: 14px;
   font-weight: 200;
@@ -20,9 +19,12 @@
   white-space: nowrap;
 
   svg {
-    height: 12px;
     fill: $white;
-    width: 12px;
+  }
+
+  // Set Loader color
+  > div > div > div > div {
+    background-color: $white !important;
   }
 
   // Button size(s)
@@ -65,12 +67,6 @@
     @include button-context($white, $primary-1);
   }
 
-  // Disabled
-  &:disabled {
-    cursor: not-allowed;
-    opacity: .65;
-  }
-
   // To handle inline icons
   svg + span,
   span + svg {
@@ -87,4 +83,7 @@
     float: none;
   }
 
+}
+.btn-loader .loader{
+  background-color: $white;
 }

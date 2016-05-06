@@ -11,7 +11,7 @@
   box-sizing: border-box;
   @if $display == 'inline' {
     display: inline-flex;
-  } else {
+  } @else {
     display: flex;
   }
 }
@@ -24,11 +24,38 @@
   white-space: pre;
 }
 
-@mixin button-context($bg-color, $color) {
+@mixin button-context($bg-color: inherit, $color: inherit, $fadeOnHover: true) {
   background-color: $bg-color;
   color: $color;
 
   svg {
     fill: $color;
   }
+
+  // Set Loader color
+  > div > div > div > div {
+    background-color: $color !important;
+  }
+
+  @if $fadeOnHover {
+    transition: all .15s ease-in-out;
+
+    &:hover {
+      background-color: darken($bg-color, 15%);
+      opacity: .9;
+    }
+  }
+
+  // Disabled
+  &:disabled,
+  &.disabled {
+    cursor: not-allowed;
+    opacity: .65;
+
+    &:hover {
+      background-color: $bg-color;
+      color: $color;
+    }
+  }
+
 }
