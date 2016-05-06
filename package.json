@@ -27,7 +27,10 @@
   "scripts": {
     "test": "node_modules/karma/bin/karma start test/config/karma.local.conf.js",
     "start": "node docs/server",
-    "build": "rimraf dist && set NODE_ENV=production && webpack --config ./docs/webpack.prod.config.js --progress --profile --colors",
+    "build": "npm run clean && npm run build:babel && npm run build:webpack",
+    "build:babel": "babel ./src/components --out-dir ./lib",
+    "build:webpack": "set NODE_ENV=production && webpack --config ./docs/webpack.prod.config.js --progress --profile --colors",
+    "clean": "rimraf dist lib",
     "lint": "eslint . --ext .js --ext .jsx",
     "jscs": "jscs .",
     "postinstall": "npm run build"
