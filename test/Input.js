@@ -16,7 +16,8 @@ describe('Input', () => {
   });
 
   it('should be disabled', () => {
-    wrapper = mount(<Input label='Disabled input' value='' disabled='disabled' />);
+    const disabled = true;
+    wrapper = mount(<Input label='Disabled input' value='' disabled={disabled} />);
     expect(wrapper.find('input').node.hasAttribute('disabled')).to.equal(true);
   });
 
@@ -41,7 +42,7 @@ describe('Input', () => {
   });
 
   it('should call the onChange function', () => {
-    var spy = sinon.spy();
+    const spy = sinon.spy();
     wrapper = mount(<Input value='test' onChange={spy} />);
     expect(typeof wrapper.childAt(0).props().onChange).to.equal('function');
     wrapper.childAt(0).simulate('change');
@@ -49,7 +50,7 @@ describe('Input', () => {
   });
 
   it('should run onBlur callback on blur', () => {
-    var spy = sinon.spy();
+    const spy = sinon.spy();
     wrapper = mount(<Input value='test' onBlur={spy} />);
     expect(typeof wrapper.childAt(0).props().onBlur).to.equal('function');
     wrapper.childAt(0).simulate('blur');
@@ -57,7 +58,7 @@ describe('Input', () => {
   });
 
   it('should run onFocus callback on focus', () => {
-    var spy = sinon.spy();
+    const spy = sinon.spy();
     wrapper = mount(<Input value='test' onFocus={spy} />);
     expect(typeof wrapper.childAt(0).props().onFocus).to.equal('function');
     wrapper.childAt(0).simulate('focus');

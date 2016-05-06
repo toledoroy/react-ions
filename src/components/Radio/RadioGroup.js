@@ -12,7 +12,7 @@ class RadioGroup extends React.Component {
   }
 
   state = {
-    checkedOption: this.props.defaultOption ? this.props.options[this.props.defaultOption].value : ''
+    checkedOption: this.props.defaultOption !== undefined ? this.props.options[this.props.defaultOption].value : ''
   };
 
   static defaultProps = {
@@ -78,7 +78,6 @@ class RadioGroup extends React.Component {
     return this.props.options.map((radio, index) =>
       <Radio
         key={radio.value}
-        ref={radio.value}
         value={radio.value}
         label={radio.label}
         name={groupName}

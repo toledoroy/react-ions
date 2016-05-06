@@ -15,7 +15,8 @@ describe('Textarea', () => {
   });
 
   it('should be disabled', () => {
-    wrapper = mount(<Textarea label='Disabled textarea' value='' disabled='disabled' />);
+    const disabled = true;
+    wrapper = mount(<Textarea label='Disabled textarea' value='' disabled={disabled} />);
     expect(wrapper.find('textarea').node.hasAttribute('disabled')).to.equal(true);
   });
 
@@ -44,7 +45,7 @@ describe('Textarea', () => {
   });
 
   it('should call the onChange function', () => {
-    var spy = sinon.spy();
+    const spy = sinon.spy();
     wrapper = mount(<Textarea value='test' onChange={spy} />);
     expect(typeof wrapper.childAt(0).props().onChange).to.equal('function');
     wrapper.childAt(0).simulate('change');
@@ -52,15 +53,27 @@ describe('Textarea', () => {
   });
 
   it('should run onBlur callback on blur', () => {
-    var spy = sinon.spy();
+    const spy = sinon.spy();
     wrapper = mount(<Textarea value='test' onBlur={spy} />);
     expect(typeof wrapper.childAt(0).props().onBlur).to.equal('function');
     wrapper.childAt(0).simulate('blur');
     expect(spy.calledOnce).to.be.true;
   });
 
+  it('should run onBlur callback on blur', () => {
+    let value = 'not called';
+    const callback = function() {
+      value = 'called';
+    }
+    wrapper = mount(<Textarea value='test' onBlur={callback} />);
+
+    expect(value).to.equal('not called');
+    wrapper.childAt(0).simulate('blur');
+    expect(value).to.equal('called');
+  });
+
   it('should run onFocus callback on focus', () => {
-    var spy = sinon.spy();
+    const spy = sinon.spy();
     wrapper = mount(<Textarea value='test' onFocus={spy} />);
     expect(typeof wrapper.childAt(0).props().onFocus).to.equal('function');
     wrapper.childAt(0).simulate('focus');

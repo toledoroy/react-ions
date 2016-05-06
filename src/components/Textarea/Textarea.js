@@ -68,6 +68,7 @@ class Textarea extends React.Component {
   }
 
   handleBlur = (event) => {
+    console.log('test')
     if (typeof this.props.onBlur === 'function') {
       this.props.onBlur(event);
     }
