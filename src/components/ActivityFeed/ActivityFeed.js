@@ -17,7 +17,9 @@ const ActivityFeed = (props) => {
         optClass={style.indicator}
       />
       <ActivityFeedItem
+        name={item.name}
         title={item.title}
+        profileUrl={item.profileUrl}
         actions={item.actions}
         text={item.text}
         time={item.timestamp}

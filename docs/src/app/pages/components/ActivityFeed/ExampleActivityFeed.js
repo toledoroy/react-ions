@@ -3,7 +3,9 @@ import ActivityFeed from 'react-conventions/lib/ActivityFeed'
 
 const data = [
   {
-    title: 'James Rodriguez submitted a score of 9',
+    name: 'The Badge Component',
+    profileUrl: '/components/badge',
+    title: 'is pretty awesome.',
     text: 'Beef ribs shoulder bresaola hamburger brisket filet mignon turkey kevin frankfurter andouille spare ribs shankle chicken swine ham hock. Ham pork belly alcatra venison.',
     timestamp: '2016-05-06T18:19:08.936',
     badge: {
@@ -11,7 +13,9 @@ const data = [
       theme: 'success'
     }
   }, {
-    title: 'Ted Cruz submitted a score of 7',
+    name: 'The Nav Component',
+    profileUrl: '/components/nav',
+    title: 'is really great, actually.',
     text: 'Bacon ipsum dolor amet venison bresaola kevin chuck. Pig turkey alcatra beef ribs salami pork.',
     timestamp: '2016-05-05T18:19:08.936',
     actions: [
@@ -28,7 +32,9 @@ const data = [
       theme: 'warning'
     }
   }, {
-    title: 'Donald Trump submitted a score of 3',
+    name: 'The Iconography Page',
+    profileUrl: '/foundations/iconography',
+    title: 'doesn\'t need much work.',
     text: 'Turducken chuck shoulder, landjaeger brisket shank tri-tip capicola kielbasa jerky alcatra drumstick pork belly filet mignon. ',
     timestamp: '2016-05-02T18:19:08.936',
     actions: [

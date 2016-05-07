@@ -4,7 +4,6 @@
 @import 'src/styles/common/functions';
 
 .activity-feed {
-
   ul {
     list-style-type: none;
     margin: 0;
@@ -45,6 +44,7 @@
 .indicator {
   border: 5px solid $white;
   border-radius: 9px;
+  left: 0;
   position: absolute;
   top: -5px;
   z-index: 1;
@@ -62,13 +62,17 @@
 
   h3 {
     float: left;
-    margin: 0 5px 0 0;
-    line-height: 1em;
+    margin: 0;
 
     @media #{$media-extra-small} {
       + svg {
         margin-top: 3px;
       }
+    }
+
+    a {
+      color: $primary-1;
+      text-decoration: none;
     }
   }
 
@@ -123,5 +127,16 @@
       opacity: 1;
       visibility: visible;
     }
+  }
+}
+
+.action-wrapper {
+  display: inline-block;
+  margin-left: 5px;
+
+  @media #{$media-extra-small} {
+    position: absolute;
+    top: 15px;
+    right: 10px;
   }
 }
