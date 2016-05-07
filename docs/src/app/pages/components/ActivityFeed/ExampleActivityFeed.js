@@ -57,7 +57,9 @@ const data = [
       theme: 'danger'
     }
   }, {
-    title: 'Hillary Clinton opened an email NPS survey',
+    name: 'The Typography Page',
+    profileUrl: '/foundations/typography',
+    title: 'shall be printed, just to see what happens.',
     timestamp: '2016-04-15T18:19:08.936',
     badge: {
       icon: 'icon-mail-inbox-1',
