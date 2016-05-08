@@ -17,7 +17,7 @@ class ActivityFeed extends React.Component {
     } else {
       this.setState({
         data: this.props.data
-      })        
+      })
     }
   }
 
@@ -26,7 +26,7 @@ class ActivityFeed extends React.Component {
     const feedClasses = cx(style['activity-feed'], this.props.optClass);
 
     let items = this.state.data.map((item, index) =>
-      <li class={style['item-wrapper']} key={index}>
+      <li key={index}>
         <Badge
           icon={item.badge.icon}
           text={item.badge.text}
@@ -35,8 +35,8 @@ class ActivityFeed extends React.Component {
         />
         <ActivityFeedItem
           name={item.name}
-          title={item.title}
           profileUrl={item.profileUrl}
+          title={item.title}
           actions={item.actions}
           text={item.text}
           time={item.timestamp}
