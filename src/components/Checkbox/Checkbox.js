@@ -44,14 +44,16 @@ class Checkbox extends React.Component {
      */
     optClass: React.PropTypes.string,
     /**
-     * A callback function to be called when the input changes.
+     * A callback function to be called when the checkbox changes.
      */
     changeCallback: React.PropTypes.func
   };
 
   handleChange = (event) => {
-    this.setState({
-      checked: event.target.checked
+    this.setState({checked: event.target.checked}, function() {
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback(event);
+      }     
     });
   }
 
