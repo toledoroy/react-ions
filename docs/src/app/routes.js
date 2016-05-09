@@ -22,6 +22,7 @@ import TextareaPage from './pages/components/Textarea/Page'
 import InputPage from './pages/components/Input/Page'
 import ModalPage from './pages/components/Modal/Page'
 import BadgePage from './pages/components/Badge/Page'
+import TooltipPage from './pages/components/Tooltip/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -47,6 +48,7 @@ const Routes = (
       <Route path='input' title='Input' component={InputPage} />
       <Route path='modal' title='Modal' component={ModalPage} />
       <Route path='badge' title='Badge' component={BadgePage} />
+      <Route path='tooltip' title='Tooltip' component={TooltipPage} />
     </Route>
     <Route path='patterns' title='Patterns'>
     </Route>

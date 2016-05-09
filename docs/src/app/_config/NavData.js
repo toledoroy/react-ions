@@ -57,6 +57,9 @@ const nav = [
       }, {
         name: 'Badge',
         route: '/components/badge'
+      }, {
+        name: 'Tooltip',
+        route: '/components/tooltip'
       }
     ]
   }, {
