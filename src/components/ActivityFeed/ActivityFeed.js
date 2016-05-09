@@ -26,7 +26,7 @@ class ActivityFeed extends React.Component {
 
   componentWillReceiveProps(newProps) {
     this.setState({
-      data: this.props.data
+      data: newProps.data
     })
   }
 
