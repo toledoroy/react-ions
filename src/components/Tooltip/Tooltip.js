@@ -60,12 +60,12 @@ class Tooltip extends React.Component {
         this._tooltipPlacement.top = this.props.appendToBody ? triggerRect.top + (triggerRect.bottom - triggerRect.top) / 2 : '50%';
         break
       case 'left':
-        this._tooltipPlacement.left = this.props.appendToBody ? triggerRect.left : '0';
+        this._tooltipPlacement.left = this.props.appendToBody ? triggerRect.left : '0%';
         this._tooltipPlacement.top = this.props.appendToBody ? triggerRect.top + (triggerRect.bottom - triggerRect.top) / 2 : '50%';
         break
       default:
         this._tooltipPlacement.left = this.props.appendToBody ? triggerRect.left + (triggerRect.right - triggerRect.left) / 2 : '50%';
-        this._tooltipPlacement.top = this.props.appendToBody ? triggerRect.top : '0';
+        this._tooltipPlacement.top = this.props.appendToBody ? triggerRect.top : '0%';
     }
 
     this._triggerElement.style.removeProperty('position');
