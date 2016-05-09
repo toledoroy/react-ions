@@ -7,17 +7,15 @@ import style from './style.scss'
 const ActivityFeedItem = (props) => {
 
   const generateProfileName = function() {
-    let profileName;
     if (!props.profileUrl) {
-      profileName = props.name ? props.name : null
+      return props.name ? props.name : null
     } else {
-      profileName = <Link to={props.profileUrl}>{props.name ? props.name : null}</Link>
+      return <Link to={props.profileUrl}>{props.name ? props.name : null}</Link>
     }
-    return profileName;
   }
 
   const generateActions = function() {
-    let actions = props.actions.map((action, index) =>
+    const actions = props.actions.map((action, index) =>
       <Icon name={action.icon} onClick={action.callback} fill='#3c97d3' height='16' width='16' key={index} />
     )
     return actions;
