@@ -21,6 +21,7 @@ import RadioGroupPage from './pages/components/RadioGroup/Page'
 import TextareaPage from './pages/components/Textarea/Page'
 import InputPage from './pages/components/Input/Page'
 import Modal from './pages/components/Modal/Page'
+import Tooltip from './pages/components/Tooltip/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -45,6 +46,7 @@ const Routes = (
       <Route path='textarea' title='Textarea' component={TextareaPage} />
       <Route path='input' title='Input' component={InputPage} />
       <Route path='modal' title='Modal' component={Modal} />
+      <Route path='tooltip' title='Tooltip' component={Tooltip} />
     </Route>
     <Route path='patterns' title='Patterns'>
     </Route>

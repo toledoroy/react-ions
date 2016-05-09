@@ -20,10 +20,7 @@ class ExampleTooltipDefault extends React.Component {
   render() {
     return (
       <div>
-        <Tooltip text="Default Tooltip" open={this.state.open} tooltipPlacement={'right'}>test right</Tooltip>
-        <Tooltip text="Default Tooltip" open={this.state.open} tooltipPlacement={'left'}>test left</Tooltip>
-        <Tooltip text="Default Tooltip" open={this.state.open} tooltipPlacement={'bottom'}>test bottom</Tooltip>
-        <Tooltip text="Default Tooltip" open={this.state.open}>test</Tooltip>
+        <p>Umami four dollar toast craft beer polaroid <Tooltip content="Testing the right tooltip" open={this.state.open} tooltipPlacement={'right'}><a href="#">right tooltip</a></Tooltip>, synth keytar echo park whatever sustainable <Tooltip content="Testing the left tooltip" open={this.state.open} tooltipPlacement={'left'}><a href="#">left tooltip</a></Tooltip>. Poutine cardigan gentrify, tumblr meggings <Tooltip content="Testing the bottom tooltip" open={this.state.open} tooltipPlacement={'bottom'}><a href="#">bottom tooltip</a></Tooltip> sriracha brunch offal plaid beard. Cronut cliche cred pabst <Tooltip content="Testing the top tooltip" open={this.state.open}><a href="#">top tooltip</a></Tooltip>. Sriracha try-hard butcher, pitchfork pork belly locavore fap. Try-hard pug jean shorts raw denim distillery bicycle rights butcher. Stumptown whatever marfa cray kinfolk chartreuse. Dreamcatcher helvetica YOLO schlitz mustache, hoodie typewriter chartreuse salvia humblebrag aesthetic jean shorts knausgaard yr fixie.</p>
       </div>
     );
   }

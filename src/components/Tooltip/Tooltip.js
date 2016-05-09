@@ -23,7 +23,7 @@ class Tooltip extends React.Component {
     /**
      * The content to display inside the `Tooltip`. Could be number, string, element or an array containing these types.
      */
-    content: React.PropTypes.node.isRequired,
+    content: React.PropTypes.node,
     /**
      * Optional styles to add to the tooltip.
      */
@@ -77,10 +77,17 @@ class Tooltip extends React.Component {
 
   getStyles = () => {
     var style = {
-      top: this.props.appendToBody ? '-100%' : '-99999px',
-      left: this.props.appendToBody ? '-100%' : '-99999px',
+      top: '-100%',
+      left: '-100%',
       opacity: 0,
-      position: this.props.appendToBody ? 'fixed' : 'absolute'
+      position: 'fixed'
+    }
+
+    if (!this.props.appendToBody) {
+      style.top = '-99999px';
+      style.left = '-99999px';
+      style.position = 'absolute';
+      style.zIndex = 10;
     }
 
     if (this.state.showing) {

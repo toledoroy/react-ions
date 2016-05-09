@@ -5,18 +5,12 @@ import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleTooltipDefault from './ExampleTooltipDefault'
 import exampleTooltipDefaultCode from '!raw!./ExampleTooltipDefault'
-// import ExampleTooltipActions from './ExampleTooltipActions'
-// import exampleTooltipActionsCode from '!raw!./ExampleTooltipActions'
-// import ExampleTooltipSmall from './ExampleTooltipSmall'
-// import exampleTooltipSmallCode from '!raw!./ExampleTooltipSmall'
-// import ExampleTooltipLarge from './ExampleTooltipLarge'
-// import exampleTooltipLargeCode from '!raw!./ExampleTooltipLarge'
+import ExampleTooltipBody from './ExampleTooltipBody'
+import exampleTooltipBodyCode from '!raw!./ExampleTooltipBody'
 
 const description = {
-  tooltipDefault: 'This is the `tooltip component` as it appears by default.'
-  // tooltipActions: 'This is the `tooltip component` with actions.',
-  // tooltipSmall: 'This is the small `tooltip component`.',
-  // tooltipLarge: 'This is the large `tooltip component`.'
+  tooltipDefault: 'This is the `tooltip component` as it appears by default.',
+  tooltipBody: 'This is the `tooltip component` that gets appended to the document body.'
 };
 
 const TooltipPage = () => (
@@ -29,6 +23,12 @@ const TooltipPage = () => (
           description={description.tooltipDefault}
           markup={exampleTooltipDefaultCode}>
           <ExampleTooltipDefault />
+        </CodeExample>
+        <CodeExample
+          title='Tooltip Appended To Body'
+          description={description.tooltipBody}
+          markup={exampleTooltipBodyCode}>
+          <ExampleTooltipBody />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
