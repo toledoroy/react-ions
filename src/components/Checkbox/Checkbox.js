@@ -14,6 +14,10 @@ class Checkbox extends React.Component {
     labelPosition: 'right'
   }
 
+  state = {
+    checked: this.props.checked
+  }
+
   static propTypes = {
     /**
      * Whether the checkbox is checked.
@@ -41,25 +45,34 @@ class Checkbox extends React.Component {
     optClass: React.PropTypes.string
   };
 
-  componentDidMount() {
-    this.refs.checkbox.checked = this.props.checked || false;
-    this.refs.checkbox.disabled = this.props.disabled || false;
+  handleChange = (event) => {
+    this.setState({
+      checked: event.target.checked
+    });
   }
 
   render() {
+    const {
+      checked,
+      label,
+      labelPosition,
+      optClass,
+      ...other
+    } = this.props;
+
     const cx = classNames.bind(style);
     var disabledClass = this.props.disabled ? style['checkbox-disabled'] : '';
-    var checkboxClass = cx(style['checkbox-component'], this.props.optClass, disabledClass);
+    var checkboxClass = cx(style['checkbox-component'], optClass, disabledClass);
 
     return (
       <div className={checkboxClass}>
-        <input type="checkbox" ref="checkbox" value={this.props.value}></input>
+        <input type="checkbox" checked={this.state.checked} {...other}></input>
         <div>
-          { this.props.label && this.props.labelPosition === 'left' ? <label className={style['label-left']}>{this.props.label}</label> : null }
+          { label && labelPosition === 'left' ? <label className={style['label-left']}>{label}</label> : null }
           <div className={style['checkbox-input']}>
             <Icon name='icon-check-1-1' fill='#3C97D3' />
           </div>
-          { this.props.label && this.props.labelPosition === 'right' ? <label className={style['label-right']}>{this.props.label}</label> : null }
+          { label && labelPosition === 'right' ? <label className={style['label-right']}>{label}</label> : null }
         </div>
       </div>
     )

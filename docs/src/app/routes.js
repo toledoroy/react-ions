@@ -16,7 +16,6 @@ import IconsPage from './pages/components/Icons/Page'
 import ButtonsPage from './pages/components/Buttons/Page'
 import NavPage from './pages/components/Nav/Page'
 import CheckboxPage from './pages/components/Checkbox/Page'
-import RadioPage from './pages/components/Radio/Page'
 import RadioGroupPage from './pages/components/RadioGroup/Page'
 import TextareaPage from './pages/components/Textarea/Page'
 import InputPage from './pages/components/Input/Page'
@@ -44,6 +43,7 @@ const Routes = (
       <Route path='checkbox' title='Checkbox' component={CheckboxPage} />
       <Route path='icons' title='Icons' component={IconsPage} />
       <Route path='input' title='Input' component={InputPage} />
+      <Route path='radio' title='Radio' component={RadioGroupPage} />
       <Route path='modal' title='Modal' component={ModalPage} />
       <Route path='nav' title='Nav' component={NavPage} />
       <Route path='progress-bar' title='Progress Bar' component={ProgressBarPage} />

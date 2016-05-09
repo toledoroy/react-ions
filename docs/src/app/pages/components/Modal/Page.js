@@ -19,7 +19,7 @@ const description = {
   modalLarge: 'This is the large `modal component`.'
 };
 
-const RadioPage = () => (
+const ModalPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
@@ -57,4 +57,4 @@ const RadioPage = () => (
   </div>
 )
 
-export default RadioPage
+export default ModalPage

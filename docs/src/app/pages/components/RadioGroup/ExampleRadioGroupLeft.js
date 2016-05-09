@@ -16,7 +16,7 @@ const options = [
 
 const ExampleRadioLeft = () => (
   <RadioGroup
-    label="Radio group left label"
+    label="Radio left label"
     name="left-radio-group"
     options={options}
     labelPosition='left'>

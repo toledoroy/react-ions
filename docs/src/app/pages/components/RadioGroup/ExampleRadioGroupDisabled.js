@@ -14,12 +14,14 @@ const options = [
   }
 ];
 
+const disabled = true;
+
 const ExampleRadioDisabled = () => (
   <RadioGroup
-    label="Disabled radio group label"
+    label="Disabled radio label"
     name="disabled-radio-group"
     options={options}
-    disabled>
+    disabled={disabled}>
   </RadioGroup>
 )
 
