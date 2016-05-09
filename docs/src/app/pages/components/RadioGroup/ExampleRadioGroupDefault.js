@@ -16,7 +16,7 @@ const options = [
 
 const ExampleRadioDefault = () => (
   <RadioGroup
-    label="Default radio group label"
+    label="Default radio label"
     name="default-radio-group"
     options={options}>
   </RadioGroup>

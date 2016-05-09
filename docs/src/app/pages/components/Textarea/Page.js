@@ -17,12 +17,12 @@ import ExampleTextareaCallback from './ExampleTextareaCallback'
 import exampleTextareaCallbackCode from '!raw!./ExampleTextareaCallback'
 
 const description = {
-  textareaDefault: 'This is the textarea component as it appears by default.',
-  textareaPlaceholder: 'This is the textarea component with placeholder text.',
-  textareaLabel: 'This is the textarea component with a label.',
-  textareaDisabled: 'This is the disabled textarea component.',
-  textareaError: 'This is the textarea component with error.',
-  textareaCallback: 'This is the textarea component with a callback function. __Note__: _the `style import` and `code` tag is for display purposes only._'
+  textareaDefault: 'This is the `textarea component` as it appears by default.',
+  textareaPlaceholder: 'This is the `textarea component` with placeholder text.',
+  textareaLabel: 'This is the `textarea component` with a label.',
+  textareaDisabled: 'This is the disabled `textarea component`.',
+  textareaError: 'This is the `textarea component` with error.',
+  textareaCallback: 'This is the `textarea component` with a callback function. __Note__: _the `style import` and `code` tag is for display purposes only._'
 };
 
 const TextareaPage = () => (

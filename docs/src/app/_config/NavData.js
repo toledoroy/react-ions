@@ -43,9 +43,6 @@ const nav = [
         name: 'Radio',
         route: '/components/radio'
       }, {
-        name: 'Radio Group',
-        route: '/components/radio-group'
-      }, {
         name: 'Textarea',
         route: '/components/textarea'
       }, {
@@ -54,6 +51,12 @@ const nav = [
       }, {
         name: 'Modal',
         route: '/components/modal'
+      }, {
+        name: 'Badge',
+        route: '/components/badge'
+      }, {
+        name: 'Tooltip',
+        route: '/components/tooltip'
       }
     ]
   }, {
