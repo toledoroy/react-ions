@@ -11,29 +11,23 @@ class ActivityFeed extends React.Component {
      */
     data: React.PropTypes.array.isRequired,
     /**
-     * Limits the number of items in the list.
-     */
-    limit: React.PropTypes.number,
-    /**
      * An optional CSS class to pass along to the feed component.
      */
     optClass: React.PropTypes.string
-  };
+  }
+
+  state = {
+    data: this.props.data
+  }
 
   constructor(props) {
     super(props);
   }
 
-  componentWillMount() {
-    if (this.props.limit) {
-      this.setState({
-        data: this.props.data.slice(0, this.props.limit)
-      })
-    } else {
-      this.setState({
-        data: this.props.data
-      })
-    }
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      data: this.props.data
+    })
   }
 
   render() {
@@ -57,7 +51,7 @@ class ActivityFeed extends React.Component {
           time={item.timestamp}
         />
       </li>
-    );
+    )
 
     return (
       <div className={feedClasses}>
