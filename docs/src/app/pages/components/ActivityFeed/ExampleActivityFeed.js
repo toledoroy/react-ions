@@ -14,7 +14,6 @@ const data = [
     }
   }, {
     name: 'The Nav Component',
-    profileUrl: '/components/nav',
     title: 'is really great, actually.',
     text: 'Bacon ipsum dolor amet venison bresaola kevin chuck. Pig turkey alcatra beef ribs salami pork.',
     timestamp: '2016-05-05T18:19:08.936',
@@ -57,9 +56,7 @@ const data = [
       theme: 'danger'
     }
   }, {
-    name: 'The Typography Page',
-    profileUrl: '/foundations/typography',
-    title: 'shall be printed, just to see what happens.',
+    name: 'Printed test page.',
     timestamp: '2016-04-15T18:19:08.936',
     badge: {
       icon: 'icon-mail-inbox-1',

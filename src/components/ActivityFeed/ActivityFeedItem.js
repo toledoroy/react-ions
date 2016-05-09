@@ -10,14 +10,14 @@ class ActivityFeedItem extends React.Component {
     super(props);
   }
 
-  generateProfileLink() {
-    let profileUrl;
+  generateProfileName() {
+    let profileName;
     if (!this.props.profileUrl) {
-      profileUrl = this.props.name ? this.props.name : null
+      profileName = this.props.name ? this.props.name : null
     } else {
-      profileUrl = <Link to={this.props.profileUrl}>{this.props.name ? this.props.name : null}</Link>
+      profileName = <Link to={this.props.profileUrl}>{this.props.name ? this.props.name : null}</Link>
     }
-    return profileUrl;
+    return profileName;
   }
 
   generateActions() {
@@ -32,7 +32,7 @@ class ActivityFeedItem extends React.Component {
       <div className={style['item-wrapper']}>
         {this.props.time ? <time>{timeString(this.props.time)}</time> : null}
         <div className={style['title-wrapper']}>
-          <h3>{this.generateProfileLink()} {this.props.title ? this.props.title : null}</h3>
+          <h3>{this.generateProfileName()} {this.props.title ? this.props.title : null}</h3>
           {this.props.actions ? <div className={style['action-wrapper']}>{this.generateActions()}</div> : null}
         </div>
         {this.props.text ? <p>{this.props.text}</p> : null}
