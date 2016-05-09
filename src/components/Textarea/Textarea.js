@@ -42,34 +42,34 @@ class Textarea extends React.Component {
     /**
      * A callback function to be called when the textarea changes.
      */
-    onChange: React.PropTypes.func,
+    changeCallback: React.PropTypes.func,
     /**
      * A callback function to be called when the textarea is focused.
      */
-    onFocus: React.PropTypes.func,
+    focusCallback: React.PropTypes.func,
     /**
      * A callback function to be called when the textarea is blurred.
      */
-    onBlur: React.PropTypes.func
+    blurCallback: React.PropTypes.func
   };
 
   handleChange = (event) => {
     this.setState({value: event.target.value}, function() {
-      if (typeof this.props.onChange === 'function') {
-        this.props.onChange(event);
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback(event);
       }
     });
   }
 
   handleFocus = (event) => {
-    if (typeof this.props.onFocus === 'function') {
-      this.props.onFocus(event);
+    if (typeof this.props.focusCallback === 'function') {
+      this.props.focusCallback(event);
     }
   }
 
   handleBlur = (event) => {
-    if (typeof this.props.onBlur === 'function') {
-      this.props.onBlur(event);
+    if (typeof this.props.blurCallback === 'function') {
+      this.props.blurCallback(event);
     }
   }
 
