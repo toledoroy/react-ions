@@ -52,47 +52,29 @@ class Tooltip extends React.Component {
 
     switch (this.props.tooltipPlacement) {
       case 'bottom':
-        this._tooltipPlacement.left = this.props.appendToBody ? triggerRect.left + (triggerRect.right - triggerRect.left) / 2 : '50%';
-        this._tooltipPlacement.top = this.props.appendToBody ? triggerRect.bottom : '100%';
+        this._tooltipPlacement.left = triggerRect.left + (triggerRect.right - triggerRect.left) / 2;
+        this._tooltipPlacement.top = triggerRect.bottom;
         break
       case 'right':
-        this._tooltipPlacement.left = this.props.appendToBody ? triggerRect.right : '100%';
-        this._tooltipPlacement.top = this.props.appendToBody ? triggerRect.top + (triggerRect.bottom - triggerRect.top) / 2 : '50%';
+        this._tooltipPlacement.left = triggerRect.right;
+        this._tooltipPlacement.top = triggerRect.top + (triggerRect.bottom - triggerRect.top) / 2;
         break
       case 'left':
-        this._tooltipPlacement.left = this.props.appendToBody ? triggerRect.left : '0%';
-        this._tooltipPlacement.top = this.props.appendToBody ? triggerRect.top + (triggerRect.bottom - triggerRect.top) / 2 : '50%';
+        this._tooltipPlacement.left = triggerRect.left;
+        this._tooltipPlacement.top = triggerRect.top + (triggerRect.bottom - triggerRect.top) / 2;
         break
       default:
-        this._tooltipPlacement.left = this.props.appendToBody ? triggerRect.left + (triggerRect.right - triggerRect.left) / 2 : '50%';
-        this._tooltipPlacement.top = this.props.appendToBody ? triggerRect.top : '0%';
-    }
-
-    this._triggerElement.style.removeProperty('position');
-
-    if (!this.props.appendToBody) {
-      this._triggerElement.style.position = 'relative';
+        this._tooltipPlacement.left = triggerRect.left + (triggerRect.right - triggerRect.left) / 2;
+        this._tooltipPlacement.top = triggerRect.top;
     }
   }
 
   getStyles = () => {
-    var style = {
-      top: '-100%',
-      left: '-100%',
-      opacity: 0,
-      position: 'fixed'
-    }
-
-    if (!this.props.appendToBody) {
-      style.top = '-99999px';
-      style.left = '-99999px';
-      style.position = 'absolute';
-      style.zIndex = 10;
-    }
+    var style = {};
 
     if (this.state.showing) {
-      style.top = this._tooltipPlacement.top;
-      style.left = this._tooltipPlacement.left;
+      style.top = this._tooltipPlacement.top + window.pageYOffset;
+      style.left = this._tooltipPlacement.left + window.pageXOffset;
       style.opacity = 0.9;
     }
 

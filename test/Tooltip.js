@@ -45,85 +45,81 @@ describe('Tooltip', () => {
   it('should show above the element on mouseover and hide on mouseout', () => {
     wrapper = mount(<Tooltip content="Testing the top tooltip">Test text</Tooltip>);
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('0');
-    expect(wrapper.find('div').node.style.left).to.be.equal('-99999px');
-    expect(wrapper.find('div').node.style.top).to.be.equal('-99999px');
-    expect(wrapper.find('div').node.style.position).to.be.equal('absolute');
+    expect(wrapper.find('div').node.style.opacity).to.be.equal('');
+    expect(wrapper.find('div').node.style.left).to.be.equal('');
+    expect(wrapper.find('div').node.style.top).to.be.equal('');
 
     wrapper.simulate('mouseover');
 
     expect(wrapper.find('div').node.style.opacity).to.be.equal('0.9');
-    expect(wrapper.find('div').node.style.left).to.be.equal('50%');
-    expect(wrapper.find('div').node.style.top).to.be.equal('0%');
+    expect(wrapper.find('div').node.style.left).to.not.be.equal('');
+    expect(wrapper.find('div').node.style.top).to.not.be.equal('');
 
     wrapper.simulate('mouseout');
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('0');
-    expect(wrapper.find('div').node.style.left).to.be.equal('-99999px');
-    expect(wrapper.find('div').node.style.top).to.be.equal('-99999px');
+    expect(wrapper.find('div').node.style.opacity).to.be.equal('');
+    expect(wrapper.find('div').node.style.left).to.be.equal('');
+    expect(wrapper.find('div').node.style.top).to.be.equal('');
   });
 
   it('should show below the element on mouseover and hide on mouseout', () => {
     wrapper = mount(<Tooltip content="Testing the bottom tooltip" tooltipPlacement="bottom">Test text</Tooltip>);
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('0');
-    expect(wrapper.find('div').node.style.left).to.be.equal('-99999px');
-    expect(wrapper.find('div').node.style.top).to.be.equal('-99999px');
-    expect(wrapper.find('div').node.style.position).to.be.equal('absolute');
+    expect(wrapper.find('div').node.style.opacity).to.be.equal('');
+    expect(wrapper.find('div').node.style.left).to.be.equal('');
+    expect(wrapper.find('div').node.style.top).to.be.equal('');
 
     wrapper.simulate('mouseover');
 
     expect(wrapper.find('div').node.style.opacity).to.be.equal('0.9');
-    expect(wrapper.find('div').node.style.left).to.be.equal('50%');
-    expect(wrapper.find('div').node.style.top).to.be.equal('100%');
+    expect(wrapper.find('div').node.style.left).to.not.be.equal('');
+    expect(wrapper.find('div').node.style.top).to.not.be.equal('');
 
     wrapper.simulate('mouseout');
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('0');
-    expect(wrapper.find('div').node.style.left).to.be.equal('-99999px');
-    expect(wrapper.find('div').node.style.top).to.be.equal('-99999px');
+    expect(wrapper.find('div').node.style.opacity).to.be.equal('');
+    expect(wrapper.find('div').node.style.left).to.be.equal('');
+    expect(wrapper.find('div').node.style.top).to.be.equal('');
   });
 
   it('should show left of the element on mouseover and hide on mouseout', () => {
     wrapper = mount(<Tooltip content="Testing the left tooltip" tooltipPlacement="left">Test text</Tooltip>);
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('0');
-    expect(wrapper.find('div').node.style.left).to.be.equal('-99999px');
-    expect(wrapper.find('div').node.style.top).to.be.equal('-99999px');
-    expect(wrapper.find('div').node.style.position).to.be.equal('absolute');
+    expect(wrapper.find('div').node.style.opacity).to.be.equal('');
+    expect(wrapper.find('div').node.style.left).to.be.equal('');
+    expect(wrapper.find('div').node.style.top).to.be.equal('');
 
     wrapper.simulate('mouseover');
 
     expect(wrapper.find('div').node.style.opacity).to.be.equal('0.9');
-    expect(wrapper.find('div').node.style.left).to.be.equal('0%');
-    expect(wrapper.find('div').node.style.top).to.be.equal('50%');
+    expect(wrapper.find('div').node.style.left).to.not.be.equal('');
+    expect(wrapper.find('div').node.style.top).to.not.be.equal('');
 
     wrapper.simulate('mouseout');
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('0');
-    expect(wrapper.find('div').node.style.left).to.be.equal('-99999px');
-    expect(wrapper.find('div').node.style.top).to.be.equal('-99999px');
+    expect(wrapper.find('div').node.style.opacity).to.be.equal('');
+    expect(wrapper.find('div').node.style.left).to.be.equal('');
+    expect(wrapper.find('div').node.style.top).to.be.equal('');
   });
 
   it('should show right of the element on mouseover and hide on mouseout', () => {
     wrapper = mount(<Tooltip content="Testing the right tooltip" tooltipPlacement="right">Test text</Tooltip>);
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('0');
-    expect(wrapper.find('div').node.style.left).to.be.equal('-99999px');
-    expect(wrapper.find('div').node.style.top).to.be.equal('-99999px');
-    expect(wrapper.find('div').node.style.position).to.be.equal('absolute');
+    expect(wrapper.find('div').node.style.opacity).to.be.equal('');
+    expect(wrapper.find('div').node.style.left).to.be.equal('');
+    expect(wrapper.find('div').node.style.top).to.be.equal('');
 
     wrapper.simulate('mouseover');
 
     expect(wrapper.find('div').node.style.opacity).to.be.equal('0.9');
-    expect(wrapper.find('div').node.style.left).to.be.equal('100%');
-    expect(wrapper.find('div').node.style.top).to.be.equal('50%');
+    expect(wrapper.find('div').node.style.left).to.not.be.equal('');
+    expect(wrapper.find('div').node.style.top).to.not.be.equal('');
 
     wrapper.simulate('mouseout');
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('0');
-    expect(wrapper.find('div').node.style.left).to.be.equal('-99999px');
-    expect(wrapper.find('div').node.style.top).to.be.equal('-99999px');
+    expect(wrapper.find('div').node.style.opacity).to.be.equal('');
+    expect(wrapper.find('div').node.style.left).to.be.equal('');
+    expect(wrapper.find('div').node.style.top).to.be.equal('');
   });
 
   it('should append itself to the body with default options (top placement), show on mouseover and hide on mouseout', () => {
@@ -131,22 +127,21 @@ describe('Tooltip', () => {
 
     expect(document.body.getElementsByClassName('tooltip-component')).to.have.length(1);
     expect(document.body.getElementsByClassName('top')).to.have.length(1);
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.position).to.be.equal('fixed');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('0');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('');
 
     wrapper.simulate('mouseover');
 
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.not.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.not.be.equal('-100%');
     expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('0.9');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.not.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.not.be.equal('');
 
     wrapper.simulate('mouseout');
 
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('0');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('');
   });
 
   it('should append itself to the body with bottom placement, show on mouseover and hide on mouseout', () => {
@@ -154,22 +149,21 @@ describe('Tooltip', () => {
 
     expect(document.body.getElementsByClassName('tooltip-component')).to.have.length(1);
     expect(document.body.getElementsByClassName('bottom')).to.have.length(1);
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.position).to.be.equal('fixed');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('0');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('');
 
     wrapper.simulate('mouseover');
 
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.not.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.not.be.equal('-100%');
     expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('0.9');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.not.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.not.be.equal('');
 
     wrapper.simulate('mouseout');
 
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('0');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('');
   });
 
   it('should append itself to the body with left placement, show on mouseover and hide on mouseout', () => {
@@ -177,22 +171,21 @@ describe('Tooltip', () => {
 
     expect(document.body.getElementsByClassName('tooltip-component')).to.have.length(1);
     expect(document.body.getElementsByClassName('left')).to.have.length(1);
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.position).to.be.equal('fixed');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('0');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('');
 
     wrapper.simulate('mouseover');
 
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.not.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.not.be.equal('-100%');
     expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('0.9');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.not.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.not.be.equal('');
 
     wrapper.simulate('mouseout');
 
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('0');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('');
   });
 
   it('should append itself to the body with right placement, show on mouseover and hide on mouseout', () => {
@@ -200,21 +193,20 @@ describe('Tooltip', () => {
 
     expect(document.body.getElementsByClassName('tooltip-component')).to.have.length(1);
     expect(document.body.getElementsByClassName('right')).to.have.length(1);
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.position).to.be.equal('fixed');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('0');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('');
 
     wrapper.simulate('mouseover');
 
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.not.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.not.be.equal('-100%');
     expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('0.9');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.not.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.not.be.equal('');
 
     wrapper.simulate('mouseout');
 
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('-100%');
-    expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('0');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.left).to.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('');
+    expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('');
   });
 });
