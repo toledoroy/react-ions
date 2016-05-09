@@ -39,7 +39,7 @@ const Routes = (
       <Route path='buttons' title='Buttons' component={ButtonsPage} />
       <Route path='nav' title='Nav' component={NavPage} />
       <Route path='checkbox' title='Checkbox' component={CheckboxPage} />
-      <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
+      <Route path='radio' title='Radio' component={RadioGroupPage} />
       <Route path='textarea' title='Textarea' component={TextareaPage} />
       <Route path='input' title='Input' component={InputPage} />
       <Route path='modal' title='Modal' component={ModalPage} />

@@ -29,8 +29,7 @@ class ExampleInputCallback extends React.Component {
         <Input value=''
           onFocus={this.handleFocus}
           onChange={this.handleChange}
-          onBlur={this.handleBlur}
-        />
+          onBlur={this.handleBlur} />
         <code>{this.state.status}</code>
       </div>
     )

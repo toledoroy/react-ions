@@ -16,7 +16,7 @@ const options = [
 
 const ExampleRadioChecked = () => (
   <RadioGroup
-    label="Checked radio group label"
+    label="Checked radio label"
     name="checked-radio-group"
     options={options}
     defaultOption={1}>

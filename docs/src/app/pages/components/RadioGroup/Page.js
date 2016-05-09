@@ -3,64 +3,64 @@ import PropsList from 'private/modules/PropsList';
 import docs from '!!docgen!react-conventions/lib/Radio/RadioGroup';
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
-import ExampleRadioGroupDefault from './ExampleRadioGroupDefault'
-import exampleRadioGroupDefaultCode from '!raw!./ExampleRadioGroupDefault'
-import ExampleRadioGroupChecked from './ExampleRadioGroupChecked'
-import exampleRadioGroupCheckedCode from '!raw!./ExampleRadioGroupChecked'
-import ExampleRadioGroupRequired from './ExampleRadioGroupRequired'
-import exampleRadioGroupRequiredCode from '!raw!./ExampleRadioGroupRequired'
-import ExampleRadioGroupDisabled from './ExampleRadioGroupDisabled'
-import exampleRadioGroupDisabledCode from '!raw!./ExampleRadioGroupDisabled'
-import ExampleRadioGroupLeft from './ExampleRadioGroupLeft'
-import exampleRadioGroupLeftCode from '!raw!./ExampleRadioGroupLeft'
+import ExampleRadioDefault from './ExampleRadioGroupDefault'
+import exampleRadioDefaultCode from '!raw!./ExampleRadioGroupDefault'
+import ExampleRadioChecked from './ExampleRadioGroupChecked'
+import exampleRadioCheckedCode from '!raw!./ExampleRadioGroupChecked'
+import ExampleRadioRequired from './ExampleRadioGroupRequired'
+import exampleRadioRequiredCode from '!raw!./ExampleRadioGroupRequired'
+import ExampleRadioDisabled from './ExampleRadioGroupDisabled'
+import exampleRadioDisabledCode from '!raw!./ExampleRadioGroupDisabled'
+import ExampleRadioLeft from './ExampleRadioGroupLeft'
+import exampleRadioLeftCode from '!raw!./ExampleRadioGroupLeft'
 
 const description = {
-  radioGroupDefault: 'This is the `radio group component` as it appears by default.',
-  radioGroupChecked: 'This is the checked `radio group component`.',
-  radioGroupDisabled: 'This is the disabled `radio group component`.',
-  radioGroupRequired: 'This is the required `radio group component`.',
-  radioGroupLeft: 'This is the `radio group component` with labels on the left side.'
+  radioDefault: 'This is the `radio component` as it appears by default.',
+  radioChecked: 'This is the checked `radio component`.',
+  radioDisabled: 'This is the disabled `radio component`.',
+  radioRequired: 'This is the required `radio component`.',
+  radioLeft: 'This is the `radio component` with labels on the left side.'
 };
 
-const RadioGroupPage = () => (
+const RadioPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
         <h3>Examples</h3>
           <CodeExample
-            title='Default Radio Group'
-            description={description.radioGroupDefault}
-            markup={exampleRadioGroupDefaultCode}
+            title='Default Radio'
+            description={description.radioDefault}
+            markup={exampleRadioDefaultCode}
           >
-            <ExampleRadioGroupDefault />
+            <ExampleRadioDefault />
           </CodeExample>
           <CodeExample
-            title='Checked Radio Group'
-            description={description.radioGroupChecked}
-            markup={exampleRadioGroupCheckedCode}
+            title='Checked Radio'
+            description={description.radioChecked}
+            markup={exampleRadioCheckedCode}
           >
-            <ExampleRadioGroupChecked />
+            <ExampleRadioChecked />
           </CodeExample>
           <CodeExample
-            title='Disabled Radio Group'
-            description={description.radioGroupDisabled}
-            markup={exampleRadioGroupDisabledCode}
+            title='Disabled Radio'
+            description={description.radioDisabled}
+            markup={exampleRadioDisabledCode}
           >
-            <ExampleRadioGroupDisabled />
+            <ExampleRadioDisabled />
           </CodeExample>
           <CodeExample
-            title='Required Radio Group'
-            description={description.radioGroupRequired}
-            markup={exampleRadioGroupRequiredCode}
+            title='Required Radio'
+            description={description.radioRequired}
+            markup={exampleRadioRequiredCode}
           >
-            <ExampleRadioGroupRequired />
+            <ExampleRadioRequired />
           </CodeExample>
           <CodeExample
-            title='Radio Group with labels on the left side'
-            description={description.radioGroupLeft}
-            markup={exampleRadioGroupLeftCode}
+            title='Radio with labels on the left side'
+            description={description.radioLeft}
+            markup={exampleRadioLeftCode}
           >
-            <ExampleRadioGroupLeft />
+            <ExampleRadioLeft />
           </CodeExample>
           <div className={styles.block}>
             <h3>Props</h3>
@@ -71,4 +71,4 @@ const RadioGroupPage = () => (
   </div>
 )
 
-export default RadioGroupPage;
+export default RadioPage;
