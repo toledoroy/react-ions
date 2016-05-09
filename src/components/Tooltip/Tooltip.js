@@ -88,9 +88,9 @@ class Tooltip extends React.Component {
     const styles = this.getStyles();
 
     return (
-      <div className={tooltipClass} style={styles}>
+      <span className={tooltipClass} style={styles}>
         {this.props.content}
-      </div>
+      </span>
     )
   }
 

@@ -45,81 +45,81 @@ describe('Tooltip', () => {
   it('should show above the element on mouseover and hide on mouseout', () => {
     wrapper = mount(<Tooltip content="Testing the top tooltip">Test text</Tooltip>);
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('');
-    expect(wrapper.find('div').node.style.left).to.be.equal('');
-    expect(wrapper.find('div').node.style.top).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.opacity).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.left).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.top).to.be.equal('');
 
     wrapper.simulate('mouseover');
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('0.9');
-    expect(wrapper.find('div').node.style.left).to.not.be.equal('');
-    expect(wrapper.find('div').node.style.top).to.not.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.opacity).to.be.equal('0.9');
+    expect(wrapper.find('.tooltip-component').node.style.left).to.not.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.top).to.not.be.equal('');
 
     wrapper.simulate('mouseout');
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('');
-    expect(wrapper.find('div').node.style.left).to.be.equal('');
-    expect(wrapper.find('div').node.style.top).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.opacity).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.left).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.top).to.be.equal('');
   });
 
   it('should show below the element on mouseover and hide on mouseout', () => {
     wrapper = mount(<Tooltip content="Testing the bottom tooltip" tooltipPlacement="bottom">Test text</Tooltip>);
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('');
-    expect(wrapper.find('div').node.style.left).to.be.equal('');
-    expect(wrapper.find('div').node.style.top).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.opacity).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.left).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.top).to.be.equal('');
 
     wrapper.simulate('mouseover');
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('0.9');
-    expect(wrapper.find('div').node.style.left).to.not.be.equal('');
-    expect(wrapper.find('div').node.style.top).to.not.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.opacity).to.be.equal('0.9');
+    expect(wrapper.find('.tooltip-component').node.style.left).to.not.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.top).to.not.be.equal('');
 
     wrapper.simulate('mouseout');
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('');
-    expect(wrapper.find('div').node.style.left).to.be.equal('');
-    expect(wrapper.find('div').node.style.top).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.opacity).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.left).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.top).to.be.equal('');
   });
 
   it('should show left of the element on mouseover and hide on mouseout', () => {
     wrapper = mount(<Tooltip content="Testing the left tooltip" tooltipPlacement="left">Test text</Tooltip>);
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('');
-    expect(wrapper.find('div').node.style.left).to.be.equal('');
-    expect(wrapper.find('div').node.style.top).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.opacity).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.left).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.top).to.be.equal('');
 
     wrapper.simulate('mouseover');
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('0.9');
-    expect(wrapper.find('div').node.style.left).to.not.be.equal('');
-    expect(wrapper.find('div').node.style.top).to.not.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.opacity).to.be.equal('0.9');
+    expect(wrapper.find('.tooltip-component').node.style.left).to.not.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.top).to.not.be.equal('');
 
     wrapper.simulate('mouseout');
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('');
-    expect(wrapper.find('div').node.style.left).to.be.equal('');
-    expect(wrapper.find('div').node.style.top).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.opacity).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.left).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.top).to.be.equal('');
   });
 
   it('should show right of the element on mouseover and hide on mouseout', () => {
     wrapper = mount(<Tooltip content="Testing the right tooltip" tooltipPlacement="right">Test text</Tooltip>);
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('');
-    expect(wrapper.find('div').node.style.left).to.be.equal('');
-    expect(wrapper.find('div').node.style.top).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.opacity).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.left).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.top).to.be.equal('');
 
     wrapper.simulate('mouseover');
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('0.9');
-    expect(wrapper.find('div').node.style.left).to.not.be.equal('');
-    expect(wrapper.find('div').node.style.top).to.not.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.opacity).to.be.equal('0.9');
+    expect(wrapper.find('.tooltip-component').node.style.left).to.not.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.top).to.not.be.equal('');
 
     wrapper.simulate('mouseout');
 
-    expect(wrapper.find('div').node.style.opacity).to.be.equal('');
-    expect(wrapper.find('div').node.style.left).to.be.equal('');
-    expect(wrapper.find('div').node.style.top).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.opacity).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.left).to.be.equal('');
+    expect(wrapper.find('.tooltip-component').node.style.top).to.be.equal('');
   });
 
   it('should append itself to the body with default options (top placement), show on mouseover and hide on mouseout', () => {
