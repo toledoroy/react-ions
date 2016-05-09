@@ -5,6 +5,21 @@ import style from './style.scss'
 import classNames from 'classnames/bind'
 
 class ActivityFeed extends React.Component {
+  static propTypes = {
+    /**
+     * The activity feed data.
+     */
+    data: React.PropTypes.array.isRequired,
+    /**
+     * Limits the number of items in the list.
+     */
+    limit: React.PropTypes.number,
+    /**
+     * An optional CSS class to pass along to the feed component.
+     */
+    optClass: React.PropTypes.string
+  };
+
   constructor(props) {
     super(props);
   }
@@ -52,21 +67,6 @@ class ActivityFeed extends React.Component {
       </div>
     );
   }
-}
-
-ActivityFeed.propTypes = {
-  /**
-   * The activity feed data.
-   */
-  data: React.PropTypes.array.isRequired,
-  /**
-   * Limits the number of items in the list.
-   */
-  limit: React.PropTypes.number,
-  /**
-   * An optional CSS class to pass along to the feed component.
-   */
-  optClass: React.PropTypes.string
 }
 
 export default ActivityFeed

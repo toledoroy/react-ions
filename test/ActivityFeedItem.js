@@ -49,10 +49,10 @@ describe('ActivityFeedItem', () => {
 
   it('should render a name', () => {
     const wrapper = shallow(<ActivityFeedItem name={data[0].name} />);
-    const titleWrapper = wrapper.childAt(0);
-    expect(titleWrapper.props().className).to.equal('title-wrapper');
-    expect(titleWrapper.childAt(0).type()).to.equal('h3');
-    expect(titleWrapper.childAt(0).text()).to.equal(data[0].name + ' ');
+    const nameWrapper = wrapper.childAt(0);
+    expect(nameWrapper.props().className).to.equal('title-wrapper');
+    expect(nameWrapper.childAt(0).type()).to.equal('h3');
+    expect(nameWrapper.childAt(0).text()).to.equal(data[0].name + ' ');
   });
 
   it('should render a title', () => {
@@ -100,6 +100,24 @@ describe('ActivityFeedItem', () => {
     expect(typeof actionWrapper.childAt(0).props().onClick).to.equal('function');
     actionWrapper.childAt(0).simulate('click');
     expect(spy.calledOnce).to.be.true;
+  });
+
+  it('should not render anything', () => {
+    const wrapper = shallow(<ActivityFeedItem />);
+    const nameWrapper = wrapper.childAt(0);
+    expect(nameWrapper.childAt(0).text()).to.equal(' ');
+
+    const titleWrapper = wrapper.childAt(0);
+    expect(titleWrapper.childAt(0).text()).to.equal(' ');
+
+    const linkWrapper = titleWrapper.childAt(0).childAt(0);
+    expect(linkWrapper.childAt(0).text()).to.equal('');
+
+    const textWrapper = wrapper.childAt(1);
+    expect(textWrapper.text()).to.equal('');
+
+    const actionWrapper = wrapper.childAt(0).childAt(1);
+    expect(actionWrapper.find(Icon)).to.have.length(0);
   });
 
 });
