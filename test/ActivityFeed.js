@@ -38,17 +38,6 @@ describe('ActivityFeed', () => {
     }
   ];
 
-  /*<div class="item-wrapper">
-    <time>Last Thursday at 2:19 PM</time>
-    <div class="title-wrapper">
-      <h3><a class="">The Nav Component</a> is really great, actually.</h3>
-      <div class="action-wrapper">
-        <svg name="icon-back" fill="#3c97d3" height="16" width="16"><use xlink:href="/_karma_webpack_//13909255dfd9387151d92875db15505a.svg#icon-back"></use></svg>
-      </div>
-    </div>
-    <p>Bacon ipsum dolor amet venison bresaola kevin chuck. Pig turkey alcatra beef ribs salami pork.</p>
-  </div>*/
-
   it('should render an ActivityFeed wrapper with list items', () => {
     const wrapper = shallow(<ActivityFeed data={data} />);
     const itemWrapper = wrapper.childAt(0).childAt(0).childAt(1);
@@ -64,6 +53,11 @@ describe('ActivityFeed', () => {
     expect(itemWrapper.props().text).to.equal(data[0].text);
     expect(itemWrapper.props().time).to.equal(data[0].timestamp);
     expect(itemWrapperAction.props().actions).to.equal(data[1].actions);
+  });
+
+  it('should limit the number of list items', () => {
+    const wrapper = shallow(<ActivityFeed data={data} limit={2} />);
+    expect(wrapper.find('ul').children()).to.have.length(2);
   });
 
 });
