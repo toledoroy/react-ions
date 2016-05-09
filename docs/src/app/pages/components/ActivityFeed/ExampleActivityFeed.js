@@ -65,6 +65,30 @@ const data = [
   }
 ];
 
+setInterval(function() {
+  data.unshift(
+    {
+      name: 'Corey\s component',
+      title: 'badass.',
+      text: 'Bacon ipsum dolor amet venison bresaola kevin chuck. Pig turkey alcatra beef ribs salami pork.',
+      timestamp: '2016-05-09T18:19:08.936',
+      actions: [
+        {
+          type: 'reply',
+          icon: 'icon-back',
+          callback: () => {
+            alert('reply')
+          }
+        }
+      ],
+      badge: {
+        text: '10',
+        theme: 'success'
+      }
+    }
+  )
+}, 5000);
+
 const ExampleActivityFeed = () => (
   <ActivityFeed data={data} />
 )

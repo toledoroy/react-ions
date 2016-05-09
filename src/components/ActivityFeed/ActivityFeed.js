@@ -25,6 +25,7 @@ class ActivityFeed extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
+    alert(newProps);
     this.setState({
       data: newProps.data
     })
