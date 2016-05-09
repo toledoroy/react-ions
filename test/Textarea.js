@@ -44,38 +44,38 @@ describe('Textarea', () => {
     expect(wrapper.childAt(0).props().value).to.be.equal('New value');
   });
 
-  it('should call the onChange function', () => {
+  it('should run the changeCallback on change', () => {
     const spy = sinon.spy();
-    wrapper = mount(<Textarea value='test' onChange={spy} />);
-    expect(typeof wrapper.childAt(0).props().onChange).to.equal('function');
+    wrapper = mount(<Textarea value='test' changeCallback={spy} />);
+    expect(typeof wrapper.childAt(0).props().changeCallback).to.equal('function');
     wrapper.childAt(0).simulate('change');
     expect(spy.calledOnce).to.be.true;
   });
 
-  it('should run onBlur callback on blur', () => {
+  it('should run the blurCallback on blur', () => {
     const spy = sinon.spy();
-    wrapper = mount(<Textarea value='test' onBlur={spy} />);
-    expect(typeof wrapper.childAt(0).props().onBlur).to.equal('function');
+    wrapper = mount(<Textarea value='test' blurCallback={spy} />);
+    expect(typeof wrapper.childAt(0).props().blurCallback).to.equal('function');
     wrapper.childAt(0).simulate('blur');
     expect(spy.calledOnce).to.be.true;
   });
 
-  it('should run onBlur callback on blur', () => {
+  it('should run the blurCallback on blur and update the value', () => {
     let value = 'not called';
     const callback = function() {
       value = 'called';
     }
-    wrapper = mount(<Textarea value='test' onBlur={callback} />);
+    wrapper = mount(<Textarea value='test' blurCallback={callback} />);
 
     expect(value).to.equal('not called');
     wrapper.childAt(0).simulate('blur');
     expect(value).to.equal('called');
   });
 
-  it('should run onFocus callback on focus', () => {
+  it('should run the focusCallback on focus', () => {
     const spy = sinon.spy();
-    wrapper = mount(<Textarea value='test' onFocus={spy} />);
-    expect(typeof wrapper.childAt(0).props().onFocus).to.equal('function');
+    wrapper = mount(<Textarea value='test' focusCallback={spy} />);
+    expect(typeof wrapper.childAt(0).props().focusCallback).to.equal('function');
     wrapper.childAt(0).simulate('focus');
     expect(spy.calledOnce).to.be.true;
   });
