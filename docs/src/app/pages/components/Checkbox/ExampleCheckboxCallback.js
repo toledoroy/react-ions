@@ -11,8 +11,8 @@ class ExampleCheckboxCallback extends React.Component {
     status: null
   }
 
-  handleChange = () => {
-    this.setState({status: 'I have changed.'});
+  handleChange = (event) => {
+    this.setState({status: 'Checked state is ' + event.target.checked});
   }
 
   render() {
