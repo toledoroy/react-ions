@@ -16,7 +16,7 @@ const ActivityFeedItem = (props) => {
     return profileName;
   }
 
-  const generateAction = function() {
+  const generateActions = function() {
     let actions = props.actions.map((action, index) =>
       <Icon name={action.icon} onClick={action.callback} fill='#3c97d3' height='16' width='16' key={index} />
     )
