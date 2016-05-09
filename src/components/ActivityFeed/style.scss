@@ -37,8 +37,8 @@
 
     @media #{$media-extra-small} {
       margin-bottom: 15px;
+      width: calc(100% + 5px);
     }
-
   }
 }
 
