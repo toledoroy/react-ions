@@ -51,6 +51,12 @@ const nav = [
       }, {
         name: 'Modal',
         route: '/components/modal'
+      }, {
+        name: 'Badge',
+        route: '/components/badge'
+      }, {
+        name: 'Tooltip',
+        route: '/components/tooltip'
       }
     ]
   }, {

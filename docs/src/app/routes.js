@@ -16,10 +16,13 @@ import IconsPage from './pages/components/Icons/Page'
 import ButtonsPage from './pages/components/Buttons/Page'
 import NavPage from './pages/components/Nav/Page'
 import CheckboxPage from './pages/components/Checkbox/Page'
+import RadioPage from './pages/components/Radio/Page'
 import RadioGroupPage from './pages/components/RadioGroup/Page'
 import TextareaPage from './pages/components/Textarea/Page'
 import InputPage from './pages/components/Input/Page'
 import ModalPage from './pages/components/Modal/Page'
+import BadgePage from './pages/components/Badge/Page'
+import TooltipPage from './pages/components/Tooltip/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -39,10 +42,13 @@ const Routes = (
       <Route path='buttons' title='Buttons' component={ButtonsPage} />
       <Route path='nav' title='Nav' component={NavPage} />
       <Route path='checkbox' title='Checkbox' component={CheckboxPage} />
-      <Route path='radio' title='Radio' component={RadioGroupPage} />
+      <Route path='radio' title='Radio' component={RadioPage} />
+      <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
       <Route path='textarea' title='Textarea' component={TextareaPage} />
       <Route path='input' title='Input' component={InputPage} />
       <Route path='modal' title='Modal' component={ModalPage} />
+      <Route path='badge' title='Badge' component={BadgePage} />
+      <Route path='tooltip' title='Tooltip' component={TooltipPage} />
     </Route>
     <Route path='patterns' title='Patterns'>
     </Route>
