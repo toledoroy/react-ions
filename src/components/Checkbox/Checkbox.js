@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './style.scss'
 import classNames from 'classnames/bind'
-import Icon from '../Icon'
+import Icon from '../Icon' 
 
 class Checkbox extends React.Component {
   constructor(props) {
