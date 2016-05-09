@@ -52,14 +52,14 @@ const nav = [
         name: 'Nav',
         route: '/components/nav'
       }, {
-        name: 'Radio',
-        route: '/components/radio'
-      }, {
         name: 'Radio Group',
         route: '/components/radio-group'
       }, {
         name: 'Textarea',
         route: '/components/textarea'
+      }, {
+        name: 'Tooltip',
+        route: '/components/tooltip'
       }
     ]
   }, {

@@ -65,6 +65,11 @@
     @include clearfix;
     padding: 20px 24px;
 
+    a {
+      color: $primary-1;
+      text-decoration: none;
+    }
+
     @media #{$media-small-minus} {
       padding: 20px 15px;
     }
@@ -112,6 +117,7 @@
     code {
       @include monospace;
       margin-bottom: -2px;
+      white-space: pre-wrap;
     }
   }
 

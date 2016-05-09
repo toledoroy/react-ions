@@ -23,6 +23,7 @@ import InputPage from './pages/components/Input/Page'
 import ModalPage from './pages/components/Modal/Page'
 import BadgePage from './pages/components/Badge/Page'
 import ActivityFeedPage from './pages/components/ActivityFeed/Page'
+import TooltipPage from './pages/components/Tooltip/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -43,12 +44,12 @@ const Routes = (
       <Route path='checkbox' title='Checkbox' component={CheckboxPage} />
       <Route path='icons' title='Icons' component={IconsPage} />
       <Route path='input' title='Input' component={InputPage} />
-      <Route path='progress-bar' title='Progress Bar' component={ProgressBarPage} />
       <Route path='modal' title='Modal' component={ModalPage} />
       <Route path='nav' title='Nav' component={NavPage} />
-      <Route path='radio' title='Radio' component={RadioPage} />
+      <Route path='progress-bar' title='Progress Bar' component={ProgressBarPage} />
       <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
       <Route path='textarea' title='Textarea' component={TextareaPage} />
+      <Route path='tooltip' title='Tooltip' component={TooltipPage} />
     </Route>
     <Route path='patterns' title='Patterns'>
     </Route>
