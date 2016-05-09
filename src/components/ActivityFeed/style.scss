@@ -12,9 +12,10 @@
 
   li {
     float: left;
+    left: -5px;
     margin-bottom: 30px;
     position: relative;
-    width: 100%;
+    width: calc(100% + 10px);
 
     &:after {
       background-color: $neutral-3;
