@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
 import timeString from '../internal/TimeString'
-import marked from 'marked'
 import Icon from '../Icon'
 import style from './style.scss'
 
