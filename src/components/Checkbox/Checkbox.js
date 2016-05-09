@@ -42,7 +42,11 @@ class Checkbox extends React.Component {
     /**
      * Optional styles to add to the checkbox.
      */
-    optClass: React.PropTypes.string
+    optClass: React.PropTypes.string,
+    /**
+     * A callback function to be called when the input changes.
+     */
+    changeCallback: React.PropTypes.func
   };
 
   handleChange = (event) => {
