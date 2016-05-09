@@ -133,6 +133,8 @@
 .action-wrapper {
   display: inline-block;
   margin-left: 5px;
+  position: relative;
+  top: 2px;
 
   @media #{$media-extra-small} {
     position: absolute;

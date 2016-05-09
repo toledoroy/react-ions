@@ -91,4 +91,14 @@ describe('ActivityFeedItem', () => {
     expect(actionWrapper.childAt(1).props().name).to.equal(data[1].actions[1].icon);
   });
 
+  it('should run an onClick callback', () => {
+    var spy = sinon.spy();
+    data[1].actions[0].callback = spy;
+    const wrapper = mount(<ActivityFeedItem actions={data[1].actions} />);
+    const actionWrapper = wrapper.childAt(0).childAt(1);
+    expect(typeof actionWrapper.childAt(0).props().onClick).to.equal('function');
+    actionWrapper.childAt(0).simulate('click');
+    expect(spy.calledOnce).to.be.true;
+  });
+
 });
