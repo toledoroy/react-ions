@@ -52,7 +52,7 @@ const nav = [
         name: 'Nav',
         route: '/components/nav'
       }, {
-        name: 'Radio Group',
+        name: 'Radio',
         route: '/components/radio-group'
       }, {
         name: 'Textarea',
