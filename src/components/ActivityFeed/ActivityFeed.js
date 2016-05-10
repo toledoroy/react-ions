@@ -24,13 +24,6 @@ class ActivityFeed extends React.Component {
     super(props);
   }
 
-  componentWillReceiveProps(newProps) {
-    alert(newProps);
-    this.setState({
-      data: newProps.data
-    })
-  }
-
   render() {
     const cx = classNames.bind(style);
     const feedClasses = cx(style['activity-feed'], this.props.optClass);
