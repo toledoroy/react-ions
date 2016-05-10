@@ -133,12 +133,12 @@ Try to keep the layer map as _light_ as possible. The more layers we add, the mo
 Reference: [A Better Solution for Managing z-index with Sass](http://www.sitepoint.com/better-solution-managing-z-index-sass/)
 
 ### Release Process
-1) Checkout / pull latest master branch
-2) Run: `$ npm run build:lib`
-3) Run: `$ npm version <semantic_version>`
-4) Edit `CHANGELOG.md` to reflect changes
-5) Review `CHANGELOG.md`
-6) Merge pull request
-7) Create release on Github
-8) Run: `$ npm publish`
-9) Ensure new version is published: [https://npmjs.com/react-conventions](https://npmjs.com/react-conventions)
+1. Checkout / pull latest master branch
+2. Run: `$ npm run build:release`
+3. Run: `$ npm version <semantic_version>`
+4. Edit `CHANGELOG.md` to reflect changes
+5. Review `CHANGELOG.md`
+6. Merge pull request
+7. Create release on Github
+8. Run: `$ npm publish`
+9. Ensure new version is published: [https://npmjs.com/react-conventions](https://npmjs.com/react-conventions)
