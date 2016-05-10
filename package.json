@@ -32,8 +32,7 @@
     "build:release": "babel ./src --out-dir ./lib --copy-files && mv ./lib/components/* ./lib && rmdir ./lib/components && node ./scripts/gen-export.js",
     "clean": "rimraf dist lib",
     "lint": "eslint . --ext .js --ext .jsx",
-    "jscs": "jscs .",
-    "prestart": "npm run build:server"
+    "jscs": "jscs ."
   },
   "dependencies": {
     "autoprefixer": "^6.0.3",
