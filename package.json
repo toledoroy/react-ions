@@ -2,7 +2,7 @@
   "name": "react-conventions",
   "version": "0.0.2",
   "description": "An open source set of React components that implement Ambassador's Design and UX patterns.",
-  "main": "./lib",
+  "main": "./lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/GetAmbassador/react-conventions.git"
@@ -25,12 +25,14 @@
   },
   "homepage": "https://github.com/GetAmbassador/react-conventions",
   "scripts": {
-    "test": "node_modules/karma/bin/karma start test/config/karma.local.conf.js",
+    "test": "export NODE_ENV=test && node_modules/karma/bin/karma start test/config/karma.local.conf.js",
     "start": "node docs/server",
-    "build": "rimraf dist && set NODE_ENV=production && webpack --config ./docs/webpack.prod.config.js --progress --profile --colors",
+    "start:production": "npm run build:server && node docs/server",
+    "build:server": "npm run clean && export NODE_ENV=production && webpack --config ./docs/webpack.prod.config.js --progress --profile --colors",
+    "build:release": "npm run clean && babel ./src --out-dir ./lib --copy-files && node ./scripts/gen-export.js",
+    "clean": "rimraf dist lib",
     "lint": "eslint . --ext .js --ext .jsx",
-    "jscs": "jscs .",
-    "postinstall": "npm run build"
+    "jscs": "jscs ."
   },
   "dependencies": {
     "autoprefixer": "^6.0.3",

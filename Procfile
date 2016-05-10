@@ -1,1 +1,1 @@
-web: node docs/server.js
+web: npm run start:production

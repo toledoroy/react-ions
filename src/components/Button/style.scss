@@ -1,5 +1,5 @@
-@import 'src/styles/common/mixins';
-@import 'src/styles/common/colors';
+@import '../../styles/common/mixins';
+@import '../../styles/common/colors';
 
 .btn {
   @include vertical-align('inline');
