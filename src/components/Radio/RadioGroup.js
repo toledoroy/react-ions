@@ -53,7 +53,7 @@ class RadioGroup extends React.Component {
     /**
      * A callback function to be called when an option is checked.
      */
-    checkCallback: React.PropTypes.func
+    changeCallback: React.PropTypes.func
   };
 
   componentWillMount() {
@@ -64,8 +64,8 @@ class RadioGroup extends React.Component {
 
   handleChange = (event, value) => {
     this.setState({checkedOption: value}, function() {
-      if (typeof this.props.checkCallback === 'function') {
-        this.props.checkCallback(event, value);
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback(event, value);
       }
     });
   }
@@ -84,7 +84,7 @@ class RadioGroup extends React.Component {
         checked={this.state.checkedOption === radio.value}
         labelPosition={groupLabelPosition || radio.labelPosition}
         optClass={radio.optClass}
-        checkCallback={this.handleChange}
+        changeCallback={this.handleChange}
         {...other} />
     );
   }
