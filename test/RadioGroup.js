@@ -75,7 +75,7 @@ describe('RadioGroup', () => {
     expect(spy.calledOnce).to.be.true;
   });
 
-  it('should have a callback', () => {
+  it('should update checked value via callback', () => {
     let checked = false;
     const callback = function(event, value) {
       checked = value;

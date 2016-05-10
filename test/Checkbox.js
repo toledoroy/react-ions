@@ -52,8 +52,19 @@ describe('Checkbox', () => {
     const spy = sinon.spy();
 
     wrapper = mount(<Checkbox value="test" label="Test label" changeCallback={spy}/>);
-    wrapper.find('input').simulate('change');
+    wrapper.childAt(0).simulate('change');
 
     expect(spy.calledOnce).to.be.true;
+  });
+
+  it('should update checked value via callback', () => {
+    let checked = false;
+    const callback = function(event) {
+      checked = event.target.checked;
+    };
+    wrapper = mount(<Checkbox value="test" label="Test label" changeCallback={callback}/>);
+
+    wrapper.childAt(0).simulate('change', {target: { checked: true }});
+    expect(checked).to.equal(true);
   });
 });

@@ -8,7 +8,7 @@ class ExampleCheckboxCallback extends React.Component {
   }
 
   state = {
-    status: null
+    status: 'Checked state is false'
   }
 
   handleChange = (event) => {
