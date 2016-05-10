@@ -27,12 +27,12 @@
   "scripts": {
     "test": "export NODE_ENV=test && node_modules/karma/bin/karma start test/config/karma.local.conf.js",
     "start": "node docs/server",
-    "start:production": "npm run build:server && node docs/server",
     "build:server": "npm run clean && export NODE_ENV=production && webpack --config ./docs/webpack.prod.config.js --progress --profile --colors",
     "build:release": "npm run clean && babel ./src --out-dir ./lib --copy-files && node ./scripts/gen-export.js",
     "clean": "rimraf dist lib",
     "lint": "eslint . --ext .js --ext .jsx",
-    "jscs": "jscs ."
+    "jscs": "jscs .",
+    "postinstall": "if [ \"$POSTINSTALL\" = true ]; then npm run build:server; else echo 0; fi"
   },
   "dependencies": {
     "autoprefixer": "^6.0.3",
