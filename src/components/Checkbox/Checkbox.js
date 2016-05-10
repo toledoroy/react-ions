@@ -63,6 +63,7 @@ class Checkbox extends React.Component {
       label,
       labelPosition,
       optClass,
+      changeCallback,
       ...other
     } = this.props;
 

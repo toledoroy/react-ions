@@ -26,6 +26,13 @@ describe('Checkbox', () => {
     expect(wrapper.find('input').node.hasAttribute('disabled')).to.equal(true);
   });
 
+  it('should be checked', () => {
+    const checked = true;
+    wrapper = mount(<Checkbox value="test" label="Test label" checked={checked}></Checkbox>);
+
+    expect(wrapper.childAt(0).props().checked).to.be.equal(true);
+  });
+
   it('should have an extra class', () => {
     wrapper = shallow(<Checkbox value="test" label="Test label" optClass="checkbox-error"></Checkbox>);
 
@@ -39,5 +46,14 @@ describe('Checkbox', () => {
     expect(wrapper.hasClass('checkbox-component'));
     expect(wrapper.childAt(1).childAt(0).hasClass('label-left')).to.equal(true);
     expect(wrapper.childAt(1).childAt(1).hasClass('checkbox-input')).to.equal(true);
+  });
+
+  it('should call changeCallback function', () => {
+    const spy = sinon.spy();
+
+    wrapper = mount(<Checkbox value="test" label="Test label" changeCallback={spy}/>);
+    wrapper.find('input').simulate('change');
+
+    expect(spy.calledOnce).to.be.true;
   });
 });

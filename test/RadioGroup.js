@@ -66,10 +66,10 @@ describe('RadioGroup', () => {
     expect(wrapper.childAt(2).props().labelPosition).to.be.equal('left');
   });
 
-  it('should call checkCallback function', () => {
+  it('should call changeCallback function', () => {
     const spy = sinon.spy();
 
-    wrapper = mount(<RadioGroup name="test-group" options={options} label="Test label" checkCallback={spy}/>);
+    wrapper = mount(<RadioGroup name="test-group" options={options} label="Test label" changeCallback={spy}/>);
     wrapper.childAt(1).find('input').simulate('change');
 
     expect(spy.calledOnce).to.be.true;
@@ -80,7 +80,7 @@ describe('RadioGroup', () => {
     const callback = function(event, value) {
       checked = value;
     };
-    wrapper = mount(<RadioGroup name="test-group" options={options} label="Test label" checkCallback={callback}/>);
+    wrapper = mount(<RadioGroup name="test-group" options={options} label="Test label" changeCallback={callback}/>);
 
     wrapper.childAt(1).find('input').simulate('change');
     expect(checked).to.be.equal('option_1');
