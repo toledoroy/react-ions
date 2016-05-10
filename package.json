@@ -32,7 +32,7 @@
     "clean": "rimraf dist lib",
     "lint": "eslint . --ext .js --ext .jsx",
     "jscs": "jscs .",
-    "postinstall": "if [ \"$POSTINSTALL\" = true ]; then npm run build:server; else 0; fi"
+    "postinstall": "if [ \"$POSTINSTALL\" = true ]; then npm run build:server; else echo 0; fi"
   },
   "dependencies": {
     "autoprefixer": "^6.0.3",
