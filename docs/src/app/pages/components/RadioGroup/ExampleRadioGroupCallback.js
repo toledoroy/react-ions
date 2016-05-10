@@ -11,20 +11,20 @@ class ExampleRadioCallback extends React.Component {
     status: null
   }
 
-  handleChange = (event) => {
-    this.setState({status: 'Checked state is ' + event.target.checked});
+  handleChange = (event, value) => {
+    this.setState({status: value + ' is checked'});
   }
 
   render() {
     const options = [
       {
-        value: 'option_1',
+        value: 'Option 1',
         label: 'Option 1'
       },{
-        value: 'option_2',
+        value: 'Option 2',
         label: 'Option 2'
       },{
-        value: 'option_3',
+        value: 'Option 3',
         label: 'Option 3'
       }
     ];
@@ -35,7 +35,6 @@ class ExampleRadioCallback extends React.Component {
           label="Callback radio label"
           name="callback-radio-group"
           options={options}
-          defaultOption={1}
           changeCallback={this.handleChange}>
         </RadioGroup>
         <code>{this.state.status}</code>

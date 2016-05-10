@@ -73,7 +73,7 @@ class RadioGroup extends React.Component {
   getOptions() {
     const groupName = this.props.name;
     const groupLabelPosition = this.props.labelPosition;
-    const { options, label, name, value, required, defaultOption, labelPosition, ...other } = this.props;
+    const { options, label, name, value, required, defaultOption, labelPosition, changeCallback, ...other } = this.props;
 
     return this.props.options.map((radio, index) =>
       <Radio
