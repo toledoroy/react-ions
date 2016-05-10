@@ -66,23 +66,21 @@ describe('RadioGroup', () => {
     expect(wrapper.childAt(2).props().labelPosition).to.be.equal('left');
   });
 
-  it('should call onChange function', () => {
+  it('should call checkCallback function', () => {
     const spy = sinon.spy();
 
-    wrapper = mount(<RadioGroup name="test-group" options={options} label="Test label" onChange={spy}/>);
+    wrapper = mount(<RadioGroup name="test-group" options={options} label="Test label" checkCallback={spy}/>);
     wrapper.childAt(1).find('input').simulate('change');
 
     expect(spy.calledOnce).to.be.true;
   });
 
-  //test skipped because the callback is getting called via the child, but it is not
-  //passing the value correctly - will investigate later
-  it.skip('should have a callback', () => {
+  it('should have a callback', () => {
     let checked = false;
     const callback = function(event, value) {
       checked = value;
     };
-    wrapper = mount(<RadioGroup name="test-group" options={options} label="Test label" onChange={callback}/>);
+    wrapper = mount(<RadioGroup name="test-group" options={options} label="Test label" checkCallback={callback}/>);
 
     wrapper.childAt(1).find('input').simulate('change');
     expect(checked).to.be.equal('option_1');
