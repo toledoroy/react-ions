@@ -45,11 +45,7 @@ const config = {
     loaders: [{
       test: /\.js?$/,
       exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        'presets': ['react', 'es2015', 'react-hmre'],
-        'plugins': ['transform-object-rest-spread', 'transform-class-properties', 'transform-export-extensions']
-      }
+      loader: 'babel'
     }, {
       test: /\.json?$/,
       loader: 'json'
