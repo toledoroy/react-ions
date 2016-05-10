@@ -43,6 +43,9 @@ const nav = [
         name: 'Input',
         route: '/components/input'
       }, {
+        name: 'Panel Group',
+        route: '/components/panel-group'
+      }, {
         name: 'Progress Bar',
         route: '/components/progress-bar'
       }, {

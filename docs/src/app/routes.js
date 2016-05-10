@@ -5,24 +5,25 @@ import { Route, Redirect, IndexRoute } from 'react-router'
 import Base from './layout/Base'
 
 // Pages
-import HomePage from './pages/Home/Page'
+import BadgePage from './pages/components/Badge/Page'
+import BreadcrumbPage from './pages/components/Breadcrumb/Page'
 import ColorsPage from './pages/foundations/Colors/Page'
-import TypographyPage from './pages/foundations/Typography/Page'
+import CheckboxPage from './pages/components/Checkbox/Page'
 import IconographyPage from './pages/foundations/Iconography/Page'
 import LayoutPage from './pages/foundations/Layout/Page'
-import BreadcrumbPage from './pages/components/Breadcrumb/Page'
-import ProgressBarPage from './pages/components/ProgressBar/Page'
+import HomePage from './pages/Home/Page'
+import TypographyPage from './pages/foundations/Typography/Page'
 import IconsPage from './pages/components/Icons/Page'
 import ButtonsPage from './pages/components/Buttons/Page'
 import NavPage from './pages/components/Nav/Page'
-import CheckboxPage from './pages/components/Checkbox/Page'
 import RadioGroupPage from './pages/components/RadioGroup/Page'
 import TextareaPage from './pages/components/Textarea/Page'
 import InputPage from './pages/components/Input/Page'
 import ModalPage from './pages/components/Modal/Page'
-import BadgePage from './pages/components/Badge/Page'
 import ActivityFeedPage from './pages/components/ActivityFeed/Page'
 import TooltipPage from './pages/components/Tooltip/Page'
+import ProgressBarPage from './pages/components/ProgressBar/Page'
+import PanelGroupPage from './pages/components/PanelGroup/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -47,6 +48,7 @@ const Routes = (
       <Route path='modal' title='Modal' component={ModalPage} />
       <Route path='nav' title='Nav' component={NavPage} />
       <Route path='progress-bar' title='Progress Bar' component={ProgressBarPage} />
+      <Route path='panel-group' title='Panel Group' component={PanelGroupPage} />
       <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
       <Route path='textarea' title='Textarea' component={TextareaPage} />
       <Route path='tooltip' title='Tooltip' component={TooltipPage} />
