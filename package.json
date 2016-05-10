@@ -2,7 +2,7 @@
   "name": "react-conventions",
   "version": "0.0.2",
   "description": "An open source set of React components that implement Ambassador's Design and UX patterns.",
-  "main": "./lib",
+  "main": "./lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/GetAmbassador/react-conventions.git"
@@ -29,7 +29,7 @@
     "start": "node docs/server",
     "start:production": "npm run build:server && node docs/server",
     "build:server": "npm run clean && export NODE_ENV=production && webpack --config ./docs/webpack.prod.config.js --progress --profile --colors",
-    "build:release": "babel ./src --out-dir ./lib --copy-files && mv ./lib/components/* ./lib && rmdir ./lib/components && node ./scripts/gen-export.js",
+    "build:release": "npm run clean && babel ./src --out-dir ./lib --copy-files && node ./scripts/gen-export.js",
     "clean": "rimraf dist lib",
     "lint": "eslint . --ext .js --ext .jsx",
     "jscs": "jscs ."
