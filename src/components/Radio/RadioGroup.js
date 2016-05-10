@@ -51,7 +51,7 @@ class RadioGroup extends React.Component {
      */
     labelPosition: React.PropTypes.oneOf(['left', 'right']),
     /**
-     * A callback function to be called when an option is checked.
+     * A callback function to be called when an option is changed.
      */
     changeCallback: React.PropTypes.func
   };

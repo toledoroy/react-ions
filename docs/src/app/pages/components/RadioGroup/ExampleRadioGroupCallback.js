@@ -33,7 +33,7 @@ class ExampleRadioCallback extends React.Component {
       <div>
         <RadioGroup
           label="Callback radio label"
-          name="default-radio-group"
+          name="callback-radio-group"
           options={options}
           defaultOption={1}
           changeCallback={this.handleChange}>
