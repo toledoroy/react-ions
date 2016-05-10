@@ -13,14 +13,17 @@
 }
 .tab {
   background-color: $white;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 200;
   border-width: 1px;
   border-style: solid;
   border-color: $neutral-3;
   color: $neutral-4;
-  padding: 15px;
+  padding: 12px 15px;
   cursor: pointer;
+  > span {
+    font-weight: normal;
+  }
   + .tab {
     margin-left: -1px;
     &.active {
@@ -34,7 +37,7 @@
     border-width: 1px 1px 0;
     border-style: solid solid none;
     border-color: $neutral-2 $neutral-2 transparent;
-    padding-bottom: 16px;
+    padding-bottom: 13px;
     > span {
       color: $neutral-4;
     }
