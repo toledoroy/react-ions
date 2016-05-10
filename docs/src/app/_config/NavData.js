@@ -22,38 +22,41 @@ const nav = [
     route: '/components',
     nav: [
       {
-        name: 'Progress Bar',
-        route: '/components/progress-bar'
+        name: 'Activity Feed',
+        route: '/components/activity-feed'
+      }, {
+        name: 'Badge',
+        route: '/components/badge'
       }, {
         name: 'Breadcrumb',
         route: '/components/breadcrumb'
       }, {
-        name: 'Icons',
-        route: '/components/icons'
-      }, {
         name: 'Buttons',
         route: '/components/buttons'
-      }, {
-        name: 'Nav',
-        route: '/components/nav'
       }, {
         name: 'Checkbox',
         route: '/components/checkbox'
       }, {
-        name: 'Radio',
-        route: '/components/radio'
-      }, {
-        name: 'Textarea',
-        route: '/components/textarea'
+        name: 'Icons',
+        route: '/components/icons'
       }, {
         name: 'Input',
         route: '/components/input'
       }, {
+        name: 'Progress Bar',
+        route: '/components/progress-bar'
+      }, {
         name: 'Modal',
         route: '/components/modal'
       }, {
-        name: 'Badge',
-        route: '/components/badge'
+        name: 'Nav',
+        route: '/components/nav'
+      }, {
+        name: 'Radio',
+        route: '/components/radio-group'
+      }, {
+        name: 'Textarea',
+        route: '/components/textarea'
       }, {
         name: 'Tooltip',
         route: '/components/tooltip'

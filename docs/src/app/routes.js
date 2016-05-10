@@ -21,6 +21,7 @@ import TextareaPage from './pages/components/Textarea/Page'
 import InputPage from './pages/components/Input/Page'
 import ModalPage from './pages/components/Modal/Page'
 import BadgePage from './pages/components/Badge/Page'
+import ActivityFeedPage from './pages/components/ActivityFeed/Page'
 import TooltipPage from './pages/components/Tooltip/Page'
 
 const Routes = (
@@ -33,19 +34,21 @@ const Routes = (
       <Route path='iconography' title='Iconography' component={IconographyPage} />
       <Route path='layout' title='Layout' component={LayoutPage} />
     </Route>
-    <Redirect from='components' to='/components/progress-bar' />
+    <Redirect from='components' to='/components/activity-feed' />
     <Route path='components' title='Components'>
-      <Route path='progress-bar' title='Progress Bar' component={ProgressBarPage} />
-      <Route path="breadcrumb" title="Breadcrumb" component={BreadcrumbPage} />
-      <Route path='icons' title='Icons' component={IconsPage} />
-      <Route path='buttons' title='Buttons' component={ButtonsPage} />
-      <Route path='nav' title='Nav' component={NavPage} />
-      <Route path='checkbox' title='Checkbox' component={CheckboxPage} />
-      <Route path='radio' title='Radio' component={RadioGroupPage} />
-      <Route path='textarea' title='Textarea' component={TextareaPage} />
-      <Route path='input' title='Input' component={InputPage} />
-      <Route path='modal' title='Modal' component={ModalPage} />
+      <Route path='activity-feed' title='Activity Feed' component={ActivityFeedPage} />
       <Route path='badge' title='Badge' component={BadgePage} />
+      <Route path="breadcrumb" title="Breadcrumb" component={BreadcrumbPage} />
+      <Route path='buttons' title='Buttons' component={ButtonsPage} />
+      <Route path='checkbox' title='Checkbox' component={CheckboxPage} />
+      <Route path='icons' title='Icons' component={IconsPage} />
+      <Route path='input' title='Input' component={InputPage} />
+      <Route path='radio' title='Radio' component={RadioGroupPage} />
+      <Route path='modal' title='Modal' component={ModalPage} />
+      <Route path='nav' title='Nav' component={NavPage} />
+      <Route path='progress-bar' title='Progress Bar' component={ProgressBarPage} />
+      <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
+      <Route path='textarea' title='Textarea' component={TextareaPage} />
       <Route path='tooltip' title='Tooltip' component={TooltipPage} />
     </Route>
     <Route path='patterns' title='Patterns'>
