@@ -83,7 +83,7 @@ class TabWrapper extends React.Component {
         key: index,
         active: this.isActive(index),
         tabIndex: index,
-        onClick: this.handleClick,
+        onClick: this.handleClick
       });
     });
 

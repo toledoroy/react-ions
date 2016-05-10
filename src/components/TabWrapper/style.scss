@@ -1,12 +1,14 @@
 @import 'src/styles/common/colors';
 @import 'src/styles/common/mixins';
 
-.tab-headers {
-  display: flex;
-}
-.tab-content {
-  > div {
-    box-sizing: border-box;
+.tab-wrapper {
+  .tab-headers {
+    display: flex;
+  }
+  .tab-content {
+    > div {
+      box-sizing: border-box;
+    }
   }
 }
 .tab {
