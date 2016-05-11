@@ -1,6 +1,6 @@
 import React from 'react'
-import PropsList from 'private/modules/PropsList';
-import docs from '!!docgen!react-conventions/lib/Radio/RadioGroup';
+import PropsList from 'private/modules/PropsList'
+import docs from '!!docgen!react-conventions/lib/Radio/RadioGroup'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleRadioDefault from './ExampleRadioGroupDefault'
 import exampleRadioDefaultCode from '!raw!./ExampleRadioGroupDefault'
@@ -75,4 +75,4 @@ const RadioPage = () => (
   </div>
 )
 
-export default RadioPage;
+export default RadioPage

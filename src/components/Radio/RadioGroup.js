@@ -88,7 +88,7 @@ class RadioGroup extends React.Component {
 
   render() {
     const cx = classNames.bind(style);
-    var radioGroupClass = cx(style['radio-group'], this.props.optClass);
+    const radioGroupClass = cx(style['radio-group'], this.props.optClass);
 
     return (
       <div className={radioGroupClass}>
