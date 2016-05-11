@@ -52,7 +52,7 @@ describe('Radio', () => {
     const callback = function(event, value) {
       checked = value;
     };
-    wrapper = mount(<Radio value="test" label="Test label" checkCallback={callback}></Radio>);
+    wrapper = mount(<Radio value="test" label="Test label" changeCallback={callback}></Radio>);
 
     wrapper.find('input').simulate('change');
     expect(checked).to.be.equal('test');
