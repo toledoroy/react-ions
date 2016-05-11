@@ -14,21 +14,41 @@
 .panel-header {
   box-sizing: border-box;
   color: lighten($primary-5, 50%);
+  cursor: pointer;
   font-size: 14px;
   font-weight: 200;
   padding: 15px;
+  position: relative;
 
-  h4 {
-    line-height: 0;
-    margin: 0;
+  .title-group {
+    @include vertical-align('block');
+
+    h4 {
+      line-height: 0;
+      margin: 0;
+      position: relative;
+      top: 1px;
+    }
+
+    svg {
+      position: relative;
+    }
+
+    svg + h4 {
+      margin-left: 10px;
+    }
   }
 
-  svg {
-    position: relative;
-  }
+  .toggle-icon {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    transform: rotate(0);
+    transition: .25s ease;
 
-  h4 + svg {
-    margin-left: 5px;
+    &.rotate {
+      transform: rotate(135deg);
+    }
   }
 
 }

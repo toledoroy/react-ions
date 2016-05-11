@@ -14,25 +14,25 @@ const content = {
 
 const ExamplePanelGroup = () => (
   <PanelGroup defaultActiveKey={1}>
-    <Panel>
+    <Panel eventKey='1'>
       <PanelHeader title='Rating' contextIcon='icon-star-1'></PanelHeader>
       <PanelContent optClass={style['demo-content']}>
         {content.lorum1}
       </PanelContent>
     </Panel>
-    <Panel>
+    <Panel eventKey='2'>
       <PanelHeader title='Channel' contextIcon='icon-filter-1'></PanelHeader>
       <PanelContent optClass={style['demo-content']}>
         {content.lorum2}
       </PanelContent>
     </Panel>
-    <Panel>
+    <Panel eventKey='3'>
       <PanelHeader title='Date' contextIcon='icon-calendar-1'></PanelHeader>
       <PanelContent optClass={style['demo-content']}>
         {content.lorum3}
       </PanelContent>
     </Panel>
-    <Panel>
+    <Panel eventKey='4'>
       <PanelHeader title='Location' contextIcon='icon-globe-1'></PanelHeader>
       <PanelContent optClass={style['demo-content']}>
         {content.lorum4}

@@ -12,10 +12,6 @@ class PanelGroup extends React.Component {
      */
     defaultActiveKey: React.PropTypes.number,
     /**
-     * The panel that is currently open
-     */
-    activeKey: React.PropTypes.any,
-    /**
      * Whether the panelGroup should allow only one panel to be open at a time
      */
     accordion: React.PropTypes.bool,
@@ -31,6 +27,14 @@ class PanelGroup extends React.Component {
 
   state = {
     defaultActiveKey: this.props.defaultActiveKey,
+  }
+
+  handleClick = (event) => {
+    this.setState({active: true}, function() {
+      if (typeof this.props.onClick === 'function') {
+        this.props.onClick(event);
+      }
+    });
   }
 
   render() {
