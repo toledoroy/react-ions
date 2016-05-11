@@ -64,7 +64,7 @@ class SelectField extends React.Component {
         <input type='hidden' name='dropdown-value' value={this.state.selected} />
         <div className={style['dropdown-value']} onClick={this.toggleOptions}>
           {this.state.selected}
-          <Icon name={this.state.isOpen ? 'icon-arrow-57' : 'icon-arrow-58'} width='10' height='5' />
+          <Icon name='icon-caret' width='10' height='10' />
         </div>
         <ul className={this.state.isOpen ? style['show'] : null}>
           {options}
