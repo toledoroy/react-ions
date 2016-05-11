@@ -1,8 +1,5 @@
 import React from 'react'
-import PanelGroup from 'react-conventions/lib/PanelGroup/PanelGroup'
-import Panel from 'react-conventions/lib/PanelGroup/Panel'
-import PanelHeader from 'react-conventions/lib/PanelGroup/PanelHeader'
-import PanelContent from 'react-conventions/lib/PanelGroup/PanelContent'
+import {PanelGroup, Panel, PanelHeader, PanelContent} from 'react-conventions/lib/PanelGroup'
 import style from './style.scss'
 
 const content = {
@@ -13,26 +10,26 @@ const content = {
 }
 
 const ExamplePanelGroup = () => (
-  <PanelGroup defaultActiveKey={1}>
-    <Panel eventKey='1'>
+  <PanelGroup>
+    <Panel>
       <PanelHeader title='Rating' contextIcon='icon-star-1'></PanelHeader>
       <PanelContent optClass={style['demo-content']}>
         {content.lorum1}
       </PanelContent>
     </Panel>
-    <Panel eventKey='2'>
+    <Panel>
       <PanelHeader title='Channel' contextIcon='icon-filter-1'></PanelHeader>
       <PanelContent optClass={style['demo-content']}>
         {content.lorum2}
       </PanelContent>
     </Panel>
-    <Panel eventKey='3'>
+    <Panel>
       <PanelHeader title='Date' contextIcon='icon-calendar-1'></PanelHeader>
       <PanelContent optClass={style['demo-content']}>
         {content.lorum3}
       </PanelContent>
     </Panel>
-    <Panel eventKey='4'>
+    <Panel>
       <PanelHeader title='Location' contextIcon='icon-globe-1'></PanelHeader>
       <PanelContent optClass={style['demo-content']}>
         {content.lorum4}

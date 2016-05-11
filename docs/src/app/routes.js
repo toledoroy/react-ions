@@ -24,6 +24,7 @@ import ActivityFeedPage from './pages/components/ActivityFeed/Page'
 import TooltipPage from './pages/components/Tooltip/Page'
 import ProgressBarPage from './pages/components/ProgressBar/Page'
 import PanelGroupPage from './pages/components/PanelGroup/Page'
+import TabsPage from './pages/components/TabWrapper/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -52,6 +53,7 @@ const Routes = (
       <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
       <Route path='textarea' title='Textarea' component={TextareaPage} />
       <Route path='tooltip' title='Tooltip' component={TooltipPage} />
+      <Route path='tabs' title='Tabs' component={TabsPage} />
     </Route>
     <Route path='patterns' title='Patterns'>
     </Route>

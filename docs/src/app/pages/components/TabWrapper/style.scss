@@ -1,0 +1,8 @@
+@import '../../../../../../src/styles/common/colors';
+@import '../../../../../../src/styles/common/mixins';
+
+.tab-content {
+  padding: 15px;
+  background-color: $neutral-2;
+  border: 1px solid $neutral-2;
+}

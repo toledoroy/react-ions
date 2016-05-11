@@ -63,6 +63,9 @@ const nav = [
       }, {
         name: 'Tooltip',
         route: '/components/tooltip'
+      }, {
+        name: 'Tabs',
+        route: '/components/tabs'
       }
     ]
   }, {

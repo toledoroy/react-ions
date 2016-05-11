@@ -16,10 +16,6 @@ class PanelGroup extends React.Component {
      */
     accordion: React.PropTypes.bool,
     /**
-     * Child Panels to be iterated over
-     */
-    children: React.PropTypes.node,
-    /**
      * An optional CSS class to be used to local style
      */
     optClass: React.PropTypes.string
@@ -31,14 +27,6 @@ class PanelGroup extends React.Component {
 
   state = {
     defaultActiveKey: this.props.defaultActiveKey,
-  }
-
-  handleClick = (event) => {
-    this.setState({active: true}, function() {
-      if (typeof this.props.onClick === 'function') {
-        this.props.onClick(event);
-      }
-    });
   }
 
   render() {

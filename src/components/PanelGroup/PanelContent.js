@@ -5,10 +5,9 @@ import style from './style.scss'
 const PanelContent = (props) => {
   const cx = classNames.bind(style);
   var contentClasses = cx(style['panel-content'], props.optClass);
-  var contentHidden = cx(contentClasses, style['hidden']);
 
   return (
-    <div className={contentHidden}>
+    <div className={contentClasses}>
       {props.children}
     </div>
   )
@@ -16,7 +15,7 @@ const PanelContent = (props) => {
 
 PanelContent.propTypes = {
   /**
-   * An optional CSS class to be used to local style
+   * An optional CSS class to be used to style the content area
    */
   optClass: React.PropTypes.string
 }
