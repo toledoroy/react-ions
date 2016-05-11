@@ -9,6 +9,10 @@
 
 .panel {
   border-bottom: 1px solid $neutral-3;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .panel-header {
@@ -42,28 +46,32 @@
   .toggle-icon {
     position: absolute;
     right: 15px;
-    top: 15px;
-    transform: rotate(0);
+    top: 13px;
+    transform: rotate(135deg);
     transition: .25s ease;
-
-    &.rotate {
-      transform: rotate(135deg);
-    }
   }
 
 }
 
 .panel-content {
   box-sizing: border-box;
-  max-height: auto;
-  opacity: 1;
-  visibility: visible;
+  display: none;
+  padding: 0 40px 15px;
+}
 
-  &.hidden {
-    max-height: 0;
-    opacity: 0;
-    padding-bottom: 0;
-    padding-top: 0;
-    visibility: hidden;
+.panel-active {
+
+  .panel-content {
+    display: block;
   }
+
+  .toggle-icon {
+    top: 15px;
+    transform: rotate(0);
+  }
+
+  svg {
+    fill: $primary-1;
+  }
+
 }

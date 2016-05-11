@@ -33,25 +33,18 @@ class Panel extends React.Component {
     return this.props.children[0];
   }
 
-  handleClick = (event) => {
-    if (this.props.onClick) {
-      console.log(this.props);
-      if (this.state.active) {
-        this.state.active = false;
-      } else {
-        this.state.active = true;
-      }
-    }
+  handleClick = () => {
+    this.setState({active: !this.state.active});
   };
 
   render() {
     const cx = classNames.bind(style);
-    const panelActiveClass = (this.state.active) ? 'active' : null;
+    const panelActiveClass = (this.state.active) ? style['panel-active'] : null;
     const panelClasses = cx(style.panel, this.props.optClass, panelActiveClass);
 
     const header = React.cloneElement(this.getHeader(), {
-      active: this.props.active,
-      onClick: this.handleClick
+      active: this.state.active,
+      onHeaderClick: this.handleClick
     });
 
     return (

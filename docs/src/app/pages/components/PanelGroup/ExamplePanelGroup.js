@@ -1,5 +1,6 @@
 import React from 'react'
 import {PanelGroup, Panel, PanelHeader, PanelContent} from 'react-conventions/lib/PanelGroup'
+import ProgressBar from 'react-conventions/lib/ProgressBar'
 import style from './style.scss'
 
 const content = {
@@ -12,27 +13,27 @@ const content = {
 const ExamplePanelGroup = () => (
   <PanelGroup>
     <Panel>
-      <PanelHeader title='Rating' contextIcon='icon-star-1'></PanelHeader>
-      <PanelContent optClass={style['demo-content']}>
-        {content.lorum1}
+      <PanelHeader title='Rating' contextIcon='icon-star-1' />
+      <PanelContent optClass={style['rating-specific']}>
+        <p className={style.paragraph}>{content.lorum1}</p>
       </PanelContent>
     </Panel>
     <Panel>
-      <PanelHeader title='Channel' contextIcon='icon-filter-1'></PanelHeader>
-      <PanelContent optClass={style['demo-content']}>
-        {content.lorum2}
+      <PanelHeader title='Channel' contextIcon='icon-filter-1' />
+      <PanelContent>
+        <p className={style.paragraph}>{content.lorum2}</p>
       </PanelContent>
     </Panel>
     <Panel>
-      <PanelHeader title='Date' contextIcon='icon-calendar-1'></PanelHeader>
-      <PanelContent optClass={style['demo-content']}>
-        {content.lorum3}
+      <PanelHeader title='Date' contextIcon='icon-calendar-1' />
+      <PanelContent>
+        <p className={style.paragraph}>{content.lorum3}</p>
       </PanelContent>
     </Panel>
     <Panel>
-      <PanelHeader title='Location' contextIcon='icon-globe-1'></PanelHeader>
-      <PanelContent optClass={style['demo-content']}>
-        {content.lorum4}
+      <PanelHeader title='Location' contextIcon='icon-globe-1' />
+      <PanelContent>
+        <p className={style.paragraph}>{content.lorum4}</p>
       </PanelContent>
     </Panel>
   </PanelGroup>
