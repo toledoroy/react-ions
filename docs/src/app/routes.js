@@ -23,7 +23,7 @@ import InputPage from './pages/components/Input/Page'
 import ModalPage from './pages/components/Modal/Page'
 import BadgePage from './pages/components/Badge/Page'
 import TooltipPage from './pages/components/Tooltip/Page'
-import TabWrapperPage from './pages/components/TabWrapper/Page'
+import TabsPage from './pages/components/TabWrapper/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -50,7 +50,7 @@ const Routes = (
       <Route path='modal' title='Modal' component={ModalPage} />
       <Route path='badge' title='Badge' component={BadgePage} />
       <Route path='tooltip' title='Tooltip' component={TooltipPage} />
-      <Route path='tab-wrapper' title='Tab Wrapper' component={TabWrapperPage} />
+      <Route path='tabs' title='Tabs' component={TabsPage} />
     </Route>
     <Route path='patterns' title='Patterns'>
     </Route>
