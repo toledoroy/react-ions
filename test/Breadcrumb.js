@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
 import { shallow, mount } from 'enzyme';
 import Breadcrumb from '../src/components/Breadcrumb/Breadcrumb';
 import Icon from '../src/components/Icon/Icon';
@@ -11,6 +12,23 @@ describe('Breadcrumb', () => {
       title: undefined
     }
   ];
+
+  function eventFire(el, etype){
+    if (el.fireEvent) {
+      el.fireEvent('on' + etype);
+    } else {
+      var evObj = document.createEvent('Events');
+      evObj.initEvent(etype, true, false);
+      el.dispatchEvent(evObj);
+    }
+  }
+
+  afterEach(function() {
+    var elems = document.body.children;
+    if (elems.length > 0) {
+      document.body.removeChild(elems[elems.length -1]);
+    }
+  });
 
   it('should not render any children', () => {
     wrapper = shallow(<Breadcrumb routes={routes} />);
@@ -126,5 +144,237 @@ describe('Breadcrumb', () => {
     expect(wrapper.find('span')).to.have.length(1);
     expect(wrapper.childAt(0).childAt(2).props().className).to.equal('secondary');
     expect(wrapper.contains(<span className='secondary'>Test</span>)).to.equal(true);
+  });
+
+  it('should display minimized breadcrumbs when there\'s not enough space after resize', () => {
+    routes = [
+      {
+        path: 'first',
+        title: 'First'
+      },
+      {
+        path: 'second',
+        title: 'Second'
+      },
+      {
+        path: 'third',
+        title: 'Third'
+      }
+    ];
+
+    let div = document.createElement('div');
+    document.body.appendChild(div);
+    let component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
+    let containerDiv = ReactDOM.findDOMNode(div);
+
+    // 3 breadcrumbs and 2 arrow icons
+    expect(document.body.getElementsByClassName('breadcrumb')[0].children).to.have.length(5);
+    // All but the last breadcrumb
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].children).to.have.length(2);
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.equal('0px');
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('0');
+
+    // Reduce the width of the breadcrumbs container
+    containerDiv.style.width = '100px';
+    // Trigger window resize event
+    eventFire(window, 'resize');
+
+    // Ellipsis, an arrow icon, and a breadcrumb
+    expect(document.body.getElementsByClassName('breadcrumb')[0].children).to.have.length(3);
+    // All but the last breadcrumb
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].children).to.have.length(2);
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.equal('0px');
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('0');
+  });
+
+  it('should display minimized breadcrumbs when there\'s not enough space on initial load', () => {
+    routes = [
+      {
+        path: 'first',
+        title: 'First'
+      },
+      {
+        path: 'second',
+        title: 'Second'
+      },
+      {
+        path: 'third',
+        title: 'Third'
+      }
+    ];
+
+    let div = document.createElement('div');
+    // Set the container width right away
+    div.style.width = '100px';
+    document.body.appendChild(div);
+    let component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
+
+    // Ellipsis, an arrow icon, and a breadcrumb
+    expect(document.body.getElementsByClassName('breadcrumb')[0].children).to.have.length(3);
+    // All but the last breadcrumb
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].children).to.have.length(2);
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.equal('0px');
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('0');
+  });
+
+  it('should open the dropdown with the hidden breadcrumbs when a click occurs on the ellipsis and close the dropdown if another click occurs', () => {
+    routes = [
+      {
+        path: 'first',
+        title: 'First'
+      },
+      {
+        path: 'second',
+        title: 'Second'
+      },
+      {
+        path: 'third',
+        title: 'Third'
+      }
+    ];
+
+    let div = document.createElement('div');
+    div.style.width = '100px';
+    document.body.appendChild(div);
+    let component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
+
+    // Ellipsis, an arrow icon, and a breadcrumb
+    expect(document.body.getElementsByClassName('breadcrumb')[0].children).to.have.length(3);
+    // All but the last breadcrumb
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].children).to.have.length(2);
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.equal('0px');
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('0');
+
+    // Trigger a click on the ellipsis element
+    eventFire(document.body.getElementsByClassName('ellipsis')[0], 'click');
+
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.not.equal('0px');
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('1');
+
+    // Trigger a click on the ellipsis element
+    eventFire(document.body.getElementsByClassName('ellipsis')[0], 'click');
+
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.equal('0px');
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('0');
+  });
+
+  it('should close the dropdown with the hidden breadcrumbs if a resize happens and there\'s enough space for all of the breadcrumbs', () => {
+    routes = [
+      {
+        path: 'first',
+        title: 'First'
+      },
+      {
+        path: 'second',
+        title: 'Second'
+      },
+      {
+        path: 'third',
+        title: 'Third'
+      }
+    ];
+
+    let div = document.createElement('div');
+    div.style.width = '100px';
+    document.body.appendChild(div);
+    let component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
+    let containerDiv = ReactDOM.findDOMNode(div);
+
+    // Ellipsis, an arrow icon, and a breadcrumb
+    expect(document.body.getElementsByClassName('breadcrumb')[0].children).to.have.length(3);
+    // All but the last breadcrumb
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].children).to.have.length(2);
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.equal('0px');
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('0');
+
+    // Trigger a click on the ellipsis element
+    eventFire(document.body.getElementsByClassName('ellipsis')[0], 'click');
+
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.not.equal('0px');
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('1');
+
+    // Increase the width of the breadcrumbs container
+    containerDiv.style.width = '600px';
+    // Trigger window resize event
+    eventFire(window, 'resize');
+
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.equal('0px');
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('0');
+  });
+
+  it('should not display minimized breadcrumbs when there\'s just one breadcrumb', () => {
+    routes = [
+      {
+        path: 'first',
+        title: 'First'
+      }
+    ];
+
+    let div = document.createElement('div');
+    document.body.appendChild(div);
+    let component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
+    let containerDiv = ReactDOM.findDOMNode(div);
+
+    // Just one breadcrumb
+    expect(document.body.getElementsByClassName('breadcrumb')[0].children).to.have.length(1);
+    // No hidden breadcrumbs
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].children).to.have.length(0);
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.equal('0px');
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('0');
+
+    // Reduce the width of the breadcrumbs container
+    containerDiv.style.width = '10px';
+    // Trigger window resize event
+    eventFire(window, 'resize');
+
+    // Just one breadcrumb
+    expect(document.body.getElementsByClassName('breadcrumb')[0].children).to.have.length(1);
+    // No hidden breadcrumbs
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].children).to.have.length(0);
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.equal('0px');
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('0');
+  });
+
+  it('should not react to window resize after componentWillUnmount method is called', () => {
+    routes = [
+      {
+        path: 'first',
+        title: 'First'
+      },
+      {
+        path: 'second',
+        title: 'Second'
+      },
+      {
+        path: 'third',
+        title: 'Third'
+      }
+    ];
+
+    let div = document.createElement('div');
+    document.body.appendChild(div);
+    let component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
+    let containerDiv = ReactDOM.findDOMNode(div);
+
+    // 3 breadcrumbs and 2 arrow icons
+    expect(document.body.getElementsByClassName('breadcrumb')[0].children).to.have.length(5);
+    // All but the last breadcrumb
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].children).to.have.length(2);
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.equal('0px');
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('0');
+
+    // Manually call the componentWillUnmount method
+    component.componentWillUnmount();
+    // Reduce the width of the breadcrumbs container
+    containerDiv.style.width = '100px';
+    // Trigger window resize event
+    eventFire(window, 'resize');
+
+    // 3 breadcrumbs and 2 arrow icons
+    expect(document.body.getElementsByClassName('breadcrumb')[0].children).to.have.length(5);
+    // All but the last breadcrumb
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].children).to.have.length(2);
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.equal('0px');
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('0');
   });
 });

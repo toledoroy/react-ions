@@ -24,7 +24,7 @@ class Breadcrumb extends React.Component {
     const breadcrumbsStyle = window.getComputedStyle(this._breadcrumbsContainer);
     const breadcrumbsRect = this._breadcrumbsContainer.getBoundingClientRect();
 
-    if(this.state.childrenWidth > breadcrumbsRect.width - (parseInt(breadcrumbsStyle.paddingLeft) + parseInt(breadcrumbsStyle.paddingRight))) {
+    if(this.props.routes.length > 1 && this.state.childrenWidth > breadcrumbsRect.width - (parseInt(breadcrumbsStyle.paddingLeft) + parseInt(breadcrumbsStyle.paddingRight))) {
       this.setState({ minimized: true });
     }
     else {
@@ -45,10 +45,6 @@ class Breadcrumb extends React.Component {
   }
 
   getDropdownChildrenHeight = () => {
-    if (!this._breadcrumbsDropdown) {
-      return 0;
-    }
-
     const children = [].slice.call(this._breadcrumbsDropdown.children);
     let height = 0;
 
