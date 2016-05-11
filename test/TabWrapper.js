@@ -45,7 +45,7 @@ describe('TabWrapper', () => {
     expect(selectedIndex).to.equal(1);
   });
 
-  it('should have a different than default tab selected', () => {
+  it('should have a non-default tab selected', () => {
     wrapper = mount(<TabWrapper><Tab title="Test Tab">Test tab content</Tab><Tab title="Test Tab With Count" count={42} active={true}>Test tab with count content</Tab></TabWrapper>);
 
     expect(wrapper.childAt(0).childAt(0).props().active).to.be.false;
