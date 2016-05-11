@@ -4,11 +4,9 @@ import SelectField from 'react-conventions/lib/SelectField/SelectField'
 const options = ['test 1', 'test 2'];
 
 const ExampleSelectFieldDefault = () => (
-  <RadioGroup
-    label="Default radio label"
-    name="default-radio-group"
+  <SelectField
     options={options}>
-  </RadioGroup>
+  </SelectField>
 )
 
 export default ExampleSelectFieldDefault

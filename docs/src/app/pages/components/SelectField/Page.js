@@ -4,6 +4,7 @@ import docs from '!!docgen!react-conventions/lib/SelectField/SelectField';
 import CodeExample from 'private/modules/CodeExample'
 import ExampleSelectFieldDefault from './ExampleSelectFieldDefault'
 import exampleSelectFieldDefaultCode from '!raw!./ExampleSelectFieldDefault'
+import styles from 'private/css/content'
 
 const description = {
   selectFieldDefault: 'This is the `selectfield component` as it appears by default.'
@@ -17,7 +18,7 @@ const SelectFieldPage = () => (
           <CodeExample
             title='Default SelectField'
             description={description.selectFieldDefault}
-            markup={ExampleSelectFieldDefaultCode}>
+            markup={exampleSelectFieldDefaultCode}>
             <ExampleSelectFieldDefault />
           </CodeExample>
           <div className={styles.block}>
