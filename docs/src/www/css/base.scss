@@ -30,7 +30,7 @@ body {
   right: 0;
   top: 0;
   transition: all 0.25s ease 0s;
-  z-index: z('default');
+  z-index: z('breadcrumb');
 
   @media #{$media-small-minus} {
     height: 50px;

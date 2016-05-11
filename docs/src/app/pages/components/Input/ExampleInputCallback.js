@@ -1,6 +1,6 @@
 import React from 'react'
 import Input from 'react-conventions/lib/Input'
-import style from './style'
+import style from './style' 
 
 class ExampleInputCallback extends React.Component {
   constructor(props) {
@@ -27,10 +27,9 @@ class ExampleInputCallback extends React.Component {
     return(
       <div>
         <Input value=''
-          onFocus={this.handleFocus}
-          onChange={this.handleChange}
-          onBlur={this.handleBlur}
-        />
+          focusCallback={this.handleFocus}
+          changeCallback={this.handleChange}
+          blurCallback={this.handleBlur} />
         <code>{this.state.status}</code>
       </div>
     )

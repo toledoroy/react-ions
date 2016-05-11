@@ -48,13 +48,13 @@ describe('Radio', () => {
   });
 
   it('should have a callback', () => {
-    let clicked = false;
+    let checked = false;
     const callback = function(event, value) {
-      clicked = value;
+      checked = value;
     };
-    wrapper = mount(<Radio value="test" label="Test label" selectCallback={callback}></Radio>);
+    wrapper = mount(<Radio value="test" label="Test label" changeCallback={callback}></Radio>);
 
     wrapper.find('input').simulate('change');
-    expect(clicked).to.be.equal('test');
+    expect(checked).to.be.equal('test');
   });
 });

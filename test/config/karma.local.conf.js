@@ -29,7 +29,7 @@ module.exports = function(config) {
         preLoaders: [
           {
             test: /\.js$/,
-            exclude: /(test|node_modules)\//,
+            exclude: [/node_modules/, /test/, /\TimeString\.js/, /\index\.js/],
             loader: 'isparta-instrumenter-loader',
             query: {
               babel: {
@@ -43,11 +43,7 @@ module.exports = function(config) {
           {
             test: /\.js$/,
             loader: 'babel',
-            exclude: /node_modules/,
-            query: {
-              presets: ['airbnb'],
-              plugins: ['transform-class-properties', 'transform-export-extensions']
-            }
+            exclude: /node_modules/
           },
           {
             test: /\.json$/,

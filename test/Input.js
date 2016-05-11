@@ -16,7 +16,8 @@ describe('Input', () => {
   });
 
   it('should be disabled', () => {
-    wrapper = mount(<Input label='Disabled input' value='' disabled />);
+    const disabled = true;
+    wrapper = mount(<Input label='Disabled input' value='' disabled={disabled} />);
     expect(wrapper.find('input').node.hasAttribute('disabled')).to.equal(true);
   });
 
@@ -33,30 +34,34 @@ describe('Input', () => {
   });
 
   it('should update the value onChange', () => {
-    var spy = sinon.spy();
     const afterChange = {target: {value: 'New value'}};
-    wrapper = mount(<Input value='test' onChange={spy} />);
-    expect(typeof wrapper.childAt(0).props().onChange).to.equal('function');
+    wrapper = mount(<Input value='test' />);
     expect(wrapper.childAt(0).props().value).to.equal('test');
     wrapper.childAt(0).simulate('change', afterChange);
-    expect(wrapper.childAt(0).props().value).to.be.equal('New value');
+    expect(wrapper.childAt(0).props().value).to.equal('New value');
+  });
+
+  it('should run the changeCallback on change', () => {
+    const spy = sinon.spy();
+    wrapper = mount(<Input value='test' changeCallback={spy} />);
+    expect(typeof wrapper.childAt(0).props().changeCallback).to.equal('function');
+    wrapper.childAt(0).simulate('change');
     expect(spy.calledOnce).to.be.true;
   });
 
-  it('should run onBlur callback on blur', () => {
-    var spy = sinon.spy();
-    wrapper = mount(<Input value='test' onBlur={spy} />);
-    expect(typeof wrapper.childAt(0).props().onBlur).to.equal('function');
+  it('should run the blurCallback on blur', () => {
+    const spy = sinon.spy();
+    wrapper = mount(<Input value='test' blurCallback={spy} />);
+    expect(typeof wrapper.childAt(0).props().blurCallback).to.equal('function');
     wrapper.childAt(0).simulate('blur');
     expect(spy.calledOnce).to.be.true;
   });
 
-  it('should run onFocus callback on focus', () => {
-    var spy = sinon.spy();
-    wrapper = mount(<Input value='test' onFocus={spy} />);
-    expect(typeof wrapper.childAt(0).props().onFocus).to.equal('function');
+  it('should run the focusCallback on focus', () => {
+    const spy = sinon.spy();
+    wrapper = mount(<Input value='test' focusCallback={spy} />);
+    expect(typeof wrapper.childAt(0).props().focusCallback).to.equal('function');
     wrapper.childAt(0).simulate('focus');
     expect(spy.calledOnce).to.be.true;
   });
-
 });
