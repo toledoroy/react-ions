@@ -42,13 +42,19 @@ class Checkbox extends React.Component {
     /**
      * Optional styles to add to the checkbox.
      */
-    optClass: React.PropTypes.string
+    optClass: React.PropTypes.string,
+    /**
+     * A callback function to be called when the checkbox changes.
+     */
+    changeCallback: React.PropTypes.func
   };
 
   handleChange = (event) => {
-    this.setState({
-      checked: event.target.checked
-    });
+    this.setState({checked: event.target.checked});
+
+    if (typeof this.props.changeCallback === 'function') {
+      this.props.changeCallback(event);
+    }
   }
 
   render() {
@@ -57,6 +63,7 @@ class Checkbox extends React.Component {
       label,
       labelPosition,
       optClass,
+      changeCallback,
       ...other
     } = this.props;
 
@@ -66,7 +73,11 @@ class Checkbox extends React.Component {
 
     return (
       <div className={checkboxClass}>
-        <input type="checkbox" checked={this.state.checked} {...other}></input>
+        <input type="checkbox"
+          checked={this.state.checked}
+          onChange={this.handleChange}
+          {...other}>
+        </input>
         <div>
           { label && labelPosition === 'left' ? <label className={style['label-left']}>{label}</label> : null }
           <div className={style['checkbox-input']}>

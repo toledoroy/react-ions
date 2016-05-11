@@ -46,14 +46,14 @@ class Radio extends React.Component {
      */
     name: React.PropTypes.string,
     /**
-     * A callback function (from RadioGroup) to be called when the option is checked.
+     * A callback function (from RadioGroup) to be called when the option is changed.
      */
-    checkCallback: React.PropTypes.func
+    changeCallback: React.PropTypes.func
   };
 
   handleChange = (event) => {
-    if (typeof this.props.checkCallback === 'function') {
-      this.props.checkCallback(event, this.props.value);
+    if (typeof this.props.changeCallback === 'function') {
+      this.props.changeCallback(event, this.props.value);
     }
   }
 

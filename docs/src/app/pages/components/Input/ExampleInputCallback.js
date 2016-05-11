@@ -1,6 +1,6 @@
 import React from 'react'
 import Input from 'react-conventions/lib/Input'
-import style from './style'
+import style from './style' 
 
 class ExampleInputCallback extends React.Component {
   constructor(props) {

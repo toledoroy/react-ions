@@ -29,7 +29,7 @@ module.exports = function(config) {
         preLoaders: [
           {
             test: /\.js$/,
-            exclude: /(test|node_modules)\//,
+            exclude: [/node_modules/, /test/, /\TimeString\.js/, /\index\.js/],
             loader: 'isparta-instrumenter-loader',
             query: {
               babel: {
