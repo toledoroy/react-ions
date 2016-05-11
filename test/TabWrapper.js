@@ -78,4 +78,18 @@ describe('TabWrapper', () => {
     expect(wrapper.childAt(0).children()).to.have.length(2);
     expect(wrapper.childAt(1).children()).to.have.length(1);
   });
+
+  it('should have an extra class on the tab header element', () => {
+    wrapper = mount(<TabWrapper><Tab title="Test Tab" optClass="tab-one-header-class">Test tab content</Tab><Tab title="Test Tab With Count" count={42} optClass="tab-two-header-class">Test tab with count content</Tab></TabWrapper>);
+
+    expect(wrapper.find('.tab-one-header-class')).to.have.length(1);
+    expect(wrapper.find('.tab-two-header-class')).to.have.length(1);
+  });
+
+  it('should have an extra class on the tab content element', () => {
+    wrapper = mount(<TabWrapper><Tab title="Test Tab" optTabContentClass="tab-one-content-class">Test tab content</Tab><Tab title="Test Tab With Count" count={42}optTabContentClass="tab-two-content-class">Test tab with count content</Tab></TabWrapper>);
+
+    expect(wrapper.find('.tab-one-content-class')).to.have.length(1);
+    expect(wrapper.find('.tab-two-content-class')).to.have.length(1);
+  });
 });
