@@ -4,21 +4,17 @@ import style from './style.scss'
 class PanelGroup extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      selectedIndex: this.props.initialSelectedIndex && this.props.initialSelectedIndex < this.props.children.length ? this.props.initialSelectedIndex : 0
-    }
   }
 
   static defaultProps = {
-    initialSelectedIndex: 0
+    activePanels: [1]
   }
 
   static propTypes = {
     /**
-     * The panel to be open by default
+     * The panel(s) to be open by default
      */
-     initialSelectedIndex: React.PropTypes.number,
+    activePanels: React.PropTypes.array,
     /**
      * Whether the panelGroup should allow only one panel to be open at a time
      */
@@ -27,14 +23,6 @@ class PanelGroup extends React.Component {
      * An optional CSS class to be used to local style
      */
     optClass: React.PropTypes.string
-  }
-
-  componentWillMount = () => {
-    this.getPanels().map((panels, index) => {
-      if (panels.props.active) {
-        this.setState({selectedIndex: index});
-      }
-    });
   }
 
   getPanels = () => {
@@ -48,7 +36,7 @@ class PanelGroup extends React.Component {
   }
 
   isActive = (index) => {
-    return this.state.selectedIndex === index;
+    return this.props.activePanels.includes(index);
   }
 
   render() {

@@ -22,13 +22,6 @@ class Panel extends React.Component {
     active: false
   }
 
-  componentWillMount = () => {
-    let header = this.getHeader();
-    if (header.props.active) {
-      this.setState({active: true});
-    }
-  }
-
   getHeader = () => {
     return this.props.children[0];
   }

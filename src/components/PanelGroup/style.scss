@@ -25,6 +25,7 @@
 
   .title-group {
     @include vertical-align('block');
+    user-select: none;
 
     h4 {
       color: $neutral-4;
@@ -49,7 +50,7 @@
     position: absolute;
     right: 15px;
     top: 13px;
-    transform: rotate(135deg);
+    transform: rotate(-135deg);
     transition: .25s ease;
   }
 
