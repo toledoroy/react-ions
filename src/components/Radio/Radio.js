@@ -2,9 +2,6 @@ import React from 'react'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 
-/**
- * The Radio component.
- */
 class Radio extends React.Component {
   constructor(props) {
     super(props);
@@ -49,7 +46,7 @@ class Radio extends React.Component {
      * A callback function (from RadioGroup) to be called when the option is changed.
      */
     changeCallback: React.PropTypes.func
-  };
+  }
 
   handleChange = (event) => {
     if (typeof this.props.changeCallback === 'function') {
