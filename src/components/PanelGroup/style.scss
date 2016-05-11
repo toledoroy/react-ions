@@ -55,4 +55,15 @@
 
 .panel-content {
   box-sizing: border-box;
+  max-height: auto;
+  opacity: 1;
+  visibility: visible;
+
+  &.hidden {
+    max-height: 0;
+    opacity: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    visibility: hidden;
+  }
 }

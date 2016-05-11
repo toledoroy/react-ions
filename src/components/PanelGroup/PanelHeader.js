@@ -7,12 +7,12 @@ const PanelHeader = (props) => {
   const cx = classNames.bind(style);
   var toggleIconRotate = cx(style['toggle-icon'], style['rotate']);
 
-  const handleClick = function() {
-    console.log('clicked');
+  const handleClick = function(event) {
+    console.log('clicked', event.target);
   }
 
   return (
-    <div className={style['panel-header']} onClick={handleClick}>
+    <div className={style['panel-header']}>
       {!props.children ?
         <div>
           <div className={style['title-group']}>

@@ -5,9 +5,10 @@ import style from './style.scss'
 const PanelContent = (props) => {
   const cx = classNames.bind(style);
   var contentClasses = cx(style['panel-content'], props.optClass);
+  var contentHidden = cx(contentClasses, style['hidden']);
 
   return (
-    <div className={contentClasses}>
+    <div className={contentHidden}>
       {props.children}
     </div>
   )
