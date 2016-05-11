@@ -17,7 +17,6 @@
 
 .panel-header {
   box-sizing: border-box;
-  color: lighten($primary-5, 50%);
   cursor: pointer;
   font-size: 14px;
   font-weight: 200;
@@ -28,6 +27,7 @@
     @include vertical-align('block');
 
     h4 {
+      color: $neutral-4;
       line-height: 0;
       margin: 0;
       position: relative;
@@ -35,6 +35,7 @@
     }
 
     svg {
+      fill: $neutral-4;
       position: relative;
     }
 
@@ -44,11 +45,26 @@
   }
 
   .toggle-icon {
+    display: none;
     position: absolute;
     right: 15px;
     top: 13px;
     transform: rotate(135deg);
     transition: .25s ease;
+  }
+
+  &:hover {
+    .title-group {
+      h4 {
+        color: $primary-5;
+      }
+      svg {
+        fill: $primary-5;
+      }
+    }
+    .toggle-icon {
+      display: block;
+    }
   }
 
 }
@@ -61,17 +77,23 @@
 
 .panel-active {
 
+  .panel-header {
+    h4 {
+      color: $primary-5;
+    }
+    svg {
+      fill: $primary-5;
+    }
+  }
+
   .panel-content {
     display: block;
   }
 
   .toggle-icon {
+    display: block;
     top: 15px;
     transform: rotate(0);
-  }
-
-  svg {
-    fill: $primary-1;
   }
 
 }

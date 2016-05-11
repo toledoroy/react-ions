@@ -12,7 +12,7 @@ const content = {
 
 const ExamplePanelGroup = () => (
   <PanelGroup>
-    <Panel>
+    <Panel active={true}>
       <PanelHeader title='Rating' contextIcon='icon-star-1' />
       <PanelContent optClass={style['rating-specific']}>
         <p className={style.paragraph}>{content.lorum1}</p>

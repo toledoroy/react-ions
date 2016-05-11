@@ -5,10 +5,6 @@ import classNames from 'classnames/bind'
 class Panel extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      active: false
-    }
   }
 
   static propTypes = {
@@ -20,6 +16,10 @@ class Panel extends React.Component {
      * An optional CSS class to be used to local style
      */
     optClass: React.PropTypes.string
+  }
+
+  state = {
+    active: false
   }
 
   componentWillMount = () => {
