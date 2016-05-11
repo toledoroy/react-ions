@@ -1,0 +1,32 @@
+import React from 'react'
+import PropsList from 'private/modules/PropsList';
+import docs from '!!docgen!react-conventions/lib/SelectField/SelectField';
+import CodeExample from 'private/modules/CodeExample'
+import ExampleSelectFieldDefault from './ExampleSelectFieldDefault'
+import exampleSelectFieldDefaultCode from '!raw!./ExampleSelectFieldDefault'
+
+const description = {
+  selectFieldDefault: 'This is the `selectfield component` as it appears by default.'
+};
+
+const SelectFieldPage = () => (
+  <div>
+    <div className={styles.content}>
+      <div className={styles.block}>
+        <h3>Examples</h3>
+          <CodeExample
+            title='Default SelectField'
+            description={description.selectFieldDefault}
+            markup={ExampleSelectFieldDefaultCode}>
+            <ExampleSelectFieldDefault />
+          </CodeExample>
+          <div className={styles.block}>
+            <h3>Props</h3>
+            <PropsList list={docs[0].props} />
+          </div>
+      </div>
+    </div>
+  </div>
+)
+
+export default SelectFieldPage;

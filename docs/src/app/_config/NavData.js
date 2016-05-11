@@ -60,6 +60,9 @@ const nav = [
       }, {
         name: 'Tooltip',
         route: '/components/tooltip'
+      }, {
+        name: 'Select Field',
+        route: '/components/selectfield'        
       }
     ]
   }, {

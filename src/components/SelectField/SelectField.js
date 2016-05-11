@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames/bind'
-import style from './style.scss'
+//import style from './style.scss'
 
 class SelectField extends React.Component {
   constructor(props) {
@@ -40,17 +40,17 @@ class SelectField extends React.Component {
     // var disabledClass = this.props.disabled ? style['radio-disabled'] : '';
     // var radioClass = cx(style['radio-component'], optClass, disabledClass);
 
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-      this.props.options.map((option, index) =>
-      );
+    const nodes = this.props.options.map((option, index) =>
+      <li>{option}</li>
+    );
 
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href="#">Separated link</a></li>
-      </ul>
-    )
+    return (
+      <div>
+        <ul>
+         {nodes}
+        </ul>
+      </div>
+    );
   }
 }
 
