@@ -1,15 +1,7 @@
 import React from 'react'
 
-class Overlay extends React.Component {
-  static propTypes = {
-    show: React.PropTypes.bool.isRequired
-  };
-
-  static defaultProps = {
-    show: false
-  };
-
-  getStyles() {
+const Overlay = (props) => {
+  const getStyles = function() {
     var style = {
       position: 'fixed',
       height: '100%',
@@ -27,7 +19,7 @@ class Overlay extends React.Component {
 
     document.body.style.removeProperty('overflow');
 
-    if (this.props.show) {
+    if (props.show) {
       document.body.style.overflow = 'hidden';
       style.left = 0;
       style.opacity = 0.6;
@@ -37,19 +29,25 @@ class Overlay extends React.Component {
     return style;
   }
 
-  render() {
-    var style = this.getStyles();
+  var style = getStyles();
 
-    const {
-      show,
-      ...other,
-    } = this.props;
+  const {
+    show,
+    ...other,
+  } = props;
 
-    return (
-      <div {...other} ref="overlay" style={style}>
-      </div>
-    );
-  }
+  return (
+    <div {...other} style={style}>
+    </div>
+  );
+}
+
+Overlay.propTypes = {
+  show: React.PropTypes.bool.isRequired
+}
+
+Overlay.defaultProps = {
+  show: false
 }
 
 export default Overlay;
