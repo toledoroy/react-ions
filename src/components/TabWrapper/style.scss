@@ -1,0 +1,44 @@
+@import '../../styles/common/colors';
+
+.tab-wrapper {
+  .tab-headers {
+    display: flex;
+  }
+  .tab-content {
+    > div {
+      box-sizing: border-box;
+    }
+  }
+}
+.tab {
+  background-color: $white;
+  font-size: 13px;
+  font-weight: 200;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $neutral-3;
+  color: $neutral-4;
+  padding: 12px 15px;
+  cursor: pointer;
+  > span {
+    font-weight: normal;
+  }
+  + .tab {
+    margin-left: -1px;
+    &.active {
+      border-left: none;
+      margin-left: 0;
+    }
+  }
+  &.active {
+    color: $navy-text;
+    background-color: $neutral-2;
+    border-width: 1px 1px 0;
+    border-style: solid solid none;
+    border-color: $neutral-2 $neutral-2 transparent;
+    padding-bottom: 13px;
+    > span {
+      color: $neutral-4;
+    }
+  }
+}
