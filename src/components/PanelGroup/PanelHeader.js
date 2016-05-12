@@ -19,8 +19,8 @@ class PanelHeader extends React.Component {
   }
 
   handleClick = (event) => {
-    if (this.props.onHeaderClick) {
-      this.props.onHeaderClick(event, this);
+    if (this.props.onPanelClick) {
+      this.props.onPanelClick(event, this);
     }
   }
 

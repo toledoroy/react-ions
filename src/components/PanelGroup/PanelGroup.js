@@ -14,13 +14,44 @@ class PanelGroup extends React.Component {
     /**
      * Whether the panelGroup should allow only one panel to be open at a time
      * Note: if accordion is set to true, the activePanels array will respect
-     * onky the zeroth item.
+     * only the first item.
      */
     accordion: React.PropTypes.bool,
     /**
      * An optional CSS class to be used to local style
      */
     optClass: React.PropTypes.string
+  }
+
+  state = {
+    panels: []
+  }
+
+  componentWillMount = () => {
+    this.setInitialState();
+  }
+
+  activatePanels = (activePanels) => {
+    var panels = this.getPanels();
+    var initialPanels = [];
+
+    panels.forEach((panel, index) => {
+      if (activePanels) {
+        initialPanels = [...initialPanels, {active: !!activePanels.includes(index)}];
+      } else {
+        initialPanels = [...initialPanels, {active: false}];
+      }
+    });
+
+    this.setState({panels: initialPanels});
+  }
+
+  setInitialState = () => {
+    this.activatePanels(this.props.activePanels);
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    this.activatePanels(nextProps.activePanels);
   }
 
   getPanels = () => {
@@ -33,16 +64,25 @@ class PanelGroup extends React.Component {
     return panels;
   }
 
-  isActive = (index) => {
-    return this.props.activePanels.includes(index);
+  handlePanelClick = (panel) => {
+    let panelIndex = panel.props.panelIndex;
+    let state = this.state.panels;
+
+    if (!this.props.accordion) {
+      state[panelIndex] = {active: !this.state.panels[panelIndex].active};
+      this.setState({panels: state})
+    } else {
+      // set active states based on accordion, etc.
+    }
   }
 
   render() {
     const panels = this.getPanels().map((panel, index) => {
       return React.cloneElement(panel, {
         key: index,
-        active: this.isActive(index),
-        panelIndex: index
+        panelIndex: index,
+        active: this.state.panels[index].active,
+        onPanelClick: this.handlePanelClick
       });
     });
 
