@@ -64,16 +64,18 @@ class Breadcrumb extends React.Component {
   }
 
   componentWillUnmount = () => {
+    // Remove event listeners
     window.removeEventListener('resize', this.handleResize);
+    document.removeEventListener('click', this.toggleDropdown);
   }
 
   toggleDropdown = () => {
     this.setState({ dropdownOpen: !this.state.dropdownOpen }, function() {
       if (this.state.dropdownOpen) {
-        document.addEventListener("click", this.toggleDropdown);
+        document.addEventListener('click', this.toggleDropdown);
       }
       else {
-        document.removeEventListener("click", this.toggleDropdown);
+        document.removeEventListener('click', this.toggleDropdown);
       }
     })
   }
