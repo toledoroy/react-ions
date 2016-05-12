@@ -1,5 +1,4 @@
 import React from 'react'
-import classNames from 'classnames'
 import Icon from '../Icon'
 import style from './style.scss'
 
@@ -26,9 +25,6 @@ class PanelHeader extends React.Component {
   }
 
   render() {
-    const cx = classNames.bind(style);
-    var toggleIconRotate = cx(style['toggle-icon'], style['rotate']);
-
     return (
       <div className={style['panel-header']} onClick={this.handleClick}>
         {!this.props.children ?
@@ -37,7 +33,7 @@ class PanelHeader extends React.Component {
               {this.props.contextIcon ? <Icon name={this.props.contextIcon} height='14' width='14' /> : null}
               {this.props.title ? <h4>{this.props.title}</h4> : null}
             </div>
-            <div className={toggleIconRotate}>
+            <div className={style['toggle-icon']}>
               <Icon name='icon-delete-1' height='12' width='12' />
             </div>
           </div>

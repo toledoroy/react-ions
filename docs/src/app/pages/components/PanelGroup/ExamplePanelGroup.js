@@ -11,7 +11,7 @@ const content = {
 }
 
 const ExamplePanelGroup = () => (
-  <PanelGroup>
+  <PanelGroup activePanels={[0]}>
     <Panel>
       <PanelHeader title='Rating' contextIcon='icon-star-1' />
       <PanelContent optClass={style['rating-specific']}>

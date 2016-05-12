@@ -6,10 +6,6 @@ class PanelGroup extends React.Component {
     super(props);
   }
 
-  static defaultProps = {
-    activePanels: [1]
-  }
-
   static propTypes = {
     /**
      * The panel(s) to be open by default
