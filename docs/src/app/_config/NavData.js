@@ -55,14 +55,14 @@ const nav = [
         name: 'Radio',
         route: '/components/radio-group'
       }, {
+        name: 'Select Field',
+        route: '/components/selectfield'        
+      }, {
         name: 'Textarea',
         route: '/components/textarea'
       }, {
         name: 'Tooltip',
         route: '/components/tooltip'
-      }, {
-        name: 'Select Field',
-        route: '/components/selectfield'        
       }
     ]
   }, {
