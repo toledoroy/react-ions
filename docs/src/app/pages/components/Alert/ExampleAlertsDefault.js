@@ -1,6 +1,5 @@
 import React from 'react'
 import Alert from 'react-conventions/lib/Alert'
-import ProgressBar from 'react-conventions/lib/ProgressBar'
 import style from './style.scss'
 
 const ExampleAlertsDefault = () => (
