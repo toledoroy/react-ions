@@ -14,6 +14,10 @@ class SelectField extends React.Component {
 
   static propTypes = {
     /**
+     * A string to display as the placeholder text.
+     */
+    placeholder: React.PropTypes.string,
+    /**
      * An array objects that which will be used as the options for the select field.
      */
     options: React.PropTypes.array.isRequired,
@@ -43,7 +47,7 @@ class SelectField extends React.Component {
     isOpen: false,
     selected: typeof this.props.defaultOption !== 'undefined' ?
               this.props.options[this.props.defaultOption] :
-              this.props.options[0]
+              ''
   }
 
   componentWillUnmount = () => {
@@ -69,6 +73,18 @@ class SelectField extends React.Component {
     });
   }
 
+  getDisplayText = () => {
+    if (this.state.selected !== '') {
+      return this.state.selected[this.props.displayProp];
+    }
+    else if (typeof this.props.placeholder !== 'undefined') {
+      return this.props.placeholder;
+    }
+    else {
+      return this.props.options[0][this.props.displayProp];
+    }
+  }
+
   render() {
     const cx = classNames.bind(style);
     const disabledClass = this.props.disabled ? style['selectfield-disabled'] : '';
@@ -81,9 +97,9 @@ class SelectField extends React.Component {
 
     return (
       <div className={selectFieldClass}>
-        <input type='hidden' name='selectfield-value' value={this.state.selected[this.props.valueProp]} />
+        <input type='hidden' name='selectfield-value' value={this.state.selected && this.state.selected[this.props.valueProp]} />
         <div className={style['selectfield-value']} onClick={this.toggleOptions}>
-          {this.state.selected[this.props.displayProp]}
+          {this.getDisplayText()}
           <Icon name='icon-caret' width='10' height='10' />
         </div>
         <ul>
