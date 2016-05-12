@@ -59,14 +59,14 @@
     }
   }
 
-  &.active {
-    ul {
-      display: inline-block;
-    }
+  &.active:not(.selectfield-disabled) {
     .selectfield-value {
       > svg {
         transform: rotate(180deg);
       }
+    }
+    ul {
+      display: inline-block;
     }
   }
 }
