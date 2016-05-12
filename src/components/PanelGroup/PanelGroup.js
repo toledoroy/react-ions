@@ -1,5 +1,6 @@
 import React from 'react'
 import style from './style.scss'
+import classNames from 'classnames/bind'
 
 class PanelGroup extends React.Component {
   constructor(props) {
@@ -90,6 +91,9 @@ class PanelGroup extends React.Component {
   }
 
   render() {
+    const cx = classNames.bind(style);
+    const panelGroupClass = cx(style['panel-group'], this.props.optClass);
+
     const panels = this.getPanels().map((panel, index) => {
       return React.cloneElement(panel, {
         key: index,
@@ -100,7 +104,7 @@ class PanelGroup extends React.Component {
     });
 
     return (
-      <div className={style['panel-group']}>
+      <div className={panelGroupClass}>
         {panels}
       </div>
     );
