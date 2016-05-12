@@ -53,7 +53,8 @@ class SelectField extends React.Component {
 
     const cx = classNames.bind(style);
     const disabledClass = this.props.disabled ? style['selectfield-disabled'] : '';
-    const selectFieldClass = cx(style['selectfield-component'], disabledClass);//, optClass, disabledClass);
+    const activeClass = this.state.isOpen ? style['active'] : null;
+    const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass);//, optClass, disabledClass);
 
     const options = this.props.options.map((option, index) =>
       <li key={index} onClick={this.selectOption.bind(null, option)}>{option}</li>
@@ -66,7 +67,7 @@ class SelectField extends React.Component {
           {this.state.selected}
           <Icon name='icon-caret' width='10' height='10' />
         </div>
-        <ul className={this.state.isOpen ? style['show'] : null}>
+        <ul>
           {options}
         </ul>
       </div>
