@@ -13,6 +13,8 @@ class PanelGroup extends React.Component {
     activePanels: React.PropTypes.array,
     /**
      * Whether the panelGroup should allow only one panel to be open at a time
+     * Note: if accordion is set to true, the activePanels array will respect
+     * onky the zeroth item.
      */
     accordion: React.PropTypes.bool,
     /**
@@ -40,7 +42,7 @@ class PanelGroup extends React.Component {
       return React.cloneElement(panel, {
         key: index,
         active: this.isActive(index),
-        tabIndex: index
+        panelIndex: index
       });
     });
 
