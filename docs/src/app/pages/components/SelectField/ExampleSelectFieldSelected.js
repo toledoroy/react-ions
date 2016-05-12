@@ -8,12 +8,12 @@ const options = [
 
 const disabled = true;
 
-const ExampleSelectFieldDisabled = () => (
+const ExampleSelectFieldSelected = () => (
   <SelectField
     options={options}
-    disabled={disabled}
     valueProp='value'
-    displayProp='display' />
+    displayProp='display'
+    defaultOption={1} />
 )
 
-export default ExampleSelectFieldDisabled
+export default ExampleSelectFieldSelected

@@ -6,11 +6,14 @@ import ExampleSelectFieldDefault from './ExampleSelectFieldDefault'
 import exampleSelectFieldDefaultCode from '!raw!./ExampleSelectFieldDefault'
 import ExampleSelectFieldDisabled from './ExampleSelectFieldDisabled'
 import exampleSelectFieldDisabledCode from '!raw!./ExampleSelectFieldDisabled'
+import ExampleSelectFieldSelected from './ExampleSelectFieldSelected'
+import exampleSelectFieldSelectedCode from '!raw!./ExampleSelectFieldSelected'
 import styles from 'private/css/content'
 
 const description = {
   selectFieldDefault: 'This is the `select field component` as it appears by default.',
-  selectFieldDisabled: 'This is the disabled `select field component`'
+  selectFieldDisabled: 'This is the disabled `select field component`',
+  selectFieldSelected: 'This is the `select field component` with a default option selected'
 };
 
 const SelectFieldPage = () => (
@@ -29,6 +32,12 @@ const SelectFieldPage = () => (
             description={description.selectFieldDisabled}
             markup={exampleSelectFieldDisabledCode}>
             <ExampleSelectFieldDisabled />
+          </CodeExample>
+          <CodeExample
+            title='Select Field With Default Option Selected'
+            description={description.selectFieldSelected}
+            markup={exampleSelectFieldSelectedCode}>
+            <ExampleSelectFieldSelected />
           </CodeExample>
           <div className={styles.block}>
             <h3>Props</h3>

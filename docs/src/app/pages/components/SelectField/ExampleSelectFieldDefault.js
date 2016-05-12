@@ -1,11 +1,16 @@
 import React from 'react'
 import SelectField from 'react-conventions/lib/SelectField/SelectField'
 
-const options = ['test 1', 'test 2'];
+const options = [
+  {value: 0, display: 'test 1', someOtherProp: true},
+  {value: 1, display: 'test 2', someOtherProp: false}
+];
 
 const ExampleSelectFieldDefault = () => (
   <SelectField
-    options={options} />
+    options={options}
+    valueProp='value'
+    displayProp='display' />
 )
 
 export default ExampleSelectFieldDefault
