@@ -32,7 +32,11 @@ class SelectField extends React.Component {
     /**
      * Whether the select field is disabled.
      */
-    disabled: React.PropTypes.bool
+    disabled: React.PropTypes.bool,
+    /**
+     * A callback function to be called when an option is selected.
+     */
+    changeCallback: React.PropTypes.func
   }
 
   state = {
@@ -40,6 +44,10 @@ class SelectField extends React.Component {
     selected: typeof this.props.defaultOption !== 'undefined' ?
               this.props.options[this.props.defaultOption] :
               this.props.options[0]
+  }
+
+  componentWillUnmount = () => {
+    document.removeEventListener("click", this.toggleOptions);    
   }
 
   toggleOptions = () => {
@@ -54,15 +62,18 @@ class SelectField extends React.Component {
   }
 
   selectOption = (option) => {
-    this.setState({selected: option});
+    this.setState({selected: option}, function() {
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback(option);
+      }
+    });
   }
 
   render() {
-    console.log(this.state.selected)
     const cx = classNames.bind(style);
     const disabledClass = this.props.disabled ? style['selectfield-disabled'] : '';
     const activeClass = this.state.isOpen ? style['active'] : null;
-    const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass);//, optClass, disabledClass);
+    const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass);
 
     const options = this.props.options.map((option, index) =>
       <li key={index} onClick={this.selectOption.bind(null, option)}>{option[this.props.displayProp]}</li>

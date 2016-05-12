@@ -8,12 +8,15 @@ import ExampleSelectFieldDisabled from './ExampleSelectFieldDisabled'
 import exampleSelectFieldDisabledCode from '!raw!./ExampleSelectFieldDisabled'
 import ExampleSelectFieldSelected from './ExampleSelectFieldSelected'
 import exampleSelectFieldSelectedCode from '!raw!./ExampleSelectFieldSelected'
+import ExampleSelectFieldCallback from './ExampleSelectFieldCallback'
+import exampleSelectFieldCallbackCode from '!raw!./ExampleSelectFieldCallback'
 import styles from 'private/css/content'
 
 const description = {
   selectFieldDefault: 'This is the `select field component` as it appears by default.',
   selectFieldDisabled: 'This is the disabled `select field component`',
-  selectFieldSelected: 'This is the `select field component` with a default option selected'
+  selectFieldSelected: 'This is the `select field component` with a default option selected',
+  selectFieldCallback: 'This is the `select field component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.'
 };
 
 const SelectFieldPage = () => (
@@ -34,10 +37,16 @@ const SelectFieldPage = () => (
             <ExampleSelectFieldDisabled />
           </CodeExample>
           <CodeExample
-            title='Select Field With Default Option Selected'
+            title='Select Field with Default Option Selected'
             description={description.selectFieldSelected}
             markup={exampleSelectFieldSelectedCode}>
             <ExampleSelectFieldSelected />
+          </CodeExample>
+          <CodeExample
+            title='Select Field with Callback'
+            description={description.selectFieldCallback}
+            markup={exampleSelectFieldCallbackCode}>
+            <ExampleSelectFieldCallback />
           </CodeExample>
           <div className={styles.block}>
             <h3>Props</h3>

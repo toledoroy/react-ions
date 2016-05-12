@@ -1,0 +1,6 @@
+@import '../../../../../../src/styles/common/mixins';
+
+code {
+  @include monospace;
+  display: block;
+}
