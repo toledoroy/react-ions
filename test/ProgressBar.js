@@ -13,7 +13,7 @@ describe('ProgressBar', () => {
     wrapper = shallow(<ProgressBar value={processed_actions} denominator={total_actions} label={label} />);
 
     expect(wrapper.find('div')).to.have.length(3);
-    expect(wrapper.first().hasClass('container')).to.equal(true);
+    expect(wrapper.first().hasClass('progress-bar')).to.equal(true);
     expect(wrapper.first().hasClass('danger')).to.equal(true);
 
     expect(wrapper.childAt(1).hasClass('outer')).to.equal(true);
@@ -32,7 +32,7 @@ describe('ProgressBar', () => {
     wrapper = shallow(<ProgressBar value={processed_actions} denominator={total_actions} label={label} />);
 
     expect(wrapper.find('div')).to.have.length(3);
-    expect(wrapper.first().hasClass('container')).to.equal(true);
+    expect(wrapper.first().hasClass('progress-bar')).to.equal(true);
     expect(wrapper.first().hasClass('danger')).to.equal(true);
 
     expect(wrapper.childAt(1).hasClass('outer')).to.equal(true);
