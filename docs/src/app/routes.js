@@ -24,6 +24,7 @@ import BadgePage from './pages/components/Badge/Page'
 import ActivityFeedPage from './pages/components/ActivityFeed/Page'
 import TooltipPage from './pages/components/Tooltip/Page'
 import TabsPage from './pages/components/TabWrapper/Page'
+import AlertPage from './pages/components/Alert/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -38,20 +39,21 @@ const Routes = (
     <Redirect from='components' to='/components/activity-feed' />
     <Route path='components' title='Components'>
       <Route path='activity-feed' title='Activity Feed' component={ActivityFeedPage} />
+      <Route path='alert' title='Alert' component={AlertPage} />
       <Route path='badge' title='Badge' component={BadgePage} />
       <Route path="breadcrumb" title="Breadcrumb" component={BreadcrumbPage} />
       <Route path='buttons' title='Buttons' component={ButtonsPage} />
       <Route path='checkbox' title='Checkbox' component={CheckboxPage} />
       <Route path='icons' title='Icons' component={IconsPage} />
       <Route path='input' title='Input' component={InputPage} />
-      <Route path='radio' title='Radio' component={RadioGroupPage} />
       <Route path='modal' title='Modal' component={ModalPage} />
       <Route path='nav' title='Nav' component={NavPage} />
       <Route path='progress-bar' title='Progress Bar' component={ProgressBarPage} />
+      <Route path='radio' title='Radio' component={RadioGroupPage} />
       <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
+      <Route path='tabs' title='Tabs' component={TabsPage} />
       <Route path='textarea' title='Textarea' component={TextareaPage} />
       <Route path='tooltip' title='Tooltip' component={TooltipPage} />
-      <Route path='tabs' title='Tabs' component={TabsPage} />
     </Route>
     <Route path='patterns' title='Patterns'>
     </Route>
