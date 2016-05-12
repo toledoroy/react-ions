@@ -20,7 +20,7 @@
   cursor: pointer;
   font-size: 14px;
   font-weight: 200;
-  padding: 15px;
+  padding: 12px 15px;
   position: relative;
   user-select: none;
 
@@ -30,15 +30,16 @@
 
     h4 {
       color: $neutral-4;
-      line-height: 0;
       margin: 0;
       position: relative;
       top: 1px;
+      transition: all .25s ease;
     }
 
     svg {
       fill: $neutral-4;
       position: relative;
+      transition: all .25s ease;
     }
 
     svg + h4 {

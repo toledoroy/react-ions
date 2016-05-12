@@ -54,6 +54,17 @@ class PanelGroup extends React.Component {
     this.activatePanels(nextProps.activePanels);
   }
 
+  collapsePanels = () => {
+    var panels = this.getPanels();
+    var collapsedPanels = [];
+
+    panels.forEach((panel, index) => {
+      collapsedPanels = [...collapsedPanels, {active: false}];
+    });
+
+    return collapsedPanels;
+  }
+
   getPanels = () => {
     const panels = [];
     React.Children.forEach(this.props.children, (panel) => {
@@ -72,7 +83,9 @@ class PanelGroup extends React.Component {
       state[panelIndex] = {active: !this.state.panels[panelIndex].active};
       this.setState({panels: state})
     } else {
-      // set active states based on accordion, etc.
+      var resetState = this.collapsePanels();
+      resetState[panelIndex] = {active: !this.state.panels[panelIndex].active};
+      this.setState({panels: resetState});
     }
   }
 
