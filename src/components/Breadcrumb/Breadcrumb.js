@@ -68,8 +68,14 @@ class Breadcrumb extends React.Component {
   }
 
   toggleDropdown = () => {
-    let open = this.state.dropdownOpen;
-    this.setState({ dropdownOpen: !open })
+    this.setState({ dropdownOpen: !this.state.dropdownOpen }, function() {
+      if (this.state.dropdownOpen) {
+        document.addEventListener("click", this.toggleDropdown);
+      }
+      else {
+        document.removeEventListener("click", this.toggleDropdown);
+      }
+    })
   }
 
   getTags = () => {

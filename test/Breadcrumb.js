@@ -258,6 +258,47 @@ describe('Breadcrumb', () => {
     expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('0');
   });
 
+  it('should close the hidden breadcrumbs dropdown if a click occurs anywhere in the document', () => {
+    routes = [
+      {
+        path: 'first',
+        title: 'First'
+      },
+      {
+        path: 'second',
+        title: 'Second'
+      },
+      {
+        path: 'third',
+        title: 'Third'
+      }
+    ];
+
+    let div = document.createElement('div');
+    div.style.width = '100px';
+    document.body.appendChild(div);
+    let component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
+
+    // Ellipsis, an arrow icon, and a breadcrumb
+    expect(document.body.getElementsByClassName('breadcrumb')[0].children).to.have.length(3);
+    // All but the last breadcrumb
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].children).to.have.length(2);
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.equal('0px');
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('0');
+
+    // Trigger a click on the ellipsis element
+    eventFire(document.body.getElementsByClassName('ellipsis')[0], 'click');
+
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.not.equal('0px');
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('1');
+
+    // Trigger a click on the body element
+    eventFire(document.body, 'click');
+
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.equal('0px');
+    expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('0');
+  });
+
   it('should close the dropdown with the hidden breadcrumbs if a resize happens and there\'s enough space for all of the breadcrumbs', () => {
     routes = [
       {
