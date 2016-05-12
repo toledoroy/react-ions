@@ -1,5 +1,4 @@
 @import '../../styles/common/colors';
-@import '../../styles/common/mixins';
 
 .dropdown-component {
   display: inline-block;
@@ -36,7 +35,7 @@
       cursor: pointer;
       &:hover {
         background-color: $primary-1;
-
+        color: $white;
       }
     }
     &.show {
