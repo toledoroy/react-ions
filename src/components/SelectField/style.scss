@@ -1,16 +1,16 @@
 @import '../../styles/common/colors';
 
-.dropdown-component {
+.selectfield-component {
   display: inline-block;
   min-width: 220px;
 
-  .dropdown-value {
+  .selectfield-value {
     border: 1px solid $neutral-3;
     border-radius: 3px;
     cursor: pointer;
     position: relative;
     padding: 10px;
-    svg {
+    > svg {
       position: absolute;
       right: 10px;
       top: 12px;
@@ -40,6 +40,21 @@
     }
     &.show {
       display: inline-block;
+    }
+  }
+
+  &.selectfield-disabled {
+    cursor: not-allowed;
+    > div {
+      > svg {
+        fill: $neutral-4;
+      }
+      background-color: $neutral-3;
+      border-color: $neutral-3;
+      cursor: not-allowed;
+    }
+    > ul {
+      display: none;
     }
   }
 }

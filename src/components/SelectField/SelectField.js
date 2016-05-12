@@ -52,17 +52,17 @@ class SelectField extends React.Component {
     // } = this.props;
 
     const cx = classNames.bind(style);
-    // var disabledClass = this.props.disabled ? style['radio-disabled'] : '';
-    const dropdownClass = cx(style['dropdown-component']);//, optClass, disabledClass);
+    const disabledClass = this.props.disabled ? style['selectfield-disabled'] : '';
+    const selectFieldClass = cx(style['selectfield-component'], disabledClass);//, optClass, disabledClass);
 
     const options = this.props.options.map((option, index) =>
       <li key={index} onClick={this.selectOption.bind(null, option)}>{option}</li>
     );
 
     return (
-      <div className={dropdownClass}>
-        <input type='hidden' name='dropdown-value' value={this.state.selected} />
-        <div className={style['dropdown-value']} onClick={this.toggleOptions}>
+      <div className={selectFieldClass}>
+        <input type='hidden' name='selectfield-value' value={this.state.selected} />
+        <div className={style['selectfield-value']} onClick={this.toggleOptions}>
           {this.state.selected}
           <Icon name='icon-caret' width='10' height='10' />
         </div>
