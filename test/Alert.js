@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Alert from '../src/components/Alert'
+import { Alert } from '../src/components/Alerts'
 
 describe('Alert', () => {
   let wrapper;

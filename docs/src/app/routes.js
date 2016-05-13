@@ -24,7 +24,7 @@ import BadgePage from './pages/components/Badge/Page'
 import ActivityFeedPage from './pages/components/ActivityFeed/Page'
 import TooltipPage from './pages/components/Tooltip/Page'
 import TabsPage from './pages/components/TabWrapper/Page'
-import AlertPage from './pages/components/Alert/Page'
+import AlertsPage from './pages/components/Alerts/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -39,7 +39,7 @@ const Routes = (
     <Redirect from='components' to='/components/activity-feed' />
     <Route path='components' title='Components'>
       <Route path='activity-feed' title='Activity Feed' component={ActivityFeedPage} />
-      <Route path='alert' title='Alert' component={AlertPage} />
+      <Route path='alerts' title='Alerts' component={AlertsPage} />
       <Route path='badge' title='Badge' component={BadgePage} />
       <Route path="breadcrumb" title="Breadcrumb" component={BreadcrumbPage} />
       <Route path='buttons' title='Buttons' component={ButtonsPage} />

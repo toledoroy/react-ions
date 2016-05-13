@@ -1,8 +1,8 @@
 import React from 'react'
-import Alert from 'react-conventions/lib/Alert'
+import { Alert } from 'react-conventions/lib/Alerts'
 import style from './style.scss'
 
-const ExampleAlertsDefault = () => (
+const ExampleAlertDefault = () => (
   <div>
     <Alert type="success">Success! Lorem ipsum dolor sit amet, sed do tempor labore.</Alert>
     <Alert type="warning">Warning! Lorem ipsum dolor sit amet, sed do tempor labore.</Alert>
@@ -11,4 +11,4 @@ const ExampleAlertsDefault = () => (
   </div>
 )
 
-export default ExampleAlertsDefault
+export default ExampleAlertDefault
