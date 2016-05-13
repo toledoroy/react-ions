@@ -46,6 +46,7 @@
       }
     }
     @media #{$media-small-minus} {
+      left: 0;
       min-width: 100%;
     }
   }
