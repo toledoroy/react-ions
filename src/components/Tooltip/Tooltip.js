@@ -9,10 +9,10 @@ import RenderToLayer from '../internal/RenderToLayer'
 class Tooltip extends React.Component {
   constructor(props) {
     super(props);
+  }
 
-    this.state = {
-      showing: false
-    }
+  state = {
+    showing: false
   }
 
   static defaultProps = {

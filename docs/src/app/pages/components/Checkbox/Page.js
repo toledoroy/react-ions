@@ -20,7 +20,7 @@ const description = {
   checkboxDefault: 'This is the `checkbox component` as it appears by default.',
   checkboxChecked: 'This is the checked `checkbox component`.',
   checkboxDisabled: 'This is the disabled `checkbox component`.',
-  checkboxError: 'This is the `checkbox component` with error.',
+  checkboxError: 'This is the `checkbox component` with an error.',
   checkboxLeft: 'This is a `checkbox component` with the label on the left side.',
   checkboxCallback: 'This is the `checkbox component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.'
 };

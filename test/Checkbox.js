@@ -6,7 +6,7 @@ describe('Checkbox', () => {
   let wrapper;
 
   it('should shallow render itself', () => {
-    wrapper = shallow(<Checkbox value="test" label="Test label"></Checkbox>);
+    wrapper = shallow(<Checkbox value='test' label='Test label'></Checkbox>);
 
     expect(wrapper.find('div')).to.have.length(3);
     expect(wrapper.find('input')).to.have.length(1);
@@ -18,30 +18,30 @@ describe('Checkbox', () => {
   });
 
   it('should be disabled', () => {
-    wrapper = shallow(<Checkbox value="test" label="Test label" disabled></Checkbox>);
+    wrapper = shallow(<Checkbox value='test' label='Test label' disabled></Checkbox>);
     expect(wrapper.hasClass('checkbox-component')).to.equal(true);
     expect(wrapper.hasClass('checkbox-disabled')).to.equal(true);
 
-    wrapper = mount(<Checkbox value="test" label="Test label" disabled></Checkbox>);
+    wrapper = mount(<Checkbox value='test' label='Test label' disabled></Checkbox>);
     expect(wrapper.find('input').node.hasAttribute('disabled')).to.equal(true);
   });
 
   it('should be checked', () => {
     const checked = true;
-    wrapper = mount(<Checkbox value="test" label="Test label" checked={checked}></Checkbox>);
+    wrapper = mount(<Checkbox value='test' label='Test label' checked={checked}></Checkbox>);
 
-    expect(wrapper.childAt(0).props().checked).to.be.equal(true);
+    expect(wrapper.childAt(0).props().checked).to.equal(true);
   });
 
   it('should have an extra class', () => {
-    wrapper = shallow(<Checkbox value="test" label="Test label" optClass="checkbox-error"></Checkbox>);
+    wrapper = shallow(<Checkbox value='test' label='Test label' optClass='checkbox-error'></Checkbox>);
 
     expect(wrapper.hasClass('checkbox-component')).to.equal(true);
     expect(wrapper.hasClass('checkbox-error')).to.equal(true);
   });
 
   it('should have the label on the left side', () => {
-    wrapper = shallow(<Checkbox value="test" label="Test label" labelPosition="left"></Checkbox>);
+    wrapper = shallow(<Checkbox value='test' label='Test label' labelPosition='left'></Checkbox>);
 
     expect(wrapper.hasClass('checkbox-component'));
     expect(wrapper.childAt(1).childAt(0).hasClass('label-left')).to.equal(true);
@@ -51,7 +51,7 @@ describe('Checkbox', () => {
   it('should call changeCallback function', () => {
     const spy = sinon.spy();
 
-    wrapper = mount(<Checkbox value="test" label="Test label" changeCallback={spy}/>);
+    wrapper = mount(<Checkbox value='test' label='Test label' changeCallback={spy}/>);
     wrapper.childAt(0).simulate('change');
 
     expect(spy.calledOnce).to.be.true;
@@ -62,7 +62,7 @@ describe('Checkbox', () => {
     const callback = function(event) {
       checked = event.target.checked;
     };
-    wrapper = mount(<Checkbox value="test" label="Test label" changeCallback={callback}/>);
+    wrapper = mount(<Checkbox value='test' label='Test label' changeCallback={callback}/>);
 
     wrapper.childAt(0).simulate('change', {target: { checked: true }});
     expect(checked).to.equal(true);
