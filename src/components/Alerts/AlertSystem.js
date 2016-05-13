@@ -25,7 +25,7 @@ class AlertSystem extends React.Component {
 
   getAlerts = () => {
     return this.state.alerts.map((alert, index) =>
-      !alert.hidden ? <Alert key={alert.key} type={alert.type} optClass={alert.class || ''} closable={alert.closable || true} timeout={alert.timeout || null} onClose={this.removeAlert.bind(this, alert.key)}>{alert.content}</Alert> : null
+      !alert.hidden ? <Alert key={alert.key} type={alert.type || 'success'} optClass={alert.class || ''} closable={typeof alert.closable !== 'undefined' ? alert.closable : true} timeout={alert.timeout} onClose={this.removeAlert.bind(this, alert.key)}>{alert.content}</Alert> : null
     );
   }
 
@@ -42,13 +42,14 @@ class AlertSystem extends React.Component {
   }
 
   componentWillReceiveProps = () => {
-    this.state.alerts.map((alert, index) => {
+    let alerts = this.props.alerts;
+    alerts.map((alert, index) => {
       if (!alert.key) {
         alert.key = (alert.type || 'success') + '-' + new Date().getTime();
       }
     });
 
-    this.setState({ alerts: this.props.alerts });
+    this.setState({ alerts: alerts });
   }
 
   render() {
