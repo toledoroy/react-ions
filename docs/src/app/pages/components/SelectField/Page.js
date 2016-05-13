@@ -4,6 +4,8 @@ import docs from '!!docgen!react-conventions/lib/SelectField/SelectField'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleSelectFieldDefault from './ExampleSelectFieldDefault'
 import exampleSelectFieldDefaultCode from '!raw!./ExampleSelectFieldDefault'
+import ExampleSelectFieldPlaceholder from './ExampleSelectFieldPlaceholder'
+import exampleSelectFieldPlaceholderCode from '!raw!./ExampleSelectFieldPlaceholder'
 import ExampleSelectFieldDisabled from './ExampleSelectFieldDisabled'
 import exampleSelectFieldDisabledCode from '!raw!./ExampleSelectFieldDisabled'
 import ExampleSelectFieldSelected from './ExampleSelectFieldSelected'
@@ -14,6 +16,7 @@ import styles from 'private/css/content'
 
 const description = {
   selectFieldDefault: 'This is the `select field component` as it appears by default.',
+  selectFieldPlaceholder: 'This is the `select field component` with a placeholder.',
   selectFieldDisabled: 'This is the disabled `select field component`',
   selectFieldSelected: 'This is the `select field component` with a default option selected',
   selectFieldCallback: 'This is the `select field component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.'
@@ -29,6 +32,12 @@ const SelectFieldPage = () => (
             description={description.selectFieldDefault}
             markup={exampleSelectFieldDefaultCode}>
             <ExampleSelectFieldDefault />
+          </CodeExample>
+          <CodeExample
+            title='Select Field with Placeholder'
+            description={description.selectFieldPlaceholder}
+            markup={exampleSelectFieldPlaceholderCode}>
+            <ExampleSelectFieldPlaceholder />
           </CodeExample>
           <CodeExample
             title='Disabled Select Field'

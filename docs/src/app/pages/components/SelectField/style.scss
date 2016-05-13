@@ -1,6 +1,6 @@
 @import '../../../../../../src/styles/common/mixins';
 
-code {
+.callback-status {
   @include monospace;
   display: block;
 }

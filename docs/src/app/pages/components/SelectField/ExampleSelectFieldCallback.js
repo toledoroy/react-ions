@@ -12,7 +12,6 @@ class ExampleSelectFieldCallback extends React.Component {
   }
 
   handleChange = (option) => {
-    console.log(option)
     this.setState({status: 'Chosen option is \'' + option.display + '\''});
   }
 
@@ -30,7 +29,7 @@ class ExampleSelectFieldCallback extends React.Component {
           displayProp='display'
           changeCallback={this.handleChange}>
         </SelectField>
-        <code>{this.state.status}</code>
+        <code className={style['callback-status']}>{this.state.status}</code>
       </div>
     )
   }
