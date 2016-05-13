@@ -13,11 +13,11 @@ const content = {
 
 let activePanels = [0];
 
-const openPanels = function() {
+const openPanels = function(e) {
   activePanels = [1, 3];
 }
 
-const closePanels = function() {
+const closePanels = function(e) {
   activePanels = [];
 }
 

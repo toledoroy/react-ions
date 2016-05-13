@@ -58,9 +58,6 @@ const nav = [
         name: 'Nav',
         route: '/components/nav'
       }, {
-        name: 'Progress Bar',
-        route: '/components/progress-bar'
-      }, {
         name: 'Radio',
         route: '/components/radio-group'
       }, {

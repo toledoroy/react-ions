@@ -10,35 +10,35 @@ const content = {
   lorum4: 'Maecenas sit amet tellus vitae nisl gravida consectetur in vitae nibh. Quisque bibendum consectetur sagittis. Cras nec mauris maximus, egestas magna eget, vehicula ligula. Duis vestibulum leo at nisl placerat, euismod posuere ante accumsan. Vivamus gravida velit eu accumsan vulputate. Maecenas risus neque, mollis mollis est sit amet, porta feugiat nisi. Praesent maximus ut ante vel aliquet. Nunc mattis pharetra tellus, non volutpat lorem. Vestibulum odio arcu, laoreet a mi non, bibendum eleifend lorem. Nunc turpis lectus, malesuada id augue non, lacinia tristique orci. In fermentum, nibh id venenatis iaculis, lorem ipsum faucibus enim, vitae tincidunt lorem nunc eu tortor. Vestibulum gravida augue risus, non rhoncus velit feugiat vel. Vestibulum imperdiet velit a ligula eleifend rutrum. Vestibulum consequat, arcu sed aliquam pretium, metus metus consectetur lectus, in rutrum tellus metus a felis. Praesent lacus justo, pretium ac lacinia eu, luctus quis nisl.'
 }
 
-const ExamplePanelGroupVariation = () => (
+const ExamplePanelGroupMultiStep = () => (
   <div>
-    <PanelGroup accordion={true} optClass='comfortable'>
+    <PanelGroup accordion={true} optClass='multi-step'>
       <Panel>
-        <PanelHeader title='What will your survey look like for each channel?' contextNode={<Badge text='1' />} toggleIcon={{name: 'icon-delete-1', size: '12'}} />
+        <PanelHeader title='What will your survey look like for each channel?' contextNode={<Badge text='1' />} toggleIcon={{name: 'icon-arrow-37', size: '24'}} />
         <PanelContent optClass={style['rating-specific']}>
           <p className={style.paragraph}>{content.lorum1}</p>
         </PanelContent>
       </Panel>
       <Panel>
-        <PanelHeader title='What happens after a user submits their response?' contextNode={<Badge text='2' />} toggleIcon={{name: 'icon-arrow-39', size: '24'}} />
+        <PanelHeader title='What happens after a user submits their response?' contextNode={<Badge text='2' />} toggleIcon={{name: 'icon-arrow-37', size: '24'}} />
         <PanelContent>
           <p className={style.paragraph}>{content.lorum2}</p>
         </PanelContent>
       </Panel>
       <Panel>
-        <PanelHeader title='Who should we send this survey to?' contextNode={<Badge text='3' />} toggleIcon={{name: 'icon-arrow-39', size: '24'}} />
+        <PanelHeader title='Who should we send this survey to?' contextNode={<Badge text='3' />} toggleIcon={{name: 'icon-arrow-37', size: '24'}} />
         <PanelContent>
           <p className={style.paragraph}>{content.lorum3}</p>
         </PanelContent>
       </Panel>
       <Panel>
-        <PanelHeader title='Who should we not send this survey to?' contextNode={<Badge text='4' />} toggleIcon={{name: 'icon-arrow-39', size: '24'}} />
+        <PanelHeader title='Who should we not send this survey to?' contextNode={<Badge text='4' />} toggleIcon={{name: 'icon-arrow-37', size: '24'}} />
         <PanelContent>
           <p className={style.paragraph}>{content.lorum4}</p>
         </PanelContent>
       </Panel>
       <Panel>
-        <PanelHeader title='Where should we send survey notifications?' contextNode={<Badge text='5' />} toggleIcon={{name: 'icon-arrow-39', size: '24'}} />
+        <PanelHeader title='Where should we send survey notifications?' contextNode={<Badge text='5' />} toggleIcon={{name: 'icon-arrow-37', size: '24'}} />
         <PanelContent>
           <p className={style.paragraph}>{content.lorum1}</p>
         </PanelContent>
@@ -47,4 +47,4 @@ const ExamplePanelGroupVariation = () => (
   </div>
 )
 
-export default ExamplePanelGroupVariation
+export default ExamplePanelGroupMultiStep

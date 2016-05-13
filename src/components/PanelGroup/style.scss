@@ -31,6 +31,8 @@
     h4 {
       color: $neutral-4;
       margin: 0;
+      position: relative;
+      top: 1px;
       transition: all .25s ease;
     }
 
@@ -80,12 +82,14 @@
 .panel-active {
 
   .panel-header {
+
     h4 {
       color: $primary-5;
     }
     svg {
       fill: $primary-5;
     }
+
   }
 
   .panel-content {
@@ -100,8 +104,8 @@
 
 }
 
-// Themes
-.panel-group.comfortable {
+// Multi-step Theme
+.panel-group.multi-step {
 
   .panel {
     border-bottom: 0;
@@ -138,6 +142,11 @@
     .context-node + h4 {
       margin-left: 20px;
     }
+
+    .toggle-icon {
+      opacity: 1;
+      transform: rotate(0);
+    }
   }
 
   .panel-content {
@@ -155,6 +164,61 @@
 
       h4 {
         color: $white;
+      }
+
+      svg {
+        fill: $white;
+      }
+
+      .toggle-icon {
+        top: 8px;
+        transform: rotate(180deg);
+      }
+    }
+
+  }
+
+}
+
+// Simple Theme
+.panel-group.simple {
+  background: $white;
+
+  .panel {
+    background: $white;
+    border-bottom: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .panel-header {
+    padding: 15px 0;
+
+    h4 {
+      color: $primary-1;
+      font-size: 18px;
+    }
+
+    svg {
+      fill: $primary-1;
+    }
+
+    .toggle-icon {
+      display: none;
+    }
+  }
+
+  .panel-content {
+    padding: 0 0 15px;
+  }
+
+  .panel-active {
+
+    .panel-header {
+      svg {
+        transform: rotate(90deg);
       }
     }
 

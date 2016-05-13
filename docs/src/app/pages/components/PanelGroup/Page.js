@@ -7,13 +7,16 @@ import ExamplePanelGroup from './ExamplePanelGroup'
 import examplePanelGroupCode from '!raw!./ExamplePanelGroup'
 import ExamplePanelGroupAccordion from './ExamplePanelGroupAccordion'
 import examplePanelGroupAccordionCode from '!raw!./ExamplePanelGroupAccordion'
-import ExamplePanelGroupVariation from './ExamplePanelGroupVariation'
-import examplePanelGroupVariationCode from '!raw!./ExamplePanelGroupVariation'
+import ExamplePanelGroupMultiStep from './ExamplePanelGroupMultiStep'
+import ExamplePanelGroupMultiStepCode from '!raw!./ExamplePanelGroupMultiStep'
+import ExamplePanelGroupSimple from './ExamplePanelGroupSimple'
+import ExamplePanelGroupSimpleCode from '!raw!./ExamplePanelGroupSimple'
 
 const description = {
-  panelGroup: 'This is the `panel group component`.',
-  panelGroupAccordion: 'This is the `panel group component` with accordion functionality.',
-  panelGroupVariation: 'This is the `panel group component` with design variation.'
+  panelGroup: 'This is the default `panel group component`.',
+  panelGroupAccordion: 'This is the default `panel group component` with accordion functionality.',
+  panelGroupMultiStep: 'This is the `panel group component` with a multi-step design variation.',
+  panelGroupSimple: 'This is the `panel group component` with simple stylez.'
 };
 
 const PanelGroupPage = () => (
@@ -21,22 +24,28 @@ const PanelGroupPage = () => (
     <div className={styles.content}>
       <div className={styles.block}>
         <CodeExample
-          title='Example Panel Group'
+          title='Default Panel Group'
           description={description.panelGroup}
           markup={examplePanelGroupCode}>
           <ExamplePanelGroup />
         </CodeExample>
         <CodeExample
-          title='Example Panel Group with Accordion'
+          title='Default Panel Group with Accordion'
           description={description.panelGroupAccordion}
           markup={examplePanelGroupAccordionCode}>
           <ExamplePanelGroupAccordion />
         </CodeExample>
         <CodeExample
-          title='Example Panel Group Variation'
-          description={description.panelGroupVariation}
-          markup={examplePanelGroupVariationCode}>
-          <ExamplePanelGroupVariation />
+          title='Panel Group: Multi-Step'
+          description={description.panelGroupMultiStep}
+          markup={ExamplePanelGroupMultiStepCode}>
+          <ExamplePanelGroupMultiStep />
+        </CodeExample>
+        <CodeExample
+          title='Panel Group: Simple'
+          description={description.panelGroupSimple}
+          markup={ExamplePanelGroupSimpleCode}>
+          <ExamplePanelGroupSimple />
         </CodeExample>
       </div>
       <div className={styles.block}>
