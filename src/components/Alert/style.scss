@@ -1,0 +1,40 @@
+@import '../../styles/common/colors';
+
+.alert {
+  display: flex;
+  padding: 7px 10px;
+  border-radius: 4px;
+	background-color: $white;
+  color: $primary-4;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 200;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  > div {
+    margin-left: 10px;
+  }
+  > svg {
+    min-width: 17px;
+  }
+  &.success {
+    svg {
+      fill: $success;
+    }
+  }
+  &.warning {
+    svg {
+      fill: $warning;
+    }
+  }
+  &.info {
+    svg {
+      fill: $info;
+    }
+  }
+  &.danger {
+    svg {
+      fill: $danger;
+    }
+  }
+}

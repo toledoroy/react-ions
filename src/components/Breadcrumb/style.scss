@@ -3,10 +3,17 @@
 @import '../../styles/common/screen';
 @import '../../styles/common/functions';
 
+.breadcrumbs-container {
+  position: relative;
+}
 .breadcrumb {
   @include vertical-align('inline');
   height: 65px;
   padding: 0 15px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
 
   .primary {
     display: inline-block;
@@ -23,9 +30,40 @@
 
   .icon-arrow-68 {
     margin: 0 6px;
+    min-width: 14px;
   }
 
   @media #{$media-small-minus} {
     height: 50px;
+  }
+}
+
+.ellipsis {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 200;
+  color: $primary-1;
+}
+
+.breadcrumbs-dropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow: hidden;
+  color: $navy-text;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+  > li {
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: $white;
+    cursor: pointer;
+    &:hover {
+      color: $white;
+      background-color: $primary-1;
+    }
   }
 }
