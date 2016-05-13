@@ -55,16 +55,16 @@ class SelectField extends React.Component {
   }
 
   componentWillUnmount = () => {
-    document.removeEventListener("click", this.toggleOptions);    
+    document.removeEventListener('click', this.toggleOptions);    
   }
 
   toggleOptions = () => {
     this.setState({isOpen: !this.state.isOpen}, function() {
       if (this.state.isOpen) {
-        document.addEventListener("click", this.toggleOptions);
+        document.addEventListener('click', this.toggleOptions);
       }
       else {
-        document.removeEventListener("click", this.toggleOptions);
+        document.removeEventListener('click', this.toggleOptions);
       }
     });
   }
