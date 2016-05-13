@@ -11,10 +11,12 @@
   font-weight: 200;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 15px;
+  position: relative;
   > div {
     margin-left: 10px;
   }
   > svg {
+    margin-top: 1px;
     min-width: 17px;
   }
   &.success {
@@ -35,6 +37,18 @@
   &.danger {
     svg {
       fill: $danger;
+    }
+  }
+  .close-icon {
+    cursor: pointer;
+    height: 15px;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    svg {
+      margin-top: 0;
+      fill: $primary-4;
     }
   }
 }

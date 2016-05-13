@@ -25,8 +25,8 @@ const nav = [
         name: 'Activity Feed',
         route: '/components/activity-feed'
       }, {
-        name: 'Alert',
-        route: '/components/alert'
+        name: 'Alerts',
+        route: '/components/alerts'
       }, {
         name: 'Badge',
         route: '/components/badge'
