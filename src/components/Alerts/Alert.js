@@ -43,7 +43,9 @@ class Alert extends React.Component {
   };
 
   startTimer = () => {
-    this.setState({ timerStart: new Date(), timer: setTimeout(this.closeAlert, this.state.timeout) });
+    if (this.props.timeout) {
+      this.setState({ timerStart: new Date(), timer: setTimeout(this.closeAlert, this.state.timeout) });
+    }
   }
 
   pauseTimer = () => {
@@ -62,9 +64,7 @@ class Alert extends React.Component {
   }
 
   componentDidMount = () => {
-    if (this.props.timeout) {
-      this.startTimer();
-    }
+    this.startTimer();
   }
 
   render() {
