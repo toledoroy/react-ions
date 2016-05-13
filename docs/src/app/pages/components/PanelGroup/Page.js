@@ -7,10 +7,13 @@ import ExamplePanelGroup from './ExamplePanelGroup'
 import examplePanelGroupCode from '!raw!./ExamplePanelGroup'
 import ExamplePanelGroupAccordion from './ExamplePanelGroupAccordion'
 import examplePanelGroupAccordionCode from '!raw!./ExamplePanelGroupAccordion'
+import ExamplePanelGroupVariation from './ExamplePanelGroupVariation'
+import examplePanelGroupVariationCode from '!raw!./ExamplePanelGroupVariation'
 
 const description = {
   panelGroup: 'This is the `panel group component`.',
-  panelGroupAccordion: 'This is the `panel group component` with accordion functionality.'
+  panelGroupAccordion: 'This is the `panel group component` with accordion functionality.',
+  panelGroupVariation: 'This is the `panel group component` with design variation.'
 };
 
 const PanelGroupPage = () => (
@@ -28,6 +31,12 @@ const PanelGroupPage = () => (
           description={description.panelGroupAccordion}
           markup={examplePanelGroupAccordionCode}>
           <ExamplePanelGroupAccordion />
+        </CodeExample>
+        <CodeExample
+          title='Example Panel Group Variation'
+          description={description.panelGroupVariation}
+          markup={examplePanelGroupVariationCode}>
+          <ExamplePanelGroupVariation />
         </CodeExample>
       </div>
       <div className={styles.block}>
