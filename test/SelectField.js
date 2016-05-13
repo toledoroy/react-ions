@@ -100,7 +100,7 @@ describe('SelectField', () => {
     // open <ul>
     wrapper.childAt(1).simulate('click');
     // click <li>
-    wrapper.childAt(2).childAt(0).simulate('click');
+    wrapper.childAt(1).childAt(2).childAt(1).simulate('click');
 
     expect(spy.calledOnce).to.be.true;
   });
