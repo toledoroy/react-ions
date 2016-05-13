@@ -2,15 +2,20 @@ import React from 'react'
 import classNames from 'classnames'
 import style from './style.scss'
 
-const PanelContent = (props) => {
-  const cx = classNames.bind(style);
-  var contentClasses = cx(style['panel-content'], props.optClass);
+class PanelContent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  return (
-    <div className={contentClasses}>
-      {props.children}
-    </div>
-  )
+  render() {
+    const cx = classNames.bind(style);
+    var contentClasses = cx(style['panel-content'], this.props.optClass);
+    return (
+      <div className={contentClasses}>
+        {this.props.children}
+      </div>
+    )
+  }
 }
 
 PanelContent.propTypes = {
