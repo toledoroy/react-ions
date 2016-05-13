@@ -105,10 +105,10 @@ class SelectField extends React.Component {
         <div className={style['selectfield-value']} onClick={this.toggleOptions}>
           {this.getDisplayText()}
           <Icon name='icon-caret' width='10' height='10' />
-          <ul>
-            {options}
-          </ul>
         </div>
+        <ul>
+          {options}
+        </ul>
       </div>
     );
   }
