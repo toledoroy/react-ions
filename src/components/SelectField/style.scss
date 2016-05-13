@@ -12,6 +12,7 @@
     cursor: pointer;
     position: relative;
     padding: 10px;
+    user-select: none;
     > svg {
       position: absolute;
       right: 10px;
@@ -29,6 +30,7 @@
     display: none;
     margin: 30px 0;
     min-width: 220px;
+    overflow: hidden;
     padding: 0;
     position: absolute;
     left: 0;
