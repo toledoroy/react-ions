@@ -1,6 +1,7 @@
 import React from 'react'
 import {PanelGroup, Panel, PanelHeader, PanelContent} from 'react-conventions/lib/PanelGroup'
 import ProgressBar from 'react-conventions/lib/ProgressBar'
+import Button from 'react-conventions/lib/Button'
 import style from './style.scss'
 
 const content = {
@@ -49,6 +50,7 @@ const ExamplePanelGroup = () => (
       </Panel>
     </PanelGroup>
 
+    <p><Button onClick={openPanels}>Open Panels 2 & 4</Button></p>
     <p><a href="#" onClick={activePanels.length ? closePanels : openPanels}>{activePanels.length ? 'Close Panels' : 'Open Panels 2 & 4'}</a></p>
   </div>
 )
