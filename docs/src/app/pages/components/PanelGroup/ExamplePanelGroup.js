@@ -49,8 +49,6 @@ const ExamplePanelGroup = () => (
         </PanelContent>
       </Panel>
     </PanelGroup>
-
-    <p><Button onClick={openPanels}>Open Panels 2 & 4</Button></p>
     <p><a href="#" onClick={activePanels.length ? closePanels : openPanels}>{activePanels.length ? 'Close Panels' : 'Open Panels 2 & 4'}</a></p>
   </div>
 )
