@@ -9,6 +9,26 @@
       box-sizing: border-box;
     }
   }
+
+  &.secondary {
+    .tab-headers {
+      border-bottom: 1px solid $neutral-1;
+    }
+    .tab {
+      border: none;
+      color: $neutral-4;
+      padding: 8px 15px;
+      + .tab {
+        margin-left: 0;
+      }
+      &.active {
+        color: $primary-1;
+        border-bottom: 3px solid $primary-1;
+        margin-bottom: -1px;
+        background-color: $white;
+      }
+    }
+  }
 }
 .tab {
   background-color: $white;

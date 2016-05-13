@@ -87,9 +87,16 @@ describe('TabWrapper', () => {
   });
 
   it('should have an extra class on the tab content element', () => {
-    wrapper = mount(<TabWrapper><Tab title="Test Tab" optTabContentClass="tab-one-content-class">Test tab content</Tab><Tab title="Test Tab With Count" count={42}optTabContentClass="tab-two-content-class">Test tab with count content</Tab></TabWrapper>);
+    wrapper = mount(<TabWrapper><Tab title="Test Tab" optTabContentClass="tab-one-content-class">Test tab content</Tab><Tab title="Test Tab With Count" count={42} optTabContentClass="tab-two-content-class">Test tab with count content</Tab></TabWrapper>);
 
     expect(wrapper.find('.tab-one-content-class')).to.have.length(1);
     expect(wrapper.find('.tab-two-content-class')).to.have.length(1);
+  });
+
+  it('should only render a tab if it\'s an element', () => {
+    wrapper = mount(<TabWrapper>Test tab content <Tab title="Test Tab With Count" count={42}>Test tab with count content</Tab></TabWrapper>);
+
+    expect(wrapper.childAt(0).children()).to.have.length(1);
+    expect(wrapper.childAt(1).children()).to.have.length(1);
   });
 });
