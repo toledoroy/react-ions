@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { shallow, mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import SelectField from '../src/components/SelectField/SelectField'
 import Icon from '../src/components/Icon/Icon'
 
@@ -48,6 +48,7 @@ describe('SelectField', () => {
 
     expect(wrapper.hasClass('selectfield-component')).to.equal(true);
     expect(wrapper.hasClass('selectfield-disabled')).to.equal(true);
+    expect(wrapper.hasClass('active')).to.equal(false);
   });
 
   it('should have an extra class', () => {
@@ -79,7 +80,7 @@ describe('SelectField', () => {
   });
 
   it('should change the option', () => {
-    wrapper = mount(<SelectField options={options} valueProp='value' displayProp='display' />);
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' />);
 
     expect(wrapper.childAt(1).text().indexOf(options[0].display)).to.equal(0);
 
@@ -96,7 +97,7 @@ describe('SelectField', () => {
   it('should call changeCallback function', () => {
     const spy = sinon.spy();
 
-    wrapper = mount(<SelectField options={options} valueProp='value' displayProp='display' changeCallback={spy} />);
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' changeCallback={spy} />);
 
     // open <ul>
     wrapper.childAt(1).simulate('click');
