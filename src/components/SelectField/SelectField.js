@@ -38,6 +38,10 @@ class SelectField extends React.Component {
      */
     disabled: React.PropTypes.bool,
     /**
+     * Optional styles to add to the select field.
+     */
+    optClass: React.PropTypes.string,
+    /**
      * A callback function to be called when an option is selected.
      */
     changeCallback: React.PropTypes.func
@@ -89,7 +93,7 @@ class SelectField extends React.Component {
     const cx = classNames.bind(style);
     const disabledClass = this.props.disabled ? style['selectfield-disabled'] : '';
     const activeClass = this.state.isOpen ? style['active'] : null;
-    const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass);
+    const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, this.props.optClass);
 
     const options = this.props.options.map((option, index) =>
       <li key={index} onClick={this.selectOption.bind(null, option)}>{option[this.props.displayProp]}</li>

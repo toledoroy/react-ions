@@ -8,6 +8,8 @@ import ExampleSelectFieldPlaceholder from './ExampleSelectFieldPlaceholder'
 import exampleSelectFieldPlaceholderCode from '!raw!./ExampleSelectFieldPlaceholder'
 import ExampleSelectFieldDisabled from './ExampleSelectFieldDisabled'
 import exampleSelectFieldDisabledCode from '!raw!./ExampleSelectFieldDisabled'
+import ExampleSelectFieldError from './ExampleSelectFieldError'
+import exampleSelectFieldErrorCode from '!raw!./ExampleSelectFieldError'
 import ExampleSelectFieldSelected from './ExampleSelectFieldSelected'
 import exampleSelectFieldSelectedCode from '!raw!./ExampleSelectFieldSelected'
 import ExampleSelectFieldCallback from './ExampleSelectFieldCallback'
@@ -17,8 +19,9 @@ import styles from 'private/css/content'
 const description = {
   selectFieldDefault: 'This is the `select field component` as it appears by default.',
   selectFieldPlaceholder: 'This is the `select field component` with a placeholder.',
-  selectFieldDisabled: 'This is the disabled `select field component`',
-  selectFieldSelected: 'This is the `select field component` with a default option selected',
+  selectFieldDisabled: 'This is the disabled `select field component`.',
+  selectFieldError: 'This is the `select field component` with an error.',
+  selectFieldSelected: 'This is the `select field component` with a default option selected.',
   selectFieldCallback: 'This is the `select field component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.'
 };
 
@@ -44,6 +47,12 @@ const SelectFieldPage = () => (
             description={description.selectFieldDisabled}
             markup={exampleSelectFieldDisabledCode}>
             <ExampleSelectFieldDisabled />
+          </CodeExample>
+          <CodeExample
+            title='Error Select Field'
+            description={description.selectFieldError}
+            markup={exampleSelectFieldErrorCode}>
+            <ExampleSelectFieldError />
           </CodeExample>
           <CodeExample
             title='Select Field with Default Option Selected'

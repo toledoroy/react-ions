@@ -59,6 +59,12 @@
     }
   }
 
+  &.selectfield-error {
+    > div {
+      border-color: $danger;
+    }
+  }
+
   &.active:not(.selectfield-disabled) {
     .selectfield-value {
       > svg {
