@@ -84,13 +84,11 @@ describe('SelectField', () => {
 
     expect(wrapper.childAt(1).text().indexOf(options[0].display)).to.equal(0);
 
-    // open <ul>
+    //open <ul>
     wrapper.childAt(1).simulate('click');
-    //expect(wrapper.hasClass('active')).to.equal(true);
+    //click <li>
+    wrapper.childAt(1).childAt(2).childAt(1).simulate('click');
 
-    // click <li>
-    wrapper.childAt(2).childAt(1).simulate('click');
-    //expect(wrapper.hasClass('active')).to.equal(false);
     expect(wrapper.childAt(1).text().indexOf(options[1].display)).to.equal(0);
   });
 
@@ -99,10 +97,10 @@ describe('SelectField', () => {
 
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' changeCallback={spy} />);
 
-    // open <ul>
+    //open <ul>
     wrapper.childAt(1).simulate('click');
-    // click <li>
-    wrapper.childAt(2).childAt(0).simulate('click');
+    //click <li>
+    wrapper.childAt(1).childAt(2).childAt(1).simulate('click');
 
     expect(spy.calledOnce).to.be.true;
   });
