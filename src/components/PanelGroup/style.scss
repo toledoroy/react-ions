@@ -75,12 +75,8 @@
 }
 
 .panel-content {
-  box-sizing: border-box;
-  height: 0;
-  overflow: hidden;
-  padding: 0;
-  visibility: hidden;
-  transition: height 300ms ease-out, visibility 300ms step-end;
+  display: none;
+  padding: 0 40px 15px;
 }
 
 .panel-active {
@@ -94,7 +90,7 @@
   }
 
   .panel-content {
-    padding: 0 40px 15px;
+    display: block;
   }
 
   .toggle-icon {
