@@ -38,19 +38,13 @@ describe('Panel Header', () => {
     expect(contextNodeWrap.childAt(0).type()).to.equal(Badge);
   });
 
-  it('should toggle an active class when clicked', () => {
+  it('should call an onClick handler when clicked when clicked', () => {
     var spy = sinon.spy();
     panel = shallow(<Panel optClass={'test'}><PanelHeader onClick={spy} /><PanelContent optClass='test-class'>Test Content</PanelContent></Panel>);
     panelHeader = panel.childAt(0);
-    panelContent = panel.childAt(1);
 
     expect(typeof panelHeader.props().onClick).to.equal('function');
     panelHeader.simulate('click');
     expect(spy.calledOnce).to.be.true;
-    expect(panel.hasClass('panel panel-active')).to.equal(true);
-
-    // expect header to have .active class once clicked
-    // if accordion=true expect second header click to keep .active class
-    // if accordion=false expect second header click to remove .active class
   });
 });
