@@ -1,5 +1,5 @@
 import React from 'react'
-import { IndexLink, Link } from 'react-router'
+import { withRouter } from 'react-router'
 import classNames from 'classnames'
 import style from 'private/css/base'
 import Sidebar from './Sidebar'
@@ -18,6 +18,13 @@ class Base extends React.Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
+
+    this.props.router.setRouteLeaveHook(this.props.route, () => {
+      console.log(this.props.route);
+      if (this.state.unsaved) {
+        return 'You have unsaved information, are you sure you want to leave this page?'
+      }
+    })
   }
 
   componentWillUnmount() {
@@ -61,4 +68,4 @@ class Base extends React.Component {
   }
 }
 
-export default Base
+export default withRouter(Base)
