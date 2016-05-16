@@ -1,0 +1,101 @@
+@import '../../styles/common/colors';
+
+.button-toggle-component {
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  > input {
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+  }
+  &:not(.button-toggle-disabled) {
+    > input:checked + div .btn {
+      border-color: $primary-1;
+    }
+  }
+  > div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    .btn {
+      border-radius: 50%;
+      border: solid 1px $neutral-3;
+      height: 15px;
+      width: 15px;
+    }
+  }
+
+  &.button-toggle-disabled {
+    cursor: not-allowed;
+    > input {
+      cursor: not-allowed;
+    }
+    > div {
+      .radio-input {
+        background-color: $neutral-3;
+        border-color: $neutral-3;
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.button-group {
+  .options {
+    display: flex;
+    .button-toggle-component {
+      width: auto;
+      button {
+        margin: 0;
+      }
+      &:first-child button {
+        border-right: none;
+        border-radius: 3px 0 0 3px;
+      }
+      &:last-child button {
+        border-left: none;
+        border-radius: 0 3px 3px 0;
+      }
+      + .button-toggle-component {
+        &:before {
+          content: "";
+          position: absolute;
+          height: 100%;
+          width: 1px;
+          background-color: $neutral-4;
+          top: 0;
+          z-index: 1;
+        }
+        &:not(:last-child) button {
+          border-radius: 0;
+          border-right: none;
+          border-left: none;
+        }
+      }
+    }
+  }
+  > .asterisk {
+    color: $danger;
+    float: left;
+    margin-right: 5px;
+  }
+  > label {
+    display: block;
+    margin-bottom: 10px;
+  	font-size: 16px;
+  	color: $navy-text;
+    font-family: proxima_nova;
+    font-weight: 200;
+  }
+}
