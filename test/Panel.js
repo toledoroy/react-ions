@@ -17,13 +17,3 @@ describe('Panel', () => {
     expect(panelContent.childAt(0).text()).to.equal('Test Content');
   });
 });
-
-
-/* wrapper
-<Panel>
-  <PanelHeader title='Rating' contextIcon='icon-star-1' />
-  <PanelContent optClass={style['rating-specific']}>
-    <p className={style.paragraph}>{content.lorum1}</p>
-  </PanelContent>
-</Panel>
-*/
