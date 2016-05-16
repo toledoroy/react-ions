@@ -22,4 +22,4 @@ const ExampleRadioDefault = () => (
   </RadioGroup>
 )
 
-export default ExampleRadioDefault;
+export default ExampleRadioDefault

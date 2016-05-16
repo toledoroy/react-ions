@@ -15,7 +15,7 @@ describe('RadioGroup', () => {
   ];
 
   it('should shallow render itself', () => {
-    wrapper = shallow(<RadioGroup name="test-group" options={options} label="Test label"/>);
+    wrapper = shallow(<RadioGroup name='test-group' options={options} label='Test label'/>);
 
     expect(wrapper.hasClass('radio-group')).to.equal(true);
     expect(wrapper.find('label')).to.have.length(1);
@@ -39,28 +39,28 @@ describe('RadioGroup', () => {
   });
 
   it('should have disabled radio buttons', () => {
-    wrapper = shallow(<RadioGroup name="test-group" options={options} label="Test label" disabled/>);
+    wrapper = shallow(<RadioGroup name='test-group' options={options} label='Test label' disabled/>);
 
     expect(wrapper.childAt(1).props().disabled).to.be.equal(true);
     expect(wrapper.childAt(2).props().disabled).to.be.equal(true);
   });
 
   it('should be required', () => {
-    wrapper = shallow(<RadioGroup name="test-group" options={options} label="Test label" required={true}/>);
+    wrapper = shallow(<RadioGroup name='test-group' options={options} label='Test label' required={true}/>);
 
     expect(wrapper.childAt(0).hasClass('asterisk')).to.be.true;
     expect(wrapper.childAt(0).html()).to.be.equal('<span class="asterisk">*</span>');
   });
 
   it('should have an option checked', () => {
-    wrapper = mount(<RadioGroup name="test-group" options={options} label="Test label" defaultOption={0}/>);
+    wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' defaultOption={0}/>);
 
     expect(wrapper.childAt(1).props().checked).to.be.equal(true);
     expect(wrapper.childAt(2).props().checked).to.be.equal(false);
   });
 
   it('should have labels on the left side', () => {
-    wrapper = shallow(<RadioGroup name="test-group" options={options} label="Test label" labelPosition='left'/>);
+    wrapper = shallow(<RadioGroup name='test-group' options={options} label='Test label' labelPosition='left'/>);
 
     expect(wrapper.childAt(1).props().labelPosition).to.be.equal('left');
     expect(wrapper.childAt(2).props().labelPosition).to.be.equal('left');
@@ -69,7 +69,7 @@ describe('RadioGroup', () => {
   it('should call changeCallback function', () => {
     const spy = sinon.spy();
 
-    wrapper = mount(<RadioGroup name="test-group" options={options} label="Test label" changeCallback={spy}/>);
+    wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' changeCallback={spy}/>);
     wrapper.childAt(1).find('input').simulate('change');
 
     expect(spy.calledOnce).to.be.true;
@@ -80,7 +80,7 @@ describe('RadioGroup', () => {
     const callback = function(event, value) {
       checked = value;
     };
-    wrapper = mount(<RadioGroup name="test-group" options={options} label="Test label" changeCallback={callback}/>);
+    wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' changeCallback={callback}/>);
 
     wrapper.childAt(1).find('input').simulate('change');
     expect(checked).to.be.equal('option_1');
