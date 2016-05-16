@@ -24,8 +24,9 @@ import ActivityFeedPage from './pages/components/ActivityFeed/Page'
 import TooltipPage from './pages/components/Tooltip/Page'
 import ProgressBarPage from './pages/components/ProgressBar/Page'
 import PanelGroupPage from './pages/components/PanelGroup/Page'
+import SelectFieldPage from './pages/components/SelectField/Page'
 import TabsPage from './pages/components/TabWrapper/Page'
-import AlertPage from './pages/components/Alert/Page'
+import AlertsPage from './pages/components/Alerts/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -40,7 +41,7 @@ const Routes = (
     <Redirect from='components' to='/components/activity-feed' />
     <Route path='components' title='Components'>
       <Route path='activity-feed' title='Activity Feed' component={ActivityFeedPage} />
-      <Route path='alert' title='Alert' component={AlertPage} />
+      <Route path='alerts' title='Alerts' component={AlertsPage} />
       <Route path='badge' title='Badge' component={BadgePage} />
       <Route path="breadcrumb" title="Breadcrumb" component={BreadcrumbPage} />
       <Route path='buttons' title='Buttons' component={ButtonsPage} />
@@ -53,6 +54,7 @@ const Routes = (
       <Route path='panel-group' title='Panel Group' component={PanelGroupPage} />
       <Route path='radio' title='Radio' component={RadioGroupPage} />
       <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
+      <Route path='selectfield' title='Select Field' component={SelectFieldPage} />
       <Route path='tabs' title='Tabs' component={TabsPage} />
       <Route path='textarea' title='Textarea' component={TextareaPage} />
       <Route path='tooltip' title='Tooltip' component={TooltipPage} />

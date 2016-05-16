@@ -7,7 +7,7 @@ const Nav = (props) => {
   const cx = classNames.bind(style);
   const navClasses = cx(style.nav, props.optClass);
 
-  let nodes = props.data.map((item, index) =>
+  const nodes = props.data.map((item, index) =>
     <Node node={item} children={item.nav} key={index} />
   );
 

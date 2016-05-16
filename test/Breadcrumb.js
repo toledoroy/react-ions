@@ -17,14 +17,14 @@ describe('Breadcrumb', () => {
     if (el.fireEvent) {
       el.fireEvent('on' + etype);
     } else {
-      var evObj = document.createEvent('Events');
+      const evObj = document.createEvent('Events');
       evObj.initEvent(etype, true, false);
       el.dispatchEvent(evObj);
     }
   }
 
   afterEach(function() {
-    var elems = document.body.children;
+    const elems = document.body.children;
     if (elems.length > 0) {
       document.body.removeChild(elems[elems.length -1]);
     }
@@ -162,10 +162,10 @@ describe('Breadcrumb', () => {
       }
     ];
 
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     document.body.appendChild(div);
-    let component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
-    let containerDiv = ReactDOM.findDOMNode(div);
+    const component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
+    const containerDiv = ReactDOM.findDOMNode(div);
 
     // 3 breadcrumbs and 2 arrow icons
     expect(document.body.getElementsByClassName('breadcrumb')[0].children).to.have.length(5);
@@ -203,11 +203,11 @@ describe('Breadcrumb', () => {
       }
     ];
 
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     // Set the container width right away
     div.style.width = '100px';
     document.body.appendChild(div);
-    let component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
+    const component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
 
     // Ellipsis, an arrow icon, and a breadcrumb
     expect(document.body.getElementsByClassName('breadcrumb')[0].children).to.have.length(3);
@@ -233,7 +233,7 @@ describe('Breadcrumb', () => {
       }
     ];
 
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     div.style.width = '100px';
     document.body.appendChild(div);
     let component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
@@ -274,10 +274,10 @@ describe('Breadcrumb', () => {
       }
     ];
 
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     div.style.width = '100px';
     document.body.appendChild(div);
-    let component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
+    const component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
 
     // Ellipsis, an arrow icon, and a breadcrumb
     expect(document.body.getElementsByClassName('breadcrumb')[0].children).to.have.length(3);
@@ -315,7 +315,7 @@ describe('Breadcrumb', () => {
       }
     ];
 
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     div.style.width = '100px';
     document.body.appendChild(div);
     let component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
@@ -351,10 +351,10 @@ describe('Breadcrumb', () => {
       }
     ];
 
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     document.body.appendChild(div);
-    let component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
-    let containerDiv = ReactDOM.findDOMNode(div);
+    const component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
+    const containerDiv = ReactDOM.findDOMNode(div);
 
     // Just one breadcrumb
     expect(document.body.getElementsByClassName('breadcrumb')[0].children).to.have.length(1);
@@ -392,10 +392,10 @@ describe('Breadcrumb', () => {
       }
     ];
 
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     document.body.appendChild(div);
-    let component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
-    let containerDiv = ReactDOM.findDOMNode(div);
+    const component = ReactDOM.render(<Breadcrumb routes={routes} />, div);
+    const containerDiv = ReactDOM.findDOMNode(div);
 
     // 3 breadcrumbs and 2 arrow icons
     expect(document.body.getElementsByClassName('breadcrumb')[0].children).to.have.length(5);

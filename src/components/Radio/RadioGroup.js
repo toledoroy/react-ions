@@ -3,9 +3,6 @@ import classNames from 'classnames/bind'
 import Radio from './Radio'
 import style from './style.scss'
 
-/**
- * The RadioGroup component.
- */
 class RadioGroup extends React.Component {
   constructor(props) {
     super(props);
@@ -54,7 +51,7 @@ class RadioGroup extends React.Component {
      * A callback function to be called when an option is changed.
      */
     changeCallback: React.PropTypes.func
-  };
+  }
 
   componentWillMount() {
     if (typeof this.props.defaultOption !== 'undefined') {
@@ -91,7 +88,7 @@ class RadioGroup extends React.Component {
 
   render() {
     const cx = classNames.bind(style);
-    var radioGroupClass = cx(style['radio-group'], this.props.optClass);
+    const radioGroupClass = cx(style['radio-group'], this.props.optClass);
 
     return (
       <div className={radioGroupClass}>
