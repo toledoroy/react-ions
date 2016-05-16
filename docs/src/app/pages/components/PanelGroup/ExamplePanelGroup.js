@@ -11,19 +11,9 @@ const content = {
   lorum4: 'Maecenas sit amet tellus vitae nisl gravida consectetur in vitae nibh. Quisque bibendum consectetur sagittis. Cras nec mauris maximus, egestas magna eget, vehicula ligula. Duis vestibulum leo at nisl placerat, euismod posuere ante accumsan. Vivamus gravida velit eu accumsan vulputate. Maecenas risus neque, mollis mollis est sit amet, porta feugiat nisi. Praesent maximus ut ante vel aliquet. Nunc mattis pharetra tellus, non volutpat lorem. Vestibulum odio arcu, laoreet a mi non, bibendum eleifend lorem. Nunc turpis lectus, malesuada id augue non, lacinia tristique orci. In fermentum, nibh id venenatis iaculis, lorem ipsum faucibus enim, vitae tincidunt lorem nunc eu tortor. Vestibulum gravida augue risus, non rhoncus velit feugiat vel. Vestibulum imperdiet velit a ligula eleifend rutrum. Vestibulum consequat, arcu sed aliquam pretium, metus metus consectetur lectus, in rutrum tellus metus a felis. Praesent lacus justo, pretium ac lacinia eu, luctus quis nisl.'
 }
 
-let activePanels = [0];
-
-const openPanels = function(e) {
-  activePanels = [1, 3];
-}
-
-const closePanels = function(e) {
-  activePanels = [];
-}
-
 const ExamplePanelGroup = () => (
   <div>
-    <PanelGroup activePanels={activePanels}>
+    <PanelGroup activePanels={[0]}>
       <Panel>
         <PanelHeader title='Rating' contextIcon='icon-star-1' />
         <PanelContent optClass={style['rating-specific']}>
@@ -49,7 +39,6 @@ const ExamplePanelGroup = () => (
         </PanelContent>
       </Panel>
     </PanelGroup>
-    <p><a href="#" onClick={activePanels.length ? closePanels : openPanels}>{activePanels.length ? 'Close Panels' : 'Open Panels 2 & 4'}</a></p>
   </div>
 )
 
