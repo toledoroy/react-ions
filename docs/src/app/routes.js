@@ -42,7 +42,7 @@ const Routes = (
     <Redirect from='components' to='/components/activity-feed' />
     <Route path='components' title='Components'>
       <Route path='activity-feed' title='Activity Feed' component={ActivityFeedPage} />
-      <Route path='alert' title='Alert' component={AlertPage} />
+      <Route path='alerts' title='Alerts' component={AlertsPage} />
       <Route path='badge' title='Badge' component={BadgePage} />
       <Route path="breadcrumb" title="Breadcrumb" component={BreadcrumbPage} />
       <Route path='button-group' title='Button Group' component={ButtonGroupPage} />
