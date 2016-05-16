@@ -26,6 +26,7 @@ import TooltipPage from './pages/components/Tooltip/Page'
 import SelectFieldPage from './pages/components/SelectField/Page'
 import TabsPage from './pages/components/TabWrapper/Page'
 import AlertsPage from './pages/components/Alerts/Page'
+import ButtonGroupPage from './pages/components/ButtonGroup/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -43,6 +44,7 @@ const Routes = (
       <Route path='alerts' title='Alerts' component={AlertsPage} />
       <Route path='badge' title='Badge' component={BadgePage} />
       <Route path="breadcrumb" title="Breadcrumb" component={BreadcrumbPage} />
+      <Route path='button-group' title='Button Group' component={ButtonGroupPage} />
       <Route path='buttons' title='Buttons' component={ButtonsPage} />
       <Route path='checkbox' title='Checkbox' component={CheckboxPage} />
       <Route path='icons' title='Icons' component={IconsPage} />

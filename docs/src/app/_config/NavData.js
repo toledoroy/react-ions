@@ -34,6 +34,9 @@ const nav = [
         name: 'Breadcrumb',
         route: '/components/breadcrumb'
       }, {
+        name: 'Button Group',
+        route: '/components/button-group'
+      }, {
         name: 'Buttons',
         route: '/components/buttons'
       }, {

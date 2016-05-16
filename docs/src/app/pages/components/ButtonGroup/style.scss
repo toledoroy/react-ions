@@ -1,0 +1,17 @@
+@import '../../../../../../src/styles/common/mixins';
+
+code {
+  @include monospace;
+}
+
+.update {
+  display: flex;
+  margin-bottom: 15px;
+  button {
+    margin-left: 15px;
+  }
+}
+
+small {
+  margin-bottom: 30px;
+}
