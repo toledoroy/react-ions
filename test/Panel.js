@@ -1,24 +1,19 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import {Panel, PanelHeader, PanelContent} from '../src/components/PanelGroup'
+import { shallow } from 'enzyme'
+import {PanelGroup, Panel, PanelHeader, PanelContent} from '../src/components/PanelGroup'
 
 describe('Panel', () => {
+  let panel, panelHeader, panelContent;
+
   it('should shallow render itself', () => {
-    const wrapper = shallow(<Panel title='Rating' contextIcon='icon-star-1'><PanelHeader optClass='rating-specific'></PanelHeader><PanelContent></PanelContent></Panel>);
-    // expect(wrapper.props().title).to.equal('Rating');
-    // expect(panelHeader.hasClass('panel-header')).to.equal(true);
-    // expect(panelContent.hasClass('panel-content')).to.equal(true);
+    panel = shallow(<Panel optClass={'test'}><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent optClass='test-class'>Test Content</PanelContent></Panel>);
+    panelHeader = panel.childAt(0);
+    panelContent = panel.childAt(1);
+
+    expect(panel.hasClass('panel test')).to.equal(true);
+    expect(panelHeader.props().title).to.equal('Rating');
+    expect(panelHeader.props().contextIcon).to.equal('icon-star-1');
+    expect(panelContent.props().optClass).to.equal('test-class');
+    expect(panelContent.childAt(0).text()).to.equal('Test Content');
   });
 });
-
-
-/* wrapper
-<div class="panel">
-  <div class="panel-header"><div>
-  <div class="title-group"></div>
-  <div class="toggle-icon">
-    <svg name="icon-delete-1" height="12" width="12"><use xlink:href="/_karma_webpack_//13909255dfd9387151d92875db15505a.svg#icon-delete-1"></use></svg>
-  </div>
-</div>
-</div><div class="panel-content"></div></div>
-*/

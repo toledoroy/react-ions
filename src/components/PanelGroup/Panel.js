@@ -22,10 +22,6 @@ class Panel extends React.Component {
     return this.props.children[0];
   }
 
-  getContent = () => {
-    return this.props.children[1];
-  }
-
   handlePanelClick = () => {
     if (this.props.onPanelClick) {
       this.props.onPanelClick(this);
@@ -42,14 +38,10 @@ class Panel extends React.Component {
       onPanelClick: this.handlePanelClick
     });
 
-    const content = React.cloneElement(this.getContent(), {
-      ref: (c) => this._content = c
-    });
-
     return (
       <div className={panelClasses}>
         {header}
-        {content}
+        {this.props.children[1]}
       </div>
     )
   }

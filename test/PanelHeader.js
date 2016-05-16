@@ -1,46 +1,50 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow, mount } from 'enzyme'
 import {PanelGroup, Panel, PanelHeader, PanelContent} from '../src/components/PanelGroup'
+import Icon from '../src/components/Icon'
+import Badge from '../src/components/Badge'
 
 describe('Panel Header', () => {
+  let panel, panelHeader, panelContent, titleGroup, toggleIconWrap, contextNodeWrap;
+
   it('should shallow render itself', () => {
-    const wrapper = shallow(<PanelGroup><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent optClass='rating-specific'><p>Content here</p></PanelContent></Panel></PanelGroup>);
-    const panelHeader = wrapper.childAt(0).childAt(0);
-    // https://github.com/airbnb/enzyme/issues/306
-    // console.log(panelHeader.html());
-    // expect(panelHeader.find('div')).to.have.length(1);
-    // expect(panelHeader.hasClass('panel-header')).to.equal(true);
+    panelHeader = shallow(<PanelHeader title='Rating' contextIcon='icon-star-1' />);
+    titleGroup = panelHeader.childAt(0).childAt(0);
+    toggleIconWrap = panelHeader.childAt(0).childAt(1);
+    expect(panelHeader.hasClass('panel-header')).to.equal(true);
+    expect(titleGroup.hasClass('title-group')).to.equal(true);
+    expect(titleGroup.childAt(0).props().name).to.equal('icon-star-1');
+    expect(titleGroup.childAt(1).type()).to.equal('h4');
+    expect(titleGroup.childAt(1).text()).to.equal('Rating');
+    expect(toggleIconWrap.hasClass('toggle-icon')).to.equal(true);
+    expect(toggleIconWrap.childAt(0).type()).to.equal(Icon);
+    expect(toggleIconWrap.childAt(0).props().name).to.equal('icon-delete-1');
   });
 
+  it('should render with no title or icon', () => {
+    panelHeader = shallow(<PanelHeader />);
+    titleGroup = panelHeader.childAt(0).childAt(0);
+    expect(titleGroup.children()).to.have.length(0);
+  });
+
+  it('should render title with a context node and a custom toggle icon', () => {
+    panelHeader = shallow(<PanelHeader contextNode={<Badge text='1' />} toggleIcon={{name: 'icon-arrow-37', size: '24'}} />);
+    toggleIconWrap = panelHeader.childAt(0).childAt(1);
+    contextNodeWrap = panelHeader.childAt(0).childAt(0).childAt(0);
+    expect(toggleIconWrap.childAt(0).props().name).to.equal('icon-arrow-37');
+    expect(toggleIconWrap.childAt(0).props().height).to.equal('24');
+    expect(toggleIconWrap.childAt(0).props().width).to.equal('24');
+    expect(contextNodeWrap.hasClass('context-node')).to.equal(true);
+    expect(contextNodeWrap.childAt(0).type()).to.equal(Badge);
+  });
+
+  it('should call an onClick handler when clicked when clicked', () => {
+    var spy = sinon.spy();
+    panel = shallow(<Panel optClass={'test'}><PanelHeader onClick={spy} /><PanelContent optClass='test-class'>Test Content</PanelContent></Panel>);
+    panelHeader = panel.childAt(0);
+
+    expect(typeof panelHeader.props().onClick).to.equal('function');
+    panelHeader.simulate('click');
+    expect(spy.calledOnce).to.be.true;
+  });
 });
-
-
-/* wrapper
-<div class="panel-group">
-  <div class="panel">
-    <div class="panel-header">
-      <div>
-        <div class="title-group"></div>
-        <div class="toggle-icon">
-          <svg name="icon-delete-1" height="12" width="12"><use xlink:href="/_karma_webpack_//13909255dfd9387151d92875db15505a.svg#icon-delete-1"></use></svg>
-        </div>
-      </div>
-    </div>
-    <div class="panel-content"></div>
-  </div>
-</div>
-*/
-
-/*
-<div class="panel-header">
-  <div>
-    <div class="title-group">
-      <svg name="icon-star-1" height="14" width="14"><use xlink:href="/_karma_webpack_//13909255dfd9387151d92875db15505a.svg#icon-star-1"></use></svg>
-      <h4>Rating</h4>
-    </div>
-    <div class="toggle-icon">
-      <svg name="icon-delete-1" height="12" width="12"><use xlink:href="/_karma_webpack_//13909255dfd9387151d92875db15505a.svg#icon-delete-1"></use></svg>
-    </div>
-  </div>
-</div>
-*/

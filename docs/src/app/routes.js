@@ -24,6 +24,7 @@ import ActivityFeedPage from './pages/components/ActivityFeed/Page'
 import TooltipPage from './pages/components/Tooltip/Page'
 import ProgressBarPage from './pages/components/ProgressBar/Page'
 import PanelGroupPage from './pages/components/PanelGroup/Page'
+import SelectFieldPage from './pages/components/SelectField/Page'
 import TabsPage from './pages/components/TabWrapper/Page'
 import AlertPage from './pages/components/Alert/Page'
 
