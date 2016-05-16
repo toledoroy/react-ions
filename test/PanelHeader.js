@@ -13,7 +13,7 @@ describe('Panel Header', () => {
     toggleIconWrap = panelHeader.childAt(0).childAt(1);
     expect(panelHeader.hasClass('panel-header')).to.equal(true);
     expect(titleGroup.hasClass('title-group')).to.equal(true);
-    expect(titleGroup.childAt(0).props().name).to.equal('icon-star-1');
+    expect(titleGroup.childAt(0).childAt(0).props().name).to.equal('icon-star-1');
     expect(titleGroup.childAt(1).type()).to.equal('h4');
     expect(titleGroup.childAt(1).text()).to.equal('Rating');
     expect(toggleIconWrap.hasClass('toggle-icon')).to.equal(true);
