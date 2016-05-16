@@ -9,23 +9,20 @@ import SidebarToggle from './SidebarToggle'
 class Sidebar extends React.Component {
   constructor(props, context) {
     super(props, context);
-
-    this.state = {
-      collapsed: true
-    };
   }
 
-  toggle() {
-    var collapsed = !this.state.collapsed;
-    this.setState({ collapsed: collapsed });
+  toggle = () => {
+    if (this.props.onSidebarClick) {
+      this.props.onSidebarClick(this);
+    }
   }
 
   render() {
-    let sidebarClass = this.state.collapsed ? style.sidebar : classNames(style.sidebar, style.visible);
+    let sidebarClass = this.props.collapsed ? style.sidebar : classNames(style.sidebar, style.visible);
 
     return (
       <div className={sidebarClass}>
-        <SidebarToggle toggle={this.toggle.bind(this)} collapsed={this.state.collapsed} />
+        <SidebarToggle toggle={this.toggle.bind(this)} collapsed={this.props.collapsed} />
         <Header />
         <Nav data={NavData} />
       </div>
