@@ -37,13 +37,17 @@
       transition: all .25s ease;
     }
 
-    svg {
-      fill: $neutral-4;
+    .context-icon {
       position: relative;
+      top: 2px;
       transition: all .25s ease;
     }
 
-    svg + h4,
+    svg {
+      fill: $neutral-4;
+    }
+
+    .context-icon + h4,
     .context-node + h4 {
       margin-left: 10px;
     }
@@ -220,10 +224,11 @@
   .panel-active {
 
     .panel-header {
-      svg {
+      .context-icon {
         transform: rotate(90deg);
       }
     }
+
     .panel-content {
       padding: 0 0 15px;
     }

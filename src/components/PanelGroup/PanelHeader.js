@@ -41,7 +41,7 @@ class PanelHeader extends React.Component {
           <div>
             <div className={style['title-group']}>
               {this.props.contextNode ? <div className={style['context-node']}>{this.props.contextNode}</div> : null}
-              {this.props.contextIcon ? <Icon name={this.props.contextIcon} height='14' width='14' /> : null}
+              {this.props.contextIcon ? <div className={style['context-icon']}><Icon name={this.props.contextIcon} height='14' width='14' /></div> : null}
               {this.props.title ? <h4>{this.props.title}</h4> : null}
             </div>
             <div className={style['toggle-icon']}>
