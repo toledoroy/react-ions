@@ -55,6 +55,9 @@ const nav = [
         name: 'Nav',
         route: '/components/nav'
       }, {
+        name: 'Panel Group',
+        route: '/components/panel-group'
+      }, {
         name: 'Progress Bar',
         route: '/components/progress-bar'
       }, {
@@ -62,7 +65,7 @@ const nav = [
         route: '/components/radio-group'
       }, {
         name: 'Select Field',
-        route: '/components/selectfield'        
+        route: '/components/selectfield'
       }, {
         name: 'Tabs',
         route: '/components/tabs'
