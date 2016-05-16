@@ -36,23 +36,4 @@ describe('PanelGroup', () => {
     panel = panelGroup.childAt(0);
     expect(panel.props().active).to.equal(false);
   });
-
-  it('should set the current panel to active when clicked', () => {
-    let state = {
-      panels: [
-        {active: false}
-      ]
-    }
-    panelGroup = shallow(<PanelGroup><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>);
-    panel = panelGroup.childAt(0);
-
-    panel.simulate('click');
-
-    // console.log(panelGroup.debug());
-    console.log(panel.debug());
-
-    // panelGroup.setState({panels: [{active: true}]});
-    expect(panel.props().active).to.equal(true);
-  });
-
 });

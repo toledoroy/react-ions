@@ -77,7 +77,6 @@ class PanelGroup extends React.Component {
   }
 
   handlePanelClick = (panel) => {
-    console.log('PANEL!!!');
     let panelIndex = panel.props.panelIndex;
     let state = this.state.panels;
 
