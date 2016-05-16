@@ -5,15 +5,18 @@ import { Route, Redirect, IndexRoute } from 'react-router'
 import Base from './layout/Base'
 
 // Pages
+import AlertPage from './pages/components/Alert/Page'
+import AlertsPage from './pages/components/Alerts/Page'
 import BadgePage from './pages/components/Badge/Page'
 import BreadcrumbPage from './pages/components/Breadcrumb/Page'
+import ButtonGroupPage from './pages/components/ButtonGroup/Page'
 import ColorsPage from './pages/foundations/Colors/Page'
 import CheckboxPage from './pages/components/Checkbox/Page'
-import IconographyPage from './pages/foundations/Iconography/Page'
-import LayoutPage from './pages/foundations/Layout/Page'
 import HomePage from './pages/Home/Page'
-import TypographyPage from './pages/foundations/Typography/Page'
+import IconographyPage from './pages/foundations/Iconography/Page'
 import IconsPage from './pages/components/Icons/Page'
+import LayoutPage from './pages/foundations/Layout/Page'
+import TypographyPage from './pages/foundations/Typography/Page'
 import ButtonsPage from './pages/components/Buttons/Page'
 import NavPage from './pages/components/Nav/Page'
 import RadioGroupPage from './pages/components/RadioGroup/Page'
@@ -26,7 +29,6 @@ import ProgressBarPage from './pages/components/ProgressBar/Page'
 import PanelGroupPage from './pages/components/PanelGroup/Page'
 import SelectFieldPage from './pages/components/SelectField/Page'
 import TabsPage from './pages/components/TabWrapper/Page'
-import AlertPage from './pages/components/Alert/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -44,6 +46,7 @@ const Routes = (
       <Route path='alert' title='Alert' component={AlertPage} />
       <Route path='badge' title='Badge' component={BadgePage} />
       <Route path="breadcrumb" title="Breadcrumb" component={BreadcrumbPage} />
+      <Route path='button-group' title='Button Group' component={ButtonGroupPage} />
       <Route path='buttons' title='Buttons' component={ButtonsPage} />
       <Route path='checkbox' title='Checkbox' component={CheckboxPage} />
       <Route path='icons' title='Icons' component={IconsPage} />
