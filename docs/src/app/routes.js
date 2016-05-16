@@ -23,6 +23,7 @@ import ModalPage from './pages/components/Modal/Page'
 import BadgePage from './pages/components/Badge/Page'
 import ActivityFeedPage from './pages/components/ActivityFeed/Page'
 import TooltipPage from './pages/components/Tooltip/Page'
+import SelectFieldPage from './pages/components/SelectField/Page'
 import TabsPage from './pages/components/TabWrapper/Page'
 import AlertsPage from './pages/components/Alerts/Page'
 import ButtonGroupPage from './pages/components/ButtonGroup/Page'
@@ -53,6 +54,7 @@ const Routes = (
       <Route path='progress-bar' title='Progress Bar' component={ProgressBarPage} />
       <Route path='radio' title='Radio' component={RadioGroupPage} />
       <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
+      <Route path='selectfield' title='Select Field' component={SelectFieldPage} />
       <Route path='tabs' title='Tabs' component={TabsPage} />
       <Route path='textarea' title='Textarea' component={TextareaPage} />
       <Route path='tooltip' title='Tooltip' component={TooltipPage} />

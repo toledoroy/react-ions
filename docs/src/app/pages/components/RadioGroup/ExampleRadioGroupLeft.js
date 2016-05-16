@@ -23,4 +23,4 @@ const ExampleRadioLeft = () => (
   </RadioGroup>
 )
 
-export default ExampleRadioLeft;
+export default ExampleRadioLeft
