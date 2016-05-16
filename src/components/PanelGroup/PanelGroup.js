@@ -24,6 +24,10 @@ class PanelGroup extends React.Component {
     optClass: React.PropTypes.string
   }
 
+  static defaultProps = {
+    activePanels: []
+  }
+  
   state = {
     panels: []
   }

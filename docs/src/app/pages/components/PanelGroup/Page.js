@@ -1,6 +1,9 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList';
-import docs from '!!docgen!react-conventions/lib/PanelGroup/PanelGroup';
+import panelGroupDocs from '!!docgen!react-conventions/lib/PanelGroup/PanelGroup';
+import panelDocs from '!!docgen!react-conventions/lib/PanelGroup/Panel';
+import panelHeaderDocs from '!!docgen!react-conventions/lib/PanelGroup/PanelHeader';
+import panelContentDocs from '!!docgen!react-conventions/lib/PanelGroup/PanelContent';
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExamplePanelGroup from './ExamplePanelGroup'
@@ -49,8 +52,20 @@ const PanelGroupPage = () => (
         </CodeExample>
       </div>
       <div className={styles.block}>
-        <h3>Props</h3>
-        <PropsList list={docs[0].props} />
+        <h3>Panel Group Props</h3>
+        <PropsList list={panelGroupDocs[0].props} />
+      </div>
+      <div className={styles.block}>
+        <h3>Panel Props</h3>
+        <PropsList list={panelDocs[0].props} />
+      </div>
+      <div className={styles.block}>
+        <h3>Panel Header Props</h3>
+        <PropsList list={panelHeaderDocs[0].props} />
+      </div>
+      <div className={styles.block}>
+        <h3>Panel Content Props</h3>
+        <PropsList list={panelContentDocs[0].props} />
       </div>
     </div>
   </div>
