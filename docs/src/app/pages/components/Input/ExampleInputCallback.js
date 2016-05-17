@@ -1,6 +1,5 @@
 import React from 'react'
 import Input from 'react-conventions/lib/Input'
-import style from './style' 
 
 class ExampleInputCallback extends React.Component {
   constructor(props) {
@@ -15,8 +14,8 @@ class ExampleInputCallback extends React.Component {
     this.setState({status: 'I am focused.'});
   }
 
-  handleChange = () => {
-    this.setState({status: 'I have changed.'});
+  handleChange = (event) => {
+    this.setState({status: 'My value is: ' + event.target.value});
   }
 
   handleBlur = () => {

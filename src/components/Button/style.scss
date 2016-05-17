@@ -22,9 +22,13 @@
     fill: $white;
   }
 
-  // Set Loader color
-  > div > div > div > div {
-    background-color: $white !important;
+  em {
+    font-style: normal;
+  }
+
+  &.loading > em,
+  &.loading + svg {
+    opacity: 0;
   }
 
   // Button size(s)
@@ -67,10 +71,18 @@
     @include button-context($white, $primary-1);
   }
 
+  em > span {
+    float: left;
+  }
+
   // To handle inline icons
   svg + span,
   span + svg {
     margin-left: 6px;
+  }
+
+  span + svg {
+    float: right;
   }
 
   // for Firefox
@@ -82,8 +94,4 @@
   svg + svg {
     float: none;
   }
-
-}
-.btn-loader .loader {
-  background-color: $white;
 }

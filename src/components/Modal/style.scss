@@ -2,13 +2,17 @@
 @import '../../styles/common/_config';
 
 .modal-component {
+
   &.modal-open {
+
     .modal-content {
       opacity: 1;
       z-index: 1400;
       visibility: visible;
     }
+
   }
+
   .modal-content {
     opacity: 0;
     z-index: -1;
@@ -26,19 +30,27 @@
     flex-direction: column;
     transform: translate(-50%, -50%);
     transition: opacity .4s $animation-in-out-quadratic;
+
     &.modal-sm {
       max-width: 320px;
     }
+
     &.modal-lg {
       max-width: 1200px;
     }
+
     .modal-header {
+
       .modal-close {
-        text-align: right;
+        position: absolute;
+        right: 30px;
+
         > svg {
           cursor: pointer;
         }
+
       }
+
       h1 {
         font-family: proxima_nova;
         font-weight: 200;;
@@ -47,6 +59,7 @@
         color: $navy-text;
       }
     }
+
     .modal-body {
       font-size: 14px;
       line-height: 1.5;
@@ -55,6 +68,7 @@
       margin: 0 -15px;
       padding: 0 15px;
     }
+
     .modal-actions {
       margin-top: 30px;
       float: right;

@@ -2,81 +2,75 @@ import React from 'react'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 
-class Radio extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const Radio = (props) => {
+  const {
+    label,
+    labelPosition,
+    optClass,
+    ...other
+  } = props;
 
-  static defaultProps = {
-    checked: false,
-    disabled: false,
-    labelPosition: 'right'
-  }
+  const cx = classNames.bind(style);
+  const disabledClass = props.disabled ? style['radio-disabled'] : '';
+  const radioClass = cx(style['radio-component'], optClass, disabledClass);
 
-  static propTypes = {
-    /**
-     * True if the option is checked.
-     */
-    checked: React.PropTypes.bool,
-    /**
-     * Whether the option is disabled.
-     */
-    disabled: React.PropTypes.bool,
-    /**
-     * Text shown next to the radio input element.
-     */
-    label: React.PropTypes.string,
-    /**
-     * The position of the label.
-     */
-    labelPosition: React.PropTypes.oneOf(['left', 'right']),
-    /**
-     * Value of the option.
-     */
-    value: React.PropTypes.string,
-    /**
-     * Optional styles to add to the radio component.
-     */
-    optClass: React.PropTypes.string,
-    /**
-     * Name specified in the RadioGroup component.
-     */
-    name: React.PropTypes.string,
-    /**
-     * A callback function (from RadioGroup) to be called when the option is changed.
-     */
-    changeCallback: React.PropTypes.func
-  }
-
-  handleChange = (event) => {
-    if (typeof this.props.changeCallback === 'function') {
-      this.props.changeCallback(event, this.props.value);
+  const handleChange = function(event) {
+    if (typeof props.changeCallback === 'function') {
+      props.changeCallback(event, props.value);
     }
   }
 
-  render() {
-    const {
-      label,
-      labelPosition,
-      optClass,
-      ...other
-    } = this.props;
-
-    const cx = classNames.bind(style);
-    const disabledClass = this.props.disabled ? style['radio-disabled'] : '';
-    const radioClass = cx(style['radio-component'], optClass, disabledClass);
-
-    return (
-      <div className={radioClass}>
-        <input type="radio" onChange={this.handleChange} {...other}></input>
-        <div>
-          { label && labelPosition === 'left' ? <label className={style['label-left']}>{label}</label> : null }
-          <div className={style['radio-input']}></div>
-          { label && labelPosition === 'right' ? <label className={style['label-right']}>{label}</label> : null }
-        </div>
+  return (
+    <div className={radioClass}>
+      <input type="radio" onChange={handleChange} {...other}></input>
+      <div>
+        { label && labelPosition === 'left' ? <label className={style['label-left']}>{label}</label> : null }
+        <div className={style['radio-input']}></div>
+        { label && labelPosition === 'right' ? <label className={style['label-right']}>{label}</label> : null }
       </div>
-    )
-  }
+    </div>
+  )
+}
+
+Radio.defaultProps = {
+  checked: false,
+  disabled: false,
+  labelPosition: 'right'
+}
+
+Radio.propTypes = {
+  /**
+   * True if the option is checked.
+   */
+  checked: React.PropTypes.bool,
+  /**
+   * Whether the option is disabled.
+   */
+  disabled: React.PropTypes.bool,
+  /**
+   * Text shown next to the radio input element.
+   */
+  label: React.PropTypes.string,
+  /**
+   * The position of the label.
+   */
+  labelPosition: React.PropTypes.oneOf(['left', 'right']),
+  /**
+   * Value of the option.
+   */
+  value: React.PropTypes.string,
+  /**
+   * Optional styles to add to the radio component.
+   */
+  optClass: React.PropTypes.string,
+  /**
+   * Name specified in the RadioGroup component.
+   */
+  name: React.PropTypes.string,
+  /**
+   * A callback function (from RadioGroup) to be called when the option is changed.
+   */
+  changeCallback: React.PropTypes.func
 }
 
 export default Radio

@@ -1,6 +1,5 @@
 import React from 'react'
 import Textarea from 'react-conventions/lib/Textarea'
-import style from './style'
 
 class ExampleTextareaCallback extends React.Component {
   constructor(props) {
@@ -15,8 +14,8 @@ class ExampleTextareaCallback extends React.Component {
     this.setState({status: 'I am focused.'});
   }
 
-  handleChange = () => {
-    this.setState({status: 'I have changed.'});
+  handleChange = (event) => {
+    this.setState({status: 'My value is: ' + event.target.value});
   }
 
   handleBlur = () => {
