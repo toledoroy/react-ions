@@ -134,11 +134,12 @@ Reference: [A Better Solution for Managing z-index with Sass](http://www.sitepoi
 
 ### Release Process
 1. Checkout / pull latest master branch
-2. Run: `$ npm run build:release`
-3. Run: `$ npm version <semantic_version>`
-4. Edit `CHANGELOG.md` to reflect changes
-5. Review `CHANGELOG.md`
-6. Merge pull request
-7. Create release on Github
-8. Run: `$ npm publish`
-9. Ensure new version is published: [https://npmjs.com/react-conventions](https://npmjs.com/react-conventions)
+2. Create a new branch (named like `release_v0_0_5`)
+3. Run: `$ npm run build:release`
+4. Run: `$ npm version <semantic_version>`
+5. Edit `CHANGELOG.md` to reflect changes
+6. Review `CHANGELOG.md`
+7. Merge pull request
+8. Create release on Github
+9. Run: `$ npm publish`
+10. Ensure new version is published: [https://npmjs.com/react-conventions](https://npmjs.com/react-conventions)
