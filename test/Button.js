@@ -19,13 +19,13 @@ describe('Button', () => {
     wrapper = shallow(<Button loading={true}>Test</Button>);
     expect(wrapper.children().length).to.be.equal(2);
     expect(wrapper.childAt(0).html()).to.be.equal('<div class="loader"></div>');
-    expect(wrapper.childAt(1).html()).to.be.equal('<span style="opacity:0;">Test</span>');
+    expect(wrapper.childAt(1).html()).to.be.equal('<em>Test</em>');
     expect(wrapper.is('[disabled]')).to.be.equal(true);
 
     wrapper.setProps({loading: false});
 
     expect(wrapper.children().length).to.be.equal(1);
-    expect(wrapper.childAt(0).html()).to.be.equal('<span style="opacity:1;">Test</span>');
+    expect(wrapper.childAt(0).html()).to.be.equal('<em>Test</em>');
   });
 
   it('displays a button anchor', () => {
