@@ -115,6 +115,8 @@
 }
 
 .title-wrapper {
+  @include clearfix;
+  
   svg {
     cursor: pointer;
     margin-right: 5px;
