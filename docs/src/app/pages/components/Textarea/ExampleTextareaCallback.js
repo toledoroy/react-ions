@@ -1,6 +1,5 @@
 import React from 'react'
 import Textarea from 'react-conventions/lib/Textarea'
-import style from './style'
 
 class ExampleTextareaCallback extends React.Component {
   constructor(props) {

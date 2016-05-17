@@ -1,6 +1,5 @@
 import React from 'react'
 import RadioGroup from 'react-conventions/lib/Radio/RadioGroup'
-import style from './style' 
 
 class ExampleRadioCallback extends React.Component {
   constructor(props) {
