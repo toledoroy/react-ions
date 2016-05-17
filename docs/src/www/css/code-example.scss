@@ -65,7 +65,12 @@
     @include clearfix;
     padding: 20px 24px;
 
-    a {
+    code {
+      display: block;
+      margin-top: 1em;
+    }
+
+    > a {
       color: $primary-1;
       text-decoration: none;
     }
@@ -93,7 +98,7 @@
       }
     }
 
-    p {
+    > p {
       margin: 0;
     }
 
@@ -124,11 +129,11 @@
   .description {
     padding: 20px 24px;
 
-    a {
+    > a {
       color: $primary-1;
     }
 
-    p {
+    > p {
       color: $base-text;
       font-size: 14px;
       margin: 0;
