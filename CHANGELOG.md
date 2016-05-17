@@ -4,10 +4,10 @@
 ###### _May 17, 2016_
 
 ##### General
-- [Web] auto-close sidebar when route changes (75)
-- [Web] prevent CSS leaks in component examples (75)
-- [Web] make radio component stateless (75)
+- [Web] auto-close sidebar when route changes ([#75](https://github.com/GetAmbassador/react-conventions/pull/75))
+- [Web] prevent CSS leaks in component examples ([#75](https://github.com/GetAmbassador/react-conventions/pull/75))
+- [Web] make radio component stateless ([#75](https://github.com/GetAmbassador/react-conventions/pull/75))
 
 ##### Component Fixes / Enhancements
-- [Activity Feed] formatting bug (75)
-- [Buttons] fixed nested icons, cleaned up loading state (75)
+- [Activity Feed] formatting bug ([#75](https://github.com/GetAmbassador/react-conventions/pull/75))
+- [Buttons] fixed nested icons, cleaned up loading state ([#75](https://github.com/GetAmbassador/react-conventions/pull/75))
