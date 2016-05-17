@@ -71,6 +71,10 @@
     @include button-context($white, $primary-1);
   }
 
+  em > span {
+    float: left;
+  }
+
   // To handle inline icons
   svg + span,
   span + svg {
