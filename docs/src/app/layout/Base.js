@@ -1,5 +1,5 @@
 import React from 'react'
-import { withRouter } from 'react-router'
+import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import style from 'private/css/base'
 import Sidebar from './Sidebar'
@@ -13,7 +13,7 @@ class Base extends React.Component {
 
   state = {
     breadcrumbActive: false,
-    sidebarCollapsed: false,
+    sidebarCollapsed: false
   };
 
   componentDidMount() {
@@ -24,15 +24,19 @@ class Base extends React.Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
+  componentWillReceiveProps() {
+    // this fires each time the route changes
+    this.setState({sidebarCollapsed: false});
+    this._container.offsetParent.scrollTop = 0;
+  }
+
   handleScroll = (event) => {
     let scrollTop = event.srcElement.body.scrollTop;
     (scrollTop > 30) ? this.setState({ breadcrumbActive: true }) : this.setState({ breadcrumbActive: false });
   }
 
   handleSidebarClick = () => {
-    this.setState({
-      sidebarCollapsed: !this.state.sidebarCollapsed
-    });
+    this.setState({sidebarCollapsed: !this.state.sidebarCollapsed});
   }
 
   render() {
@@ -45,7 +49,7 @@ class Base extends React.Component {
     let currentBasePage = this.props.routes[1].path ? this.props.routes[1].path : null;
 
     return (
-      <div className={style['container-fluid']}>
+      <div className={style['container-fluid']} ref={(c) => this._container = c}>
         <div className={style.row}>
           <Sidebar collapsed={!this.state.sidebarCollapsed} onSidebarClick={this.handleSidebarClick} />
           <div className={!this.state.sidebarCollapsed ? contentClass : contentClassSidebarActive}>
@@ -63,4 +67,4 @@ class Base extends React.Component {
   }
 }
 
-export default withRouter(Base)
+export default Base
