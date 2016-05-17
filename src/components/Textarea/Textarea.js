@@ -54,11 +54,10 @@ class Textarea extends React.Component {
   };
 
   handleChange = (event) => {
-    this.setState({value: event.target.value}, function() {
-      if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(event);
-      }
-    });
+    this.setState({value: event.target.value})
+    if (typeof this.props.changeCallback === 'function') {
+      this.props.changeCallback(event);
+    }
   }
 
   handleFocus = (event) => {

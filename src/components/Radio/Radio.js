@@ -3,20 +3,20 @@ import classNames from 'classnames/bind'
 import style from './style.scss'
 
 const Radio = (props) => {
-  const cx = classNames.bind(style);
-  const disabledClass = this.props.disabled ? style['radio-disabled'] : '';
-  const radioClass = cx(style['radio-component'], optClass, disabledClass);
-
   const {
     label,
     labelPosition,
     optClass,
     ...other
-  } = this.props;
+  } = props;
+
+  const cx = classNames.bind(style);
+  const disabledClass = props.disabled ? style['radio-disabled'] : '';
+  const radioClass = cx(style['radio-component'], optClass, disabledClass);
 
   const handleChange = function(event) {
-    if (typeof this.props.changeCallback === 'function') {
-      this.props.changeCallback(event, this.props.value);
+    if (typeof props.changeCallback === 'function') {
+      props.changeCallback(event, props.value);
     }
   }
 

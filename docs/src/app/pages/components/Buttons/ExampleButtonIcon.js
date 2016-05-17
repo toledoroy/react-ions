@@ -3,10 +3,16 @@ import Button from 'react-conventions/lib/Button'
 import Icon from 'react-conventions/lib/Icon'
 
 const ExampleButtonIcon = () => (
-  <Button>
-    <Icon name='icon-upload-2-1' height='14' width='14' fill='#fff'></Icon>
-    <span>Button with Icon</span>
-  </Button>
+  <div>
+    <Button>
+      <Icon name='icon-upload-2-1' height='14' width='14' fill='#fff'></Icon>
+      <span>Icon Before</span>
+    </Button>
+    <Button>
+      <span>Icon After</span>
+      <Icon name='icon-link' height='14' width='14' fill='#fff'></Icon>
+    </Button>
+  </div>
 )
 
 export default ExampleButtonIcon

@@ -5,21 +5,19 @@ import classNames from 'classnames/bind'
 
 const Button = (props) => {
   const cx = classNames.bind(style);
-  const btnClasses = cx(style.btn, props.optClass, props.size);
+  const loaderClasses = props.loading ? 'loading' : null;
+  const btnClasses = cx(style.btn, props.optClass, props.size, loaderClasses);
   const spinnerOptions = {
     lines: 10,
     length: 4,
     width: 3,
     radius: 5
   };
-  const childrenStyle = {
-    opacity: props.loading ? 0 : 1
-  };
 
   return (
     <button type='button' className={btnClasses} disabled={props.disabled || props.loading} {...props}>
       { props.loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
-      <span style={childrenStyle}>{props.children}</span>
+      <em>{props.children}</em>
     </button>
   )
 }

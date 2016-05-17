@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from 'react-conventions/lib/Button'
+import Icon from 'react-conventions/lib/Icon'
 
 class ExampleButtonLoaders extends React.Component {
   constructor(props) {
@@ -22,14 +23,17 @@ class ExampleButtonLoaders extends React.Component {
     component.setState({ [button]: true }, function() {
       setTimeout(function() {
         component.setState({ [button]: false });
-      }, 3000);
+      }, 13000);
     });
   }
 
   render() {
     return (
       <div>
-        <Button loading={this.state.default} onClick={this.handleClick.bind(this, 'default')}>Default</Button>
+        <Button loading={this.state.default} onClick={this.handleClick.bind(this, 'default')}>
+          <Icon name='icon-power-1' height='14' width='14' />
+          <span>Default</span>
+        </Button>
         <Button loading={this.state.secondary} onClick={this.handleClick.bind(this, 'secondary')} optClass='secondary'>Secondary</Button>
         <Button loading={this.state.inverted} onClick={this.handleClick.bind(this, 'inverted')} optClass='inverted'>Inverted</Button>
         <Button loading={this.state.danger} onClick={this.handleClick.bind(this, 'danger')} optClass='danger'>Danger</Button>
