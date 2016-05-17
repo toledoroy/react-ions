@@ -13,18 +13,11 @@ class Base extends React.Component {
 
   state = {
     breadcrumbActive: false,
-    sidebarCollapsed: false
+    sidebarCollapsed: false,
   };
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-
-    this.props.router.setRouteLeaveHook(this.props.route, () => {
-      console.log(this.props.route);
-      if (this.state.unsaved) {
-        return 'You have unsaved information, are you sure you want to leave this page?'
-      }
-    })
   }
 
   componentWillUnmount() {
@@ -37,7 +30,9 @@ class Base extends React.Component {
   }
 
   handleSidebarClick = () => {
-    this.setState({sidebarCollapsed: !this.state.sidebarCollapsed});
+    this.setState({
+      sidebarCollapsed: !this.state.sidebarCollapsed
+    });
   }
 
   render() {
