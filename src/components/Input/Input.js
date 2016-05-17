@@ -15,7 +15,8 @@ class Input extends React.Component {
   }
 
   static defaultProps = {
-    disabled: false
+    disabled: false,
+    value: '',
   }
 
   static propTypes = {

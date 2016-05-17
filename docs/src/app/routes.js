@@ -16,6 +16,7 @@ import CheckboxPage from './pages/components/Checkbox/Page'
 import HomePage from './pages/Home/Page'
 import IconographyPage from './pages/foundations/Iconography/Page'
 import IconsPage from './pages/components/Icons/Page'
+import FormGroupPage from './pages/components/FormGroup/Page'
 import LayoutPage from './pages/foundations/Layout/Page'
 import TypographyPage from './pages/foundations/Typography/Page'
 import NavPage from './pages/components/Nav/Page'
@@ -48,6 +49,7 @@ const Routes = (
       <Route path='button-group' title='Button Group' component={ButtonGroupPage} />
       <Route path='buttons' title='Buttons' component={ButtonsPage} />
       <Route path='checkbox' title='Checkbox' component={CheckboxPage} />
+      <Route path='form-group' title='Form Group' component={FormGroupPage} />
       <Route path='icons' title='Icons' component={IconsPage} />
       <Route path='input' title='Input' component={InputPage} />
       <Route path='modal' title='Modal' component={ModalPage} />
