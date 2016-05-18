@@ -1,7 +1,55 @@
-.form-group {
+@import '../../styles/common/colors';
 
+.form-group {
+  h3 {
+    margin: 0 0 10px 0;
+  }
 }
 
-.field {
-  margin-bottom: 1em;
+[class^='input'].field,
+[class^='textarea'].field,
+[class^='radio'].field,
+[class^='selectfield'].field {
+  margin-bottom: 15px;
+}
+
+[class^='checkbox'].field {
+  margin-bottom: 6px;
+
+  &:last-child {
+    margin-bottom: inherit;
+  }
+}
+
+.fieldset > fieldset {
+  margin-bottom: 15px;
+}
+
+.fieldset legend {
+  color: $primary-4;
+  display: block;
+  float: left;
+  font-size: 12px;
+  font-weight: normal;
+  margin: 30px 0 10px;
+  position: relative;
+  text-transform: uppercase;
+  width: 100%;
+
+  span {
+    background-color: $white;
+    padding-right: 5px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &:after {
+    background-color: $neutral-1;
+    content: '';
+    display: block;
+    height: 1px;
+    position: absolute;
+    top: 7px;
+    width: 100%;
+  }
 }

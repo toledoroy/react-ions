@@ -56,6 +56,7 @@ const Routes = (
       <Route path='nav' title='Nav' component={NavPage} />
       <Route path='progress-bar' title='Progress Bar' component={ProgressBarPage} />
       <Route path='panel-group' title='Panel Group' component={PanelGroupPage} />
+      <Route path='select-field' title='Select Field' component={SelectFieldPage} />
       <Route path='radio' title='Radio' component={RadioGroupPage} />
       <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
       <Route path='tabs' title='Tabs' component={TabsPage} />

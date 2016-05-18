@@ -22,6 +22,10 @@ class SelectField extends React.Component {
      */
     options: React.PropTypes.array.isRequired,
     /**
+     * Text shown above the textarea.
+     */
+    label: React.PropTypes.string,
+    /**
      * Which field in the option object will be used as the value of the select field.
      */
     valueProp: React.PropTypes.string.isRequired,
@@ -55,7 +59,7 @@ class SelectField extends React.Component {
   }
 
   componentWillUnmount = () => {
-    document.removeEventListener('click', this.toggleOptions);    
+    document.removeEventListener('click', this.toggleOptions);
   }
 
   toggleOptions = () => {
@@ -70,11 +74,10 @@ class SelectField extends React.Component {
   }
 
   selectOption = (option) => {
-    this.setState({selected: option}, function() {
-      if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(option);
-      }
-    });
+    this.setState({selected: option});
+    if (typeof this.props.changeCallback === 'function') {
+      this.props.changeCallback(option);
+    }
   }
 
   getDisplayText = () => {
@@ -101,6 +104,7 @@ class SelectField extends React.Component {
 
     return (
       <div className={selectFieldClass}>
+        {this.props.label ? <label>{this.props.label}</label> : null}
         <input type='hidden' name='selectfield-value' value={this.state.selected && this.state.selected[this.props.valueProp]} />
         <div className={style['selectfield-value']} onClick={this.toggleOptions}>
           {this.getDisplayText()}

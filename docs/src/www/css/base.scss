@@ -36,7 +36,7 @@ body {
     &.sidebar-active {
       &:after {
         opacity: .5;
-        z-index: 2;
+        z-index: z('modal');
       }
     }
   }

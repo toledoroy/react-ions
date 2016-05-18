@@ -68,7 +68,7 @@ const nav = [
         route: '/components/radio-group'
       }, {
         name: 'Select Field',
-        route: '/components/selectfield'
+        route: '/components/select-field'
       }, {
         name: 'Tabs',
         route: '/components/tabs'

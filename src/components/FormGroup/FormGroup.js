@@ -14,25 +14,46 @@ class FormGroup extends React.Component {
     this.setInitialState();
   }
 
+  static propTypes = {
+    /**
+     * A configuration object of name/value pairs
+     * that correspond to the form fields
+     */
+     schema: React.PropTypes.object
+  }
+
   setInitialState = () => {
-    var items = [];
-    var elems = this.getFormElems();
+    let fields = {};
+    let value = null;
+    let schema = this.props.schema;
 
-    elems.forEach((elem, index) => {
-      var elemName = elem.type.name.toLowerCase();
-      items = [...items, {[elemName + '_'+ index] : ''}];
-    });
+    for (value in schema) {
+      fields[value] = schema[value];
+    }
 
-    this.setState({items});
+    this.setState({fields: fields});
   }
 
   handleChange = (event) => {
-    console.log(this);
-    this.setState({[`${this.elemIndex}_Value`]: event.target.value});
+    // let val;
+    //
+    // if (event.type.checkbox) {
+    //   val = event.target.checked
+    //   console.log(event.target);
+    // } else {
+    //   val = event.target.value
+    // }
+
+    var newField = Object.assign({}, this.state.fields[event.target.name], {value: event.target.value});
+    var previousState = Object.assign({}, this.state);
+    var newState = previousState.fields[event.target.name] = newField;
+
+    this.setState(newState);
   }
 
-  getFormElems = () => {
+  getElements = () => {
     const elems = [];
+
     React.Children.forEach(this.props.children, (elem) => {
       if (React.isValidElement(elem)) {
         elems.push(elem);
@@ -45,21 +66,29 @@ class FormGroup extends React.Component {
     const cx = classNames.bind(style);
     var formGroupClass = style['form-group'];
 
-    const formElements = this.getFormElems().map((elem, index) => {
-      return React.cloneElement(elem, {
-        key: index,
-        elemIndex: index,
-        changeCallback: this.handleChange,
-        optClass: style.field
-      });
+    const elements = this.getElements().map((elem, index) => {
+      let name = elem.props.name;
+      let field = this.state.fields;
+
+      if (name in field) {
+        return React.cloneElement(elem, {
+          key: index,
+          elemIndex: index,
+          changeCallback: this.handleChange,
+          optClass: style.field,
+          value: field[name].value
+        })
+      } else {
+        return elem;
+      }
     });
 
     return (
       <form className={formGroupClass}>
-        <fieldset>
-          {formElements}
+        <fieldset className={style.fieldset}>
+          {elements}
         </fieldset>
-        <code>{JSON.stringify(this.state)}</code>
+        <code><pre>{JSON.stringify(this.state.fields, null, 2)}</pre></code>
       </form>
     )
   }

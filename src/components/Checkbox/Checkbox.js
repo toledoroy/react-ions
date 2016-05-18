@@ -28,6 +28,10 @@ class Checkbox extends React.Component {
      */
     disabled: React.PropTypes.bool,
     /**
+     * Value of the input.
+     */
+    value: React.PropTypes.bool,
+    /**
      * Text displayed with the checkbox.
      */
     label: React.PropTypes.string,
