@@ -15,19 +15,20 @@ class FormGroup extends React.Component {
   }
 
   setInitialState = () => {
-    var initialElems = [];
+    var items = [];
     var elems = this.getFormElems();
 
     elems.forEach((elem, index) => {
-      initialElems = [...initialElems, {index : ''}];
+      var elemName = elem.type.name.toLowerCase();
+      items = [...items, {[elemName + '_'+ index] : ''}];
     });
 
-    this.setState({initialElems});
+    this.setState({items});
   }
 
   handleChange = (event) => {
-    console.log(this.props.elemIndex);
-    this.setState({[this.props.elemIndex]: event.target.value});
+    console.log(this);
+    this.setState({[`${this.elemIndex}_Value`]: event.target.value});
   }
 
   getFormElems = () => {
@@ -44,10 +45,10 @@ class FormGroup extends React.Component {
     const cx = classNames.bind(style);
     var formGroupClass = style['form-group'];
 
-    const formElements = this.getFormElems().map((elems, index) => {
-      return React.cloneElement(elems, {
+    const formElements = this.getFormElems().map((elem, index) => {
+      return React.cloneElement(elem, {
         key: index,
-        elemIndex: 'elem_' + index,
+        elemIndex: index,
         changeCallback: this.handleChange,
         optClass: style.field
       });
