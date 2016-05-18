@@ -51,37 +51,34 @@ class FormGroup extends React.Component {
     this.setState(newState);
   }
 
-  getElements = () => {
-    const elems = [];
+  getElements(children) {
+    return React.Children.map(children, child => {
+      const childProps = {};
+      const name = child.props.name;
+      const fields = this.state.fields;
 
-    React.Children.forEach(this.props.children, (elem) => {
-      if (React.isValidElement(elem)) {
-        elems.push(elem);
+      if (React.isValidElement(child)) {
+        childProps = {
+          changeCallback: this.handleChange,
+          optClass: style.field,
+          // value: fields[name].value
+        };
       }
-    });
-    return elems;
+
+      if (child.props) {
+        childProps.children = this.getElements(child.props.children);
+        return React.cloneElement(child, childProps);
+      }
+
+      return child;
+    }, this);
   }
 
   render() {
     const cx = classNames.bind(style);
     var formGroupClass = style['form-group'];
 
-    const elements = this.getElements().map((elem, index) => {
-      let name = elem.props.name;
-      let field = this.state.fields;
-
-      if (name in field) {
-        return React.cloneElement(elem, {
-          key: index,
-          elemIndex: index,
-          changeCallback: this.handleChange,
-          optClass: style.field,
-          value: field[name].value
-        })
-      } else {
-        return elem;
-      }
-    });
+    const elements = this.getElements(this.props.children);
 
     return (
       <form className={formGroupClass}>
