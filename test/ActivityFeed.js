@@ -55,9 +55,33 @@ describe('ActivityFeed', () => {
     expect(itemWrapperAction.props().actions).to.equal(data[1].actions);
   });
 
-  it('should limit the number of list items', () => {
-    const wrapper = shallow(<ActivityFeed data={data} limit={2} />);
+  it('should add an activity to the list', () => {
+    const wrapper = shallow(<ActivityFeed data={data} />);
+
     expect(wrapper.find('ul').children()).to.have.length(2);
+
+    let activities = data;
+    activities.unshift({
+      name: 'This test activity',
+      title: 'is pretty awesome.',
+      profileUrl: '/components/badge',
+      text: 'Beef ribs shoulder bresaola hamburger brisket filet mignon turkey kevin frankfurter andouille spare ribs shankle chicken swine ham hock. Ham pork belly alcatra venison.',
+      timestamp: '2016-05-06T18:19:08.936',
+      badge: {
+        text: '42',
+        theme: 'success'
+      }
+    });
+    wrapper.setProps({data: activities});
+    wrapper.update();
+
+    expect(wrapper.find('ul').children()).to.have.length(3);
+  });
+
+  it('should have an extra class', () => {
+    const wrapper = shallow(<ActivityFeed data={data} optClass="test-class" />);
+
+    expect(wrapper.hasClass('test-class')).to.be.true;
   });
 
 });
