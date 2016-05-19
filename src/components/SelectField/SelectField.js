@@ -53,13 +53,17 @@ class SelectField extends React.Component {
 
   state = {
     isOpen: false,
-    selected: typeof this.props.defaultOption !== 'undefined' ?
-              this.props.options[this.props.defaultOption] :
-              ''
+    selected: typeof this.props.defaultOption !== 'undefined' ? this.props.options[this.props.defaultOption] : ''
   }
 
   componentWillUnmount = () => {
     document.removeEventListener('click', this.toggleOptions);
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.defaultOption !== this.props.defaultOption) {
+      this.setState({ selected: typeof nextProps.defaultOption !== 'undefined' ? nextProps.options[nextProps.defaultOption] : '' });
+    }
   }
 
   toggleOptions = () => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import Checkbox from 'react-conventions/lib/Checkbox'
-import style from './style' 
+import style from './style'
 
 class ExampleCheckboxCallback extends React.Component {
   constructor(props) {

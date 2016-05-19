@@ -21,7 +21,6 @@ describe('ButtonGroup', () => {
     expect(wrapper.find('label')).to.have.length(1);
     expect(wrapper.find('ButtonToggle')).to.have.length(2);
 
-    console.log(wrapper.html());
     expect(wrapper.childAt(1).childAt(0).props().value).to.be.equal('option_1');
     expect(wrapper.childAt(1).childAt(0).props().label).to.be.equal('Option 1');
     expect(wrapper.childAt(1).childAt(0).props().name).to.be.equal('test-group');

@@ -9,7 +9,7 @@ class RadioGroup extends React.Component {
   }
 
   state = {
-    checkedOption: this.props.defaultOption !== undefined ? this.props.options[this.props.defaultOption].value : ''
+    checkedOption: typeof this.props.defaultOption !== 'undefined' ? this.props.options[this.props.defaultOption].value : ''
   };
 
   static defaultProps = {
@@ -59,6 +59,12 @@ class RadioGroup extends React.Component {
     }
   }
 
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.defaultOption !== this.props.defaultOption) {
+      this.setState({ checkedOption: (typeof nextProps.defaultOption !== 'undefined' ? nextProps.options[nextProps.defaultOption].value : '') });
+    }
+  }
+
   handleChange = (event, value) => {
     this.setState({checkedOption: value}, function() {
       if (typeof this.props.changeCallback === 'function') {
@@ -79,7 +85,7 @@ class RadioGroup extends React.Component {
         label={radio.label}
         name={groupName}
         checked={this.state.checkedOption === radio.value}
-        labelPosition={groupLabelPosition || radio.labelPosition}
+        labelPosition={groupLabelPosition}
         optClass={radio.optClass}
         changeCallback={this.handleChange}
         {...other} />
