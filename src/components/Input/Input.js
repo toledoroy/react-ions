@@ -57,6 +57,10 @@ class Input extends React.Component {
     blurCallback: React.PropTypes.func
   };
 
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({ disabled: nextProps.disabled });
+  }
+
   handleChange = (event) => {
     this.setState({value: event.target.value});
     if (typeof this.props.changeCallback === 'function') {
