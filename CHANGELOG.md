@@ -1,5 +1,14 @@
 ## HEAD
 
+## 0.0.7
+###### _May 19, 2016_
+
+##### General
+- [Web] statful components now update when new props are received ([#77](https://github.com/GetAmbassador/react-conventions/pull/77))
+
+##### Component Fixes / Enhancements
+- [Progress Feed] made style paths relative ([#78](https://github.com/GetAmbassador/react-conventions/pull/78))
+
 ## 0.0.6
 ###### _May 17, 2016_
 
