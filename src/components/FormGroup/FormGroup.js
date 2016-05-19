@@ -13,9 +13,21 @@ class FormGroup extends React.Component {
   static propTypes = {
     /**
      * A configuration object of name/value pairs
-     * that correspond to the form fields
+     * that correspond to the form fields names.
      */
-     schema: React.PropTypes.object
+     schema: React.PropTypes.object,
+     /**
+      * A callback function to be called when a form value changes.
+      */
+     changeCallback: React.PropTypes.func,
+     /**
+      * A callback function to be called when the form is submitted.
+      */
+     submitCallback: React.PropTypes.func
+  }
+
+  componentWillReceiveProps(nextProps) {
+    nextProps.schema = this.props.schema;
   }
 
   componentWillMount = () => {
@@ -34,7 +46,17 @@ class FormGroup extends React.Component {
     this.setState({fields: fields});
   }
 
+  handleSubmit = () => {
+    if (typeof this.props.submitCallback === 'function') {
+      this.props.submitCallback(this.state.fields);
+    }
+  }
+
   handleChange = (event) => {
+    if (typeof this.props.changeCallback === 'function') {
+      this.props.changeCallback(this.state.fields);
+    }
+
     let val;
 
     if (event.target.type === 'checkbox') {
@@ -84,7 +106,6 @@ class FormGroup extends React.Component {
         <fieldset className={style.fieldset}>
           {elements}
         </fieldset>
-        <code><pre>{JSON.stringify(this.state.fields, null, 2)}</pre></code>
       </form>
     )
   }
