@@ -33,7 +33,9 @@
 
   // Button size(s)
   &.lg  {
-    padding: 10px 8px;
+    padding: 11px 8px;
+    position: relative;
+    top: -1px;
   }
 
   // Button types
@@ -55,7 +57,7 @@
 
   &.secondary {
     @include button-context($white, $primary-4);
-    border: 1px solid $neutral-4;
+    border: 1px solid $neutral-3;
   }
 
   &.plain {

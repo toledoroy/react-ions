@@ -35,18 +35,6 @@ class FormGroup extends React.Component {
   }
 
   handleChange = (event) => {
-    let val;
-
-    if (event.type) {
-      if (event.type.checkbox) {
-        val = event.target.checked
-      }
-    } else if (event.value) {
-      val = event.value
-    } else {
-      val = event.target.value
-    }
-
     var newField = Object.assign({}, this.state.fields[event.target.name], {value: event.target.value});
     var previousState = Object.assign({}, this.state);
     var newState = previousState.fields[event.target.name] = newField;
@@ -65,7 +53,6 @@ class FormGroup extends React.Component {
           if (React.isValidElement(child)) {
             childProps = {
               changeCallback: this.handleChange,
-              optClass: style.field,
               value: fields[name].value
             };
           }
@@ -83,6 +70,7 @@ class FormGroup extends React.Component {
     var formGroupClass = style['form-group'];
 
     const elements = this.getElements(this.props.children);
+    console.log(elements);
 
     return (
       <form className={formGroupClass}>

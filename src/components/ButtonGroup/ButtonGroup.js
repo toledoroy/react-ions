@@ -81,6 +81,7 @@ class ButtonGroup extends React.Component {
         label={buttonToggle.label}
         name={groupName}
         checked={this.state.checkedOption === buttonToggle.value}
+        size='lg'
         optClass={this.state.checkedOption === buttonToggle.value ? buttonStyle : 'secondary'}
         changeCallback={this.handleChange}
         {...other} />

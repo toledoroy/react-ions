@@ -76,7 +76,7 @@ class SelectField extends React.Component {
   selectOption = (option) => {
     this.setState({selected: option});
     if (typeof this.props.changeCallback === 'function') {
-      this.props.changeCallback(option);
+      this.props.changeCallback({ target: { name: this.props.name, value: option }});
     }
   }
 

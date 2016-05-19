@@ -40,10 +40,6 @@ class Checkbox extends React.Component {
      */
     labelPosition: React.PropTypes.string,
     /**
-     * Value provided when checked.
-     */
-    value: React.PropTypes.string,
-    /**
      * Optional styles to add to the checkbox.
      */
     optClass: React.PropTypes.string,
@@ -57,6 +53,7 @@ class Checkbox extends React.Component {
     this.setState({checked: event.target.checked});
 
     if (typeof this.props.changeCallback === 'function') {
+      event.target.value = !!event.target.checked;
       this.props.changeCallback(event);
     }
   }

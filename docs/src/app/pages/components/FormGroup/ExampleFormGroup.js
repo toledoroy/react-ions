@@ -6,6 +6,7 @@ import Checkbox from 'react-conventions/lib/Checkbox'
 import RadioGroup from 'react-conventions/lib/Radio/RadioGroup'
 import SelectField from 'react-conventions/lib/SelectField'
 import Button from 'react-conventions/lib/Button'
+import style from 'react-conventions/lib/FormGroup/style'
 
 const radioOptions = [
   {
@@ -24,8 +25,8 @@ const radioOptions = [
 ];
 
 const selectOptions = [
-  {value: 0, display: 'test 1', someOtherProp: true},
-  {value: 1, display: 'test 2', someOtherProp: false}
+  {value: 0, display: 'test 1'},
+  {value: 1, display: 'test 2'}
 ];
 
 const ExampleFormGroup = () => (
@@ -34,32 +35,33 @@ const ExampleFormGroup = () => (
       'subject':{'value':'booya'},
       'message':{'value':'test'},
       'radio':{'value':''},
-      'select':{'value':''},
-      'email':{'value':''},
-      'facebook':{'value':'true'},
-      'twitter':{'value':''},
-      'linkedin':{'value':''}
+      'select':{'value': '1'},
+      'email':{'value':true},
+      'facebook':{'value':false},
+      'twitter':{'value':false},
+      'linkedin':{'value':false}
     }}>
 
-    <Input name='subject' label='Subject line' type='text' />
-    <Textarea name='message' label='Message' />
+    <Input name='subject' label='Subject line' type='text' optClass={style.field} />
+    <Textarea name='message' label='Message' optClass={style.field} />
 
     <RadioGroup
       label="What happens after a promotor submits a score?"
       name="radio"
       options={radioOptions}
-      defaultOption={1}>
+      defaultOption={1}
+      optClass={style.field}>
     </RadioGroup>
 
-    <SelectField label='Select something' name='select' options={selectOptions} valueProp='value' displayProp='display' />
+    <SelectField label='Select something' name='select' options={selectOptions} valueProp='value' displayProp='display' optClass={style.field} />
 
     <fieldset>
       <legend><span>Okay here</span></legend>
       <h3>Social channels</h3>
-      <Checkbox name='email' label="Email" checked={false} />
-      <Checkbox name='facebook' label="Facebook" checked={false} />
-      <Checkbox name='twitter' label="Twitter" checked={false} />
-      <Checkbox name='linkedin' label="LinkedIn" checked={false} />
+      <Checkbox name='email' label="Email" optClass={style.field} />
+      <Checkbox name='facebook' label="Facebook" optClass={style.field} />
+      <Checkbox name='twitter' label="Twitter" optClass={style.field} />
+      <Checkbox name='linkedin' label="LinkedIn" optClass={style.field} />
     </fieldset>
 
     <Button>Submit</Button>
