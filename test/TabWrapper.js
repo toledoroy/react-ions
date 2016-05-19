@@ -45,6 +45,15 @@ describe('TabWrapper', () => {
     expect(selectedIndex).to.equal(1);
   });
 
+  it('should not result in an error if the select callback is not defined', () => {
+    const spy = sinon.spy(console, 'error');
+    wrapper = mount(<TabWrapper><Tab title="Test Tab">Test tab content</Tab><Tab title="Test Tab With Count" count={42}>Test tab with count content</Tab></TabWrapper>);
+    wrapper.childAt(0).childAt(1).simulate('click');
+
+    expect(spy.calledOnce).to.be.false;
+    spy.restore();
+  });
+
   it('should have a non-default tab selected', () => {
     wrapper = mount(<TabWrapper><Tab title="Test Tab">Test tab content</Tab><Tab title="Test Tab With Count" count={42} active={true}>Test tab with count content</Tab></TabWrapper>);
 
@@ -98,5 +107,31 @@ describe('TabWrapper', () => {
 
     expect(wrapper.childAt(0).children()).to.have.length(1);
     expect(wrapper.childAt(1).children()).to.have.length(1);
+  });
+
+  it('should update the state if the initialSelectedIndex property changes', () => {
+    wrapper = mount(<TabWrapper initialSelectedIndex={0}><Tab title="Test Tab">Test tab content</Tab><Tab title="Test Tab With Count" count={42}>Test tab with count content</Tab></TabWrapper>);
+
+    expect(wrapper.childAt(0).childAt(0).props().active).to.be.true;
+    expect(wrapper.childAt(0).childAt(1).props().active).to.be.false;
+
+    wrapper.setProps({ initialSelectedIndex: 1 });
+    wrapper.update();
+
+    expect(wrapper.childAt(0).childAt(0).props().active).to.be.false;
+    expect(wrapper.childAt(0).childAt(1).props().active).to.be.true;
+  });
+
+  it('should not update the state if the initialSelectedIndex property stays the same', () => {
+    wrapper = mount(<TabWrapper initialSelectedIndex={0}><Tab title="Test Tab">Test tab content</Tab><Tab title="Test Tab With Count" count={42}>Test tab with count content</Tab></TabWrapper>);
+
+    expect(wrapper.childAt(0).childAt(0).props().active).to.be.true;
+    expect(wrapper.childAt(0).childAt(1).props().active).to.be.false;
+
+    wrapper.setProps({ initialSelectedIndex: 0 });
+    wrapper.update();
+
+    expect(wrapper.childAt(0).childAt(0).props().active).to.be.true;
+    expect(wrapper.childAt(0).childAt(1).props().active).to.be.false;
   });
 });
