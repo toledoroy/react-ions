@@ -36,7 +36,7 @@ const ExampleFormGroup = () => (
       'radio':{'value':''},
       'select':{'value':''},
       'email':{'value':''},
-      'facebook':{'value':''},
+      'facebook':{'value':'true'},
       'twitter':{'value':''},
       'linkedin':{'value':''}
     }}>
@@ -56,7 +56,7 @@ const ExampleFormGroup = () => (
     <fieldset>
       <legend><span>Okay here</span></legend>
       <h3>Social channels</h3>
-      <Checkbox name='email' label="Email" checked={true} />
+      <Checkbox name='email' label="Email" checked={false} />
       <Checkbox name='facebook' label="Facebook" checked={false} />
       <Checkbox name='twitter' label="Twitter" checked={false} />
       <Checkbox name='linkedin' label="LinkedIn" checked={false} />

@@ -35,14 +35,17 @@ class FormGroup extends React.Component {
   }
 
   handleChange = (event) => {
-    // let val;
-    //
-    // if (event.type.checkbox) {
-    //   val = event.target.checked
-    //   console.log(event.target);
-    // } else {
-    //   val = event.target.value
-    // }
+    let val;
+
+    if (event.type) {
+      if (event.type.checkbox) {
+        val = event.target.checked
+      }
+    } else if (event.value) {
+      val = event.value
+    } else {
+      val = event.target.value
+    }
 
     var newField = Object.assign({}, this.state.fields[event.target.name], {value: event.target.value});
     var previousState = Object.assign({}, this.state);
@@ -54,26 +57,23 @@ class FormGroup extends React.Component {
   getElements(children) {
     return React.Children.map(children, child => {
       let childProps = {};
-      const name = child.props.name;
-      const fields = this.state.fields;
-
-      if (name in fields) {
-        if (React.isValidElement(child)) {
-          childProps = {
-            changeCallback: this.handleChange,
-            optClass: style.field,
-            value: fields[name].value
-          };
-        }
-      } else {
-        return;
-      }
-
       if (child.props) {
+        const name = child.props.name;
+        const fields = this.state.fields;
+
+        if (name in fields) {
+          if (React.isValidElement(child)) {
+            childProps = {
+              changeCallback: this.handleChange,
+              optClass: style.field,
+              value: fields[name].value
+            };
+          }
+        }
+
         childProps.children = this.getElements(child.props.children);
         return React.cloneElement(child, childProps);
       }
-
       return child;
     }, this);
   }
