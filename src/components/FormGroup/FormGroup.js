@@ -10,16 +10,16 @@ class FormGroup extends React.Component {
   state = {
   }
 
-  componentWillMount = () => {
-    this.setInitialState();
-  }
-
   static propTypes = {
     /**
      * A configuration object of name/value pairs
      * that correspond to the form fields
      */
      schema: React.PropTypes.object
+  }
+
+  componentWillMount = () => {
+    this.setInitialState();
   }
 
   setInitialState = () => {
@@ -53,16 +53,20 @@ class FormGroup extends React.Component {
 
   getElements(children) {
     return React.Children.map(children, child => {
-      const childProps = {};
+      let childProps = {};
       const name = child.props.name;
       const fields = this.state.fields;
 
-      if (React.isValidElement(child)) {
-        childProps = {
-          changeCallback: this.handleChange,
-          optClass: style.field,
-          // value: fields[name].value
-        };
+      if (name in fields) {
+        if (React.isValidElement(child)) {
+          childProps = {
+            changeCallback: this.handleChange,
+            optClass: style.field,
+            value: fields[name].value
+          };
+        }
+      } else {
+        return;
       }
 
       if (child.props) {
