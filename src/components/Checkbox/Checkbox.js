@@ -50,11 +50,15 @@ class Checkbox extends React.Component {
   };
 
   handleChange = (event) => {
-    this.setState({checked: event.target.checked});
+    this.setState({ checked: event.target.checked });
 
     if (typeof this.props.changeCallback === 'function') {
       this.props.changeCallback(event);
     }
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({ checked: nextProps.checked });
   }
 
   render() {
