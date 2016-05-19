@@ -23,7 +23,11 @@ class FormGroup extends React.Component {
      /**
       * A callback function to be called when the form is submitted.
       */
-     submitCallback: React.PropTypes.func
+     submitCallback: React.PropTypes.func,
+     /**
+      * An optional CSS class to be used for local styles
+      */
+     optClass: React.PropTypes.string
   }
 
   componentWillReceiveProps(nextProps) {
@@ -97,7 +101,7 @@ class FormGroup extends React.Component {
 
   render() {
     const cx = classNames.bind(style);
-    var formGroupClass = style['form-group'];
+    var formGroupClass = cx(style['form-group'], this.props.optClass);
 
     const elements = this.getElements(this.props.children);
 
