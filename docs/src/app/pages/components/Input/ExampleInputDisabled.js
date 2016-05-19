@@ -3,7 +3,7 @@ import Input from 'react-conventions/lib/Input'
 import Button from 'react-conventions/lib/Button'
 import style from './style.scss'
 
-class ExampleInputDefault extends React.Component {
+class ExampleInputDisabled extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -26,4 +26,4 @@ class ExampleInputDefault extends React.Component {
   }
 }
 
-export default ExampleInputDefault
+export default ExampleInputDisabled

@@ -69,7 +69,7 @@ const TextareaPage = () => (
           <ExampleTextareaCallback />
         </CodeExample>
         <CodeExample
-          title='Textarea with initial value'
+          title='Handling updates via props'
           description={description.textareaPopulated}
           markup={exampleTextareaPopulatedCode}>
           <ExampleTextareaPopulated />
