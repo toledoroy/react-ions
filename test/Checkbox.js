@@ -67,4 +67,23 @@ describe('Checkbox', () => {
     wrapper.childAt(0).simulate('change', {target: { checked: true }});
     expect(checked).to.equal(true);
   });
+
+  it('should not result with an error if the change callback is not defined', () => {
+    let checked = false;
+    wrapper = mount(<Checkbox value='test' label='Test label' />);
+
+    wrapper.childAt(0).simulate('change', {target: { checked: true }});
+    expect(checked).to.equal(false);
+  });
+
+  it('should update its state when the checked property changes', () => {
+    wrapper = mount(<Checkbox value='test' label='Test label' checked={false}/>);
+
+    expect(wrapper.state().checked).to.be.false;
+
+    wrapper.setProps({ checked: true });
+    wrapper.update();
+
+    expect(wrapper.state().checked).to.be.true;
+  });
 });
