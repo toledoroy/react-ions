@@ -6,10 +6,6 @@ import classNames from 'classnames/bind'
 class TabWrapper extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      selectedIndex: this.props.initialSelectedIndex && this.props.initialSelectedIndex < this.props.children.length ? this.props.initialSelectedIndex : 0
-    }
   }
 
   static defaultProps = {
@@ -30,6 +26,16 @@ class TabWrapper extends React.Component {
      */
     optClass: React.PropTypes.string
   };
+
+  state = {
+    selectedIndex: this.props.initialSelectedIndex && this.props.initialSelectedIndex < this.props.children.length ? this.props.initialSelectedIndex : 0
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.initialSelectedIndex !== this.props.initialSelectedIndex) {
+      this.setState({ selectedIndex: (nextProps.initialSelectedIndex && nextProps.initialSelectedIndex < nextProps.children.length ? nextProps.initialSelectedIndex : 0) });
+    }
+  }
 
   componentWillMount = () => {
     this.getTabs().map((tab, index) => {

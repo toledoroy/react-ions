@@ -1,15 +1,18 @@
 import React from 'react'
 import {TabWrapper, Tab} from 'react-conventions/lib/TabWrapper'
 import ProgressBar from 'react-conventions/lib/ProgressBar'
+import Button from 'react-conventions/lib/Button'
 import style from './style.scss'
 
 class ExampleTabWrapperDefault extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      selected: '1st'
-    };
   }
+
+  state = {
+    selected: '1st',
+    selectedTabIndex: 0
+  };
 
   selectCallback = (index) => {
     let selectedTab;
@@ -25,14 +28,19 @@ class ExampleTabWrapperDefault extends React.Component {
         selectedTab = '3rd';
     }
 
-    this.setState({ selected: selectedTab });
+    this.setState({ selected: selectedTab, selectedTabIndex: index });
   }
 
   render() {
     return(
       <div>
         <p>The {this.state.selected} tab is selected.</p>
-        <TabWrapper onSelect={this.selectCallback}>
+        <div className={style.update}>
+          <Button onClick={this.selectCallback.bind(this, 0)}>Select 1st tab</Button>
+          <Button onClick={this.selectCallback.bind(this, 1)}>Select 2nd tab</Button>
+          <Button onClick={this.selectCallback.bind(this, 2)}>Select 3rd tab</Button>
+        </div>
+        <TabWrapper onSelect={this.selectCallback} initialSelectedIndex={this.state.selectedTabIndex}>
           <Tab title="All Recent Activity" count={1723} optTabContentClass={style['tab-content']}>
             <p>This tab contains another component.</p>
             <ProgressBar label='Progress' showPercentage={true} value={40} denominator={50} className="success" />
