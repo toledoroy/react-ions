@@ -4,7 +4,7 @@
 ###### _May 19, 2016_
 
 ##### General
-- [Web] statful components now update when new props are received ([#77](https://github.com/GetAmbassador/react-conventions/pull/77))
+- [Web] stateful components now update when new props are received ([#77](https://github.com/GetAmbassador/react-conventions/pull/77))
 
 ##### Component Fixes / Enhancements
 - [Progress Feed] made style paths relative ([#78](https://github.com/GetAmbassador/react-conventions/pull/78))
