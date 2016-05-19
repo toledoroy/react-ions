@@ -60,7 +60,9 @@ class RadioGroup extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    this.setState({ checkedOption: (typeof nextProps.defaultOption !== 'undefined' ? nextProps.options[nextProps.defaultOption].value : '') });
+    if (nextProps.defaultOption !== this.props.defaultOption) {
+      this.setState({ checkedOption: (typeof nextProps.defaultOption !== 'undefined' ? nextProps.options[nextProps.defaultOption].value : '') });
+    }
   }
 
   handleChange = (event, value) => {
