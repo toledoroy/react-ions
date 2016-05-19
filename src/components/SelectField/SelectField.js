@@ -49,13 +49,15 @@ class SelectField extends React.Component {
 
   state = {
     isOpen: false,
-    selected: typeof this.props.defaultOption !== 'undefined' ?
-              this.props.options[this.props.defaultOption] :
-              ''
+    selected: typeof this.props.defaultOption !== 'undefined' ? this.props.options[this.props.defaultOption] : ''
   }
 
   componentWillUnmount = () => {
-    document.removeEventListener('click', this.toggleOptions);    
+    document.removeEventListener('click', this.toggleOptions);
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({ selected: typeof nextProps.defaultOption !== 'undefined' ? nextProps.options[nextProps.defaultOption] : '' });
   }
 
   toggleOptions = () => {
@@ -72,7 +74,7 @@ class SelectField extends React.Component {
   selectOption = (option) => {
     this.setState({selected: option}, function() {
       if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(option);
+        this.props.changeCallback({ target: { name: this.props.name, value: option }});
       }
     });
   }
