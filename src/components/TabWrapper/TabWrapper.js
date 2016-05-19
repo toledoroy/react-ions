@@ -32,7 +32,6 @@ class TabWrapper extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    console.log(nextProps.initialSelectedIndex, this.props.initialSelectedIndex);
     if (nextProps.initialSelectedIndex !== this.props.initialSelectedIndex) {
       this.setState({ selectedIndex: (nextProps.initialSelectedIndex < nextProps.children.length ? nextProps.initialSelectedIndex : 0) });
     }
