@@ -57,4 +57,14 @@ describe('Radio', () => {
     wrapper.find('input').simulate('change');
     expect(checked).to.be.equal('test');
   });
+
+  it('should not result with an error if the callback is not defined', () => {
+    const spy = sinon.spy(console, 'error');
+    wrapper = mount(<Radio value='test' label='Test label'></Radio>);
+
+    wrapper.find('input').simulate('change');
+
+    expect(spy.calledOnce).to.be.false;
+    spy.restore();
+  });
 });
