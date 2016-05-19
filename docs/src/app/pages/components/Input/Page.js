@@ -13,6 +13,8 @@ import ExampleInputError from './ExampleInputError'
 import exampleInputErrorCode from '!raw!./ExampleInputError'
 import ExampleInputCallback from './ExampleInputCallback'
 import exampleInputCallbackCode from '!raw!./ExampleInputCallback'
+import ExampleInputPopulated from './ExampleInputPopulated'
+import exampleInputPopulatedCode from '!raw!./ExampleInputPopulated'
 
 const description = {
   inputDefault: 'This is the `input component` as it appears by default.',
@@ -55,6 +57,12 @@ const InputPage = () => (
           description={description.inputCallback}
           markup={exampleInputCallbackCode}>
           <ExampleInputCallback />
+        </CodeExample>
+        <CodeExample
+          title='Handling updates via props'
+          description={description.inputCallback}
+          markup={exampleInputPopulatedCode}>
+          <ExampleInputPopulated />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>

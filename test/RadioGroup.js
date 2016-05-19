@@ -52,6 +52,12 @@ describe('RadioGroup', () => {
     expect(wrapper.childAt(0).html()).to.be.equal('<span class="asterisk">*</span>');
   });
 
+  it('should not have a label', () => {
+    wrapper = shallow(<RadioGroup name='test-group' options={options}/>);
+
+    expect(wrapper.find('label')).to.have.length(0);
+  });
+
   it('should have an option checked', () => {
     wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' defaultOption={0}/>);
 
@@ -87,5 +93,31 @@ describe('RadioGroup', () => {
 
     wrapper.childAt(2).find('input').simulate('change');
     expect(checked).to.be.equal('option_2');
+  });
+
+  it('should update the state when the defaultOption property changes', () => {
+    wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' defaultOption={0}/>);
+
+    expect(wrapper.childAt(1).props().checked).to.be.true;
+    expect(wrapper.childAt(2).props().checked).to.be.false;
+
+    wrapper.setProps({ defaultOption: 1 });
+    wrapper.update();
+
+    expect(wrapper.childAt(1).props().checked).to.be.false;
+    expect(wrapper.childAt(2).props().checked).to.be.true;
+  });
+
+  it('should not result in an error if changeCallback is not defined', () => {
+    const spy = sinon.spy(console, 'error');
+    wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' />);
+
+    wrapper.childAt(1).find('input').simulate('change');
+    expect(spy.calledOnce).to.be.false;
+
+    wrapper.childAt(2).find('input').simulate('change');
+    expect(spy.calledOnce).to.be.false;
+
+    spy.restore();
   });
 });

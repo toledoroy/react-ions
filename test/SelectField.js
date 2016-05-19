@@ -135,4 +135,31 @@ describe('SelectField', () => {
 
     expect(document.body.getElementsByClassName('active')).to.have.length(0);
   });
+
+  it('should not react to document click if component unmounts', () => {
+    const div = document.createElement('div');
+    document.body.appendChild(div);
+    const component = ReactDOM.render(<SelectField options={options} valueProp='value' displayProp='display' />, div);
+    const containerDiv = ReactDOM.findDOMNode(div);
+
+    expect(document.body.getElementsByClassName('active')).to.have.length(0);
+
+    component.componentWillUnmount();
+
+    // Trigger a click on the body element
+    eventFire(document.body, 'click');
+
+    expect(document.body.getElementsByClassName('active')).to.have.length(0);
+  });
+
+  it('should update the state when the defaultOption property changes', () => {
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' defaultOption={0} />);
+
+    expect(wrapper.childAt(1).text().indexOf(options[0].display)).to.equal(0);
+
+    wrapper.setProps({ defaultOption: 1 });
+    wrapper.update();
+
+    expect(wrapper.childAt(1).text().indexOf(options[1].display)).to.equal(0);
+  });
 });

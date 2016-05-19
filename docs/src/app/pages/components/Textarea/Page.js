@@ -15,6 +15,8 @@ import ExampleTextareaError from './ExampleTextareaError'
 import exampleTextareaErrorCode from '!raw!./ExampleTextareaError'
 import ExampleTextareaCallback from './ExampleTextareaCallback'
 import exampleTextareaCallbackCode from '!raw!./ExampleTextareaCallback'
+import ExampleTextareaPopulated from './ExampleTextareaPopulated'
+import exampleTextareaPopulatedCode from '!raw!./ExampleTextareaPopulated'
 
 const description = {
   textareaDefault: 'This is the `textarea component` as it appears by default.',
@@ -22,7 +24,8 @@ const description = {
   textareaLabel: 'This is the `textarea component` with a label.',
   textareaDisabled: 'This is the disabled `textarea component`.',
   textareaError: 'This is the `textarea component` with error.',
-  textareaCallback: 'This is the `textarea component` with a callback function. __Note__: _the `style import` and `code` tag is for display purposes only._'
+  textareaCallback: 'This is the `textarea component` with a callback function. __Note__: _the `style import` and `code` tag is for display purposes only._',
+  textareaPopulated: 'This is the `textarea component` that already has some content.'
 };
 
 const TextareaPage = () => (
@@ -64,6 +67,12 @@ const TextareaPage = () => (
           description={description.textareaCallback}
           markup={exampleTextareaCallbackCode}>
           <ExampleTextareaCallback />
+        </CodeExample>
+        <CodeExample
+          title='Handling updates via props'
+          description={description.textareaPopulated}
+          markup={exampleTextareaPopulatedCode}>
+          <ExampleTextareaPopulated />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>

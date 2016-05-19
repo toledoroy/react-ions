@@ -58,6 +58,7 @@ const Routes = (
       <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
       <Route path='tabs' title='Tabs' component={TabsPage} />
       <Route path='textarea' title='Textarea' component={TextareaPage} />
+      <Route path='select-field' title='Select Field' component={SelectFieldPage} />
       <Route path='tooltip' title='Tooltip' component={TooltipPage} />
     </Route>
     <Route path='patterns' title='Patterns'>

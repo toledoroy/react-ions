@@ -5,6 +5,10 @@ import style from './style.scss'
 import classNames from 'classnames/bind'
 
 class ActivityFeed extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   static propTypes = {
     /**
      * The activity feed data.
@@ -20,8 +24,8 @@ class ActivityFeed extends React.Component {
     data: this.props.data
   }
 
-  constructor(props) {
-    super(props);
+  componentWillReceiveProps = () => {
+    this.setState({ data: this.props.data });
   }
 
   render() {

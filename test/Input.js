@@ -64,4 +64,42 @@ describe('Input', () => {
     wrapper.childAt(0).simulate('focus');
     expect(spy.calledOnce).to.be.true;
   });
+
+  it('should not result in an error if changeCallback is not defined', () => {
+    const spy = sinon.spy(console, 'error');
+    wrapper = mount(<Input value='test' />);
+    wrapper.childAt(0).simulate('change');
+
+    expect(spy.calledOnce).to.be.false;
+    spy.restore();
+  });
+
+  it('should not result in an error if blurCallback is not defined', () => {
+    const spy = sinon.spy(console, 'error');
+    wrapper = mount(<Input value='test' />);
+    wrapper.childAt(0).simulate('blur');
+
+    expect(spy.calledOnce).to.be.false;
+    spy.restore();
+  });
+
+  it('should not result in an error if focusCallback is not defined', () => {
+    const spy = sinon.spy(console, 'error');
+    wrapper = mount(<Input value='test' />);
+    wrapper.childAt(0).simulate('focus');
+
+    expect(spy.calledOnce).to.be.false;
+    spy.restore();
+  });
+
+  it('should update the state when the disabled property changes', () => {
+    wrapper = mount(<Input label='Disabled input' value='' disabled={false} />);
+
+    expect(wrapper.find('input').node.hasAttribute('disabled')).to.be.false;
+
+    wrapper.setProps({ disabled: true });
+    wrapper.update();
+
+    expect(wrapper.find('input').node.hasAttribute('disabled')).to.be.true;
+  });
 });
