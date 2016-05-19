@@ -60,6 +60,15 @@ describe('Textarea', () => {
     expect(spy.calledOnce).to.be.true;
   });
 
+  it('should not result in an error when blurCallback is not defined', () => {
+    const spy = sinon.spy(console, 'error');
+    wrapper = mount(<Textarea value='test' />);
+    wrapper.childAt(0).simulate('blur');
+
+    expect(spy.calledOnce).to.be.false;
+    spy.restore();
+  });
+
   it('should run the blurCallback on blur and update the value', () => {
     let value = 'not called';
     const callback = function() {
@@ -72,11 +81,30 @@ describe('Textarea', () => {
     expect(value).to.equal('called');
   });
 
+  it('should not result in an error when focusCallback is not defined', () => {
+    const spy = sinon.spy(console, 'error');
+    wrapper = mount(<Textarea value='test' />);
+    wrapper.childAt(0).simulate('focus');
+
+    expect(spy.calledOnce).to.be.false;
+    spy.restore();
+  });
+
   it('should run the focusCallback on focus', () => {
     const spy = sinon.spy();
     wrapper = mount(<Textarea value='test' focusCallback={spy} />);
     expect(typeof wrapper.childAt(0).props().focusCallback).to.equal('function');
     wrapper.childAt(0).simulate('focus');
     expect(spy.calledOnce).to.be.true;
+  });
+
+  it('should update the state when the value property changes', () => {
+    wrapper = mount(<Textarea value='test' value="Test text" />);
+    expect(wrapper.childAt(0).props().value).to.equal('Test text');
+
+    wrapper.setProps({ value: "Test change" });
+    wrapper.update();
+
+    expect(wrapper.childAt(0).props().value).to.equal('Test change');
   });
 });

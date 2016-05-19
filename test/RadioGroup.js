@@ -108,7 +108,7 @@ describe('RadioGroup', () => {
     expect(wrapper.childAt(2).props().checked).to.be.true;
   });
 
-  it('should not result with an error if changeCallback is not defined', () => {
+  it('should not result in an error if changeCallback is not defined', () => {
     const spy = sinon.spy(console, 'error');
     wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' />);
 

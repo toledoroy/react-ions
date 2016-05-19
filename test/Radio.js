@@ -58,7 +58,7 @@ describe('Radio', () => {
     expect(checked).to.be.equal('test');
   });
 
-  it('should not result with an error if the callback is not defined', () => {
+  it('should not result in an error if the callback is not defined', () => {
     const spy = sinon.spy(console, 'error');
     wrapper = mount(<Radio value='test' label='Test label'></Radio>);
 

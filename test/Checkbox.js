@@ -68,7 +68,7 @@ describe('Checkbox', () => {
     expect(checked).to.equal(true);
   });
 
-  it('should not result with an error if the change callback is not defined', () => {
+  it('should not result in an error if the change callback is not defined', () => {
     let checked = false;
     wrapper = mount(<Checkbox value='test' label='Test label' />);
 
