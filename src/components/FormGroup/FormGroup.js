@@ -27,7 +27,7 @@ class FormGroup extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    nextProps.schema = this.props.schema;
+    this.state.schema = nextProps.schema;
   }
 
   componentWillMount = () => {
@@ -46,9 +46,9 @@ class FormGroup extends React.Component {
     this.setState({fields: fields});
   }
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
     if (typeof this.props.submitCallback === 'function') {
-      this.props.submitCallback(this.state.fields);
+      this.props.submitCallback(event, this.state.fields);
     }
   }
 
@@ -92,7 +92,7 @@ class FormGroup extends React.Component {
         return React.cloneElement(child, childProps);
       }
       return child;
-    }, this);
+    });
   }
 
   render() {
@@ -102,7 +102,7 @@ class FormGroup extends React.Component {
     const elements = this.getElements(this.props.children);
 
     return (
-      <form className={formGroupClass}>
+      <form className={formGroupClass} onSubmit={this.handleSubmit}>
         <fieldset className={style.fieldset}>
           {elements}
         </fieldset>
