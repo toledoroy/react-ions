@@ -58,8 +58,8 @@ class Input extends React.Component {
   };
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.disabled !== this.props.disabled) {
-      this.setState({ disabled: nextProps.disabled });
+    if (nextProps.value !== this.props.value) {
+      this.setState({ value: nextProps.value });
     }
   }
 
