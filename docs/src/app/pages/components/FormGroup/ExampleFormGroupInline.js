@@ -42,25 +42,14 @@ const ExampleFormGroup = () => (
     }}>
 
     <fieldset className={style.row}>
-      <legend><span>Inline select fields</span></legend>
-      <SelectField name='selectOptionsTimeSince' options={selectOptionsTimeSince} valueProp='value' displayProp='display' optClass={style.field} />
-      <SelectField name='lessThanGreaterThan' options={lessThanGreaterThan} valueProp='value' displayProp='display' optClass={style.field} />
-      <Input name='num' type='text' optClass={style.field} />
-      <SelectField name='timeSince' options={timeSince} valueProp='value' displayProp='display' optClass={style.field} />
-    </fieldset>
-
-    <fieldset className={style.row}>
       <legend><span>Inline select fields with a couple of extras</span></legend>
-      <ButtonGroup name="checked-button-group" options={buttonGroup} defaultOption={0}></ButtonGroup>
       <SelectField name='selectOptionsTimeSince' options={selectOptionsTimeSince} valueProp='value' displayProp='display' optClass={style.field} />
       <SelectField name='lessThanGreaterThan' options={lessThanGreaterThan} valueProp='value' displayProp='display' optClass={style.field} />
       <Input name='num' type='text' optClass={style.field} />
       <SelectField name='timeSince' options={timeSince} valueProp='value' displayProp='display' optClass={style.field} />
-      <div className={style['remove-item']}>
-        <Icon name='icon-delete-1' height='16' width='16' fill='#233040' />
-      </div>
     </fieldset>
     <fieldset className={style.row}>
+      <ButtonGroup name="checked-button-group" options={buttonGroup} defaultOption={0}></ButtonGroup>
       <SelectField name='selectOptionsTimeSince' options={selectOptionsTimeSince} valueProp='value' displayProp='display' optClass={style.field} />
       <SelectField name='lessThanGreaterThan' options={lessThanGreaterThan} valueProp='value' displayProp='display' optClass={style.field} />
       <Input name='num' type='text' optClass={style.field} />

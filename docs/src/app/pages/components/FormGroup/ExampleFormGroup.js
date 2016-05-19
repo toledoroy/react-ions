@@ -32,13 +32,13 @@ const selectOptions = [
 const ExampleFormGroup = () => (
   <FormGroup
     schema={{
-      'subject':{'value':'booya'},
+      'subject':{'value':'This is my subject'},
       'message':{'value':'test'},
       'radio':{'value':''},
       'select':{'value': '1'},
       'email':{'value':true},
       'facebook':{'value':false},
-      'twitter':{'value':false},
+      'twitter':{'value':true},
       'linkedin':{'value':false}
     }}>
 
