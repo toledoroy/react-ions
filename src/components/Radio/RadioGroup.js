@@ -72,10 +72,10 @@ class RadioGroup extends React.Component {
     if (value !== this.state.value) {
       this.setState({value: value}, function() {
         this.checkItem(value, this.props.options);
-        if (typeof this.props.changeCallback === 'function') {
-          this.props.changeCallback(event, value);
-        }
       });
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback(event, value);
+      }
     }
   }
 
