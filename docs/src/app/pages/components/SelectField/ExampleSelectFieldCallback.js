@@ -17,8 +17,8 @@ class ExampleSelectFieldCallback extends React.Component {
 
   render() {
     const options = [
-      {value: 0, display: 'test 1'},
-      {value: 1, display: 'test 2'}
+      {value: '0', display: 'test 1'},
+      {value: '1', display: 'test 2'}
     ];
 
     return(
