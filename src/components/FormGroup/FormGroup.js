@@ -7,9 +7,6 @@ class FormGroup extends React.Component {
     super(props);
   }
 
-  state = {
-  }
-
   static propTypes = {
     /**
      * A configuration object of name/value pairs
