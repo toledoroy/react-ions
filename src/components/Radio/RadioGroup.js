@@ -40,7 +40,7 @@ class RadioGroup extends React.Component {
      */
     options: React.PropTypes.array.isRequired,
     /**
-     * Which option is checked by default.
+     * Which option is checked.
      */
     value: React.PropTypes.string,
     /**

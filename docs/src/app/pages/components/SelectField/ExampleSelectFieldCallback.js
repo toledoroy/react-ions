@@ -1,6 +1,6 @@
 import React from 'react'
 import SelectField from 'react-conventions/lib/SelectField/SelectField'
-import style from './style' 
+import style from './style'
 
 class ExampleSelectFieldCallback extends React.Component {
   constructor(props) {
@@ -8,11 +8,11 @@ class ExampleSelectFieldCallback extends React.Component {
   }
 
   state = {
-    status: null
+    status: 'Chosen option is \'test 1\''
   }
 
-  handleChange = (option) => {
-    this.setState({status: 'Chosen option is \'' + option.display + '\''});
+  handleChange = (event) => {
+    this.setState({status: 'Chosen option is \'' + event.target.value.display + '\''});
   }
 
   render() {

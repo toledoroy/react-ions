@@ -22,6 +22,10 @@ class SelectField extends React.Component {
      */
     options: React.PropTypes.array.isRequired,
     /**
+     * The value of the option to be selected.
+     */
+    value: React.PropTypes.string,
+    /**
      * Which field in the option object will be used as the value of the select field.
      */
     valueProp: React.PropTypes.string.isRequired,
@@ -29,10 +33,6 @@ class SelectField extends React.Component {
      * Which field in the option object will be used as the display of the select field.
      */
     displayProp: React.PropTypes.string.isRequired,
-    /**
-     * Which element in the options array should be automatically selected.
-     */
-    defaultOption: React.PropTypes.number,
     /**
      * Whether the select field is disabled.
      */
@@ -49,7 +49,16 @@ class SelectField extends React.Component {
 
   state = {
     isOpen: false,
-    selected: typeof this.props.defaultOption !== 'undefined' ? this.props.options[this.props.defaultOption] : ''
+    value: this.props.value
+  }
+
+  componentWillMount = () => {
+    if (typeof this.state.value !== 'undefined') {
+      this.selectItem(this.state.value, this.props.options);
+    }
+    else {
+      this.setState({selected: ''});
+    }
   }
 
   componentWillUnmount = () => {
@@ -57,8 +66,10 @@ class SelectField extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.defaultOption !== this.props.defaultOption) {
-      this.setState({ selected: typeof nextProps.defaultOption !== 'undefined' ? nextProps.options[nextProps.defaultOption] : '' });
+    if (nextProps.value && nextProps.value !== this.state.value) {
+      this.setState({ value: nextProps.value }, function() {
+        this.selectItem(nextProps.value, nextProps.options);
+      });
     }
   }
 
@@ -74,11 +85,29 @@ class SelectField extends React.Component {
   }
 
   selectOption = (option) => {
-    this.setState({selected: option}, function() {
+    this.setState({selected: option, value: option.value}, function() {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({ target: { name: this.props.name, value: option }});
       }
     });
+  }
+
+  selectItem = (value, options) => {
+    let index = this.getIndex(value, options);
+    if (index >= 0) {
+      this.selectOption(options[index]);
+    }
+  }
+
+  getIndex = (value, options) => {
+    let optionIndex = -1;
+    options.map((radio, index) => {
+      if (radio.value === value) {
+        optionIndex = index;
+      }
+    });
+
+    return optionIndex;
   }
 
   getDisplayText = () => {
