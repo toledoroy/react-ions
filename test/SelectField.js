@@ -7,8 +7,8 @@ import Icon from '../src/components/Icon/Icon'
 describe('SelectField', () => {
   let wrapper;
   const options = [
-    {value: 0, display: 'test 1', someOtherProp: true},
-    {value: 1, display: 'test 2', someOtherProp: false}
+    {value: '0', display: 'test 1', someOtherProp: true},
+    {value: '1', display: 'test 2', someOtherProp: false}
   ];
 
   function eventFire(el, etype){
@@ -66,7 +66,7 @@ describe('SelectField', () => {
   });
 
   it('should have an option selected by default', () => {
-    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' defaultOption={1} />);
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' value={'1'} />);
 
     expect(wrapper.childAt(1).text().indexOf(options[1].display)).to.equal(0);
   });
@@ -152,12 +152,12 @@ describe('SelectField', () => {
     expect(document.body.getElementsByClassName('active')).to.have.length(0);
   });
 
-  it('should update the state when the defaultOption property changes', () => {
-    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' defaultOption={0} />);
+  it('should update the state when the value property changes', () => {
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' value={'0'} />);
 
     expect(wrapper.childAt(1).text().indexOf(options[0].display)).to.equal(0);
 
-    wrapper.setProps({ defaultOption: 1 });
+    wrapper.setProps({ value: '1' });
     wrapper.update();
 
     expect(wrapper.childAt(1).text().indexOf(options[1].display)).to.equal(0);

@@ -15,6 +15,7 @@ const Radio = (props) => {
   const radioClass = cx(style['radio-component'], optClass, disabledClass);
 
   const handleChange = function(event) {
+    event.persist();
     if (typeof props.changeCallback === 'function') {
       props.changeCallback(event, props.value);
     }

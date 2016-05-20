@@ -22,26 +22,26 @@ class ExampleRadioChecked extends React.Component {
   }
 
   state = {
-    selected: 1
+    selected: 'option_2'
   }
 
-  updateSelected = (index) => {
-    this.setState({ selected: index });
+  updateSelected = (value) => {
+    this.setState({ selected: value });
   }
 
   render () {
     return (
       <div>
         <div className={style.update}>
-          <Button onClick={this.updateSelected.bind(this, 0)}>Select 1st item</Button>
-          <Button onClick={this.updateSelected.bind(this, 1)}>Select 2nd item</Button>
-          <Button onClick={this.updateSelected.bind(this, 2)}>Select 3rd item</Button>
+          <Button onClick={this.updateSelected.bind(this, 'option_1')}>Select 1st item</Button>
+          <Button onClick={this.updateSelected.bind(this, 'option_2')}>Select 2nd item</Button>
+          <Button onClick={this.updateSelected.bind(this, 'option_3')}>Select 3rd item</Button>
         </div>
         <RadioGroup
           label="Checked radio label"
           name="checked-radio-group"
           options={options}
-          defaultOption={this.state.selected}>
+          value={this.state.selected}>
         </RadioGroup>
       </div>
     )
