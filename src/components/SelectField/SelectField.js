@@ -85,20 +85,20 @@ class SelectField extends React.Component {
   }
 
   selectOption = (option) => {
-    this.setState({selected: option, value: option.value});
-    if (typeof this.props.changeCallback === 'function') {
-      this.props.changeCallback({
-        target: {
-          name: this.props.name,
-          value: option[this.props.valueProp],
-          option: option
-        }
-      });
-    }
+    this.setState({selected: option, value: option.value}, function() {
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback({
+          target: {
+            name: this.props.name,
+            value: option[this.props.valueProp],
+            option: option
+          }
+        });
+      }
+    });
   }
 
   selectItem = (value, options) => {
-    let manuallySelectedValue = value;
     let index = this.getIndex(value, options);
     if (index >= 0) {
       this.selectOption(options[index]);
