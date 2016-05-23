@@ -14,14 +14,11 @@
   input {
     border: solid 1px $neutral-3;
     border-radius: 3px;
+    box-sizing: border-box;
     font-size: 14px;
     padding: 10px;
-    min-width: 300px;
+    width: 100%;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-
-    @media #{$media-small-minus} {
-      min-width: 240px;
-    }
 
     &:focus {
       border-color: $primary-1;

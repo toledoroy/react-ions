@@ -30,7 +30,7 @@ describe('Checkbox', () => {
     const checked = true;
     wrapper = mount(<Checkbox value='test' label='Test label' checked={checked}></Checkbox>);
 
-    expect(wrapper.childAt(0).props().checked).to.equal(true);
+    expect(wrapper.childAt(0).props().checked).to.equal('test');
   });
 
   it('should have an extra class', () => {
@@ -79,7 +79,7 @@ describe('Checkbox', () => {
   it('should update its state when the checked property changes', () => {
     wrapper = mount(<Checkbox value='test' label='Test label' checked={false}/>);
 
-    expect(wrapper.state().checked).to.be.false;
+    expect(wrapper.state().checked).to.equal('test');
 
     wrapper.setProps({ checked: true });
     wrapper.update();

@@ -28,6 +28,10 @@ class Checkbox extends React.Component {
      */
     disabled: React.PropTypes.bool,
     /**
+     * Value of the input.
+     */
+    value: React.PropTypes.bool,
+    /**
      * Text displayed with the checkbox.
      */
     label: React.PropTypes.string,
@@ -35,10 +39,6 @@ class Checkbox extends React.Component {
      * Whether the label shouild appear on the right or left.
      */
     labelPosition: React.PropTypes.string,
-    /**
-     * Value provided when checked.
-     */
-    value: React.PropTypes.string,
     /**
      * Optional styles to add to the checkbox.
      */
@@ -50,10 +50,18 @@ class Checkbox extends React.Component {
   };
 
   handleChange = (event) => {
-    this.setState({ checked: event.target.checked });
+    event.persist();
+    this.setState({ checked: event.target.checked }, function() {
+      if (typeof this.props.changeCallback === 'function') {
+        event.target.value = !!event.target.checked;
+        this.props.changeCallback(event);
+      }
+    });
+  }
 
-    if (typeof this.props.changeCallback === 'function') {
-      this.props.changeCallback(event);
+  componentWillMount = () => {
+    if (this.props.value) {
+      this.setState({ checked: this.props.value });
     }
   }
 

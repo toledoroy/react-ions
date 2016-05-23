@@ -53,7 +53,7 @@ class SelectField extends React.Component {
   }
 
   componentWillMount = () => {
-    if (typeof this.state.value !== 'undefined') {
+    if (typeof this.state.value !== 'undefined' && this.state.value !== '') {
       this.selectItem(this.state.value, this.props.options);
     }
     else {
@@ -62,7 +62,7 @@ class SelectField extends React.Component {
   }
 
   componentWillUnmount = () => {
-    document.removeEventListener('click', this.toggleOptions);
+    document.removeEventListener('click', this.toggleSelectField);
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -73,22 +73,29 @@ class SelectField extends React.Component {
     }
   }
 
-  toggleOptions = () => {
+  toggleSelectField = () => {
     this.setState({isOpen: !this.state.isOpen}, function() {
       if (this.state.isOpen) {
-        document.addEventListener('click', this.toggleOptions);
+        document.addEventListener('click', this.toggleSelectField);
       }
       else {
-        document.removeEventListener('click', this.toggleOptions);
+        document.removeEventListener('click', this.toggleSelectField);
       }
     });
   }
 
   selectOption = (option) => {
-    this.setState({selected: option, value: option.value});
-    if (typeof this.props.changeCallback === 'function') {
-      this.props.changeCallback({ target: { name: this.props.name, value: option }});
-    }
+    this.setState({selected: option, value: option.value}, function() {
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback({
+          target: {
+            name: this.props.name,
+            value: option[this.props.valueProp],
+            option: option
+          }
+        });
+      }
+    });
   }
 
   selectItem = (value, options) => {
@@ -134,7 +141,7 @@ class SelectField extends React.Component {
     return (
       <div className={selectFieldClass}>
         <input type='hidden' name='selectfield-value' value={this.state.selected && this.state.selected[this.props.valueProp]} />
-        <div className={style['selectfield-value']} onClick={this.toggleOptions}>
+        <div className={style['selectfield-value']} onClick={this.toggleSelectField}>
           {this.getDisplayText()}
           <Icon name='icon-caret' width='10' height='10' />
           <ul>
