@@ -62,6 +62,7 @@ class ButtonGroup extends React.Component {
   }
 
   handleChange = (event, value) => {
+    event.persist();
     this.setState({checkedOption: value}, function() {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback(event, value);

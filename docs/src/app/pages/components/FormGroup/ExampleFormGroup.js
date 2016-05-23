@@ -26,7 +26,8 @@ let fields = {
   ],
   select: [
     {value: '0', display: 'test 1'},
-    {value: '1', display: 'test 2'}
+    {value: '1', display: 'test 2'},
+    {value: '2', display: 'test 3'}
   ]
 };
 
