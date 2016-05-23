@@ -120,7 +120,7 @@ describe('AlertSystem', () => {
     wrapper = mount(<AlertSystem alerts={alerts}/>);
 
     expect(wrapper.children()).to.have.length(1);
-    // expect(wrapper.childAt(0).find('.close-icon')).to.have.length(0);
+    expect(wrapper.childAt(0).find('.close-icon')).to.have.length(0);
   });
 
   it('should have an extra class', () => {
