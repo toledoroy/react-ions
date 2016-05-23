@@ -53,7 +53,7 @@ class SelectField extends React.Component {
   }
 
   componentWillMount = () => {
-    if (typeof this.state.value !== 'undefined') {
+    if (typeof this.state.value !== 'undefined' && this.state.value !== '') {
       this.selectItem(this.state.value, this.props.options);
     }
     else {
