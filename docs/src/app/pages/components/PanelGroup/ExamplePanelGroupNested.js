@@ -9,19 +9,19 @@ const content = {
 }
 
 const ExamplePanelGroupNested = () => (
-  <PanelGroup accordion={true} optClass='simple'>
+  <PanelGroup accordion={true} optClass='multi-step'>
     <Panel>
-      <PanelHeader title='Simple Panel' contextIcon='icon-arrow-60' />
+      <PanelHeader title='Multi-step' contextNode={<Badge text='1' />} toggleIcon={{name: 'icon-arrow-37', size: '24'}} />
       <PanelContent>
-        <PanelGroup accordion={true} optClass='multi-step'>
+        <PanelGroup accordion={true} optClass='simple'>
           <Panel>
-            <PanelHeader title='Multi-Step Panel' contextNode={<Badge text='1' />} toggleIcon={{name: 'icon-arrow-37', size: '24'}} />
+            <PanelHeader title='Simple' contextIcon='icon-arrow-60' />
             <PanelContent optClass={style['rating-specific']}>
               <p className={style.paragraph}>{content.lorum1}</p>
             </PanelContent>
           </Panel>
           <Panel>
-            <PanelHeader title='What happens after a user submits their response?' contextNode={<Badge text='2' />} toggleIcon={{name: 'icon-arrow-37', size: '24'}} />
+            <PanelHeader title='What happens after a user submits their response?' contextIcon='icon-arrow-60' />
             <PanelContent>
               <p className={style.paragraph}>{content.lorum2}</p>
             </PanelContent>

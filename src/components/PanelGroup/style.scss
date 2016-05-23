@@ -160,7 +160,8 @@
   }
 
   > .panel.panel-active {
-      .panel-header {
+
+      > .panel-header {
         background-color: $primary-1;
 
         [class^='badge'] {
@@ -189,10 +190,8 @@
 
 // Simple Theme
 .panel-group.simple {
-  background: $white;
 
   > .panel {
-    background: $white;
     border-bottom: 0;
 
     > .panel-header {
