@@ -4,66 +4,86 @@
 @import '../../styles/common/functions';
 
 .panel-group {
-}
 
-.panel {
-  background: $neutral-2;
-  border-bottom: 1px solid $neutral-3;
+  > .panel {
+    background: $neutral-2;
+    border-bottom: 1px solid $neutral-3;
 
-  &:last-child {
-    border-bottom: none;
-  }
-}
-
-.panel-header {
-  box-sizing: border-box;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 200;
-  padding: 12px 15px;
-  position: relative;
-  user-select: none;
-
-  .title-group {
-    @include vertical-align('block');
-    user-select: none;
-
-    h4 {
-      color: $neutral-4;
-      margin: 0;
-      padding-right: 30px;
+    .panel-header {
+      box-sizing: border-box;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 200;
+      padding: 12px 15px;
       position: relative;
-      top: 1px;
-      transition: all .25s ease;
+      user-select: none;
+
+      .title-group {
+        @include vertical-align('block');
+        user-select: none;
+
+        h4 {
+          color: $neutral-4;
+          margin: 0;
+          padding-right: 30px;
+          position: relative;
+          top: 1px;
+          transition: all .25s ease;
+        }
+
+        .context-icon {
+          position: relative;
+          top: 2px;
+          transition: all .25s ease;
+        }
+
+        svg {
+          fill: $neutral-4;
+        }
+
+        .context-icon + h4,
+        .context-node + h4 {
+          margin-left: 10px;
+        }
+      }
+
+      .toggle-icon {
+        opacity: 0;
+        position: absolute;
+        right: 15px;
+        top: 13px;
+        transform: rotate(-135deg);
+        transition: all .25s ease;
+      }
+
+      &:hover {
+        .title-group {
+          h4 {
+            color: $primary-5;
+          }
+          svg {
+            fill: $primary-5;
+          }
+        }
+        .toggle-icon {
+          opacity: 1;
+        }
+      }
+
     }
 
-    .context-icon {
-      position: relative;
-      top: 2px;
-      transition: all .25s ease;
+    .panel-content {
+      display: none;
+      padding: 0 40px 15px;
     }
 
-    svg {
-      fill: $neutral-4;
-    }
-
-    .context-icon + h4,
-    .context-node + h4 {
-      margin-left: 10px;
+    &:last-child {
+      border-bottom: none;
     }
   }
 
-  .toggle-icon {
-    opacity: 0;
-    position: absolute;
-    right: 15px;
-    top: 13px;
-    transform: rotate(-135deg);
-    transition: all .25s ease;
-  }
-
-  &:hover {
-    .title-group {
+  > .panel.panel-active {
+    .panel-header {
       h4 {
         color: $primary-5;
       }
@@ -71,167 +91,145 @@
         fill: $primary-5;
       }
     }
+
+    > .panel-content {
+      display: block;
+    }
+
     .toggle-icon {
       opacity: 1;
+      top: 15px;
+      transform: rotate(0);
     }
   }
-
-}
-
-.panel-content {
-  display: none;
-  padding: 0 40px 15px;
-}
-
-.panel-active {
-  .panel-header {
-    h4 {
-      color: $primary-5;
-    }
-    svg {
-      fill: $primary-5;
-    }
-  }
-
-  .panel-content {
-    display: block;
-  }
-
-  .toggle-icon {
-    opacity: 1;
-    top: 15px;
-    transform: rotate(0);
-  }
-
 }
 
 // Multi-step Theme
 .panel-group.multi-step {
 
-  .panel {
+  > .panel {
     background-color: $neutral-2;
     border-bottom: 0;
     border-radius: 3px;
     margin-bottom: 10px;
 
+    .panel-header {
+      padding: 13px 20px;
+
+      [class^='badge'] {
+        border-radius: 50%;
+        font-size: 14px;
+        height: 20px;
+        min-width: 20px;
+        width: 20px;
+      }
+
+      h4 {
+        font-size: 16px;
+        position: relative;
+        top: 1px;
+      }
+
+      svg {
+        fill: $neutral-4;
+      }
+
+      svg + h4,
+      .context-node + h4 {
+        margin-left: 20px;
+      }
+
+      .toggle-icon {
+        opacity: 1;
+        top: calc(50% - 12px);
+        transform: rotate(0);
+      }
+
+      @media #{$media-small-minus} {
+        padding: 13px;
+      }
+    }
+
+    .panel-content {
+      padding: 0;
+    }
+
     &:last-child {
       margin-bottom: 0;
     }
   }
 
-  .panel-header {
-    padding: 13px 20px;
+  > .panel.panel-active {
 
-    [class^='badge'] {
-      border-radius: 50%;
-      font-size: 14px;
-      height: 20px;
-      min-width: 20px;
-      width: 20px;
-    }
+      > .panel-header {
+        background-color: $primary-1;
 
-    h4 {
-      font-size: 16px;
-      position: relative;
-      top: 1px;
-    }
+        [class^='badge'] {
+          background-color: $primary-2;
+        }
 
-    svg {
-      fill: $neutral-4;
-    }
+        h4 {
+          color: $white;
+        }
 
-    svg + h4,
-    .context-node + h4 {
-      margin-left: 20px;
-    }
+        svg {
+          fill: $white;
+        }
 
-    .toggle-icon {
-      opacity: 1;
-      top: calc(50% - 12px);
-      transform: rotate(0);
-    }
-  }
-
-  .panel-content {
-    padding: 0;
-  }
-
-  .panel-active {
-
-    .panel-header {
-      background-color: $primary-1;
-
-      [class^='badge'] {
-        background-color: $primary-2;
+        .toggle-icon {
+          top: calc(50% - 18px);
+          transform: rotate(180deg);
+        }
       }
-
-      h4 {
-        color: $white;
-      }
-
-      svg {
-        fill: $white;
-      }
-
-      .toggle-icon {
-        top: calc(50% - 18px);
-        transform: rotate(180deg);
+      .panel-content {
+        padding: 20px;
       }
     }
-
-    .panel-content {
-      padding: 20px;
-    }
-
-  }
 
 }
 
 // Simple Theme
 .panel-group.simple {
-  background: $white;
 
-  .panel {
-    background: $white;
+  > .panel {
+    background: transparent;
     border-bottom: 0;
+
+    > .panel-header {
+      padding: 15px 0;
+
+      h4 {
+        color: $primary-1;
+        font-size: 18px;
+      }
+
+      svg {
+        fill: $primary-1;
+      }
+
+      .toggle-icon {
+        display: none;
+      }
+    }
+
+    > .panel-content {
+      padding: 0;
+    }
 
     &:last-child {
       margin-bottom: 0;
     }
   }
 
-  .panel-header {
-    padding: 15px 0;
-
-    h4 {
-      color: $primary-1;
-      font-size: 18px;
-    }
-
-    svg {
-      fill: $primary-1;
-    }
-
-    .toggle-icon {
-      display: none;
-    }
-  }
-
-  .panel-content {
-    padding: 0;
-  }
-
-  .panel-active {
-
+  > .panel.panel-active {
     .panel-header {
       .context-icon {
         transform: rotate(90deg);
       }
     }
-
-    .panel-content {
+    > .panel-content {
       padding: 0 0 15px;
     }
-
   }
+
 }

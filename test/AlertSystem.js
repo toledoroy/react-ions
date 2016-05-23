@@ -53,7 +53,7 @@ describe('AlertSystem', () => {
     wrapper = mount(<AlertSystem alerts={alerts}/>);
 
     expect(wrapper.children()).to.have.length(1);
-    expect(wrapper.childAt(0).find('.close-icon')).to.have.length(1);
+    expect(wrapper.childAt(0).hasClass('close-icon')).to.equal(false);
 
     wrapper.childAt(0).childAt(0).simulate('click');
 
@@ -67,7 +67,7 @@ describe('AlertSystem', () => {
     wrapper = mount(<AlertSystem alerts={alerts}/>);
 
     expect(wrapper.children()).to.have.length(1);
-    expect(wrapper.childAt(0).find('.close-icon')).to.have.length(1);
+    expect(wrapper.childAt(0).hasClass('close-icon')).to.equal(false);
 
     setTimeout(function() {
       expect(wrapper.children()).to.have.length(0);
@@ -82,7 +82,7 @@ describe('AlertSystem', () => {
     wrapper = mount(<AlertSystem alerts={alerts}/>);
 
     expect(wrapper.children()).to.have.length(1);
-    expect(wrapper.childAt(0).find('.close-icon')).to.have.length(1);
+    expect(wrapper.childAt(0).hasClass('close-icon')).to.equal(false);
 
     wrapper.childAt(0).simulate('mouseOver');
 
@@ -99,7 +99,7 @@ describe('AlertSystem', () => {
     wrapper = mount(<AlertSystem alerts={alerts}/>);
 
     expect(wrapper.children()).to.have.length(1);
-    expect(wrapper.childAt(0).find('.close-icon')).to.have.length(1);
+    expect(wrapper.childAt(0).hasClass('close-icon')).to.equal(false);
 
     wrapper.childAt(0).simulate('mouseOver');
 
@@ -120,7 +120,7 @@ describe('AlertSystem', () => {
     wrapper = mount(<AlertSystem alerts={alerts}/>);
 
     expect(wrapper.children()).to.have.length(1);
-    expect(wrapper.childAt(0).find('.close-icon')).to.have.length(0);
+    expect(wrapper.childAt(0).hasClass('close-icon')).to.equal(false);
   });
 
   it('should have an extra class', () => {
