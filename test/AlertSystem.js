@@ -53,7 +53,7 @@ describe('AlertSystem', () => {
     wrapper = mount(<AlertSystem alerts={alerts}/>);
 
     expect(wrapper.children()).to.have.length(1);
-    // expect(wrapper.childAt(0).find('.close-icon')).to.have.length(1);
+    expect(wrapper.childAt(0).hasClass('close-icon')).to.equal(false);
 
     wrapper.childAt(0).childAt(0).simulate('click');
 
