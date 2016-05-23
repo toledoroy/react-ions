@@ -14,12 +14,15 @@ import ExamplePanelGroupMultiStep from './ExamplePanelGroupMultiStep'
 import ExamplePanelGroupMultiStepCode from '!raw!./ExamplePanelGroupMultiStep'
 import ExamplePanelGroupSimple from './ExamplePanelGroupSimple'
 import ExamplePanelGroupSimpleCode from '!raw!./ExamplePanelGroupSimple'
+import ExamplePanelGroupNested from './ExamplePanelGroupNested'
+import ExamplePanelGroupNestedCode from '!raw!./ExamplePanelGroupNested'
 
 const description = {
   panelGroup: 'This is the default `panel group component`.',
   panelGroupAccordion: 'This is the default `panel group component` with accordion functionality.',
   panelGroupMultiStep: 'This is the `panel group component` with a multi-step design variation.',
-  panelGroupSimple: 'This is the `panel group component` with simple stylez.'
+  panelGroupSimple: 'This is the `panel group component` with simple styles.',
+  panelGroupNested: 'This is a `panel group component` within another component.',
 };
 
 const PanelGroupPage = () => (
@@ -49,6 +52,12 @@ const PanelGroupPage = () => (
           description={description.panelGroupSimple}
           markup={ExamplePanelGroupSimpleCode}>
           <ExamplePanelGroupSimple />
+        </CodeExample>
+        <CodeExample
+          title='Panel Group: Nested'
+          description={description.panelGroupNested}
+          markup={ExamplePanelGroupNestedCode}>
+          <ExamplePanelGroupNested />
         </CodeExample>
       </div>
       <div className={styles.block}>
