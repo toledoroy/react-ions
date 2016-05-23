@@ -9,7 +9,7 @@ class RadioGroup extends React.Component {
   }
 
   state = {
-    checkedOption: typeof this.props.defaultOption !== 'undefined' ? this.props.options[this.props.defaultOption].value : ''
+    value: this.props.value
   };
 
   static defaultProps = {
@@ -40,9 +40,9 @@ class RadioGroup extends React.Component {
      */
     options: React.PropTypes.array.isRequired,
     /**
-     * Which option is checked by default.
+     * Which option is checked.
      */
-    defaultOption: React.PropTypes.number,
+    value: React.PropTypes.string,
     /**
      * Where the label will be placed for all radio buttons. This will override any labelPosition properties defined for an individual radio button.
      */
@@ -53,30 +53,54 @@ class RadioGroup extends React.Component {
     changeCallback: React.PropTypes.func
   }
 
-  componentWillMount() {
-    if (typeof this.props.defaultOption !== 'undefined') {
-      this.props.options[this.props.defaultOption].checked = true;
+  componentWillMount = () => {
+    if (typeof this.state.value !== 'undefined') {
+      this.checkItem(this.state.value, this.props.options);
     }
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.defaultOption !== this.props.defaultOption) {
-      this.setState({ checkedOption: (typeof nextProps.defaultOption !== 'undefined' ? nextProps.options[nextProps.defaultOption].value : '') });
+    if (nextProps.value && nextProps.value !== this.state.value) {
+      this.setState({ value: nextProps.value }, function() {
+        this.checkItem(nextProps.value, nextProps.options);
+      });
     }
   }
 
   handleChange = (event, value) => {
-    this.setState({checkedOption: value}, function() {
+    event.persist();
+    if (value !== this.state.value) {
+      this.setState({value: value}, function() {
+        this.checkItem(value, this.props.options);
+      });
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback(event, value);
       }
-    });
+    }
   }
 
-  getOptions() {
+  checkItem = (value, options) => {
+    let index = this.getIndex(value, options);
+    if (index >= 0) {
+      options[index].checked = true;
+    }
+  }
+
+  getIndex = (value, options) => {
+    let optionIndex = -1;
+    options.map((radio, index) => {
+      if (radio.value === value) {
+        optionIndex = index;
+      }
+    });
+
+    return optionIndex;
+  }
+
+  getOptions = () => {
     const groupName = this.props.name;
     const groupLabelPosition = this.props.labelPosition;
-    const { options, label, name, value, required, defaultOption, labelPosition, changeCallback, ...other } = this.props;
+    const { options, label, name, value, required, labelPosition, changeCallback, ...other } = this.props;
 
     return this.props.options.map((radio, index) =>
       <Radio
@@ -84,7 +108,7 @@ class RadioGroup extends React.Component {
         value={radio.value}
         label={radio.label}
         name={groupName}
-        checked={this.state.checkedOption === radio.value}
+        checked={this.state.value === radio.value}
         labelPosition={groupLabelPosition}
         optClass={radio.optClass}
         changeCallback={this.handleChange}

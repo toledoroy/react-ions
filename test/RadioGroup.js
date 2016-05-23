@@ -59,7 +59,7 @@ describe('RadioGroup', () => {
   });
 
   it('should have an option checked', () => {
-    wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' defaultOption={0}/>);
+    wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' value="option_1"/>);
 
     expect(wrapper.childAt(1).props().checked).to.be.equal(true);
     expect(wrapper.childAt(2).props().checked).to.be.equal(false);
@@ -95,17 +95,30 @@ describe('RadioGroup', () => {
     expect(checked).to.be.equal('option_2');
   });
 
-  it('should update the state when the defaultOption property changes', () => {
-    wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' defaultOption={0}/>);
+  it('should update the state when the value property changes', () => {
+    wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' value="option_1"/>);
 
     expect(wrapper.childAt(1).props().checked).to.be.true;
     expect(wrapper.childAt(2).props().checked).to.be.false;
 
-    wrapper.setProps({ defaultOption: 1 });
+    wrapper.setProps({ value: "option_2" });
     wrapper.update();
 
     expect(wrapper.childAt(1).props().checked).to.be.false;
     expect(wrapper.childAt(2).props().checked).to.be.true;
+  });
+
+  it('should not update the state when the value property changes to undefined', () => {
+    wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' value="option_1"/>);
+
+    expect(wrapper.childAt(1).props().checked).to.be.true;
+    expect(wrapper.childAt(2).props().checked).to.be.false;
+
+    wrapper.setProps({ value: undefined });
+    wrapper.update();
+
+    expect(wrapper.childAt(1).props().checked).to.be.true;
+    expect(wrapper.childAt(2).props().checked).to.be.false;
   });
 
   it('should not result in an error if changeCallback is not defined', () => {
@@ -119,5 +132,17 @@ describe('RadioGroup', () => {
     expect(spy.calledOnce).to.be.false;
 
     spy.restore();
+  });
+
+  it('should update the state when a radio button is clicked', () => {
+    wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' value="option_1"/>);
+
+    expect(wrapper.childAt(1).props().checked).to.be.true;
+    expect(wrapper.childAt(2).props().checked).to.be.false;
+
+    wrapper.childAt(2).find('input').simulate('change');
+
+    expect(wrapper.childAt(1).props().checked).to.be.false;
+    expect(wrapper.childAt(2).props().checked).to.be.true;
   });
 });
