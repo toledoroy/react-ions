@@ -12,16 +12,16 @@ import style from 'react-conventions/lib/FormGroup/style'
 
 const fields = {
   selectField: [
-    {value: 0, display: 'Time since last NPS survey was received'},
-    {value: 1, display: 'Time since last NPS survey was completed'}
+    {value: '0', display: 'Time since last NPS survey was received'},
+    {value: '1', display: 'Time since last NPS survey was completed'}
   ],
   selectField2: [
-    {value: 0, display: 'less than'},
-    {value: 1, display: 'greater than'}
+    {value: '0', display: 'less than'},
+    {value: '1', display: 'greater than'}
   ],
   selectField3: [
-    {value: 0, display: 'months ago'},
-    {value: 1, display: 'years ago'}
+    {value: '0', display: 'months ago'},
+    {value: '1', display: 'years ago'}
   ],
   buttonGroup: [
     {value: 'and', label: 'And'},

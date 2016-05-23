@@ -25,8 +25,8 @@ let fields = {
     }
   ],
   select: [
-    {value: 0, display: 'test 1'},
-    {value: 1, display: 'test 2'}
+    {value: '0', display: 'test 1'},
+    {value: '1', display: 'test 2'}
   ]
 };
 
@@ -91,7 +91,13 @@ class ExampleFormGroup extends React.Component {
           optClass={style.field}>
         </RadioGroup>
 
-        <SelectField label='Select something' name='select' options={fields.select} valueProp='value' displayProp='display' optClass={style.field} />
+        <SelectField
+          label='Select something'
+          name='select'
+          options={fields.select}
+          valueProp='value'
+          displayProp='display'
+          optClass={style.field} />
 
         <fieldset>
           <legend><span>I am a legend</span></legend>
