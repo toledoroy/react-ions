@@ -1,5 +1,14 @@
 ## HEAD
 
+## 0.0.8
+###### _May 23, 2016_
+
+##### Component Fixes / Enhancements
+- [Forms] Form Group Component
+ ([#76](https://github.com/GetAmbassador/react-conventions/pull/76))
+
+- [Inputs] Normalize Radio Group & Select Field values ([#80](https://github.com/GetAmbassador/react-conventions/pull/80))
+
 ## 0.0.7
 ###### _May 19, 2016_
 
