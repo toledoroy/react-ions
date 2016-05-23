@@ -54,10 +54,6 @@ class FormGroup extends React.Component {
   }
 
   handleChange = (event) => {
-    if (typeof this.props.changeCallback === 'function') {
-      this.props.changeCallback(this.state.fields);
-    }
-
     let val;
 
     if (event.target.type === 'checkbox') {
@@ -70,7 +66,11 @@ class FormGroup extends React.Component {
     var previousState = Object.assign({}, this.state);
     var newState = previousState.fields[event.target.name] = newField;
 
-    this.setState(newState);
+    this.setState(newState, function() {
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback(this.state.fields);
+      }
+    });
   }
 
   getElements(children) {

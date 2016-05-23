@@ -65,10 +65,12 @@ class Input extends React.Component {
   }
 
   handleChange = (event) => {
-    this.setState({value: event.target.value});
-    if (typeof this.props.changeCallback === 'function') {
-      this.props.changeCallback(event);
-    }
+    event.persist();
+    this.setState({value: event.target.value}, function() {
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback(event);
+      }
+    });
   }
 
   handleFocus = (event) => {
