@@ -42,6 +42,9 @@ class ExampleFormGroupInline extends React.Component {
       'selectField2': {
         'value':''
       },
+      'num': {
+        'value': ''
+      },
       'selectField3': {
         'value':''
       },
@@ -50,6 +53,15 @@ class ExampleFormGroupInline extends React.Component {
       },
       'input': {
         'value':'3'
+      },
+      'selectField4': {
+        'value':''
+      },
+      'selectField5': {
+        'value':''
+      },
+      'selectField6': {
+        'value':''
       }
     }
   }
@@ -62,9 +74,8 @@ class ExampleFormGroupInline extends React.Component {
     return (
       <FormGroup
         changeCallback={this.handleChange}
-        submitCallback={this.handleSubmit}
         schema={this.state.schema}>
-        
+
         <fieldset className={style.row}>
           <legend><span>Inline select fields with a couple of extras</span></legend>
           <SelectField name='selectField' options={fields.selectField} valueProp='value' displayProp='display' optClass={style.field} />
@@ -74,10 +85,10 @@ class ExampleFormGroupInline extends React.Component {
         </fieldset>
         <fieldset className={style.row}>
           <ButtonGroup name="buttonGroup" options={fields.buttonGroup} defaultOption={0}></ButtonGroup>
-          <SelectField name='selectField' options={fields.selectField} valueProp='value' displayProp='display' optClass={style.field} />
-          <SelectField name='selectField2' options={fields.selectField2} valueProp='value' displayProp='display' optClass={style.field} />
+          <SelectField name='selectField4' options={fields.selectField} valueProp='value' displayProp='display' optClass={style.field} />
+          <SelectField name='selectField5' options={fields.selectField2} valueProp='value' displayProp='display' optClass={style.field} />
           <Input name='input' type='text' optClass={style.field} />
-          <SelectField name='selectField3' options={fields.selectField3} valueProp='value' displayProp='display' optClass={style.field} />
+          <SelectField name='selectField6' options={fields.selectField3} valueProp='value' displayProp='display' optClass={style.field} />
           <div className={style['remove-item']}>
             <Icon name='icon-delete-1' height='16' width='16' fill='#233040' />
           </div>
