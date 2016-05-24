@@ -1,5 +1,15 @@
 ## HEAD
 
+## 0.0.9
+###### _May 24, 2016_
+
+##### Component Fixes / Enhancements
+- [Icons] Added to icon set
+ ([#83](https://github.com/GetAmbassador/react-conventions/pull/83))
+
+- [Alerts] Use nextProps when receiving new props in the AlertSystem component 
+  ([#84](https://github.com/GetAmbassador/react-conventions/pull/84))
+
 ## 0.0.8
 ###### _May 23, 2016_
 
