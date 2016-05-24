@@ -41,8 +41,8 @@ class AlertSystem extends React.Component {
     this.setState({ alerts: alerts });
   }
 
-  componentWillReceiveProps = () => {
-    let alerts = this.props.alerts;
+  componentWillReceiveProps = (nextProps) => {
+    let alerts = nextProps.alerts;
     alerts.map((alert, index) => {
       if (!alert.key) {
         alert.key = (alert.type || 'success') + '-' + new Date().getTime();
