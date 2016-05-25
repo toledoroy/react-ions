@@ -1,5 +1,18 @@
 ## HEAD
 
+## 0.0.10
+###### _May 25, 2016_
+
+##### Component Fixes / Enhancements
+- [Buttons] Add danger-alt optClass
+ ([#86](https://github.com/GetAmbassador/react-conventions/pull/86))
+
+- [Panel Group] Add change callback to panel group
+ ([#87](https://github.com/GetAmbassador/react-conventions/pull/87))
+
+- [Forms] Re-render form group on state change
+ ([#88](https://github.com/GetAmbassador/react-conventions/pull/88))
+
 ## 0.0.9
 ###### _May 24, 2016_
 
@@ -7,7 +20,7 @@
 - [Icons] Added to icon set
  ([#83](https://github.com/GetAmbassador/react-conventions/pull/83))
 
-- [Alerts] Use nextProps when receiving new props in the AlertSystem component 
+- [Alerts] Use nextProps when receiving new props in the AlertSystem component
   ([#84](https://github.com/GetAmbassador/react-conventions/pull/84))
 
 ## 0.0.8
