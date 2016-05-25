@@ -1,7 +1,7 @@
-@import 'src/styles/common/colors';
-@import 'src/styles/common/mixins';
-@import 'src/styles/common/screen';
-@import 'src/styles/common/functions';
+@import '../../styles/common/colors';
+@import '../../styles/common/mixins';
+@import '../../styles/common/screen';
+@import '../../styles/common/functions';
 
 .activity-feed {
   ul {
@@ -116,7 +116,7 @@
 
 .title-wrapper {
   @include clearfix;
-  
+
   svg {
     cursor: pointer;
     margin-right: 5px;
