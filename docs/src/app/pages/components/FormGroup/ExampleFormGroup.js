@@ -45,7 +45,7 @@ class ExampleFormGroup extends React.Component {
         'value': 'This is my message'
       },
       'radio': {
-        'value':'option_2'
+        'value': 'option_2'
       },
       'select': {
         'value': '1'
