@@ -4,7 +4,7 @@ import {PanelGroup, Panel, PanelHeader, PanelContent} from '../src/components/Pa
 import Icon from '../src/components/Icon'
 import Badge from '../src/components/Badge'
 
-describe('Panel Header', () => {
+describe('PanelHeader', () => {
   let panel, panelHeader, panelContent, titleGroup, toggleIconWrap, contextNodeWrap;
 
   it('should shallow render itself', () => {

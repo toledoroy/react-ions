@@ -21,7 +21,11 @@ class PanelGroup extends React.Component {
     /**
      * An optional CSS class to be used to local style
      */
-    optClass: React.PropTypes.string
+    optClass: React.PropTypes.string,
+    /**
+     * A callback that gets triggered when a panel is toggled (when a panel header gets clicked)
+     */
+    onPanelToggle: React.PropTypes.func
   }
 
   static defaultProps = {
@@ -86,11 +90,28 @@ class PanelGroup extends React.Component {
 
     if (!this.props.accordion) {
       state[panelIndex] = {active: !this.state.panels[panelIndex].active};
-      this.setState({panels: state})
+      this.setState({panels: state}, function() {
+        this.onPanelToggle();
+      });
     } else {
       var resetState = this.collapsePanels();
       resetState[panelIndex] = {active: !this.state.panels[panelIndex].active};
-      this.setState({panels: resetState});
+      this.setState({panels: resetState}, function() {
+        this.onPanelToggle();
+      });
+    }
+  }
+
+  onPanelToggle = () => {
+    let activePanels = [];
+    this.state.panels.map((panel, index) => {
+      if (panel.active) {
+        activePanels.push(index);
+      }
+    });
+
+    if (this.props.onPanelToggle) {
+      this.props.onPanelToggle(activePanels);
     }
   }
 

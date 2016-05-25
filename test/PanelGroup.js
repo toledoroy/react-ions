@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import {PanelGroup, Panel, PanelHeader, PanelContent} from '../src/components/PanelGroup'
 
 describe('PanelGroup', () => {
@@ -35,5 +35,47 @@ describe('PanelGroup', () => {
     panelGroup = shallow(<PanelGroup><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>);
     panel = panelGroup.childAt(0);
     expect(panel.props().active).to.equal(false);
+  });
+
+  it('should trigger a panel toggle callback when a panel header is clicked', () => {
+    let activePanels = [];
+    const onPanelToggle = (panels) => {
+      activePanels = panels;
+    }
+    panelGroup = mount(<PanelGroup onPanelToggle={onPanelToggle}><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>);
+
+    panelGroup.childAt(0).childAt(0).simulate('click');
+
+    expect(activePanels).to.have.length(1);
+    expect(activePanels[0]).to.be.equal(0);
+
+    panelGroup.childAt(1).childAt(0).simulate('click');
+
+    expect(activePanels).to.have.length(2);
+    expect(activePanels[0]).to.be.equal(0);
+    expect(activePanels[1]).to.be.equal(1);
+
+    panelGroup.childAt(0).childAt(0).simulate('click');
+
+    expect(activePanels).to.have.length(1);
+    expect(activePanels[0]).to.be.equal(1);
+  });
+
+  it('should trigger a panel toggle callback when a panel header is clicked on accordion', () => {
+    let activePanels = [];
+    const onPanelToggle = (panels) => {
+      activePanels = panels;
+    }
+    panelGroup = mount(<PanelGroup onPanelToggle={onPanelToggle} accordion={true}><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>);
+
+    panelGroup.childAt(0).childAt(0).simulate('click');
+
+    expect(activePanels).to.have.length(1);
+    expect(activePanels[0]).to.be.equal(0);
+
+    panelGroup.childAt(1).childAt(0).simulate('click');
+
+    expect(activePanels).to.have.length(1);
+    expect(activePanels[0]).to.be.equal(1);
   });
 });
