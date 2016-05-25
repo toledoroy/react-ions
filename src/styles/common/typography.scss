@@ -62,3 +62,11 @@ small, .small {
   margin: 15px 0;
   display: block;
 }
+
+p {
+  line-height: 1.4em;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
