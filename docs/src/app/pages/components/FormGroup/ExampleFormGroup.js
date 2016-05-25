@@ -38,29 +38,29 @@ class ExampleFormGroup extends React.Component {
 
   state = {
     schema: {
-      'subject':{
-        'value':'This is my subject'
+      'subject': {
+        'value': 'This is my subject'
       },
       'message': {
-        'value':'This is my message'
+        'value': 'This is my message'
       },
       'radio': {
-        'value':''
+        'value': 'option_2'
       },
       'select': {
-        'value': ''
+        'value': '1'
       },
       'email': {
-        'value':true
+        'value': true
       },
       'facebook': {
-        'value':false
+        'value': false
       },
       'twitter': {
-        'value':true
+        'value': true
       },
       'linkedin': {
-        'value':false
+        'value': false
       }
     }
   }
@@ -72,6 +72,37 @@ class ExampleFormGroup extends React.Component {
   handleSubmit = (event, fields) => {
     event.preventDefault();
     alert(JSON.stringify(fields, 2, null));
+  }
+
+  resetForm = () => {
+    this.setState({
+      schema: {
+        subject: {
+          value: ''
+        },
+        message: {
+          value: ''
+        },
+        radio: {
+          value: 'option_1'
+        },
+        select: {
+          value: '0'
+        },
+        email: {
+          value: false
+        },
+        facebook: {
+          value: false
+        },
+        twitter: {
+          value: false
+        },
+        linkedin: {
+          value: false
+        }
+      }
+    });
   }
 
   render() {
@@ -110,6 +141,7 @@ class ExampleFormGroup extends React.Component {
         </fieldset>
 
         <Button type="submit">Submit</Button>
+        <Button optClass='inverted' onClick={this.resetForm}>Reset</Button>
       </FormGroup>
     );
   }

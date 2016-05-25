@@ -28,7 +28,9 @@ class FormGroup extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.state.schema = nextProps.schema;
+    this.setState({
+      fields: nextProps.schema
+    });
   }
 
   componentWillMount = () => {
