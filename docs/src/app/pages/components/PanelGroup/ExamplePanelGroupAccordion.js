@@ -27,7 +27,7 @@ class ExamplePanelGroupAccordion extends React.Component {
     return (
       <div>
         <p>The panel with the following index is currently active: {this.state.panels.join() || '(none)'}</p>
-        <PanelGroup activePanels={this.state.panels} accordion={true} onPanelToggle={this.panelToggle}>
+        <PanelGroup activePanels={this.state.panels} accordion={true} onPanelToggle={this.panelToggle} optClass='default'>
           <Panel>
             <PanelHeader title='Rating' contextIcon='icon-star-1' />
             <PanelContent optClass={style['rating-specific']}>
