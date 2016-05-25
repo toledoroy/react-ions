@@ -92,11 +92,14 @@ class ExampleFormGroup extends React.Component {
         email: {
           value: false
         },
+        facebook: {
+          value: false
+        },
         twitter: {
           value: false
         },
-        facebook: {
-          value: true
+        linkedin: {
+          value: false
         }
       }
     });
