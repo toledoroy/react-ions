@@ -7,6 +7,7 @@ const ExampleButtonTypes = () => (
     <Button optClass='secondary'>Secondary</Button>
     <Button optClass='inverted'>Inverted</Button>
     <Button optClass='danger'>Danger</Button>
+    <Button optClass='danger-alt'>Danger Alternative</Button>
     <Button optClass='success'>Success</Button>
     <Button optClass='flat'>Flat</Button>
     <Button optClass='info'>Info</Button>
