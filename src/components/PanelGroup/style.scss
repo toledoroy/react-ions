@@ -106,6 +106,17 @@
       }
     }
   }
+
+  > .panel-active {
+    .title-group {
+      h4 {
+        color: $primary-5;
+      }
+      svg {
+        fill: $primary-5;
+      }
+    }
+  }
 }
 
 // Multi-step Theme
@@ -117,7 +128,7 @@
     border-radius: 3px;
     margin-bottom: 10px;
 
-    .panel-header {
+    > .panel-header {
       padding: 13px 20px;
 
       [class^='badge'] {
@@ -190,14 +201,15 @@
           h4 {
             color: $white;
           }
-          svg {
-            fill: $white;
-          }
         }
 
         .toggle-icon {
           top: calc(50% - 18px);
           transform: rotate(180deg);
+
+          svg {
+            fill: $white;
+          }
         }
       }
 
