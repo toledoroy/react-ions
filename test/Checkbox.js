@@ -76,12 +76,12 @@ describe('Checkbox', () => {
     expect(checked).to.equal(false);
   });
 
-  it('should update its state when the checked property changes', () => {
-    wrapper = mount(<Checkbox value='test' label='Test label' checked={false}/>);
+  it('should update its state when the value property changes', () => {
+    wrapper = mount(<Checkbox value={false} label='Test label' checked={false}/>);
 
-    expect(wrapper.state().checked).to.equal('test');
+    expect(wrapper.state().checked).to.be.false;
 
-    wrapper.setProps({ checked: true });
+    wrapper.setProps({ value: true });
     wrapper.update();
 
     expect(wrapper.state().checked).to.be.true;
