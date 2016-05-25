@@ -10,6 +10,7 @@ class ExampleButtonLoaders extends React.Component {
       secondary: false,
       inverted: false,
       danger: false,
+      dangerAlt: false,
       success: false,
       flat: false,
       info: false,
@@ -37,6 +38,7 @@ class ExampleButtonLoaders extends React.Component {
         <Button loading={this.state.secondary} onClick={this.handleClick.bind(this, 'secondary')} optClass='secondary'>Secondary</Button>
         <Button loading={this.state.inverted} onClick={this.handleClick.bind(this, 'inverted')} optClass='inverted'>Inverted</Button>
         <Button loading={this.state.danger} onClick={this.handleClick.bind(this, 'danger')} optClass='danger'>Danger</Button>
+        <Button loading={this.state.dangerAlt} onClick={this.handleClick.bind(this, 'dangerAlt')} optClass='danger-alt'>Danger Alternative</Button>
         <Button loading={this.state.success} onClick={this.handleClick.bind(this, 'success')} optClass='success'>Success</Button>
         <Button loading={this.state.flat} onClick={this.handleClick.bind(this, 'flat')} optClass='flat'>Flat</Button>
         <Button loading={this.state.info} onClick={this.handleClick.bind(this, 'info')} optClass='info'>Info</Button>

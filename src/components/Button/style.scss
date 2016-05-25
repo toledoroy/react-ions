@@ -47,6 +47,10 @@
     @include button-context($danger, $white);
   }
 
+  &.danger-alt {
+    @include button-context(transparent, $danger);
+  }
+
   &.flat {
     @include button-context($neutral-2, $neutral-4);
   }
