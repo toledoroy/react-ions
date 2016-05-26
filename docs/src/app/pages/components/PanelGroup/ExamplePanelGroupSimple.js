@@ -23,7 +23,7 @@ const ExamplePanelGroupSimple = () => (
   <div>
     <PanelGroup accordion={true} optClass='simple'>
       <Panel>
-        <PanelHeader title='Promoter' contextIcon='icon-arrow-60' />
+        <PanelHeader title='Promoter' contextIcon='icon-arrow-60' contextIconSize='12' />
         <PanelContent>
           <h3>What happens after a promoter submits their score?</h3>
           <RadioGroup
@@ -33,7 +33,7 @@ const ExamplePanelGroupSimple = () => (
         </PanelContent>
       </Panel>
       <Panel>
-      <PanelHeader title='Passive' contextIcon='icon-arrow-60' />
+      <PanelHeader title='Passive' contextIcon='icon-arrow-60' contextIconSize='12' />
         <PanelContent>
           <h3>What happens after a promoter submits their score?</h3>
           <RadioGroup
@@ -43,7 +43,7 @@ const ExamplePanelGroupSimple = () => (
         </PanelContent>
       </Panel>
       <Panel>
-      <PanelHeader title='Detractor' contextIcon='icon-arrow-60' />
+      <PanelHeader title='Detractor' contextIcon='icon-arrow-60' contextIconSize='12' />
         <PanelContent>
         <h3>What happens after a promoter submits their score?</h3>
         <RadioGroup

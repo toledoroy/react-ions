@@ -34,11 +34,11 @@
         .context-icon {
           position: relative;
           top: 2px;
-          transition: all .25s ease;
         }
 
         svg {
           fill: $neutral-4;
+          transition: fill .25s ease;
         }
 
         .context-icon + h4,
@@ -53,21 +53,6 @@
         right: 15px;
         top: 13px;
         transform: rotate(-135deg);
-        transition: all .25s ease;
-      }
-
-      &:hover {
-        .title-group {
-          h4 {
-            color: $primary-5;
-          }
-          svg {
-            fill: $primary-5;
-          }
-        }
-        .toggle-icon {
-          opacity: 1;
-        }
       }
 
     }
@@ -83,15 +68,6 @@
   }
 
   > .panel.panel-active {
-    .panel-header {
-      h4 {
-        color: $primary-5;
-      }
-      svg {
-        fill: $primary-5;
-      }
-    }
-
     > .panel-content {
       display: block;
     }
@@ -100,6 +76,45 @@
       opacity: 1;
       top: 15px;
       transform: rotate(0);
+    }
+  }
+}
+
+// Default Theme
+.panel-group.default {
+
+  .panel-header {
+    .context-icon {
+      transition: all .25s ease;
+    }
+
+    .toggle-icon {
+      transition: all .25s ease;
+    }
+
+    &:hover {
+      .title-group {
+        h4 {
+          color: $primary-5;
+        }
+        svg {
+          fill: $primary-5;
+        }
+      }
+      .toggle-icon {
+        opacity: 1;
+      }
+    }
+  }
+
+  > .panel-active {
+    .title-group {
+      h4 {
+        color: $primary-5;
+      }
+      svg {
+        fill: $primary-5;
+      }
     }
   }
 }
@@ -113,7 +128,8 @@
     border-radius: 3px;
     margin-bottom: 10px;
 
-    .panel-header {
+    > .panel-header {
+      border-radius: 3px 3px 0 0;
       padding: 13px 20px;
 
       [class^='badge'] {
@@ -141,8 +157,22 @@
 
       .toggle-icon {
         opacity: 1;
-        top: calc(50% - 12px);
+        top: calc(50% - 9px);
         transform: rotate(0);
+      }
+
+      &:hover {
+        .title-group {
+          h4 {
+            color: $primary-5;
+          }
+          svg {
+            fill: $primary-5;
+          }
+        }
+        .toggle-icon {
+          opacity: 1;
+        }
       }
 
       @media #{$media-small-minus} {
@@ -168,19 +198,22 @@
           background-color: $primary-2;
         }
 
-        h4 {
-          color: $white;
-        }
-
-        svg {
-          fill: $white;
+        .title-group {
+          h4 {
+            color: $white;
+          }
         }
 
         .toggle-icon {
-          top: calc(50% - 18px);
+          top: calc(50% - 15px);
           transform: rotate(180deg);
+
+          svg {
+            fill: $white;
+          }
         }
       }
+
       .panel-content {
         padding: 20px;
       }
@@ -224,6 +257,8 @@
   > .panel.panel-active {
     .panel-header {
       .context-icon {
+        left: -2px;
+        top: 0;
         transform: rotate(90deg);
       }
     }
