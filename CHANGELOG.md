@@ -1,5 +1,18 @@
 ## HEAD
 
+## 0.0.11
+###### _May 26, 2016_
+
+##### Component Fixes / Enhancements
+- [PanelGroup] A few style bugs fixed
+([#90](https://github.com/GetAmbassador/react-conventions/pull/90))
+
+- [SelectField] Enable component to have an icon on left
+([#91](https://github.com/GetAmbassador/react-conventions/pull/91))
+
+- [Badge] Enhancements
+([#92](https://github.com/GetAmbassador/react-conventions/pull/92))
+
 ## 0.0.10
 ###### _May 25, 2016_
 
