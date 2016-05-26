@@ -13,6 +13,15 @@
   justify-content: center;
   min-width: 30px;
 
+  &.heavy {
+    height: 93px;
+    min-width: 93px;
+    font-size: 32px;
+    svg + span {
+      margin-left: 10px;
+    }
+  }
+
   &.padded {
     padding: 0 7px;
   }
@@ -52,6 +61,12 @@
 
   &.navy {
     background-color: $primary-5;
+  }
+
+  &.border {
+    background-color: transparent;
+    border: 1px solid $neutral-3;
+    color: $primary-4;
   }
 }
 
