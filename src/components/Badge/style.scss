@@ -14,11 +14,14 @@
   min-width: 30px;
 
   &.heavy {
-    height: 93px;
-    min-width: 93px;
+    height: 95px;
+    min-width: 95px;
     font-size: 32px;
     svg + span {
       margin-left: 10px;
+    }
+    span {
+      font-weight: normal;
     }
     &.padded {
       padding: 0 15px;
