@@ -6,7 +6,7 @@ import classNames from 'classnames/bind'
 
 class ActivityFeed extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   static propTypes = {
@@ -25,12 +25,13 @@ class ActivityFeed extends React.Component {
   }
 
   componentWillReceiveProps = () => {
-    this.setState({ data: this.props.data });
+    this.setState({ data: this.props.data })
   }
 
   render() {
-    const cx = classNames.bind(style);
-    const feedClasses = cx(style['activity-feed'], this.props.optClass);
+    const cx = classNames.bind(style)
+    const feedClasses = cx(style['activity-feed'], this.props.optClass)
+    const badgeClasses = cx(style.indicator)
 
     let items = this.state.data.map((item, index) =>
       <li key={index}>
@@ -38,11 +39,12 @@ class ActivityFeed extends React.Component {
           icon={item.badge.icon}
           text={item.badge.text}
           theme={item.badge.theme}
-          optClass={style.indicator}
+          optClass={badgeClasses}
         />
         <ActivityFeedItem
           name={item.name}
           profileUrl={item.profileUrl}
+          profileUrlTarget={item.profileUrlTarget}
           title={item.title}
           actions={item.actions}
           text={item.text}
@@ -57,7 +59,7 @@ class ActivityFeed extends React.Component {
          {items}
         </ul>
       </div>
-    );
+    )
   }
 }
 
