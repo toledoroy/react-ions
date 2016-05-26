@@ -20,6 +20,9 @@
     svg + span {
       margin-left: 10px;
     }
+    &.padded {
+      padding: 0 15px;
+    }
   }
 
   &.padded {
