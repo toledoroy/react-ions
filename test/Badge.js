@@ -20,6 +20,11 @@ describe('Badge', () => {
     expect(wrapper.props().className).to.equal('badge test');
   });
 
+  it('should have heavy styling', () => {
+    wrapper = shallow(<Badge size='heavy' />);
+    expect(wrapper.props().className).to.equal('badge heavy');
+  });
+
   it('has no icon if none passed', () => {
     wrapper = shallow(<Badge />);
     expect(wrapper.find(Icon)).to.have.length(0);

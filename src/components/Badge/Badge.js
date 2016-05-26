@@ -6,11 +6,12 @@ import Icon from '../Icon'
 const Badge = (props) => {
   const cx = classNames.bind(style);
   const iconPlusText = (props.icon && props.text) ? 'padded' : null;
-  const badgeClasses = cx(style.badge, props.theme, props.optClass, iconPlusText);
+  const iconSize = props.size === 'heavy' ? '30' : '16';
+  const badgeClasses = cx(style.badge, props.theme, props.size, props.optClass, iconPlusText);
 
   return (
     <div className={badgeClasses}>
-      {props.icon ? <Icon name={props.icon} height='16' width='16' /> : null} {props.text ? <span>{props.text}</span> : null}
+      {props.icon ? <Icon name={props.icon} height={iconSize} width={iconSize} /> : null} {props.text ? <span>{props.text}</span> : null}
     </div>
   )
 }
@@ -28,6 +29,10 @@ Badge.propTypes = {
    * Text value to display in the badge.
    */
   text: React.PropTypes.string,
+  /**
+   * The size of the badge.
+   */
+  size: React.PropTypes.string,
   /**
    * Optional CSS class to pass to the badge.
    */

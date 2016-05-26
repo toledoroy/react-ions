@@ -5,9 +5,12 @@ import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleBadges from './ExampleBadges'
 import exampleBadgesCode from '!raw!./ExampleBadges'
+import ExampleBadgesHeavy from './ExampleBadgesHeavy'
+import exampleBadgesHeavyCode from '!raw!./ExampleBadgesHeavy'
 
 const description = {
-  badges: 'This is the `badge component`.'
+  badges: 'This is the `badge component`.',
+  badgesHeavy: 'This is the "heavy" `badge component`.'
 };
 
 const BadgePage = () => (
@@ -19,6 +22,12 @@ const BadgePage = () => (
           description={description.badges}
           markup={exampleBadgesCode}>
           <ExampleBadges />
+        </CodeExample>
+        <CodeExample
+          title='Example Heavy Badges'
+          description={description.badgesHeavy}
+          markup={exampleBadgesHeavyCode}>
+          <ExampleBadgesHeavy />
         </CodeExample>
       </div>
       <div className={styles.block}>
