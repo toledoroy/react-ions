@@ -65,6 +65,13 @@ describe('SelectField', () => {
     expect(wrapper.childAt(1).text().indexOf(placeholder)).to.equal(0);
   });
 
+  it('should have an icon', () => {
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' icon='icon-globe-1' />);
+
+    expect(wrapper.hasClass('has-icon')).to.be.true;
+    expect(wrapper.find('.icon')).to.have.length(1);
+  });
+
   it('should have an option selected by default', () => {
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' value={'1'} />);
 

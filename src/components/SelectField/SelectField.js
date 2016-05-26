@@ -44,7 +44,11 @@ class SelectField extends React.Component {
     /**
      * A callback function to be called when an option is selected.
      */
-    changeCallback: React.PropTypes.func
+    changeCallback: React.PropTypes.func,
+    /**
+     * Icon to be displayed on the left
+     */
+    icon: React.PropTypes.string
   }
 
   state = {
@@ -131,8 +135,9 @@ class SelectField extends React.Component {
   render() {
     const cx = classNames.bind(style);
     const disabledClass = this.props.disabled ? style['selectfield-disabled'] : '';
-    const activeClass = this.state.isOpen ? style['active'] : null;
-    const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, this.props.optClass);
+    const activeClass = this.state.isOpen ? style['active'] : '';
+    const hasIconClass = this.props.icon ? style['has-icon'] : '';
+    const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, hasIconClass, this.props.optClass);
 
     const options = this.props.options.map((option, index) =>
       <li key={index} onClick={this.selectOption.bind(null, option)}>{option[this.props.displayProp]}</li>
@@ -142,6 +147,7 @@ class SelectField extends React.Component {
       <div className={selectFieldClass}>
         <input type='hidden' name='selectfield-value' value={this.state.selected && this.state.selected[this.props.valueProp]} />
         <div className={style['selectfield-value']} onClick={this.toggleSelectField}>
+          {this.props.icon ? <Icon name={this.props.icon} className={style.icon} height='16' width='16' /> : null}
           {this.getDisplayText()}
           <Icon name='icon-caret' width='10' height='10' />
           <ul>
