@@ -7,18 +7,30 @@ import style from './style.scss'
 const ActivityFeedItem = (props) => {
 
   const generateProfileName = function() {
+    let name = props.name ? props.name : null
     if (!props.profileUrl) {
-      return props.name ? props.name : null
+      return name
     } else {
-      return <Link to={props.profileUrl}>{props.name ? props.name : null}</Link>
+      return generateLinkType(name)
     }
+  }
+
+  const generateLinkType = function(name) {
+    let link
+    let re = '^(http|https)://'
+    if(props.profileUrl.match(re)) {
+      link = <a href={props.profileUrl} target={props.profileUrlTarget}>{name}</a>
+    } else {
+      link = <Link to={props.profileUrl}>{name}</Link>
+    }
+    return link
   }
 
   const generateActions = function() {
     const actions = props.actions.map((action, index) =>
       <Icon name={action.icon} onClick={action.callback} fill='#3c97d3' height='16' width='16' key={index} />
     )
-    return actions;
+    return actions
   }
 
   return (
