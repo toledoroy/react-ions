@@ -23,12 +23,19 @@
     padding: 10px 50px 10px 10px;
     user-select: none;
 
-    > svg {
+    > svg:last-of-type {
       position: absolute;
       right: 10px;
       top: 13px;
       transform: rotate(0);
       transition: .25s ease;
+    }
+
+    > .icon {
+      left: 10px;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
     }
 
   }
@@ -93,13 +100,17 @@
 
   &.active:not(.selectfield-disabled) {
     .selectfield-value {
-      > svg {
+      > svg:last-of-type {
         transform: rotate(180deg);
       }
     }
     ul {
       display: inline-block;
     }
+  }
+
+  &.has-icon .selectfield-value {
+    padding-left: 30px;
   }
 
   @media #{$media-small-minus} {
