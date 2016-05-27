@@ -1,6 +1,6 @@
 import React from 'react'
 import Dropzone from 'react-dropzone'
-import Icon from 'react-conventions/lib/Icon'
+import Icon from '../Icon'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 
