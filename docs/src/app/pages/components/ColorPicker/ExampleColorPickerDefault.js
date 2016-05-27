@@ -1,10 +1,10 @@
 import React from 'react'
 import ColorPicker from 'react-conventions/lib/ColorPicker'
 
-const ExampleColorPicker = () => (
+const ExampleColorPickerDefault = () => (
   <div>
-    <ColorPicker color='#d31515'/>
+    <ColorPicker />
   </div>
 )
 
-export default ExampleColorPicker
+export default ExampleColorPickerDefault

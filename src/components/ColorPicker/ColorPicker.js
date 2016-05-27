@@ -17,6 +17,17 @@ class ColorPicker extends React.Component {
     color: ''
   }
 
+  static propTypes = {
+    /**
+     * Hex color value.
+     */
+    color: React.PropTypes.bool,
+    /**
+     * A callback function to be called when the checkbox changes.
+     */
+    changeCallback: React.PropTypes.func
+  }
+
   componentWillMount = () => {
     if (typeof this.props.color !== 'undefined') {
       this.setState({color: this.props.color})
@@ -31,14 +42,40 @@ class ColorPicker extends React.Component {
     this.setState({ displayColorPicker: false })
   }
 
-  handleChange = (color) => {
-    this.setState({ color: color.hex })
+  handlePickerChange = (color) => {
+    let newColor = color.hex
+    this.setState({ color: newColor }, function() {
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback(newColor);
+      }
+    })
+  }
+
+  handleInputChange = (event) => {
+    let newColor = ''
+
+    if (event.target.value && !event.target.value.startsWith('#')) {
+      newColor = '#'
+    }
+
+    newColor += event.target.value
+
+    this.setState({ color: newColor }, function() {
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback(newColor);
+      }
+    })
   }
 
   render() {
     return (
       <div className={style['colorpicker-component']}>
-        <Input value={this.state.color} onClick={this.handleClick} />
+        <Input
+          value={this.state.color}
+          placeholder='Click to choose a color'
+          onClick={this.handleClick}
+          changeCallback={this.handleInputChange}
+        />
         <div
           className={style['color-preview']}
           style={{backgroundColor: this.state.color}}
@@ -46,8 +83,8 @@ class ColorPicker extends React.Component {
         </div>
         { this.state.displayColorPicker ?
           <div className={style['sketch-container']} >
-            <div onClick={ this.handleClose }/>
-            <SketchPicker color={ this.state.color } onChange={ this.handleChange } />
+            <div onClick={this.handleClose} />
+            <SketchPicker color={ this.state.color } onChange={this.handlePickerChange} />
           </div>
           : null
         }

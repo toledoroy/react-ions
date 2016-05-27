@@ -19,5 +19,12 @@
 
   .sketch-container {
     margin-top: 5px;
+
+    // override SketchPicker style to match input style
+    > div:nth-of-type(2) {
+      box-shadow: none !important;
+      border: 1px solid $neutral-3 !important;
+      border-radius: 2px !important;
+    }
   }
 }
