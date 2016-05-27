@@ -31,7 +31,7 @@ describe('FileUpload', () => {
   it('should have a preview', () => {
     wrapper = mount(<FileUpload label='Default file upload' value='test.jpg' showPreview={true} />);
 
-    expect(wrapper.find('.preview').children()).to.have.length(1);
+    expect(wrapper.childAt(2).children()).to.have.length(1);
   });
 
   it('should update the preview when the value property changes', () => {
@@ -54,17 +54,17 @@ describe('FileUpload', () => {
   it('should not have a preview if showPreview is not set to true', () => {
     wrapper = mount(<FileUpload label='Default file upload' value='test.jpg' />);
 
-    expect(wrapper.find('.preview').children()).to.have.length(0);
+    expect(wrapper.childAt(2).children()).to.have.length(0);
   });
 
   it('should remove a file when the close icon is clicked', () => {
     wrapper = mount(<FileUpload label='Default file upload' value='test.jpg' showPreview={true} />);
 
-    expect(wrapper.find('.preview').children()).to.have.length(1);
+    expect(wrapper.childAt(2).children()).to.have.length(1);
 
     wrapper.childAt(2).childAt(0).childAt(1).simulate('click');
 
-    expect(wrapper.find('.preview').children()).to.have.length(0);
+    expect(wrapper.childAt(2).children()).to.have.length(0);
   });
 
   it('should have a callback', () => {
