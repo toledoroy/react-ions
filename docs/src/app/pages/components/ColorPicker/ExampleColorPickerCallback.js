@@ -12,7 +12,7 @@ class ExampleColorPickerCallback extends React.Component {
   }
 
   handleChange = (newColor) => {
-    this.setState({status: 'Selected color is: ' + newColor});
+    this.setState({status: 'Selected color is: ' + newColor})
   }
 
 
