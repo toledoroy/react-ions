@@ -1,0 +1,23 @@
+@import '../../styles/common/colors';
+
+.colorpicker-component {
+
+  position: relative;
+
+  input {
+    padding-left: 44px;
+  }
+
+  .color-preview {
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+  }
+
+  .sketch-container {
+    margin-top: 5px;
+  }
+}
