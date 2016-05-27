@@ -20,7 +20,6 @@ class FileUpload extends React.Component {
   static defaultProps = {
     disabled: false,
     value: '',
-    multiple: false,
     showPreview: false,
     previewSize: 200
   }
@@ -43,10 +42,6 @@ class FileUpload extends React.Component {
      */
     name: React.PropTypes.string,
     /**
-     * Whether the FileUpload allow multiple files to be uploaded.
-     */
-    multiple: React.PropTypes.bool,
-    /**
      * Whether to show the preview under the FileUpload.
      */
     showPreview: React.PropTypes.bool,
@@ -64,9 +59,15 @@ class FileUpload extends React.Component {
     changeCallback: React.PropTypes.func
   };
 
+  componentWillMount = () => {
+    if (this.props.value && this.props.showPreview) {
+      this.setState({ files: [{ preview: this.props.value }] });
+    }
+  }
+
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value !== this.props.value) {
-      this.setState({ value: nextProps.value });
+      this.setState({ files: [{ preview: this.props.value }] });
     }
   }
 
@@ -83,18 +84,9 @@ class FileUpload extends React.Component {
 
   handleUpload = (files) => {
     if (!this.props.disabled) {
-      if (this.props.multiple) {
-        let savedFiles = this.state.files;
-        let newFiles = savedFiles.concat(files);
-        this.setState({ files: newFiles }, function() {
-          this.handleChange();
-        });
-      }
-      else {
-        this.setState({ files: files }, function() {
-          this.handleChange();
-        });
-      }
+      this.setState({ files: files }, function() {
+        this.handleChange();
+      });
     }
   }
 
@@ -137,7 +129,7 @@ class FileUpload extends React.Component {
     return (
       <div className={fileUploadClass}>
         { label ? <label>{label}</label> : null }
-        <Dropzone onDrop={this.handleUpload} ref={(c) => this._dropzone = c} className={style.dropzone} activeClassName={style.active} disableClick={this.props.disabled} {...other}>
+        <Dropzone onDrop={this.handleUpload} ref={(c) => this._dropzone = c} className={style.dropzone} activeClassName={style.active} disableClick={this.props.disabled} multiple={false} {...other}>
           <div>Drag and drop here to upload files or click to browse</div>
         </Dropzone>
         { showPreview ? <div className={style.preview}>{this.getPreview()}</div> : null }
