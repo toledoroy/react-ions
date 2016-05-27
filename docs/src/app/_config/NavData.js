@@ -43,6 +43,9 @@ const nav = [
         name: 'Checkbox',
         route: '/components/checkbox'
       }, {
+        name: 'Color Picker',
+        route: '/components/color-picker'
+      }, {
         name: 'Form Group',
         route: '/components/form-group'
       }, {
