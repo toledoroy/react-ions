@@ -60,14 +60,14 @@ class FileUpload extends React.Component {
   };
 
   componentWillMount = () => {
-    if (this.props.value && this.props.showPreview) {
+    if (this.props.value && this.props.value !== '' && this.props.showPreview) {
       this.setState({ files: [{ preview: this.props.value }] });
     }
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value !== this.props.value) {
-      this.setState({ files: [{ preview: this.props.value }] });
+    if (nextProps.value && nextProps.value !== '' && nextProps.value !== this.props.value) {
+      this.setState({ files: [{ preview: nextProps.value }] });
     }
   }
 
@@ -129,7 +129,7 @@ class FileUpload extends React.Component {
     return (
       <div className={fileUploadClass}>
         { label ? <label>{label}</label> : null }
-        <Dropzone onDrop={this.handleUpload} ref={(c) => this._dropzone = c} className={style.dropzone} activeClassName={style.active} disableClick={this.props.disabled} multiple={false} {...other}>
+        <Dropzone onDrop={this.handleUpload} className={style.dropzone} activeClassName={style.active} disableClick={this.props.disabled} multiple={false} {...other}>
           <div>Drag and drop here to upload files or click to browse</div>
         </Dropzone>
         { showPreview ? <div className={style.preview}>{this.getPreview()}</div> : null }
