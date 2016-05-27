@@ -41,10 +41,10 @@ const colorList = {
       hex: '#26B894'
     }, {
       sass: '$danger',
-      hex: '#F29C1E'
+      hex: '#E54C3B'
     }, {
       sass: '$warning',
-      hex: '#E54C3B'
+      hex: '#F29C1E'
     }, {
       sass: '$info',
       hex: '#62CAF3'

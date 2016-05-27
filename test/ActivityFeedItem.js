@@ -44,6 +44,17 @@ describe('ActivityFeedItem', () => {
         text: '7',
         theme: 'warning'
       }
+    }, {
+      name: 'External Link',
+      profileUrl: 'https://getambassador.com/v3/c/manage/ambassadors/',
+      profileUrlTarget: '_blank',
+      title: 'is pretty awesome.',
+      text: 'Beef ribs shoulder bresaola hamburger brisket filet mignon turkey kevin frankfurter andouille spare ribs shankle chicken swine ham hock. Ham pork belly alcatra venison.',
+      timestamp: '2016-05-06T18:19:08.936',
+      badge: {
+        text: '9',
+        theme: 'success'
+      }
     }
   ];
 
@@ -120,4 +131,11 @@ describe('ActivityFeedItem', () => {
     expect(actionWrapper.find(Icon)).to.have.length(0);
   });
 
+  it('should link to an external URL when provided', () => {
+    const wrapper = shallow(<ActivityFeedItem profileUrl={data[2].profileUrl} profileUrlTarget={data[2].profileUrlTarget}/>);
+    const link = wrapper.childAt(0).childAt(0).childAt(0);
+
+    expect(link.props().href).to.equal('https://getambassador.com/v3/c/manage/ambassadors/');
+    expect(link.props().target).to.equal('_blank');
+  });
 });

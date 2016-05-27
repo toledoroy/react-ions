@@ -3,19 +3,24 @@ import ActivityFeed from 'react-conventions/lib/ActivityFeed'
 import Button from 'react-conventions/lib/Button'
 import style from './style.scss'
 
-const styles = ['success', 'info', 'danger', 'warning'];
+const styles = ['success', 'info', 'danger', 'warning']
+
+const config = {
+  APP_URL: 'http://getambassador.com'
+}
 
 class ExampleActivityFeed extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
     count: 0,
     activities: [
       {
-        name: 'The Badge Component',
-        profileUrl: '/components/badge',
+        name: 'External Link',
+        profileUrl: `${config.APP_URL}/v3/c/manage/ambassadors/`,
+        profileUrlTarget: '_blank',
         title: 'is pretty awesome.',
         text: 'Beef ribs shoulder bresaola hamburger brisket filet mignon turkey kevin frankfurter andouille spare ribs shankle chicken swine ham hock. Ham pork belly alcatra venison.',
         timestamp: '2016-05-06T18:19:08.936',
@@ -44,6 +49,7 @@ class ExampleActivityFeed extends React.Component {
       }, {
         name: 'The Iconography Page',
         profileUrl: '/foundations/iconography',
+        profileUrlTarget: '_blank',
         title: 'doesn\'t need much work.',
         text: 'Turducken chuck shoulder, landjaeger brisket shank tri-tip capicola kielbasa jerky alcatra drumstick pork belly filet mignon. ',
         timestamp: '2016-05-02T18:19:08.936',
@@ -89,7 +95,7 @@ class ExampleActivityFeed extends React.Component {
         text: (this.state.count + 1).toString(),
         theme: styles[Math.floor(Math.random() * 4)]
       }
-    });
+    })
 
     this.setState({ count: this.state.count + 1, activities: activities });
   }
