@@ -1,6 +1,16 @@
 @import '../../styles/common/colors';
 @import '../../styles/common/screen';
 
+.file-upload-component {
+  label {
+    color: $primary-4;
+    display: block;
+    font-size: 16px;
+    font-weight: 200;
+    margin-bottom: 10px;
+  }
+}
+
 .dropzone {
   width: 100%;
   min-height: 100px;
@@ -11,9 +21,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  box-sizing: border-box;
+  padding: 20px;
   > div {
   	font-size: 13px;
-  	color: rgba(35, 48, 64, 0.5);
+  	color: rgba($primary-4, 0.5);
   }
   &.active {
     border-color: $green;
@@ -24,8 +36,6 @@
 .preview {
   img {
     margin-top: 15px;
-    max-height: 200px;
-    max-width: 200px;
     + img {
       margin-left: 15px;
     }

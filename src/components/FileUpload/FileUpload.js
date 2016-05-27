@@ -19,40 +19,46 @@ class FileUpload extends React.Component {
   static defaultProps = {
     disabled: false,
     value: '',
-    multiple: false
+    multiple: false,
+    showPreview: false,
+    previewSize: 200
   }
 
   static propTypes = {
     /**
-     * Whether the component is disabled.
+     * Whether the FileUpload is disabled.
      */
     disabled: React.PropTypes.bool,
     /**
-     * Text shown above the component.
+     * Text shown above the FileUpload.
      */
     label: React.PropTypes.string,
     /**
-     * Value of the component.
+     * Value of the FileUpload.
      */
     value: React.PropTypes.string,
     /**
-     * Name of the component.
+     * Name of the FileUpload.
      */
     name: React.PropTypes.string,
     /**
-     * Whether the component allow multiple files to be uploaded.
+     * Whether the FileUpload allow multiple files to be uploaded.
      */
     multiple: React.PropTypes.bool,
     /**
-     * Whether to show the preview under the component.
+     * Whether to show the preview under the FileUpload.
      */
     showPreview: React.PropTypes.bool,
     /**
-     * Optional styles to add to the component.
+     * The preview size (maximum width and height).
+     */
+    previewSize: React.PropTypes.number,
+    /**
+     * Optional styles to add to the FileUpload.
      */
     optClass: React.PropTypes.string,
     /**
-     * A callback function to be called when the component changes.
+     * A callback function to be called when the FileUpload changes.
      */
     changeCallback: React.PropTypes.func
   };
@@ -64,18 +70,24 @@ class FileUpload extends React.Component {
   }
 
   handleUpload = (files) => {
-    console.log(files);
     this.setState({files: files});
-    // this.setState({value: event.target.value}, function() {
-    //   if (typeof this.props.changeCallback === 'function') {
-    //     this.props.changeCallback(event);
-    //   }
-    // });
+    if (typeof this.props.changeCallback === 'function') {
+      this.props.changeCallback({
+        target: {
+          name: this.props.name,
+          value: files
+        }
+      });
+    }
   }
 
   getPreview = () => {
+    const imgStyle = {
+      maxWidth: this.props.previewSize + 'px',
+      maxHeight: this.props.previewSize + 'px'
+    }
     return this.state.files.map((file, index) =>
-      <div className={style.preview}><img src={file.preview} /></div>
+      <div key={index} className={style.preview}><img style={imgStyle} src={file.preview} /></div>
     )
   }
 
