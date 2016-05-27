@@ -54,7 +54,7 @@ describe('FileUpload', () => {
   it('should not have a preview if showPreview is not set to true', () => {
     wrapper = mount(<FileUpload label='Default file upload' value='test.jpg' />);
 
-    expect(wrapper.childAt(2).children()).to.have.length(0);
+    expect(wrapper.children()).to.have.length(2);
   });
 
   it('should remove a file when the close icon is clicked', () => {
