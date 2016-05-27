@@ -6,7 +6,7 @@ const callback = (event) => {
 }
 
 const ExampleFileUploadCallback = () => (
-  <FileUpload label="File upload with callback" showPreview={true} changeCallback={callback} value="http://vignette4.wikia.nocookie.net/gameofthrones/images/5/56/Jon_Kill_the_Boy.jpg" />
+  <FileUpload label="File upload with callback" showPreview={true} changeCallback={callback} />
 )
 
 export default ExampleFileUploadCallback

@@ -13,13 +13,16 @@ import ExampleFileUploadDisabled from './ExampleFileUploadDisabled'
 import exampleFileUploadDisabled from '!raw!./ExampleFileUploadDisabled'
 import ExampleFileUploadCallback from './ExampleFileUploadCallback'
 import exampleFileUploadCallback from '!raw!./ExampleFileUploadCallback'
+import ExampleFileUploadValue from './ExampleFileUploadValue'
+import exampleFileUploadValue from '!raw!./ExampleFileUploadValue'
 
 const description = {
   fileUploadDefault: 'This is the `file upload component` as it appears by default.',
   fileUploadPreview: 'This is the `file upload component` with preview.',
   fileUploadCustomPreview: 'This is the `file upload component` with custom preview size.',
   fileUploadDisabled: 'This is the disabled `file upload component`.',
-  fileUploadCallback: 'This is the `file upload component` with a callback.'
+  fileUploadCallback: 'This is the `file upload component` with a callback.',
+  fileUploadValue: 'This is the `file upload component` with a populated value property.'
 };
 
 const FileUploadPage = () => (
@@ -55,6 +58,12 @@ const FileUploadPage = () => (
           description={description.fileUploadCallback}
           markup={exampleFileUploadCallback}>
           <ExampleFileUploadCallback />
+        </CodeExample>
+        <CodeExample
+          title='File Upload with Value'
+          description={description.fileUploadValue}
+          markup={exampleFileUploadValue}>
+          <ExampleFileUploadValue />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
