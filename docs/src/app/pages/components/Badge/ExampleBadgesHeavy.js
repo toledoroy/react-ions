@@ -11,7 +11,6 @@ const ExampleBadges = () => (
     <Badge size='heavy' text='6' theme='navy' />
     <Badge size='heavy' text='7' theme='border' />
     <Badge size='heavy' icon='icon-link-1' text='Word' theme='success' />
-    <Badge size='heavy' icon='icon-bell-1' theme='fog' />
   </div>
 )
 

@@ -26,9 +26,12 @@ Badge.propTypes = {
    */
   icon: React.PropTypes.string,
   /**
-   * Text value to display in the badge.
+   * Text value to display in the badge (number or string).
    */
-  text: React.PropTypes.string,
+  text: React.PropTypes.oneOfType([
+    React.PropTypes.number,
+    React.PropTypes.string
+  ]),
   /**
    * The size of the badge.
    */
