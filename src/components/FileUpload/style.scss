@@ -9,6 +9,13 @@
     font-weight: 200;
     margin-bottom: 10px;
   }
+  &.disabled {
+    .dropzone {
+      cursor: not-allowed;
+      background-color: $neutral-3 !important;
+      border: 1px solid $neutral-3 !important;
+    }
+  }
 }
 
 .dropzone {
@@ -34,10 +41,30 @@
 }
 
 .preview {
-  img {
+  .image {
+    display: inline-block;
+    position: relative;
     margin-top: 15px;
-    + img {
+    + .image {
       margin-left: 15px;
+    }
+    img {
+      transition: all 0.25s ease 0s;
+    }
+    svg {
+      display: none;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+    &:hover {
+      img {
+        opacity: 0.3;
+      }
+      svg {
+        display: block;
+      }
     }
   }
 }
