@@ -1,5 +1,12 @@
 ## HEAD
 
+## 0.0.12
+###### _May 27, 2016_
+
+##### Component Fixes / Enhancements
+- [Badge] - Style improvements ([#99](https://github.com/GetAmbassador/react-conventions/pull/99))
+- [ActivityFeed] - Style improvements ([#97](https://github.com/GetAmbassador/react-conventions/pull/97))
+
 ## 0.0.11
 ###### _May 26, 2016_
 
