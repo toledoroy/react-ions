@@ -17,13 +17,17 @@ class ColorPicker extends React.Component {
     color: ''
   }
 
+  static defaultProps = {
+    color: ''
+  }
+
   static propTypes = {
     /**
      * Hex color value.
      */
-    color: React.PropTypes.bool,
+    color: React.PropTypes.string,
     /**
-     * A callback function to be called when the checkbox changes.
+     * A callback function to be called when the color changes.
      */
     changeCallback: React.PropTypes.func
   }
@@ -31,6 +35,12 @@ class ColorPicker extends React.Component {
   componentWillMount = () => {
     if (typeof this.props.color !== 'undefined') {
       this.setState({color: this.props.color})
+    }
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.color !== this.props.color) {
+      this.setState({ color: nextProps.color });
     }
   }
 
