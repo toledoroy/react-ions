@@ -63,7 +63,6 @@ class ColorPicker extends React.Component {
   }
 
   handleInputChange = (event) => {
-    console.log('jedziesz')
     let newColor = ''
 
     if (event.target.value && !event.target.value.startsWith('#')) {
