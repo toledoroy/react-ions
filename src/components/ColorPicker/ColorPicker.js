@@ -2,6 +2,7 @@ import React from 'react'
 import Input from '../Input/Input'
 import { SketchPicker } from 'react-color'
 import style from './style.scss'
+import classNames from 'classnames/bind'
 
 
 /**
@@ -29,7 +30,11 @@ class ColorPicker extends React.Component {
     /**
      * A callback function to be called when the color changes.
      */
-    changeCallback: React.PropTypes.func
+    changeCallback: React.PropTypes.func,
+    /**
+     * An optional CSS class to be used for local styles
+     */
+    optClass: React.PropTypes.string
   }
 
   componentWillMount = () => {
@@ -78,8 +83,12 @@ class ColorPicker extends React.Component {
   }
 
   render() {
+    const cx = classNames.bind(style);
+    var componentClass = cx(style['colorpicker-component'], this.props.optClass);
+    var colorPreviewClass = cx(style['color-preview'], (this.state.color ? '' : 'empty'))
+
     return (
-      <div className={style['colorpicker-component']}>
+      <div className={componentClass}>
         <Input
           value={this.state.color}
           placeholder='Click to choose a color'
@@ -87,7 +96,7 @@ class ColorPicker extends React.Component {
           changeCallback={this.handleInputChange}
         />
         <div
-          className={style['color-preview']}
+          className={colorPreviewClass}
           style={{backgroundColor: this.state.color}}
           onClick={this.handleClick}>
         </div>

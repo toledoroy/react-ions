@@ -6,8 +6,10 @@ import ExampleColorPickerSelected from './ExampleColorPickerSelected'
 import exampleColorPickerSelectedCode from '!raw!./ExampleColorPickerSelected'
 import ExampleColorPickerCallback from './ExampleColorPickerCallback'
 import exampleColorPickerCallbackCode from '!raw!./ExampleColorPickerCallback'
-
+import PropsList from 'private/modules/PropsList'
+import docs from '!!docgen!react-conventions/lib/ColorPicker/ColorPicker'
 import styles from 'private/css/content'
+
 
 const description = {
   default: 'This is the default `ColorPicker component`.',
@@ -37,6 +39,10 @@ const ColorPickerPage = () => (
           markup={exampleColorPickerCallbackCode}>
           <ExampleColorPickerCallback />
         </CodeExample>
+        <div className={styles.block}>
+          <h3>Props</h3>
+          <PropsList list={docs[0].props} />
+        </div>
       </div>
     </div>
   </div>
