@@ -45,7 +45,7 @@ class ColorPicker extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.color !== this.props.color) {
-      this.setState({ color: nextProps.color });
+      this.setState({ color: nextProps.color })
     }
   }
 
@@ -61,7 +61,7 @@ class ColorPicker extends React.Component {
     let newColor = color.hex
     this.setState({ color: newColor }, function() {
       if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(newColor);
+        this.props.changeCallback(newColor)
       }
     })
   }
@@ -77,14 +77,14 @@ class ColorPicker extends React.Component {
 
     this.setState({ color: newColor }, function() {
       if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(newColor);
+        this.props.changeCallback(newColor)
       }
     })
   }
 
   render() {
-    const cx = classNames.bind(style);
-    var componentClass = cx(style['colorpicker-component'], this.props.optClass);
+    const cx = classNames.bind(style)
+    var componentClass = cx(style['colorpicker-component'], this.props.optClass)
     var colorPreviewClass = cx(style['color-preview'], (this.state.color ? '' : 'empty'))
 
     return (
