@@ -93,6 +93,7 @@ class ColorPicker extends React.Component {
           value={this.state.color}
           placeholder='Click to choose a color'
           onClick={this.handleClick}
+          onBlur={this.handleClose}
           changeCallback={this.handleInputChange}
         />
         <div
