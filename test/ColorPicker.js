@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
 import { shallow, mount } from 'enzyme';
 import ColorPicker from '../src/components/ColorPicker/ColorPicker';
 
@@ -6,6 +7,16 @@ describe('ColorPicker', () => {
   const COLOR = '#3c97d3';
   const NEW_COLOR = '#e54c3b';
   let wrapper, inputField, previewColorDiv;
+
+  function eventFire(el, etype){
+    if (el.fireEvent) {
+      el.fireEvent('on' + etype);
+    } else {
+      var evObj = document.createEvent('Events');
+      evObj.initEvent(etype, true, false);
+      el.dispatchEvent(evObj);
+    }
+  }
 
   it('should shallow render itself', () => {
     wrapper = shallow(<ColorPicker color={COLOR} />);
@@ -62,9 +73,15 @@ describe('ColorPicker', () => {
   })
 
   it('should show/hide SketchPicker when Input field is clicked', () => {
-    wrapper = mount(<ColorPicker />);
-    wrapper.find('input').simulate('click');
-    
+    const div = document.createElement('div');
+    document.body.appendChild(div);
+    const component = ReactDOM.render(<ColorPicker />, div);
+    const containerDiv = ReactDOM.findDOMNode(div);
+    inputField = document.body.getElementsByTagName('input');
+    eventFire(inputField[0], 'click');
+    expect(document.body.getElementsByClassName('sketch-container')).to.have.length(1);
+    eventFire(inputField[0], 'click');
+    expect(document.body.getElementsByClassName('sketch-container')).to.have.length(0);
   })
 
 });
