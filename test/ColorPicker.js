@@ -1,7 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
 import { shallow, mount } from 'enzyme';
 import ColorPicker from '../src/components/ColorPicker/ColorPicker';
+import { SketchPicker } from 'react-color'
+
 
 describe('ColorPicker', () => {
   const COLOR = '#3c97d3';
@@ -73,15 +74,22 @@ describe('ColorPicker', () => {
   })
 
   it('should show/hide SketchPicker when Input field is clicked', () => {
-    const div = document.createElement('div');
-    document.body.appendChild(div);
-    const component = ReactDOM.render(<ColorPicker />, div);
-    const containerDiv = ReactDOM.findDOMNode(div);
-    inputField = document.body.getElementsByTagName('input');
-    eventFire(inputField[0], 'click');
-    expect(document.body.getElementsByClassName('sketch-container')).to.have.length(1);
-    eventFire(inputField[0], 'click');
-    expect(document.body.getElementsByClassName('sketch-container')).to.have.length(0);
+    wrapper = mount(<ColorPicker color={COLOR} />);
+    inputField = wrapper.find('Input');
+    inputField.find('input').simulate('click');
+    expect(wrapper.find(SketchPicker)).to.have.length(1);
+    inputField.find('input').simulate('click');
+    expect(wrapper.find(SketchPicker)).to.have.length(0);
   })
+
+  it('should update the state when new color is selected in the picker', () => {
+    wrapper = mount(<ColorPicker />);
+    inputField = wrapper.find('Input');
+    inputField.find('input').simulate('click');
+    expect(wrapper.state('color')).to.equal('')
+    const picker = wrapper.find('div.sketch-container')
+    picker.childAt(0).childAt(0).childAt(0).simulate('click')
+    //expect(wrapper.state('color')).to.not.equal('')
+  });
 
 });
