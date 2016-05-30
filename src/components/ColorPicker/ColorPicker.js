@@ -53,10 +53,6 @@ class ColorPicker extends React.Component {
     this.setState({ displayColorPicker: !this.state.displayColorPicker })
   }
 
-  handleClose = () => {
-    this.setState({ displayColorPicker: false })
-  }
-
   handlePickerChange = (color) => {
     let newColor = color.hex
     this.setState({ color: newColor }, function() {
@@ -67,6 +63,7 @@ class ColorPicker extends React.Component {
   }
 
   handleInputChange = (event) => {
+    console.log('jedziesz')
     let newColor = ''
 
     if (event.target.value && !event.target.value.startsWith('#')) {
@@ -93,7 +90,6 @@ class ColorPicker extends React.Component {
           value={this.state.color}
           placeholder='Click to choose a color'
           onClick={this.handleClick}
-          onBlur={this.handleClose}
           changeCallback={this.handleInputChange}
         />
         <div
@@ -103,7 +99,6 @@ class ColorPicker extends React.Component {
         </div>
         { this.state.displayColorPicker ?
           <div className={style['sketch-container']} >
-            <div onClick={this.handleClose} />
             <SketchPicker color={ this.state.color } onChange={this.handlePickerChange} />
           </div>
           : null
