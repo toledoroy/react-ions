@@ -29,6 +29,7 @@ import ProgressBarPage from './pages/components/ProgressBar/Page'
 import PanelGroupPage from './pages/components/PanelGroup/Page'
 import SelectFieldPage from './pages/components/SelectField/Page'
 import TabsPage from './pages/components/TabWrapper/Page'
+import FileUploadPage from './pages/components/FileUpload/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -63,6 +64,7 @@ const Routes = (
       <Route path='textarea' title='Textarea' component={TextareaPage} />
       <Route path='select-field' title='Select Field' component={SelectFieldPage} />
       <Route path='tooltip' title='Tooltip' component={TooltipPage} />
+      <Route path='file-upload' title='File Upload' component={FileUploadPage} />
     </Route>
     <Route path='patterns' title='Patterns'>
     </Route>
