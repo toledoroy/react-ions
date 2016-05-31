@@ -2,4 +2,26 @@
 
 .toggle-component {
   cursor: pointer;
+  position: relative;
+
+  .outer {
+    background: $primary-4;
+    border-radius: 100px;
+    height: 15px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 26px;
+  }
+
+  .inner {
+    background: $white;
+    border-radius: 50%;
+    height: 13px;
+    left: 1px;
+    position: absolute;
+    top: 1px;
+    width: 13px;
+    z-index: 10;
+  }
 }

@@ -72,6 +72,8 @@ class Toggle extends React.Component {
 
     return (
       <div className={toggleClass}>
+        <div className={style.outer} />
+        <div className={style.inner} />
       </div>
     )
   }
