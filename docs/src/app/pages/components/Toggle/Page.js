@@ -10,13 +10,16 @@ import ExampleToggleDisabled from './ExampleToggleDisabled'
 import exampleToggleDisabledCode from '!raw!./ExampleToggleDisabled'
 import ExampleToggleError from './ExampleToggleError'
 import exampleToggleErrorCode from '!raw!./ExampleToggleError'
+import ExampleToggleCallback from './ExampleToggleCallback'
+import exampleToggleCallbackCode from '!raw!./ExampleToggleCallback'
 import styles from 'private/css/content'
 
 const description = {
   toggleDefault: 'This is the `toggle component` as it appears by default.',
   toggleOn: 'This is the `toggle component` with initial state On',
   toggleDisabled: 'This is the disabled `toggle component`',
-  toggleError: 'This is the `toggle component` with an error.'
+  toggleError: 'This is the `toggle component` with an error.',
+  toggleCallback: 'This is the `toggle component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.'
 };
 
 const TogglePage = () => (
@@ -46,6 +49,12 @@ const TogglePage = () => (
           description={description.toggleError}
           markup={exampleToggleErrorCode}>
           <ExampleToggleError />
+        </CodeExample>
+        <CodeExample
+          title='Toggle with callback function'
+          description={description.toggleCallback}
+          markup={exampleToggleCallbackCode}>
+          <ExampleToggleCallback />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>

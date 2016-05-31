@@ -13,7 +13,8 @@ class Toggle extends React.Component {
   }
 
   state = {
-    on: this.props.on
+    on: this.props.on,
+    value: this.props.value
   }
 
   static propTypes = {
@@ -21,6 +22,10 @@ class Toggle extends React.Component {
      * Whether the toggle is on.
      */
     on: React.PropTypes.bool,
+    /**
+     * Value of the input.
+     */
+    value: React.PropTypes.bool,
     /**
      * Whether the toggle is disabled.
      */
@@ -40,7 +45,15 @@ class Toggle extends React.Component {
       return
     }
 
-    this.setState({on: !this.state.on})
+    this.setState({ on: !this.state.on }, function() {
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback({
+          target: {
+            value: this.state.on
+          }
+        });
+      }
+    });
   }
 
   componentWillMount = () => {
