@@ -3,6 +3,7 @@
 .toggle-component {
   cursor: pointer;
   position: relative;
+  width: 26px;
 
   .outer {
     background: $primary-4;
@@ -10,18 +11,26 @@
     height: 15px;
     left: 0;
     position: absolute;
+    transition: background 0.3s ease-in;
     top: 0;
     width: 26px;
+    &.on {
+      background: $success;
+    }
   }
 
   .inner {
-    background: $white;
+    background: $neutral-1;
     border-radius: 50%;
     height: 13px;
-    left: 1px;
     position: absolute;
+    right: 12px;
     top: 1px;
+    transition: background 0.3s ease-in, right 0.3s ease-out;
     width: 13px;
-    z-index: 10;
+    &.on {
+      background: $white;
+      right: 1px;
+    }
   }
 }

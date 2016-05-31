@@ -4,7 +4,7 @@ import classNames from 'classnames/bind'
 
 class Toggle extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   static defaultProps = {
@@ -45,7 +45,7 @@ class Toggle extends React.Component {
   };
 
   handleChange = (event) => {
-
+    this.setState({on: !this.state.on})
   }
 
   componentWillMount = () => {
@@ -57,23 +57,17 @@ class Toggle extends React.Component {
   }
 
   render() {
-    const {
-      checked,
-      label,
-      labelPosition,
-      optClass,
-      changeCallback,
-      ...other
-    } = this.props;
-
     const cx = classNames.bind(style);
-    //var disabledClass = this.props.disabled ? style['toggle-disabled'] : '';
-    var toggleClass = cx(style['toggle-component'], optClass);//, disabledClass);
+    const onClass = this.state.on ? style.on : ''
+    const outerClasses = cx(style.outer, onClass)
+    const innerClasses = cx(style.inner, onClass)
+    //const disabledClass = this.props.disabled ? style['toggle-disabled'] : ''
+    var toggleClass = cx(style['toggle-component'])//optClass);//, disabledClass)
 
     return (
-      <div className={toggleClass}>
-        <div className={style.outer} />
-        <div className={style.inner} />
+      <div className={toggleClass} onClick={this.handleChange}>
+        <div className={outerClasses} />
+        <div className={innerClasses} />
       </div>
     )
   }
