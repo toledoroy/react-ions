@@ -9,8 +9,7 @@ class Toggle extends React.Component {
 
   static defaultProps = {
     on: false,
-    disabled: false,
-    labelPosition: 'left'
+    disabled: false
   }
 
   state = {
@@ -27,14 +26,6 @@ class Toggle extends React.Component {
      */
     disabled: React.PropTypes.bool,
     /**
-     * Text displayed with the toggle.
-     */
-    label: React.PropTypes.string,
-    /**
-     * Whether the label shouild appear on the right or left.
-     */
-    labelPosition: React.PropTypes.string,
-    /**
      * Optional styles to add to the toggle.
      */
     optClass: React.PropTypes.string,
@@ -44,7 +35,11 @@ class Toggle extends React.Component {
     changeCallback: React.PropTypes.func
   };
 
-  handleChange = (event) => {
+  handleChange = () => {
+    if (this.props.disabled) {
+      return
+    }
+
     this.setState({on: !this.state.on})
   }
 
@@ -61,8 +56,8 @@ class Toggle extends React.Component {
     const onClass = this.state.on ? style.on : ''
     const outerClasses = cx(style.outer, onClass)
     const innerClasses = cx(style.inner, onClass)
-    //const disabledClass = this.props.disabled ? style['toggle-disabled'] : ''
-    var toggleClass = cx(style['toggle-component'])//optClass);//, disabledClass)
+    const disabledClass = this.props.disabled ? style['toggle-disabled'] : ''
+    var toggleClass = cx(style['toggle-component'], disabledClass)
 
     return (
       <div className={toggleClass} onClick={this.handleChange}>

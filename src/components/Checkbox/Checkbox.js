@@ -36,7 +36,7 @@ class Checkbox extends React.Component {
      */
     label: React.PropTypes.string,
     /**
-     * Whether the label shouild appear on the right or left.
+     * Whether the label should appear on the right or left.
      */
     labelPosition: React.PropTypes.string,
     /**
