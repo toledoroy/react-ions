@@ -14,10 +14,6 @@ class Dropdown extends React.Component {
 
   static propTypes = {
     /**
-     * A callback function to be called to trigger the dropdown open.
-     */
-    requestOpen: React.PropTypes.func,
-    /**
      * Whether the dropdown is visible
      */
     isOpened: React.PropTypes.bool,
@@ -32,8 +28,7 @@ class Dropdown extends React.Component {
       React.PropTypes.number,
       React.PropTypes.string,
       React.PropTypes.node
-    ]),
-
+    ])
   }
 
   state = {
@@ -46,6 +41,12 @@ class Dropdown extends React.Component {
     }
   }
 
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.isOpened === true) {
+      this.setState({isOpened: true});
+    }
+  }
+
   toggleDropdown = (e) => {
     e.preventDefault();
     this.setState({isOpened: !this.state.isOpened});
@@ -53,12 +54,6 @@ class Dropdown extends React.Component {
 
   handleClickOutside() {
     this.setState({isOpened: false});
-  }
-
-  handleCallback = () => {
-    if (typeof this.props.requestOpen === 'function') {
-      this.props.requestOpen();
-    }
   }
 
   render() {

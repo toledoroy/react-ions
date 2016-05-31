@@ -3,11 +3,9 @@ import Dropdown from 'react-conventions/lib/Dropdown'
 import Button from 'react-conventions/lib/Button'
 
 const ExampleDropdownButton = () => (
-  <div>
-    <Dropdown trigger={<Button>Dropdown</Button>}>
-      This is the contents.
-    </Dropdown>
-  </div>
+  <Dropdown trigger={<Button>Dropdown</Button>}>
+    This is the contents.
+  </Dropdown>
 )
 
 export default ExampleDropdownButton
