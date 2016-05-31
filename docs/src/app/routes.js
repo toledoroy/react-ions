@@ -30,6 +30,7 @@ import PanelGroupPage from './pages/components/PanelGroup/Page'
 import SelectFieldPage from './pages/components/SelectField/Page'
 import TabsPage from './pages/components/TabWrapper/Page'
 import FileUploadPage from './pages/components/FileUpload/Page'
+import TogglePage from './pages/components/Toggle/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -65,6 +66,7 @@ const Routes = (
       <Route path='select-field' title='Select Field' component={SelectFieldPage} />
       <Route path='tooltip' title='Tooltip' component={TooltipPage} />
       <Route path='file-upload' title='File Upload' component={FileUploadPage} />
+      <Route path='toggle' title='Toggle' component={TogglePage} />
     </Route>
     <Route path='patterns' title='Patterns'>
     </Route>
