@@ -18,6 +18,11 @@
     &.on {
       background: $success;
     }
+    &.toggle-error {
+      border-color: $danger;
+      border-width: 1px;
+      border-style: solid;
+    }
   }
 
   .inner {

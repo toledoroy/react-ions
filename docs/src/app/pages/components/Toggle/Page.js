@@ -8,12 +8,15 @@ import ExampleToggleOn from './ExampleToggleOn'
 import exampleToggleOnCode from '!raw!./ExampleToggleOn'
 import ExampleToggleDisabled from './ExampleToggleDisabled'
 import exampleToggleDisabledCode from '!raw!./ExampleToggleDisabled'
+import ExampleToggleError from './ExampleToggleError'
+import exampleToggleErrorCode from '!raw!./ExampleToggleError'
 import styles from 'private/css/content'
 
 const description = {
   toggleDefault: 'This is the `toggle component` as it appears by default.',
   toggleOn: 'This is the `toggle component` with initial state On',
-  toggleDisabled: 'This is the disabled `toggle component`'
+  toggleDisabled: 'This is the disabled `toggle component`',
+  toggleError: 'This is the `toggle component` with an error.'
 };
 
 const TogglePage = () => (
@@ -37,6 +40,12 @@ const TogglePage = () => (
           description={description.toggleDisabled}
           markup={exampleToggleDisabledCode}>
           <ExampleToggleDisabled />
+        </CodeExample>
+        <CodeExample
+          title='Error Toggle'
+          description={description.toggleError}
+          markup={exampleToggleErrorCode}>
+          <ExampleToggleError />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
