@@ -38,9 +38,8 @@
   &.toggle-disabled {
     cursor: not-allowed;
 
-    div:nth-child(1) {
+    div:first-child {
       background: $neutral-4;
-      cursor: not-allowed;
     }
   }
 }
