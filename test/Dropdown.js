@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import TestUtils from 'react-addons-test-utils';
 import { shallow, mount } from 'enzyme'
 import Dropdown from '../src/components/Dropdown'
 
@@ -32,10 +33,24 @@ describe('Dropdown', () => {
     expect(wrapper.find('.dropdown-component').hasClass('dropdown-component test')).to.equal(true);
   });
 
-  it('should open when passed props', () => {
-    wrapper = shallow(<Dropdown trigger='Test'>This is a test.</Dropdown>);
-    expect(wrapper.props().isOpened).to.equal(false);
-    wrapper.setProps({isOpened: true});
-    expect(wrapper.props().isOpened).to.equal(true);
+  it('displays a modified state upon changing props', function () {
+    var TestParent = React.createFactory(React.createClass({
+      getInitialState() {
+        return {isOpened: false};
+      },
+      render() {
+        return <Dropdown ref='dropdown' trigger='Test' isOpened={this.state.isOpened}>This is a test.</Dropdown>
+      }
+    }));
+
+    var parent = TestUtils.renderIntoDocument(TestParent());
+    expect(parent.refs.dropdown.props.isOpened).to.be.false;
+
+    parent.setState({
+      isOpened: true
+    });
+
+    expect(parent.refs.dropdown.props.isOpened).to.be.true;
   });
+
 });
