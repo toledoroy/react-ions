@@ -60,6 +60,7 @@
     cursor: pointer;
     display: inline-block;
     margin-right: 5px;
+    user-select: none;
 
     & + .toggle-wrapper {
       top: 3px;
