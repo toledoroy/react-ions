@@ -13,6 +13,7 @@ import ButtonsPage from './pages/components/Buttons/Page'
 import ButtonGroupPage from './pages/components/ButtonGroup/Page'
 import ColorsPage from './pages/foundations/Colors/Page'
 import CheckboxPage from './pages/components/Checkbox/Page'
+import DropdownPage from './pages/components/Dropdown/Page'
 import HomePage from './pages/Home/Page'
 import IconographyPage from './pages/foundations/Iconography/Page'
 import IconsPage from './pages/components/Icons/Page'
@@ -48,6 +49,7 @@ const Routes = (
       <Route path='alerts' title='Alerts' component={AlertsPage} />
       <Route path='badge' title='Badge' component={BadgePage} />
       <Route path="breadcrumb" title="Breadcrumb" component={BreadcrumbPage} />
+      <Route path='dropdown' title='Dropdown' component={DropdownPage} />
       <Route path='button-group' title='Button Group' component={ButtonGroupPage} />
       <Route path='buttons' title='Buttons' component={ButtonsPage} />
       <Route path='checkbox' title='Checkbox' component={CheckboxPage} />

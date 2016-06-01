@@ -43,6 +43,9 @@ const nav = [
         name: 'Checkbox',
         route: '/components/checkbox'
       }, {
+        name: 'Dropdown',
+        route: '/components/dropdown'
+      }, {
         name: 'File Upload',
         route: '/components/file-upload'
       }, {

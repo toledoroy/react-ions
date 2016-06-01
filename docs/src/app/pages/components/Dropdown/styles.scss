@@ -1,0 +1,13 @@
+@import '../../../../../../src/styles/common/mixins';
+
+.float-right {
+  float: right;
+}
+
+.wrapper {
+  @include vertical-align('inline');
+
+  span {
+    margin-left: 10px;
+  }
+}

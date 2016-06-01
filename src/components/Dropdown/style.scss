@@ -1,0 +1,32 @@
+@import '../../styles/common/mixins';
+@import '../../styles/common/colors';
+@import '../../styles/common/functions';
+
+.dropdown-component {
+  display: inline-block;
+}
+
+.trigger {
+  cursor: pointer;
+}
+
+.dropdown-wrapper {
+  background-color: $white;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  height: auto;
+  margin-top: 7px;
+  opacity: 0;
+  padding: 10px;
+  position: absolute;
+  visibility: hidden;
+  z-index: z('dropdown');
+}
+
+.is-opened {
+  .dropdown-wrapper {
+    opacity: 1;
+    visibility: visible;
+  }
+}
