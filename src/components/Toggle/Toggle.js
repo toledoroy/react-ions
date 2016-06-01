@@ -22,6 +22,10 @@ class Toggle extends React.Component {
      */
     value: React.PropTypes.bool,
     /**
+     * Text displayed with the toggle.
+     */
+    label: React.PropTypes.string,
+    /**
      * Whether the toggle is disabled.
      */
     disabled: React.PropTypes.bool,
@@ -66,9 +70,12 @@ class Toggle extends React.Component {
     const toggleClass = cx(style['toggle-component'], disabledClass)
 
     return (
-      <div className={toggleClass} onClick={this.handleChange}>
-        <div className={outerClasses} />
-        <div className={innerClasses} />
+      <div>
+        { this.props.label ? <label className={style['label-left']}>{this.props.label}</label> : null }
+        <div className={toggleClass} onClick={this.handleChange}>
+          <div className={outerClasses} />
+          <div className={innerClasses} />
+        </div>
       </div>
     )
   }

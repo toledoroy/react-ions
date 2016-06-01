@@ -6,6 +6,7 @@ import Checkbox from 'react-conventions/lib/Checkbox'
 import RadioGroup from 'react-conventions/lib/Radio/RadioGroup'
 import SelectField from 'react-conventions/lib/SelectField'
 import Button from 'react-conventions/lib/Button'
+import Toggle from 'react-conventions/lib/Toggle'
 import style from 'react-conventions/lib/FormGroup/style'
 
 let fields = {
@@ -130,6 +131,10 @@ class ExampleFormGroup extends React.Component {
           valueProp='value'
           displayProp='display'
           optClass={style.field} />
+
+        <label>Would you like to receive an email every single minute?
+          <Toggle label="Default toggle" />
+        </label>
 
         <fieldset>
           <legend><span>I am a legend</span></legend>

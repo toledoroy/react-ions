@@ -1,7 +1,9 @@
 @import '../../styles/common/colors';
+@import '../../styles/common/mixins';
 
 .toggle-component {
   cursor: pointer;
+  display: inline-block;
   height: 15px;
   position: relative;
   width: 26px;
@@ -46,5 +48,14 @@
     div:first-child {
       background: $neutral-4;
     }
+  }
+}
+
+label {
+  color: $primary-4;
+  display: inline-block;
+  margin-right: 5px;
+  & + .toggle-component {
+    top: 3px;
   }
 }

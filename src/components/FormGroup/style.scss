@@ -13,6 +13,13 @@
   }
 }
 
+label {
+  display: block;
+  > div {
+    display: inline-block;
+  }
+}
+
 .remove-item {
   display: inline-block;
   float: right;
