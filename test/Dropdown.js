@@ -13,13 +13,14 @@ describe('Dropdown', () => {
     expect(wrapper.childAt(0).text()).to.equal('This is a test.');
   });
 
-
   it('should open when clicked', () => {
     wrapper = mount(<Dropdown trigger='Test'>This is a test.</Dropdown>);
     trigger = wrapper.childAt(0);
     expect(trigger.hasClass('trigger')).to.equal(true);
+    // expect(wrapper.hasClass('dropdown-component')).to.equal(true);
     trigger.simulate('click');
-    console.log(wrapper.debug());
+    // expect(wrapper.hasClass('dropdown-component is-opened')).to.equal(true);
+    console.log(wrapper.find('.dropdown-component').html());
   });
 
 });
