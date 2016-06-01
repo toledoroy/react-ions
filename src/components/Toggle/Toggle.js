@@ -8,7 +8,8 @@ class Toggle extends React.Component {
   }
 
   static defaultProps = {
-    disabled: false
+    disabled: false,
+    value: false
   }
 
   state = {
@@ -50,12 +51,10 @@ class Toggle extends React.Component {
     });
   }
 
-  componentWillMount = () => {
-
-  }
-
   componentWillReceiveProps = (nextProps) => {
-
+    if (nextProps.value && nextProps.value !== this.state.value) {
+      this.setState({ value: nextProps.value })
+    }
   }
 
   render() {

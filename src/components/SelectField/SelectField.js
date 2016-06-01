@@ -18,7 +18,7 @@ class SelectField extends React.Component {
      */
     placeholder: React.PropTypes.string,
     /**
-     * An array objects that which will be used as the options for the select field.
+     * An array of objects which will be used as the options for the select field.
      */
     options: React.PropTypes.array.isRequired,
     /**
