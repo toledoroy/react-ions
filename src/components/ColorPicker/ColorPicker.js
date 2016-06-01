@@ -48,8 +48,26 @@ class ColorPicker extends React.Component {
     }
   }
 
-  handleClick = () => {
-    this.setState({ displayColorPicker: !this.state.displayColorPicker })
+  componentWillUnmount = () => {
+    document.removeEventListener('click', this.handleClick)
+  }
+
+  handleClick = (event) => {
+    let toggle = true
+    if (event && this._sketchContainer) {
+      toggle = !this._sketchContainer.contains(event.target)
+    }
+
+    if (toggle) {
+      this.setState({ displayColorPicker: !this.state.displayColorPicker }, function() {
+        if (this.state.displayColorPicker) {
+          document.addEventListener('click', this.handleClick)
+        }
+        else {
+          document.removeEventListener('click', this.handleClick)
+        }
+      })
+    }
   }
 
   handlePickerChange = (color) => {
@@ -101,7 +119,7 @@ class ColorPicker extends React.Component {
           onClick={this.handleClick}>
         </div>
         { this.state.displayColorPicker ?
-          <div className={style['sketch-container']} >
+          <div className={style['sketch-container']} ref={(c) => this._sketchContainer = c}>
             <SketchPicker color={ this.state.color } onChange={this.handlePickerChange} />
           </div>
           : null
