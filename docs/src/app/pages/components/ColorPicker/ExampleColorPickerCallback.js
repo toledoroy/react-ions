@@ -28,8 +28,8 @@ class ExampleColorPickerCallback extends React.Component {
     color: oldColor
   }
 
-  handleChange = (newColor) => {
-    this._updateState(newColor)
+  handleChange = (event) => {
+    this._updateState(event.target.value)
   }
 
   updateColor = () => {
@@ -47,7 +47,7 @@ class ExampleColorPickerCallback extends React.Component {
           <Button onClick={this.updateColor} disabled={this.state.color == newColor}>Set new color</Button>
           <Button onClick={this.resetColor} disabled={this.state.color == oldColor} optClass='danger'>Reset color</Button>
         </div>
-        <ColorPicker color={this.state.color} changeCallback={this.handleChange} />
+        <ColorPicker value={this.state.color} changeCallback={this.handleChange} />
         <code>{this.state.status}</code>
       </div>
     )

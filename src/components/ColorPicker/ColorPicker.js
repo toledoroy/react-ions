@@ -19,14 +19,14 @@ class ColorPicker extends React.Component {
   }
 
   static defaultProps = {
-    color: ''
+    value: ''
   }
 
   static propTypes = {
     /**
      * Hex color value.
      */
-    color: React.PropTypes.string,
+    value: React.PropTypes.string,
     /**
      * A callback function to be called when the color changes.
      */
@@ -38,13 +38,13 @@ class ColorPicker extends React.Component {
   }
 
   componentWillMount = () => {
-    if (typeof this.props.color !== 'undefined') {
-      this.setState({color: this.props.color})
+    if (typeof this.props.value !== 'undefined') {
+      this.setState({color: this.props.value})
     }
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.color !== this.props.color) {
+    if (nextProps.color !== this.props.value) {
       this.setState({ color: nextProps.color })
     }
   }
@@ -57,7 +57,12 @@ class ColorPicker extends React.Component {
     let newColor = color.hex
     this.setState({ color: newColor }, function() {
       if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(newColor)
+        this.props.changeCallback({
+          target: {
+            name: this.props.name,
+            value: newColor
+          }
+        })
       }
     })
   }

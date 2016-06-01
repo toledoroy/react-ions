@@ -4,7 +4,7 @@ import ColorPicker from 'react-conventions/lib/ColorPicker'
 
 const ExampleColorPickerSelected = () => (
   <div>
-    <ColorPicker color='#3c97d3'/>
+    <ColorPicker value='#3c97d3'/>
   </div>
 )
 
