@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme';
 import FormGroup from '../src/components/FormGroup'
 import Input from '../src/components/Input'
 import Textarea from '../src/components/Textarea'
+import Toggle from '../src/components/Toggle'
 
 describe('FormGroup', () => {
   let formGroup;
@@ -29,10 +30,15 @@ describe('FormGroup', () => {
       }
     };
 
-    formGroup = shallow(<FormGroup schema={schema}><Input name='subject' label='Subject line' type='text' /><Textarea name='message' label='Message' /></FormGroup>);
+    formGroup = shallow(
+      <FormGroup schema={schema}>
+        <Input name='subject' label='Subject line' type='text' />
+        <Textarea name='message' label='Message' />
+        <Toggle name='toggle' label='Toggle' />
+      </FormGroup>);
     expect(formGroup.childAt(0).type()).to.equal('fieldset');
     expect(formGroup.childAt(0).hasClass('fieldset')).to.equal(true);
-    expect(formGroup.childAt(0).children()).to.have.length(2);
+    expect(formGroup.childAt(0).children()).to.have.length(3);
   });
 
   it('should update the state when a change is made', () => {
