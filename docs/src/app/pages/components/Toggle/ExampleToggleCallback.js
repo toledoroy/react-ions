@@ -8,11 +8,11 @@ class ExampleToggleCallback extends React.Component {
   }
 
   state = {
-    status: 'State is false'
+    status: 'Value is false'
   }
 
   handleChange = (event) => {
-    this.setState({status: 'State is ' + event.target.value});
+    this.setState({status: 'Value is ' + event.target.value});
   }
 
   render() {

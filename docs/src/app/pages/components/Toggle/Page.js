@@ -16,8 +16,8 @@ import styles from 'private/css/content'
 
 const description = {
   toggleDefault: 'This is the `toggle component` as it appears by default.',
-  toggleOn: 'This is the `toggle component` with initial state On',
-  toggleDisabled: 'This is the disabled `toggle component`',
+  toggleOn: 'This is the `toggle component` with initial state set to True.',
+  toggleDisabled: 'This is the disabled `toggle component`.',
   toggleError: 'This is the `toggle component` with an error.',
   toggleCallback: 'This is the `toggle component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.'
 };

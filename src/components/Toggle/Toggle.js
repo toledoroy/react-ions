@@ -8,20 +8,14 @@ class Toggle extends React.Component {
   }
 
   static defaultProps = {
-    on: false,
     disabled: false
   }
 
   state = {
-    on: this.props.on,
     value: this.props.value
   }
 
   static propTypes = {
-    /**
-     * Whether the toggle is on.
-     */
-    on: React.PropTypes.bool,
     /**
      * Value of the input.
      */
@@ -45,11 +39,11 @@ class Toggle extends React.Component {
       return
     }
 
-    this.setState({ on: !this.state.on }, function() {
+    this.setState({ value: !this.state.value }, function() {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {
-            value: this.state.on
+            value: this.state.value
           }
         });
       }
@@ -66,7 +60,7 @@ class Toggle extends React.Component {
 
   render() {
     const cx = classNames.bind(style);
-    const onClass = this.state.on ? style.on : ''
+    const onClass = this.state.value ? style.on : ''
     const outerClasses = cx(style.outer, onClass, this.props.optClass)
     const innerClasses = cx(style.inner, onClass)
     const disabledClass = this.props.disabled ? style['toggle-disabled'] : ''
