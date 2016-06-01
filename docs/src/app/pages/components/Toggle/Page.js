@@ -8,8 +8,8 @@ import ExampleToggleOn from './ExampleToggleOn'
 import exampleToggleOnCode from '!raw!./ExampleToggleOn'
 import ExampleToggleDisabled from './ExampleToggleDisabled'
 import exampleToggleDisabledCode from '!raw!./ExampleToggleDisabled'
-import ExampleToggleError from './ExampleToggleError'
-import exampleToggleErrorCode from '!raw!./ExampleToggleError'
+import ExampleToggleOptClass from './ExampleToggleOptClass'
+import exampleToggleOptClassCode from '!raw!./ExampleToggleOptClass'
 import ExampleToggleCallback from './ExampleToggleCallback'
 import exampleToggleCallbackCode from '!raw!./ExampleToggleCallback'
 import styles from 'private/css/content'
@@ -18,7 +18,7 @@ const description = {
   toggleDefault: 'This is the `toggle component` as it appears by default.',
   toggleOn: 'This is the `toggle component` with initial state set to True.',
   toggleDisabled: 'This is the disabled `toggle component`.',
-  toggleError: 'This is the `toggle component` with an error.',
+  toggleOptClass: 'This is the `toggle component` with an optional class.',
   toggleCallback: 'This is the `toggle component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.'
 };
 
@@ -45,10 +45,10 @@ const TogglePage = () => (
           <ExampleToggleDisabled />
         </CodeExample>
         <CodeExample
-          title='Error Toggle'
-          description={description.toggleError}
-          markup={exampleToggleErrorCode}>
-          <ExampleToggleError />
+          title='Toggle with optional class'
+          description={description.toggleOptClass}
+          markup={exampleToggleOptClassCode}>
+          <ExampleToggleOptClass />
         </CodeExample>
         <CodeExample
           title='Toggle with callback function'

@@ -16,13 +16,9 @@
     position: absolute;
     transition: background 0.15s ease-in;
     top: 0;
+
     &.on {
       background: $success;
-    }
-    &.toggle-error {
-      border-color: $danger;
-      border-width: 1px;
-      border-style: solid;
     }
   }
 
@@ -35,6 +31,7 @@
     top: 1px;
     transition: background 0.15s ease-in, right 0.15s ease-out;
     width: 13px;
+
     &.on {
       background: $white;
       right: 1px;
@@ -54,7 +51,14 @@ label {
   color: $primary-4;
   display: inline-block;
   margin-right: 5px;
+
   & + .toggle-component {
     top: 3px;
+  }
+}
+
+.toggle-red {
+  .outer.on {
+    background: $danger;
   }
 }

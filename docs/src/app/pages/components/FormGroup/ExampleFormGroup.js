@@ -138,7 +138,7 @@ class ExampleFormGroup extends React.Component {
           displayProp='display'
           optClass={style.field} />
 
-        <Toggle name='toggle' label='Would you like to set a toggle?' />
+        <Toggle name='toggle' optClass={style.field} label='Would you like to set a toggle?' />
 
         <fieldset>
           <legend><span>I am a legend</span></legend>
