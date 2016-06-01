@@ -50,6 +50,7 @@ class FormGroup extends React.Component {
   }
 
   handleSubmit = (event) => {
+    event.preventDefault();
     if (typeof this.props.submitCallback === 'function') {
       this.props.submitCallback(event, this.state.fields);
     }
