@@ -18,7 +18,7 @@ class ExampleToggleCallback extends React.Component {
   render() {
     return(
       <div>
-        <Toggle label="Would you like to set this?" value={false} changeCallback={this.handleChange} />
+        <Toggle label='Would you like to set this?' value={false} changeCallback={this.handleChange} />
         <code className={style['callback-status']}>{this.state.status}</code>
       </div>
     )

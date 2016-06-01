@@ -18,7 +18,7 @@ class ExampleCheckboxCallback extends React.Component {
   render() {
     return(
       <div>
-        <Checkbox label="Checkbox with callback" value={false} changeCallback={this.handleChange} />
+        <Checkbox label='Checkbox with callback' value={false} changeCallback={this.handleChange} />
         <code>{this.state.status}</code>
       </div>
     )
