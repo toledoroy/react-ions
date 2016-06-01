@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { shallow, mount } from 'enzyme'
 import ColorPicker from '../src/components/ColorPicker/ColorPicker'
 import { SketchPicker } from 'react-color'
@@ -124,5 +125,35 @@ describe('ColorPicker', () => {
 
     expect(parentColor).to.not.equal('')
   })
+
+  it('should close the colorpicker after document click', () => {
+    const div = document.createElement('div')
+    document.body.appendChild(div)
+    const component = ReactDOM.render(<ColorPicker />, div)
+    const input = document.body.getElementsByTagName('input')[0]
+
+    eventFire(input, 'click')
+    expect(document.body.getElementsByClassName('sketch-container')).to.have.length(1)
+
+    // Trigger a click on the body element
+    eventFire(document.body, 'click')
+
+    expect(document.body.getElementsByClassName('sketch-container')).to.have.length(0)
+  });
+
+  it('should not listen for document clicks if component was unmounted', () => {
+    const spy = sinon.spy(document, 'removeEventListener')
+    const div = document.createElement('div')
+    document.body.appendChild(div)
+    const component = ReactDOM.render(<ColorPicker />, div)
+    const input = document.body.getElementsByTagName('input')[0]
+
+    eventFire(input, 'click')
+
+    component.componentWillUnmount()
+
+    expect(spy.called).to.be.true
+    spy.restore()
+  });
 
 })
