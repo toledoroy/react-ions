@@ -4,8 +4,8 @@ import Button from 'react-conventions/lib/Button'
 import style from './style.scss'
 
 
-const COLOR = '#3c97d3'
-const NEW_COLOR = '#e54c3b'
+const oldColor = '#3c97d3'
+const newColor = '#e54c3b'
 
 class ExampleColorPickerCallback extends React.Component {
   constructor(props) {
@@ -24,8 +24,8 @@ class ExampleColorPickerCallback extends React.Component {
   }
 
   state = {
-    status: this._setStatus(COLOR),
-    color: COLOR
+    status: this._setStatus(oldColor),
+    color: oldColor
   }
 
   handleChange = (newColor) => {
@@ -33,19 +33,19 @@ class ExampleColorPickerCallback extends React.Component {
   }
 
   updateColor = () => {
-    this._updateState(NEW_COLOR)
+    this._updateState(newColor)
   }
 
   resetColor = () => {
-    this._updateState(COLOR)
+    this._updateState(oldColor)
   }
 
   render() {
     return(
       <div>
         <div className={style.buttons}>
-          <Button onClick={this.updateColor} disabled={this.state.color == NEW_COLOR}>Set new color</Button>
-          <Button onClick={this.resetColor} disabled={this.state.color == COLOR} optClass='danger'>Reset color</Button>
+          <Button onClick={this.updateColor} disabled={this.state.color == newColor}>Set new color</Button>
+          <Button onClick={this.resetColor} disabled={this.state.color == oldColor} optClass='danger'>Reset color</Button>
         </div>
         <ColorPicker color={this.state.color} changeCallback={this.handleChange} />
         <code>{this.state.status}</code>
