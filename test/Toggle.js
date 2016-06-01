@@ -13,7 +13,8 @@ describe('Toggle', () => {
     expect(wrapper.find('label')).to.have.length(1);
 
     expect(wrapper.hasClass('toggle-red')).to.be.false;
-    expect(wrapper.childAt(1).hasClass('toggle-component')).to.be.true;
+    expect(wrapper.hasClass('toggle-component')).to.be.true;
+    expect(wrapper.childAt(1).hasClass('toggle-wrapper')).to.be.true;
     expect(wrapper.childAt(1).childAt(0).hasClass('outer')).to.be.true;
     expect(wrapper.childAt(1).childAt(1).hasClass('inner')).to.be.true;
     expect(wrapper.childAt(1).childAt(0).hasClass('on')).to.be.false;
@@ -22,8 +23,8 @@ describe('Toggle', () => {
 
   it('should be disabled', () => {
     wrapper = shallow(<Toggle value={false} label='Test label' disabled={true} />);
-    expect(wrapper.childAt(1).hasClass('toggle-component')).to.be.true;
-    expect(wrapper.childAt(1).hasClass('toggle-disabled')).to.be.true;
+    expect(wrapper.hasClass('toggle-component')).to.be.true;
+    expect(wrapper.hasClass('toggle-disabled')).to.be.true;
   });
 
   it('should be true', () => {
