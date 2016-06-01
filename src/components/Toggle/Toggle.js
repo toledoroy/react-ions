@@ -68,13 +68,13 @@ class Toggle extends React.Component {
     const outerClasses = cx(style.outer, onClass)
     const innerClasses = cx(style.inner, onClass)
     const disabledClass = this.props.disabled ? style['toggle-disabled'] : ''
-    const toggleClass = cx(style['toggle-component'], disabledClass)
-    const optClass = this.props.optClass ? style[this.props.optClass] : ''
+    const toggleWrapper = cx(style['toggle-wrapper'])
+    const toggleClass = cx(style['toggle-component'], disabledClass, this.props.optClass)
 
     return (
-      <div className={optClass}>
+      <div className={toggleClass} onClick={this.handleChange}>
         { this.props.label ? <label className={style['label-left']}>{this.props.label}</label> : null }
-        <div className={toggleClass} onClick={this.handleChange}>
+        <div className={toggleWrapper}>
           <div className={outerClasses} />
           <div className={innerClasses} />
         </div>

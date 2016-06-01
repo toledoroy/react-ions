@@ -2,39 +2,42 @@
 
 .toggle-component {
   cursor: pointer;
-  display: inline-block;
-  height: 15px;
-  position: relative;
-  width: 26px;
 
-  .outer {
-    background: $primary-4;
-    border-radius: 100px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-    transition: background 0.15s ease-in;
-    top: 0;
+  .toggle-wrapper {
+    display: inline-block;
+    height: 15px;
+    position: relative;
+    width: 26px;
 
-    &.on {
-      background: $success;
+    .outer {
+      background: $primary-4;
+      border-radius: 100px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+      transition: background 0.15s ease-in;
+      top: 0;
+
+      &.on {
+        background: $success;
+      }
     }
-  }
 
-  .inner {
-    background: $neutral-1;
-    border-radius: 50%;
-    height: 13px;
-    position: absolute;
-    right: 12px;
-    top: 1px;
-    transition: background 0.15s ease-in, right 0.15s ease-out;
-    width: 13px;
+    .inner {
+      background: $neutral-1;
+      border-radius: 50%;
+      height: 13px;
+      position: absolute;
+      right: 12px;
+      top: 1px;
+      transition: background 0.15s ease-in, right 0.15s ease-out;
+      width: 13px;
 
-    &.on {
-      background: $white;
-      right: 1px;
+      &.on {
+        background: $white;
+        right: 1px;
+      }
     }
   }
 
@@ -45,20 +48,20 @@
       background: $neutral-4;
     }
   }
-}
 
-label {
-  color: $primary-4;
-  display: inline-block;
-  margin-right: 5px;
-
-  & + .toggle-component {
-    top: 3px;
+  &.toggle-red {
+    .outer.on {
+      background: $danger;
+    }
   }
-}
 
-.toggle-red {
-  .outer.on {
-    background: $danger;
+  label {
+    color: $primary-4;
+    display: inline-block;
+    margin-right: 5px;
+
+    & + .toggle-wrapper {
+      top: 3px;
+    }
   }
 }
