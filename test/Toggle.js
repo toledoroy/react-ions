@@ -1,4 +1,5 @@
 import React from 'react';
+import TestUtils from 'react-addons-test-utils';
 import { shallow, mount } from 'enzyme';
 import Toggle from '../src/components/Toggle/Toggle';
 
@@ -68,20 +69,29 @@ describe('Toggle', () => {
 
   it('should not result in an error if the change callback is not defined', () => {
     let value = false;
-    wrapper = mount(<Toggle value={false} changeCallback={callback} />);
+    wrapper = mount(<Toggle value={false} />);
 
     wrapper.childAt(0).simulate('click', {target: { value: true }});
     expect(value).to.equal(false);
   });
 
-  // it('should update its state when the value property changes', () => {
-  //   wrapper = mount(<Checkbox value={false} label='Test label' checked={false}/>);
+  it('displays a modified state upon changing props', function () {
+    var TestParent = React.createFactory(React.createClass({
+      getInitialState() {
+        return {value: false};
+      },
+      render() {
+        return <Toggle ref='toggle' value={this.state.value} />
+      }
+    }));
 
-  //   expect(wrapper.state().checked).to.be.false;
+    var parent = TestUtils.renderIntoDocument(TestParent());
+    expect(parent.refs.toggle.props.value).to.be.false;
 
-  //   wrapper.setProps({ value: true });
-  //   wrapper.update();
+    parent.setState({
+      value: true
+    });
 
-  //   expect(wrapper.state().checked).to.be.true;
-  // });
+    expect(parent.refs.toggle.props.value).to.be.true;
+  });
 });
