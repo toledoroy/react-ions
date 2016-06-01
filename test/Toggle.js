@@ -12,6 +12,7 @@ describe('Toggle', () => {
     expect(wrapper.find('div')).to.have.length(4);
     expect(wrapper.find('label')).to.have.length(1);
 
+    expect(wrapper.hasClass('toggle-red')).to.be.false;
     expect(wrapper.childAt(1).hasClass('toggle-component')).to.be.true;
     expect(wrapper.childAt(1).childAt(0).hasClass('outer')).to.be.true;
     expect(wrapper.childAt(1).childAt(1).hasClass('inner')).to.be.true;
@@ -33,9 +34,9 @@ describe('Toggle', () => {
   });
 
   it('should have an extra class', () => {
-    wrapper = shallow(<Toggle optClass='toggle-error' />);
+    wrapper = shallow(<Toggle optClass='toggle-red' />);
 
-    expect(wrapper.childAt(0).childAt(0).hasClass('toggle-error')).to.be.true;
+    expect(wrapper.hasClass('toggle-red')).to.be.true;
   });
 
   it('should call changeCallback function', () => {
