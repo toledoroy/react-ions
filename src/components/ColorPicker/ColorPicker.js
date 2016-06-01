@@ -4,7 +4,6 @@ import { SketchPicker } from 'react-color'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 
-
 /**
  * The ColorPicker component.
  */
@@ -44,8 +43,8 @@ class ColorPicker extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.color !== this.props.value) {
-      this.setState({ color: nextProps.color })
+    if (nextProps.value !== this.props.value) {
+      this.setState({ color: nextProps.value })
     }
   }
 
