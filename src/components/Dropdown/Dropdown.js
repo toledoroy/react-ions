@@ -37,29 +37,29 @@ class Dropdown extends React.Component {
 
   componentWillMount = () => {
     if (this.props.isOpened === true) {
-      this.setState({isOpened: true});
+      this.setState({isOpened: true})
     }
   }
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.isOpened === true) {
-      this.setState({isOpened: true});
+      this.setState({isOpened: true})
     }
   }
 
   toggleDropdown = (e) => {
-    e.preventDefault();
-    this.setState({isOpened: !this.state.isOpened});
+    e.preventDefault()
+    this.setState({isOpened: !this.state.isOpened})
   }
 
   handleClickOutside() {
-    this.setState({isOpened: false});
+    this.setState({isOpened: false})
   }
 
   render() {
-    const cx = classNames.bind(style);
-    const isOpenedClass = this.state.isOpened ? style['is-opened'] : null;
-    const dropdownClasses = cx(style['dropdown-component'], this.props.optClass, isOpenedClass);
+    const cx = classNames.bind(style)
+    const isOpenedClass = this.state.isOpened ? style['is-opened'] : null
+    const dropdownClasses = cx(style['dropdown-component'], this.props.optClass, isOpenedClass)
 
     return (
       <div className={dropdownClasses}>
