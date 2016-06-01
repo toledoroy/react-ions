@@ -62,12 +62,15 @@ class ExampleFormGroup extends React.Component {
       },
       'linkedin': {
         'value': false
+      },
+      'toggle': {
+        'value': false
       }
     }
   }
 
   handleChange = (fields) => {
-    console.log(fields);
+    //console.log(fields);
   }
 
   handleSubmit = (event, fields) => {
@@ -101,6 +104,9 @@ class ExampleFormGroup extends React.Component {
         },
         linkedin: {
           value: false
+        },
+        toggle: {
+          value: false
         }
       }
     });
@@ -132,9 +138,7 @@ class ExampleFormGroup extends React.Component {
           displayProp='display'
           optClass={style.field} />
 
-        <label>Would you like to receive an email every single minute?
-          <Toggle label="Default toggle" />
-        </label>
+        <Toggle name='toggle' label='Would you like to set a toggle?' />
 
         <fieldset>
           <legend><span>I am a legend</span></legend>

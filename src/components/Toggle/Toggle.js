@@ -48,6 +48,7 @@ class Toggle extends React.Component {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {
+            name: 'toggle',
             value: this.state.value
           }
         });
@@ -56,7 +57,7 @@ class Toggle extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value && nextProps.value !== this.state.value) {
+    if (nextProps.value !== this.props.value) {
       this.setState({ value: nextProps.value })
     }
   }
