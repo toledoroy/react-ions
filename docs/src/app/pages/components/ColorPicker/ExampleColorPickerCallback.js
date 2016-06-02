@@ -13,7 +13,7 @@ class ExampleColorPickerCallback extends React.Component {
   }
 
   _setStatus = (color) => {
-    return 'Selected color is ' + color
+    return 'Selected color is ' + color.toUpperCase()
   }
 
   _updateState = (color) => {

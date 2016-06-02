@@ -1,5 +1,6 @@
 import React from 'react'
 import Input from '../Input/Input'
+import colorLuminance from '../internal/ColorLuminance'
 import { SketchPicker } from 'react-color'
 import enhanceWithClickOutside from 'react-click-outside'
 import style from './style.scss'
@@ -95,14 +96,14 @@ class ColorPicker extends React.Component {
     return (
       <div className={componentClass}>
         <Input
-          value={this.state.color}
+          value={this.state.color.toUpperCase()}
           placeholder='Click to choose a color'
           onClick={this.handleClick}
           changeCallback={this.handleInputChange}
         />
         <div
           className={colorPreviewClass}
-          style={{backgroundColor: this.state.color}}
+          style={{backgroundColor: this.state.color, border: '1px solid ' + colorLuminance(this.state.color || '#ffffff', -.20)}}
           onClick={this.handleClick}>
         </div>
         { this.state.displayColorPicker ?
