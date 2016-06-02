@@ -1,5 +1,12 @@
 ## HEAD
 
+## 0.0.18
+###### _June 2, 2016_
+
+##### Component Fixes / Enhancements
+- [FileUpload] - Allow string or array value prop type
+([#110](https://github.com/GetAmbassador/react-conventions/pull/110))
+
 ## 0.0.16
 ###### _June 2, 2016_
 
