@@ -1,5 +1,11 @@
 ## HEAD
 
+## 0.0.16
+###### _June 2, 2016_
+
+##### Feature
+- [ColorPicker] - ([#98](https://github.com/GetAmbassador/react-conventions/pull/98))
+
 ## 0.0.15
 ###### _June 1, 2016_
 
