@@ -6,7 +6,7 @@ const options = [
   {value: '1', display: 'test 2', someOtherProp: false}
 ];
 
-const ExampleSelectFieldicon = () => (
+const ExampleSelectFieldIcon = () => (
   <SelectField
     options={options}
     valueProp='value'
@@ -14,4 +14,4 @@ const ExampleSelectFieldicon = () => (
     icon='icon-calendar-1' />
 )
 
-export default ExampleSelectFieldicon
+export default ExampleSelectFieldIcon

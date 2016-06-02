@@ -43,6 +43,9 @@ const nav = [
         name: 'Checkbox',
         route: '/components/checkbox'
       }, {
+        name: 'Color Picker',
+        route: '/components/color-picker'
+      }, {
         name: 'Dropdown',
         route: '/components/dropdown'
       }, {
