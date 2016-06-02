@@ -1,6 +1,7 @@
 import React from 'react'
 import Input from '../Input/Input'
 import { SketchPicker } from 'react-color'
+import enhanceWithClickOutside from 'react-click-outside'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 
@@ -48,26 +49,12 @@ class ColorPicker extends React.Component {
     }
   }
 
-  componentWillUnmount = () => {
-    document.removeEventListener('click', this.handleClick)
+  handleClick = (event) => {
+    this.setState({ displayColorPicker: !this.state.displayColorPicker })
   }
 
-  handleClick = (event) => {
-    let toggle = true
-    if (event && this._sketchContainer) {
-      toggle = !this._sketchContainer.contains(event.target)
-    }
-
-    if (toggle) {
-      this.setState({ displayColorPicker: !this.state.displayColorPicker }, function() {
-        if (this.state.displayColorPicker) {
-          document.addEventListener('click', this.handleClick)
-        }
-        else {
-          document.removeEventListener('click', this.handleClick)
-        }
-      })
-    }
+  handleClickOutside() {
+    this.setState({ displayColorPicker: false })
   }
 
   handlePickerChange = (color) => {
@@ -129,4 +116,4 @@ class ColorPicker extends React.Component {
   }
 }
 
-export default ColorPicker
+export default enhanceWithClickOutside(ColorPicker)

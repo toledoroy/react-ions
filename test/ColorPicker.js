@@ -4,70 +4,72 @@ import { shallow, mount } from 'enzyme'
 import ColorPicker from '../src/components/ColorPicker/ColorPicker'
 import { SketchPicker } from 'react-color'
 
-
 describe('ColorPicker', () => {
   const oldColor = '#3c97d3'
   const newColor = '#e54c3b'
   let wrapper, inputField, previewColorDiv
 
-  function eventFire(el, etype){
-    if (el.fireEvent) {
-      el.fireEvent('on' + etype)
-    } else {
-      var evObj = document.createEvent('Events')
-      evObj.initEvent(etype, true, false)
-      el.dispatchEvent(evObj)
-    }
-  }
-
   it('should shallow render itself', () => {
-    wrapper = shallow(<ColorPicker value={oldColor} />)
-    expect(wrapper.hasClass('colorpicker-component')).to.equal(true)
+    wrapper = mount(<ColorPicker value={oldColor} />)
+    expect(wrapper.find('.colorpicker-component')).to.have.length(1)
 
     inputField = wrapper.find('Input')
     expect(inputField).to.have.length(1)
 
-    previewColorDiv = wrapper.childAt(1)
+    previewColorDiv = wrapper.find('.color-preview')
     expect(previewColorDiv).to.have.length(1)
-    expect(previewColorDiv.hasClass('color-preview')).to.equal(true)
   })
 
   it('should have empty default color', () => {
     wrapper = mount(<ColorPicker />)
-    expect(wrapper.props().value).to.equal('')
+    expect(wrapper.childAt(0).props().value).to.equal('')
   })
 
-  it('should update the state when value property changes', () => {
+  it('should open/close when clicked', () => {
+    wrapper = mount(<ColorPicker value={oldColor} />);
+
+    inputField = wrapper.find('input')
+
+    expect(wrapper.find(SketchPicker)).to.have.length(0)
+    inputField.simulate('click');
+    expect(wrapper.find(SketchPicker)).to.have.length(1)
+    inputField.simulate('click');
+    expect(wrapper.find(SketchPicker)).to.have.length(0)
+  })
+
+  it('should update the state when the value property changes', () => {
     wrapper = mount(<ColorPicker value={oldColor} />)
 
-    expect(wrapper.state().color).to.equal(oldColor)
+    expect(wrapper.childAt(0).props().value).to.equal(oldColor)
 
     wrapper.setProps({ value: newColor })
     wrapper.update()
 
-    expect(wrapper.state().color).to.equal(newColor)
+    expect(wrapper.childAt(0).props().value).to.equal(newColor)
   })
 
   it('should update the state when input value changes', () => {
     wrapper = mount(<ColorPicker value={oldColor} />)
 
-    expect(wrapper.state().color).to.equal(oldColor)
+    inputField = wrapper.find('input')
+    expect(inputField.node.value).to.equal(oldColor)
 
-    wrapper.find('input').node.value = newColor
-    wrapper.find('input').simulate('change')
+    inputField.node.value = newColor
+    inputField.simulate('change')
 
-    expect(wrapper.state().color).to.equal(newColor)
+    expect(inputField.node.value).to.equal(newColor)
   })
 
   it('should update the state when the new color is missing the #', () => {
     wrapper = mount(<ColorPicker value={oldColor} />)
 
-    expect(wrapper.state().color).to.equal(oldColor)
+    inputField = wrapper.find('input')
+    expect(inputField.node.value).to.equal(oldColor)
 
-    wrapper.find('input').node.value = 'e54c3b'
-    wrapper.find('input').simulate('change')
+    inputField.node.value = 'e54c3b'
+    inputField.simulate('change')
 
-    expect(wrapper.state().color).to.equal(newColor)
+    expect(inputField.node.value).to.equal(newColor)
   })
 
   it('should run the changeCallback on change', () => {
@@ -89,25 +91,18 @@ describe('ColorPicker', () => {
     spy.restore()
   })
 
-  it('should show/hide SketchPicker when Input field is clicked', () => {
-    wrapper = mount(<ColorPicker value={oldColor} />)
-    inputField = wrapper.find('Input')
-    inputField.find('input').simulate('click')
-    expect(wrapper.find(SketchPicker)).to.have.length(1)
-    inputField.find('input').simulate('click')
-    expect(wrapper.find(SketchPicker)).to.have.length(0)
-  })
-
   it('should update the state when new color is selected in the picker', () => {
     wrapper = mount(<ColorPicker />)
-    wrapper.find('input').simulate('click')
 
-    expect(wrapper.state('color')).to.equal('')
+    inputField = wrapper.find('input')
+    inputField.simulate('click')
+
+    expect(inputField.node.value).to.equal('')
 
     const picker = wrapper.find('div.sketch-container')
     picker.childAt(0).childAt(0).childAt(0).childAt(0).simulate('touchstart', {pageX: 0, pageY: 0})
 
-    expect(wrapper.state('color')).to.not.equal('')
+    expect(inputField.node.value).to.not.equal('')
   })
 
   it('should run the changeCallback when new color is selected in the picker', () => {
@@ -125,35 +120,4 @@ describe('ColorPicker', () => {
 
     expect(parentColor).to.not.equal('')
   })
-
-  it('should close the colorpicker after document click', () => {
-    const div = document.createElement('div')
-    document.body.appendChild(div)
-    const component = ReactDOM.render(<ColorPicker />, div)
-    const input = document.body.getElementsByTagName('input')[0]
-
-    eventFire(input, 'click')
-    expect(document.body.getElementsByClassName('sketch-container')).to.have.length(1)
-
-    // Trigger a click on the body element
-    eventFire(document.body, 'click')
-
-    expect(document.body.getElementsByClassName('sketch-container')).to.have.length(0)
-  });
-
-  it('should not listen for document clicks if component was unmounted', () => {
-    const spy = sinon.spy(document, 'removeEventListener')
-    const div = document.createElement('div')
-    document.body.appendChild(div)
-    const component = ReactDOM.render(<ColorPicker />, div)
-    const input = document.body.getElementsByTagName('input')[0]
-
-    eventFire(input, 'click')
-
-    component.componentWillUnmount()
-
-    expect(spy.called).to.be.true
-    spy.restore()
-  });
-
 })
