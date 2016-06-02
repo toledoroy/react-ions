@@ -36,7 +36,7 @@ class Checkbox extends React.Component {
      */
     label: React.PropTypes.string,
     /**
-     * Whether the label shouild appear on the right or left.
+     * Whether the label should appear on the right or left.
      */
     labelPosition: React.PropTypes.string,
     /**
@@ -82,8 +82,8 @@ class Checkbox extends React.Component {
     } = this.props;
 
     const cx = classNames.bind(style);
-    var disabledClass = this.props.disabled ? style['checkbox-disabled'] : '';
-    var checkboxClass = cx(style['checkbox-component'], optClass, disabledClass);
+    const disabledClass = this.props.disabled ? style['checkbox-disabled'] : '';
+    const checkboxClass = cx(style['checkbox-component'], optClass, disabledClass);
 
     return (
       <div className={checkboxClass}>

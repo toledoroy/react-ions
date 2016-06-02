@@ -46,6 +46,12 @@ const nav = [
         name: 'Color Picker',
         route: '/components/color-picker'
       }, {
+        name: 'Dropdown',
+        route: '/components/dropdown'
+      }, {
+        name: 'File Upload',
+        route: '/components/file-upload'
+      }, {
         name: 'Form Group',
         route: '/components/form-group'
       }, {
@@ -78,6 +84,9 @@ const nav = [
       }, {
         name: 'Textarea',
         route: '/components/textarea'
+      }, {
+        name: 'Toggle',
+        route: '/components/toggle'
       }, {
         name: 'Tooltip',
         route: '/components/tooltip'

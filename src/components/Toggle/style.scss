@@ -1,0 +1,69 @@
+@import '../../styles/common/colors';
+
+.toggle-component {
+  cursor: pointer;
+
+  .toggle-wrapper {
+    display: inline-block;
+    height: 15px;
+    position: relative;
+    width: 26px;
+
+    .outer {
+      background: $primary-4;
+      border-radius: 100px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+      transition: background 0.15s ease-in;
+      top: 0;
+
+      &.on {
+        background: $success;
+      }
+    }
+
+    .inner {
+      background: $neutral-1;
+      border-radius: 50%;
+      height: 13px;
+      position: absolute;
+      right: 12px;
+      top: 1px;
+      transition: background 0.15s ease-in, right 0.15s ease-out;
+      width: 13px;
+
+      &.on {
+        background: $white;
+        right: 1px;
+      }
+    }
+  }
+
+  &.toggle-disabled {
+    cursor: not-allowed;
+
+    div:first-child {
+      background: $neutral-4;
+    }
+  }
+
+  &.toggle-red {
+    .outer.on {
+      background: $danger;
+    }
+  }
+
+  label {
+    color: $primary-4;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 5px;
+    user-select: none;
+
+    & + .toggle-wrapper {
+      top: 3px;
+    }
+  }
+}

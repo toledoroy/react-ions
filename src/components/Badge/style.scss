@@ -6,6 +6,7 @@
   color: $white;
   background-color: $neutral-3;
   border-radius: 3px;
+  border: 1px solid $neutral-3;
   font-size: 18px;
   font-weight: 200;
   float: left;
@@ -51,22 +52,27 @@
 
   &.success {
     background-color: $success;
+    border: 1px solid $success;
   }
 
   &.danger {
     background-color: $danger;
+    border: 1px solid $danger;
   }
 
   &.warning {
     background-color: $warning;
+    border: 1px solid $warning;
   }
 
   &.sky {
     background-color: $primary-1;
+    border: 1px solid $primary-1;
   }
 
   &.navy {
     background-color: $primary-5;
+    border: 1px solid $primary-5;
   }
 
   &.border {

@@ -1,6 +1,6 @@
 {
   "name": "react-conventions",
-  "version": "0.0.11",
+  "version": "0.0.15",
   "description": "An open source set of React components that implement Ambassador's Design and UX patterns.",
   "main": "./lib/index.js",
   "repository": {
@@ -93,9 +93,11 @@
     "react": "^15.0.0-rc.1",
     "react-addons-shallow-compare": "^15.0.1",
     "react-addons-test-utils": "^15.0.0-rc.1",
+    "react-click-outside": "^2.1.0",
     "react-color": "^2.1.0",
     "react-docgen": "^2.8.2",
     "react-dom": "^15.0.0-rc.1",
+    "react-dropzone": "^3.4.0",
     "react-highlight": "^0.8.0",
     "react-loader": "^2.4.0",
     "react-router": "^2.4.0",

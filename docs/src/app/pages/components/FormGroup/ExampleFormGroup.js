@@ -6,6 +6,7 @@ import Checkbox from 'react-conventions/lib/Checkbox'
 import RadioGroup from 'react-conventions/lib/Radio/RadioGroup'
 import SelectField from 'react-conventions/lib/SelectField'
 import Button from 'react-conventions/lib/Button'
+import Toggle from 'react-conventions/lib/Toggle'
 import style from 'react-conventions/lib/FormGroup/style'
 
 let fields = {
@@ -61,12 +62,15 @@ class ExampleFormGroup extends React.Component {
       },
       'linkedin': {
         'value': false
+      },
+      'toggle': {
+        'value': false
       }
     }
   }
 
   handleChange = (fields) => {
-    console.log(fields);
+    //console.log(fields);
   }
 
   handleSubmit = (event, fields) => {
@@ -100,6 +104,9 @@ class ExampleFormGroup extends React.Component {
         },
         linkedin: {
           value: false
+        },
+        toggle: {
+          value: false
         }
       }
     });
@@ -130,6 +137,8 @@ class ExampleFormGroup extends React.Component {
           valueProp='value'
           displayProp='display'
           optClass={style.field} />
+
+        <Toggle name='toggle' optClass={style.field} label='Would you like to set a toggle?' />
 
         <fieldset>
           <legend><span>I am a legend</span></legend>
