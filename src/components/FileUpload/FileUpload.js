@@ -63,7 +63,10 @@ class FileUpload extends React.Component {
   };
 
   _normalizeValue = (value) => {
-    if (typeof value === 'object') {
+    if(!value || value === '') {
+      return []
+    }
+    else if (typeof value === 'object') {
       return value
     }
     else {
@@ -78,7 +81,7 @@ class FileUpload extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value && nextProps.value !== '' && nextProps.value !== this.props.value) {
+    if (nextProps.value !== this.props.value) {
       this.setState({ files: this._normalizeValue(nextProps.value) });
     }
   }
