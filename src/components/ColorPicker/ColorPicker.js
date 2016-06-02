@@ -83,7 +83,12 @@ class ColorPicker extends React.Component {
 
     this.setState({ color: newColor }, function() {
       if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(newColor)
+        this.props.changeCallback({
+          target: {
+            name: this.props.name,
+            value: newColor
+          }
+        })
       }
     })
   }
