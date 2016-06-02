@@ -5,8 +5,8 @@ import ColorPicker from '../src/components/ColorPicker/ColorPicker'
 import { SketchPicker } from 'react-color'
 
 describe('ColorPicker', () => {
-  const oldColor = '#3c97d3'
-  const newColor = '#e54c3b'
+  const oldColor = '#3C97D3'
+  const newColor = '#E54C3B'
   let wrapper, inputField, previewColorDiv
 
   it('should shallow render itself', () => {
@@ -66,7 +66,7 @@ describe('ColorPicker', () => {
     inputField = wrapper.find('input')
     expect(inputField.node.value).to.equal(oldColor)
 
-    inputField.node.value = 'e54c3b'
+    inputField.node.value = 'E54C3B'
     inputField.simulate('change')
 
     expect(inputField.node.value).to.equal(newColor)

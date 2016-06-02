@@ -1,4 +1,8 @@
 const ColorLuminance = (hex, lum) => {
+  if (typeof hex === 'undefined' || !hex) {
+    return false
+  }
+
   // Validate hex string
   hex = String(hex).replace(/[^0-9a-f]/gi, '')
   if (hex.length < 3) {
