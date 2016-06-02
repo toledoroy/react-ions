@@ -7,6 +7,7 @@ import RadioGroup from 'react-conventions/lib/Radio/RadioGroup'
 import SelectField from 'react-conventions/lib/SelectField'
 import Button from 'react-conventions/lib/Button'
 import Toggle from 'react-conventions/lib/Toggle'
+import FileUpload from 'react-conventions/lib/FileUpload'
 import style from 'react-conventions/lib/FormGroup/style'
 
 let fields = {
@@ -65,6 +66,9 @@ class ExampleFormGroup extends React.Component {
       },
       'toggle': {
         'value': false
+      },
+      'logo': {
+        'value': 'https://ambassador-api.s3.amazonaws.com/uploads/marketing/54/2016_06_02_18_40_39.png'
       }
     }
   }
@@ -107,6 +111,9 @@ class ExampleFormGroup extends React.Component {
         },
         toggle: {
           value: false
+        },
+        'logo': {
+          'value': ''
         }
       }
     });
@@ -139,6 +146,8 @@ class ExampleFormGroup extends React.Component {
           optClass={style.field} />
 
         <Toggle name='toggle' optClass={style.field} label='Would you like to set a toggle?' />
+
+        <FileUpload name='logo' label="Logo" showPreview={true} />
 
         <fieldset>
           <legend><span>I am a legend</span></legend>
