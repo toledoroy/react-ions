@@ -73,13 +73,13 @@ describe('ColorPicker', () => {
   })
 
   it('should run the changeCallback on change', () => {
-    let parentColor = ''
-    const callback = function(color) {
-      parentColor = color
+    let result = ''
+    const callback = function(event) {
+      result = event
     }
     wrapper = mount(<ColorPicker value={oldColor} changeCallback={callback} />)
     wrapper.find('input').simulate('change')
-    expect(parentColor).to.equal(oldColor)
+    expect(result.target.value).to.equal(oldColor)
   })
 
   it('should not result in an error if changeCallback is not defined', () => {
