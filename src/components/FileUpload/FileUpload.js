@@ -34,9 +34,12 @@ class FileUpload extends React.Component {
      */
     label: React.PropTypes.string,
     /**
-     * Value of the FileUpload.
+     * Value of the FileUpload (can be path string or an array of file objects).
      */
-    value: React.PropTypes.string,
+    value: React.PropTypes.oneOfType([
+      React.PropTypes.array,
+      React.PropTypes.string
+    ]),
     /**
      * Name of the FileUpload.
      */
@@ -59,15 +62,24 @@ class FileUpload extends React.Component {
     changeCallback: React.PropTypes.func
   };
 
+  _normalizeValue = (value) => {
+    if (typeof value === 'object') {
+      return value
+    }
+    else {
+      return [{ preview: value }]
+    }
+  }
+
   componentWillMount = () => {
     if (this.props.value && this.props.value !== '' && this.props.showPreview) {
-      this.setState({ files: [{ preview: this.props.value }] });
+      this.setState({ files: this._normalizeValue(this.props.value) });
     }
   }
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value && nextProps.value !== '' && nextProps.value !== this.props.value) {
-      this.setState({ files: [{ preview: nextProps.value }] });
+      this.setState({ files: this._normalizeValue(nextProps.value) });
     }
   }
 
