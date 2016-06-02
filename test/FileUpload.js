@@ -45,6 +45,17 @@ describe('FileUpload', () => {
     expect(wrapper.childAt(2).childAt(0).childAt(0).html()).to.be.equal('<img src="test2.jpg" style="max-width: 200px; max-height: 200px;">');
   });
 
+  it('should update the preview when the value property changes to a file array', () => {
+    wrapper = mount(<FileUpload label='Default file upload' value='test.jpg' showPreview={true} />);
+
+    expect(wrapper.childAt(2).childAt(0).childAt(0).html()).to.be.equal('<img src="test.jpg" style="max-width: 200px; max-height: 200px;">');
+
+    wrapper.setProps({ value: [{ preview: 'test2.jpg'}] });
+    wrapper.update();
+
+    expect(wrapper.childAt(2).childAt(0).childAt(0).html()).to.be.equal('<img src="test2.jpg" style="max-width: 200px; max-height: 200px;">');
+  });
+
   it('should have custom preview size', () => {
     wrapper = mount(<FileUpload label='Default file upload' value='test.jpg' showPreview={true} previewSize={300} />);
 
