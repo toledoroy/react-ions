@@ -4,9 +4,9 @@ import Button from 'react-conventions/lib/Button'
 import style from './style.scss'
 
 const options = [
-  {value: '0', display: 'test 1'},
-  {value: '1', display: 'test 2'},
-  {value: '2', display: 'test 3'}
+  {id: '0', display: 'test 1'},
+  {id: '1', display: 'test 2'},
+  {id: '2', display: 'test 3'}
 ];
 
 class ExampleSelectFieldSelected extends React.Component {
@@ -32,7 +32,7 @@ class ExampleSelectFieldSelected extends React.Component {
         </div>
         <SelectField
           options={options}
-          valueProp='value'
+          valueProp='id'
           displayProp='display'
           value={this.state.selected} />
       </div>

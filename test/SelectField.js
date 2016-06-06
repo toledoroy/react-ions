@@ -11,6 +11,11 @@ describe('SelectField', () => {
     {value: '1', display: 'test 2', someOtherProp: false}
   ];
 
+  const optionsAltValueProp = [
+    {id: '0', display: 'test 1', someOtherProp: true},
+    {id: '1', display: 'test 2', someOtherProp: false}
+  ];
+
   function eventFire(el, etype){
     if (el.fireEvent) {
       el.fireEvent('on' + etype);
@@ -160,13 +165,14 @@ describe('SelectField', () => {
   });
 
   it('should update the state when the value property changes', () => {
-    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' value={'0'} />);
+    wrapper = shallow(<SelectField options={optionsAltValueProp} valueProp='id' displayProp='display' value={'0'} />);
+    console.log(wrapper.childAt(1).text());
 
-    expect(wrapper.childAt(1).text().indexOf(options[0].display)).to.equal(0);
+    expect(wrapper.childAt(1).text().indexOf(optionsAltValueProp[0].display)).to.equal(0);
 
     wrapper.setProps({ value: '1' });
     wrapper.update();
 
-    expect(wrapper.childAt(1).text().indexOf(options[1].display)).to.equal(0);
+    expect(wrapper.childAt(1).text().indexOf(optionsAltValueProp[1].display)).to.equal(0);
   });
 });
