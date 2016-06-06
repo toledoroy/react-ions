@@ -31,7 +31,7 @@ class Dropdown extends React.Component {
       React.PropTypes.node
     ]),
     /**
-     * A callback function to be called when dropdown isOpen state
+     * A callback function to be called when dropdown isOpen state changes
      */
     changeCallback: React.PropTypes.func
   }
