@@ -89,7 +89,7 @@ class SelectField extends React.Component {
   }
 
   selectOption = (option) => {
-    this.setState({selected: option, value: option.value}, function() {
+    this.setState({selected: option, value: option[this.props.valueProp]}, function() {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {
@@ -111,8 +111,8 @@ class SelectField extends React.Component {
 
   getIndex = (value, options) => {
     let optionIndex = -1;
-    options.map((radio, index) => {
-      if (radio.value === value) {
+    options.map((option, index) => {
+      if (option[this.props.valueProp] === value) {
         optionIndex = index;
       }
     });
