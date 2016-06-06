@@ -17,6 +17,10 @@ class ExampleDropdownCallback extends React.Component {
     this.setState({isOpened: true});
   }
 
+  handleClose = () => {
+    this.setState({isOpened: false});
+  }
+
   render() {
     return (
       <div>
@@ -25,7 +29,9 @@ class ExampleDropdownCallback extends React.Component {
             <Badge icon='icon-check-1-1' theme='success' /><span>Dropdown content here.</span>
           </div>
         </Dropdown>
-        <p className={styles['float-right']}>And here you can <a href="#" onClick={this.handleOpen}>open it remotely</a>.</p>
+        <div className={styles['external-controls']}>
+          <p><a href="#" onClick={this.handleOpen}>Open it</a> / <a href="#" onClick={this.handleClose}>Close it</a></p>
+        </div>
       </div>
     )
   }

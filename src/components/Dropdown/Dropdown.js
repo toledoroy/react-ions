@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import enhanceWithClickOutside from 'react-click-outside'
 import style from './style.scss'
 import classNames from 'classnames/bind'
@@ -28,11 +29,15 @@ class Dropdown extends React.Component {
       React.PropTypes.number,
       React.PropTypes.string,
       React.PropTypes.node
-    ])
+    ]),
+    /**
+     * A callback function to be called when the input changes.
+     */
+    changeCallback: React.PropTypes.func
   }
 
   state = {
-    isOpened: false
+    isOpened: this.props.isOpened
   }
 
   componentWillMount = () => {
@@ -42,18 +47,26 @@ class Dropdown extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.isOpened === true) {
-      this.setState({isOpened: true})
+    if (nextProps.isOpened !== this.state.isOpened) {
+      this.setState({isOpened: !!nextProps.isOpened})
     }
   }
 
   toggleDropdown = (e) => {
     e.preventDefault()
-    this.setState({isOpened: !this.state.isOpened})
+    this.setState({isOpened: !this.state.isOpened}, () => {
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback(this.state.isOpened);
+      }
+    })
   }
 
   handleClickOutside() {
-    this.setState({isOpened: false})
+    this.setState({isOpened: false}, () => {
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback(this.state.isOpened);
+      }
+    })
   }
 
   render() {
@@ -63,7 +76,8 @@ class Dropdown extends React.Component {
 
     return (
       <div className={dropdownClasses}>
-        <span className={style.trigger} onClick={this.toggleDropdown}>{this.props.trigger}</span>
+        <span
+          className={style.trigger} onClick={this.toggleDropdown}>{this.props.trigger}</span>
         <div className={style['dropdown-wrapper']}>
           {this.props.children}
         </div>
