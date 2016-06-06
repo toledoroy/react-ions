@@ -15,7 +15,11 @@ class Dropdown extends React.Component {
 
   static propTypes = {
     /**
-     * Whether the dropdown is visible
+     * A callback function to be called when dropdown isOpen state changes.
+     */
+    changeCallback: React.PropTypes.func,
+    /**
+     * Whether the dropdown is visible.
      */
     isOpened: React.PropTypes.bool,
     /**
@@ -29,11 +33,7 @@ class Dropdown extends React.Component {
       React.PropTypes.number,
       React.PropTypes.string,
       React.PropTypes.node
-    ]),
-    /**
-     * A callback function to be called when dropdown isOpen state changes
-     */
-    changeCallback: React.PropTypes.func
+    ])
   }
 
   state = {
