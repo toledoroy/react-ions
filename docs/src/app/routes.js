@@ -33,6 +33,7 @@ import SelectFieldPage from './pages/components/SelectField/Page'
 import TabsPage from './pages/components/TabWrapper/Page'
 import FileUploadPage from './pages/components/FileUpload/Page'
 import TogglePage from './pages/components/Toggle/Page'
+import SortableListPage from './pages/components/SortableList/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -71,6 +72,7 @@ const Routes = (
       <Route path='tooltip' title='Tooltip' component={TooltipPage} />
       <Route path='file-upload' title='File Upload' component={FileUploadPage} />
       <Route path='toggle' title='Toggle' component={TogglePage} />
+      <Route path='sortable-list' title='Sortable List' component={SortableListPage} />
     </Route>
     <Route path='patterns' title='Patterns'>
     </Route>
