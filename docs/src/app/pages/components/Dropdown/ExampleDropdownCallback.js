@@ -6,26 +6,36 @@ import styles from './styles'
 
 class ExampleDropdownCallback extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
     isOpened: false
   }
 
+  handleChange = (state) => {
+    this.setState({isOpened: state})
+  }
+
   handleOpen = () => {
-    this.setState({isOpened: true});
+    this.setState({isOpened: true})
+  }
+
+  handleClose = () => {
+    this.setState({isOpened: false})
   }
 
   render() {
     return (
       <div>
-        <Dropdown trigger={<u>dropdown here</u>} isOpened={this.state.isOpened}>
+        <Dropdown trigger={<u>dropdown here</u>} isOpened={this.state.isOpened} changeCallback={this.handleChange}>
           <div className={styles.wrapper}>
             <Badge icon='icon-check-1-1' theme='success' /><span>Dropdown content here.</span>
           </div>
         </Dropdown>
-        <p className={styles['float-right']}>And here you can <a href="#" onClick={this.handleOpen}>open it remotely</a>.</p>
+        <div className={styles['external-controls']}>
+          <p><a href="#" onClick={this.handleOpen}>Open it</a> / <a href="#" onClick={this.handleClose}>Close it</a></p>
+        </div>
       </div>
     )
   }

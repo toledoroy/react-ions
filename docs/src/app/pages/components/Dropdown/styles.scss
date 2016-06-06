@@ -1,7 +1,13 @@
+@import '../../../../../../src/styles/common/colors';
 @import '../../../../../../src/styles/common/mixins';
 
-.float-right {
+.external-controls {
   float: right;
+
+  a {
+    color: $primary-1;
+    text-decoration: none;
+  }
 }
 
 .wrapper {

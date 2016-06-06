@@ -1,6 +1,7 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import { shallow, mount } from 'enzyme'
+import Input from '../src/components/Input'
 import Dropdown from '../src/components/Dropdown'
 
 describe('Dropdown', () => {
@@ -51,6 +52,17 @@ describe('Dropdown', () => {
     });
 
     expect(parent.refs.dropdown.props.isOpened).to.be.true;
+  });
+
+  it('should call changeCallback function', () => {
+    const spy = sinon.spy();
+    wrapper = mount(<Dropdown optClass='test' trigger='Test' changeCallback={spy}>This is a test.</Dropdown>);
+    trigger = wrapper.childAt(0);
+
+    trigger.simulate('click');
+
+    expect(spy.calledOnce).to.be.true;
+    expect(spy.calledWith(true)).to.be.true;
   });
 
 });

@@ -24,7 +24,7 @@ const DropdownPage = () => (
           <ExampleDropdownButton />
         </CodeExample>
         <CodeExample
-          title='Dropdown with remote open'
+          title='Dropdown with Callback for Open/Close'
           description={description.dropdownButtonCallback}
           markup={exampleDropdownCallbackCode}>
           <ExampleDropdownCallback />
