@@ -6,19 +6,23 @@ import styles from './styles'
 
 class ExampleDropdownCallback extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
     isOpened: false
   }
 
+  handleChange = (state) => {
+    this.setState({isOpened: state})
+  }
+
   handleOpen = () => {
-    this.setState({isOpened: true});
+    this.setState({isOpened: true})
   }
 
   handleClose = () => {
-    this.setState({isOpened: false});
+    this.setState({isOpened: false})
   }
 
   render() {
