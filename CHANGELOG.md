@@ -1,5 +1,16 @@
 ## HEAD
 
+## 0.0.19
+###### _June 6, 2016_
+
+##### Component Fixes / Enhancements
+- [Dropdown] - Added changeCallback, fired when dropdown is opened / closed
+([#113](https://github.com/GetAmbassador/react-conventions/pull/113))
+- [SelectField] - Ensure valueProp is respected
+([#114](https://github.com/GetAmbassador/react-conventions/pull/114))
+- [Icons] - Added to icon set
+([#112](https://github.com/GetAmbassador/react-conventions/pull/112))
+
 ## 0.0.18
 ###### _June 2, 2016_
 
