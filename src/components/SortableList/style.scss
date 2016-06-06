@@ -1,5 +1,9 @@
 @import '../../styles/common/colors';
 
+.sortable-list {
+  display: block;
+}
+
 .sortable-item {
   border: solid 1px $neutral-1;
   padding: 0 10px;

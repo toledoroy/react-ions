@@ -128,7 +128,7 @@ class SortableItem extends React.Component {
     return connectDragPreview(connectDropTarget(
       <div style={{ opacity }} className={style['sortable-item']}>
         <div style={{ opacity: badgeOpacity }}><Badge text={index + 1} theme='sky' optClass={style['sortable-item-badge']} /></div>
-        {text}
+        <span>{text}</span>
         <div className={style.actions}>
           <Icon name="icon-bin-2-1" width="13" height="13" fill="#233040" onClick={this.removeSortableItem} />
           {connectDragSource(<div className={style.handle}><span></span><span></span><span></span><span></span></div>)}

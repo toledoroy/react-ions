@@ -115,5 +115,8 @@
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.2.0"
+  },
+  "devDependencies": {
+    "react-dnd-test-backend": "^1.0.2"
   }
 }
