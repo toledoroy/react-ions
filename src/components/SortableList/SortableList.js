@@ -44,6 +44,10 @@ class SortableList extends React.Component {
     window.removeEventListener('resize', this.handleResize)
   }
 
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({ items: nextProps.items })
+  }
+
   moveSortableItem = (dragIndex, hoverIndex) => {
     const { items } = this.state
     const dragSortableItem = items[dragIndex]

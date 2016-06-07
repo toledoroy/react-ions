@@ -1,15 +1,4 @@
-@import '../../../../../../src/styles/common/mixins';
-@import 'react-anything-sortable/sortable.css'
-
-.callback-status {
-  @include monospace;
-  display: block;
-}
-
 .update {
   display: flex;
   margin-bottom: 15px;
-  button {
-    margin-right: 15px;
-  }
 }
