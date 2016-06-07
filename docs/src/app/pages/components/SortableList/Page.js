@@ -1,5 +1,5 @@
 import React from 'react'
-import PropsList from 'private/modules/PropsList';
+import PropsList from 'private/modules/PropsList'
 import docs from '!!docgen!react-conventions/lib/SortableList/SortableList'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleSortableListDefault from './ExampleSortableListDefault'
@@ -8,7 +8,7 @@ import styles from 'private/css/content'
 
 const description = {
   sortableListDefault: 'This is the `sortable list component` as it appears by default.'
-};
+}
 
 const SortableListPage = () => (
   <div>
