@@ -70,7 +70,8 @@ class FileUpload extends React.Component {
       return value
     }
     else {
-      return [{ preview: value, name: value.match(/.*\/(.*)$/)[1] }]
+      const file = value.match(/.*\/(.*)$/)
+      return [{ preview: value, name: (file && file[1] ? file[1] : null) }]
     }
   }
 
