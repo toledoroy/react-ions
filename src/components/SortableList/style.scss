@@ -1,5 +1,9 @@
 @import '../../styles/common/colors';
 
+.sortable-list-container {
+  position: relative;
+}
+
 .sortable-list {
   display: block;
 }

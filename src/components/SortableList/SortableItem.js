@@ -1,6 +1,7 @@
 import React from 'react'
 import { findDOMNode } from 'react-dom'
 import { DragSource, DropTarget } from 'react-dnd'
+import { getEmptyImage } from 'react-dnd-html5-backend'
 import style from './style.scss'
 import Badge from '../Badge'
 import Icon from '../Icon'
@@ -9,6 +10,7 @@ const sortableItemSource = {
   beginDrag(props) {
     return {
       value: props.value,
+      text: props.text,
       index: props.index
     }
   }
@@ -67,47 +69,57 @@ class SortableItem extends React.Component {
     /**
      * Binds to react-dnd connectDragSource method.
      */
-    connectDragSource: React.PropTypes.func.isRequired,
+    connectDragSource: React.PropTypes.func,
     /**
      * Binds to react-dnd connectDropTarget method.
      */
-    connectDropTarget: React.PropTypes.func.isRequired,
+    connectDropTarget: React.PropTypes.func,
     /**
      * Binds to react-dnd connectDragPreview method.
      */
-    connectDragPreview: React.PropTypes.func.isRequired,
+    connectDragPreview: React.PropTypes.func,
     /**
      * Index of the item in the list.
      */
-    index: React.PropTypes.number.isRequired,
+    index: React.PropTypes.number,
     /**
      * Whether the item is being dragged.
      */
-    isDragging: React.PropTypes.bool.isRequired,
+    isDragging: React.PropTypes.bool,
     /**
      * The value of the item.
      */
-    value: React.PropTypes.any.isRequired,
+    value: React.PropTypes.any,
     /**
      * The text to display inside the item.
      */
-    text: React.PropTypes.string.isRequired,
+    text: React.PropTypes.string,
     /**
      * A callback that gets triggered when the item is moved.
      */
-    moveSortableItem: React.PropTypes.func.isRequired,
+    moveSortableItem: React.PropTypes.func,
     /**
      * A callback that gets triggered when the item is removed.
      */
-    removeSortableItem: React.PropTypes.func.isRequired,
+    removeSortableItem: React.PropTypes.func,
     /**
      * The total number of items in the list.
      */
-    count: React.PropTypes.number.isRequired
+    count: React.PropTypes.number
   }
 
   state = {
     count: this.props.count
+  }
+
+  componentDidMount() {
+    // Use empty image as a drag preview so browsers don't draw it
+    // and we can draw whatever we want on the custom drag layer instead.
+    this.props.connectDragPreview(getEmptyImage(), {
+      // IE fallback: specify that we'd rather screenshot the node
+      // when it already knows it's being dragged so we can hide it with CSS.
+      captureDraggingState: true
+    })
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -121,11 +133,11 @@ class SortableItem extends React.Component {
   }
 
   render = () => {
-    const { text, index, isDragging, connectDragSource, connectDropTarget, connectDragPreview } = this.props
+    const { text, index, isDragging, connectDragSource, connectDropTarget } = this.props
     const opacity = isDragging ? 0 : 1
     const badgeOpacity = this.state.count > 1 ? 1 - ((0.6 / (this.state.count - 1)) * index) : 1
 
-    return connectDragPreview(connectDropTarget(
+    return connectDropTarget(
       <div style={{ opacity }} className={style['sortable-item']}>
         <div style={{ opacity: badgeOpacity }}><Badge text={index + 1} theme='sky' optClass={style['sortable-item-badge']} /></div>
         <span>{text}</span>
@@ -134,7 +146,7 @@ class SortableItem extends React.Component {
           {connectDragSource(<div className={style.handle}><span></span><span></span><span></span><span></span></div>)}
         </div>
       </div>
-    ))
+    )
   }
 }
 
