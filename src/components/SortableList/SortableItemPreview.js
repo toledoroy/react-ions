@@ -9,10 +9,10 @@ class SortableItemPreview extends React.Component {
   static propTypes = {
     item: React.PropTypes.object.isRequired,
     count: React.PropTypes.number.isRequired
-  };
+  }
 
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
@@ -29,7 +29,7 @@ class SortableItemPreview extends React.Component {
           <div className={style.handle}><span></span><span></span><span></span><span></span></div>
         </div>
       </div>
-    );
+    )
   }
 }
 

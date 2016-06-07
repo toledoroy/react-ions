@@ -1,34 +1,25 @@
-import React from 'react';
-import SortableItemPreview from './SortableItemPreview';
-import { DragLayer } from 'react-dnd';
-
-const layerStyles = {
-  position: 'fixed',
-  pointerEvents: 'none',
-  zIndex: 100,
-  left: 0,
-  top: 0,
-  width: '100%',
-  height: '100%'
-};
+import React from 'react'
+import SortableItemPreview from './SortableItemPreview'
+import { DragLayer } from 'react-dnd'
+import style from './style.scss'
 
 function getItemStyles(props) {
-  const { initialOffset, currentOffset } = props;
+  const { initialOffset, currentOffset } = props
   if (!initialOffset || !currentOffset) {
     return {
       display: 'none'
-    };
+    }
   }
 
-  let { x, y } = currentOffset;
+  let { x, y } = currentOffset
   x = props.dimensions.left
 
-  const transform = `translate(${x}px, ${y-10}px)`;
+  const transform = `translate(${x}px, ${y-10}px)`
   return {
     width: props.dimensions.width + 'px',
     transform: transform,
     WebkitTransform: transform
-  };
+  }
 }
 
 class CustomDragLayer extends React.Component {
@@ -48,7 +39,7 @@ class CustomDragLayer extends React.Component {
       y: React.PropTypes.number.isRequired
     }),
     isDragging: React.PropTypes.bool.isRequired
-  };
+  }
 
   renderItem = (type, item, count) => {
     return (
@@ -56,20 +47,20 @@ class CustomDragLayer extends React.Component {
     )
   }
 
-  render() {
+  render = () => {
     const { item, itemType, isDragging } = this.props
 
     if (!isDragging) {
-      return null;
+      return null
     }
 
     return (
-      <div style={layerStyles}>
+      <div className={style['drag-layer']}>
         <div style={getItemStyles(this.props)}>
           {this.renderItem(itemType, item, this.props.count)}
         </div>
       </div>
-    );
+    )
   }
 }
 

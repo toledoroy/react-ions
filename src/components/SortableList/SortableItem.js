@@ -2,9 +2,9 @@ import React from 'react'
 import { findDOMNode } from 'react-dom'
 import { DragSource, DropTarget } from 'react-dnd'
 import { getEmptyImage } from 'react-dnd-html5-backend'
-import style from './style.scss'
 import Badge from '../Badge'
 import Icon from '../Icon'
+import style from './style.scss'
 
 const sortableItemSource = {
   beginDrag(props) {

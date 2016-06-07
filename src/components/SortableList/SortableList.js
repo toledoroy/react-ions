@@ -41,7 +41,7 @@ class SortableList extends React.Component {
 
   componentWillUnmount = () => {
     // Remove event listener
-    window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener('resize', this.handleResize)
   }
 
   moveSortableItem = (dragIndex, hoverIndex) => {
