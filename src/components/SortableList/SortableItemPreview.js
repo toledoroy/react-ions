@@ -6,16 +6,16 @@ import classNames from 'classnames/bind'
 import style from './style.scss'
 
 class SortableItemPreview extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
   static propTypes = {
     item: React.PropTypes.object.isRequired,
     count: React.PropTypes.number.isRequired
   }
 
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
+  render = () => {
     const cx = classNames.bind(style)
     const previewClasses = cx(style['sortable-item'], style.preview)
     const badgeOpacity = this.props.count > 1 ? 1 - ((0.6 / (this.props.count - 1)) * this.props.item.index) : 1
