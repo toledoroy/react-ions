@@ -51,14 +51,14 @@ describe('SortableList', () => {
     expect(wrapper.find('SortableList')).to.have.length(1)
     expect(wrapper.find('SortableItem')).to.have.length(4)
 
-    expect(wrapper.childAt(0).props().value).to.be.equal('email')
-    expect(wrapper.childAt(0).props().text).to.be.equal('Email')
-    expect(wrapper.childAt(1).props().value).to.be.equal('push_notification')
-    expect(wrapper.childAt(1).props().text).to.be.equal('Push Notification')
-    expect(wrapper.childAt(2).props().value).to.be.equal('web')
-    expect(wrapper.childAt(2).props().text).to.be.equal('Web')
-    expect(wrapper.childAt(3).props().value).to.be.equal('sms')
-    expect(wrapper.childAt(3).props().text).to.be.equal('SMS')
+    expect(wrapper.childAt(0).childAt(0).props().value).to.be.equal('email')
+    expect(wrapper.childAt(0).childAt(0).props().text).to.be.equal('Email')
+    expect(wrapper.childAt(0).childAt(1).props().value).to.be.equal('push_notification')
+    expect(wrapper.childAt(0).childAt(1).props().text).to.be.equal('Push Notification')
+    expect(wrapper.childAt(0).childAt(2).props().value).to.be.equal('web')
+    expect(wrapper.childAt(0).childAt(2).props().text).to.be.equal('Web')
+    expect(wrapper.childAt(0).childAt(3).props().value).to.be.equal('sms')
+    expect(wrapper.childAt(0).childAt(3).props().text).to.be.equal('SMS')
   })
 
   it('should update state when an item is removed', () => {
@@ -66,7 +66,7 @@ describe('SortableList', () => {
 
     expect(wrapper.find('SortableItem')).to.have.length(4)
 
-    wrapper.childAt(0).childAt(2).childAt(0).simulate('click')
+    wrapper.childAt(0).childAt(0).childAt(2).childAt(0).simulate('click')
 
     expect(wrapper.find('SortableItem')).to.have.length(3)
   })
@@ -80,12 +80,12 @@ describe('SortableList', () => {
 
     expect(sortableItems).to.have.length(4)
 
-    wrapper.childAt(0).childAt(2).childAt(0).simulate('click')
+    wrapper.childAt(0).childAt(0).childAt(2).childAt(0).simulate('click')
 
     expect(sortableItems).to.have.length(3)
   })
 
-  it('should set item opacity to 0 when drag starts', () => {
+  it('should set item opacity to 0 when dragging starts', () => {
     // Render with the test context that uses the test backend
     const SortableItemContext = wrapInTestContext(SortableItem)
     const root = TestUtils.renderIntoDocument(<SortableItemContext key={0} index={0} value="test-1" text="Test 1" moveSortableItem={moveSortableItem} removeSortableItem={removeSortableItem} count={1} />)
