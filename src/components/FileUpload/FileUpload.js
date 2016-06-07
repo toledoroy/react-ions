@@ -9,7 +9,7 @@ import style from './style.scss'
  */
 class FileUpload extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -60,7 +60,7 @@ class FileUpload extends React.Component {
      * A callback function to be called when the FileUpload changes.
      */
     changeCallback: React.PropTypes.func
-  };
+  }
 
   _normalizeValue = (value) => {
     if(!value || value === '') {
@@ -70,19 +70,19 @@ class FileUpload extends React.Component {
       return value
     }
     else {
-      return [{ preview: value }]
+      return [{ preview: value, name: value.match(/.*\/(.*)$/)[1] }]
     }
   }
 
   componentWillMount = () => {
     if (this.props.value && this.props.value !== '' && this.props.showPreview) {
-      this.setState({ files: this._normalizeValue(this.props.value) });
+      this.setState({ files: this._normalizeValue(this.props.value) })
     }
   }
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value !== this.props.value) {
-      this.setState({ files: this._normalizeValue(nextProps.value) });
+      this.setState({ files: this._normalizeValue(nextProps.value) })
     }
   }
 
@@ -93,24 +93,24 @@ class FileUpload extends React.Component {
           name: this.props.name,
           value: this.state.files
         }
-      });
+      })
     }
   }
 
   handleUpload = (files) => {
     if (!this.props.disabled) {
       this.setState({ files: files }, function() {
-        this.handleChange();
-      });
+        this.handleChange()
+      })
     }
   }
 
   handleRemove = (index) => {
-    let savedFiles = this.state.files;
-    savedFiles.splice(index, 1);
+    let savedFiles = this.state.files
+    savedFiles.splice(index, 1)
     this.setState({ files: savedFiles }, function() {
-      this.handleChange();
-    });
+      this.handleChange()
+    })
   }
 
   getPreview = () => {
@@ -135,11 +135,11 @@ class FileUpload extends React.Component {
       previewSize,
       changeCallback,
       ...other
-    } = this.props;
+    } = this.props
 
-    const cx = classNames.bind(style);
-    const disabledClass = this.props.disabled ? style['disabled'] : '';
-    const fileUploadClass = cx(style['file-upload-component'], optClass, disabledClass);
+    const cx = classNames.bind(style)
+    const disabledClass = this.props.disabled ? style['disabled'] : ''
+    const fileUploadClass = cx(style['file-upload-component'], optClass, disabledClass)
 
     return (
       <div className={fileUploadClass}>
@@ -147,6 +147,7 @@ class FileUpload extends React.Component {
         <Dropzone onDrop={this.handleUpload} className={style.dropzone} activeClassName={style.active} disableClick={this.props.disabled} multiple={false} {...other}>
           <div>Drag and drop here to upload files or click to browse</div>
         </Dropzone>
+        { this.state.files[0] ? <div className={style.filename}><span>Filename:</span> {this.state.files[0].name}</div> : null }
         { showPreview ? <div className={style.preview}>{this.getPreview()}</div> : null }
       </div>
     )

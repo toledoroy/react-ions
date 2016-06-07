@@ -6,7 +6,7 @@ import style from './style'
 
 class ExampleFileUploadCallback extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -14,11 +14,11 @@ class ExampleFileUploadCallback extends React.Component {
   }
 
   updateValue = () => {
-    this.setState({ files: [this._imageUrl.state.value] });
+    this.setState({ files: [this._imageUrl.state.value] })
   }
 
   changeCallback = (event) => {
-    console.log(event);
+    console.log(event)
   }
 
   render() {
