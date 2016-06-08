@@ -1,6 +1,6 @@
 {
   "name": "react-conventions",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "An open source set of React components that implement Ambassador's Design and UX patterns.",
   "main": "./lib/index.js",
   "repository": {
