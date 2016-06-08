@@ -3,7 +3,7 @@ import Input from '../Input/Input'
 import colorLuminance from '../internal/ColorLuminance'
 import { SketchPicker } from 'react-color'
 import enhanceWithClickOutside from 'react-click-outside'
-import throttle from 'lodash.throttle'
+import throttle from 'lodash/throttle'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 
