@@ -3,7 +3,6 @@ import ColorPicker from 'react-conventions/lib/ColorPicker'
 import Button from 'react-conventions/lib/Button'
 import style from './style.scss'
 
-
 const oldColor = '#3c97d3'
 const newColor = '#e54c3b'
 
@@ -29,6 +28,8 @@ class ExampleColorPickerCallback extends React.Component {
   }
 
   handleChange = (event) => {
+    const date = new Date()
+    console.log('Color:' + event.target.value, 'Time:' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds())
     this._updateState(event.target.value)
   }
 
@@ -47,8 +48,8 @@ class ExampleColorPickerCallback extends React.Component {
           <Button onClick={this.updateColor} disabled={this.state.color == newColor}>Set new color</Button>
           <Button onClick={this.resetColor} disabled={this.state.color == oldColor} optClass='danger'>Reset color</Button>
         </div>
-        <ColorPicker value={this.state.color} changeCallback={this.handleChange} />
         <code>{this.state.status}</code>
+        <ColorPicker value={this.state.color} changeCallback={this.handleChange} />
       </div>
     )
   }

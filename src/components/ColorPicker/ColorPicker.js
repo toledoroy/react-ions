@@ -3,6 +3,7 @@ import Input from '../Input/Input'
 import colorLuminance from '../internal/ColorLuminance'
 import { SketchPicker } from 'react-color'
 import enhanceWithClickOutside from 'react-click-outside'
+import throttle from 'lodash/throttle'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 
@@ -12,6 +13,10 @@ import classNames from 'classnames/bind'
 class ColorPicker extends React.Component {
   constructor(props) {
     super(props)
+
+    this.throttle = throttle((fn: any, data: any) => {
+      fn(data)
+    }, 200)
   }
 
   state = {
@@ -60,9 +65,10 @@ class ColorPicker extends React.Component {
 
   handlePickerChange = (color) => {
     let newColor = color.hex
+
     this.setState({ color: newColor }, function() {
       if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback({
+        this.throttle(this.props.changeCallback, {
           target: {
             name: this.props.name,
             value: newColor
@@ -95,8 +101,8 @@ class ColorPicker extends React.Component {
 
   render() {
     const cx = classNames.bind(style)
-    var componentClass = cx(style['colorpicker-component'], this.props.optClass)
-    var colorPreviewClass = cx(style['color-preview'], (this.state.color ? '' : 'empty'))
+    const componentClass = cx(style['colorpicker-component'], this.props.optClass)
+    const colorPreviewClass = cx(style['color-preview'], (this.state.color ? '' : 'empty'))
 
     return (
       <div className={componentClass}>

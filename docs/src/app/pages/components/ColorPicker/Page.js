@@ -10,7 +10,6 @@ import PropsList from 'private/modules/PropsList'
 import docs from '!!docgen!react-conventions/lib/ColorPicker/ColorPicker'
 import styles from 'private/css/content'
 
-
 const description = {
   default: 'This is the default `ColorPicker component`.',
   selected: 'This is the `ColorPicker component` with selected color.',
