@@ -1,5 +1,9 @@
 ## HEAD
 
+## 0.0.21
+###### _June 8, 2016_
+- [Upgrading ReactDOM and Test Utils]([#120](https://github.com/GetAmbassador/react-conventions/pull/120))
+
 ## 0.0.20
 ###### _June 8, 2016_
 
