@@ -2,7 +2,7 @@ import React from 'react'
 import FileUpload from 'react-conventions/lib/FileUpload'
 
 const callback = (event) => {
-  console.log(event);
+  console.log(event)
 }
 
 const ExampleFileUploadCallback = () => (

@@ -23,7 +23,7 @@ const description = {
   fileUploadDisabled: 'This is the disabled `file upload component`.',
   fileUploadCallback: 'This is the `file upload component` with a callback.',
   fileUploadValue: 'This is the `file upload component` with a populated value property.'
-};
+}
 
 const FileUploadPage = () => (
   <div>
