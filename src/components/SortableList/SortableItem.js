@@ -2,6 +2,7 @@ import React from 'react'
 import { findDOMNode } from 'react-dom'
 import { DragSource, DropTarget } from 'react-dnd'
 import { getEmptyImage } from 'react-dnd-html5-backend'
+import classNames from 'classnames/bind'
 import Badge from '../Badge'
 import Icon from '../Icon'
 import style from './style.scss'
@@ -133,12 +134,14 @@ class SortableItem extends React.Component {
   }
 
   render = () => {
-    const { text, index, isDragging, connectDragSource, connectDropTarget } = this.props
+    const cx = classNames.bind(style)
+    const { text, index, isDragging, connectDragSource, connectDropTarget, canDrop } = this.props
     const opacity = isDragging ? 0 : 1
     const badgeOpacity = this.state.count > 1 ? 1 - ((0.6 / (this.state.count - 1)) * index) : 1
+    const sortableItemClasses = cx(style['sortable-item'], (canDrop ? 'dragging' : ''))
 
     return connectDropTarget(
-      <div style={{ opacity }} className={style['sortable-item']}>
+      <div style={{ opacity }} className={sortableItemClasses}>
         <div style={{ opacity: badgeOpacity }}><Badge text={index + 1} theme='sky' optClass={style['sortable-item-badge']} /></div>
         <span>{text}</span>
         <div className={style.actions}>
@@ -156,8 +159,9 @@ SortableItem = DragSource('item', sortableItemSource, (connect, monitor) => ({
   isDragging: monitor.isDragging()
 }))(SortableItem)
 
-SortableItem = DropTarget('item', sortableItemTarget, connect => ({
-  connectDropTarget: connect.dropTarget()
+SortableItem = DropTarget('item', sortableItemTarget, (connect, monitor) => ({
+  connectDropTarget: connect.dropTarget(),
+  canDrop: monitor.canDrop()
 }))(SortableItem)
 
 export default SortableItem

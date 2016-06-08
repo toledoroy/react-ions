@@ -29,7 +29,7 @@
     font-size: 14px;
     margin-right: 20px;
   }
-  &:hover {
+  &:not(.dragging):hover, &.preview {
     .actions svg {
       opacity: 1;
     }
