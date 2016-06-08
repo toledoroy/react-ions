@@ -14,7 +14,7 @@ class ColorPicker extends React.Component {
   constructor(props) {
     super(props)
 
-    this.throttle = throttle(function (fn: any, data: any) {
+    this.throttle = throttle((fn: any, data: any) => {
       fn(data)
     }, 200)
   }
@@ -65,7 +65,7 @@ class ColorPicker extends React.Component {
 
   handlePickerChange = (color) => {
     let newColor = color.hex
-    
+
     this.setState({ color: newColor }, function() {
       if (typeof this.props.changeCallback === 'function') {
         this.throttle(this.props.changeCallback, {
