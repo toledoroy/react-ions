@@ -94,6 +94,7 @@ class SortableList extends React.Component {
                 text={item.text}
                 moveSortableItem={this.moveSortableItem}
                 removeSortableItem={this.removeSortableItem}
+                getDimensions={this.handleResize}
                 count={items.length} />
             )
           })}
