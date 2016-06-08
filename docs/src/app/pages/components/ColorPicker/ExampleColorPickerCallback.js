@@ -3,7 +3,6 @@ import ColorPicker from 'react-conventions/lib/ColorPicker'
 import Button from 'react-conventions/lib/Button'
 import style from './style.scss'
 
-
 const oldColor = '#3c97d3'
 const newColor = '#e54c3b'
 
