@@ -1,5 +1,16 @@
 ## HEAD
 
+## 0.0.20
+###### _June 8, 2016_
+
+##### Component Fixes / Enhancements
+- [Upgrading to React 15.1.0]([#119](https://github.com/GetAmbassador/react-conventions/pull/119))
+
+##### Feature
+- [Sortable List] - ([#116](https://github.com/GetAmbassador/react-conventions/pull/116))
+- [File Upload] - ([#117](https://github.com/GetAmbassador/react-conventions/pull/117))
+- [Color Picker] - ([#118](https://github.com/GetAmbassador/react-conventions/pull/118))
+
 ## 0.0.19
 ###### _June 6, 2016_
 
