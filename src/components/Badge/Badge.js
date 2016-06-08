@@ -11,7 +11,7 @@ const Badge = (props) => {
 
   return (
     <div className={badgeClasses}>
-      {props.icon ? <Icon name={props.icon} height={iconSize} width={iconSize} /> : null} {props.text ? <span>{props.text}</span> : null}
+      {props.icon ? <Icon name={props.icon} height={iconSize} width={iconSize} /> : null}{props.text ? <span>{props.text}</span> : null}
     </div>
   )
 }

@@ -79,6 +79,9 @@ const nav = [
         name: 'Select Field',
         route: '/components/select-field'
       }, {
+        name: 'Sortable List',
+        route: '/components/sortable-list'
+      }, {
         name: 'Tabs',
         route: '/components/tabs'
       }, {
