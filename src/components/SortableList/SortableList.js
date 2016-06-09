@@ -17,7 +17,7 @@ class SortableList extends React.Component {
      */
     items: React.PropTypes.array.isRequired,
     /**
-     * A callback function to be called when the order of the items changes or when an item is removed.
+     * A callback function to be called when the order of the items changes or when an item is toggled.
      */
     changeCallback: React.PropTypes.func
   }
@@ -66,13 +66,12 @@ class SortableList extends React.Component {
     })
   }
 
-  removeSortableItem = (index) => {
+  toggleSortableItem = (index) => {
+    let items = this.state.items
+    items[index].active = !items[index].active
+
     this.setState(update(this.state, {
-      items: {
-        $splice: [
-          [index, 1]
-        ]
-      }
+      items: { $set: items }
     }), function() {
       if (this.props.changeCallback) {
         this.props.changeCallback(this.state.items)
@@ -92,8 +91,9 @@ class SortableList extends React.Component {
                 index={i}
                 value={item.value}
                 text={item.text}
+                active={item.active}
                 moveSortableItem={this.moveSortableItem}
-                removeSortableItem={this.removeSortableItem}
+                toggleSortableItem={this.toggleSortableItem}
                 getDimensions={this.handleResize}
                 count={items.length} />
             )
