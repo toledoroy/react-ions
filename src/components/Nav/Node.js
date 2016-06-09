@@ -16,15 +16,15 @@ const Node = (props) => {
 
   const handleClick = function(e) {
     e.preventDefault()
-    props.node.route()
+    props.node.action()
   }
 
-  if (typeof props.node.route === 'string') {
-    link = <a href={props.node.route} target={!props.node.self ? '_blank' : null}>
+  if (typeof props.node.action === 'string') {
+    link = <a href={props.node.action} target={!props.node.self ? '_blank' : null}>
       {iconParent ? <Icon name={iconParent} fill='currentColor' /> : null}
       {props.node.name}
     </a>
-  } else if (typeof props.node.route === 'function') {
+  } else if (typeof props.node.action === 'function') {
     link = <a onClick={handleClick}>
       {iconParent ? <Icon name={iconParent} fill='currentColor' /> : null}
       {props.node.name}
@@ -33,7 +33,7 @@ const Node = (props) => {
 
   return (
     <li>
-    { props.node.external && typeof props.node.route === 'string' || typeof props.node.route === 'function'
+    { props.node.external && typeof props.node.action === 'string' || typeof props.node.action === 'function'
       ?
       <div>
         {link}
@@ -43,7 +43,7 @@ const Node = (props) => {
       </div>
       :
       <div>
-        <Link to={props.node.route} activeClassName={style.active}>
+        <Link to={props.node.action} activeClassName={style.active}>
           {iconParent ? <Icon name={iconParent} fill='currentColor' /> : null}
           {props.node.name}
         </Link>

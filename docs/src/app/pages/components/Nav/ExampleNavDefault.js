@@ -6,34 +6,34 @@ import style from './style'
 const data = [
   {
     name: 'Item 1',
-    route: '/components/nav',
+    action: '/components/nav',
     icon: 'icon-hammer-2',
     nav: [
       {
         name: 'Internal Link',
-        route: '/patterns'
+        action: '/patterns'
       }, {
         name: 'External Link (New Window)',
         external: true,
-        route: 'https://example.com'
+        action: 'https://example.com'
       }, {
         name: 'External Link (Same Window)',
         external: true,
         self: true,
-        route: 'https://example.com'
+        action: 'https://example.com'
       }, {
         name: 'Callback function',
-        route: function() {
+        action: function() {
           alert('callback')
         }
       },
     ]
   }, {
     name: 'Item 2',
-    route: '/components/nav'
+    action: '/components/nav'
   }, {
     name: 'Item 3',
-    route: '/components/nav'
+    action: '/components/nav'
   }
 ];
 

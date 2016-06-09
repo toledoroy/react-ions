@@ -9,23 +9,23 @@ describe('Node', () => {
   const nodes = [
     {
       name: 'Colors',
-      route: '/foundations/colors'
+      action: '/foundations/colors'
     }, {
       name: 'Editor',
       external: true,
-      route: 'https://cdn.getambassador.com/index.html?mbsy_editor=true'
+      action: 'https://cdn.getambassador.com/index.html?mbsy_editor=true'
     }, {
       name: 'External Link (New Window)',
       external: true,
-      route: 'https://google.com'
+      action: 'https://google.com'
     }, {
       name: 'External Link (Same Window)',
       external: true,
       self: true,
-      route: 'https://google.com'
+      action: 'https://google.com'
     }, {
       name: 'Callback function',
-      route: function() {
+      action: function() {
         alert('callback')
       }
     }
@@ -34,7 +34,7 @@ describe('Node', () => {
   const nodeWithIcon = [
     {
       name: 'Colors',
-      route: '/foundations/colors',
+      action: '/foundations/colors',
       icon: 'icon-check-1-1'
     }
   ]
@@ -42,11 +42,11 @@ describe('Node', () => {
   const children = [
     {
       name: 'Children Test',
-      route: '/foundations/children'
+      action: '/foundations/children'
     }, {
       name: 'External Child',
       external: true,
-      route: 'https://cdn.getambassador.com/index.html?mbsy_editor=true'
+      action: 'https://cdn.getambassador.com/index.html?mbsy_editor=true'
     }
   ]
 
@@ -57,7 +57,7 @@ describe('Node', () => {
     expect(wrapper.childAt(0).childAt(0).type()).to.equal(Link)
     expect(wrapper.childAt(0).childAt(0).childAt(0).text()).to.equal(nodes[0].name)
     expect(wrapper.childAt(0).childAt(0).childAt(0).text()).to.equal(nodes[0].name)
-    expect(wrapper.childAt(0).childAt(0).props().to).to.equal(nodes[0].route)
+    expect(wrapper.childAt(0).childAt(0).props().to).to.equal(nodes[0].action)
   })
 
   it('should render a single internal node with an icon', () => {
@@ -78,7 +78,7 @@ describe('Node', () => {
   it('should render a single external node', () => {
     const wrapper = shallow(<Node node={nodes[1]} />)
     expect(wrapper.childAt(0).childAt(0).childAt(0).text()).to.equal(nodes[1].name)
-    expect(wrapper.childAt(0).childAt(0).props().href).to.equal(nodes[1].route)
+    expect(wrapper.childAt(0).childAt(0).props().href).to.equal(nodes[1].action)
     expect(wrapper.childAt(0).childAt(0).props().target).to.equal('_blank')
   })
 
@@ -110,7 +110,7 @@ describe('Node', () => {
 
   it('should call a callback', () => {
     let spy = sinon.spy()
-    nodes[4].route = spy
+    nodes[4].action = spy
     const wrapper = shallow(<Node node={nodes[4]} />)
     expect(typeof wrapper.childAt(0).find('a').props().onClick).to.equal('function')
     wrapper.childAt(0).childAt(0).simulate('click', {preventDefault: function() {}})
