@@ -22,7 +22,7 @@ const Nav = (props) => {
 
 Nav.propTypes = {
   /**
-   * The name of the nav button.
+   * List of navigation items (see code sample)
    */
   data: React.PropTypes.array.isRequired,
   /**
