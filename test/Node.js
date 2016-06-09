@@ -14,6 +14,20 @@ describe('Node', () => {
       name: 'Editor',
       external: true,
       route: 'https://cdn.getambassador.com/index.html?mbsy_editor=true'
+    }, {
+      name: 'External Link (New Window)',
+      external: true,
+      route: 'https://google.com'
+    }, {
+      name: 'External Link (Same Window)',
+      external: true,
+      self: true,
+      route: 'https://google.com'
+    }, {
+      name: 'Callback function',
+      route: function() {
+        alert('callback')
+      }
     }
   ];
 
@@ -82,6 +96,25 @@ describe('Node', () => {
   it('should render a group of children with an icon parent', () => {
     const wrapper = shallow(<Node node={nodeWithIcon[0]} children={children} />);
     expect(wrapper.childAt(0).find('ul').props().className).to.equal('indent');
+  });
+
+  it('should open a link in a new window', () => {
+    const wrapper = shallow(<Node node={nodes[2]} />);
+    expect(wrapper.childAt(0).find('a').props().target).to.equal('_blank');
+  });
+
+  it('should open a link in the same window', () => {
+    const wrapper = shallow(<Node node={nodes[3]} />);
+    expect(wrapper.childAt(0).find('a').props().target).to.equal(null);
+  });
+
+  it('should call a callback', () => {
+    let spy = sinon.spy();
+    nodes[4].route = spy;
+    const wrapper = shallow(<Node node={nodes[4]} />);
+    expect(typeof wrapper.childAt(0).find('a').props().onClick).to.equal('function');
+    wrapper.childAt(0).childAt(0).simulate('click', {preventDefault: function() {}});
+    expect(spy.calledOnce).to.be.true;
   });
 
 });
