@@ -84,7 +84,9 @@ class ExampleFormGroupInline extends React.Component {
           <SelectField name='selectField3' options={fields.selectField3} valueProp='value' displayProp='display' optClass={style.field} />
         </fieldset>
         <fieldset className={style.row}>
-          <ButtonGroup name="buttonGroup" options={fields.buttonGroup} defaultOption={0}></ButtonGroup>
+          <div className={style.field}>
+            <ButtonGroup name="buttonGroup" options={fields.buttonGroup} defaultOption={0}></ButtonGroup>
+          </div>
           <SelectField name='selectField4' options={fields.selectField} valueProp='value' displayProp='display' optClass={style.field} />
           <SelectField name='selectField5' options={fields.selectField2} valueProp='value' displayProp='display' optClass={style.field} />
           <Input name='input' type='text' optClass={style.field} />

@@ -6,11 +6,6 @@
   h3 {
     margin: 0 0 10px 0;
   }
-
-  [class^='button-group'] {
-    display: inline-block;
-    margin-right: 15px;
-  }
 }
 
 .remove-item {
@@ -27,7 +22,8 @@
 fieldset.row {
 
   .field {
-    display: inline-block;
+    float: left;
+    display: block;
     margin: 0 15px 0 0;
     min-width: auto;
 
