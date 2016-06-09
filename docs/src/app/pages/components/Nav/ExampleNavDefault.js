@@ -15,12 +15,12 @@ const data = [
       }, {
         name: 'External Link (New Window)',
         external: true,
-        route: 'https://google.com'
+        route: 'https://example.com'
       }, {
         name: 'External Link (Same Window)',
         external: true,
         self: true,
-        route: 'https://google.com'
+        route: 'https://example.com'
       }, {
         name: 'Callback function',
         route: function() {
