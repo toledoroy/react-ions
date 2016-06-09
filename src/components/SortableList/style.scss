@@ -28,6 +28,10 @@
     min-width: 17px;
     font-size: 14px;
     margin-right: 20px;
+    transition: all 0.25s ease;
+  }
+  > span {
+    transition: all 0.25s ease;
   }
   &.inactive {
     > span {
