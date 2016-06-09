@@ -99,7 +99,7 @@ describe('SelectField', () => {
     //open <ul>
     wrapper.childAt(1).simulate('click');
     //click <li>
-    wrapper.childAt(1).childAt(2).childAt(1).simulate('click');
+    wrapper.childAt(2).childAt(1).simulate('click');
 
     expect(wrapper.childAt(1).text().indexOf(options[1].display)).to.equal(0);
   });
@@ -112,7 +112,7 @@ describe('SelectField', () => {
     // open <ul>
     wrapper.childAt(1).simulate('click');
     // click <li>
-    wrapper.childAt(1).childAt(2).childAt(1).simulate('click');
+    wrapper.childAt(2).childAt(1).simulate('click');
 
     expect(spy.calledOnce).to.be.true;
   });

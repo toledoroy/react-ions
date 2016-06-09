@@ -148,12 +148,12 @@ class SelectField extends React.Component {
         <input type='hidden' name='selectfield-value' value={this.state.selected && this.state.selected[this.props.valueProp]} />
         <div className={style['selectfield-value']} onClick={this.toggleSelectField}>
           {this.props.icon ? <Icon name={this.props.icon} className={style.icon} height='16' width='16' /> : null}
-          {this.getDisplayText()}
+          <span className={style['display-text']}>{this.getDisplayText()}</span>
           <Icon name='icon-caret' width='10' height='10' />
-          <ul>
-            {options}
-          </ul>
         </div>
+        <ul>
+          {options}
+        </ul>
       </div>
     );
   }
