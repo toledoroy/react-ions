@@ -4,9 +4,9 @@ import Button from 'react-conventions/lib/Button'
 import style from './style.scss'
 
 const options = [
-  {id: '0', display: 'test 1'},
-  {id: '1', display: 'test 2'},
-  {id: '2', display: 'test 3'}
+  {id: '0', display: 'test really long option'},
+  {id: '1', display: 'test really really long option'},
+  {id: '2', display: 'test really really really long option'}
 ];
 
 class ExampleSelectFieldSelected extends React.Component {
@@ -34,7 +34,8 @@ class ExampleSelectFieldSelected extends React.Component {
           options={options}
           valueProp='id'
           displayProp='display'
-          value={this.state.selected} />
+          value={this.state.selected}
+          optClass={style['update-select']} />
       </div>
     )
   }

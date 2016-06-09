@@ -3,6 +3,7 @@
 
 .selectfield-component {
   display: inline-block;
+  position: relative;
 
   label {
     display: block;
@@ -19,7 +20,7 @@
     color: $primary-4;
     cursor: pointer;
     position: relative;
-    padding: 10px 50px 10px 10px;
+    padding: 10px 25px 10px 10px;
     user-select: none;
 
     > svg:last-of-type {
@@ -39,6 +40,13 @@
 
   }
 
+  .display-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+  }
+
   ul {
     background-color: $white;
     border-radius: 3px;
@@ -46,7 +54,7 @@
     box-sizing: border-box;
     display: none;
     left: -1px;
-    margin: 30px 0;
+    margin: 3px 0 30px;
     overflow: hidden;
     padding: 0;
     position: absolute;
