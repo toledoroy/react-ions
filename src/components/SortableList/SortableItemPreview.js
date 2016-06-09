@@ -1,7 +1,7 @@
 import React from 'react'
 import SortableItem from './SortableItem'
 import Badge from '../Badge'
-import Icon from '../Icon'
+import Toggle from '../Toggle'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 
@@ -17,7 +17,7 @@ class SortableItemPreview extends React.Component {
 
   render = () => {
     const cx = classNames.bind(style)
-    const previewClasses = cx(style['sortable-item'], style.preview)
+    const previewClasses = cx(style['sortable-item'], style.preview, !this.props.item.active ? 'inactive' : '')
     const badgeOpacity = this.props.count > 1 ? 1 - ((0.6 / (this.props.count - 1)) * this.props.item.index) : 1
 
     return (
@@ -25,7 +25,7 @@ class SortableItemPreview extends React.Component {
         <div style={{ opacity: badgeOpacity }}><Badge text={this.props.item.index + 1} theme='sky' optClass={style['sortable-item-badge']} /></div>
         <span>{this.props.item.text}</span>
         <div className={style.actions}>
-          <Icon name="icon-bin-2-1" width="13" height="13" fill="#233040" />
+          <Toggle value={this.props.item.active} optClass={style.toggle} />
           <div className={style.handle}><span></span><span></span><span></span><span></span></div>
         </div>
       </div>

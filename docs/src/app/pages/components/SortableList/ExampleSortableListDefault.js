@@ -11,23 +11,27 @@ class ExampleSortableListDefault extends React.Component {
   state = {
     items: [{
       value: 'email',
-      text: 'Email'
+      text: 'Email',
+      active: true
     }, {
       value: 'push_notification',
-      text: 'Push Notification'
+      text: 'Push Notification',
+      active: false
     }, {
       value: 'web',
-      text: 'Web'
+      text: 'Web',
+      active: false
     }, {
       value: 'sms',
-      text: 'SMS'
+      text: 'SMS',
+      active: false
     }],
     count: 0
   }
 
-  onChange = (items) => {
-    console.log(items)
-    this.setState({ items: items })
+  onChange = (event) => {
+    console.log(event.target.value)
+    this.setState({ items: event.target.value })
   }
 
   addItem = () => {
