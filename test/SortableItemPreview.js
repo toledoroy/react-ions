@@ -9,22 +9,26 @@ describe('SortableItemPreview', () => {
     {
       index: 0,
       text: 'Email',
-      value: 'email'
+      value: 'email',
+      active: false
     },
     {
       index: 1,
       text: 'Push Notification',
       value: 'push_notification',
+      active: true
     },
     {
       index: 2,
       text: 'Web',
-      value: 'web'
+      value: 'web',
+      active: false
     },
     {
       index: 3,
       text: 'SMS',
-      value: 'sms'
+      value: 'sms',
+      active: false
     }
   ]
 
@@ -32,7 +36,15 @@ describe('SortableItemPreview', () => {
     wrapper = shallow(<SortableItemPreview item={items[0]} count={1} />)
 
     expect(wrapper.hasClass('sortable-item')).to.equal(true)
-    expect(wrapper.find('Icon')).to.have.length(1)
+    expect(wrapper.hasClass('inactive')).to.equal(true)
+    expect(wrapper.find('Toggle')).to.have.length(1)
+    expect(wrapper.find('Badge')).to.have.length(1)
+
+    wrapper = shallow(<SortableItemPreview item={items[1]} count={1} />)
+
+    expect(wrapper.hasClass('sortable-item')).to.equal(true)
+    expect(wrapper.hasClass('inactive')).to.equal(false)
+    expect(wrapper.find('Toggle')).to.have.length(1)
     expect(wrapper.find('Badge')).to.have.length(1)
   })
 
