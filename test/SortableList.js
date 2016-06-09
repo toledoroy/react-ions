@@ -12,23 +12,27 @@ describe('SortableList', () => {
   const items = [
     {
       value: 'email',
-      text: 'Email'
+      text: 'Email',
+      active: false
     }, {
       value: 'push_notification',
-      text: 'Push Notification'
+      text: 'Push Notification',
+      active: true
     }, {
       value: 'web',
-      text: 'Web'
+      text: 'Web',
+      active: false
     }, {
       value: 'sms',
-      text: 'SMS'
+      text: 'SMS',
+      active: false
     }
   ]
 
   const moveSortableItem = (dragIndex, hoverIndex) => {
     console.log(dragIndex, hoverIndex)
   }
-  const removeSortableItem = (index) => {
+  const toggleSortableItem = (index) => {
     console.log(index)
   }
 
@@ -61,34 +65,60 @@ describe('SortableList', () => {
     expect(wrapper.childAt(0).childAt(3).props().text).to.be.equal('SMS')
   })
 
-  it('should update state when an item is removed', () => {
+  it('should update state when an item is toggled', () => {
     wrapper = mount(<SortableList items={items} />)
 
-    expect(wrapper.find('SortableItem')).to.have.length(4)
+    expect(wrapper.childAt(0).childAt(0).props().active).to.be.false
+    expect(wrapper.childAt(0).childAt(1).props().active).to.be.true
+    expect(wrapper.childAt(0).childAt(2).props().active).to.be.false
+    expect(wrapper.childAt(0).childAt(3).props().active).to.be.false
 
     wrapper.childAt(0).childAt(0).childAt(2).childAt(0).simulate('click')
 
-    expect(wrapper.find('SortableItem')).to.have.length(3)
+    expect(wrapper.childAt(0).childAt(0).props().active).to.be.true
+    expect(wrapper.childAt(0).childAt(1).props().active).to.be.true
+    expect(wrapper.childAt(0).childAt(2).props().active).to.be.false
+    expect(wrapper.childAt(0).childAt(3).props().active).to.be.false
+
+    wrapper.childAt(0).childAt(0).childAt(2).childAt(0).simulate('click')
+
+    expect(wrapper.childAt(0).childAt(0).props().active).to.be.false
+    expect(wrapper.childAt(0).childAt(1).props().active).to.be.true
+    expect(wrapper.childAt(0).childAt(2).props().active).to.be.false
+    expect(wrapper.childAt(0).childAt(3).props().active).to.be.false
   })
 
-  it('should trigger a callback when an item is removed', () => {
+  it('should trigger a callback when an item is toggled', () => {
     let sortableItems = items
     const changeCallback = function(items) {
       sortableItems = items
     }
     wrapper = mount(<SortableList items={items} changeCallback={changeCallback} />)
 
-    expect(sortableItems).to.have.length(4)
+    expect(sortableItems[0].active).to.be.false
+    expect(sortableItems[1].active).to.be.true
+    expect(sortableItems[2].active).to.be.false
+    expect(sortableItems[3].active).to.be.false
 
     wrapper.childAt(0).childAt(0).childAt(2).childAt(0).simulate('click')
 
-    expect(sortableItems).to.have.length(3)
+    expect(sortableItems[0].active).to.be.true
+    expect(sortableItems[1].active).to.be.true
+    expect(sortableItems[2].active).to.be.false
+    expect(sortableItems[3].active).to.be.false
+
+    wrapper.childAt(0).childAt(0).childAt(2).childAt(0).simulate('click')
+
+    expect(sortableItems[0].active).to.be.false
+    expect(sortableItems[1].active).to.be.true
+    expect(sortableItems[2].active).to.be.false
+    expect(sortableItems[3].active).to.be.false
   })
 
   it('should set item opacity to 0 when dragging starts', () => {
     // Render with the test context that uses the test backend
     const SortableItemContext = wrapInTestContext(SortableItem)
-    const root = TestUtils.renderIntoDocument(<SortableItemContext key={0} index={0} value="test-1" text="Test 1" moveSortableItem={moveSortableItem} removeSortableItem={removeSortableItem} count={1} />)
+    const root = TestUtils.renderIntoDocument(<SortableItemContext key={0} index={0} value="test-1" text="Test 1" moveSortableItem={moveSortableItem} toggleSortableItem={toggleSortableItem} count={1} />)
 
     // Obtain a reference to the backend
     const backend = root.getManager().getBackend()

@@ -4,7 +4,7 @@ import { DragSource, DropTarget } from 'react-dnd'
 import { getEmptyImage } from 'react-dnd-html5-backend'
 import classNames from 'classnames/bind'
 import Badge from '../Badge'
-import Icon from '../Icon'
+import Toggle from '../Toggle'
 import style from './style.scss'
 
 const sortableItemSource = {
@@ -16,6 +16,7 @@ const sortableItemSource = {
     return {
       value: props.value,
       text: props.text,
+      active: props.active,
       index: props.index
     }
   }
@@ -100,17 +101,25 @@ class SortableItem extends React.Component {
      */
     text: React.PropTypes.string,
     /**
+     * Whether the item is active.
+     */
+    active: React.PropTypes.bool,
+    /**
      * A callback that gets triggered when the item is moved.
      */
     moveSortableItem: React.PropTypes.func,
     /**
-     * A callback that gets triggered when the item is removed.
+     * A callback that gets triggered when the item is toggled.
      */
-    removeSortableItem: React.PropTypes.func,
+    toggleSortableItem: React.PropTypes.func,
     /**
      * The total number of items in the list.
      */
     count: React.PropTypes.number
+  }
+
+  static defaultProps = {
+    active: false
   }
 
   state = {
@@ -133,23 +142,23 @@ class SortableItem extends React.Component {
     }
   }
 
-  removeSortableItem = () => {
-    this.props.removeSortableItem(this.props.index)
+  toggleSortableItem = () => {
+    this.props.toggleSortableItem(this.props.index)
   }
 
   render = () => {
     const cx = classNames.bind(style)
-    const { text, index, isDragging, connectDragSource, connectDropTarget, canDrop } = this.props
+    const { text, index, active, isDragging, connectDragSource, connectDropTarget, canDrop } = this.props
     const opacity = isDragging ? 0 : 1
     const badgeOpacity = this.state.count > 1 ? 1 - ((0.6 / (this.state.count - 1)) * index) : 1
-    const sortableItemClasses = cx(style['sortable-item'], (canDrop ? 'dragging' : ''))
+    const sortableItemClasses = cx(style['sortable-item'], canDrop ? 'dragging' : '', !active ? 'inactive' : '')
 
     return connectDropTarget(
       <div style={{ opacity }} className={sortableItemClasses}>
         <div style={{ opacity: badgeOpacity }}><Badge text={index + 1} theme='sky' optClass={style['sortable-item-badge']} /></div>
         <span>{text}</span>
         <div className={style.actions}>
-          <Icon name="icon-bin-2-1" width="13" height="13" fill="#233040" onClick={this.removeSortableItem} />
+          <Toggle value={active} optClass={style.toggle} changeCallback={this.toggleSortableItem} />
           {connectDragSource(<div className={style.handle}><span></span><span></span><span></span><span></span></div>)}
         </div>
       </div>

@@ -28,10 +28,18 @@
     min-width: 17px;
     font-size: 14px;
     margin-right: 20px;
+    transition: all 0.25s ease;
   }
-  &:not(.dragging):hover, &.preview {
-    .actions svg {
-      opacity: 1;
+  > span {
+    transition: all 0.25s ease;
+  }
+  &.inactive {
+    > span {
+      opacity: 0.3;
+    }
+    .sortable-item-badge {
+      background-color: rgba($navy-text, 0.3);
+      border-color: transparent;
     }
   }
 }
@@ -43,10 +51,11 @@
   right: 0;
   top: 50%;
   transform: translate(0, -50%);
-  svg {
-    margin-right: 5px;
-    opacity: 0;
-    cursor: pointer;
+  .toggle {
+    display: flex;
+    > div > div:first-child {
+      background-color: rgba($navy-text, 0.3);
+    }
   }
   .handle {
     cursor: move;

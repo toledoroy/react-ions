@@ -11,16 +11,20 @@ class ExampleSortableListDefault extends React.Component {
   state = {
     items: [{
       value: 'email',
-      text: 'Email'
+      text: 'Email',
+      active: true
     }, {
       value: 'push_notification',
-      text: 'Push Notification'
+      text: 'Push Notification',
+      active: false
     }, {
       value: 'web',
-      text: 'Web'
+      text: 'Web',
+      active: false
     }, {
       value: 'sms',
-      text: 'SMS'
+      text: 'SMS',
+      active: false
     }],
     count: 0
   }
