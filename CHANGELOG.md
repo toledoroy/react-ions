@@ -1,6 +1,12 @@
 ## HEAD
 
 ## 0.0.21
+###### _June 9, 2016_
+
+##### Component Fixes / Enhancements
+- [Sortable List updates] - ([#122](https://github.com/GetAmbassador/react-conventions/pull/122))
+
+## 0.0.21
 ###### _June 8, 2016_
 - [Upgrading ReactDOM and Test Utils]([#120](https://github.com/GetAmbassador/react-conventions/pull/120))
 
