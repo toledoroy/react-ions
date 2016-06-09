@@ -42,7 +42,6 @@ class CustomDragLayer extends React.Component {
   }
 
   renderItem = (type, item, count) => {
-    console.log(item)
     return (
       <SortableItemPreview item={item} count={count} />
     )
