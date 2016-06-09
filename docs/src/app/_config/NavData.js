@@ -1,106 +1,106 @@
 const nav = [
   {
     name: 'Foundations',
-    route: '/foundations',
+    action: '/foundations',
     nav: [
       {
         name: 'Colors',
-        route: '/foundations/colors'
+        action: '/foundations/colors'
       }, {
         name: 'Typography',
-        route: '/foundations/typography'
+        action: '/foundations/typography'
       }, {
         name: 'Iconography',
-        route: '/foundations/iconography'
+        action: '/foundations/iconography'
       }, {
         name: 'Layout',
-        route: '/foundations/layout'
+        action: '/foundations/layout'
       }
     ]
   }, {
     name: 'Components',
-    route: '/components',
+    action: '/components',
     nav: [
       {
         name: 'Activity Feed',
-        route: '/components/activity-feed'
+        action: '/components/activity-feed'
       }, {
         name: 'Alerts',
-        route: '/components/alerts'
+        action: '/components/alerts'
       }, {
         name: 'Badge',
-        route: '/components/badge'
+        action: '/components/badge'
       }, {
         name: 'Breadcrumb',
-        route: '/components/breadcrumb'
+        action: '/components/breadcrumb'
       }, {
         name: 'Button Group',
-        route: '/components/button-group'
+        action: '/components/button-group'
       }, {
         name: 'Buttons',
-        route: '/components/buttons'
+        action: '/components/buttons'
       }, {
         name: 'Checkbox',
-        route: '/components/checkbox'
+        action: '/components/checkbox'
       }, {
         name: 'Color Picker',
-        route: '/components/color-picker'
+        action: '/components/color-picker'
       }, {
         name: 'Dropdown',
-        route: '/components/dropdown'
+        action: '/components/dropdown'
       }, {
         name: 'File Upload',
-        route: '/components/file-upload'
+        action: '/components/file-upload'
       }, {
         name: 'Form Group',
-        route: '/components/form-group'
+        action: '/components/form-group'
       }, {
         name: 'Icons',
-        route: '/components/icons'
+        action: '/components/icons'
       }, {
         name: 'Input',
-        route: '/components/input'
+        action: '/components/input'
       }, {
         name: 'Modal',
-        route: '/components/modal'
+        action: '/components/modal'
       }, {
         name: 'Nav',
-        route: '/components/nav'
+        action: '/components/nav'
       }, {
         name: 'Panel Group',
-        route: '/components/panel-group'
+        action: '/components/panel-group'
       }, {
         name: 'Progress Bar',
-        route: '/components/progress-bar'
+        action: '/components/progress-bar'
       }, {
         name: 'Radio',
-        route: '/components/radio-group'
+        action: '/components/radio-group'
       }, {
         name: 'Select Field',
-        route: '/components/select-field'
+        action: '/components/select-field'
       }, {
         name: 'Sortable List',
-        route: '/components/sortable-list'
+        action: '/components/sortable-list'
       }, {
         name: 'Tabs',
-        route: '/components/tabs'
+        action: '/components/tabs'
       }, {
         name: 'Textarea',
-        route: '/components/textarea'
+        action: '/components/textarea'
       }, {
         name: 'Toggle',
-        route: '/components/toggle'
+        action: '/components/toggle'
       }, {
         name: 'Tooltip',
-        route: '/components/tooltip'
+        action: '/components/tooltip'
       }
     ]
   }, {
     name: 'Patterns',
-    route: '/patterns'
+    action: '/patterns'
   }, {
     name: 'Resources',
-    route: '/resources'
+    action: '/resources'
   }
 ]
 

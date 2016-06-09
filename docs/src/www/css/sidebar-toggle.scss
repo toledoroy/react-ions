@@ -11,7 +11,7 @@
   padding: 0;
   position: fixed;
   top: 0;
-  transition: left 0.25s ease-in-out .25s;
+  transition: left 0.25s ease-in-out;
   width: 60px;
   cursor: pointer;
 
@@ -46,7 +46,7 @@
     background-color: $primary-3;
     height: 3px;
     margin: 6px 9px;
-    transition: all 0.25s ease 0s;
+    transition: all 0.25s ease-in-out;
     width: 35px;
   }
 }

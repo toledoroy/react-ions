@@ -4,30 +4,46 @@ import Icon from '../Icon'
 import style from './style.scss'
 
 const Node = (props) => {
-  let childnodes = null;
-  let iconParent = props.node.icon ? props.node.icon : null;
+  let childnodes = null
+  let iconParent = props.node.icon ? props.node.icon : null
+  let link
 
   if (props.children) {
     childnodes = props.children.map((childnode, index) =>
       <Node node={childnode} children={childnode.nav} key={index} />
-    );
+    )
+  }
+
+  const handleClick = function(e) {
+    e.preventDefault()
+    props.node.action()
+  }
+
+  if (typeof props.node.action === 'string') {
+    link = <a href={props.node.action} target={!props.node.self ? '_blank' : null}>
+      {iconParent ? <Icon name={iconParent} fill='currentColor' /> : null}
+      {props.node.name}
+    </a>
+  } else if (typeof props.node.action === 'function') {
+    link = <a onClick={handleClick}>
+      {iconParent ? <Icon name={iconParent} fill='currentColor' /> : null}
+      {props.node.name}
+    </a>
   }
 
   return (
     <li>
-    { props.node.external ?
+    { props.node.external && typeof props.node.action === 'string' || typeof props.node.action === 'function'
+      ?
       <div>
-        <a href={props.node.route} target="_blank">
-          {iconParent ? <Icon name={iconParent} fill='currentColor' /> : null}
-          {props.node.name}
-        </a>
+        {link}
         { childnodes ?
           <ul className={iconParent ? style.indent : null}>{childnodes}</ul>
         : null }
       </div>
       :
       <div>
-        <Link to={props.node.route} activeClassName={style.active}>
+        <Link to={props.node.action} activeClassName={style.active}>
           {iconParent ? <Icon name={iconParent} fill='currentColor' /> : null}
           {props.node.name}
         </Link>
@@ -40,4 +56,4 @@ const Node = (props) => {
   )
 }
 
-export default Node;
+export default Node
