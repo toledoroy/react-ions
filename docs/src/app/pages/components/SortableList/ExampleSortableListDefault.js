@@ -29,9 +29,9 @@ class ExampleSortableListDefault extends React.Component {
     count: 0
   }
 
-  onChange = (items) => {
-    console.log(items)
-    this.setState({ items: items })
+  onChange = (event) => {
+    console.log(event.target.value)
+    this.setState({ items: event.target.value })
   }
 
   addItem = () => {

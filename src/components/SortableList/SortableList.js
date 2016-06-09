@@ -17,6 +17,10 @@ class SortableList extends React.Component {
      */
     items: React.PropTypes.array.isRequired,
     /**
+     * Name of the SortableList.
+     */
+    name: React.PropTypes.string,
+    /**
      * A callback function to be called when the order of the items changes or when an item is toggled.
      */
     changeCallback: React.PropTypes.func
@@ -61,7 +65,12 @@ class SortableList extends React.Component {
       }
     }), function() {
       if (this.props.changeCallback) {
-        this.props.changeCallback(this.state.items)
+        this.props.changeCallback({
+          target: {
+            name: this.props.name,
+            value: this.state.items
+          }
+        })
       }
     })
   }
@@ -74,7 +83,12 @@ class SortableList extends React.Component {
       items: { $set: items }
     }), function() {
       if (this.props.changeCallback) {
-        this.props.changeCallback(this.state.items)
+        this.props.changeCallback({
+          target: {
+            name: this.props.name,
+            value: this.state.items
+          }
+        })
       }
     })
   }

@@ -42,6 +42,11 @@
       border-color: transparent;
     }
   }
+  &:not(.dragging):hover, &.preview {
+    .handle {
+      opacity: 1;
+    }
+  }
 }
 
 .actions {
@@ -60,6 +65,8 @@
   .handle {
     cursor: move;
     padding: 0 10px;
+    opacity: 0;
+    transition: all 0.25s ease;
     > span {
       height: 3px;
       width: 3px;

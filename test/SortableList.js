@@ -90,8 +90,8 @@ describe('SortableList', () => {
 
   it('should trigger a callback when an item is toggled', () => {
     let sortableItems = items
-    const changeCallback = function(items) {
-      sortableItems = items
+    const changeCallback = function(event) {
+      sortableItems = event.target.value
     }
     wrapper = mount(<SortableList items={items} changeCallback={changeCallback} />)
 
