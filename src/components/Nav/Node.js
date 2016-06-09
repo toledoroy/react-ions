@@ -20,7 +20,7 @@ const Node = (props) => {
   }
 
   if (typeof props.node.route === 'string') {
-    link = <a href={props.node.route} target={!props.node.self ? "_blank" : null}>
+    link = <a href={props.node.route} target={!props.node.self ? '_blank' : null}>
       {iconParent ? <Icon name={iconParent} fill='currentColor' /> : null}
       {props.node.name}
     </a>
