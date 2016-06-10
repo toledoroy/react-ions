@@ -1,5 +1,6 @@
 @import '../../styles/common/colors';
 @import '../../styles/common/screen';
+@import '../../styles/common/mixins';
 
 .selectfield-component {
   display: inline-block;
@@ -67,8 +68,16 @@
       display: block;
       padding: 10px;
       text-decoration: none;
+      @include vertical-align('block');
+
+      svg {
+        margin-right: 10px;
+      }
 
       &:hover {
+        svg {
+          fill: $white;
+        }
         background-color: $primary-1;
         color: $white;
       }
