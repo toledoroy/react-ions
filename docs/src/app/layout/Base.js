@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
+import throttle from 'lodash.throttle'
 import style from 'private/css/base'
 import Sidebar from './Sidebar'
 import Main from './Main'
@@ -8,48 +9,45 @@ import Breadcrumb from 'react-conventions/lib/Breadcrumb'
 
 class Base extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
+
+    this.throttle = throttle(this.handleScroll, 200)
   }
 
   state = {
     breadcrumbActive: false,
     sidebarCollapsed: false
-  };
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
+  componentDidMount() {
+    window.addEventListener('scroll', this.throttle)
   }
 
   componentWillReceiveProps() {
-    // this fires each time the route changes
-    this.setState({sidebarCollapsed: false});
-    this._container.offsetParent.scrollTop = 0;
+    this.setState({sidebarCollapsed: false})
   }
 
   handleScroll = (event) => {
-    let scrollTop = event.srcElement.body.scrollTop;
-    (scrollTop > 30) ? this.setState({ breadcrumbActive: true }) : this.setState({ breadcrumbActive: false });
+    let target = event.target || event.srcElement
+    let scrollTop = target.body.scrollTop || target.documentElement.scrollTop
+    this.setState({ breadcrumbActive: scrollTop > 30 })
   }
 
   handleSidebarClick = () => {
-    this.setState({sidebarCollapsed: !this.state.sidebarCollapsed});
+    this.setState({sidebarCollapsed: !this.state.sidebarCollapsed})
   }
 
   render() {
-    const cx = classNames.bind(style);
-    const breadcrumbClass = cx(style.breadcrumbs);
-    const breadcrumbActive = cx(style.breadcrumbs, style['breadcrumb-active']);
-    const contentClass = cx(style['content-wrap']);
-    const contentClassSidebarActive = cx(style['content-wrap'], style['sidebar-active']);
+    const cx = classNames.bind(style)
+    const breadcrumbClass = cx(style.breadcrumbs)
+    const breadcrumbActive = cx(style.breadcrumbs, style['breadcrumb-active'])
+    const contentClass = cx(style['content-wrap'])
+    const contentClassSidebarActive = cx(style['content-wrap'], style['sidebar-active'])
 
-    let currentBasePage = this.props.routes[1].path ? this.props.routes[1].path : null;
+    let currentBasePage = this.props.routes[1].path ? this.props.routes[1].path : null
 
     return (
-      <div className={style['container-fluid']} ref={(c) => this._container = c}>
+      <div className={style['container-fluid']}>
         <div className={style.row}>
           <Sidebar collapsed={!this.state.sidebarCollapsed} onSidebarClick={this.handleSidebarClick} />
           <div className={!this.state.sidebarCollapsed ? contentClass : contentClassSidebarActive}>
