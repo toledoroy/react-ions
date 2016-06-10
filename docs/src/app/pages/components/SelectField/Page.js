@@ -16,6 +16,8 @@ import ExampleSelectFieldCallback from './ExampleSelectFieldCallback'
 import exampleSelectFieldCallbackCode from '!raw!./ExampleSelectFieldCallback'
 import ExampleSelectFieldIcon from './ExampleSelectFieldIcon'
 import exampleSelectFieldIconCode from '!raw!./ExampleSelectFieldIcon'
+import ExampleSelectFieldOptionIcons from './ExampleSelectFieldOptionIcons'
+import exampleSelectFieldOptionIconsCode from '!raw!./ExampleSelectFieldOptionIcons'
 import styles from 'private/css/content'
 
 const description = {
@@ -25,7 +27,8 @@ const description = {
   selectFieldError: 'This is the `select field component` with an error.',
   selectFieldSelected: 'This is the `select field component` with a default option selected.',
   selectFieldCallback: 'This is the `select field component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
-  selectFieldIcon: 'This is the `select field component` with an icon on the left.'
+  selectFieldIcon: 'This is the `select field component` with an icon on the left.',
+  selectFieldOptionIcons: 'This is the `select field component` with an icon for each option.'
 };
 
 const SelectFieldPage = () => (
@@ -74,6 +77,12 @@ const SelectFieldPage = () => (
             description={description.selectFieldIcon}
             markup={exampleSelectFieldIconCode}>
             <ExampleSelectFieldIcon />
+          </CodeExample>
+          <CodeExample
+            title='Select Field with Option Icons'
+            description={description.selectFieldOptionIcons}
+            markup={exampleSelectFieldOptionIconsCode}>
+            <ExampleSelectFieldOptionIcons />
           </CodeExample>
           <div className={styles.block}>
             <h3>Props</h3>
