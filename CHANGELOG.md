@@ -1,6 +1,13 @@
 ## HEAD
 
-## 0.0.21
+## 0.0.23
+###### _June 10, 2016_
+
+##### Component Fixes / Enhancements
+- [Select field style enhancements] - ([#124](https://github.com/GetAmbassador/react-conventions/pull/124))
+- [Nav enhancements] - ([#125](https://github.com/GetAmbassador/react-conventions/pull/125))
+
+## 0.0.22
 ###### _June 9, 2016_
 
 ##### Component Fixes / Enhancements
