@@ -2,3 +2,11 @@
   display: flex;
   margin-bottom: 15px;
 }
+
+.dragging > div:nth-child(2) {
+  transition: all 0.25s ease-in-out;
+  background-color: #ECF0F0;
+  > div:nth-child(2) {
+    overflow: visible !important;
+  }
+}

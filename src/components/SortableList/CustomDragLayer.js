@@ -12,9 +12,8 @@ function getItemStyles(props) {
   }
 
   let { x, y } = currentOffset
-  x = props.dimensions.left
 
-  const transform = `translate(${x}px, ${y-10}px)`
+  const transform = `translate(0px, ${y - props.dimensions.top - 10}px)`
   return {
     width: props.dimensions.width + 'px',
     transform: transform,

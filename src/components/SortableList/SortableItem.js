@@ -9,6 +9,7 @@ import style from './style.scss'
 
 const sortableItemSource = {
   beginDrag(props) {
+    props.onDragStart()
     if (props.getDimensions) {
       props.getDimensions()
     }
@@ -19,6 +20,9 @@ const sortableItemSource = {
       active: props.active,
       index: props.index
     }
+  },
+  endDrag(props) {
+    props.onDragStop()
   }
 }
 

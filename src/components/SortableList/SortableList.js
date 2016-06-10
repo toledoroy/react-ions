@@ -23,17 +23,30 @@ class SortableList extends React.Component {
     /**
      * A callback function to be called when the order of the items changes or when an item is toggled.
      */
-    changeCallback: React.PropTypes.func
+    changeCallback: React.PropTypes.func,
+    /**
+     * A callback function to be called when dragging starts.
+     */
+    onDragStart: React.PropTypes.func,
+    /**
+     * A callback function to be called when dragging stops.
+     */
+    onDragStop: React.PropTypes.func,
+    /**
+     * Optional styles to add to the SortableList component.
+     */
+    optClass: React.PropTypes.string
   }
 
   state = {
     items: this.props.items,
+    dragging: false,
     width: 0,
     left: 0
   }
 
   handleResize = () => {
-    this.setState({ width: this._sortableList.getBoundingClientRect().width, left: this._sortableList.getBoundingClientRect().left })
+    this.setState({ width: this._sortableList.getBoundingClientRect().width, top: this._sortableList.getBoundingClientRect().top })
   }
 
   componentDidMount = () => {
@@ -93,6 +106,22 @@ class SortableList extends React.Component {
     })
   }
 
+  onDragStart = () => {
+    this.setState({ dragging: true }, function() {
+      if (this.props.onDragStart) {
+        this.props.onDragStart()
+      }
+    })
+  }
+
+  onDragStop = () => {
+    this.setState({ dragging: false }, function() {
+      if (this.props.onDragStop) {
+        this.props.onDragStop()
+      }
+    })
+  }
+
   render = () => {
     const { items } = this.state
 
@@ -109,11 +138,13 @@ class SortableList extends React.Component {
                 moveSortableItem={this.moveSortableItem}
                 toggleSortableItem={this.toggleSortableItem}
                 getDimensions={this.handleResize}
+                onDragStart={this.onDragStart}
+                onDragStop={this.onDragStop}
                 count={items.length} />
             )
           })}
         </div>
-        <CustomDragLayer dimensions={{ width: this.state.width, left: this.state.left }} count={this.state.items.length} />
+        { this.state.dragging ? <CustomDragLayer dimensions={{ width: this.state.width, top: this.state.top }} count={this.state.items.length} /> : null }
       </div>
     )
   }
