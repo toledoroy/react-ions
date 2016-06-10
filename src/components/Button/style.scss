@@ -1,5 +1,6 @@
 @import '../../styles/common/mixins';
 @import '../../styles/common/colors';
+@import '../../styles/common/screen';
 
 .btn {
   @include vertical-align('inline');
@@ -98,5 +99,16 @@
 
   svg + svg {
     float: none;
+  }
+
+  @media #{$media-small-minus} {
+    &.collapse {
+      em > span {
+        display: none;
+      }
+      svg {
+        margin: 0;
+      }
+    }
   }
 }
