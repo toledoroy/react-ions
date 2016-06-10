@@ -10,7 +10,8 @@ const ExampleSelectFieldDefault = () => (
   <SelectField
     options={options}
     valueProp='value'
-    displayProp='display' />
+    displayProp='display'
+    value={null}/>
 )
 
 export default ExampleSelectFieldDefault
