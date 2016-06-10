@@ -1,5 +1,13 @@
 ## HEAD
 
+## 0.0.24
+###### _June 10, 2016_
+
+##### Component Fixes / Enhancements
+- [Buttons] - ([#129](https://github.com/GetAmbassador/react-conventions/pull/129))
+- [Select Field] - ([#128](https://github.com/GetAmbassador/react-conventions/pull/128))
+- [Web] - ([#127](https://github.com/GetAmbassador/react-conventions/pull/127))
+
 ## 0.0.23
 ###### _June 10, 2016_
 
