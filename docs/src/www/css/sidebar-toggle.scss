@@ -4,20 +4,21 @@
 .sidebar-toggle {
   background-color: transparent;
   border: medium none;
-  display: none;
   height: 50px;
   left: 0;
   outline: 0 none;
+  opacity: 0;
   padding: 0;
   position: fixed;
   top: 0;
-  transition: left 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
   width: 60px;
   cursor: pointer;
 
   @media #{$media-small-minus} {
     display: block;
     left: 5px;
+    opacity: 1;
 
     &.sidebar-visible {
       left: 205px;
