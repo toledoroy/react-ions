@@ -4,11 +4,11 @@ import Icon from 'react-conventions/lib/Icon'
 
 const ExampleButtonIcon = () => (
   <div>
-    <Button>
+    <Button collapse={true}>
       <Icon name='icon-upload-2-1' height='14' width='14' fill='#fff'></Icon>
       <span>Icon Before</span>
     </Button>
-    <Button>
+    <Button collapse={true}>
       <span>Icon After</span>
       <Icon name='icon-link' height='14' width='14' fill='#fff'></Icon>
     </Button>

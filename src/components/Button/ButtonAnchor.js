@@ -4,17 +4,17 @@ import style from './style.scss'
 import classNames from 'classnames/bind'
 
 const ButtonAnchor = (props) => {
-  const cx = classNames.bind(style);
-  const btnAnchorClasses = cx(style.btn, props.optClass, props.size);
+  const cx = classNames.bind(style)
+  const btnAnchorClasses = cx(style.btn, props.optClass, props.size)
 
-  let buttonAnchor;
+  let buttonAnchor
 
   if (props.internal) {
-    buttonAnchor = <Link to={props.path} className={btnAnchorClasses} {...props}>{props.children}</Link>;
+    buttonAnchor = <Link to={props.path} className={btnAnchorClasses} {...props}>{props.children}</Link>
   } else {
-    buttonAnchor = <a href={props.path} className={btnAnchorClasses} {...props}>{props.children}</a>;
+    buttonAnchor = <a href={props.path} className={btnAnchorClasses} {...props}>{props.children}</a>
   }
-  return buttonAnchor;
+  return buttonAnchor
 }
 
 ButtonAnchor.propTypes = {
