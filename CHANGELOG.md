@@ -1,5 +1,13 @@
 ## HEAD
 
+## 0.0.25
+###### _June 13, 2016_
+
+##### Component Fixes / Enhancements
+- [CSS Grid] Enabled Flexbox Grid - ([#133](https://github.com/GetAmbassador/react-conventions/pull/133))
+- [AnchorButton] Added `Collapse` ([#132](https://github.com/GetAmbassador/react-conventions/pull/132))
+- [Sortable] Working inside of modal ([#131](https://github.com/GetAmbassador/react-conventions/pull/131))
+
 ## 0.0.24
 ###### _June 10, 2016_
 
