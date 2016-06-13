@@ -5,10 +5,12 @@ import { getEmptyImage } from 'react-dnd-html5-backend'
 import classNames from 'classnames/bind'
 import Badge from '../Badge'
 import Toggle from '../Toggle'
+import flow from 'lodash/flow'
 import style from './style.scss'
 
 const sortableItemSource = {
   beginDrag(props) {
+    props.onDragStart()
     if (props.getDimensions) {
       props.getDimensions()
     }
@@ -19,6 +21,9 @@ const sortableItemSource = {
       active: props.active,
       index: props.index
     }
+  },
+  endDrag(props) {
+    props.onDragStop()
   }
 }
 
@@ -42,7 +47,7 @@ const sortableItemTarget = {
     const clientOffset = monitor.getClientOffset()
 
     // Get pixels to the top
-    const hoverClientY = clientOffset.y - hoverBoundingRect.top
+    const hoverClientY = (clientOffset ? clientOffset.y : 0) - hoverBoundingRect.top
 
     // Only perform the move when the mouse has crossed half of the items height
     // When dragging downwards, only move when the cursor is below 50%
@@ -166,15 +171,14 @@ class SortableItem extends React.Component {
   }
 }
 
-SortableItem = DragSource('item', sortableItemSource, (connect, monitor) => ({
-  connectDragSource: connect.dragSource(),
-  connectDragPreview: connect.dragPreview(),
-  isDragging: monitor.isDragging()
-}))(SortableItem)
-
-SortableItem = DropTarget('item', sortableItemTarget, (connect, monitor) => ({
-  connectDropTarget: connect.dropTarget(),
-  canDrop: monitor.canDrop()
-}))(SortableItem)
-
-export default SortableItem
+export default flow(
+  DragSource('item', sortableItemSource, (connect, monitor) => ({
+    connectDragSource: connect.dragSource(),
+    connectDragPreview: connect.dragPreview(),
+    isDragging: monitor.isDragging()
+  })),
+  DropTarget('item', sortableItemTarget, (connect, monitor) => ({
+    connectDropTarget: connect.dropTarget(),
+    canDrop: monitor.canDrop()
+  }))
+)(SortableItem)

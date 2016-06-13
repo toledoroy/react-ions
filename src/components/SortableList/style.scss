@@ -80,7 +80,7 @@
 }
 
 .drag-layer {
-  position: fixed;
+  position: absolute;
   pointer-events: none;
   z-index: 100;
   left: 0;

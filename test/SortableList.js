@@ -29,13 +29,6 @@ describe('SortableList', () => {
     }
   ]
 
-  const moveSortableItem = (dragIndex, hoverIndex) => {
-    console.log(dragIndex, hoverIndex)
-  }
-  const toggleSortableItem = (index) => {
-    console.log(index)
-  }
-
   /**
    * Wraps a component into a DragDropContext that uses the TestBackend.
    */
@@ -115,24 +108,59 @@ describe('SortableList', () => {
     expect(sortableItems[3].active).to.be.false
   })
 
-  it('should set item opacity to 0 when dragging starts', () => {
-    // Render with the test context that uses the test backend
-    const SortableItemContext = wrapInTestContext(SortableItem)
-    const root = TestUtils.renderIntoDocument(<SortableItemContext key={0} index={0} value="test-1" text="Test 1" moveSortableItem={moveSortableItem} toggleSortableItem={toggleSortableItem} count={1} />)
+  it('should update the state when props change', () => {
+    wrapper = mount(<SortableList items={items} />)
+
+    expect(wrapper.find('SortableItem')).to.have.length(4)
+
+    wrapper.setProps({ items: [{ value: 'email', text: 'Email', active: false }, { value: 'push_notification', text: 'Push Notification', active: true }, { value: 'web', text: 'Web', active: false }] })
+    wrapper.update()
+
+    expect(wrapper.find('SortableItem')).to.have.length(3)
+  })
+
+  it('should remove event listener when the component is unmounted', () => {
+    const spy = sinon.spy(window, 'removeEventListener')
+    wrapper = mount(<SortableList items={items} />)
+
+    wrapper.unmount()
+
+    expect(spy.called).to.be.true
+  })
+
+  it('should reorder items when dragging', () => {
+    let sortableItems = items
+    const changeCallback = (event) => {
+      sortableItems = event.target.value
+    }
+
+    expect(sortableItems[0].value).to.equal('email')
+    expect(sortableItems[1].value).to.equal('push_notification')
+    expect(sortableItems[2].value).to.equal('web')
+    expect(sortableItems[3].value).to.equal('sms')
+
+    const SortableListContext = wrapInTestContext(SortableList)
+    const root = TestUtils.renderIntoDocument(<SortableList items={items} changeCallback={changeCallback} />)
 
     // Obtain a reference to the backend
     const backend = root.getManager().getBackend()
-
-    // Test that the opacity is 1
-    let sortableItem = TestUtils.findRenderedDOMComponentWithClass(root, 'sortable-item')
-    expect(sortableItem.style.opacity).to.be.equal('1')
+    const registry = root.getManager().getRegistry()
 
     // Find the drag source ID and use it to simulate the dragging operation
-    const item = TestUtils.findRenderedComponentWithType(root, SortableItem)
-    backend.simulateBeginDrag([item.getDecoratedComponentInstance().getHandlerId()])
+    const allItems = TestUtils.scryRenderedComponentsWithType(root, SortableItem)
+    const source = allItems[0]
+    const target = allItems[1]
+    const sourceId = source.getDecoratedComponentInstance().getHandlerId()
+    const targetId = target.getHandlerId()
 
-    // Verify that the div changed its opacity
-    sortableItem = TestUtils.findRenderedDOMComponentWithClass(root, 'sortable-item')
-    expect(sortableItem.style.opacity).to.be.equal('0')
+    backend.actions.beginDrag([sourceId])
+    backend.actions.hover([targetId])
+    backend.actions.drop()
+    backend.actions.endDrag()
+
+    expect(sortableItems[0].value).to.equal('push_notification')
+    expect(sortableItems[1].value).to.equal('email')
+    expect(sortableItems[2].value).to.equal('web')
+    expect(sortableItems[3].value).to.equal('sms')
   })
 })
