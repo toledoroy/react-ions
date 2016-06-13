@@ -13,9 +13,8 @@ const LayoutPage = (props) => {
         <h3>Layout</h3>
         <p>We use a modified version of <a href='http://flexboxgrid.com' target='_blank'>Flexbox Grid</a>.</p>
         <div className='row'>
-          <code className='col-xs-12'>col-xs-12 col-sm-6 col-lg-3</code>
           <div className='col-xs-12 col-sm-6 col-lg-3'>
-            <div className={style.box}></div>
+            <div className={style.box}><code className='col-xs-12'>col-xs-12<br />col-sm-6<br />col-lg-3</code></div>
           </div>
           <div className='col-xs-12 col-sm-6 col-lg-3'>
             <div className={style.box}></div>
@@ -28,15 +27,14 @@ const LayoutPage = (props) => {
           </div>
         </div>
         <div className='row'>
-          <code className='col-xs-12'>col-xs-12 col-lg-8</code>
           <div className='col-xs-12 col-lg-8'>
-            <div className={style.box}></div>
+            <div className={style.box}><code className='col-xs-12'>col-xs-12<br />col-lg-8</code></div>
           </div>
           <div className='col-xs-12 col-lg-4'>
             <div className={boxColumnClass}>
               <div className='row'>
                 <div className='col-xs-12 col-lg-6'>
-                  <div className={style.box}></div>
+                  <div className={style.box}><code className='col-xs-12'>col-xs-12<br />col-lg-6</code></div>
                 </div>
                 <div className='col-xs-12 col-lg-6'>
                   <div className={style.box}></div>
