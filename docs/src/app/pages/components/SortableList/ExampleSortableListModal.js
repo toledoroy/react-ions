@@ -67,7 +67,7 @@ class ExampleSortableListModal extends React.Component {
           actions={actions}
           optClass={style[this.state.modalClass]}
         >
-          <p>You can arrage the items below.</p>
+          <p>You can arrange the items below.</p>
           <SortableList items={this.state.items} changeCallback={this.onChange} onDragStart={this.onDragStart} onDragStop={this.onDragStop} />
         </Modal>
       </div>
