@@ -5,7 +5,8 @@ import classNames from 'classnames/bind'
 
 const ButtonAnchor = (props) => {
   const cx = classNames.bind(style)
-  const btnAnchorClasses = cx(style.btn, props.optClass, props.size)
+  const collapseClass = props.collapse ? 'collapse' : null
+  const btnAnchorClasses = cx(style.btn, props.optClass, props.size, collapseClass)
 
   let buttonAnchor
 
@@ -37,7 +38,11 @@ ButtonAnchor.propTypes = {
   /**
    * Whether the link it to an internal page, or external (default)
    */
-  internal: React.PropTypes.bool
+  internal: React.PropTypes.bool,
+  /**
+   * Whether to display only an icon on small screens
+   */
+  collapse: React.PropTypes.bool
 }
 
 export default ButtonAnchor
