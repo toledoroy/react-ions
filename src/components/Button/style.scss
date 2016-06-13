@@ -103,7 +103,7 @@
 
   @media #{$media-small-minus} {
     &.collapse {
-      em > span {
+      span, em > span {
         display: none;
       }
       svg {
