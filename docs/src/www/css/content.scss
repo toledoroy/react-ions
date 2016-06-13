@@ -21,3 +21,21 @@
     line-height: 1.5em;
   }
 }
+
+.box {
+  background-color: $primary-1;
+  color: $white;
+  margin-bottom: 10px;
+  padding: 10px;
+  flex: 1;
+
+  .box {
+    background-color: $primary-2;
+    margin: 0;
+  }
+}
+
+// For display purposes only
+[class^='col'] {
+  display: flex;
+}
