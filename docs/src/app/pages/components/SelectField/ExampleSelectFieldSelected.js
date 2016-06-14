@@ -22,6 +22,10 @@ class ExampleSelectFieldSelected extends React.Component {
     this.setState({ selected: index });
   }
 
+  changeCallback = (event) => {
+    this.setState({ status: 'The callback was triggered and the chosen option is \'' + event.target.value + '\'' })
+  }
+
   render () {
     return(
       <div>
@@ -35,7 +39,10 @@ class ExampleSelectFieldSelected extends React.Component {
           valueProp='id'
           displayProp='display'
           value={this.state.selected}
-          optClass={style['update-select']} />
+          changeCallback={this.changeCallback}
+          optClass={style['update-select']}>
+        </SelectField>
+        <code className={style['callback-status']}>{this.state.status}</code>
       </div>
     )
   }
