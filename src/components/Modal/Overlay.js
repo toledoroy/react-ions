@@ -13,7 +13,7 @@ const Overlay = (props) => {
       WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)', // Remove mobile color flashing (deprecated)
       willChange: 'opacity',
       transform: 'translateZ(0)',
-      zIndex: 1400,
+      zIndex: 3500,
       transition: 'left 0ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 400ms, opacity 400ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 0ms'
     }
 
