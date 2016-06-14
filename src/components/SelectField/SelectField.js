@@ -57,7 +57,7 @@ class SelectField extends React.Component {
   }
 
   componentWillMount = () => {
-    if (typeof this.state.value !== 'undefined' && this.state.value !== '') {
+    if (typeof this.state.value !== 'undefined' && this.state.value !== '' && this.getIndex(this.state.value, this.props.options) > -1) {
       this.selectItem(this.state.value, this.props.options)
     }
     else {
@@ -70,7 +70,7 @@ class SelectField extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value && nextProps.value !== this.state.value) {
+    if (nextProps.value && nextProps.value !== this.state.value && this.getIndex(nextProps.value, nextProps.options) > -1) {
       this.setState({ value: nextProps.value }, function() {
         this.selectItem(nextProps.value, nextProps.options)
       })

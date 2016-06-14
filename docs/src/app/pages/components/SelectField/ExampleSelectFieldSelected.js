@@ -33,6 +33,7 @@ class ExampleSelectFieldSelected extends React.Component {
           <Button onClick={this.updateSelected.bind(this, '0')}>Select 1st item</Button>
           <Button onClick={this.updateSelected.bind(this, '1')}>Select 2nd item</Button>
           <Button onClick={this.updateSelected.bind(this, '2')}>Select 3rd item</Button>
+          <Button onClick={this.updateSelected.bind(this, '3')}>Select 4th item</Button>
         </div>
         <SelectField
           options={options}
