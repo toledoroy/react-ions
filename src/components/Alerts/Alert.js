@@ -5,7 +5,7 @@ import Icon from '../Icon'
 
 class Alert extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -40,42 +40,42 @@ class Alert extends React.Component {
      */
     onClose: React.PropTypes.func
 
-  };
+  }
 
   startTimer = () => {
     if (this.props.timeout) {
-      this.setState({ timerStart: new Date(), timer: setTimeout(this.closeAlert, this.state.timeout) });
+      this.setState({ timerStart: new Date(), timer: setTimeout(this.closeAlert, this.state.timeout) })
     }
   }
 
   pauseTimer = () => {
-    clearTimeout(this.state.timer);
-    let timeout = this.state.timeout;
+    clearTimeout(this.state.timer)
+    let timeout = this.state.timeout
     timeout -= new Date() - this.state.timerStart
 
-    this.setState({ timeout: timeout });
+    this.setState({ timeout: timeout })
   }
 
   closeAlert = () => {
     if (this.state.timer) {
-      clearTimeout(this.state.timer);
+      clearTimeout(this.state.timer)
     }
-    this.props.onClose();
+    this.props.onClose()
   }
 
   componentDidMount = () => {
-    this.startTimer();
+    this.startTimer()
   }
 
   render() {
-    const cx = classNames.bind(style);
-    const alertClasses = cx(style.alert, this.props.optClass, this.props.type, (this.props.closable ? 'closable' : ''));
+    const cx = classNames.bind(style)
+    const alertClasses = cx(style.alert, this.props.optClass, this.props.type, (this.props.closable ? 'closable' : ''))
     const alertIcons = {
       success: 'icon-check-circle-2-1',
       warning: 'icon-alert-1',
       info: 'icon-information',
       danger: 'icon-delete-3'
-    };
+    }
 
     return (
       <div className={alertClasses} onMouseOver={this.pauseTimer} onMouseOut={this.startTimer}>
