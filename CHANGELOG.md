@@ -1,5 +1,13 @@
 ## HEAD
 
+## 0.0.26
+###### _June 15, 2016_
+
+##### Component Fixes / Enhancements
+- [Icons] Support for IE11 and above ([#137](https://github.com/GetAmbassador/react-conventions/pull/137))
+- [SelectField] Enhancements ([#136](https://github.com/GetAmbassador/react-conventions/pull/136))
+- [Modal] z-index adjustments ([#135](https://github.com/GetAmbassador/react-conventions/pull/135))
+
 ## 0.0.25
 ###### _June 13, 2016_
 
