@@ -58,20 +58,15 @@ class SelectField extends React.Component {
 
   state = {
     isOpen: false,
-    value: this.props.value || ''
+    value: this.props.value || (this.props.multiple ? [] : '')
   }
 
   componentWillMount = () => {
-    if (typeof this.state.value !== 'undefined') {
-      if (this.state.value !== '' && this.getIndex(this.state.value, this.props.options) > -1) {
-        this.selectItem(this.state.value, this.props.options)
-      }
-      else if (this.props.multi && this.state.value instanceof Array && this.state.value.length > 0 && this.containsValidValue(this.state.value, this.props.options)) {
-        this.selectItems(this.state.value, this.props.options)
-      }
-      else {
-        this.setState({selected: this.props.multi ? [] : ''})
-      }
+    if (this.state.value !== '' && this.getIndex(this.state.value, this.props.options) > -1) {
+      this.selectItem(this.state.value, this.props.options)
+    }
+    else if (this.props.multi && this.state.value instanceof Array && this.state.value.length > 0 && this.containsValidValue(this.state.value, this.props.options)) {
+      this.selectItems(this.state.value, this.props.options)
     }
     else {
       this.setState({selected: this.props.multi ? [] : ''})

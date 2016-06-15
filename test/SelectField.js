@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import SelectField from '../src/components/SelectField/SelectField'
 import Icon from '../src/components/Icon/Icon'
 
@@ -222,5 +222,42 @@ describe('SelectField', () => {
     wrapper.update()
 
     expect(wrapper.childAt(1).text().indexOf(optionsAltValueProp[1].display)).to.equal(0)
+  })
+
+  it('should have two options selected by default when multi is set to true', () => {
+    wrapper = mount(<SelectField options={options} valueProp='value' displayProp='display' value={['0', '1']} multi={true} />)
+
+    expect(wrapper.childAt(1).text().indexOf('Select one or more')).to.equal(0)
+    expect(wrapper.childAt(2).childAt(0).text()).to.equal('Nothing to select')
+    expect(wrapper.state().value).to.have.length(2)
+    expect(wrapper.state().selected).to.have.length(2)
+  })
+
+  it('should show placeholder when multi is set to true and options are selected', () => {
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' value={['0', '1']} multi={true} placeholder="I am a placeholder" />)
+
+    expect(wrapper.childAt(1).text().indexOf('I am a placeholder')).to.equal(0)
+  })
+
+  it('should call changeCallback function when multi is set to true', () => {
+    let value = []
+    const changeCallback = (event) => {
+      value = event.target.value
+    }
+
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' changeCallback={changeCallback} multi={true} />)
+
+    wrapper.childAt(1).simulate('click')
+    wrapper.childAt(2).childAt(0).simulate('click')
+
+    expect(value).to.have.length(1)
+    expect(value[0]).to.equal('0')
+
+    wrapper.childAt(1).simulate('click')
+    wrapper.childAt(2).childAt(0).simulate('click')
+
+    expect(value).to.have.length(2)
+    expect(value[0]).to.equal('0')
+    expect(value[1]).to.equal('1')
   })
 })
