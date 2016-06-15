@@ -4,7 +4,7 @@ import style from './style'
 
 class ExampleSelectFieldCallback extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -12,14 +12,14 @@ class ExampleSelectFieldCallback extends React.Component {
   }
 
   handleChange = (event) => {
-    this.setState({status: 'Chosen option is \'' + event.target.value + '\''});
+    this.setState({status: 'Chosen option is \'' + event.target.value + '\''})
   }
 
   render() {
     const options = [
       {value: '0', display: 'test 1'},
       {value: '1', display: 'test 2'}
-    ];
+    ]
 
     return(
       <div>

@@ -7,11 +7,11 @@ const options = [
   {id: '0', display: 'test really long option'},
   {id: '1', display: 'test really really long option'},
   {id: '2', display: 'test really really really long option'}
-];
+]
 
 class ExampleSelectFieldSelected extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -19,7 +19,7 @@ class ExampleSelectFieldSelected extends React.Component {
   }
 
   updateSelected = (index) => {
-    this.setState({ selected: index });
+    this.setState({ selected: index })
   }
 
   changeCallback = (event) => {

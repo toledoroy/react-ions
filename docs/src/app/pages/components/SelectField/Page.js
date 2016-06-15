@@ -1,5 +1,5 @@
 import React from 'react'
-import PropsList from 'private/modules/PropsList';
+import PropsList from 'private/modules/PropsList'
 import docs from '!!docgen!react-conventions/lib/SelectField/SelectField'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleSelectFieldDefault from './ExampleSelectFieldDefault'
@@ -29,7 +29,7 @@ const description = {
   selectFieldCallback: 'This is the `select field component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
   selectFieldIcon: 'This is the `select field component` with an icon on the left.',
   selectFieldOptionIcons: 'This is the `select field component` with an icon for each option.'
-};
+}
 
 const SelectFieldPage = () => (
   <div>

@@ -18,7 +18,7 @@ const options = [
   {value: '13', display: 'test 14', someOtherProp: false},
   {value: '14', display: 'test 15', someOtherProp: false},
   {value: '15', display: 'test 16', someOtherProp: false}
-];
+]
 
 const ExampleSelectFieldDefault = () => (
   <SelectField
