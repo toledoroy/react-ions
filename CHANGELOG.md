@@ -1,5 +1,11 @@
 ## HEAD
 
+## 0.0.27
+###### _June 15, 2016_
+
+##### Component Fixes / Enhancements
+- [Alerts] Allow onClose callback to be passed with alerts in the alert system ([#140](https://github.com/GetAmbassador/react-conventions/pull/140))
+
 ## 0.0.26
 ###### _June 15, 2016_
 
