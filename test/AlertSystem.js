@@ -60,6 +60,17 @@ describe('AlertSystem', () => {
     expect(wrapper.children()).to.have.length(0);
   });
 
+  it('should run onClose callback when the close icon is clicked', () => {
+    const closeClickCallback = sinon.spy()
+    let alerts = [
+      { type: 'success', content: 'Test success', onClose: closeClickCallback }
+    ]
+    wrapper = mount(<AlertSystem alerts={alerts}/>);
+    wrapper.childAt(0).childAt(0).simulate('click');
+
+    expect(closeClickCallback.calledOnce).to.be.true
+  });
+
   it('should close an alert when the timeout expires', (done) => {
     let alerts = [
       { type: 'success', content: 'Test success', timeout: 1000 }
@@ -71,6 +82,19 @@ describe('AlertSystem', () => {
 
     setTimeout(function() {
       expect(wrapper.children()).to.have.length(0);
+      done();
+    }, 1500);
+  });
+
+  it('should run onClose callback when the timeout expires', (done) => {
+    const closeExpireCallback = sinon.spy()
+    let alerts = [
+      { type: 'success', content: 'Test success', timeout: 1000, onClose: closeExpireCallback }
+    ]
+    wrapper = mount(<AlertSystem alerts={alerts}/>);
+
+    setTimeout(function() {
+      expect(closeExpireCallback.calledOnce).to.be.true
       done();
     }, 1500);
   });
