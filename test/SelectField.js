@@ -95,9 +95,28 @@ describe('SelectField', () => {
   })
 
   it('should have an option selected by default', () => {
-    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' value={'1'} />)
+    wrapper = shallow(<SelectField options={optionsWithIcons} valueProp='value' displayProp='display' value={'1'} />)
 
-    expect(wrapper.childAt(1).text().indexOf(options[1].display)).to.equal(0)
+    expect(wrapper.childAt(1).text().indexOf(optionsWithIcons[1].display)).to.not.equal(-1)
+  })
+
+  it('should have the 1st option selected and should not result in an error if an invalid value is provided', () => {
+    const spy = sinon.spy(console, 'error')
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' value={'2'} />)
+
+    expect(spy.calledOnce).to.be.false
+    expect(wrapper.childAt(1).text().indexOf(options[0].display)).to.equal(0)
+    spy.restore()
+  })
+
+  it('should have the placeholder displayed and should not result in an error if an invalid value is provided', () => {
+    const spy = sinon.spy(console, 'error')
+    const placeholder = 'Placeholder text...'
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' value={'2'} placeholder={placeholder} />)
+
+    expect(spy.calledOnce).to.be.false
+    expect(wrapper.childAt(1).text().indexOf(placeholder)).to.equal(0)
+    spy.restore()
   })
 
   it('should toggle the select field isOpen state', () => {
@@ -132,6 +151,19 @@ describe('SelectField', () => {
     wrapper.childAt(2).childAt(1).simulate('click')
 
     expect(spy.calledOnce).to.be.true
+  })
+
+  it('should not result in an error if changeCallback is not defined', () => {
+    const spy = sinon.spy(console, 'error')
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' />)
+
+    // open <ul>
+    wrapper.childAt(1).simulate('click')
+    // click <li>
+    wrapper.childAt(2).childAt(1).simulate('click')
+
+    expect(spy.calledOnce).to.be.false
+    spy.restore()
   })
 
   it('should close the list if open when document is clicked', () => {

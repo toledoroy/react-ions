@@ -57,7 +57,7 @@ class SelectField extends React.Component {
   }
 
   componentWillMount = () => {
-    if (typeof this.state.value !== 'undefined' && this.state.value !== '') {
+    if (typeof this.state.value !== 'undefined' && this.state.value !== '' && this.getIndex(this.state.value, this.props.options) > -1) {
       this.selectItem(this.state.value, this.props.options)
     }
     else {
@@ -70,7 +70,7 @@ class SelectField extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value && nextProps.value !== this.state.value) {
+    if (nextProps.value && nextProps.value !== this.state.value && this.getIndex(nextProps.value, nextProps.options) > -1) {
       this.setState({ value: nextProps.value }, function() {
         this.selectItem(nextProps.value, nextProps.options)
       })
@@ -88,9 +88,9 @@ class SelectField extends React.Component {
     })
   }
 
-  selectOption = (option) => {
+  selectOption = (option, triggerCallback) => {
     this.setState({selected: option, value: option[this.props.valueProp]}, function() {
-      if (typeof this.props.changeCallback === 'function') {
+      if (triggerCallback && typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {
             name: this.props.name,
@@ -105,7 +105,7 @@ class SelectField extends React.Component {
   selectItem = (value, options) => {
     let index = this.getIndex(value, options)
     if (index >= 0) {
-      this.selectOption(options[index])
+      this.selectOption(options[index], false)
     }
   }
 
@@ -155,7 +155,7 @@ class SelectField extends React.Component {
     const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, hasIconClass, this.props.optClass)
 
     const options = this.props.options.map((option, index) =>
-      <li key={index} onClick={this.selectOption.bind(null, option)}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
+      <li key={index} onClick={this.selectOption.bind(null, option, true)}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
     )
 
     return (
