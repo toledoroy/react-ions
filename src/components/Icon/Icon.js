@@ -3,8 +3,8 @@ import svg from '../../assets/icons/icons.svg'
 
 const Icon = (props) => {
   return (
-    <svg {...props}>
-      <use xlinkHref={svg+'#'+props.name}></use>
+    <svg role='img' {...props}>
+      <use xlinkHref={svg+'#'+props.name} />
     </svg>
   )
 }
