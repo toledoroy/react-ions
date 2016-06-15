@@ -32,15 +32,17 @@ class AlertSystem extends React.Component {
   removeAlert = (alert) => {
     let alerts = this.state.alerts;
 
-    alerts.map((alert, index) => {
-      if (alert.key === alert.key) {
-        alert.hidden = true;
+    alerts.map((a, index) => {
+      if (alert.key === a.key) {
+        a.hidden = true;
 
-        if (typeof alert.onClose === 'function') {
-          alert.onClose(alert)
+        if (typeof a.onClose === 'function') {
+          a.onClose(alert)
         }
       }
     });
+
+
 
     this.setState({ alerts: alerts });
   }

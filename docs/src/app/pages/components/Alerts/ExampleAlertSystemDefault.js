@@ -13,9 +13,13 @@ class ExampleAlertSystemDefault extends React.Component {
     alerts: []
   }
 
+  onCloseCallback = (alert) => {
+    console.log(alert)
+  }
+
   addAlert = (type) => {
     let alerts = this.state.alerts;
-    alerts.push({ type: type, content: this._alertText.state.value });
+    alerts.push({ type: type, content: this._alertText.state.value, onClose: this.onCloseCallback, key:'test' });
     this.setState({ alerts: alerts });
   }
 
