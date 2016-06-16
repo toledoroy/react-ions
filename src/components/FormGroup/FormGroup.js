@@ -110,14 +110,14 @@ class FormGroup extends React.Component {
 
     if (!this.props.nested) {
       formWrapper = <form className={formGroupClass} onSubmit={this.handleSubmit}>
-                  <fieldset className={style.fieldset}>
-                    {elements}
-                  </fieldset>
-                </form>
+                      <fieldset className={style.fieldset}>
+                        {elements}
+                      </fieldset>
+                    </form>
     } else {
       formWrapper = <fieldset className={style.fieldset}>
-        {elements}
-      </fieldset>
+                      {elements}
+                    </fieldset>
     }
     return formWrapper
   }
