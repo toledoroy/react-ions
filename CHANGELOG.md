@@ -1,5 +1,17 @@
 ## HEAD
 
+## 0.0.28
+###### _June 16, 2016_
+
+##### Component Fixes / Enhancements
+- [FormGroup] - Enabled nested form groups ([#146](https://github.com/GetAmbassador/react-conventions/pull/146))
+
+- [ActivityFeed] - Visual enhancements ([#145](https://github.com/GetAmbassador/react-conventions/pull/145))
+
+- [PanelGroup] - ([#144](https://github.com/GetAmbassador/react-conventions/pull/144))
+
+- [OptClass] - Helper method ([#142](https://github.com/GetAmbassador/react-conventions/pull/142))
+
 ## 0.0.27
 ###### _June 15, 2016_
 
