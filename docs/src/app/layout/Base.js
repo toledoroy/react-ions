@@ -29,6 +29,10 @@ class Base extends React.Component {
     this.setState({sidebarCollapsed: false})
   }
 
+  shouldComponentUpdate = (nextProps, nextState) => {
+    return this.state.sidebarCollapsed !== nextState.sidebarCollapsed || this.state.breadcrumbActive !== nextState.breadcrumbActive
+  }
+
   handleScroll = (event) => {
     let target = event.target || event.srcElement
     let scrollTop = target.body.scrollTop || target.documentElement.scrollTop
