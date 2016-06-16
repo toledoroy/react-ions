@@ -1,10 +1,10 @@
 import React from 'react'
+import optclass from '../internal/OptClass'
 import style from './style.scss'
-import classNames from 'classnames/bind'
 
 class Panel extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   static propTypes = {
@@ -13,30 +13,32 @@ class Panel extends React.Component {
      */
     active: React.PropTypes.bool,
     /**
-     * An optional CSS class to be used to local style
+     * Optional CSS class(es) to be used for local styles (string or array of strings)
      */
-    optClass: React.PropTypes.string
+    optClass: React.PropTypes.oneOfType([
+      React.PropTypes.array,
+      React.PropTypes.string
+    ])
   }
 
   getHeader = () => {
-    return this.props.children[0];
+    return this.props.children[0]
   }
 
   handlePanelClick = () => {
     if (this.props.onPanelClick) {
-      this.props.onPanelClick(this);
+      this.props.onPanelClick(this)
     }
   }
 
   render() {
-    const cx = classNames.bind(style);
-    const panelActiveClass = (this.props.active) ? style['panel-active'] : null;
-    const panelClasses = cx(style.panel, this.props.optClass, panelActiveClass);
+    const panelActiveClass = (this.props.active) ? style['panel-active'] : null
+    const panelClasses = optclass(style, ['panel', panelActiveClass], this.props.optClass)
 
     const header = React.cloneElement(this.getHeader(), {
       active: this.props.active,
       onPanelClick: this.handlePanelClick
-    });
+    })
 
     return (
       <div className={panelClasses}>

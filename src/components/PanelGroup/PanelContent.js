@@ -1,17 +1,17 @@
 import React from 'react'
-import classNames from 'classnames'
+import optclass from '../internal/OptClass'
 import style from './style.scss'
 
 class PanelContent extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
-    const cx = classNames.bind(style);
-    var contentClasses = cx(style['panel-content'], this.props.optClass);
+    const panelContentClasses = optclass(style, 'panel-content', this.props.optClass)
+
     return (
-      <div className={contentClasses}>
+      <div className={panelContentClasses}>
         {this.props.children}
       </div>
     )
@@ -20,9 +20,12 @@ class PanelContent extends React.Component {
 
 PanelContent.propTypes = {
   /**
-   * An optional CSS class to be used to style the content area
+   * Optional CSS class(es) to be used for local styles (string or array of strings)
    */
-  optClass: React.PropTypes.string
+  optClass: React.PropTypes.oneOfType([
+    React.PropTypes.array,
+    React.PropTypes.string
+  ])
 }
 
 export default PanelContent

@@ -1,10 +1,11 @@
 import React from 'react'
+import optclass from '../internal/OptClass'
 import Icon from '../Icon'
 import style from './style.scss'
 
 class PanelHeader extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   static propTypes = {
@@ -27,20 +28,28 @@ class PanelHeader extends React.Component {
     /**
      * An object of properties that define an icon: name, size, fill
      */
-    toggleIcon: React.PropTypes.object
+    toggleIcon: React.PropTypes.object,
+    /**
+     * Optional CSS class(es) to be used for local styles (string or array of strings)
+     */
+    optClass: React.PropTypes.oneOfType([
+      React.PropTypes.array,
+      React.PropTypes.string
+    ])
   }
 
   handleClick = (event) => {
     if (this.props.onPanelClick) {
-      this.props.onPanelClick(event, this);
+      this.props.onPanelClick(event, this)
     }
   }
 
   render() {
-    const iconProps = this.props.toggleIcon;
+    const iconProps = this.props.toggleIcon
+    const panelHeaderClasses = optclass(style, 'panel-header', this.props.optClass)
 
     return (
-      <div className={style['panel-header']} onClick={this.handleClick}>
+      <div className={panelHeaderClasses} onClick={this.handleClick}>
         {!this.props.children ?
           <div>
             <div className={style['title-group']}>
