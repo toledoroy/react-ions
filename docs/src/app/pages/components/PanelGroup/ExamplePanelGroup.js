@@ -27,7 +27,7 @@ class ExamplePanelGroup extends React.Component {
     return (
       <div>
         <p>Panels with the following indices are currently active: {this.state.panels.join() || '(none)'}</p>
-        <PanelGroup activePanels={this.state.panels} onPanelToggle={this.panelToggle} optClass={['default', 'test']}>
+        <PanelGroup activePanels={this.state.panels} onPanelToggle={this.panelToggle} optClass={'default'}>
           <Panel>
             <PanelHeader title='Rating' contextIcon='icon-star-1' contextIconSize='14' />
             <PanelContent optClass={style['rating-specific']}>

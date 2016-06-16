@@ -119,8 +119,7 @@ class PanelGroup extends React.Component {
   }
 
   render() {
-    const panelGroupClass = optclass(style['panel-group'], this.props.optClass)
-    console.log(panelGroupClass);
+    const panelGroupClass = optclass(style, 'panel-group', this.props.optClass)
 
     const panels = this.getPanels().map((panel, index) => {
       return React.cloneElement(panel, {
