@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './style.scss'
-import classNames from 'classnames/bind'
+import optclass from '../internal/OptClass'
 
 class PanelGroup extends React.Component {
   constructor(props) {
@@ -19,9 +19,12 @@ class PanelGroup extends React.Component {
      */
     accordion: React.PropTypes.bool,
     /**
-     * An optional CSS class to be used to local style
+     * Optional CSS class(es) to be used for local styles (string or array of strings)
      */
-    optClass: React.PropTypes.string,
+    optClass: React.PropTypes.oneOfType([
+      React.PropTypes.array,
+      React.PropTypes.string
+    ]),
     /**
      * A callback that gets triggered when a panel is toggled (when a panel header gets clicked)
      */
@@ -116,8 +119,8 @@ class PanelGroup extends React.Component {
   }
 
   render() {
-    const cx = classNames.bind(style);
-    const panelGroupClass = cx(style['panel-group'], this.props.optClass);
+    const panelGroupClass = optclass(style['panel-group'], this.props.optClass)
+    console.log(panelGroupClass);
 
     const panels = this.getPanels().map((panel, index) => {
       return React.cloneElement(panel, {
