@@ -70,7 +70,14 @@ ActivityFeedItem.propTypes = {
   /**
    * A timestamp that you want to provide to the feed item.
    */
-  time: React.PropTypes.string
+  time: React.PropTypes.string,
+  /**
+   * Optional CSS class(es) to be used for local styles (string or array of strings)
+   */
+  optClass: React.PropTypes.oneOfType([
+    React.PropTypes.array,
+    React.PropTypes.string
+  ])
 }
 
 export default ActivityFeedItem
