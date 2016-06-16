@@ -1,10 +1,10 @@
 import React from 'react'
 import style from './style.scss'
-import classNames from 'classnames/bind'
+import optclass from '../internal/OptClass'
 
 class FormGroup extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   static propTypes = {
@@ -22,95 +22,113 @@ class FormGroup extends React.Component {
       */
      submitCallback: React.PropTypes.func,
      /**
-      * An optional CSS class to be used for local styles
+      * Optional CSS class(es) to be used for local styles (string or array of strings)
       */
-     optClass: React.PropTypes.string
+     optClass: React.PropTypes.oneOfType([
+       React.PropTypes.array,
+       React.PropTypes.string
+     ]),
+     /**
+      * Option to turn off form wrapper (for nested components)
+      */
+     nested: React.PropTypes.bool
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       fields: nextProps.schema
-    });
+    })
   }
 
   componentWillMount = () => {
-    this.setInitialState();
+    this.setInitialState()
   }
 
   setInitialState = () => {
-    let fields = {};
-    let value = null;
-    let schema = this.props.schema;
+    let fields = {}
+    let value = null
+    let schema = this.props.schema
 
     for (value in schema) {
-      fields[value] = schema[value];
+      fields[value] = schema[value]
     }
 
-    this.setState({fields: fields});
+    this.setState({fields: fields})
   }
 
   handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     if (typeof this.props.submitCallback === 'function') {
-      this.props.submitCallback(event, this.state.fields);
+      this.props.submitCallback(event, this.state.fields)
     }
   }
 
   handleChange = (event) => {
-    let val;
+    let val
 
     if (event.target.type === 'checkbox') {
-      val = (event.target.value === 'false') ? false : true;
+      val = (event.target.value === 'false') ? false : true
     } else {
       val = event.target.value
     }
 
-    var newField = Object.assign({}, this.state.fields[event.target.name], {value: val});
-    var previousState = Object.assign({}, this.state);
-    var newState = previousState.fields[event.target.name] = newField;
+    var newField = Object.assign({}, this.state.fields[event.target.name], {value: val})
+    var previousState = Object.assign({}, this.state)
+    var newState = previousState.fields[event.target.name] = newField
 
     this.setState(newState, function() {
       if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(this.state.fields);
+        this.props.changeCallback(this.state.fields)
       }
-    });
+    })
   }
 
   getElements(children) {
     return React.Children.map(children, child => {
-      let childProps = {};
+      let childProps = {}
       if (child.props) {
-        const name = child.props.name;
-        const fields = this.state.fields;
+        const name = child.props.name
+        const fields = this.state.fields
 
         if (name in fields) {
           if (React.isValidElement(child)) {
             childProps = {
               changeCallback: this.handleChange,
               value: fields[name].value
-            };
+            }
           }
         }
 
-        childProps.children = this.getElements(child.props.children);
-        return React.cloneElement(child, childProps);
+        childProps.children = this.getElements(child.props.children)
+        return React.cloneElement(child, childProps)
       }
-      return child;
-    });
+      return child
+    })
+  }
+
+  renderForm = () => {
+    const elements = this.getElements(this.props.children)
+    const formGroupClass = optclass(style, 'form-group', this.props.optClass)
+    let formWrapper
+
+    if (!this.props.nested) {
+      formWrapper = <form className={formGroupClass} onSubmit={this.handleSubmit}>
+                      <fieldset className={style.fieldset}>
+                        {elements}
+                      </fieldset>
+                    </form>
+    } else {
+      const fieldsetClass = optclass(style, 'fieldset', this.props.optClass)
+      formWrapper = <fieldset className={fieldsetClass}>
+                      {elements}
+                    </fieldset>
+    }
+    return formWrapper
   }
 
   render() {
-    const cx = classNames.bind(style);
-    var formGroupClass = cx(style['form-group'], this.props.optClass);
-
-    const elements = this.getElements(this.props.children);
-
     return (
-      <form className={formGroupClass} onSubmit={this.handleSubmit}>
-        <fieldset className={style.fieldset}>
-          {elements}
-        </fieldset>
-      </form>
+      this.renderForm()
     )
   }
 }

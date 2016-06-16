@@ -1,8 +1,8 @@
 import React from 'react'
+import optclass from '../internal/OptClass'
 import ActivityFeedItem from './ActivityFeedItem'
 import Badge from '../Badge'
 import style from './style.scss'
-import classNames from 'classnames/bind'
 
 class ActivityFeed extends React.Component {
   constructor(props) {
@@ -15,9 +15,12 @@ class ActivityFeed extends React.Component {
      */
     data: React.PropTypes.array.isRequired,
     /**
-     * An optional CSS class to pass along to the feed component.
+     * Optional CSS class(es) to be used for local styles (string or array of strings)
      */
-    optClass: React.PropTypes.string
+    optClass: React.PropTypes.oneOfType([
+      React.PropTypes.array,
+      React.PropTypes.string
+    ])
   }
 
   state = {
@@ -29,9 +32,8 @@ class ActivityFeed extends React.Component {
   }
 
   render() {
-    const cx = classNames.bind(style)
-    const feedClasses = cx(style['activity-feed'], this.props.optClass)
-    const badgeClasses = cx(style.indicator)
+    const feedClasses = optclass(style, 'activity-feed', this.props.optClass)
+    const badgeClasses = optclass(style, 'indicator')
 
     let items = this.state.data.map((item, index) =>
       <li key={index}>
