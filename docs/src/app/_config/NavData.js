@@ -46,6 +46,9 @@ const nav = [
         name: 'Color Picker',
         action: '/components/color-picker'
       }, {
+        name: 'Date Picker',
+        action: '/components/date-picker'
+      }, {
         name: 'Dropdown',
         action: '/components/dropdown'
       }, {
