@@ -22,9 +22,12 @@ class FormGroup extends React.Component {
       */
      submitCallback: React.PropTypes.func,
      /**
-      * An optional CSS class to be used for local styles
+      * Optional CSS class(es) to be used for local styles (string or array of strings)
       */
-     optClass: React.PropTypes.string,
+     optClass: React.PropTypes.oneOfType([
+       React.PropTypes.array,
+       React.PropTypes.string
+     ]),
      /**
       * Option to turn off form wrapper (for nested components)
       */
