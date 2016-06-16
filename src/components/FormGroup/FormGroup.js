@@ -118,7 +118,8 @@ class FormGroup extends React.Component {
                       </fieldset>
                     </form>
     } else {
-      formWrapper = <fieldset className={style.fieldset}>
+      const fieldsetClass = optclass(style, 'fieldset', this.props.optClass)
+      formWrapper = <fieldset className={fieldsetClass}>
                       {elements}
                     </fieldset>
     }
