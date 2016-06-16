@@ -47,12 +47,12 @@ class ExampleActivityFeed extends React.Component {
           theme: 'warning'
         }
       }, {
-        name: 'The Iconography Page',
+        name: 'bob+pizza+lover+45@getambassador.com',
         profileUrl: '/foundations/iconography',
         profileUrlTarget: '_blank',
-        title: 'doesn\'t need much work.',
+        title: 'was given a pizza coupon and is really happy',
         text: 'Turducken chuck shoulder, landjaeger brisket shank tri-tip capicola kielbasa jerky alcatra drumstick pork belly filet mignon. ',
-        timestamp: '2016-05-02T18:19:08.936',
+        timestamp: '2016-06-15T18:19:08.936',
         actions: [
           {
             type: 'reply',
@@ -74,7 +74,7 @@ class ExampleActivityFeed extends React.Component {
         }
       }, {
         name: 'Printed test page.',
-        timestamp: '2016-04-15T18:19:08.936',
+        timestamp: '2016-06-15T18:19:08.936',
         badge: {
           icon: 'icon-mail-inbox-1',
           theme: 'fog'
