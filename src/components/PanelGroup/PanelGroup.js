@@ -1,6 +1,6 @@
 import React from 'react'
-import style from './style.scss'
 import optclass from '../internal/OptClass'
+import style from './style.scss'
 
 class PanelGroup extends React.Component {
   constructor(props) {
