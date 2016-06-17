@@ -46,6 +46,18 @@ class SelectField extends React.Component {
      */
     changeCallback: React.PropTypes.func,
     /**
+     * A callback for updating options when typeahead search value is changed.
+     */
+    searchCallback: React.PropTypes.func,
+    /**
+     * A loading state to be set to true when asynchronous searching is in progress.
+     */
+    loading: React.PropTypes.bool,
+    /**
+     * The number of options where the select field switches to a typeahead.
+     */
+    typeaheadThreshold: React.PropTypes.number,
+    /**
      * Icon to be displayed on the left
      */
     icon: React.PropTypes.string
