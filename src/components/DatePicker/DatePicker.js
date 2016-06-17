@@ -28,7 +28,9 @@ class DatePicker extends React.Component {
 
   static defaultProps = {
     max: { month: '+0', day: '+0', year: '+10'},
-    min: { month: '+0', day: '+0', year: '-10'},
+    min: { month: '-0', day: '-0', year: '-10'},
+    //min: { month: '10', day: '5', year: '2011'},
+    //min: { month: 'current', day: 'current', year: 'current'},
     format: 'MM-DD-YYYY'
   }
 
@@ -88,28 +90,47 @@ class DatePicker extends React.Component {
   }
 
   _getYears = (date, min, max) => {
-    let yearOptions = [
-      {value: '2015'},
-      {value: '2016'},
-      {value: '2017'}
-    ] // temp
+    let yearOptions = []
+    const minYear = this._getMinOrMax(date, min, 'year')
+    const maxYear = this._getMinOrMax(date, max, 'year')
 
-    const year = moment(date).format('YYYY')
-    const minDiff = moment(date).diff(min, 'years')
-    const maxDiff = moment(date).diff(max, 'years')
-    console.log(minDiff)
-    console.log(maxDiff)
-
-    // for (var i<0; i<minDiff; i++) {
-    //   yearOptions.push({value: i.toString()})
-    // }
-    //
-    // for (var i<0; i<maxDiff; i++) {
-    //   yearOptions.push({value: i.toString()})
-    // }
+    for (var i=minYear; i<=maxYear; i++) {
+      yearOptions.push({value: i.toString()})
+    }
 
     return yearOptions
   }
+
+  _getMinOrMax = (date, minOrMax, type) => {
+    let momentDate
+    let value
+    if (minOrMax[type] === 'current') {
+      momentDate = moment(date)
+    } else if (minOrMax[type].indexOf('+') !== -1) {
+      momentDate = moment(date).add(Math.abs(minOrMax[type]), type)
+    } else if (minOrMax[type].indexOf('-') !== -1) {
+      momentDate = moment(date).subtract(Math.abs(minOrMax[type]), type)
+    } else {
+      value = minOrMax[type]
+    }
+
+    if (momentDate) {
+      switch (type) {
+        case 'year':
+          value = momentDate.year()
+          break;
+        case 'month':
+          value = momentDate.month()
+          break;
+        case 'day':
+          value = momentDate.day()
+          break;
+      }
+    }
+
+    return value.toString()
+  }
+
 
   componentWillMount = () => {
     this.setState({
