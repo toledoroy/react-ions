@@ -19,16 +19,21 @@ class DatePicker extends React.Component {
     year: null,
     dayOptions: [],
     monthOptions: [],
-    yearOptions: [
-      {value: '2015'},
-      {value: '2016'},
-      {value: '2017'}
-    ]
+    yearOptions: [],
+    minYear: null,
+    maxYear: null,
+    minMonth: null,
+    maxMonth: null,
+    minDay: null,
+    maxDay: null,
+    value: null
   }
 
   static defaultProps = {
-    max: { month: '+0', day: '+0', year: '+10'},
-    min: { month: '-0', day: '-0', year: '-10'},
+    //max: { month: '+0', day: '+0', year: '+10'},
+    max: { month: '5', day: '15', year: '2017'},
+    //max: { month: 'current', day: 'current', year: 'current'},
+    min: { month: '-3', day: '-0', year: '-10'},
     //min: { month: '10', day: '5', year: '2011'},
     //min: { month: 'current', day: 'current', year: 'current'},
     format: 'MM-DD-YYYY'
@@ -79,20 +84,42 @@ class DatePicker extends React.Component {
     return dayOptions
   }
 
-  _getMonths = () => {
+  _getMonths = (checkMin, checkMax) => {
     let monthOptions = []
+    let start = checkMin ? this.state.minMonth : 0
+    let end = checkMax ? this.state.maxMonth : 12
 
-    for (var i=0; i<12; i++) {
+    for (var i=start; i<end; i++) {
       monthOptions.push({value: i.toString(), display: moment(i+1, 'MM').format('MMMM')})
+    }
+    console.log(this.state.month)
+    console.log(this.state.maxMonth)
+    // if selected month is greater than max month, change it to max month
+    if (checkMax) {
+      if (this.state.month > this.state.maxMonth-1) {
+        console.log('settings')
+        this.setState({
+          month: this.state.maxMonth-1
+        })
+      }
+    }
+
+    // if selected month is lower than min month, change it to min month
+    if (checkMin) {
+      if (this.state.month < this.state.minMonth) {
+        this.setState({
+          month: this.state.minMonth
+        })
+      }
     }
 
     return monthOptions
   }
 
-  _getYears = (date, min, max) => {
+  _getYears = () => {
     let yearOptions = []
-    const minYear = this._getMinOrMax(date, min, 'year')
-    const maxYear = this._getMinOrMax(date, max, 'year')
+    const minYear = this.state.minYear
+    const maxYear = this.state.maxYear
 
     for (var i=minYear; i<=maxYear; i++) {
       yearOptions.push({value: i.toString()})
@@ -123,7 +150,7 @@ class DatePicker extends React.Component {
           value = momentDate.month()
           break;
         case 'day':
-          value = momentDate.day()
+          value = momentDate.date()
           break;
       }
     }
@@ -131,16 +158,89 @@ class DatePicker extends React.Component {
     return value.toString()
   }
 
+  handleChangeYear = (event) => {
+    if (event.target.value === this.state.maxYear) {
+      this.setState({
+        year: event.target.value,
+        monthOptions: this._getMonths(false, true) // check max month
+      })
+    } else {
+      this.setState({
+        year: event.target.value
+      })
+    }
+  }
+
+  handleChangeMonth = (event) => {
+    if (event.target.value === this.state.maxMonth) {
+      this.setState({
+        month: event.target.value,
+        dayOptions: this._getDays(false, true) // check max day
+      })
+    } else {
+      this.setState({
+        month: event.target.value
+      })
+    }
+  }
+
+  handleChangeDay = (event) => {
+    this.setState({
+      day: event.target.value
+    })
+  }
 
   componentWillMount = () => {
+    const minYear = this._getMinOrMax(this.props.value, this.props.min, 'year')
+    const maxYear = this._getMinOrMax(this.props.value, this.props.max, 'year')
+    console.log('minYear: ' + minYear)
+    console.log('maxYear: ' + maxYear)
+
+    const minMonth = this._getMinOrMax(this.props.value, this.props.min, 'month')
+    const maxMonth = this._getMinOrMax(this.props.value, this.props.max, 'month')
+    console.log('minMonth: ' + minMonth)
+    console.log('maxMonth: ' + maxMonth)
+
+    const minDay = this._getMinOrMax(this.props.value, this.props.min, 'day')
+    const maxDay = this._getMinOrMax(this.props.value, this.props.max, 'day')
+
+    console.log('minDay: ' + minDay)
+    console.log('maxDay: ' + maxDay)
+
     this.setState({
-      day: this._getDay(this.props.value),
-      dayOptions: this._getDays(this.props.value),
-      month: this._getMonth(this.props.value),
-      monthOptions: this._getMonths(),
-      year: this._getYear(this.props.value),
-      yearOptions: this._getYears(this.props.value, this.props.min, this.props.max)
+      minYear: minYear,
+      maxYear: maxYear,
+      minMonth: minMonth,
+      maxMonth: maxMonth,
+      minDay: minDay,
+      maxDay: maxDay
+    }, function() {
+      const day = this._getDay(this.props.value)
+      const days = this._getDays(this.props.value)
+      const month = this._getMonth(this.props.value)
+      const months = this._getMonths()
+      const year = this._getYear(this.props.value)
+      const years = this._getYears()
+
+      this.setState({
+        day: day,
+        dayOptions: days,
+        month: month,
+        monthOptions: months,
+        year: year,
+        yearOptions: years
+      })
     })
+  }
+  
+  componentDidUpdate = (prevProps, prevState) => {
+    if (this.state.year !== prevState.year ||
+      this.state.month !== prevState.month ||
+      this.state.day !== prevState.day) {
+      this.setState({
+        value: moment().year(this.state.year).month(this.state.month).date(this.state.day).format(this.props.format)
+      })
+    }
   }
 
   render() {
@@ -149,9 +249,27 @@ class DatePicker extends React.Component {
 
     return (
       <div className={componentClass}>
-        <SelectField options={this.state.monthOptions} valueProp='value' displayProp='display' value={this.state.month.toString()} />
-        <SelectField options={this.state.dayOptions} valueProp='value' displayProp='value' value={this.state.day.toString()} />
-        <SelectField options={this.state.yearOptions} valueProp='value' displayProp='value' value={this.state.year.toString()} />
+        <SelectField
+          options={this.state.monthOptions}
+          valueProp='value'
+          displayProp='display'
+          value={this.state.month.toString()}
+          changeCallback={this.handleChangeDay}
+        />
+        <SelectField
+          options={this.state.dayOptions}
+          valueProp='value'
+          displayProp='value'
+          value={this.state.day.toString()}
+          changeCallback={this.handleChangeMonth}
+        />
+        <SelectField
+          options={this.state.yearOptions}
+          valueProp='value'
+          displayProp='value'
+          value={this.state.year.toString()}
+          changeCallback={this.handleChangeYear}
+        />
       </div>
     )
   }
