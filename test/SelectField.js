@@ -239,6 +239,12 @@ describe('SelectField', () => {
     expect(wrapper.childAt(1).text().indexOf('Please select an option')).to.equal(0)
   })
 
+  it('should show a message when there are no options to select', () => {
+    wrapper = mount(<SelectField options={[]} valueProp='value' displayProp='display' />)
+
+    expect(wrapper.childAt(2).childAt(0).text()).to.equal('Nothing to select')
+  })
+
   it('should have two options selected by default when multi is set to true', () => {
     wrapper = mount(<SelectField options={options} valueProp='value' displayProp='display' value={['0', '1']} multi={true} />)
 
@@ -306,5 +312,11 @@ describe('SelectField', () => {
 
     expect(wrapper.state().value).to.have.length(0)
     expect(wrapper.state().selected).to.have.length(0)
+  })
+
+  it('should show a message when there are no options to select and multi is set to true', () => {
+    wrapper = mount(<SelectField options={[]} valueProp='value' displayProp='display' multi={true} />)
+
+    expect(wrapper.childAt(2).childAt(0).text()).to.equal('Nothing to select')
   })
 })
