@@ -14,29 +14,38 @@ class DatePicker extends React.Component {
   }
 
   state = {
-    day: null,
-    month: null,
-    year: null,
-    dayOptions: [],
-    monthOptions: [],
-    yearOptions: [],
-    minYear: null,
-    maxYear: null,
-    minMonth: null,
-    maxMonth: null,
-    minDay: null,
-    maxDay: null,
-    value: null
+    year: {
+      min: 0,
+      value: 0,
+      max: 0,
+      options: []
+    },
+    month: {
+      min: 0,
+      currentMin: 0,
+      value: 0,
+      max: 0,
+      currentMax: 0,
+      options: []
+    },
+    day: {
+      min: 0,
+      currentMin: 0,
+      value: 0,
+      max: 0,
+      currentMax: 0,
+      options: []
+    }
   }
 
   static defaultProps = {
     //max: { month: '+0', day: '+0', year: '+10'},
-    max: { month: '5', day: '15', year: '2017'},
+    max: { month: '7', day: '15', year: '2017'},
     //max: { month: 'current', day: 'current', year: 'current'},
     min: { month: '-3', day: '-0', year: '-10'},
     //min: { month: '10', day: '5', year: '2011'},
     //min: { month: 'current', day: 'current', year: 'current'},
-    format: 'MM-DD-YYYY'
+    format: 'YYYY-MM-DD'
   }
 
   static propTypes = {
@@ -62,70 +71,57 @@ class DatePicker extends React.Component {
     changeCallback: React.PropTypes.func
   }
 
-  _getDay = (date) => {
-    return moment(date).date()
-  }
+  _initDate = (date, format) => {
+    console.log('_initDate: ')
+    console.log(date)
+    console.log(format)
 
-  _getMonth = (date) => {
-    return moment(date).month()
-  }
-
-  _getYear = (date) => {
-    return moment(date).year()
-  }
-
-  _getDays = (date) => {
-    let dayOptions = []
-    const daysInMonth = moment(date).daysInMonth()
-
-    for (var i=1; i<=daysInMonth; i++) {
-      dayOptions.push({value: i.toString()})
-    }
-    return dayOptions
-  }
-
-  _getMonths = (checkMin, checkMax) => {
-    let monthOptions = []
-    let start = checkMin ? this.state.minMonth : 0
-    let end = checkMax ? this.state.maxMonth : 12
-
-    for (var i=start; i<end; i++) {
-      monthOptions.push({value: i.toString(), display: moment(i+1, 'MM').format('MMMM')})
-    }
-    console.log(this.state.month)
-    console.log(this.state.maxMonth)
-    // if selected month is greater than max month, change it to max month
-    if (checkMax) {
-      if (this.state.month > this.state.maxMonth-1) {
-        console.log('settings')
-        this.setState({
-          month: this.state.maxMonth-1
-        })
-      }
+    let dateObj = {
+      year: {
+        min: 0,
+        value: 0,
+        max: 0,
+        options: []
+      },
+      month: {
+        min: 0,
+        currentMin: 0,
+        value: 0,
+        max: 0,
+        currentMax: 0,
+        options: []
+      },
+      day: {
+        min: 0,
+        currentMin: 0,
+        value: 0,
+        max: 0,
+        currentMax: 0,
+        options: []
+      },
+      value: ''
     }
 
-    // if selected month is lower than min month, change it to min month
-    if (checkMin) {
-      if (this.state.month < this.state.minMonth) {
-        this.setState({
-          month: this.state.minMonth
-        })
-      }
-    }
+    let mDate = date === undefined ? moment() : moment(date, format)
+    console.log(mDate.format(format))
 
-    return monthOptions
-  }
+    dateObj.year.value = mDate.year()
+    dateObj.month.value = mDate.month()
+    dateObj.day.value = mDate.date()
+    dateObj.value = mDate.format(format)
+    dateObj.year.min = this._getMinOrMax(dateObj.value, this.props.min, 'year')
+    dateObj.year.max = this._getMinOrMax(dateObj.value, this.props.max, 'year')
+    dateObj.year.options = this._getYears(dateObj.year.min, dateObj.year.max)
+    dateObj.month.min = this._getMinOrMax(dateObj.value, this.props.min, 'month')
+    dateObj.month.max = this._getMinOrMax(dateObj.value, this.props.max, 'month')
+    dateObj.month.options = this._getMonths(dateObj)
+    dateObj.day.min = this._getMinOrMax(dateObj.value, this.props.min, 'day')
+    dateObj.day.max = this._getMinOrMax(dateObj.value, this.props.max, 'day')
+    dateObj.day.options = this._getDays(dateObj)
 
-  _getYears = () => {
-    let yearOptions = []
-    const minYear = this.state.minYear
-    const maxYear = this.state.maxYear
+    this.setState(dateObj)
 
-    for (var i=minYear; i<=maxYear; i++) {
-      yearOptions.push({value: i.toString()})
-    }
-
-    return yearOptions
+    return dateObj
   }
 
   _getMinOrMax = (date, minOrMax, type) => {
@@ -155,93 +151,146 @@ class DatePicker extends React.Component {
       }
     }
 
-    return value.toString()
+    return parseInt(value)
+  }
+
+  _getYears = (min, max) => {
+    let yearOptions = []
+
+    for (var i=min; i<=max; i++) {
+      yearOptions.push({value: i.toString()})
+    }
+
+    return yearOptions
+  }
+
+  _getMonths = (dateObj) => {
+    console.log('_getMonths')
+    let monthOptions = []
+    const checkMin = dateObj.year.value === dateObj.year.min
+    const checkMax = dateObj.year.value === dateObj.year.max
+    console.log(checkMin)
+    console.log(checkMax)
+    let start = checkMin ? dateObj.month.min : 0
+    let end = checkMax ? dateObj.month.max : 12
+
+    for (var i=start; i<end; i++) {
+      monthOptions.push({value: i.toString(), display: moment(i+1, 'MM').format('MMMM')})
+    }
+
+    // if selected month is greater than max month, change it to max month
+    if (checkMax) {
+      if (dateObj.month.value > dateObj.month.max-1) {
+        dateObj.month.value = dateObj.month.max-1
+      }
+    }
+
+    // if selected month is lower than min month, change it to min month
+    if (checkMin) {
+      if (dateObj.month.value < dateObj.month.min) {
+        dateObj.month.value = dateObj.month.min
+      }
+    }
+
+    return monthOptions
+  }
+
+  _getDays = (dateObj) => {
+    console.log('_getDays')
+    let dayOptions = []
+    const checkMin = dateObj.month.value === dateObj.month.min
+    const checkMax = dateObj.month.value === dateObj.month.max
+    console.log(checkMin)
+    console.log(checkMax)
+    console.log(dateObj.value)
+
+    let start = checkMin ? dateObj.day.min : 1
+    let end = checkMax ? dateObj.day.max : moment(dateObj.value, this.props.format).daysInMonth()
+    console.log('_getDays: ' + start + ' / ' + end)
+    for (var i=start; i<=end; i++) {
+      dayOptions.push({value: i.toString()})
+    }
+
+    // if selected day is greater than max day, change it to max day
+    if (checkMax) {
+      if (dateObj.day.value > dateObj.day.max) {
+        dateObj.day.value = dateObj.day.max
+      }
+    }
+
+    // if selected day is lower than min day, change it to min day
+    if (checkMin) {
+      if (dateObj.day.value < dateObj.day.min) {
+        dateObj.day.value = dateObj.day.min
+      }
+    }
+
+    return dayOptions
+  }
+
+  _getValue = (state) => {
+    return moment().year(state.year.value).month(state.month.value).date(state.day.value).format(this.props.format)
   }
 
   handleChangeYear = (event) => {
-    if (event.target.value === this.state.maxYear) {
-      this.setState({
-        year: event.target.value,
-        monthOptions: this._getMonths(false, true) // check max month
-      })
-    } else {
-      this.setState({
-        year: event.target.value
-      })
-    }
+    console.log('handleChangeYear')
+    console.log(event.target.value)
+    console.log(this.state.year.max)
+    let state = this.state
+    console.log(state)
+    state.year.value = parseInt(event.target.value)
+    state.value = this._getValue(state)
+
+    console.log(state.year.value)
+
+    state.month.options = this._getMonths(state)
+    state.day.options = this._getDays(state)
+    console.log(state.month.options)
+    this.setState({
+      year: state.year,
+      month: state.month,
+      day: state.day
+    })
   }
 
   handleChangeMonth = (event) => {
-    if (event.target.value === this.state.maxMonth) {
-      this.setState({
-        month: event.target.value,
-        dayOptions: this._getDays(false, true) // check max day
-      })
-    } else {
-      this.setState({
-        month: event.target.value
-      })
-    }
+    console.log('handleChangeMonth')
+    console.log(event.target.value)
+    console.log(this.state.maxMonth-1)
+    let state = this.state
+    state.month.value = parseInt(event.target.value)
+    state.value = this._getValue(state)
+    state.day.options = this._getDays(state)
+    console.log(state.month.options)
+    this.setState({
+      month: state.month,
+      day: state.day
+    })
   }
 
   handleChangeDay = (event) => {
+    let state = this.state
+    state.day.value = parseInt(event.target.value)
     this.setState({
-      day: event.target.value
+      day: state.day
     })
   }
 
   componentWillMount = () => {
-    const minYear = this._getMinOrMax(this.props.value, this.props.min, 'year')
-    const maxYear = this._getMinOrMax(this.props.value, this.props.max, 'year')
-    console.log('minYear: ' + minYear)
-    console.log('maxYear: ' + maxYear)
-
-    const minMonth = this._getMinOrMax(this.props.value, this.props.min, 'month')
-    const maxMonth = this._getMinOrMax(this.props.value, this.props.max, 'month')
-    console.log('minMonth: ' + minMonth)
-    console.log('maxMonth: ' + maxMonth)
-
-    const minDay = this._getMinOrMax(this.props.value, this.props.min, 'day')
-    const maxDay = this._getMinOrMax(this.props.value, this.props.max, 'day')
-
-    console.log('minDay: ' + minDay)
-    console.log('maxDay: ' + maxDay)
-
-    this.setState({
-      minYear: minYear,
-      maxYear: maxYear,
-      minMonth: minMonth,
-      maxMonth: maxMonth,
-      minDay: minDay,
-      maxDay: maxDay
-    }, function() {
-      const day = this._getDay(this.props.value)
-      const days = this._getDays(this.props.value)
-      const month = this._getMonth(this.props.value)
-      const months = this._getMonths()
-      const year = this._getYear(this.props.value)
-      const years = this._getYears()
-
-      this.setState({
-        day: day,
-        dayOptions: days,
-        month: month,
-        monthOptions: months,
-        year: year,
-        yearOptions: years
-      })
-    })
+    console.log('componentWillMount')
+    let dateObj = this._initDate(this.props.value, this.props.format)
+    console.log(dateObj)
   }
   
-  componentDidUpdate = (prevProps, prevState) => {
-    if (this.state.year !== prevState.year ||
-      this.state.month !== prevState.month ||
-      this.state.day !== prevState.day) {
-      this.setState({
-        value: moment().year(this.state.year).month(this.state.month).date(this.state.day).format(this.props.format)
-      })
-    }
-  }
+  // componentDidUpdate = (prevProps, prevState) => {
+  //   if (this.state.year !== prevState.year ||
+  //     this.state.month !== prevState.month ||
+  //     this.state.day !== prevState.day) {
+  //     this.setState({
+  //       value: this._getValue()
+  //     })
+  //   }
+  // }
 
   render() {
     const cx = classNames.bind(style)
@@ -250,24 +299,24 @@ class DatePicker extends React.Component {
     return (
       <div className={componentClass}>
         <SelectField
-          options={this.state.monthOptions}
+          options={this.state.month.options}
           valueProp='value'
           displayProp='display'
-          value={this.state.month.toString()}
-          changeCallback={this.handleChangeDay}
-        />
-        <SelectField
-          options={this.state.dayOptions}
-          valueProp='value'
-          displayProp='value'
-          value={this.state.day.toString()}
+          value={this.state.month.value.toString()}
           changeCallback={this.handleChangeMonth}
         />
         <SelectField
-          options={this.state.yearOptions}
+          options={this.state.day.options}
           valueProp='value'
           displayProp='value'
-          value={this.state.year.toString()}
+          value={this.state.day.value.toString()}
+          changeCallback={this.handleChangeDay}
+        />
+        <SelectField
+          options={this.state.year.options}
+          valueProp='value'
+          displayProp='value'
+          value={this.state.year.value.toString()}
           changeCallback={this.handleChangeYear}
         />
       </div>
