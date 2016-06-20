@@ -86,9 +86,7 @@ class SelectField extends React.Component {
   componentWillReceiveProps = (nextProps) => {
     // Multiple select
     if (nextProps.multi && nextProps.value instanceof Array && nextProps.value !== this.state.value && (this.containsValidValue(nextProps.value, nextProps.options) || nextProps.value.length === 0)) {
-      this.setState({ selected: [], value: nextProps.value }, function() {
-        this.selectItems(nextProps.value, nextProps.options)
-      })
+      this.selectItems(nextProps.value, nextProps.options)
     }
     // Single select
     else if (nextProps.value && nextProps.value && nextProps.value !== this.state.value && (this.getIndex(nextProps.value, nextProps.options) > -1 || nextProps.value === '')) {
@@ -157,7 +155,7 @@ class SelectField extends React.Component {
   }
 
   selectItems = (values, options) => {
-    let selectedOptions = this.state.selected || []
+    let selectedOptions = []
 
     for (let i = 0; i < values.length; i++) {
       let index = this.getIndex(values[i], options)
