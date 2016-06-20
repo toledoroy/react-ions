@@ -273,7 +273,7 @@ describe('SelectField', () => {
     expect(wrapper.state().value).to.have.length(2)
     expect(wrapper.state().selected).to.have.length(2)
 
-    wrapper.setProps({ value: null })
+    wrapper.setProps({ value: [] })
     wrapper.update()
 
     expect(wrapper.state().value).to.have.length(0)

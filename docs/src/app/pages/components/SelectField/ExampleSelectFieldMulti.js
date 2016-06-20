@@ -16,7 +16,7 @@ class ExampleSelectFieldSelected extends React.Component {
 
   state = {
     selected: ['1', '2'],
-    status: 'Chosen options are: 1, 2'
+    status: ''
   }
 
   updateSelected = (index) => {
@@ -24,7 +24,7 @@ class ExampleSelectFieldSelected extends React.Component {
   }
 
   changeCallback = (event) => {
-    this.setState({selected: event.target.value, status: 'Chosen options are: ' + event.target.value.join(',') })
+    this.setState({selected: event.target.value, status: 'The callback was triggered and the chosen options are: ' + event.target.value.join(',') })
   }
 
   render () {

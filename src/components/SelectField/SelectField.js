@@ -82,18 +82,14 @@ class SelectField extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     // Multiple select
-    if (nextProps.multi && nextProps.value instanceof Array && nextProps.value !== this.state.value && nextProps.value.length > 0 && this.containsValidValue(nextProps.value, nextProps.options)) {
+    if (nextProps.multi && nextProps.value instanceof Array && nextProps.value !== this.state.value && (this.containsValidValue(nextProps.value, nextProps.options) || nextProps.value.length === 0)) {
       this.setState({ selected: [], value: nextProps.value }, function() {
         this.selectItems(nextProps.value, nextProps.options)
       })
     }
     // Single select
-    else if (nextProps.value && nextProps.value !== '' && nextProps.value && nextProps.value !== this.state.value && this.getIndex(nextProps.value, nextProps.options) > -1) {
+    else if (nextProps.value && nextProps.value && nextProps.value !== this.state.value && (this.getIndex(nextProps.value, nextProps.options) > -1 || nextProps.value === '')) {
       this.selectItem(nextProps.value, nextProps.options)
-    }
-    // No value is passed in
-    else {
-      this.setState({selected: nextProps.multi ? [] : '', value: nextProps.multi ? [] : ''})
     }
   }
 
