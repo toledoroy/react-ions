@@ -85,13 +85,17 @@ describe('SelectField', () => {
   it('should have an icon for each option', () => {
     wrapper = shallow(<SelectField options={optionsWithIcons} valueProp='value' displayProp='display' />)
 
-    expect(wrapper.hasClass('has-icon')).to.be.true
-    expect(wrapper.find('.icon')).to.have.length(3)
+    expect(wrapper.find('.icon')).to.have.length(2)
     expect(wrapper.find('ul').childAt(0).find(Icon)).to.have.length(1)
     expect(wrapper.find('ul').childAt(0).find(Icon).props().name).to.equal('icon-megaphone-1')
     expect(wrapper.find('ul').childAt(1).find(Icon)).to.have.length(1)
     expect(wrapper.find('ul').childAt(1).find(Icon).props().name).to.equal('icon-slack-1')
     expect(wrapper.find('ul').childAt(1).find(Icon).props().fill).to.equal('#3C97D3')
+
+    wrapper.childAt(1).simulate('click')
+    wrapper.childAt(2).childAt(1).simulate('click')
+
+    expect(wrapper.hasClass('has-icon')).to.be.true
   })
 
   it('should have an option selected by default', () => {

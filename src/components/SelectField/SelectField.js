@@ -222,9 +222,6 @@ class SelectField extends React.Component {
     if (this.state.selected && this.state.selected.icon) {
       return <Icon name={this.state.selected.icon} fill={this.state.selected.iconColor ||  null} className={style.icon} height='16' width='16' />
     }
-    else if (this.props.options[0].icon && !this.props.placeholder) {
-      return <Icon name={this.props.options[0].icon} fill={this.props.options[0].iconColor ||  null} className={style.icon} height='16' width='16' />
-    }
     else if (this.props.icon) {
       return <Icon name={this.props.icon} className={style.icon} height='16' width='16' />
     }
@@ -251,15 +248,15 @@ class SelectField extends React.Component {
           options.push(<li key={index} onClick={this.handleSelect.bind(null, option)}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>)
         }
       })
-
-      if (options.length === 0) {
-        options.push(<li key={0} className={style['not-clickable']}>Nothing to select</li>)
-      }
     }
     else {
       options = this.props.options.map((option, index) =>
         <li key={index} onClick={this.handleSelect.bind(null, option)}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
       )
+    }
+
+    if (options.length === 0) {
+      options.push(<li key={0} className={style['not-clickable']}>Nothing to select</li>)
     }
 
     let value = ''
