@@ -1,5 +1,6 @@
 import React from 'react'
 import SelectField from 'react-conventions/lib/SelectField/SelectField'
+import Button from 'react-conventions/lib/Button'
 import style from './style.scss'
 
 const options = [
@@ -18,13 +19,20 @@ class ExampleSelectFieldSelected extends React.Component {
     status: 'Chosen options are: 1, 2'
   }
 
+  updateSelected = (index) => {
+    this.setState({ selected: [index] })
+  }
+
   changeCallback = (event) => {
-    this.setState({status: 'Chosen options are: ' + event.target.value.join(',') })
+    this.setState({selected: event.target.value, status: 'Chosen options are: ' + event.target.value.join(',') })
   }
 
   render () {
     return(
       <div>
+        <div className={style.update}>
+          <Button onClick={this.updateSelected.bind(this, '0')}>Select 1st item</Button>
+        </div>
         <SelectField
           options={options}
           valueProp='id'

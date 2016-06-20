@@ -260,4 +260,23 @@ describe('SelectField', () => {
     expect(value[0]).to.equal('0')
     expect(value[1]).to.equal('1')
   })
+
+  it('should update the state when the value property changes when multi is set to true', () => {
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' value={['0']} multi={true} />)
+
+    expect(wrapper.state().value).to.have.length(1)
+    expect(wrapper.state().selected).to.have.length(1)
+
+    wrapper.setProps({ value: ['0', '1'] })
+    wrapper.update()
+
+    expect(wrapper.state().value).to.have.length(2)
+    expect(wrapper.state().selected).to.have.length(2)
+
+    wrapper.setProps({ value: null })
+    wrapper.update()
+
+    expect(wrapper.state().value).to.have.length(0)
+    expect(wrapper.state().selected).to.have.length(0)
+  })
 })

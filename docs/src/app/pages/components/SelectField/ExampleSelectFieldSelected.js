@@ -23,7 +23,7 @@ class ExampleSelectFieldSelected extends React.Component {
   }
 
   changeCallback = (event) => {
-    this.setState({ status: 'The callback was triggered and the chosen option is \'' + event.target.value + '\'' })
+    this.setState({ selected: event.target.value, status: 'The callback was triggered and the chosen option is ' + event.target.value })
   }
 
   render () {

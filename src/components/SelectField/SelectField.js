@@ -62,14 +62,17 @@ class SelectField extends React.Component {
   }
 
   componentWillMount = () => {
-    if (this.state.value !== '' && this.getIndex(this.state.value, this.props.options) > -1) {
-      this.selectItem(this.state.value, this.props.options)
-    }
-    else if (this.props.multi && this.state.value instanceof Array && this.state.value.length > 0 && this.containsValidValue(this.state.value, this.props.options)) {
+    // Multiple select
+    if (this.props.multi && this.state.value instanceof Array && this.state.value.length > 0 && this.containsValidValue(this.state.value, this.props.options)) {
       this.selectItems(this.state.value, this.props.options)
     }
+    // Single select
+    else if (this.state.value !== '' && this.getIndex(this.state.value, this.props.options) > -1) {
+      this.selectItem(this.state.value, this.props.options)
+    }
+    // No value is passed in
     else {
-      this.setState({selected: this.props.multi ? [] : ''})
+      this.setState({selected: this.props.multi ? [] : '', value: this.props.multi ? [] : ''})
     }
   }
 
@@ -78,10 +81,19 @@ class SelectField extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value && nextProps.value !== this.state.value && this.getIndex(nextProps.value, nextProps.options) > -1) {
-      this.setState({ value: nextProps.value }, function() {
-        this.selectItem(nextProps.value, nextProps.options)
+    // Multiple select
+    if (nextProps.multi && nextProps.value instanceof Array && nextProps.value !== this.state.value && nextProps.value.length > 0 && this.containsValidValue(nextProps.value, nextProps.options)) {
+      this.setState({ selected: [], value: nextProps.value }, function() {
+        this.selectItems(nextProps.value, nextProps.options)
       })
+    }
+    // Single select
+    else if (nextProps.value && nextProps.value !== '' && nextProps.value && nextProps.value !== this.state.value && this.getIndex(nextProps.value, nextProps.options) > -1) {
+      this.selectItem(nextProps.value, nextProps.options)
+    }
+    // No value is passed in
+    else {
+      this.setState({selected: nextProps.multi ? [] : '', value: nextProps.multi ? [] : ''})
     }
   }
 
