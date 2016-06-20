@@ -1,0 +1,38 @@
+@import '../../styles/common/colors';
+@import '../../styles/common/screen';
+@import '../../styles/common/mixins';
+
+.typeahead-component {
+  position: relative;
+
+  .typeahead-list {
+    background-color: $white;
+    border-radius: 0 0 3px 3px;
+    border: 1px solid $neutral-1;
+    border-top: 0;
+    list-style-type: none;
+    margin: 0;
+    max-height: 300px;
+    overflow: auto;
+    padding: 0;
+    position: absolute;
+    width: calc(100% - 2px);
+    z-index: 1;
+
+    li {
+      border-bottom: 1px solid $neutral-1;
+      cursor: pointer;
+      padding: 10px;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      &:hover {
+        background-color: $primary-1;
+        color: $white;
+      }
+    }
+  }
+
+}
