@@ -16,11 +16,11 @@ class ExampleSelectFieldSelected extends React.Component {
 
   state = {
     selected: ['1', '2'],
-    status: ''
+    status: 'Chosen options are: 1, 2'
   }
 
   updateSelected = (index) => {
-    this.setState({ selected: [index] })
+    this.setState({ selected: [index], status: 'Chosen options are: ' + index })
   }
 
   changeCallback = (event) => {
