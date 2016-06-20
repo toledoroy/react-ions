@@ -44,7 +44,7 @@ describe('SelectField', () => {
     expect(wrapper.childAt(0).props().name).to.equal('selectfield-value')
     expect(wrapper.childAt(0).props().type).to.equal('hidden')
     expect(wrapper.childAt(0).props().value).to.equal('')
-    expect(wrapper.childAt(1).text().indexOf(options[0].display)).to.equal(0)
+    expect(wrapper.childAt(1).text().indexOf('Please select an option')).to.equal(0)
     expect(wrapper.find(Icon).props().name).to.equal('icon-caret')
     expect(wrapper.find('ul').children()).to.have.length(2)
     expect(wrapper.find('ul').childAt(1).text()).to.equal(options[1].display)
@@ -100,12 +100,12 @@ describe('SelectField', () => {
     expect(wrapper.childAt(1).text().indexOf(optionsWithIcons[1].display)).to.not.equal(-1)
   })
 
-  it('should have the 1st option selected and should not result in an error if an invalid value is provided', () => {
+  it('should not have an option selected and should not result in an error if an invalid value is provided', () => {
     const spy = sinon.spy(console, 'error')
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' value={'2'} />)
 
     expect(spy.calledOnce).to.be.false
-    expect(wrapper.childAt(1).text().indexOf(options[0].display)).to.equal(0)
+    expect(wrapper.childAt(1).text().indexOf('Please select an option')).to.equal(0)
     spy.restore()
   })
 
@@ -130,7 +130,7 @@ describe('SelectField', () => {
   it('should change the option', () => {
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' />)
 
-    expect(wrapper.childAt(1).text().indexOf(options[0].display)).to.equal(0)
+    expect(wrapper.childAt(1).text().indexOf('Please select an option')).to.equal(0)
 
     //open <ul>
     wrapper.childAt(1).simulate('click')
@@ -224,10 +224,21 @@ describe('SelectField', () => {
     expect(wrapper.childAt(1).text().indexOf(optionsAltValueProp[1].display)).to.equal(0)
   })
 
+  it('should reset the state when the value property is set to null', () => {
+    wrapper = shallow(<SelectField options={optionsAltValueProp} valueProp='id' displayProp='display' value={'0'} />)
+
+    expect(wrapper.childAt(1).text().indexOf(optionsAltValueProp[0].display)).to.equal(0)
+
+    wrapper.setProps({ value: null })
+    wrapper.update()
+
+    expect(wrapper.childAt(1).text().indexOf('Please select an option')).to.equal(0)
+  })
+
   it('should have two options selected by default when multi is set to true', () => {
     wrapper = mount(<SelectField options={options} valueProp='value' displayProp='display' value={['0', '1']} multi={true} />)
 
-    expect(wrapper.childAt(1).text().indexOf('Select one or more')).to.equal(0)
+    expect(wrapper.childAt(1).text().indexOf('Please select one or more')).to.equal(0)
     expect(wrapper.childAt(2).childAt(0).text()).to.equal('Nothing to select')
     expect(wrapper.state().value).to.have.length(2)
     expect(wrapper.state().selected).to.have.length(2)
@@ -274,6 +285,19 @@ describe('SelectField', () => {
     expect(wrapper.state().selected).to.have.length(2)
 
     wrapper.setProps({ value: [] })
+    wrapper.update()
+
+    expect(wrapper.state().value).to.have.length(0)
+    expect(wrapper.state().selected).to.have.length(0)
+  })
+
+  it('should reset the state when the value property is set to null and multi is set to true', () => {
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' value={['0']} multi={true} />)
+
+    expect(wrapper.state().value).to.have.length(1)
+    expect(wrapper.state().selected).to.have.length(1)
+
+    wrapper.setProps({ value: null })
     wrapper.update()
 
     expect(wrapper.state().value).to.have.length(0)
