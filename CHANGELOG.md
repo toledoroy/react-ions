@@ -1,5 +1,37 @@
 ## HEAD
 
+## 0.0.29
+###### _June 17, 2016_
+
+## 0.0.28
+###### _June 16, 2016_
+
+##### Component Fixes / Enhancements
+- [OptClass] - Helper method update ([#148](https://github.com/GetAmbassador/react-conventions/pull/148))
+
+##### Component Fixes / Enhancements
+- [FormGroup] - Enabled nested form groups ([#146](https://github.com/GetAmbassador/react-conventions/pull/146))
+
+- [ActivityFeed] - Visual enhancements ([#145](https://github.com/GetAmbassador/react-conventions/pull/145))
+
+- [PanelGroup] - ([#144](https://github.com/GetAmbassador/react-conventions/pull/144))
+
+- [OptClass] - Helper method ([#142](https://github.com/GetAmbassador/react-conventions/pull/142))
+
+## 0.0.27
+###### _June 15, 2016_
+
+##### Component Fixes / Enhancements
+- [Alerts] Allow onClose callback to be passed with alerts in the alert system ([#140](https://github.com/GetAmbassador/react-conventions/pull/140))
+
+## 0.0.26
+###### _June 15, 2016_
+
+##### Component Fixes / Enhancements
+- [Icons] Support for IE11 and above ([#137](https://github.com/GetAmbassador/react-conventions/pull/137))
+- [SelectField] Enhancements ([#136](https://github.com/GetAmbassador/react-conventions/pull/136))
+- [Modal] z-index adjustments ([#135](https://github.com/GetAmbassador/react-conventions/pull/135))
+
 ## 0.0.25
 ###### _June 13, 2016_
 

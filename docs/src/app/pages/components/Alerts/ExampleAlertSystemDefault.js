@@ -6,17 +6,21 @@ import style from './style.scss'
 
 class ExampleAlertSystemDefault extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
     alerts: []
   }
 
+  onCloseCallback = (alert) => {
+    console.log(alert)
+  }
+
   addAlert = (type) => {
-    let alerts = this.state.alerts;
-    alerts.push({ type: type, content: this._alertText.state.value });
-    this.setState({ alerts: alerts });
+    let alerts = this.state.alerts
+    alerts.push({ type: type, content: this._alertText.state.value, onClose: this.onCloseCallback })
+    this.setState({ alerts: alerts })
   }
 
   render() {

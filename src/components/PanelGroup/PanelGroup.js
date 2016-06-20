@@ -1,10 +1,10 @@
 import React from 'react'
+import optclass from '../internal/OptClass'
 import style from './style.scss'
-import classNames from 'classnames/bind'
 
 class PanelGroup extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   static propTypes = {
@@ -19,9 +19,12 @@ class PanelGroup extends React.Component {
      */
     accordion: React.PropTypes.bool,
     /**
-     * An optional CSS class to be used to local style
+     * Optional CSS class(es) to be used for local styles (string or array of strings)
      */
-    optClass: React.PropTypes.string,
+    optClass: React.PropTypes.oneOfType([
+      React.PropTypes.array,
+      React.PropTypes.string
+    ]),
     /**
      * A callback that gets triggered when a panel is toggled (when a panel header gets clicked)
      */
@@ -37,87 +40,86 @@ class PanelGroup extends React.Component {
   }
 
   componentWillMount = () => {
-    this.setInitialState();
+    this.setInitialState()
   }
 
   activatePanels = (activePanels) => {
-    var panels = this.getPanels();
-    var initialPanels = [];
+    var panels = this.getPanels()
+    var initialPanels = []
 
     panels.forEach((panel, index) => {
       if (activePanels) {
-        initialPanels = [...initialPanels, {active: !!activePanels.includes(index)}];
+        initialPanels = [...initialPanels, {active: !!activePanels.includes(index)}]
       } else {
-        initialPanels = [...initialPanels, {active: false}];
+        initialPanels = [...initialPanels, {active: false}]
       }
-    });
+    })
 
-    this.setState({panels: initialPanels});
+    this.setState({panels: initialPanels})
   }
 
   setInitialState = () => {
-    this.activatePanels(this.props.activePanels);
+    this.activatePanels(this.props.activePanels)
   }
 
   componentWillReceiveProps = (nextProps) => {
-    this.activatePanels(nextProps.activePanels);
+    this.activatePanels(nextProps.activePanels)
   }
 
   collapsePanels = () => {
-    var panels = this.getPanels();
-    var collapsedPanels = [];
+    var panels = this.getPanels()
+    var collapsedPanels = []
 
     panels.forEach((panel, index) => {
-      collapsedPanels = [...collapsedPanels, {active: false}];
-    });
+      collapsedPanels = [...collapsedPanels, {active: false}]
+    })
 
-    return collapsedPanels;
+    return collapsedPanels
   }
 
   getPanels = () => {
-    const panels = [];
+    const panels = []
     React.Children.forEach(this.props.children, (panel) => {
       if (React.isValidElement(panel)) {
-        panels.push(panel);
+        panels.push(panel)
       }
-    });
-    return panels;
+    })
+    return panels
   }
 
   handlePanelClick = (panel) => {
-    let panelIndex = panel.props.panelIndex;
-    let state = this.state.panels;
+    let panelIndex = panel.props.panelIndex
+    let state = this.state.panels
 
     if (!this.props.accordion) {
-      state[panelIndex] = {active: !this.state.panels[panelIndex].active};
+      state[panelIndex] = {active: !this.state.panels[panelIndex].active}
       this.setState({panels: state}, function() {
-        this.onPanelToggle();
-      });
+        this.onPanelToggle()
+      })
     } else {
-      var resetState = this.collapsePanels();
-      resetState[panelIndex] = {active: !this.state.panels[panelIndex].active};
+      var resetState = this.collapsePanels()
+      resetState[panelIndex] = {active: !this.state.panels[panelIndex].active}
       this.setState({panels: resetState}, function() {
-        this.onPanelToggle();
-      });
+        this.onPanelToggle()
+      })
     }
   }
 
   onPanelToggle = () => {
-    let activePanels = [];
+    let activePanels = []
     this.state.panels.map((panel, index) => {
       if (panel.active) {
-        activePanels.push(index);
+        activePanels.push(index)
       }
-    });
+    })
 
     if (this.props.onPanelToggle) {
-      this.props.onPanelToggle(activePanels);
+      this.props.onPanelToggle(activePanels)
     }
   }
 
   render() {
-    const cx = classNames.bind(style);
-    const panelGroupClass = cx(style['panel-group'], this.props.optClass);
+    const panelGroupClasses = optclass(style, 'panel-group', this.props.optClass)
 
     const panels = this.getPanels().map((panel, index) => {
       return React.cloneElement(panel, {
@@ -125,14 +127,14 @@ class PanelGroup extends React.Component {
         panelIndex: index,
         active: this.state.panels[index].active,
         onPanelClick: this.handlePanelClick
-      });
-    });
+      })
+    })
 
     return (
-      <div className={panelGroupClass}>
+      <div className={panelGroupClasses}>
         {panels}
       </div>
-    );
+    )
   }
 }
 

@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import throttle from 'lodash/throttle'
+import svg4everybody from 'svg4everybody'
 import style from 'private/css/base'
 import Sidebar from './Sidebar'
 import Main from './Main'
@@ -21,6 +22,7 @@ class Base extends React.Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.throttle)
+    svg4everybody()
   }
 
   componentWillReceiveProps() {
