@@ -2,7 +2,6 @@ import React from 'react'
 import classNames from 'classnames/bind'
 import fuzzy from 'fuzzy'
 import Loader from 'react-loader'
-import Icon from '../Icon'
 import Input from '../Input'
 import style from './style.scss'
 
@@ -114,7 +113,6 @@ class Typeahead extends React.Component {
 
   handleChange = (event) => {
     if (event.target.value.length) {
-      this.setState({isActive: true})
       if (typeof this.props.searchCallback === 'function') {
         this.props.searchCallback(event.target.value).then((options) => {
           this.updateResults(event, options)
@@ -128,6 +126,8 @@ class Typeahead extends React.Component {
   }
 
   updateResults = (event, options) => {
+    this.setState({isActive: true})
+
     let str = {
       pre: '<b>',
       post: '</b>',
@@ -166,7 +166,6 @@ class Typeahead extends React.Component {
         onClick={this.selectOption.bind(null, option, true)}
         dangerouslySetInnerHTML={this.getDynamicList(option.string)} />
     )
-    const selectedValue = this.state.selected || ''
 
     return (
       <div className={typeaheadClass}>

@@ -33,7 +33,9 @@
     width: 100%;
     display: flex;
     align-items: center;
+
     .checkbox-input {
+      background-color: $white;
       border: solid 2px $neutral-3;
       border-radius: 10%;
       height: 20px;
@@ -46,9 +48,11 @@
     label {
       color: $navy-text;
       font-size: 14px;
+
       &.label-left{
         margin-right: 10px;
       }
+
       &.label-right {
         margin-left: 10px;
       }
