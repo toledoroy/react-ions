@@ -16,7 +16,7 @@ class ExampleTypeaheadDefaultValue extends React.Component {
       this.setState({loading: true}, () => {
         // Do asynchronous search here
         setTimeout(() => {
-          resolve(options)
+          resolve(options.slice(0, 13))
           this.setState({loading: false})
         }, 2000)
       })
