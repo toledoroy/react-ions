@@ -2,7 +2,6 @@ import React from 'react'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 import Icon from '../Icon'
-import map from 'lodash/map'
 
 class SelectField extends React.Component {
   constructor(props) {
@@ -138,7 +137,7 @@ class SelectField extends React.Component {
   }
 
   selectMultiple = (options, triggerCallback) => {
-    let values = map(options, this.props.valueProp)
+    let values = options.map(o => o[this.props.valueProp])
 
     this.setState({selected: options, value: values}, function() {
       if (triggerCallback && typeof this.props.changeCallback === 'function') {
@@ -262,7 +261,7 @@ class SelectField extends React.Component {
     let value = ''
     if (this.state.selected) {
       if (this.props.multi) {
-        value = map(this.state.selected, this.props.valueProp).join(',')
+        value = this.state.selected.map(o => o[this.props.valueProp]).join(',')
       }
       else {
         value = this.state.selected[this.props.valueProp]
