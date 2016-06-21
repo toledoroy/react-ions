@@ -101,12 +101,12 @@ class DatePicker extends React.Component {
     dateObj.value = mDate.format(format)
 
     // min & max values
-    dateObj.year.min = this._getMinOrMax(dateObj.value, this.props.min, 'year')
-    dateObj.year.max = this._getMinOrMax(dateObj.value, this.props.max, 'year')
-    dateObj.month.min = this._getMinOrMax(dateObj.value, this.props.min, 'month')
-    dateObj.month.max = this._getMinOrMax(dateObj.value, this.props.max, 'month')
-    dateObj.day.min = this._getMinOrMax(dateObj.value, this.props.min, 'day')
-    dateObj.day.max = this._getMinOrMax(dateObj.value, this.props.max, 'day')
+    dateObj.year.min = this._getMinOrMax(this.props.min, 'year')
+    dateObj.year.max = this._getMinOrMax(this.props.max, 'year')
+    dateObj.month.min = this._getMinOrMax(this.props.min, 'month')
+    dateObj.month.max = this._getMinOrMax(this.props.max, 'month')
+    dateObj.day.min = this._getMinOrMax(this.props.min, 'day')
+    dateObj.day.max = this._getMinOrMax(this.props.max, 'day')
 
     // options
     dateObj.year.options = this._getYears(dateObj.year.min, dateObj.year.max)
@@ -116,16 +116,16 @@ class DatePicker extends React.Component {
     this.setState(dateObj)
   }
 
-  _getMinOrMax = (date, minOrMax, type) => {
+  _getMinOrMax = (minOrMax, type) => {
     console.log('_getMinOrMax')
     let momentDate
     let value
     if (minOrMax[type] === 'current') {
-      momentDate = moment(date, this.props.format)
+      momentDate = moment()
     } else if (minOrMax[type].indexOf('+') !== -1) {
-      momentDate = moment(date, this.props.format).add(Math.abs(minOrMax[type]), type)
+      momentDate = moment().add(Math.abs(minOrMax[type]), type)
     } else if (minOrMax[type].indexOf('-') !== -1) {
-      momentDate = moment(date, this.props.format).subtract(Math.abs(minOrMax[type]), type)
+      momentDate = moment().subtract(Math.abs(minOrMax[type]), type)
     } else {
       value = minOrMax[type]
     }
@@ -256,6 +256,8 @@ class DatePicker extends React.Component {
       month: state.month,
       day: state.day,
       value: state.value
+    }, function() {
+      this.callback(state.value)
     })
   }
 
@@ -271,6 +273,8 @@ class DatePicker extends React.Component {
       month: state.month,
       day: state.day,
       value: state.value
+    }, function() {
+      this.callback(state.value)
     })
   }
 
@@ -281,12 +285,30 @@ class DatePicker extends React.Component {
     this.setState({
       day: state.day,
       value: state.value
+    }, function() {
+      this.callback(state.value)
     })
+  }
+
+  callback = (value) => {
+    if (typeof this.props.changeCallback === 'function') {
+      this.props.changeCallback({
+        target: {
+          value: value
+        }
+      })
+    }
   }
 
   componentWillMount = () => {
     console.log('componentWillMount')
     this._initDate(this.props.value, this.props.format)
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.value !== this.props.value) {
+      this._initDate(nextProps.value, this.props.format)
+    }
   }
 
   render() {
