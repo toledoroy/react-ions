@@ -8,12 +8,18 @@ import ExampleTypeaheadDisabled from './ExampleTypeaheadDisabled'
 import exampleTypeaheadDisabledCode from '!raw!./ExampleTypeaheadDisabled'
 import ExampleTypeaheadDefaultValue from './ExampleTypeaheadDefaultValue'
 import exampleTypeaheadDefaultValueCode from '!raw!./ExampleTypeaheadDefaultValue'
+import ExampleTypeaheadCallback from './ExampleTypeaheadCallback'
+import exampleTypeaheadCallbackCode from '!raw!./ExampleTypeaheadCallback'
+import ExampleTypeaheadCustomSearch from './ExampleTypeaheadCustomSearch'
+import exampleTypeaheadCustomSearchCode from '!raw!./ExampleTypeaheadCustomSearch'
 import styles from 'private/css/content'
 
 const description = {
   typeaheadDefault: 'This is the `typeahead component` as it appears by default.',
   typeaheadDisabled: 'This is the `typeahead component` in a disabled state.',
   typeaheadDefaultValue: 'This is the `typeahead component` with a default value.',
+  typeaheadCallback: 'This is the `typeahead component` with a callback.',
+  typeaheadCustomSearch: 'This is the `typeahead component` with custom search.'
 }
 
 const TypeaheadPage = () => (
@@ -33,10 +39,22 @@ const TypeaheadPage = () => (
           <ExampleTypeaheadDisabled />
         </CodeExample>
         <CodeExample
-          title='Typeahead with default value'
+          title='Typeahead with default value selected'
           description={description.typeaheadDefaultValue}
           markup={exampleTypeaheadDefaultValueCode}>
           <ExampleTypeaheadDefaultValue />
+        </CodeExample>
+        <CodeExample
+          title='Typeahead with callback'
+          description={description.typeaheadCallback}
+          markup={exampleTypeaheadCallbackCode}>
+          <ExampleTypeaheadCallback />
+        </CodeExample>
+        <CodeExample
+          title='Typeahead with custom search'
+          description={description.typeaheadCustomSearch}
+          markup={exampleTypeaheadCustomSearchCode}>
+          <ExampleTypeaheadCustomSearch />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
