@@ -59,7 +59,11 @@ class DatePicker extends React.Component {
     /**
      * A callback function to be called when the value changes.
      */
-    changeCallback: React.PropTypes.func
+    changeCallback: React.PropTypes.func,
+    /**
+     * An optional CSS class to be used for local styles
+     */
+    optClass: React.PropTypes.string
   }
 
   _initDate = (date, format) => {
