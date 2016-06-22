@@ -53,6 +53,5 @@ describe('Typeahead', () => {
     wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' searchCallback={spy} />)
     wrapper.find('input').simulate('change')
     expect(spy.calledOnce).to.be.false
-    spy.restore()
   })
 })
