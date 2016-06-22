@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames/bind'
+import enhanceWithClickOutside from 'react-click-outside'
 import fuzzy from 'fuzzy'
 import Loader from 'react-loader'
 import Input from '../Input'
@@ -125,6 +126,14 @@ class Typeahead extends React.Component {
     }
   }
 
+  handleClickOutside() {
+    this.setState({isActive: false}, () => {
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback(this.state.isActive)
+      }
+    })
+  }
+
   updateResults = (event, options) => {
     this.setState({isActive: true})
 
@@ -183,4 +192,4 @@ class Typeahead extends React.Component {
   }
 }
 
-export default Typeahead
+export default enhanceWithClickOutside(Typeahead)
