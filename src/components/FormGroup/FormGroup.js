@@ -12,26 +12,26 @@ class FormGroup extends React.Component {
      * A configuration object of name/value pairs
      * that correspond to the form fields names.
      */
-     schema: React.PropTypes.object,
-     /**
-      * A callback function to be called when a form value changes.
-      */
-     changeCallback: React.PropTypes.func,
-     /**
-      * A callback function to be called when the form is submitted.
-      */
-     submitCallback: React.PropTypes.func,
-     /**
-      * Optional CSS class(es) to be used for local styles (string or array of strings)
-      */
-     optClass: React.PropTypes.oneOfType([
-       React.PropTypes.array,
-       React.PropTypes.string
-     ]),
-     /**
-      * Option to turn off form wrapper (for nested components)
-      */
-     nested: React.PropTypes.bool
+    schema: React.PropTypes.object,
+    /**
+     * A callback function to be called when a form value changes.
+     */
+    changeCallback: React.PropTypes.func,
+    /**
+     * A callback function to be called when the form is submitted.
+     */
+    submitCallback: React.PropTypes.func,
+    /**
+     * Optional CSS class(es) to be used for local styles (string or array of strings)
+     */
+    optClass: React.PropTypes.oneOfType([
+      React.PropTypes.array,
+      React.PropTypes.string
+    ]),
+    /**
+     * Option to turn off form wrapper (for nested components)
+     */
+    nested: React.PropTypes.bool
   }
 
   componentWillReceiveProps(nextProps) {
