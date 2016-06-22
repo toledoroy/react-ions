@@ -22,7 +22,7 @@ describe('DatePicker', () => {
     wrapper = mount(<DatePicker />)
     expect(wrapper.find('.datepicker-component')).to.have.length(1)
 
-    selectField = wrapper.find('SelectField')
+    selectField = wrapper.find('input')
     expect(selectField).to.have.length(3)
     expect(wrapper.state('value')).to.equal(moment().format(defaultFormat))
   })
