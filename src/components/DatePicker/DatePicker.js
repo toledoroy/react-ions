@@ -64,10 +64,6 @@ class DatePicker extends React.Component {
   }
 
   _initDate = (date, format) => {
-    console.log('_initDate: ')
-    console.log(date)
-    console.log(format)
-
     let dateObj = {
       year: {
         min: 0,
@@ -91,7 +87,6 @@ class DatePicker extends React.Component {
     }
 
     let mDate = date === undefined ? moment() : moment(date, format)
-    console.log(mDate.format(format))
 
     // selected date values
     dateObj.year.value = mDate.year()
@@ -117,7 +112,6 @@ class DatePicker extends React.Component {
   }
 
   _getMinOrMax = (minOrMax, type) => {
-    console.log('_getMinOrMax')
     let momentDate
     let value
     if (minOrMax[type] === 'current') {
@@ -144,8 +138,6 @@ class DatePicker extends React.Component {
       }
     }
 
-    console.log(type + ': ' + value)
-
     return parseInt(value)
   }
 
@@ -160,12 +152,10 @@ class DatePicker extends React.Component {
   }
 
   _getMonths = (dateObj) => {
-    console.log('_getMonths')
     let monthOptions = []
     const checkMin = dateObj.year.value === dateObj.year.min
     const checkMax = dateObj.year.value === dateObj.year.max
-    console.log(checkMin)
-    console.log(checkMax)
+
     let start = checkMin ? dateObj.month.min : 0
     let end = checkMax ? dateObj.month.max+1 : 12
 
@@ -191,23 +181,15 @@ class DatePicker extends React.Component {
   }
 
   _getDays = (dateObj) => {
-    console.log('_getDays')
     let dayOptions = []
-    console.log(dateObj.month.value)
-    console.log(dateObj.month.min)
-    console.log(dateObj.month.max)
+
     const checkMin = dateObj.year.value === dateObj.year.min && dateObj.month.value === dateObj.month.min
     const checkMax = dateObj.year.value === dateObj.year.max && dateObj.month.value === dateObj.month.max
-    console.log(checkMin)
-    console.log(checkMax)
-    console.log(dateObj.value)
-    console.log(dateObj.month.value)
-    console.log(dateObj.year.value+'-'+(dateObj.month.value+1))
     const daysInMonth = moment(dateObj.year.value+'-'+(dateObj.month.value+1), 'YYYY-M').daysInMonth()
 
     let start = checkMin ? dateObj.day.min : 1
     let end = checkMax ? dateObj.day.max : daysInMonth
-    console.log('_getDays: ' + start + ' / ' + end)
+
     for (var i=start; i<=end; i++) {
       dayOptions.push({value: i.toString()})
     }
@@ -241,16 +223,12 @@ class DatePicker extends React.Component {
   }
 
   handleChangeYear = (event) => {
-    console.log('handleChangeYear')
     let state = this.state
-    console.log(state)
     state.year.value = parseInt(event.target.value)
-    console.log(state.year.value)
     state.value = this._getValue(state)
 
     state.month.options = this._getMonths(state)
     state.day.options = this._getDays(state)
-    console.log(state.month.options)
     this.setState({
       year: state.year,
       month: state.month,
@@ -262,13 +240,10 @@ class DatePicker extends React.Component {
   }
 
   handleChangeMonth = (event) => {
-    console.log('handleChangeMonth')
-    console.log(event.target.value)
     let state = this.state
     state.month.value = parseInt(event.target.value)
     state.value = this._getValue(state)
     state.day.options = this._getDays(state)
-    console.log(state.month.options)
     this.setState({
       month: state.month,
       day: state.day,
@@ -301,7 +276,6 @@ class DatePicker extends React.Component {
   }
 
   componentWillMount = () => {
-    console.log('componentWillMount')
     this._initDate(this.props.value, this.props.format)
   }
 

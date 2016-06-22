@@ -144,4 +144,26 @@ describe('DatePicker', () => {
     expect(wrapper.state('value')).to.equal(firstYear)
   })
 
+  it('should show correct date when passing custom format and run the changeCallback on changing a year', () => {
+    let result = ''
+    const callback = function(event) {
+      result = event
+    }
+
+    const format = 'DD-MM-YYYY'
+    const date = '22-06-2016'
+    const minCurrent = { month: 'current', day: 'current', year: 'current'}
+
+    wrapper = mount(<DatePicker value={date} min={minCurrent} format={format} changeCallback={callback} />)
+
+    // open <ul>
+    wrapper.childAt(2).childAt(2).simulate('click')
+    // click <li>
+    wrapper.childAt(2).childAt(2).childAt(1).simulate('click')
+
+    const newDate = '22-06-'+moment().add(1, 'year').format('YYYY')
+    expect(result.target.value).to.equal(newDate)
+    expect(wrapper.state('value')).to.equal(newDate)
+  })
+
 })
