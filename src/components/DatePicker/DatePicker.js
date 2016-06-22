@@ -128,13 +128,13 @@ class DatePicker extends React.Component {
       switch (type) {
         case 'year':
           value = momentDate.year()
-          break;
+          break
         case 'month':
           value = momentDate.month()
-          break;
+          break
         case 'day':
           value = momentDate.date()
-          break;
+          break
       }
     }
 
