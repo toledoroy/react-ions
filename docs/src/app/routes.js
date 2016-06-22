@@ -19,22 +19,23 @@ import DropdownPage from './pages/components/Dropdown/Page'
 import HomePage from './pages/Home/Page'
 import IconographyPage from './pages/foundations/Iconography/Page'
 import IconsPage from './pages/components/Icons/Page'
+import FileUploadPage from './pages/components/FileUpload/Page'
 import FormGroupPage from './pages/components/FormGroup/Page'
 import LayoutPage from './pages/foundations/Layout/Page'
-import TypographyPage from './pages/foundations/Typography/Page'
 import NavPage from './pages/components/Nav/Page'
 import RadioGroupPage from './pages/components/RadioGroup/Page'
-import TextareaPage from './pages/components/Textarea/Page'
 import InputPage from './pages/components/Input/Page'
 import ModalPage from './pages/components/Modal/Page'
 import TooltipPage from './pages/components/Tooltip/Page'
 import ProgressBarPage from './pages/components/ProgressBar/Page'
 import PanelGroupPage from './pages/components/PanelGroup/Page'
 import SelectFieldPage from './pages/components/SelectField/Page'
-import TabsPage from './pages/components/TabWrapper/Page'
-import FileUploadPage from './pages/components/FileUpload/Page'
-import TogglePage from './pages/components/Toggle/Page'
 import SortableListPage from './pages/components/SortableList/Page'
+import TabsPage from './pages/components/TabWrapper/Page'
+import TogglePage from './pages/components/Toggle/Page'
+import TextareaPage from './pages/components/Textarea/Page'
+import TypographyPage from './pages/foundations/Typography/Page'
+import TypeaheadPage from './pages/components/Typeahead/Page'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -58,6 +59,7 @@ const Routes = (
       <Route path='checkbox' title='Checkbox' component={CheckboxPage} />
       <Route path='color-picker' title='Color Picker' component={ColorPickerPage} />
       <Route path='date-picker' title='Date Picker' component={DatePickerPage} />
+      <Route path='file-upload' title='File Upload' component={FileUploadPage} />
       <Route path='form-group' title='Form Group' component={FormGroupPage} />
       <Route path='icons' title='Icons' component={IconsPage} />
       <Route path='input' title='Input' component={InputPage} />
@@ -66,15 +68,14 @@ const Routes = (
       <Route path='progress-bar' title='Progress Bar' component={ProgressBarPage} />
       <Route path='panel-group' title='Panel Group' component={PanelGroupPage} />
       <Route path='select-field' title='Select Field' component={SelectFieldPage} />
+      <Route path='sortable-list' title='Sortable List' component={SortableListPage} />
       <Route path='radio' title='Radio' component={RadioGroupPage} />
       <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
       <Route path='tabs' title='Tabs' component={TabsPage} />
       <Route path='textarea' title='Textarea' component={TextareaPage} />
-      <Route path='select-field' title='Select Field' component={SelectFieldPage} />
-      <Route path='tooltip' title='Tooltip' component={TooltipPage} />
-      <Route path='file-upload' title='File Upload' component={FileUploadPage} />
       <Route path='toggle' title='Toggle' component={TogglePage} />
-      <Route path='sortable-list' title='Sortable List' component={SortableListPage} />
+      <Route path='tooltip' title='Tooltip' component={TooltipPage} />
+      <Route path='typeahead' title='Typeahead' component={TypeaheadPage} />
     </Route>
     <Route path='patterns' title='Patterns'>
     </Route>
