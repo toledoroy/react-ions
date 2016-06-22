@@ -117,6 +117,7 @@ class DatePicker extends React.Component {
   _getMinOrMax = (minOrMax, type) => {
     let momentDate
     let value
+    
     if (minOrMax[type] === 'current') {
       momentDate = moment()
     } else if (minOrMax[type].indexOf('+') !== -1) {
@@ -167,17 +168,13 @@ class DatePicker extends React.Component {
     }
 
     // if selected month is greater than max month, change it to max month
-    if (checkMax) {
-      if (dateObj.month.value > dateObj.month.max) {
+    if (checkMax && dateObj.month.value > dateObj.month.max) {
         dateObj.month.value = dateObj.month.max
-      }
     }
 
     // if selected month is lower than min month, change it to min month
-    if (checkMin) {
-      if (dateObj.month.value < dateObj.month.min) {
+    if (checkMin && dateObj.month.value < dateObj.month.min) {
         dateObj.month.value = dateObj.month.min
-      }
     }
 
     return monthOptions
@@ -203,17 +200,13 @@ class DatePicker extends React.Component {
     }
 
     // if selected day is greater than max day, change it to max day
-    if (checkMax) {
-      if (dateObj.day.value > dateObj.day.max) {
+    if (checkMax && dateObj.day.value > dateObj.day.max) {
         dateObj.day.value = dateObj.day.max
-      }
     }
 
     // if selected day is lower than min day, change it to min day
-    if (checkMin) {
-      if (dateObj.day.value < dateObj.day.min) {
+    if (checkMin && dateObj.day.value < dateObj.day.min) {
         dateObj.day.value = dateObj.day.min
-      }
     }
 
     dateObj.value = this._getValue(dateObj)
