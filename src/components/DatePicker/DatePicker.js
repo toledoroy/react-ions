@@ -2,7 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import SelectField from '../SelectField/SelectField'
 import style from './style.scss'
-import classNames from 'classnames/bind'
+import optclass from '../internal/OptClass'
 
 /**
  * The DatePicker component.
@@ -61,9 +61,12 @@ class DatePicker extends React.Component {
      */
     changeCallback: React.PropTypes.func,
     /**
-     * An optional CSS class to be used for local styles
+     * Optional CSS class(es) to be used for local styles (string or array of strings)
      */
-    optClass: React.PropTypes.string
+    optClass: React.PropTypes.oneOfType([
+      React.PropTypes.array,
+      React.PropTypes.string
+    ])
   }
 
   _initDate = (date, format) => {
@@ -283,8 +286,7 @@ class DatePicker extends React.Component {
   }
 
   render() {
-    const cx = classNames.bind(style)
-    const componentClass = cx(style['datepicker-component'], this.props.optClass)
+    const componentClass = optclass(style, 'datepicker-component', this.props.optClass)
 
     return (
       <div className={componentClass}>
