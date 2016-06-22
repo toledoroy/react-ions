@@ -102,4 +102,25 @@ describe('DatePicker', () => {
     spy.restore()
   })
 
+  it('should change to max month & day if selected are greater than max value on selecting last year', () => {
+    let result = ''
+    const callback = function(event) {
+      result = event
+    }
+    const maxCalc = { month: '-1', day: '-2', year: '+1'}
+    const minCurrent = { month: 'current', day: 'current', year: 'current'}
+    const date = moment().month(11).date(31).format(defaultFormat)
+
+    wrapper = mount(<DatePicker value={date} min={minCurrent} max={maxCalc} changeCallback={callback} />)
+    console.log(wrapper.childAt(2).childAt(2))
+    // set last year
+    wrapper.childAt(2).childAt(2).simulate('click')
+    // click <li>
+    wrapper.childAt(2).childAt(2).childAt(1).simulate('click')
+
+    const firstYear = moment().add(1, 'year').format('YYYY')+'-11-29'
+    //expect(result.target.value).to.equal(firstYear)
+    expect(wrapper.state('value')).to.equal(firstYear)
+  })
+
 })
