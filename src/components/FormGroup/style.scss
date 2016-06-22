@@ -25,7 +25,12 @@
   margin-bottom: 15px;
 }
 
+.fieldset > fieldset {
+  margin-bottom: 15px;
+}
+
 fieldset.row {
+  margin-bottom: 0;
   padding-right: 20px;
   position: relative;
   .field {
