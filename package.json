@@ -1,6 +1,6 @@
 {
   "name": "react-conventions",
-  "version": "0.0.27",
+  "version": "0.0.29",
   "description": "An open source set of React components that implement Ambassador's Design and UX patterns.",
   "main": "./lib/index.js",
   "repository": {
@@ -62,7 +62,6 @@
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.5",
-    "flexboxgrid": "^6.3.0",
     "highlight.js": "^9.3.0",
     "html-webpack-plugin": "^1.6.1",
     "install": "^0.6.1",

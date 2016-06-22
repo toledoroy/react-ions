@@ -15,15 +15,16 @@ class ExampleSelectFieldSelected extends React.Component {
   }
 
   state = {
-    selected: '1'
+    selected: ['1', '2'],
+    status: 'Chosen options are: 1, 2'
   }
 
   updateSelected = (index) => {
-    this.setState({ selected: index })
+    this.setState({ selected: [index], status: 'Chosen options are: ' + index })
   }
 
   changeCallback = (event) => {
-    this.setState({ selected: event.target.value, status: 'The callback was triggered and the chosen option is ' + event.target.value })
+    this.setState({selected: event.target.value, status: 'The callback was triggered and the chosen options are: ' + event.target.value.join(',') })
   }
 
   render () {
@@ -31,9 +32,6 @@ class ExampleSelectFieldSelected extends React.Component {
       <div>
         <div className={style.update}>
           <Button onClick={this.updateSelected.bind(this, '0')}>Select 1st item</Button>
-          <Button onClick={this.updateSelected.bind(this, '1')}>Select 2nd item</Button>
-          <Button onClick={this.updateSelected.bind(this, '2')}>Select 3rd item</Button>
-          <Button onClick={this.updateSelected.bind(this, '3')}>Select 4th item</Button>
         </div>
         <SelectField
           options={options}
@@ -41,7 +39,8 @@ class ExampleSelectFieldSelected extends React.Component {
           displayProp='display'
           value={this.state.selected}
           changeCallback={this.changeCallback}
-          optClass={style['update-select']}>
+          optClass={style['update-select']}
+          multi={true}>
         </SelectField>
         <code className={style['callback-status']}>{this.state.status}</code>
       </div>

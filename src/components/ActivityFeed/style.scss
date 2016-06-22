@@ -53,10 +53,10 @@
 
 .item-wrapper {
   border-radius: 3px;
-  border: 1px solid $neutral-3;
+  border: 1px solid $neutral-1;
   box-sizing: border-box;
   float: left;
-  padding: 15px 80px 15px 15px;
+  padding: 15px 170px 15px 15px;
   position: relative;
   margin-left: 60px;
   width: calc(100% - 60px);
@@ -64,6 +64,7 @@
   h3 {
     float: left;
     margin: 0;
+    word-break: break-word;
 
     @media #{$media-extra-small} {
       + svg {

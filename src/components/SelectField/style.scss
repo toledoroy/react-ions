@@ -74,12 +74,16 @@
         margin-right: 10px;
       }
 
-      &:hover {
+      &:not(.not-clickable):hover {
         svg {
           fill: $white;
         }
         background-color: $primary-1;
         color: $white;
+      }
+
+      &.not-clickable {
+        cursor: default;
       }
 
     }

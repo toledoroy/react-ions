@@ -16,11 +16,17 @@ class PropsList extends React.Component {
       if (this.props.list[name].required) {
         hasRequiredProps = true;
       }
-
+      let types = null
+      if (this.props.list[name].type.name === 'enum') {
+        types = this.props.list[name].type.value.map((v) => <span key={v.value} className={style['enum-values']}> {v.value}</span>)
+      }
+      if (this.props.list[name].type.name === 'union') {
+        types = this.props.list[name].type.value.map((v) => <span key={v.name} className={style['enum-values']}>{v.name}</span>)
+      }
       return (
         <tr key={name}>
           <td>{name}{this.props.list[name].required ? '*' : ''}</td>
-          <td className={style['cell-monospaced']}>{this.props.list[name].type.name}{this.props.list[name].type.name === 'enum' ? this.props.list[name].type.value.map((v) => <span key={v.value} className={style['enum-values']}> {v.value}</span>) : null}</td>
+          <td className={style['cell-monospaced']}>{this.props.list[name].type.name !== 'union' ? this.props.list[name].type.name : null}{types}</td>
           <td className={style['cell-monospaced']}>{this.props.list[name].defaultValue ? this.props.list[name].defaultValue.value : ''}</td>
           <td>{this.props.list[name].description}</td>
         </tr>
