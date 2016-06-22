@@ -8,14 +8,16 @@
   }
 
   [class^='button-group'] {
-    display: inline-block;
+    display: block;
+    button {
+      height: 39px;
+    }
   }
 }
 
 .remove-item {
-  display: inline-block;
-  float: right;
-  position: relative;
+  position: absolute;
+  right: 0;
   top: 11px;
 }
 
@@ -23,17 +25,53 @@
   margin-bottom: 15px;
 }
 
-fieldset.row {
+.fieldset > fieldset {
+  margin-bottom: 15px;
+}
 
+fieldset.row {
+  margin-bottom: 0;
+  padding-right: 20px;
+  position: relative;
   .field {
     float: left;
     display: block;
-    margin: 0 15px 0 0;
+    margin: 0 15px 15px 0;
     min-width: auto;
-
     @media #{$media-small-minus} {
-      margin: 0 0 15px 0;
+      margin: 0;
       min-width: 100%;
+    }
+  }
+
+  @media #{$media-small-minus} {
+    padding-right: 0;
+    margin-bottom: 15px;
+    [class^='button-group'] {
+      margin-bottom: 15px;
+    }
+    .remove-item {
+      right: 12px;
+      top: 64px;
+    }
+    .fields {
+      padding-right: 40px;
+      > .field {
+        > div, > input {
+          border-radius: 3px 3px 0 0;
+        }
+        + .field {
+          margin-top: -1px;
+          > div, > input {
+            border-radius: 0;
+          }
+          &:last-child {
+            > div, > input {
+              border-radius: 0 0 3px 3px;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -48,10 +86,6 @@ fieldset.row {
   &:last-child {
     margin-bottom: inherit;
   }
-}
-
-.fieldset > fieldset {
-  margin-bottom: 15px;
 }
 
 .fieldset legend {
