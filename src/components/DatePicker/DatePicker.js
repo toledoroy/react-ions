@@ -233,7 +233,7 @@ class DatePicker extends React.Component {
       month: state.month,
       day: state.day,
       value: state.value
-    }, function() {
+    }, () => {
       this.callback(state.value)
     })
   }
@@ -247,7 +247,7 @@ class DatePicker extends React.Component {
       month: state.month,
       day: state.day,
       value: state.value
-    }, function() {
+    }, () => {
       this.callback(state.value)
     })
   }
@@ -259,7 +259,7 @@ class DatePicker extends React.Component {
     this.setState({
       day: state.day,
       value: state.value
-    }, function() {
+    }, () => {
       this.callback(state.value)
     })
   }

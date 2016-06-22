@@ -42,7 +42,7 @@ describe('DatePicker', () => {
 
   it('should run the changeCallback on changing a month', () => {
     let result = ''
-    const callback = function(event) {
+    const callback = (event) => {
       result = event
     }
     wrapper = mount(<DatePicker value={oldDate} changeCallback={callback} />)
@@ -59,7 +59,7 @@ describe('DatePicker', () => {
 
   it('should run the changeCallback on changing a day', () => {
     let result = ''
-    const callback = function(event) {
+    const callback = (event) => {
       result = event
     }
     wrapper = mount(<DatePicker value={oldDate} changeCallback={callback} />)
@@ -76,7 +76,7 @@ describe('DatePicker', () => {
 
   it('should run the changeCallback on changing a year', () => {
     let result = ''
-    const callback = function(event) {
+    const callback = (event) => {
       result = event
     }
     wrapper = mount(<DatePicker value={oldDate} changeCallback={callback} />)
@@ -106,7 +106,7 @@ describe('DatePicker', () => {
 
   it('should change to max month & day if selected are greater than max value on selecting last year', () => {
     let result = ''
-    const callback = function(event) {
+    const callback = (event) => {
       result = event
     }
     const maxCalc = { month: '5', day: '20', year: '+1'}
@@ -127,7 +127,7 @@ describe('DatePicker', () => {
 
   it('should change to min month & day if selected are lower than min value on selecting first year', () => {
     let result = ''
-    const callback = function(event) {
+    const callback = (event) => {
       result = event
     }
     const minCalc = { month: '5', day: '20', year: '-1'}
@@ -148,7 +148,7 @@ describe('DatePicker', () => {
 
   it('should show correct date when passing custom format and run the changeCallback on changing a year', () => {
     let result = ''
-    const callback = function(event) {
+    const callback = (event) => {
       result = event
     }
 
