@@ -22,6 +22,13 @@ describe('DatePicker', () => {
     expect(wrapper.state('value')).to.equal(moment().format(defaultFormat))
   })
 
+  it('should have an extra class', () => {
+    wrapper = shallow(<DatePicker optClass="test-class" />)
+    expect(wrapper.find('.datepicker-component')).to.have.length(1)
+    expect(wrapper.hasClass('test-class')).to.be.true
+  })
+
+
   it('should update the state when the value property changes', () => {
     wrapper = mount(<DatePicker value={oldDate} />)
 
