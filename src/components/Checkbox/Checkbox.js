@@ -5,7 +5,7 @@ import Icon from '../Icon'
 
 class Checkbox extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   static defaultProps = {
@@ -47,27 +47,27 @@ class Checkbox extends React.Component {
      * A callback function to be called when the checkbox changes.
      */
     changeCallback: React.PropTypes.func
-  };
+  }
 
   handleChange = (event) => {
-    event.persist();
-    this.setState({ checked: event.target.checked }, function() {
+    event.persist()
+    this.setState({ checked: event.target.checked }, () => {
       if (typeof this.props.changeCallback === 'function') {
-        event.target.value = !!event.target.checked;
-        this.props.changeCallback(event);
+        event.target.value = !!event.target.checked
+        this.props.changeCallback(event)
       }
-    });
+    })
   }
 
   componentWillMount = () => {
     if (this.props.value) {
-      this.setState({ checked: this.props.value });
+      this.setState({ checked: this.props.value })
     }
   }
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value !== this.props.value) {
-      this.setState({ checked: nextProps.value });
+      this.setState({ checked: nextProps.value })
     }
   }
 
@@ -79,11 +79,11 @@ class Checkbox extends React.Component {
       optClass,
       changeCallback,
       ...other
-    } = this.props;
+    } = this.props
 
-    const cx = classNames.bind(style);
-    const disabledClass = this.props.disabled ? style['checkbox-disabled'] : '';
-    const checkboxClass = cx(style['checkbox-component'], optClass, disabledClass);
+    const cx = classNames.bind(style)
+    const disabledClass = this.props.disabled ? style['checkbox-disabled'] : ''
+    const checkboxClass = cx(style['checkbox-component'], optClass, disabledClass)
 
     return (
       <div className={checkboxClass}>

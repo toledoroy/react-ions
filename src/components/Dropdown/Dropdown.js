@@ -56,7 +56,7 @@ class Dropdown extends React.Component {
     e.preventDefault()
     this.setState({isOpened: !this.state.isOpened}, () => {
       if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(this.state.isOpened);
+        this.props.changeCallback(this.state.isOpened)
       }
     })
   }
@@ -64,7 +64,7 @@ class Dropdown extends React.Component {
   handleClickOutside() {
     this.setState({isOpened: false}, () => {
       if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(this.state.isOpened);
+        this.props.changeCallback(this.state.isOpened)
       }
     })
   }

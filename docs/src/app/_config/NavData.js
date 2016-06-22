@@ -93,6 +93,9 @@ const nav = [
       }, {
         name: 'Tooltip',
         action: '/components/tooltip'
+      }, {
+        name: 'Typeahead',
+        action: '/components/typeahead'
       }
     ]
   }, {
