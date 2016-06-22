@@ -4,7 +4,6 @@ import SelectField from '../SelectField/SelectField'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 
-
 /**
  * The DatePicker component.
  */

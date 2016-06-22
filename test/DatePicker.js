@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import { shallow, mount } from 'enzyme'
 import DatePicker from '../src/components/DatePicker/DatePicker'
 import moment from 'moment'
@@ -8,22 +7,19 @@ describe('DatePicker', () => {
   const oldDate = '2017-07-07'
   const newDate = '2019-03-03'
   const defaultFormat = 'YYYY-MM-DD'
-  let wrapper, selectField
+  let wrapper
 
   it('should shallow render itself', () => {
     wrapper = shallow(<DatePicker value={oldDate} />)
     expect(wrapper.find('.datepicker-component')).to.have.length(1)
-
-    selectField = wrapper.find('SelectField')
-    expect(selectField).to.have.length(3)
+    expect(wrapper.children()).to.have.length(3)
   })
 
   it('should have current date by default', () => {
     wrapper = mount(<DatePicker />)
     expect(wrapper.find('.datepicker-component')).to.have.length(1)
 
-    selectField = wrapper.find('input')
-    expect(selectField).to.have.length(3)
+    expect(wrapper.children()).to.have.length(3)
     expect(wrapper.state('value')).to.equal(moment().format(defaultFormat))
   })
 
