@@ -107,19 +107,40 @@ describe('DatePicker', () => {
     const callback = function(event) {
       result = event
     }
-    const maxCalc = { month: '-1', day: '-2', year: '+1'}
+    const maxCalc = { month: '5', day: '20', year: '+1'}
     const minCurrent = { month: 'current', day: 'current', year: 'current'}
     const date = moment().month(11).date(31).format(defaultFormat)
 
     wrapper = mount(<DatePicker value={date} min={minCurrent} max={maxCalc} changeCallback={callback} />)
-    console.log(wrapper.childAt(2).childAt(2))
+
     // set last year
     wrapper.childAt(2).childAt(2).simulate('click')
     // click <li>
     wrapper.childAt(2).childAt(2).childAt(1).simulate('click')
 
-    const firstYear = moment().add(1, 'year').format('YYYY')+'-11-29'
-    //expect(result.target.value).to.equal(firstYear)
+    const firstYear = moment().add(1, 'year').format('YYYY')+'-06-20'
+    expect(result.target.value).to.equal(firstYear)
+    expect(wrapper.state('value')).to.equal(firstYear)
+  })
+
+  it('should change to min month & day if selected are lower than min value on selecting first year', () => {
+    let result = ''
+    const callback = function(event) {
+      result = event
+    }
+    const minCalc = { month: '5', day: '20', year: '-1'}
+    const maxCurrent = { month: 'current', day: 'current', year: 'current'}
+    const date = moment().month(0).date(1).format(defaultFormat)
+
+    wrapper = mount(<DatePicker value={date} min={minCalc} max={maxCurrent} changeCallback={callback} />)
+
+    // set first year
+    wrapper.childAt(2).childAt(2).simulate('click')
+    // click <li>
+    wrapper.childAt(2).childAt(2).childAt(0).simulate('click')
+
+    const firstYear = moment().subtract(1, 'year').format('YYYY')+'-06-20'
+    expect(result.target.value).to.equal(firstYear)
     expect(wrapper.state('value')).to.equal(firstYear)
   })
 
