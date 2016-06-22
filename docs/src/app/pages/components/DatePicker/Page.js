@@ -20,7 +20,7 @@ const DatePickerPage = () => (
       <div className={styles.block}>
         <CodeExample
           title='Example Default Date Picker'
-          description='This is the default `DatePicker component`.'
+          description='This is the default `DatePicker component` with current date by default and min date: -10 years & max date: +10 years.'
           markup={exampleDatePickerDefaultCode}>
           <ExampleDatePickerDefault />
         </CodeExample>

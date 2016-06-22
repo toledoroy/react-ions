@@ -12,11 +12,11 @@ const maxCalc = { month: '+2', day: '+10', year: '+2'}
 
 const ExampleDatePickerSelectedCustomMinMax = () => (
   <div>
-    <label>Min date: {JSON.stringify(minCurrent)} | Max date: {JSON.stringify(maxCustomDate)}</label>
+    <code>Min date: {JSON.stringify(minCurrent)} | Max date: {JSON.stringify(maxCustomDate)}</code>
     <DatePicker value='2019-12-31' min={minCurrent} max={maxCustomDate} />
-    <label>Min date: {JSON.stringify(minCustomDate)} | Max date: {JSON.stringify(maxCurrent)}</label>
+    <code>Min date: {JSON.stringify(minCustomDate)} | Max date: {JSON.stringify(maxCurrent)}</code>
     <DatePicker value='2011-02-28' min={minCustomDate} max={maxCurrent} />
-    <label>Min date: {JSON.stringify(minCalc)} | Max date: {JSON.stringify(maxCalc)}</label>
+    <code>Min date: {JSON.stringify(minCalc)} | Max date: {JSON.stringify(maxCalc)}</code>
     <DatePicker value='2016-01-01' min={minCalc} max={maxCalc} />
   </div>
 )
