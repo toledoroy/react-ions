@@ -117,7 +117,7 @@ class DatePicker extends React.Component {
   _getMinOrMax = (minOrMax, type) => {
     let momentDate
     let value
-    
+
     if (minOrMax[type] === 'current') {
       momentDate = moment()
     } else if (minOrMax[type].indexOf('+') !== -1) {
@@ -265,6 +265,7 @@ class DatePicker extends React.Component {
     if (typeof this.props.changeCallback === 'function') {
       this.props.changeCallback({
         target: {
+          name: this.props.name,
           value: value
         }
       })
