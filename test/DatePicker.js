@@ -153,17 +153,18 @@ describe('DatePicker', () => {
     }
 
     const format = 'DD-MM-YYYY'
-    const date = '22-06-2016'
+    const date = moment().format(format)
     const minCurrent = { month: 'current', day: 'current', year: 'current'}
 
     wrapper = mount(<DatePicker value={date} min={minCurrent} format={format} changeCallback={callback} />)
+    expect(wrapper.state('value')).to.equal(date)
 
     // open <ul>
     wrapper.childAt(2).childAt(2).simulate('click')
     // click <li>
     wrapper.childAt(2).childAt(2).childAt(1).simulate('click')
 
-    const newDate = '22-06-'+moment().add(1, 'year').format('YYYY')
+    const newDate = moment().add(1, 'year').format(format)
     expect(result.target.value).to.equal(newDate)
     expect(wrapper.state('value')).to.equal(newDate)
   })
