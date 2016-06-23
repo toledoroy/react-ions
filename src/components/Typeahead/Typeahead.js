@@ -6,7 +6,7 @@ import Loader from 'react-loader'
 import Input from '../Input'
 import style from './style.scss'
 
-class Typeahead extends React.Component {
+export class Typeahead extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -58,7 +58,8 @@ class Typeahead extends React.Component {
     isActive: false,
     value: this.props.value || '',
     results: [],
-    selected: null
+    selected: null,
+    searchStr: ''
   }
 
   componentWillMount = () => {
@@ -78,11 +79,11 @@ class Typeahead extends React.Component {
     }
   }
 
-  selectOption = (option, triggerCallback) => {
+  selectOption = (option) => {
     let normalizedOption = option.original ? option.original : option
 
-    this.setState({selected: normalizedOption, value: normalizedOption[this.props.valueProp], isActive: false}, function() {
-      if (triggerCallback && typeof this.props.changeCallback === 'function') {
+    this.setState({selected: normalizedOption, searchStr: normalizedOption[this.props.valueProp], value: normalizedOption[this.props.valueProp], isActive: false}, () => {
+      if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {
             name: this.props.name,
@@ -114,6 +115,7 @@ class Typeahead extends React.Component {
 
   handleChange = (event) => {
     if (event.target.value.length) {
+      this.setState({searchStr: event.target.value})
       if (typeof this.props.searchCallback === 'function') {
         this.props.searchCallback(event.target.value).then((options) => {
           this.updateResults(event, options)
@@ -126,12 +128,8 @@ class Typeahead extends React.Component {
     }
   }
 
-  handleClickOutside() {
-    this.setState({isActive: false}, () => {
-      if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(this.state.isActive)
-      }
-    })
+  handleClickOutside = () => {
+    this.setState({isActive: false})
   }
 
   updateResults = (event, options) => {
@@ -178,7 +176,7 @@ class Typeahead extends React.Component {
 
     return (
       <div className={typeaheadClass}>
-        <Input changeCallback={this.handleChange} value={this.state.selected && this.state.selected[this.props.valueProp]} placeholder={this.props.placeholder} disabled={this.props.disabled} />
+        <Input changeCallback={this.handleChange} value={this.state.searchStr} placeholder={this.props.placeholder} disabled={this.props.disabled} />
         { this.props.loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
 
         {this.state.isActive

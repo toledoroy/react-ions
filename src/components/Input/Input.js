@@ -7,7 +7,7 @@ import style from './style.scss'
  */
 class Input extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -56,32 +56,32 @@ class Input extends React.Component {
      * A callback function to be called when the input is blurred.
      */
     blurCallback: React.PropTypes.func
-  };
+  }
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value !== this.props.value) {
-      this.setState({ value: nextProps.value });
+      this.setState({ value: nextProps.value })
     }
   }
 
   handleChange = (event) => {
-    event.persist();
+    event.persist()
     this.setState({value: event.target.value}, function() {
       if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(event);
+        this.props.changeCallback(event)
       }
-    });
+    })
   }
 
   handleFocus = (event) => {
     if (typeof this.props.focusCallback === 'function') {
-      this.props.focusCallback(event);
+      this.props.focusCallback(event)
     }
   }
 
   handleBlur = (event) => {
     if (typeof this.props.blurCallback === 'function') {
-      this.props.blurCallback(event);
+      this.props.blurCallback(event)
     }
   }
 
@@ -91,11 +91,11 @@ class Input extends React.Component {
       value,
       optClass,
       ...other
-    } = this.props;
+    } = this.props
 
-    const cx = classNames.bind(style);
-    var disabledClass = this.props.disabled ? style['input-disabled'] : '';
-    var inputClass = cx(style['input-component'], this.props.optClass, disabledClass);
+    const cx = classNames.bind(style)
+    var disabledClass = this.props.disabled ? style['input-disabled'] : ''
+    var inputClass = cx(style['input-component'], this.props.optClass, disabledClass)
 
     return (
       <div className={inputClass}>
