@@ -13,6 +13,7 @@ import ButtonsPage from './pages/components/Buttons/Page'
 import ButtonGroupPage from './pages/components/ButtonGroup/Page'
 import ColorsPage from './pages/foundations/Colors/Page'
 import ColorPickerPage from './pages/components/ColorPicker/Page'
+import DatePickerPage from './pages/components/DatePicker/Page'
 import CheckboxPage from './pages/components/Checkbox/Page'
 import DropdownPage from './pages/components/Dropdown/Page'
 import HomePage from './pages/Home/Page'
@@ -57,6 +58,7 @@ const Routes = (
       <Route path='buttons' title='Buttons' component={ButtonsPage} />
       <Route path='checkbox' title='Checkbox' component={CheckboxPage} />
       <Route path='color-picker' title='Color Picker' component={ColorPickerPage} />
+      <Route path='date-picker' title='Date Picker' component={DatePickerPage} />
       <Route path='file-upload' title='File Upload' component={FileUploadPage} />
       <Route path='form-group' title='Form Group' component={FormGroupPage} />
       <Route path='icons' title='Icons' component={IconsPage} />
