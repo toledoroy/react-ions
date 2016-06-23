@@ -6,7 +6,7 @@ import Loader from 'react-loader'
 import Input from '../Input'
 import style from './style.scss'
 
-class Typeahead extends React.Component {
+export class Typeahead extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -79,11 +79,11 @@ class Typeahead extends React.Component {
     }
   }
 
-  selectOption = (option, triggerCallback) => {
+  selectOption = (option) => {
     let normalizedOption = option.original ? option.original : option
 
     this.setState({selected: normalizedOption, searchStr: normalizedOption[this.props.valueProp], value: normalizedOption[this.props.valueProp], isActive: false}, () => {
-      if (triggerCallback && typeof this.props.changeCallback === 'function') {
+      if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {
             name: this.props.name,
