@@ -25,6 +25,7 @@ import NavPage from './pages/components/Nav/Page'
 import RadioGroupPage from './pages/components/RadioGroup/Page'
 import InputPage from './pages/components/Input/Page'
 import ModalPage from './pages/components/Modal/Page'
+import MultiSelectPage from './pages/components/MultiSelect/Page'
 import TooltipPage from './pages/components/Tooltip/Page'
 import ProgressBarPage from './pages/components/ProgressBar/Page'
 import PanelGroupPage from './pages/components/PanelGroup/Page'
@@ -62,6 +63,7 @@ const Routes = (
       <Route path='icons' title='Icons' component={IconsPage} />
       <Route path='input' title='Input' component={InputPage} />
       <Route path='modal' title='Modal' component={ModalPage} />
+      <Route path='multi-select' title='Multi Select' component={MultiSelectPage} />
       <Route path='nav' title='Nav' component={NavPage} />
       <Route path='progress-bar' title='Progress Bar' component={ProgressBarPage} />
       <Route path='panel-group' title='Panel Group' component={PanelGroupPage} />

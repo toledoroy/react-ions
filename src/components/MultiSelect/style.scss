@@ -1,0 +1,138 @@
+@import '../../styles/common/colors';
+@import '../../styles/common/screen';
+@import '../../styles/common/mixins';
+
+.selectfield-component {
+  display: inline-block;
+  position: relative;
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: $navy-text;
+    font-family: proxima_nova;
+    font-weight: 200;
+  }
+
+  .selectfield-value {
+    border: 1px solid $neutral-3;
+    border-radius: 3px;
+    color: $primary-4;
+    cursor: pointer;
+    position: relative;
+    padding: 10px 29px 10px 10px;
+    user-select: none;
+
+    > svg:last-of-type {
+      position: absolute;
+      right: 10px;
+      top: 13px;
+      transform: rotate(0);
+    }
+
+    > .icon {
+      left: 10px;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+
+  }
+
+  .display-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+  }
+
+  ul {
+    background-color: $white;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    display: none;
+    margin: 3px 0 30px;
+    overflow: auto;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    max-height: 247px;
+    z-index: 2;
+
+    li {
+      color: $primary-4;
+      cursor: pointer;
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      min-height: 18px;
+      @include vertical-align('block');
+
+      svg {
+        margin-right: 10px;
+      }
+
+      &:not(.not-clickable):hover {
+        svg {
+          fill: $white;
+        }
+        background-color: $primary-1;
+        color: $white;
+      }
+
+      &.not-clickable {
+        cursor: default;
+      }
+
+    }
+
+    @media #{$media-small-minus} {
+      left: 0;
+      min-width: 100%;
+    }
+
+  }
+
+  &.selectfield-disabled {
+    cursor: not-allowed;
+    > div {
+      > svg {
+        fill: $neutral-4;
+      }
+      background-color: $neutral-3;
+      border-color: $neutral-3;
+      color: $neutral-4;
+      cursor: not-allowed;
+    }
+    > ul {
+      display: none;
+    }
+  }
+
+  &.selectfield-error {
+    > div {
+      border-color: $danger;
+    }
+  }
+
+  &.active:not(.selectfield-disabled) {
+    .selectfield-value {
+      > svg:last-of-type {
+        transform: rotate(180deg);
+      }
+    }
+    ul {
+      display: inline-block;
+    }
+  }
+
+  &.has-icon .selectfield-value {
+    padding-left: 35px;
+  }
+
+  @media #{$media-small-minus} {
+    min-width: 100%;
+  }
+}
