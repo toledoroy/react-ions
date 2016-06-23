@@ -1,9 +1,10 @@
 import React from 'react'
 import MultiSelect from 'react-conventions/lib/MultiSelect/MultiSelect'
 import SelectField from 'react-conventions/lib/SelectField/SelectField'
+import Button from 'react-conventions/lib/Button'
 import style from './style.scss'
 
-class ExampleMultiSelectDefault extends React.Component {
+class ExampleMultiSelectField extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -17,6 +18,10 @@ class ExampleMultiSelectDefault extends React.Component {
     this.setState({ value: event.target.value, status: 'The callback was triggered and the chosen options are: ' + event.target.value.join(',') })
   }
 
+  updateSelected = (index) => {
+    this.setState({ value: [index], status: 'Chosen options are: ' + index })
+  }
+
   render() {
     const options = [
       {value: '0', display: 'test 1'},
@@ -27,7 +32,10 @@ class ExampleMultiSelectDefault extends React.Component {
 
     return(
       <div>
-        <MultiSelect options={options} valueProp='value' displayProp='display' value={this.state.value} changeCallback={this.handleChange}>
+        <div className={style.update}>
+          <Button onClick={this.updateSelected.bind(this, '0')}>Select 1st item</Button>
+        </div>
+        <MultiSelect options={options} valueProp='value' displayProp='display' value={this.state.value} changeCallback={this.handleChange} placeholder="Select one or more items">
           <SelectField options={options} valueProp='value' displayProp='display' />
         </MultiSelect>
         <code className={style['callback-status']}>{this.state.status}</code>
@@ -36,4 +44,4 @@ class ExampleMultiSelectDefault extends React.Component {
   }
 }
 
-export default ExampleMultiSelectDefault
+export default ExampleMultiSelectField

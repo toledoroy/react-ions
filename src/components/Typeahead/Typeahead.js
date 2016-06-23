@@ -76,6 +76,9 @@ class Typeahead extends React.Component {
         this.selectItem(nextProps.value, nextProps.options)
       })
     }
+    else {
+      this.setState({selected: '', value: ''})
+    }
   }
 
   selectOption = (option, triggerCallback) => {

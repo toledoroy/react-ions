@@ -1,7 +1,5 @@
 import React from 'react'
 import classNames from 'classnames/bind'
-import style from './style.scss'
-import Icon from '../Icon'
 
 class MultiSelect extends React.Component {
   constructor(props) {
@@ -18,7 +16,7 @@ class MultiSelect extends React.Component {
      */
     placeholder: React.PropTypes.string,
     /**
-     * An array of objects which will be used as the options for the select field.
+     * An array of objects which will be used as the options for the MultiSelect component.
      */
     options: React.PropTypes.array.isRequired,
     /**
@@ -26,29 +24,21 @@ class MultiSelect extends React.Component {
      */
     value: React.PropTypes.array,
     /**
-     * Which field in the option object will be used as the value of the select field.
+     * Which field in the option object will be used as the value of the MultiSelect component.
      */
     valueProp: React.PropTypes.string.isRequired,
     /**
-     * Which field in the option object will be used as the display of the select field.
+     * Which field in the option object will be used as the display of the MultiSelect component.
      */
     displayProp: React.PropTypes.string.isRequired,
     /**
-     * Whether the select field is disabled.
+     * Whether the MultiSelect component is disabled.
      */
     disabled: React.PropTypes.bool,
     /**
-     * Optional styles to add to the select field.
-     */
-    optClass: React.PropTypes.string,
-    /**
      * A callback function to be called when an option is selected.
      */
-    changeCallback: React.PropTypes.func,
-    /**
-     * Icon to be displayed on the left
-     */
-    icon: React.PropTypes.string
+    changeCallback: React.PropTypes.func
   }
 
   state = {
@@ -144,12 +134,14 @@ class MultiSelect extends React.Component {
   }
 
   getElements(children) {
-    let {options, value, ...childProps} = this.props
-    childProps.options = this.filterItems()
-    childProps.changeCallback = this.handleChange
+    let {options, value, ...props} = this.props
+    props.options = this.filterItems()
+    props.changeCallback = this.handleChange
 
     return React.Children.map(children, child => {
-      return React.cloneElement(child, childProps)
+      let {options, value, ...childProps} = child.props
+
+      return React.cloneElement(child, Object.assign(childProps, props))
     })
   }
 
