@@ -1,5 +1,6 @@
 import React from 'react'
-import classNames from 'classnames/bind'
+import TagList from './TagList'
+import style from './style.scss'
 
 class MultiSelect extends React.Component {
   constructor(props) {
@@ -145,12 +146,30 @@ class MultiSelect extends React.Component {
     })
   }
 
+  onRemove = (index) => {
+    const values = this.state.value.slice()
+    values.splice(index, 1)
+
+    this.setState({selected: this.getSelectedOptions(values), value: values}, () => {
+      if (this.props.changeCallback) {
+        this.props.changeCallback({
+          target: {
+            name: this.props.name,
+            value: this.state.value,
+            options: this.state.selected
+          }
+        })
+      }
+    })
+  }
+
   render() {
     const elements = this.getElements(this.props.children)
 
     return (
-      <div>
+      <div className={style['multi-select']}>
         {elements}
+        <TagList tags={this.state.selected} displayProp={this.props.displayProp} onRemove={this.onRemove} />
       </div>
     )
   }

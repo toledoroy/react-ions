@@ -1,0 +1,24 @@
+@import '../../styles/common/colors';
+
+.multi-select {
+  > * {
+    width: 100%;
+  }
+}
+
+.taglist {
+  padding: 0;
+  margin: 8px 0 0;
+  list-style: none;
+  font-size: 14px;
+  color: $navy-text;
+  > li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 0;
+  }
+  svg {
+    cursor: pointer;
+  }
+}
