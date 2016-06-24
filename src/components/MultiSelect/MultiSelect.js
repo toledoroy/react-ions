@@ -120,7 +120,7 @@ class MultiSelect extends React.Component {
     let values = this.state.value
     values.push(event.target.value)
 
-    this.setState({selected: this.getSelectedOptions(values), value: values}, function() {
+    this.setState({selected: this.getSelectedOptions(values), value: values}, () => {
       if (this.props.changeCallback) {
         this.props.changeCallback({
           target: {

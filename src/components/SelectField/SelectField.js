@@ -85,7 +85,7 @@ class SelectField extends React.Component {
   }
 
   toggleSelectField = () => {
-    this.setState({isOpen: !this.state.isOpen}, function() {
+    this.setState({isOpen: !this.state.isOpen}, () => {
       if (this.state.isOpen) {
         document.addEventListener('click', this.toggleSelectField)
       }
@@ -96,7 +96,7 @@ class SelectField extends React.Component {
   }
 
   selectOption = (option, triggerCallback) => {
-    this.setState({selected: option, value: option[this.props.valueProp]}, function() {
+    this.setState({selected: option, value: option[this.props.valueProp]}, () => {
       if (triggerCallback && typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {

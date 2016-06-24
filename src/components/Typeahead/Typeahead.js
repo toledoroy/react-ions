@@ -73,7 +73,7 @@ export class Typeahead extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value && nextProps.value !== this.state.value && this.getIndex(nextProps.value, nextProps.options) > -1) {
-      this.setState({ value: nextProps.value }, function() {
+      this.setState({ value: nextProps.value }, () => {
         this.selectItem(nextProps.value, nextProps.options)
       })
     }
