@@ -96,7 +96,7 @@ class MultiSelect extends React.Component {
   getSelectedOptions = (values) => {
     let selectedOptions = []
     this.props.options.map((option, index) => {
-      if (values.indexOf(option.value) > -1) {
+      if (values.indexOf(option[this.props.valueProp]) > -1) {
         selectedOptions.push(option)
       }
     })
@@ -108,7 +108,7 @@ class MultiSelect extends React.Component {
     let options = []
 
     this.props.options.map((option, index) => {
-      if (this.state.value.indexOf(option.value) === -1) {
+      if (this.state.value.indexOf(option[this.props.valueProp]) === -1) {
         options.push(option)
       }
     })
