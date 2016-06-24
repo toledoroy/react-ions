@@ -1,5 +1,6 @@
 @import '../../../../src/styles/common/colors';
 @import '../../../../src/styles/common/screen';
+@import '../../../../src/styles/common/mixins';
 @import '../../../../src/styles/common/functions';
 
 .sidebar {
@@ -18,4 +19,14 @@
       left: 0;
     }
   }
+}
+
+.logo-wrap {
+  @include vertical-align('inline');
+  height: 65px;
+}
+
+.logo {
+  padding-left: 15px;
+  width: 150px;
 }

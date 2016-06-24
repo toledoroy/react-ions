@@ -1,15 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router'
-import style from 'private/css/header'
-import logo from 'private/images/ambassador-logo.svg'
+import Breadcrumb from 'react-conventions/lib/Breadcrumb'
 
 const Header = (props) => {
   return (
-    <header>
-      <Link to="/" className={style['logo-wrap']}>
-        <img src={logo} className={style.logo} alt="Ambassador Reactions" />
-      </Link>
-    </header>
+    <Breadcrumb routes={props.routes} />
   )
 }
 
