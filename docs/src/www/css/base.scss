@@ -18,26 +18,6 @@ body {
 
   @media #{$media-small-minus} {
     margin-left: 0;
-
-    &:after {
-      background-color: $black;
-      bottom: 0;
-      content: ' ';
-      left: 0;
-      opacity: 0;
-      position: fixed;
-      right: 0;
-      top: 0;
-      transition: all 0s ease-in-out;
-      z-index: -1;
-    }
-
-    &.sidebar-active {
-      &:after {
-        opacity: .5;
-        z-index: z('modal');
-      }
-    }
   }
 }
 
