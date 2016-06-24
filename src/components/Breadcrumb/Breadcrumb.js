@@ -40,7 +40,8 @@ class Breadcrumb extends React.Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    return nextProps.routes[2].title !== this.props.routes[2].title || nextState.breadcrumbActive !== this.state.breadcrumbActive
+    let routesLength = this.props.routes.length - 1
+    return nextProps.routes[routesLength].title !== this.props.routes[routesLength].title || nextState.breadcrumbActive !== this.state.breadcrumbActive
   }
 
   handleScroll = (event) => {
