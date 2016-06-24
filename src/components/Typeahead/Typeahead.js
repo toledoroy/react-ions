@@ -78,7 +78,7 @@ export class Typeahead extends React.Component {
       })
     }
     else {
-      this.setState({selected: '', value: ''})
+      this.setState({selected: '', value: '', searchStr: ''})
     }
   }
 
