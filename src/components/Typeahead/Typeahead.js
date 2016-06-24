@@ -11,6 +11,13 @@ export class Typeahead extends React.Component {
     super(props)
   }
 
+  static defaultProps = {
+    disabled: false,
+    options: [],
+    valueProp: '',
+    displayProp: ''
+  }
+
   static propTypes = {
     /**
      * A string to display as the placeholder text.
@@ -73,9 +80,12 @@ export class Typeahead extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value && nextProps.value !== this.state.value && this.getIndex(nextProps.value, nextProps.options) > -1) {
-      this.setState({ value: nextProps.value }, function() {
+      this.setState({ value: nextProps.value }, () => {
         this.selectItem(nextProps.value, nextProps.options)
       })
+    }
+    else {
+      this.setState({selected: '', value: '', searchStr: ''})
     }
   }
 

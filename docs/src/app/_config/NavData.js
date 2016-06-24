@@ -67,6 +67,9 @@ const nav = [
         name: 'Modal',
         action: '/components/modal'
       }, {
+        name: 'Multi Select',
+        action: '/components/multi-select'
+      }, {
         name: 'Nav',
         action: '/components/nav'
       }, {

@@ -9,7 +9,10 @@ class SelectField extends React.Component {
   }
 
   static defaultProps = {
-    disabled: false
+    disabled: false,
+    options: [],
+    valueProp: '',
+    displayProp: ''
   }
 
   static propTypes = {
@@ -22,12 +25,9 @@ class SelectField extends React.Component {
      */
     options: React.PropTypes.array.isRequired,
     /**
-     * The value(s) of the option(s) to be selected.
+     * The value of the option to be selected.
      */
-    value: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.string
-    ]),
+    value: React.PropTypes.string,
     /**
      * Which field in the option object will be used as the value of the select field.
      */
@@ -51,30 +51,22 @@ class SelectField extends React.Component {
     /**
      * Icon to be displayed on the left
      */
-    icon: React.PropTypes.string,
-    /**
-     * Whether the select field allows multiple items to be selected.
-     */
-    multi: React.PropTypes.bool
+    icon: React.PropTypes.string
   }
 
   state = {
     isOpen: false,
-    value: this.props.value || (this.props.multiple ? [] : '')
+    value: this.props.value || ''
   }
 
   componentWillMount = () => {
-    // Multiple select
-    if (this.props.multi && this.state.value instanceof Array && this.state.value.length > 0 && this.containsValidValue(this.state.value, this.props.options)) {
-      this.selectItems(this.state.value, this.props.options)
-    }
-    // Single select
-    else if (this.state.value !== '' && this.getIndex(this.state.value, this.props.options) > -1) {
+    // Select item
+    if (this.state.value !== '' && this.getIndex(this.state.value, this.props.options) > -1) {
       this.selectItem(this.state.value, this.props.options)
     }
     // No value is passed in
     else {
-      this.setState({selected: this.props.multi ? [] : '', value: this.props.multi ? [] : ''})
+      this.setState({selected: '', value: ''})
     }
   }
 
@@ -84,23 +76,19 @@ class SelectField extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value !== this.state.value) {
-      // Multiple select
-      if (nextProps.multi && nextProps.value instanceof Array && (this.containsValidValue(nextProps.value, nextProps.options) || nextProps.value.length === 0)) {
-        this.selectItems(nextProps.value, nextProps.options)
-      }
-      // Single select
-      else if (nextProps.value && nextProps.value && (this.getIndex(nextProps.value, nextProps.options) > -1 || nextProps.value === '')) {
+      // Select item
+      if (nextProps.value && nextProps.value && (this.getIndex(nextProps.value, nextProps.options) > -1 || nextProps.value === '')) {
         this.selectItem(nextProps.value, nextProps.options)
       }
       // No value is passed in
       else {
-        this.setState({selected: nextProps.multi ? [] : '', value: nextProps.multi ? [] : ''})
+        this.setState({selected: '', value: ''})
       }
     }
   }
 
   toggleSelectField = () => {
-    this.setState({isOpen: !this.state.isOpen}, function() {
+    this.setState({isOpen: !this.state.isOpen}, () => {
       if (this.state.isOpen) {
         document.addEventListener('click', this.toggleSelectField)
       }
@@ -110,42 +98,14 @@ class SelectField extends React.Component {
     })
   }
 
-  handleSelect = (option) => {
-    if (this.props.multi) {
-      let selected = this.state.selected
-      selected.push(option)
-
-      this.selectMultiple(selected, true)
-    }
-    else {
-      this.selectOption(option, true)
-    }
-  }
-
   selectOption = (option, triggerCallback) => {
-    this.setState({selected: option, value: option[this.props.valueProp]}, function() {
+    this.setState({selected: option, value: option[this.props.valueProp]}, () => {
       if (triggerCallback && typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {
             name: this.props.name,
             value: option[this.props.valueProp],
             option: option
-          }
-        })
-      }
-    })
-  }
-
-  selectMultiple = (options, triggerCallback) => {
-    let values = options.map(o => o[this.props.valueProp])
-
-    this.setState({selected: options, value: values}, function() {
-      if (triggerCallback && typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback({
-          target: {
-            name: this.props.name,
-            value: values,
-            option: options
           }
         })
       }
@@ -159,19 +119,6 @@ class SelectField extends React.Component {
     }
   }
 
-  selectItems = (values, options) => {
-    let selectedOptions = []
-
-    for (let i = 0; i < values.length; i++) {
-      let index = this.getIndex(values[i], options)
-      if (index >= 0) {
-        selectedOptions.push(options[index])
-      }
-    }
-
-    this.selectMultiple(selectedOptions, false)
-  }
-
   getIndex = (value, options) => {
     let optionIndex = -1
     options.map((option, index) => {
@@ -183,37 +130,15 @@ class SelectField extends React.Component {
     return optionIndex
   }
 
-  containsValidValue = (values, options) => {
-    let isValid = false
-
-    for (let i = 0; i < values.length; i++) {
-      if (this.getIndex(values[i], options) > -1) {
-        isValid = true
-      }
-    }
-
-    return isValid
-  }
-
   getDisplayText = () => {
-    if (this.props.multi) {
-      if (typeof this.props.placeholder !== 'undefined') {
-        return this.props.placeholder
-      }
-      else {
-        return 'Please select one or more'
-      }
+    if (this.state.selected !== '') {
+      return this.state.selected[this.props.displayProp]
+    }
+    else if (typeof this.props.placeholder !== 'undefined') {
+      return this.props.placeholder
     }
     else {
-      if (this.state.selected !== '') {
-        return this.state.selected[this.props.displayProp]
-      }
-      else if (typeof this.props.placeholder !== 'undefined') {
-        return this.props.placeholder
-      }
-      else {
-        return 'Please select an option'
-      }
+      return 'Please select an option'
     }
   }
 
@@ -238,21 +163,9 @@ class SelectField extends React.Component {
     const valueProp = this.props.valueProp
     const selectedValues = this.state.value
 
-    let options
-
-    if (this.props.multi) {
-      options = []
-      this.props.options.map((option, index) => {
-        if (selectedValues.indexOf(option[valueProp]) === -1) {
-          options.push(<li key={index} onClick={this.handleSelect.bind(null, option)}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>)
-        }
-      })
-    }
-    else {
-      options = this.props.options.map((option, index) =>
-        <li key={index} onClick={this.handleSelect.bind(null, option)}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
-      )
-    }
+    let options = this.props.options.map((option, index) =>
+      <li key={index} onClick={this.selectOption.bind(null, option, true)}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
+    )
 
     if (options.length === 0) {
       options.push(<li key={0} className={style['not-clickable']}>Nothing to select</li>)
@@ -260,12 +173,7 @@ class SelectField extends React.Component {
 
     let value = ''
     if (this.state.selected) {
-      if (this.props.multi) {
-        value = this.state.selected.map(o => o[this.props.valueProp]).join(',')
-      }
-      else {
-        value = this.state.selected[this.props.valueProp]
-      }
+      value = this.state.selected[this.props.valueProp]
     }
 
     return (

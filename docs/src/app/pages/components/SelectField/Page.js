@@ -18,8 +18,6 @@ import ExampleSelectFieldIcon from './ExampleSelectFieldIcon'
 import exampleSelectFieldIconCode from '!raw!./ExampleSelectFieldIcon'
 import ExampleSelectFieldOptionIcons from './ExampleSelectFieldOptionIcons'
 import exampleSelectFieldOptionIconsCode from '!raw!./ExampleSelectFieldOptionIcons'
-import ExampleSelectFieldMulti from './ExampleSelectFieldMulti'
-import exampleSelectFieldMultiCode from '!raw!./ExampleSelectFieldMulti'
 import styles from 'private/css/content'
 
 const description = {
@@ -30,8 +28,7 @@ const description = {
   selectFieldSelected: 'This is the `select field component` with a default option selected.',
   selectFieldCallback: 'This is the `select field component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
   selectFieldIcon: 'This is the `select field component` with an icon on the left.',
-  selectFieldOptionIcons: 'This is the `select field component` with an icon for each option.',
-  selectFieldMulti: 'This is the multi `select field component`.'
+  selectFieldOptionIcons: 'This is the `select field component` with an icon for each option.'
 }
 
 const SelectFieldPage = () => (
@@ -86,12 +83,6 @@ const SelectFieldPage = () => (
             description={description.selectFieldOptionIcons}
             markup={exampleSelectFieldOptionIconsCode}>
             <ExampleSelectFieldOptionIcons />
-          </CodeExample>
-          <CodeExample
-            title='Multiple Select Field'
-            description={description.selectFieldMulti}
-            markup={exampleSelectFieldMultiCode}>
-            <ExampleSelectFieldMulti />
           </CodeExample>
           <div className={styles.block}>
             <h3>Props</h3>
