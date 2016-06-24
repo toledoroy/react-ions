@@ -1,0 +1,15 @@
+.datepicker-component {
+  > div {
+    &:first-of-type {
+      width: 110px;
+      margin-right: 5px;
+    }
+    &:nth-of-type(2) {
+      width: 60px;
+      margin-right: 5px;
+    }
+    &:nth-of-type(3) {
+      width: 75px;
+    }
+  }
+}
