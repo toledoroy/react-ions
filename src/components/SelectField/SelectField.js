@@ -9,7 +9,10 @@ class SelectField extends React.Component {
   }
 
   static defaultProps = {
-    disabled: false
+    disabled: false,
+    options: [],
+    valueProp: '',
+    displayProp: ''
   }
 
   static propTypes = {

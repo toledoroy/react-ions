@@ -36,7 +36,7 @@ class ExampleMultiTypeahead extends React.Component {
           <Button onClick={this.updateSelected.bind(this, '0')}>Select 1st item</Button>
         </div>
         <MultiSelect options={options} valueProp='value' displayProp='display' value={this.state.value} changeCallback={this.handleChange} placeholder="Start typing to select one or more items">
-          <Typeahead options={options} valueProp='value' displayProp='display' />
+          <Typeahead />
         </MultiSelect>
         <code className={style['callback-status']}>{this.state.status}</code>
       </div>

@@ -36,7 +36,7 @@ class ExampleMultiSelectField extends React.Component {
           <Button onClick={this.updateSelected.bind(this, '0')}>Select 1st item</Button>
         </div>
         <MultiSelect options={options} valueProp='value' displayProp='display' value={this.state.value} changeCallback={this.handleChange} placeholder="Select one or more items">
-          <SelectField options={options} valueProp='value' displayProp='display' />
+          <SelectField />
         </MultiSelect>
         <code className={style['callback-status']}>{this.state.status}</code>
       </div>

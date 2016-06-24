@@ -11,6 +11,13 @@ export class Typeahead extends React.Component {
     super(props)
   }
 
+  static defaultProps = {
+    disabled: false,
+    options: [],
+    valueProp: '',
+    displayProp: ''
+  }
+
   static propTypes = {
     /**
      * A string to display as the placeholder text.
