@@ -27,11 +27,11 @@ class ExampleRadioChild extends React.Component {
         value: 'Option 1',
         label: 'Option 1',
         childNode: <Input name='child-input' changeCallback={this.handleChange} />
-      },{
+      }, {
         value: 'Option 2',
         label: 'Option 2',
         childNode: <Input name='child-input' changeCallback={this.handleChange} />
-      },{
+      }, {
         value: 'Option 3',
         label: 'Option 3',
         childNode: <Input name='child-input' changeCallback={this.handleChange} />
