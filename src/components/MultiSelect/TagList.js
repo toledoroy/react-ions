@@ -2,7 +2,7 @@ import React from 'react'
 import Icon from '../Icon'
 import style from './style.scss'
 
-class Taglist extends React.Component {
+class TagList extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -47,4 +47,4 @@ class Taglist extends React.Component {
   }
 }
 
-export default Taglist
+export default TagList

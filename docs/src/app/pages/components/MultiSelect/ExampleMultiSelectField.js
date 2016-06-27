@@ -15,7 +15,7 @@ class ExampleMultiSelectField extends React.Component {
   }
 
   handleChange = (event) => {
-    this.setState({ value: event.target.value, status: 'The callback was triggered and the chosen options are: ' + event.target.value.join(',') })
+    this.setState({ value: event.target.value, status: 'The callback was triggered and ' + (event.target.value.length > 0 ? 'the chosen options are: ' + event.target.value.join(',') : 'there are no options selected') })
   }
 
   updateSelected = (index) => {
@@ -24,10 +24,10 @@ class ExampleMultiSelectField extends React.Component {
 
   render() {
     const options = [
-      {value: '0', display: 'test 1'},
-      {value: '1', display: 'test 2'},
-      {value: '2', display: 'test 3'},
-      {value: '3', display: 'test 4'}
+      {value: '0', display: 'Test 1'},
+      {value: '1', display: 'Test 2'},
+      {value: '2', display: 'Test 3'},
+      {value: '3', display: 'Test 4'}
     ]
 
     return(
@@ -35,7 +35,7 @@ class ExampleMultiSelectField extends React.Component {
         <div className={style.update}>
           <Button onClick={this.updateSelected.bind(this, '0')}>Select 1st item</Button>
         </div>
-        <MultiSelect options={options} valueProp='value' displayProp='display' value={this.state.value} changeCallback={this.handleChange} placeholder="Select one or more items">
+        <MultiSelect optClass={style['custom-multi']} options={options} valueProp='value' displayProp='display' value={this.state.value} changeCallback={this.handleChange} placeholder="Select one or more items">
           <SelectField />
         </MultiSelect>
         <code className={style['callback-status']}>{this.state.status}</code>

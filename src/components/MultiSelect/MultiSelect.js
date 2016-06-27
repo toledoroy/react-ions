@@ -1,4 +1,5 @@
 import React from 'react'
+import optclass from '../internal/OptClass'
 import TagList from './TagList'
 import style from './style.scss'
 
@@ -39,7 +40,14 @@ class MultiSelect extends React.Component {
     /**
      * A callback function to be called when an option is selected.
      */
-    changeCallback: React.PropTypes.func
+    changeCallback: React.PropTypes.func,
+    /**
+     * Optional CSS class(es) to be used for local styles (string or array of strings)
+     */
+    optClass: React.PropTypes.oneOfType([
+      React.PropTypes.array,
+      React.PropTypes.string
+    ])
   }
 
   state = {
@@ -96,10 +104,13 @@ class MultiSelect extends React.Component {
 
   getSelectedOptions = (values) => {
     let selectedOptions = []
-    this.props.options.map((option, index) => {
-      if (values.indexOf(option[this.props.valueProp]) > -1) {
-        selectedOptions.push(option)
-      }
+
+    values.map((value, index) => {
+      this.props.options.map((option, index) => {
+        if (option[this.props.valueProp] === value) {
+          selectedOptions.push(option)
+        }
+      })
     })
 
     return selectedOptions
@@ -164,10 +175,11 @@ class MultiSelect extends React.Component {
   }
 
   render() {
+    const multiSelectClasses = optclass(style, 'multi-select', this.props.optClass)
     const elements = this.getElements(this.props.children)
 
     return (
-      <div className={style['multi-select']}>
+      <div className={multiSelectClasses}>
         {elements}
         <TagList tags={this.state.selected} displayProp={this.props.displayProp} onRemove={this.onRemove} />
       </div>
