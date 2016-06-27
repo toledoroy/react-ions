@@ -61,7 +61,7 @@ class RadioGroup extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value && nextProps.value !== this.state.value) {
-      this.setState({ value: nextProps.value }, function() {
+      this.setState({ value: nextProps.value }, () => {
         this.checkItem(nextProps.value, nextProps.options)
       })
     }
@@ -70,7 +70,7 @@ class RadioGroup extends React.Component {
   handleChange = (event, value) => {
     event.persist()
     if (value !== this.state.value) {
-      this.setState({value: value}, function() {
+      this.setState({value: value}, () => {
         this.checkItem(value, this.props.options)
       })
       if (typeof this.props.changeCallback === 'function') {
@@ -103,9 +103,8 @@ class RadioGroup extends React.Component {
     const { options, label, name, value, required, labelPosition, changeCallback, ...other } = this.props
 
     return this.props.options.map((option) =>
-      <div>
+      <div key={option.value}>
         <Radio
-          key={option.value}
           value={option.value}
           label={option.label}
           name={groupName}
