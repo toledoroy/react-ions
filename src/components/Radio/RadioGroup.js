@@ -5,18 +5,18 @@ import style from './style.scss'
 
 class RadioGroup extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
     value: this.props.value
-  };
+  }
 
   static defaultProps = {
     disabled: false,
     required: false,
     labelPosition: 'right'
-  };
+  }
 
   static propTypes = {
     /**
@@ -55,70 +55,74 @@ class RadioGroup extends React.Component {
 
   componentWillMount = () => {
     if (typeof this.state.value !== 'undefined') {
-      this.checkItem(this.state.value, this.props.options);
+      this.checkItem(this.state.value, this.props.options)
     }
   }
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value && nextProps.value !== this.state.value) {
       this.setState({ value: nextProps.value }, function() {
-        this.checkItem(nextProps.value, nextProps.options);
-      });
+        this.checkItem(nextProps.value, nextProps.options)
+      })
     }
   }
 
   handleChange = (event, value) => {
-    event.persist();
+    event.persist()
     if (value !== this.state.value) {
       this.setState({value: value}, function() {
-        this.checkItem(value, this.props.options);
-      });
+        this.checkItem(value, this.props.options)
+      })
       if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(event, value);
+        this.props.changeCallback(event, value)
       }
     }
   }
 
   checkItem = (value, options) => {
-    let index = this.getIndex(value, options);
+    let index = this.getIndex(value, options)
     if (index >= 0) {
-      options[index].checked = true;
+      options[index].checked = true
     }
   }
 
   getIndex = (value, options) => {
-    let optionIndex = -1;
+    let optionIndex = -1
     options.map((radio, index) => {
       if (radio.value === value) {
-        optionIndex = index;
+        optionIndex = index
       }
-    });
+    })
 
-    return optionIndex;
+    return optionIndex
   }
 
   getOptions = () => {
-    const groupName = this.props.name;
-    const groupLabelPosition = this.props.labelPosition;
-    const { options, label, name, value, required, labelPosition, changeCallback, ...other } = this.props;
+    const groupName = this.props.name
+    const groupLabelPosition = this.props.labelPosition
+    const { options, label, name, value, required, labelPosition, changeCallback, ...other } = this.props
 
-    return this.props.options.map((radio, index) =>
-      <Radio
-        key={radio.value}
-        value={radio.value}
-        label={radio.label}
-        name={groupName}
-        checked={this.state.value === radio.value}
-        labelPosition={groupLabelPosition}
-        optClass={radio.optClass}
-        changeCallback={this.handleChange}
-        {...other} />
-    );
+    return this.props.options.map((option) =>
+      <div>
+        <Radio
+          key={option.value}
+          value={option.value}
+          label={option.label}
+          name={groupName}
+          checked={this.state.value === option.value}
+          labelPosition={groupLabelPosition}
+          optClass={option.optClass}
+          changeCallback={this.handleChange}
+          {...other} />
+
+          {option.childNode && this.state.value === option.value ? option.childNode : null}
+      </div>
+    )
   }
 
   render() {
-    const cx = classNames.bind(style);
-    const radioGroupClass = cx(style['radio-group'], this.props.optClass);
+    const cx = classNames.bind(style)
+    const radioGroupClass = cx(style['radio-group'], this.props.optClass)
 
     return (
       <div className={radioGroupClass}>

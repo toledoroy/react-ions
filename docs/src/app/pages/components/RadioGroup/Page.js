@@ -14,6 +14,8 @@ import ExampleRadioLeft from './ExampleRadioGroupLeft'
 import exampleRadioLeftCode from '!raw!./ExampleRadioGroupLeft'
 import ExampleRadioCallback from './ExampleRadioGroupCallback'
 import exampleRadioCallbackCode from '!raw!./ExampleRadioGroupCallback'
+import ExampleRadioChild from './ExampleRadioChild'
+import exampleRadioChildCode from '!raw!./ExampleRadioChild'
 import styles from 'private/css/content'
 
 const description = {
@@ -22,7 +24,8 @@ const description = {
   radioDisabled: 'This is the disabled `radio component`.',
   radioRequired: 'This is the required `radio component`.',
   radioLeft: 'This is the `radio component` with labels on the left side.',
-  radioCallback: 'This is the `radio component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.'
+  radioCallback: 'This is the `radio component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
+  radioChild: 'This is the `radio component` with a child component.'
 };
 
 const RadioPage = () => (
@@ -65,6 +68,12 @@ const RadioPage = () => (
             description={description.radioCallback}
             markup={exampleRadioCallbackCode}>
             <ExampleRadioCallback />
+          </CodeExample>
+          <CodeExample
+            title='Radio with child component'
+            description={description.radioChild}
+            markup={exampleRadioChildCode}>
+            <ExampleRadioChild />
           </CodeExample>
           <div className={styles.block}>
             <h3>Props</h3>
