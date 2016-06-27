@@ -130,7 +130,7 @@ class ExampleFormGroup extends React.Component {
         <Textarea name='message' label='Message' optClass={style.field} />
 
         <RadioGroup
-          label="What happens after a promotor submits a score?"
+          label="What happens after a promoter submits a score?"
           name="radio"
           options={fields.radio}
           defaultOption={1}
