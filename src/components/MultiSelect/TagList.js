@@ -27,9 +27,7 @@ class TagList extends React.Component {
   }
 
   removeTag = (index) => {
-    if (this.props.onRemove) {
-      this.props.onRemove(index)
-    }
+    this.props.onRemove(index)
   }
 
   renderTags = () => {

@@ -97,6 +97,22 @@ describe('MultiSelect', () => {
     expect(wrapper.state().value[2]).to.equal('3')
   })
 
+  it('should contain a SelectField and remove a selected item when the remove icon is clicked', () => {
+    const changeCallback = sinon.spy()
+    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><SelectField options={options} valueProp='value' displayProp='display' /></MultiSelect>)
+
+    expect(wrapper.childAt(1).children()).to.have.length(2)
+    expect(wrapper.state().value).to.have.length(2)
+    expect(wrapper.state().value[0]).to.equal('0')
+    expect(wrapper.state().value[1]).to.equal('2')
+
+    wrapper.childAt(1).childAt(1).find('Icon').simulate('click')
+
+    expect(wrapper.childAt(1).children()).to.have.length(1)
+    expect(wrapper.state().value).to.have.length(1)
+    expect(wrapper.state().value[0]).to.equal('0')
+  })
+
   it('should render itself with a Typeahead', () => {
     wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display'><Typeahead options={options} valueProp='value' displayProp='display' /></MultiSelect>)
 
@@ -168,5 +184,21 @@ describe('MultiSelect', () => {
     expect(wrapper.state().value[0]).to.equal('0')
     expect(wrapper.state().value[1]).to.equal('2')
     expect(wrapper.state().value[2]).to.equal('3')
+  })
+
+  it('should contain a Typeahead and remove a selected item when the remove icon is clicked', () => {
+    const changeCallback = sinon.spy()
+    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><Typeahead options={options} valueProp='value' displayProp='display' /></MultiSelect>)
+
+    expect(wrapper.childAt(1).children()).to.have.length(2)
+    expect(wrapper.state().value).to.have.length(2)
+    expect(wrapper.state().value[0]).to.equal('0')
+    expect(wrapper.state().value[1]).to.equal('2')
+
+    wrapper.childAt(1).childAt(1).find('Icon').simulate('click')
+
+    expect(wrapper.childAt(1).children()).to.have.length(1)
+    expect(wrapper.state().value).to.have.length(1)
+    expect(wrapper.state().value[0]).to.equal('0')
   })
 })
