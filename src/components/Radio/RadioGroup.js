@@ -9,7 +9,8 @@ class RadioGroup extends React.Component {
   }
 
   state = {
-    value: this.props.value
+    value: this.props.value,
+    options: []
   }
 
   static defaultProps = {
@@ -38,7 +39,7 @@ class RadioGroup extends React.Component {
     /**
      * A list of options for the radio group.
      */
-    options: React.PropTypes.array.isRequired,
+    options: React.PropTypes.array,
     /**
      * Which option is checked.
      */
@@ -57,6 +58,14 @@ class RadioGroup extends React.Component {
     if (typeof this.state.value !== 'undefined') {
       this.checkItem(this.state.value, this.props.options)
     }
+
+    if (this.props.children) {
+      let childOptions = this.props.children.map((child) => {
+        return { name: child.name, label: child.label }
+      })
+
+      this.setState({ options: childOptions })
+    }
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -71,7 +80,7 @@ class RadioGroup extends React.Component {
     event.persist()
     if (value !== this.state.value) {
       this.setState({value: value}, () => {
-        this.checkItem(value, this.props.options)
+        this.checkItem(value, this.state.options || this.props.options)
       })
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback(event, value)
@@ -102,21 +111,40 @@ class RadioGroup extends React.Component {
     const groupLabelPosition = this.props.labelPosition
     const { options, label, name, value, required, labelPosition, changeCallback, ...other } = this.props
 
-    return this.props.options.map((option) =>
-      <div key={option.value}>
-        <Radio
-          value={option.value}
-          label={option.label}
-          name={groupName}
-          checked={this.state.value === option.value}
-          labelPosition={groupLabelPosition}
-          optClass={option.optClass}
-          changeCallback={this.handleChange}
-          {...other} />
-
-          {option.childNode && this.state.value === option.value ? option.childNode : null}
-      </div>
-    )
+    //this means explicit radio buttons were defined (usually paired with other form fields)
+    //we create an options array in the state (because there is no options in props) for checkItem to use
+    if (this.props.children) {
+      return this.props.children.map((child, index) => {
+        if (child.type === Radio) {
+          return React.cloneElement(child, {
+            key: index,
+            name: groupName,
+            checked: this.state.value === child.props.value,
+            changeCallback: this.handleChange,
+            labelPosition: groupLabelPosition
+          })
+        }
+        else {
+          return child
+        }
+      })
+    }
+    //this means a normal RadioGroup with an options array was defined
+    else {
+      return this.props.options.map((option) =>
+        <div key={option.value}>
+          <Radio
+            value={option.value}
+            label={option.label}
+            name={groupName}
+            checked={this.state.value === option.value}
+            labelPosition={groupLabelPosition}
+            optClass={option.optClass}
+            changeCallback={this.handleChange}
+            {...other} />
+        </div>
+      )
+    }
   }
 
   render() {

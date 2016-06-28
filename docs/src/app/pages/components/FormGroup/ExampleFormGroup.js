@@ -31,11 +31,11 @@ let fields = {
     {value: '1', display: 'test 2'},
     {value: '2', display: 'test 3'}
   ]
-};
+}
 
 class ExampleFormGroup extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -48,6 +48,12 @@ class ExampleFormGroup extends React.Component {
       },
       'radio': {
         'value': 'option_2'
+      },
+      'radioWithChildren': {
+        'value': 'Option 1'
+      },
+      'childInput': {
+        'value': ''
       },
       'select': {
         'value': '1'
@@ -74,12 +80,12 @@ class ExampleFormGroup extends React.Component {
   }
 
   handleChange = (fields) => {
-    //console.log(fields);
+    console.log(fields)
   }
 
   handleSubmit = (event, fields) => {
-    event.preventDefault();
-    alert(JSON.stringify(fields, 2, null));
+    event.preventDefault()
+    alert(JSON.stringify(fields, 2, null))
   }
 
   resetForm = () => {
@@ -93,6 +99,12 @@ class ExampleFormGroup extends React.Component {
         },
         radio: {
           value: 'option_1'
+        },
+        radioWithChildren: {
+          value: ''
+        },
+        childInput: {
+          value: ''
         },
         select: {
           value: '0'
@@ -112,11 +124,11 @@ class ExampleFormGroup extends React.Component {
         toggle: {
           value: false
         },
-        'logo': {
-          'value': ''
+        logo: {
+          value: ''
         }
       }
-    });
+    })
   }
 
   render() {
@@ -130,8 +142,8 @@ class ExampleFormGroup extends React.Component {
         <Textarea name='message' label='Message' optClass={style.field} />
 
         <RadioGroup
-          label="What happens after a promoter submits a score?"
-          name="radio"
+          label='What happens after a promoter submits a score?'
+          name='radio'
           options={fields.radio}
           defaultOption={1}
           optClass={style.field}>
@@ -147,21 +159,21 @@ class ExampleFormGroup extends React.Component {
 
         <Toggle name='toggle' optClass={style.field} label='Would you like to set a toggle?' />
 
-        <FileUpload name='logo' label="Logo" showPreview={true} />
+        <FileUpload name='logo' label='Logo' showPreview={true} />
 
         <fieldset>
           <legend><span>I am a legend</span></legend>
           <h3>Social channels</h3>
-          <Checkbox name='email' label="Email" optClass={style.field} />
-          <Checkbox name='facebook' label="Facebook" optClass={style.field} />
-          <Checkbox name='twitter' label="Twitter" optClass={style.field} />
-          <Checkbox name='linkedin' label="LinkedIn" optClass={style.field} />
+          <Checkbox name='email' label='Email' optClass={style.field} />
+          <Checkbox name='facebook' label='Facebook' optClass={style.field} />
+          <Checkbox name='twitter' label='Twitter' optClass={style.field} />
+          <Checkbox name='linkedin' label='LinkedIn' optClass={style.field} />
         </fieldset>
 
-        <Button type="submit">Submit</Button>
+        <Button type='submit'>Submit</Button>
         <Button optClass='inverted' onClick={this.resetForm}>Reset</Button>
       </FormGroup>
-    );
+    )
   }
 }
 
