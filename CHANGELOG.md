@@ -1,5 +1,17 @@
 ## HEAD
 
+## 0.0.30
+###### _June 28, 2016_
+
+##### Component Fixes / Enhancements
+- [Icons] - Added clock icons ([#159](https://github.com/GetAmbassador/react-conventions/pull/159))
+- [MultiSelect] - Add select list UI ([#157](https://github.com/GetAmbassador/react-conventions/pull/157))
+- [Nav] - Fix for close button ([#156](https://github.com/GetAmbassador/react-conventions/pull/156))
+- [MultiSelect] - Build out MultiSelect component ([#154](https://github.com/GetAmbassador/react-conventions/pull/154))
+- [FormGroup] - Small screen support ([#151](https://github.com/GetAmbassador/react-conventions/pull/151))
+- [Typeahead] - Build out Typeahead component ([#150](https://github.com/GetAmbassador/react-conventions/pull/150))
+
+
 ## 0.0.29
 ###### _June 17, 2016_
 
