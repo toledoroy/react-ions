@@ -4,6 +4,7 @@ import Input from 'react-conventions/lib/Input'
 import Textarea from 'react-conventions/lib/Textarea'
 import Checkbox from 'react-conventions/lib/Checkbox'
 import RadioGroup from 'react-conventions/lib/Radio/RadioGroup'
+import Radio from 'react-conventions/lib/Radio/Radio'
 import SelectField from 'react-conventions/lib/SelectField'
 import Button from 'react-conventions/lib/Button'
 import Toggle from 'react-conventions/lib/Toggle'
@@ -50,9 +51,18 @@ class ExampleFormGroup extends React.Component {
         'value': 'option_2'
       },
       'radioWithChildren': {
-        'value': 'Option 1'
+        'value': ''
       },
-      'childInput': {
+      'child_option_1': {
+        'value': 'child_option_1'
+      },
+      'child_option_2': {
+        'value': 'child_option_2'
+      },
+      'child_option_3': {
+        'value': 'child_option_3'
+      },
+      'child_input_1': {
         'value': ''
       },
       'select': {
@@ -101,9 +111,18 @@ class ExampleFormGroup extends React.Component {
           value: 'option_1'
         },
         radioWithChildren: {
-          value: ''
+          value: 'child_option_1'
         },
-        childInput: {
+        child_option_1: {
+          value: 'child_option_1'
+        },
+        child_option_2: {
+          value: 'child_option_2'
+        },
+        child_option_3: {
+          value: 'child_option_3'
+        },
+        child_input_1: {
           value: ''
         },
         select: {
@@ -142,11 +161,17 @@ class ExampleFormGroup extends React.Component {
         <Textarea name='message' label='Message' optClass={style.field} />
 
         <RadioGroup
-          label='What happens after a promoter submits a score?'
           name='radio'
+          label='What happens after a promoter submits a score?'
           options={fields.radio}
           defaultOption={1}
-          optClass={style.field}>
+          optClass={style.field} />
+
+        <RadioGroup name='radioWithChildren' label='Click a radio button to set a child value'>
+          <Radio name='child_option_1' label='Option 1' />
+          <Input name='child_input_1' />
+          <Radio name='child_option_2' label='Option 2' />
+          <Radio name='child_option_3' label='Option 3' />
         </RadioGroup>
 
         <SelectField
