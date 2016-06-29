@@ -24,7 +24,7 @@ class ExampleRadioChild extends React.Component {
   }
 
   getClass = (sibling) => {
-    return sibling !== this.state.checkedValue ? style['is-hidden'] : null
+    return sibling !== this.state.checkedValue ? style['is-hidden'] : style['radio-child']
   }
 
   render() {

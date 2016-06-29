@@ -164,7 +164,7 @@ class ExampleFormGroup extends React.Component {
   }
 
   getRadioChildClass = (sibling) => {
-    return sibling !== this.state.schema.radioWithChildren.value ? style['is-hidden'] : null
+    return sibling !== this.state.schema.radioWithChildren.value ? style['is-hidden'] : style['radio-child']
   }
 
   render() {
@@ -177,11 +177,11 @@ class ExampleFormGroup extends React.Component {
         <Input name='subject' label='Subject line' type='text' optClass={style.field} />
         <Textarea name='message' label='Message' optClass={style.field} />
 
-        {/*<RadioGroup
+        <RadioGroup
           name='radio'
           label='What happens after a promoter submits a score?'
           options={fields.radio}
-          optClass={style.field} />*/}
+          optClass={style.field} />
 
         <RadioGroup name='radioWithChildren' label='Click a radio button to set a child value'>
           <Radio name='child_option_1' label='Option 1' />

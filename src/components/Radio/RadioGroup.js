@@ -137,17 +137,16 @@ class RadioGroup extends React.Component {
     //this means a normal RadioGroup with an options array was defined
     else {
       return this.props.options.map((option) =>
-        <div key={option.value}>
-          <Radio
-            value={option.value}
-            label={option.label}
-            name={groupName}
-            checked={this.state.value === option.value}
-            labelPosition={groupLabelPosition}
-            optClass={option.optClass}
-            changeCallback={this.handleChange}
-            {...other} />
-        </div>
+        <Radio
+          key={option.value}
+          value={option.value}
+          label={option.label}
+          name={groupName}
+          checked={this.state.value === option.value}
+          labelPosition={groupLabelPosition}
+          optClass={option.optClass}
+          changeCallback={this.handleChange}
+          {...other} />
       )
     }
   }
