@@ -105,6 +105,7 @@ class RadioGroup extends React.Component {
     options.map((radio, index) => {
       if (radio.value === value) {
         optionIndex = index
+        return
       }
     })
 

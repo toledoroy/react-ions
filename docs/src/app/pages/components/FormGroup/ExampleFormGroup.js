@@ -51,7 +51,7 @@ class ExampleFormGroup extends React.Component {
         'value': 'option_2'
       },
       'radioWithChildren': {
-        'value': 'child_option_2'
+        'value': ''
       },
       'child_option_1': {
         'value': 'child_option_1'
@@ -118,7 +118,7 @@ class ExampleFormGroup extends React.Component {
           value: 'option_1'
         },
         radioWithChildren: {
-          value: 'child_option_2'
+          value: ''
         },
         child_option_1: {
           value: 'child_option_1'
