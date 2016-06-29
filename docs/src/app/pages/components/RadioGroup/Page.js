@@ -26,7 +26,7 @@ const description = {
   radioLeft: 'This is the `radio component` with labels on the left side.',
   radioCallback: 'This is the `radio component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
   radioChild: 'This is the `radio component` with a child component.'
-};
+}
 
 const RadioPage = () => (
   <div>

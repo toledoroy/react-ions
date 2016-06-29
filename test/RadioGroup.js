@@ -111,7 +111,7 @@ describe('RadioGroup', () => {
 
   it('should update checked value via callback when rendered with options', () => {
     let checked = undefined
-    const callback = function(event, value) {
+    const callback = (event, value) => {
       checked = value
     }
     wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' changeCallback={callback} />)
@@ -125,7 +125,7 @@ describe('RadioGroup', () => {
 
   it('should update checked value via callback when rendered with explicit children', () => {
     let checked = undefined
-    const callback = function(event, value) {
+    const callback = (event, value) => {
       checked = value
     }
 

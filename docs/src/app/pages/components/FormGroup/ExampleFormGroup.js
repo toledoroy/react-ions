@@ -51,7 +51,7 @@ class ExampleFormGroup extends React.Component {
         'value': 'option_2'
       },
       'radioWithChildren': {
-        'value': ''
+        'value': 'child_option_1'
       },
       'child_option_1': {
         'value': 'child_option_1'
@@ -96,7 +96,6 @@ class ExampleFormGroup extends React.Component {
   }
 
   handleChange = (fields) => {
-    //console.log(fields)
     this.setState({schema: fields})
   }
 
@@ -118,7 +117,7 @@ class ExampleFormGroup extends React.Component {
           value: 'option_1'
         },
         radioWithChildren: {
-          value: ''
+          value: 'child_option_1'
         },
         child_option_1: {
           value: 'child_option_1'
