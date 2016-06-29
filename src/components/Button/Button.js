@@ -6,7 +6,7 @@ import optclass from '../internal/OptClass'
 const Button = (props) => {
   const collapseClass = props.collapse ? 'collapse' : null
   const loaderClasses = props.loading ? 'loading' : null
-  const btnClasses = optclass(style, [style.btn, props.optClass, props.size, loaderClasses, collapseClass])
+  const btnClasses = optclass(style, [style.btn, props.size, loaderClasses, collapseClass], props.optClass)
   const spinnerOptions = {
     lines: 10,
     length: 4,

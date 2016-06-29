@@ -10,7 +10,7 @@ describe('Button', () => {
   it('displays a button', () => {
     wrapper = shallow(<Button disabled optClass='danger' size='lg'>Test</Button>)
     expect(wrapper.props().type).to.equal('button')
-    expect(wrapper.props().className).to.equal('btn danger lg')
+    expect(wrapper.props().className).to.equal('btn lg danger')
     expect(wrapper.props().disabled).to.equal(true)
     expect(wrapper.text()).to.equal('Test')
   })
