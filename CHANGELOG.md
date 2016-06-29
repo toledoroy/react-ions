@@ -1,5 +1,11 @@
 ## HEAD
 
+## 0.31.0
+###### _June 29, 2016_
+
+##### Component Fixes / Enhancements
+- [Button] - Added multiple optClass support for Button component ([#161](https://github.com/GetAmbassador/react-conventions/pull/161))
+
 ## 0.0.30
 ###### _June 28, 2016_
 
