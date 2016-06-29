@@ -10,22 +10,21 @@ class ExampleRadioChild extends React.Component {
   }
 
   state = {
-    status: null,
-    childStatus: null,
-    activeInput: null
+    checkedValue: null,
+    childValue: null
   }
 
   handleChange = (event, value) => {
     if (event.target.name === 'child-radio-group') {
-      this.setState({status: value + ' is checked', childStatus: null, activeInput: event.target.value})
+      this.setState({checkedValue: value, childValue: null})
     }
     else if (event.target.name === 'child-input') {
-      this.setState({childStatus: 'It\'s child value is ' + event.target.value})
+      this.setState({childValue: event.target.value})
     }
   }
 
   getClass = (sibling) => {
-    return sibling !== this.state.activeInput ? style['is-hidden'] : null
+    return sibling !== this.state.checkedValue ? style['is-hidden'] : null
   }
 
   render() {
@@ -40,8 +39,8 @@ class ExampleRadioChild extends React.Component {
           <Input name='child-input' changeCallback={this.handleChange} optClass={this.getClass('Option 3')} />
         </RadioGroup>
 
-        <code>{this.state.status}</code>
-        <code>{this.state.childStatus}</code>
+        <code>{this.state.checkedValue ? this.state.checkedValue + ' is checked' : null}</code>
+        <code>{this.state.childValue ? 'Child value is ' + this.state.childValue : null}</code>
       </div>
     )
   }

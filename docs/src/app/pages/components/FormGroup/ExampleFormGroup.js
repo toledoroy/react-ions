@@ -51,7 +51,7 @@ class ExampleFormGroup extends React.Component {
         'value': 'option_2'
       },
       'radioWithChildren': {
-        'value': ''
+        'value': 'child_option_2'
       },
       'child_option_1': {
         'value': 'child_option_1'
@@ -118,7 +118,7 @@ class ExampleFormGroup extends React.Component {
           value: 'option_1'
         },
         radioWithChildren: {
-          value: ''
+          value: 'child_option_2'
         },
         child_option_1: {
           value: 'child_option_1'
@@ -163,7 +163,7 @@ class ExampleFormGroup extends React.Component {
     })
   }
 
-  getClass = (sibling) => {
+  getRadioChildClass = (sibling) => {
     return sibling !== this.state.schema.radioWithChildren.value ? style['is-hidden'] : null
   }
 
@@ -177,19 +177,19 @@ class ExampleFormGroup extends React.Component {
         <Input name='subject' label='Subject line' type='text' optClass={style.field} />
         <Textarea name='message' label='Message' optClass={style.field} />
 
-        <RadioGroup
+        {/*<RadioGroup
           name='radio'
           label='What happens after a promoter submits a score?'
           options={fields.radio}
-          optClass={style.field} />
+          optClass={style.field} />*/}
 
         <RadioGroup name='radioWithChildren' label='Click a radio button to set a child value'>
           <Radio name='child_option_1' label='Option 1' />
-          <Input name='child_input_1' optClass={this.getClass('child_option_1')} />
+          <Input name='child_input_1' optClass={this.getRadioChildClass('child_option_1')} />
           <Radio name='child_option_2' label='Option 2' />
-          <Input name='child_input_2' optClass={this.getClass('child_option_2')} />
+          <Input name='child_input_2' optClass={this.getRadioChildClass('child_option_2')} />
           <Radio name='child_option_3' label='Option 3' />
-          <Input name='child_input_3' optClass={this.getClass('child_option_3')} />
+          <Input name='child_input_3' optClass={this.getRadioChildClass('child_option_3')} />
         </RadioGroup>
 
         <SelectField

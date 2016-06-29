@@ -7,18 +7,18 @@ const options = [
   {
     value: 'option_1',
     label: 'Option 1'
-  },{
+  }, {
     value: 'option_2',
     label: 'Option 2'
-  },{
+  }, {
     value: 'option_3',
     label: 'Option 3'
   }
-];
+]
 
 class ExampleRadioChecked extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -26,7 +26,7 @@ class ExampleRadioChecked extends React.Component {
   }
 
   updateSelected = (value) => {
-    this.setState({ selected: value });
+    this.setState({ selected: value })
   }
 
   render () {
