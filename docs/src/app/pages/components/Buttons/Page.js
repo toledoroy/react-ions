@@ -14,6 +14,8 @@ import ExampleButtonTypes from './ExampleButtonTypes'
 import exampleButtonTypesCode from '!raw!./ExampleButtonTypes'
 import ExampleButtonLoaders from './ExampleButtonLoaders'
 import exampleButtonLoadersCode from '!raw!./ExampleButtonLoaders'
+import ExampleButtonMultipleOptClasses from './ExampleButtonMultipleOptClasses'
+import exampleButtonMultipleOptClassesCode from '!raw!./ExampleButtonMultipleOptClasses'
 import ExampleButtonAnchor from './ExampleButtonAnchor'
 import exampleButtonAnchorCode from '!raw!./ExampleButtonAnchor'
 
@@ -23,6 +25,7 @@ const description = {
   buttonDisabled: 'This is the disabled `button component`.',
   buttonTypes: 'Here are a more than a few of the button types available on the `button component`.',
   buttonLoaders: 'Here are the available button types with loaders.',
+  buttonMultipleOptClassesCode: 'This is the `button component` with multiple optClasses',
   buttonAnchor: 'The `<ButtonAnchor />` component generates an anchor tag.'
 };
 
@@ -59,6 +62,12 @@ const ButtonsPage = () => (
           description={description.buttonLoaders}
           markup={exampleButtonLoadersCode}>
           <ExampleButtonLoaders />
+        </CodeExample>
+        <CodeExample
+          title='Button With Multiple optClasses'
+          description={description.buttonMultipleOptClassesCode}
+          markup={exampleButtonMultipleOptClassesCode}>
+          <ExampleButtonMultipleOptClasses />
         </CodeExample>
         <CodeExample
           title='Button Anchor'

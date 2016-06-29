@@ -1,0 +1,14 @@
+.custom-background {
+  background-color: yellow;
+}
+
+.custom-color {
+  color: black;
+}
+
+.custom-color-hover {
+  &:hover {
+    color: red;
+    background-color: black;
+  }
+}

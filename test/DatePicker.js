@@ -28,7 +28,6 @@ describe('DatePicker', () => {
     expect(wrapper.hasClass('test-class')).to.be.true
   })
 
-
   it('should update the state when the value property changes', () => {
     wrapper = mount(<DatePicker value={oldDate} />)
 
@@ -168,5 +167,4 @@ describe('DatePicker', () => {
     expect(result.target.value).to.equal(newDate)
     expect(wrapper.state('value')).to.equal(newDate)
   })
-
 })
