@@ -65,6 +65,12 @@ class ExampleFormGroup extends React.Component {
       'child_input_1': {
         'value': ''
       },
+      'child_input_2': {
+        'value': ''
+      },
+      'child_input_3': {
+        'value': ''
+      },
       'select': {
         'value': '1'
       },
@@ -90,7 +96,8 @@ class ExampleFormGroup extends React.Component {
   }
 
   handleChange = (fields) => {
-    console.log(fields)
+    //console.log(fields)
+    this.setState({schema: fields})
   }
 
   handleSubmit = (event, fields) => {
@@ -111,7 +118,7 @@ class ExampleFormGroup extends React.Component {
           value: 'option_1'
         },
         radioWithChildren: {
-          value: 'child_option_1'
+          value: ''
         },
         child_option_1: {
           value: 'child_option_1'
@@ -123,6 +130,12 @@ class ExampleFormGroup extends React.Component {
           value: 'child_option_3'
         },
         child_input_1: {
+          value: ''
+        },
+        child_input_2: {
+          value: ''
+        },
+        child_input_3: {
           value: ''
         },
         select: {
@@ -150,6 +163,10 @@ class ExampleFormGroup extends React.Component {
     })
   }
 
+  getClass = (sibling) => {
+    return sibling !== this.state.schema.radioWithChildren.value ? style['is-hidden'] : null
+  }
+
   render() {
     return (
       <FormGroup
@@ -164,14 +181,15 @@ class ExampleFormGroup extends React.Component {
           name='radio'
           label='What happens after a promoter submits a score?'
           options={fields.radio}
-          defaultOption={1}
           optClass={style.field} />
 
         <RadioGroup name='radioWithChildren' label='Click a radio button to set a child value'>
           <Radio name='child_option_1' label='Option 1' />
-          <Input name='child_input_1' />
+          <Input name='child_input_1' optClass={this.getClass('child_option_1')} />
           <Radio name='child_option_2' label='Option 2' />
+          <Input name='child_input_2' optClass={this.getClass('child_option_2')} />
           <Radio name='child_option_3' label='Option 3' />
+          <Input name='child_input_3' optClass={this.getClass('child_option_3')} />
         </RadioGroup>
 
         <SelectField
