@@ -4,6 +4,7 @@ import Input from 'react-conventions/lib/Input'
 import Textarea from 'react-conventions/lib/Textarea'
 import Checkbox from 'react-conventions/lib/Checkbox'
 import RadioGroup from 'react-conventions/lib/Radio/RadioGroup'
+import Radio from 'react-conventions/lib/Radio/Radio'
 import SelectField from 'react-conventions/lib/SelectField'
 import Button from 'react-conventions/lib/Button'
 import Toggle from 'react-conventions/lib/Toggle'
@@ -31,11 +32,11 @@ let fields = {
     {value: '1', display: 'test 2'},
     {value: '2', display: 'test 3'}
   ]
-};
+}
 
 class ExampleFormGroup extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -48,6 +49,27 @@ class ExampleFormGroup extends React.Component {
       },
       'radio': {
         'value': 'option_2'
+      },
+      'radioWithChildren': {
+        'value': 'child_option_1'
+      },
+      'child_option_1': {
+        'value': 'child_option_1'
+      },
+      'child_option_2': {
+        'value': 'child_option_2'
+      },
+      'child_option_3': {
+        'value': 'child_option_3'
+      },
+      'child_input_1': {
+        'value': ''
+      },
+      'child_input_2': {
+        'value': ''
+      },
+      'child_input_3': {
+        'value': ''
       },
       'select': {
         'value': '1'
@@ -74,12 +96,12 @@ class ExampleFormGroup extends React.Component {
   }
 
   handleChange = (fields) => {
-    //console.log(fields);
+    this.setState({schema: fields})
   }
 
   handleSubmit = (event, fields) => {
-    event.preventDefault();
-    alert(JSON.stringify(fields, 2, null));
+    event.preventDefault()
+    alert(JSON.stringify(fields, 2, null))
   }
 
   resetForm = () => {
@@ -93,6 +115,27 @@ class ExampleFormGroup extends React.Component {
         },
         radio: {
           value: 'option_1'
+        },
+        radioWithChildren: {
+          value: 'child_option_1'
+        },
+        child_option_1: {
+          value: 'child_option_1'
+        },
+        child_option_2: {
+          value: 'child_option_2'
+        },
+        child_option_3: {
+          value: 'child_option_3'
+        },
+        child_input_1: {
+          value: ''
+        },
+        child_input_2: {
+          value: ''
+        },
+        child_input_3: {
+          value: ''
         },
         select: {
           value: '0'
@@ -112,11 +155,15 @@ class ExampleFormGroup extends React.Component {
         toggle: {
           value: false
         },
-        'logo': {
-          'value': ''
+        logo: {
+          value: ''
         }
       }
-    });
+    })
+  }
+
+  getRadioChildClass = (sibling) => {
+    return sibling !== this.state.schema.radioWithChildren.value ? style['is-hidden'] : style['radio-child']
   }
 
   render() {
@@ -130,11 +177,18 @@ class ExampleFormGroup extends React.Component {
         <Textarea name='message' label='Message' optClass={style.field} />
 
         <RadioGroup
-          label="What happens after a promotor submits a score?"
-          name="radio"
+          name='radio'
+          label='What happens after a promoter submits a score?'
           options={fields.radio}
-          defaultOption={1}
-          optClass={style.field}>
+          optClass={style.field} />
+
+        <RadioGroup name='radioWithChildren' label='Click a radio button to set a child value'>
+          <Radio name='child_option_1' label='Option 1' />
+          <Input name='child_input_1' optClass={this.getRadioChildClass('child_option_1')} />
+          <Radio name='child_option_2' label='Option 2' />
+          <Input name='child_input_2' optClass={this.getRadioChildClass('child_option_2')} />
+          <Radio name='child_option_3' label='Option 3' />
+          <Input name='child_input_3' optClass={this.getRadioChildClass('child_option_3')} />
         </RadioGroup>
 
         <SelectField
@@ -147,21 +201,21 @@ class ExampleFormGroup extends React.Component {
 
         <Toggle name='toggle' optClass={style.field} label='Would you like to set a toggle?' />
 
-        <FileUpload name='logo' label="Logo" showPreview={true} />
+        <FileUpload name='logo' label='Logo' showPreview={true} />
 
         <fieldset>
           <legend><span>I am a legend</span></legend>
           <h3>Social channels</h3>
-          <Checkbox name='email' label="Email" optClass={style.field} />
-          <Checkbox name='facebook' label="Facebook" optClass={style.field} />
-          <Checkbox name='twitter' label="Twitter" optClass={style.field} />
-          <Checkbox name='linkedin' label="LinkedIn" optClass={style.field} />
+          <Checkbox name='email' label='Email' optClass={style.field} />
+          <Checkbox name='facebook' label='Facebook' optClass={style.field} />
+          <Checkbox name='twitter' label='Twitter' optClass={style.field} />
+          <Checkbox name='linkedin' label='LinkedIn' optClass={style.field} />
         </fieldset>
 
-        <Button type="submit">Submit</Button>
+        <Button type='submit'>Submit</Button>
         <Button optClass='inverted' onClick={this.resetForm}>Reset</Button>
       </FormGroup>
-    );
+    )
   }
 }
 

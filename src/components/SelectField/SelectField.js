@@ -27,7 +27,7 @@ class SelectField extends React.Component {
     /**
      * The value of the option to be selected.
      */
-    value: React.PropTypes.string,
+    value: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
     /**
      * Which field in the option object will be used as the value of the select field.
      */
