@@ -1,13 +1,12 @@
 import React from 'react'
 import Loader from 'react-loader'
 import style from './style.scss'
-import classNames from 'classnames/bind'
+import optclass from '../internal/OptClass'
 
 const Button = (props) => {
-  const cx = classNames.bind(style)
   const collapseClass = props.collapse ? 'collapse' : null
   const loaderClasses = props.loading ? 'loading' : null
-  const btnClasses = cx(style.btn, props.optClass, props.size, loaderClasses, collapseClass)
+  const btnClasses = optclass(style, [style.btn, props.optClass, props.size, loaderClasses, collapseClass])
   const spinnerOptions = {
     lines: 10,
     length: 4,
@@ -25,10 +24,6 @@ const Button = (props) => {
 
 Button.propTypes = {
   /**
-   * Optional styles to add to the button.
-   */
-  optClass: React.PropTypes.string,
-  /**
    * The size of button.
    */
   size: React.PropTypes.string,
@@ -43,7 +38,14 @@ Button.propTypes = {
   /**
    * Whether to display only an icon on small screens
    */
-  collapse: React.PropTypes.bool
+  collapse: React.PropTypes.bool,
+  /**
+   * Optional CSS class(es) to be used for local styles (string or array of strings)
+   */
+  optClass: React.PropTypes.oneOfType([
+    React.PropTypes.array,
+    React.PropTypes.string
+  ])
 }
 
 export default Button
