@@ -56,7 +56,7 @@ class SelectField extends React.Component {
 
   state = {
     isOpen: false,
-    value: this.props.value || ''
+    value: this.props.value
   }
 
   componentWillMount = () => {

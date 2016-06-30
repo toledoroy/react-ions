@@ -15,7 +15,7 @@ class ExampleSelectFieldSelected extends React.Component {
   }
 
   state = {
-    selected: '1'
+    selected: 0
   }
 
   updateSelected = (index) => {
