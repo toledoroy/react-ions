@@ -6,6 +6,8 @@
 ##### Component Fixes / Enhancements
 - [Radio Button] - Added white background color ([#164](https://github.com/GetAmbassador/react-conventions/pull/164))
 
+- [Select Field] - Enabling setting value of zero ([#165](https://github.com/GetAmbassador/react-conventions/pull/165))
+
 ## 0.31.0
 ###### _June 29, 2016_
 
