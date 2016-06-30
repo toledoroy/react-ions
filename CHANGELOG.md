@@ -4,7 +4,7 @@
 ###### _June 30, 2016_
 
 ##### Component Fixes / Enhancements
-- [Radio Buggon] - Added white background color ([#164](https://github.com/GetAmbassador/react-conventions/pull/164))
+- [Radio Button] - Added white background color ([#164](https://github.com/GetAmbassador/react-conventions/pull/164))
 
 ## 0.31.0
 ###### _June 29, 2016_
