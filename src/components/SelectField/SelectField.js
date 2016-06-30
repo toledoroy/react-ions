@@ -75,15 +75,15 @@ class SelectField extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value !== this.state.value) {
-      // Select item
-      if (nextProps.value && nextProps.value && (this.getIndex(nextProps.value, nextProps.options) > -1 || nextProps.value === '')) {
-        this.selectItem(nextProps.value, nextProps.options)
-      }
-      // No value is passed in
-      else {
-        this.setState({selected: '', value: ''})
-      }
+    if (nextProps.value === this.state.value) {
+      return
+    }
+    let validIndex = this.getIndex(nextProps.value, nextProps.options) > -1
+    if (nextProps.value === undefined || nextProps.value === null || !validIndex) {
+      this.setState({selected: '', value: ''})
+    }
+    else {
+      this.selectItem(nextProps.value, nextProps.options)
     }
   }
 
