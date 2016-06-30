@@ -1,5 +1,11 @@
 ## HEAD
 
+## 0.33.0
+###### _June 30, 2016_
+
+##### Component Fixes / Enhancements
+- [Radio Button] - Added white background color ([#164](https://github.com/GetAmbassador/react-conventions/pull/164))
+
 ## 0.31.0
 ###### _June 29, 2016_
 
