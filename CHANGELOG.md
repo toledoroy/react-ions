@@ -1,5 +1,11 @@
 ## HEAD
 
+## 0.35.0
+###### _July 5, 2016_
+
+##### Component Fixes / Enhancements
+- [Icons] - Added social icons (Facebook, Twitter, LinkedIn) ([#167](https://github.com/GetAmbassador/react-conventions/pull/167))
+
 ## 0.34.0
 ###### _June 30, 2016_
 
