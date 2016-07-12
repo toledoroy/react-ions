@@ -96,7 +96,6 @@ class ExampleFormGroup extends React.Component {
   }
 
   handleChange = (fields) => {
-    console.log(fields)
     this.setState({schema: fields})
   }
 
