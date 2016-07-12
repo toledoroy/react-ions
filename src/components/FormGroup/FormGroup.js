@@ -52,19 +52,7 @@ class FormGroup extends React.Component {
   }
 
   componentWillMount = () => {
-    this.setInitialState()
-  }
-
-  setInitialState = () => {
-    let fields = {}
-    let value = null
-    let schema = this.props.schema
-
-    for (value in schema) {
-      fields[value] = schema[value]
-    }
-
-    this.setState({fields: fields})
+    this.setState({fields: this.props.schema})
   }
 
   handleSubmit = (event) => {
@@ -104,7 +92,7 @@ class FormGroup extends React.Component {
         if (name in fields) {
           if (React.isValidElement(child)) {
             childProps = {
-              changeCallback: this.debounce,
+              changeCallback: this.props.debounceTime ? this.debounce : this.handleChange,
               value: fields[name].value
             }
           }
