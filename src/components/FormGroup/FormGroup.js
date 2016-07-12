@@ -88,7 +88,7 @@ class FormGroup extends React.Component {
     var newState = previousState.fields[event.target.name] = newField
 
     if (typeof this.props.changeCallback === 'function') {
-      this.setState(newState, function() {
+      this.setState(newState, () => {
         this.props.changeCallback(this.state.fields)
       })
     }
