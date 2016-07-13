@@ -73,7 +73,7 @@ describe('DatePicker', () => {
     expect(wrapper.state('value')).to.equal(firstDay)
   })
 
-  it.skip('should run the changeCallback on changing a year', () => {
+  it('should run the changeCallback on changing a year', () => {
     let result = ''
     const callback = (event) => {
       result = event
