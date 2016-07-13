@@ -1,12 +1,13 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import FormGroup from '../src/components/FormGroup'
+import Button from '../src/components/Button'
 import Input from '../src/components/Input'
 import Textarea from '../src/components/Textarea'
 import Toggle from '../src/components/Toggle'
 
 describe('FormGroup', () => {
-  let formGroup
+  let formGroup, wrapper
 
   it('should shallow render itself', () => {
     formGroup = shallow(<FormGroup />)
@@ -41,19 +42,48 @@ describe('FormGroup', () => {
     expect(formGroup.childAt(0).children()).to.have.length(3)
   })
 
-  it('should update the state when a change is made', () => {
+  it('should update the state when props are passed', () => {
     const schema = {
       'subject': {
         'value':'This is my subject'
       }
     }
 
-    formGroup = mount(<FormGroup schema={schema}><Input name='subject' label='Subject line' type='text' /></FormGroup>)
-    let input = formGroup.childAt(0).childAt(0).childAt(1)
+    const schema2 = {
+      'subject': {
+        'value':'This is my answer'
+      }
+    }
 
-    expect(formGroup.state().fields.subject.value).to.equal('This is my subject')
-    input.simulate('change', {target: {value: 'a'}})
-    // expect(formGroup.state().fields.subject.value).to.equal('This is my subjecta')
+    wrapper = mount(<FormGroup schema={schema}><Input name='subject' label='Subject line' type='text' /></FormGroup>)
+    expect(wrapper.state().fields.subject.value).to.equal('This is my subject')
+
+    wrapper.setProps({ schema: schema2 })
+    wrapper.update()
+
+    expect(wrapper.state().fields.subject.value).to.equal('This is my answer')
+  })
+
+  it('should set the state when a form input is changed', () => {
+    const changeCallback = sinon.spy()
+
+    const schema = {
+      'subject': {
+        'value':'This is my subject'
+      }
+    }
+
+    wrapper = mount(<FormGroup changeCallback={changeCallback} schema={schema}><Input name='subject' label='Subject line' type='text' /></FormGroup>)
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        name: 'subject',
+        value: 'This is my answer'
+      }
+    })
+
+    expect(changeCallback.calledOnce).to.be.true
+    expect(wrapper.state().fields.subject.value).to.equal('This is my answer')
   })
 
   it('should render a fieldset without a form wrapper', () => {
@@ -70,6 +100,23 @@ describe('FormGroup', () => {
 
       expect(formGroup.type()).to.equal('fieldset')
       expect(formGroup.hasClass('fieldset')).to.equal(true)
+  })
+
+  it('should call a submit callback', () => {
+    const submitCallback = sinon.spy()
+
+    const schema = {
+      'subject': {
+        'value':'This is my subject'
+      }
+    }
+
+    wrapper = mount(<FormGroup submitCallback={submitCallback} schema={schema}><Input name='subject' label='Subject line' type='text' /><Button type='submit' /></FormGroup>)
+    const button = wrapper.find(Button)
+
+    button.simulate('submit')
+
+    expect(submitCallback.calledOnce).to.be.true
   })
 
 })

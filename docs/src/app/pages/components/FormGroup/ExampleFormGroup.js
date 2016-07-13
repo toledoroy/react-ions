@@ -171,6 +171,7 @@ class ExampleFormGroup extends React.Component {
       <FormGroup
         changeCallback={this.handleChange}
         submitCallback={this.handleSubmit}
+        debounceTime={250}
         schema={this.state.schema}>
 
         <Input name='subject' label='Subject line' type='text' optClass={style.field} />

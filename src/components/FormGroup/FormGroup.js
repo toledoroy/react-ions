@@ -1,10 +1,13 @@
 import React from 'react'
+import debounce from 'lodash/debounce'
 import style from './style.scss'
 import optclass from '../internal/OptClass'
 
 class FormGroup extends React.Component {
   constructor(props) {
     super(props)
+
+    this.debounce = debounce(this.handleChange, this.props.debounceTime)
   }
 
   static propTypes = {
@@ -31,7 +34,15 @@ class FormGroup extends React.Component {
     /**
      * Option to turn off form wrapper (for nested components)
      */
-    nested: React.PropTypes.bool
+    nested: React.PropTypes.bool,
+    /**
+     * Option to turn off debounce when something in the form group changes
+     */
+    debounceTime: React.PropTypes.number
+  }
+
+  static defaultProps = {
+    debounceTime: 0
   }
 
   componentWillReceiveProps(nextProps) {
@@ -41,19 +52,7 @@ class FormGroup extends React.Component {
   }
 
   componentWillMount = () => {
-    this.setInitialState()
-  }
-
-  setInitialState = () => {
-    let fields = {}
-    let value = null
-    let schema = this.props.schema
-
-    for (value in schema) {
-      fields[value] = schema[value]
-    }
-
-    this.setState({fields: fields})
+    this.setState({fields: this.props.schema})
   }
 
   handleSubmit = (event) => {
@@ -76,11 +75,11 @@ class FormGroup extends React.Component {
     var previousState = Object.assign({}, this.state)
     var newState = previousState.fields[event.target.name] = newField
 
-    this.setState(newState, function() {
-      if (typeof this.props.changeCallback === 'function') {
+    if (typeof this.props.changeCallback === 'function') {
+      this.setState(newState, () => {
         this.props.changeCallback(this.state.fields)
-      }
-    })
+      })
+    }
   }
 
   getElements(children) {
@@ -93,7 +92,7 @@ class FormGroup extends React.Component {
         if (name in fields) {
           if (React.isValidElement(child)) {
             childProps = {
-              changeCallback: this.handleChange,
+              changeCallback: this.props.debounceTime ? this.debounce : this.handleChange,
               value: fields[name].value
             }
           }
