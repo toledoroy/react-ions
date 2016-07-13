@@ -1,5 +1,12 @@
 ## HEAD
 
+## 0.36.0
+###### _July 13, 2016_
+
+##### Component Fixes / Enhancements
+- [Date Picker] - Connect fields ([#169](https://github.com/GetAmbassador/react-conventions/pull/169))
+- [Form Group] - Added debounce option ([#170](https://github.com/GetAmbassador/react-conventions/pull/170))
+
 ## 0.35.0
 ###### _July 5, 2016_
 
