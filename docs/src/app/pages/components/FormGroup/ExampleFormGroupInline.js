@@ -5,9 +5,11 @@ import Textarea from 'react-conventions/lib/Textarea'
 import Checkbox from 'react-conventions/lib/Checkbox'
 import RadioGroup from 'react-conventions/lib/Radio/RadioGroup'
 import SelectField from 'react-conventions/lib/SelectField'
+import DatePicker from 'react-conventions/lib/DatePicker'
 import Button from 'react-conventions/lib/Button'
 import ButtonGroup from 'react-conventions/lib/ButtonGroup/ButtonGroup'
 import Icon from 'react-conventions/lib/Icon'
+import moment from 'moment'
 import style from 'react-conventions/lib/FormGroup/style'
 
 let fields = {
@@ -62,6 +64,9 @@ class ExampleFormGroupInline extends React.Component {
       },
       'selectField6': {
         'value':''
+      },
+      'date': {
+        'value': moment().format('YYYY-MM-DD')
       }
     }
   }
@@ -83,6 +88,7 @@ class ExampleFormGroupInline extends React.Component {
             <SelectField name='selectField2' options={fields.selectField2} valueProp='value' displayProp='display' optClass={style.field} />
             <Input name='num' type='text' optClass={style.field} />
             <SelectField name='selectField3' options={fields.selectField3} valueProp='value' displayProp='display' optClass={style.field} />
+            <DatePicker name='date' optClass={style.field} />
           </div>
         </fieldset>
         <fieldset className={style.row}>
