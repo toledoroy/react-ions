@@ -85,7 +85,7 @@ describe('DatePicker', () => {
     // click <li>
     wrapper.childAt(2).childAt(2).childAt(0).simulate('click')
 
-    const firstYear = moment().subtract(10, 'year').format('YYYY')+'-07-07'
+    const firstYear = moment().subtract(10, 'year').format(defaultFormat)
     expect(result.target.value).to.equal(firstYear)
     expect(wrapper.state('value')).to.equal(firstYear)
   })

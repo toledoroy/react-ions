@@ -56,6 +56,19 @@ fieldset.row {
     }
     .fields {
       padding-right: 40px;
+      [class*='datepicker-component-'] {
+        > div + div {
+          margin: -1px 0 0;
+        }
+        > div:first-of-type > div {
+          border-radius: 3px 3px 0 0;
+        }
+        > div:nth-of-type(2), > div:last-of-type {
+          > div {
+            border-radius: 0;
+          }
+        }
+      }
       > .field {
         > div, > input {
           border-radius: 3px 3px 0 0;
@@ -65,9 +78,26 @@ fieldset.row {
           > div, > input {
             border-radius: 0;
           }
+          &[class*='datepicker-component-'] {
+            > div:first-of-type, > div:nth-of-type(2), > div:last-of-type {
+              > div {
+                border-radius: 0;
+              }
+            }
+          }
           &:last-child {
             > div, > input {
               border-radius: 0 0 3px 3px;
+            }
+            &[class*='datepicker-component-'] {
+              > div:first-of-type, > div:nth-of-type(2) {
+                > div {
+                  border-radius: 0;
+                }
+              }
+              > div:last-of-type > div {
+                border-radius: 0 0 3px 3px;
+              }
             }
           }
         }
