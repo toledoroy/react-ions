@@ -167,7 +167,7 @@ class DatePicker extends React.Component {
     let end = checkMax ? dateObj.month.max+1 : 12
 
     for (var i=start; i<end; i++) {
-      monthOptions.push({value: i.toString(), display: moment(i+1, 'MM').format('MMMM')})
+      monthOptions.push({value: i.toString(), display: moment(i+1, 'MM').format('MMM')})
     }
 
     // if selected month is greater than max month, change it to max month
