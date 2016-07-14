@@ -1,5 +1,11 @@
 ## HEAD
 
+## 0.37.0
+###### _July 14, 2016_
+
+##### Component Fixes / Enhancements
+- [Date Picker] - Use abbreviated month names ([#172](https://github.com/GetAmbassador/react-conventions/pull/172))
+
 ## 0.36.0
 ###### _July 13, 2016_
 
