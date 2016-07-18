@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom'
 import { shallow, mount } from 'enzyme'
 import Loader from 'react-loader'
 import Input from '../src/components/Input/Input'
-import { Typeahead } from '../src/components/Typeahead'
+import { Typeahead } from '../src/components/Typeahead/Typeahead'
 
 describe('Typeahead', () => {
-  let wrapper, typeahead
+  let wrapper, typeahead, inst
+
   const options = [
     {value: 'AT', display: 'Austria'},
-    {value: 'BM', display: 'Bermuda'}
+    {value: 'BM', display: 'Bermuda'},
+    {value: 10, display: 'Number'}
   ]
 
   it('should shallow render itself', () => {
@@ -20,12 +22,12 @@ describe('Typeahead', () => {
 
   it('should have placeholder text', () => {
     wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' placeholder='test' />)
-    expect(wrapper.props().placeholder).to.equal('test')
+    expect(wrapper.childAt(0).props().placeholder).to.equal('test')
   })
 
   it('should be disabled', () => {
     wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' disabled={true} />)
-    expect(wrapper.props().disabled).to.be.true
+    expect(wrapper.childAt(0).props().disabled).to.be.true
   })
 
   it('should have an extra class', () => {
@@ -53,6 +55,11 @@ describe('Typeahead', () => {
     wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' searchCallback={searchStub} />)
     wrapper.find('input').simulate('change', {target: {value: 'b'}})
     expect(searchStub.calledWithExactly('b')).to.be.true
+  })
+
+  it('should update when props are set', () => {
+    wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' value={10} optClass='test-class' />)
+    expect(wrapper.childAt(0).props().value).to.equal(10)
   })
 
 })

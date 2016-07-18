@@ -29,9 +29,12 @@ class Input extends React.Component {
      */
     label: React.PropTypes.string,
     /**
-     * Value of the input.
+     * Value of the input (can be path string or a number).
      */
-    value: React.PropTypes.string,
+    value: React.PropTypes.oneOfType([
+      React.PropTypes.number,
+      React.PropTypes.string
+    ]),
     /**
      * Optional placeholder text.
      */
