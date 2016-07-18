@@ -20,32 +20,32 @@ const DatePickerPage = () => (
     <div className={styles.content}>
       <div className={styles.block}>
         <CodeExample
-          title='Example Default Date Picker'
-          description='This is the default `DatePicker component` with current date by default and min date: -10 years & max date: +10 years.'
+          title='Default Date Picker'
+          description='This is the `DatePicker component` with default current date and min date: -10 years & max date: +10 years.'
           markup={exampleDatePickerDefaultCode}>
           <ExampleDatePickerDefault />
         </CodeExample>
         <CodeExample
-          title='Example Default Date Picker with custom min & max dates'
-          description='This is the default `DatePicker component` with custom min & max dates.'
+          title='Date Picker with custom min & max dates'
+          description='This is the `DatePicker component` with custom min & max dates.'
           markup={exampleDatePickerDefaultCustomMinMaxCode}>
           <ExampleDatePickerDefaultCustomMinMax />
         </CodeExample>
         <CodeExample
-          title='Example Date Picker with Selected Date'
-          description='This is the default `DatePicker component` with Selected Date.'
+          title='Date Picker with Selected Date'
+          description='This is the `DatePicker component` with Selected Date.'
           markup={exampleDatePickerSelectedCode}>
           <ExampleDatePickerSelected />
         </CodeExample>
         <CodeExample
-          title='Example Date Picker with Selected Date and custom min & max dates'
-          description='This is the default `DatePicker component` with Selected Date and custom min & max dates.'
+          title='Date Picker with Selected Date and custom min & max dates'
+          description='This is the `DatePicker component` with Selected Date and custom min & max dates.'
           markup={exampleDatePickerSelectedCustomMinMaxCode}>
           <ExampleDatePickerSelectedCustomMinMax />
         </CodeExample>
         <CodeExample
-          title='Example Default Date Picker with Callback'
-          description='This is the default `DatePicker component`with Callback.'
+          title='Example Date Picker with Callback'
+          description='This is the `DatePicker component`with Callback.'
           markup={exampleDatePickerCallbackCode}>
           <ExampleDatePickerCallback />
         </CodeExample>
