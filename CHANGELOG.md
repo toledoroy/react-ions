@@ -1,5 +1,12 @@
 ## HEAD
 
+## 0.38.0
+###### _July 18, 2016_
+
+##### Component Fixes / Enhancements
+- [Typeahead] - Support for number props ([#174](https://github.com/GetAmbassador/react-conventions/pull/174))
+- [Datepicker] - Style mods ([#175](https://github.com/GetAmbassador/react-conventions/pull/175))
+
 ## 0.37.0
 ###### _July 14, 2016_
 
