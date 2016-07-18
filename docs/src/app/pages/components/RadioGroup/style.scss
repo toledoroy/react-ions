@@ -12,5 +12,7 @@
 
 .radio-child {
 	margin: 0 0 15px 27px;
-	width: 50px;
+  &[class^='input-component-'] {
+    width: 50px;
+  }
 }
