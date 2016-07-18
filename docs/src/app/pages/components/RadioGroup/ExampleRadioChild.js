@@ -11,15 +11,25 @@ class ExampleRadioChild extends React.Component {
 
   state = {
     checkedValue: null,
-    childValue: null
+    currentChildValue: null,
+    option1: null,
+    option2: null,
+    option3: null
   }
 
   handleChange = (event, value) => {
+    const currentChildValue = this.state[value]
     if (event.target.name === 'child-radio-group') {
-      this.setState({checkedValue: value, childValue: null})
+      this.setState({checkedValue: value, currentChildValue: currentChildValue})
     }
-    else if (event.target.name === 'child-input') {
-      this.setState({childValue: event.target.value})
+    else if (event.target.name === 'child-input-1') {
+      this.setState({option1: event.target.value, currentChildValue: event.target.value})
+    }
+    else if (event.target.name === 'child-input-2') {
+      this.setState({option2: event.target.value, currentChildValue: event.target.value})
+    }
+    else if (event.target.name === 'child-input-3') {
+      this.setState({option3: event.target.value, currentChildValue: event.target.value})
     }
   }
 
@@ -31,16 +41,16 @@ class ExampleRadioChild extends React.Component {
     return (
       <div>
         <RadioGroup name='child-radio-group' label='Child radio label' changeCallback={this.handleChange}>
-          <Radio value='Option 1' label='Option 1' />
-          <Input name='child-input' changeCallback={this.handleChange} optClass={this.getClass('Option 1')} />
-          <Radio value='Option 2' label='Option 2' />
-          <Input name='child-input' changeCallback={this.handleChange} optClass={this.getClass('Option 2')} />
-          <Radio value='Option 3' label='Option 3' />
-          <Input name='child-input' changeCallback={this.handleChange} optClass={this.getClass('Option 3')} />
+          <Radio value='option1' label='Option 1' />
+          <Input name='child-input-1' changeCallback={this.handleChange} optClass={this.getClass('option1')} />
+          <Radio value='option2' label='Option 2' />
+          <Input name='child-input-2' changeCallback={this.handleChange} optClass={this.getClass('option2')} />
+          <Radio value='option3' label='Option 3' />
+          <Input name='child-input-3' changeCallback={this.handleChange} optClass={this.getClass('option3')} />
         </RadioGroup>
 
         <code>{this.state.checkedValue ? this.state.checkedValue + ' is checked' : null}</code>
-        <code>{this.state.childValue ? 'Child value is ' + this.state.childValue : null}</code>
+        <code>{this.state.currentChildValue ? 'Child value is ' + this.state.currentChildValue : null}</code>
       </div>
     )
   }
