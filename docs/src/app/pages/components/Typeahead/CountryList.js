@@ -51,7 +51,8 @@ const options = [
   {countryCode: 'CG', countryName: 'Congo'},
   {countryCode: 'CK', countryName: 'Cook Islands'},
   {countryCode: 'CR', countryName: 'Costa Rica'},
-  {countryCode: 'CT', countryName: 'Cote D\'Ivoire'}
+  {countryCode: 'CT', countryName: 'Cote D\'Ivoire'},
+  {countryCode: 10, countryName: 'Number'}
 ]
 
 export default options

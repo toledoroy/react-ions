@@ -28,9 +28,12 @@ export class Typeahead extends React.Component {
      */
     options: React.PropTypes.array.isRequired,
     /**
-     * The value of the option to be selected.
+     * Value of the typeahead.
      */
-    value: React.PropTypes.string,
+    value: React.PropTypes.oneOfType([
+      React.PropTypes.number,
+      React.PropTypes.string
+    ]),
     /**
      * Which field in the option object will be used as the value of the select field.
      */
@@ -84,9 +87,6 @@ export class Typeahead extends React.Component {
         this.selectItem(nextProps.value, nextProps.options)
       })
     }
-    else {
-      this.setState({selected: '', value: '', searchStr: ''})
-    }
   }
 
   selectOption = (option) => {
@@ -119,7 +119,6 @@ export class Typeahead extends React.Component {
         optionIndex = index
       }
     })
-
     return optionIndex
   }
 
