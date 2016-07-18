@@ -29,7 +29,7 @@ class Input extends React.Component {
      */
     label: React.PropTypes.string,
     /**
-     * Value of the input (can be path string or a number).
+     * Value of the input.
      */
     value: React.PropTypes.oneOfType([
       React.PropTypes.number,

@@ -28,7 +28,7 @@ export class Typeahead extends React.Component {
      */
     options: React.PropTypes.array.isRequired,
     /**
-     * Value of the typeahead (can be path string or a number).
+     * Value of the typeahead.
      */
     value: React.PropTypes.oneOfType([
       React.PropTypes.number,
