@@ -9,7 +9,8 @@ import SelectField from 'react-conventions/lib/SelectField'
 import Button from 'react-conventions/lib/Button'
 import Toggle from 'react-conventions/lib/Toggle'
 import FileUpload from 'react-conventions/lib/FileUpload'
-import style from 'react-conventions/lib/FormGroup/style'
+import formStyle from 'react-conventions/lib/FormGroup/style'
+import style from './style.scss'
 
 let fields = {
   radio: [
@@ -163,7 +164,7 @@ class ExampleFormGroup extends React.Component {
   }
 
   getRadioChildClass = (sibling) => {
-    return sibling !== this.state.schema.radioWithChildren.value ? style['is-hidden'] : style['radio-child']
+    return sibling !== this.state.schema.radioWithChildren.value ? formStyle['is-hidden'] : style['radio-child']
   }
 
   render() {
@@ -174,14 +175,14 @@ class ExampleFormGroup extends React.Component {
         debounceTime={250}
         schema={this.state.schema}>
 
-        <Input name='subject' label='Subject line' type='text' optClass={style.field} />
-        <Textarea name='message' label='Message' optClass={style.field} />
+        <Input name='subject' label='Subject line' type='text' optClass={formStyle.field} />
+        <Textarea name='message' label='Message' optClass={formStyle.field} />
 
         <RadioGroup
           name='radio'
           label='What happens after a promoter submits a score?'
           options={fields.radio}
-          optClass={style.field} />
+          optClass={formStyle.field} />
 
         <RadioGroup name='radioWithChildren' label='Click a radio button to set a child value'>
           <Radio name='child_option_1' label='Option 1' />
@@ -198,19 +199,19 @@ class ExampleFormGroup extends React.Component {
           options={fields.select}
           valueProp='value'
           displayProp='display'
-          optClass={style.field} />
+          optClass={formStyle.field} />
 
-        <Toggle name='toggle' optClass={style.field} label='Would you like to set a toggle?' />
+        <Toggle name='toggle' optClass={formStyle.field} label='Would you like to set a toggle?' />
 
         <FileUpload name='logo' label='Logo' showPreview={true} />
 
         <fieldset>
           <legend><span>I am a legend</span></legend>
           <h3>Social channels</h3>
-          <Checkbox name='email' label='Email' optClass={style.field} />
-          <Checkbox name='facebook' label='Facebook' optClass={style.field} />
-          <Checkbox name='twitter' label='Twitter' optClass={style.field} />
-          <Checkbox name='linkedin' label='LinkedIn' optClass={style.field} />
+          <Checkbox name='email' label='Email' optClass={formStyle.field} />
+          <Checkbox name='facebook' label='Facebook' optClass={formStyle.field} />
+          <Checkbox name='twitter' label='Twitter' optClass={formStyle.field} />
+          <Checkbox name='linkedin' label='LinkedIn' optClass={formStyle.field} />
         </fieldset>
 
         <Button type='submit'>Submit</Button>
