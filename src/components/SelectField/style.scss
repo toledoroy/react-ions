@@ -3,7 +3,6 @@
 @import '../../styles/common/mixins';
 
 .selectfield-component {
-  background: $white;
   display: inline-block;
   position: relative;
 
@@ -21,6 +20,7 @@
     border-radius: 3px;
     color: $primary-4;
     cursor: pointer;
+    background: $white;
     position: relative;
     padding: 10px 29px 10px 10px;
     user-select: none;
