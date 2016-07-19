@@ -1,5 +1,12 @@
 ## HEAD
 
+## 0.40.0
+###### _July 19, 2016_
+
+##### Component Fixes / Enhancements
+
+- [FormGroup, SelectField] - Minor CSS tweaks ([#179](https://github.com/GetAmbassador/react-conventions/pull/179))
+
 ## 0.39.0
 ###### _July 19, 2016_
 
