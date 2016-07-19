@@ -27,7 +27,7 @@ class ExampleTypeaheadDefaultValue extends React.Component {
     return(
       <Typeahead
         options={options}
-        valueProp='countryName'
+        valueProp='countryCode'
         displayProp='countryName'
         value={this.state.selected}
         loading={this.state.loading}

@@ -92,7 +92,7 @@ export class Typeahead extends React.Component {
   selectOption = (option) => {
     let normalizedOption = option.original ? option.original : option
 
-    this.setState({selected: normalizedOption, searchStr: normalizedOption[this.props.valueProp], value: normalizedOption[this.props.valueProp], isActive: false}, () => {
+    this.setState({selected: normalizedOption, searchStr: normalizedOption[this.props.displayProp], value: normalizedOption[this.props.valueProp], isActive: false}, () => {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {

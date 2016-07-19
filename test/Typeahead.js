@@ -59,7 +59,7 @@ describe('Typeahead', () => {
 
   it('should update when props are set', () => {
     wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' value={10} optClass='test-class' />)
-    expect(wrapper.childAt(0).props().value).to.equal(10)
+    expect(wrapper.childAt(0).props().value).to.equal('Number')
   })
 
 })
