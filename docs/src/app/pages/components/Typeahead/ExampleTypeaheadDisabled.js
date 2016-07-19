@@ -5,7 +5,7 @@ import options from './CountryList'
 const ExampleTypeaheadDisabled = () => (
   <Typeahead
     options={options}
-    valueProp='countryName'
+    valueProp='countryCode'
     displayProp='countryName'
     value={null}
     placeholder='You may not type here'

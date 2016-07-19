@@ -30,13 +30,13 @@ class ExampleTypeaheadDefaultValue extends React.Component {
     return(
       <div>
         <div className={style.update}>
-          <Button onClick={this.updateSelected.bind(this, options[1].countryName)}>Select Albania</Button>
-          <Button onClick={this.updateSelected.bind(this, options[18].countryName)}>Select Belarus</Button>
-          <Button onClick={this.updateSelected.bind(this, options[49].countryName)}>Select Congo</Button>
+          <Button onClick={this.updateSelected.bind(this, options[1].countryCode)}>Select Albania</Button>
+          <Button onClick={this.updateSelected.bind(this, options[18].countryCode)}>Select Belarus</Button>
+          <Button onClick={this.updateSelected.bind(this, options[49].countryCode)}>Select Congo</Button>
         </div>
         <Typeahead
           options={options}
-          valueProp='countryName'
+          valueProp='countryCode'
           displayProp='countryName'
           value={this.state.selected}
           changeCallback={this.handleChange} />

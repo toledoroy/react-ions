@@ -5,7 +5,7 @@ import options from './CountryList'
 const ExampleTypeaheadDefault = () => (
   <Typeahead
     options={options}
-    valueProp='countryName'
+    valueProp='countryCode'
     displayProp='countryName'
     placeholder='Start typing' />
 )

@@ -20,7 +20,7 @@ class ExampleTypeaheadCallback extends React.Component {
       <div>
         <Typeahead
           options={options}
-          valueProp='countryName'
+          valueProp='countryCode'
           displayProp='countryName'
           value={null}
           changeCallback={this.handleChange} />
