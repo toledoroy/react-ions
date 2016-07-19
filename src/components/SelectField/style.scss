@@ -16,6 +16,7 @@
   }
 
   .selectfield-value {
+    background-color: $white;
     border: 1px solid $neutral-3;
     border-radius: 3px;
     color: $primary-4;
@@ -60,7 +61,7 @@
     position: absolute;
     width: 100%;
     max-height: 247px;
-    z-index: 2;
+    z-index: 3;
 
     li {
       color: $primary-4;
