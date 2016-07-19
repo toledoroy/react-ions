@@ -1,5 +1,12 @@
 ## HEAD
 
+## 0.39.0
+###### _July 19, 2016_
+
+##### Component Fixes / Enhancements
+
+- [Typeahead] - Fix for display prop ([#177](https://github.com/GetAmbassador/react-conventions/pull/177))
+
 ## 0.38.0
 ###### _July 18, 2016_
 
