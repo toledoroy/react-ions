@@ -88,6 +88,9 @@ const nav = [
         name: 'Sortable List',
         action: '/components/sortable-list'
       }, {
+        name: 'Spinner',
+        action: '/components/spinner'
+      }, {
         name: 'Tabs',
         action: '/components/tabs'
       }, {
