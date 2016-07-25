@@ -4,6 +4,7 @@ import enhanceWithClickOutside from 'react-click-outside'
 import fuzzy from 'fuzzy'
 import Loader from 'react-loader'
 import Input from '../Input'
+import Button from '../Button'
 import style from './style.scss'
 
 export class Typeahead extends React.Component {
@@ -68,7 +69,7 @@ export class Typeahead extends React.Component {
     isActive: false,
     value: this.props.value || '',
     results: [],
-    selected: null,
+    selected: '',
     searchStr: ''
   }
 
@@ -91,7 +92,6 @@ export class Typeahead extends React.Component {
 
   selectOption = (option) => {
     let normalizedOption = option.original ? option.original : option
-
     this.setState({selected: normalizedOption, searchStr: normalizedOption[this.props.displayProp], value: normalizedOption[this.props.valueProp], isActive: false}, () => {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
@@ -123,17 +123,18 @@ export class Typeahead extends React.Component {
   }
 
   handleChange = (event) => {
-    if (event.target.value.length) {
-      this.setState({searchStr: event.target.value})
-      if (typeof this.props.searchCallback === 'function') {
-        this.props.searchCallback(event.target.value).then((options) => {
-          this.updateResults(event, options)
-        })
-      } else {
-        this.updateResults(event, this.props.options)
-      }
+    if (!event.target.value.length) {
+      this.setState({isActive: false, searchStr: ''})
+      return
+    }
+
+    this.setState({searchStr: event.target.value})
+    if (typeof this.props.searchCallback === 'function') {
+      this.props.searchCallback(event.target.value).then((options) => {
+        this.updateResults(event, options)
+      })
     } else {
-      this.setState({isActive: false})
+      this.updateResults(event, this.props.options)
     }
   }
 
@@ -162,6 +163,10 @@ export class Typeahead extends React.Component {
     }
   }
 
+  clearSearch = () => {
+    this.setState({isActive: false, searchStr: '', selected: '', value: ''})
+  }
+
   render() {
     const cx = classNames.bind(style)
     const loaderClass = this.props.loading ? 'loading' : null
@@ -186,6 +191,12 @@ export class Typeahead extends React.Component {
     return (
       <div className={typeaheadClass}>
         <Input changeCallback={this.handleChange} value={this.state.searchStr} placeholder={this.props.placeholder} disabled={this.props.disabled} />
+
+        {this.state.searchStr !== ''
+          ? <Button onClick={this.clearSearch}>Reset</Button>
+          : null
+        }
+
         { this.props.loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
 
         {this.state.isActive
