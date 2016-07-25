@@ -128,7 +128,7 @@ export class Typeahead extends React.Component {
       return
     }
 
-    this.setState({searchStr: event.target.value})
+    this.setState({searchStr: event.target.value, value: ''})
     if (typeof this.props.searchCallback === 'function') {
       this.props.searchCallback(event.target.value).then((options) => {
         this.updateResults(event, options)
