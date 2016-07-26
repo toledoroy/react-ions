@@ -1,5 +1,18 @@
 ## HEAD
 
+## 0.41.0
+###### _July 26, 2016_
+
+##### Component Fixes / Enhancements
+
+- [Typeahead] - Clear typeahead values ([#184](https://github.com/GetAmbassador/react-conventions/pull/184))
+
+- [Spinner] - New component to handle loading state ([#183](https://github.com/GetAmbassador/react-conventions/pull/183))
+
+- [Typeahead] - Add reset button ([#182](https://github.com/GetAmbassador/react-conventions/pull/182))
+
+- [Typeahead] - Consistent color for input value ([#181](https://github.com/GetAmbassador/react-conventions/pull/181))
+
 ## 0.40.0
 ###### _July 19, 2016_
 
