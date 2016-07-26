@@ -124,11 +124,11 @@ export class Typeahead extends React.Component {
 
   handleChange = (event) => {
     if (!event.target.value.length) {
-      this.setState({isActive: false, searchStr: ''})
+      this.clearSearch()
       return
     }
 
-    this.setState({searchStr: event.target.value, value: ''})
+    this.setState({searchStr: event.target.value})
     if (typeof this.props.searchCallback === 'function') {
       this.props.searchCallback(event.target.value).then((options) => {
         this.updateResults(event, options)
