@@ -165,7 +165,17 @@ export class Typeahead extends React.Component {
   }
 
   clearSearch = () => {
-    this.setState({isActive: false, searchStr: '', selected: '', value: ''})
+    this.setState({isActive: false, searchStr: '', selected: '', value: null}, () => {
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback({
+          target: {
+            name: '',
+            value: '',
+            option: ''
+          }
+        })
+      }
+    })
   }
 
   render() {
