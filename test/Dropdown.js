@@ -27,7 +27,7 @@ describe('Dropdown', () => {
 
   it('should be opened by default', () => {
     wrapper = mount(<Dropdown isOpened={true} trigger='Test'>This is a test.</Dropdown>);
-   expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true);
+    expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true);
     expect(wrapper.find('.dropdown-component').hasClass('is-opened')).to.equal(true);
    });
 
