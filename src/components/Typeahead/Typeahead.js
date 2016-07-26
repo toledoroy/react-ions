@@ -5,6 +5,7 @@ import fuzzy from 'fuzzy'
 import Loader from 'react-loader'
 import Input from '../Input'
 import Button from '../Button'
+import Icon from '../Icon'
 import style from './style.scss'
 
 export class Typeahead extends React.Component {
@@ -192,8 +193,8 @@ export class Typeahead extends React.Component {
       <div className={typeaheadClass}>
         <Input changeCallback={this.handleChange} value={this.state.searchStr} placeholder={this.props.placeholder} disabled={this.props.disabled} />
 
-        {this.state.searchStr !== ''
-          ? <Button onClick={this.clearSearch}>Reset</Button>
+        {this.state.searchStr !== '' && !this.props.loading
+          ? <Icon name='icon-delete-1-1' onClick={this.clearSearch} className={style['reset-button']}>Reset</Icon>
           : null
         }
 
