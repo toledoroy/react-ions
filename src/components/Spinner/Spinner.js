@@ -27,7 +27,7 @@ class Spinner extends React.Component {
     /**
      * The type of loader you want to display.
      */
-    type: React.PropTypes.oneOf(['spinner-dots', 'spinner-bounce']),
+    type: React.PropTypes.oneOf(['spinner-dots', 'spinner-bounce']).isRequired,
     /**
      * Optional styles to add to the textarea.
      */
