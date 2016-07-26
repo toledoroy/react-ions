@@ -53,7 +53,7 @@ class Spinner extends React.Component {
   render() {
     const cx = classNames.bind(style)
     const loadingClass = this.state.loading ? style['loading'] : null
-    const spinnerWrap = cx(style['spinner-wrap'], loadingClass, this.props.optClass, this.props.position)
+    const spinnerWrap = cx(style['spinner-wrap'], loadingClass, style[this.props.position], this.props.optClass)
     const spinnerClass = cx(style[this.props.type], this.props.optClass)
 
     return (
