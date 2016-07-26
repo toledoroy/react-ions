@@ -175,9 +175,9 @@ describe('MultiSelect', () => {
     expect(wrapper.state().value[1]).to.equal('2')
 
     wrapper.find('input').simulate('change', {target: {value: 't'}})
-    expect(wrapper.childAt(0).childAt(1).find('li')).to.have.length(2)
+    expect(wrapper.childAt(0).childAt(2).find('li')).to.have.length(2)
 
-    wrapper.childAt(0).childAt(1).childAt(1).simulate('click')
+    wrapper.childAt(0).childAt(2).childAt(1).simulate('click')
 
     expect(changeCallback.called).to.be.true
     expect(wrapper.state().value).to.have.length(3)

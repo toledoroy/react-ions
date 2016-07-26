@@ -18,6 +18,7 @@ describe('Typeahead', () => {
     wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' />)
     expect(!!wrapper.find('.typeahead-component')).to.equal(true)
     expect(wrapper.find(Loader)).to.have.length(0)
+    expect(wrapper.find(Input)).to.have.length(1)
   })
 
   it('should have placeholder text', () => {
@@ -39,7 +40,7 @@ describe('Typeahead', () => {
     wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' />)
     wrapper.find('input').simulate('change', {target: {value: 'a'}})
     expect(!!wrapper.find('.typeahead-list')).to.equal(true)
-    expect(wrapper.childAt(1).find('li')).to.have.length(2)
+    expect(wrapper.childAt(2).find('li')).to.have.length(2)
   })
 
   it('should display a loader', () => {
