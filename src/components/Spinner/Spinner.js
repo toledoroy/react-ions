@@ -35,23 +35,19 @@ class Spinner extends React.Component {
   }
 
   innerHtml = () => {
-    let html
-
     if (this.props.type === 'spinner-dots') {
-      html = <div>
+      return <div>
                <div className={style.dot1}></div>
                <div className={style.dot2}></div>
              </div>
     }
     if (this.props.type === 'spinner-bounce') {
-      html = <div>
+      return <div>
                <div className={style.bounce1}></div>
                <div className={style.bounce2}></div>
                <div className={style.bounce3}></div>
              </div>
     }
-
-    return html
   }
 
   render() {
