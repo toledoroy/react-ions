@@ -32,6 +32,7 @@ import ProgressBarPage from './pages/components/ProgressBar/Page'
 import PanelGroupPage from './pages/components/PanelGroup/Page'
 import SelectFieldPage from './pages/components/SelectField/Page'
 import SortableListPage from './pages/components/SortableList/Page'
+import SpinnerPage from './pages/components/Spinner/Page'
 import TabsPage from './pages/components/TabWrapper/Page'
 import TogglePage from './pages/components/Toggle/Page'
 import TextareaPage from './pages/components/Textarea/Page'
@@ -71,6 +72,7 @@ const Routes = (
       <Route path='panel-group' title='Panel Group' component={PanelGroupPage} />
       <Route path='select-field' title='Select Field' component={SelectFieldPage} />
       <Route path='sortable-list' title='Sortable List' component={SortableListPage} />
+      <Route path='spinner' title='Spinner' component={SpinnerPage} />
       <Route path='radio' title='Radio' component={RadioGroupPage} />
       <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
       <Route path='tabs' title='Tabs' component={TabsPage} />
