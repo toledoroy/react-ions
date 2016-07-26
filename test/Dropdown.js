@@ -21,17 +21,20 @@ describe('Dropdown', () => {
     expect(trigger.hasClass('trigger')).to.equal(true);
     expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true);
     trigger.simulate('click');
-    expect(wrapper.find('.dropdown-component').hasClass('dropdown-component is-opened')).to.equal(true);
+    expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true);
+    expect(wrapper.find('.dropdown-component').hasClass('is-opened')).to.equal(true);
   });
 
   it('should be opened by default', () => {
     wrapper = mount(<Dropdown isOpened={true} trigger='Test'>This is a test.</Dropdown>);
-    expect(wrapper.find('.dropdown-component').hasClass('dropdown-component is-opened')).to.equal(true);
-  });
+   expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true);
+    expect(wrapper.find('.dropdown-component').hasClass('is-opened')).to.equal(true);
+   });
 
   it('should take an optional CSS class', () => {
     wrapper = mount(<Dropdown optClass='test' trigger='Test'>This is a test.</Dropdown>);
-    expect(wrapper.find('.dropdown-component').hasClass('dropdown-component test')).to.equal(true);
+    expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true);
+    expect(wrapper.find('.dropdown-component').hasClass('test')).to.equal(true);
   });
 
   it('displays a modified state upon changing props', function () {

@@ -14,7 +14,7 @@ describe('Typeahead', () => {
     {value: 10, display: 'Number'}
   ]
 
-  it('shouldd shallow render itself', () => {
+  it('should shallow render itself', () => {
     wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' />)
     expect(!!wrapper.find('.typeahead-component')).to.equal(true)
     expect(wrapper.find(Loader)).to.have.length(0)
