@@ -44,14 +44,14 @@
 }
 
 .reset-button {
+  background-color: $neutral-4;
+  border-radius: 50%;
+  cursor: pointer;
+  fill: $white;
+  height: 11px;
+  padding: 3px;
   position: absolute;
   right: 15px;
   top: 11px;
   width: 10px;
-  height: 11px;
-  background-color: $neutral-4;
-  fill: $white;
-  padding: 3px;
-  border-radius: 50%;
-  cursor: pointer;
 }

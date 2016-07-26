@@ -4,7 +4,6 @@ import enhanceWithClickOutside from 'react-click-outside'
 import fuzzy from 'fuzzy'
 import Loader from 'react-loader'
 import Input from '../Input'
-import Button from '../Button'
 import Icon from '../Icon'
 import style from './style.scss'
 
@@ -165,7 +164,7 @@ export class Typeahead extends React.Component {
   }
 
   clearSearch = () => {
-    this.setState({isActive: false, searchStr: '', selected: '', value: null}, () => {
+    this.setState({isActive: false, searchStr: '', selected: '', value: ''}, () => {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {
