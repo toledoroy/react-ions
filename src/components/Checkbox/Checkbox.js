@@ -9,26 +9,21 @@ class Checkbox extends React.Component {
   }
 
   static defaultProps = {
-    checked: false,
     disabled: false,
     labelPosition: 'right'
   }
 
   state = {
-    checked: this.props.checked
+    value: this.props.value
   }
 
   static propTypes = {
-    /**
-     * Whether the checkbox is checked.
-     */
-    checked: React.PropTypes.bool,
     /**
      * Whether the checkbox is disabled.
      */
     disabled: React.PropTypes.bool,
     /**
-     * Value of the input.
+     * Value of the input. Sets whether checked or not.
      */
     value: React.PropTypes.bool,
     /**
@@ -51,7 +46,7 @@ class Checkbox extends React.Component {
 
   handleChange = (event) => {
     event.persist()
-    this.setState({ checked: event.target.checked }, () => {
+    this.setState({ value: event.target.checked }, () => {
       if (typeof this.props.changeCallback === 'function') {
         event.target.value = !!event.target.checked
         this.props.changeCallback(event)
@@ -61,19 +56,18 @@ class Checkbox extends React.Component {
 
   componentWillMount = () => {
     if (this.props.value) {
-      this.setState({ checked: this.props.value })
+      this.setState({ value: this.props.value })
     }
   }
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value !== this.props.value) {
-      this.setState({ checked: nextProps.value })
+      this.setState({ value: nextProps.value })
     }
   }
 
   render() {
     const {
-      checked,
       label,
       labelPosition,
       optClass,
@@ -88,7 +82,7 @@ class Checkbox extends React.Component {
     return (
       <div className={checkboxClass}>
         <input type="checkbox"
-          checked={this.state.checked}
+          checked={this.state.value}
           onChange={this.handleChange}
           {...other}>
         </input>
