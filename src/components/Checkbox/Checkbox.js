@@ -23,7 +23,7 @@ class Checkbox extends React.Component {
      */
     disabled: React.PropTypes.bool,
     /**
-     * Value of the input. Sets whether checked or not.
+     * Value of the input. Sets whether the component is checked or not.
      */
     value: React.PropTypes.bool,
     /**
@@ -48,7 +48,6 @@ class Checkbox extends React.Component {
     event.persist()
     this.setState({ value: event.target.checked }, () => {
       if (typeof this.props.changeCallback === 'function') {
-        event.target.value = !!event.target.checked
         this.props.changeCallback(event)
       }
     })

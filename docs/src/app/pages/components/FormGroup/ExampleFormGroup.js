@@ -142,13 +142,13 @@ class ExampleFormGroup extends React.Component {
           value: '0'
         },
         email: {
-          value: false
+          value: true
         },
         facebook: {
           value: false
         },
         twitter: {
-          value: false
+          value: true
         },
         linkedin: {
           value: false
