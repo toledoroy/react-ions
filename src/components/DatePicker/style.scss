@@ -1,3 +1,5 @@
+@import '../../styles/common/screen';
+
 .datepicker-component {
   > div {
     &:first-of-type {
@@ -19,6 +21,12 @@
       > div {
         border-radius: 0 3px 3px 0;
       }
+    }
+  }
+
+  [class^='selectfield-component'] {
+    @media #{$media-small-minus} {
+      min-width: auto;
     }
   }
 }
