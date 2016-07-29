@@ -3,7 +3,7 @@ import DatePicker from 'react-conventions/lib/DatePicker'
 
 const ExampleDatePickerDefault = () => (
   <div>
-    <DatePicker />
+    <DatePicker inlineSmallScreen={true} />
   </div>
 )
 

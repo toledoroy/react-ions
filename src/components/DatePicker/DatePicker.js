@@ -66,7 +66,11 @@ class DatePicker extends React.Component {
     optClass: React.PropTypes.oneOfType([
       React.PropTypes.array,
       React.PropTypes.string
-    ])
+    ]),
+    /**
+     * If true, will display the inputs inline on smaller screens (default 100% width)
+     */
+    inlineSmallScreen: React.PropTypes.bool
   }
 
   _initDate = (date, format) => {
@@ -286,7 +290,8 @@ class DatePicker extends React.Component {
   }
 
   render() {
-    const componentClass = optclass(style, 'datepicker-component', this.props.optClass)
+    const inlineSmallScreen = this.props.inlineSmallScreen ? style['inline-small-screen'] : null
+    const componentClass = optclass(style, 'datepicker-component', inlineSmallScreen, this.props.optClass)
 
     return (
       <div className={componentClass}>
