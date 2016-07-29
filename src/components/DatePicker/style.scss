@@ -44,7 +44,6 @@
 }
 
 .datepicker-component.inline-small-screen {
-
   [class^='selectfield-component'] {
     @media #{$media-small-minus} {
       min-width: auto;
