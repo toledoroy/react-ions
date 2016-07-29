@@ -1,4 +1,6 @@
 @import '../../styles/common/colors';
+@import '../../styles/common/functions';
+@import '../../styles/common/screen';
 
 .alert {
   display: flex;
@@ -51,4 +53,39 @@
       fill: $primary-4;
     }
   }
+}
+
+.alert-system.slide-in-right {
+  position: fixed;
+  top: 80px;
+  right: 30px;
+
+  .alert {
+    animation: slideInRight .75s ease-out;
+    animation-iteration-count: 1;
+    margin-left: 30px;
+    max-width: 350px;
+    z-index: z('alert');
+
+    div:last-child {
+      margin-right: 20px;
+    }
+  }
+
+  @keyframes slideInRight {
+    0% {
+      opacity: 0;
+      transform: translate3d(3000px, 0, 0);
+    }
+
+    80% {
+      opacity: 1;
+      transform: translate3d(-25px, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
 }

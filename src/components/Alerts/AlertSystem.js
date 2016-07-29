@@ -20,7 +20,11 @@ class AlertSystem extends React.Component {
     /**
      * Optional styles to add to the alert system component.
      */
-    optClass: React.PropTypes.string
+    optClass: React.PropTypes.string,
+    /**
+     * Whether or not to slide the alerts in from the right
+     */
+    slideIn: React.PropTypes.bool
   }
 
   getAlerts = () => {
@@ -42,8 +46,6 @@ class AlertSystem extends React.Component {
       }
     })
 
-
-
     this.setState({ alerts: alerts })
   }
 
@@ -60,7 +62,8 @@ class AlertSystem extends React.Component {
 
   render() {
     const cx = classNames.bind(style)
-    const alertSystemClasses = cx(style['alert-system'], this.props.optClass)
+    const slideInClass = this.props.slideIn ? style['slide-in-right'] : null
+    const alertSystemClasses = cx(style['alert-system'], slideInClass, this.props.optClass)
 
     return (
       <div className={alertSystemClasses}>
