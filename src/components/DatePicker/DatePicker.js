@@ -291,7 +291,7 @@ class DatePicker extends React.Component {
 
   render() {
     const inlineSmallScreen = this.props.inlineSmallScreen ? style['inline-small-screen'] : null
-    const componentClass = optclass(style, ['datepicker-component', inlineSmallScreen, this.props.optClass])
+    const componentClass = optclass(style, ['datepicker-component', inlineSmallScreen], this.props.optClass)
 
     return (
       <div className={componentClass}>
