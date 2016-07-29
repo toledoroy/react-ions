@@ -19,7 +19,7 @@ class ExampleAlertSystemDefault extends React.Component {
 
   addAlert = (type) => {
     let alerts = this.state.alerts
-    alerts.push({ type: type, content: this._alertText.state.value, onClose: this.onCloseCallback })
+    alerts.push({ type: type, content: this._alertText.state.value, onClose: this.onCloseCallback, timeout: 5000 })
     this.setState({ alerts: alerts })
   }
 

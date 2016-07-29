@@ -62,7 +62,7 @@ class AlertSystem extends React.Component {
 
   render() {
     const cx = classNames.bind(style)
-    const slideInClass = this.props.slideIn ? style['slide-in'] : null
+    const slideInClass = this.props.slideIn ? style['slide-in-right'] : null
     const alertSystemClasses = cx(style['alert-system'], slideInClass, this.props.optClass)
 
     return (
