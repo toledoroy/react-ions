@@ -39,7 +39,6 @@ describe('Typeahead', () => {
   it('should display a list when the user types a letter', () => {
     wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' />)
     wrapper.find('input').simulate('change', {target: {value: 'a'}})
-    expect(!!wrapper.find('.typeahead-list')).to.equal(true)
     expect(wrapper.childAt(2).find('li')).to.have.length(2)
   })
 
