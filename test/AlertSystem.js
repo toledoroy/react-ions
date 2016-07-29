@@ -170,7 +170,7 @@ describe('AlertSystem', () => {
       { type: 'success', content: 'Test success' }
     ]
     wrapper = shallow(<AlertSystem alerts={alerts} slideIn={true} />)
-    expect(wrapper.props().className).to.equal('alert-system slide-in')
+    expect(wrapper.props().className).to.equal('alert-system slide-in-right')
   })
 
 })
