@@ -1,5 +1,6 @@
 // Minima of each width category
 $viewport-width-tiny: 320;
+$viewport-width-very-small: 414;
 $viewport-width-small: 768;
 $viewport-width-medium: 992;
 $viewport-width-large: 1200;
@@ -11,6 +12,7 @@ $viewport-width-medium-max: $viewport-width-large - 1;
 
 // Strings usable directly after '@media'
 $media-tiny: "(max-width: #{$viewport-width-tiny}px)";
+$media-very-small: "(max-width: #{$viewport-width-very-small}px)";
 $media-extra-small: "(max-width: #{$viewport-width-extra-small-max}px)";
 $media-small-plus: "(min-width: #{$viewport-width-small}px)";
 $media-small-minus: "(max-width: #{$viewport-width-small-max}px)";

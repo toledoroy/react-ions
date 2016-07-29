@@ -164,4 +164,13 @@ describe('AlertSystem', () => {
 
     expect(wrapper.childAt(0).props().optClass).to.equal('test-class')
   })
+
+  it('should provide a slide-in class when slidein prop is present', () => {
+    let alerts = [
+      { type: 'success', content: 'Test success' }
+    ]
+    wrapper = shallow(<AlertSystem alerts={alerts} slideIn={true} />)
+    expect(wrapper.props().className).to.equal('alert-system slide-in')
+  })
+
 })

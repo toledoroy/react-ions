@@ -28,7 +28,7 @@ const AlertsPage = () => (
           <ExampleAlertDefault />
         </CodeExample>
         <CodeExample
-          title='Default Alert System'
+          title='Default Alert System with slide-in® technology'
           description={description.alertSystemDefault}
           markup={exampleAlertSystemDefaultCode}>
           <ExampleAlertSystemDefault />

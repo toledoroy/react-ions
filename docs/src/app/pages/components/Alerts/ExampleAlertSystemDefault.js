@@ -33,7 +33,7 @@ class ExampleAlertSystemDefault extends React.Component {
           <Button onClick={this.addAlert.bind(this, 'info')} optClass="default">Add Info Alert</Button>
           <Button onClick={this.addAlert.bind(this, 'danger')} optClass="danger">Add Danger Alert</Button>
         </div>
-        <AlertSystem alerts={this.state.alerts} />
+        <AlertSystem alerts={this.state.alerts} slideIn={true} />
       </div>
     )
   }
