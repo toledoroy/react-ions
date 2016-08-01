@@ -62,7 +62,7 @@ class ExampleActivityFeed extends React.Component {
     return(
       <div>
         <Button optClass={style.add} onClick={this.addActivity}>Add Activity</Button>
-        <ActivityFeed data={this.state.activities} totalCount={300} />
+        <ActivityFeed data={this.state.activities} totalCount={500} />
       </div>
     )
   }
