@@ -66,7 +66,7 @@ class FormGroup extends React.Component {
     let val
 
     if (event.target.type === 'checkbox') {
-      val = (event.target.value === 'false') ? false : true
+      val = event.target.checked
     } else {
       val = event.target.value
     }
