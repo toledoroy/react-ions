@@ -8,7 +8,6 @@ import style from './style.scss'
 class ActivityFeed extends React.Component {
   constructor(props) {
     super(props)
-      console.log(style);
   }
 
   static propTypes = {
@@ -61,9 +60,6 @@ class ActivityFeed extends React.Component {
   }
 
   handleInfiniteLoad = () => {
-    console.log('loading more items');
-    console.log('this.state.items.length', this.state.items.length);
-    console.log('this.props.totalCount',this.props.totalCount)
     if (this.state.items.length < this.props.totalCount) {
       this.setState({ isInfiniteLoading: true })
       setTimeout(() => {
