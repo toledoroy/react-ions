@@ -2,12 +2,14 @@ import React from 'react'
 import optclass from '../internal/OptClass'
 import ActivityFeedItem from './ActivityFeedItem'
 import Infinite from 'react-infinite';
+import throttle from 'lodash/throttle'
 import Badge from '../Badge'
 import style from './style.scss'
 
 class ActivityFeed extends React.Component {
   constructor(props) {
     super(props)
+    this.throttle = throttle(this.handleResize, 200)
   }
 
   static propTypes = {
@@ -23,6 +25,26 @@ class ActivityFeed extends React.Component {
       React.PropTypes.string
     ]),
     totalCount: React.PropTypes.number
+  }
+
+  componentDidMount = () => {
+    window.addEventListener('resize', this.throttle)
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener('resize', this.throttle)
+  }
+
+  getSize = () => {
+    if(window.innerWidth > 767) {
+      return 108
+    } else if (window.innerWidth > 501) {
+      return 114
+    }
+  }
+
+  handleResize = () => {
+    this.setState({ itemHeight: this.getSize() })
   }
 
   buildElements = (start, end) => {
@@ -56,6 +78,7 @@ class ActivityFeed extends React.Component {
 
   state = {
     items: this.buildElements(0, 20),
+    itemHeight: this.getSize(),
     isInfiniteLoading: false
   }
 
@@ -81,15 +104,17 @@ class ActivityFeed extends React.Component {
 
     return (
       <div className={feedClasses}>
-        <Infinite
-          elementHeight={124}
-          useWindowAsScrollContainer={true}
-          infiniteLoadBeginEdgeOffset={1000}
-          onInfiniteLoad={this.handleInfiniteLoad}
-          loadingSpinnerDelegate={elementInfiniteLoad}
-          isInfiniteLoading={this.state.isInfiniteLoading}>
-            {this.state.items}
-        </Infinite>
+        <ul>
+          <Infinite
+            elementHeight={this.state.itemHeight}
+            useWindowAsScrollContainer={true}
+            infiniteLoadBeginEdgeOffset={1000}
+            onInfiniteLoad={this.handleInfiniteLoad}
+            loadingSpinnerDelegate={elementInfiniteLoad}
+            isInfiniteLoading={this.state.isInfiniteLoading}>
+              {this.state.items}
+          </Infinite>
+        </ul>
       </div>
     )
   }
