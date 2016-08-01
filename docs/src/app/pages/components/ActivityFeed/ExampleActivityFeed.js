@@ -14,74 +14,32 @@ class ExampleActivityFeed extends React.Component {
     super(props)
   }
 
+  getActivities = () => {
+    let items = []
+    let count = 0
+    for (var i = 0; i < 500; i++) {
+      items.push({
+        name: 'New activity ' + (count + 1),
+        profileUrl: '/components/button',
+        title: 'just happened.',
+        text: 'This is just to test whether the component updates correctly.',
+        timestamp: (new Date()).toISOString(),
+        badge: {
+          text: (count + 1).toString(),
+          theme: styles[Math.floor(Math.random() * 4)]
+        }
+      })
+      count++
+    }
+    return items
+  }
+
   state = {
     count: 0,
-    activities: [
-      {
-        name: 'External Link',
-        profileUrl: `${config.APP_URL}/v3/c/manage/ambassadors/`,
-        profileUrlTarget: '_blank',
-        title: 'is pretty awesome.',
-        text: 'Beef ribs shoulder bresaola hamburger brisket filet mignon turkey kevin frankfurter andouille spare ribs shankle chicken swine ham hock. Ham pork belly alcatra venison.',
-        timestamp: '2016-05-06T18:19:08.936',
-        badge: {
-          text: '9',
-          theme: 'success'
-        }
-      }, {
-        name: 'The Nav Component',
-        title: 'is really great, actually.',
-        text: 'Bacon ipsum dolor amet venison bresaola kevin chuck. Pig turkey alcatra beef ribs salami pork.',
-        timestamp: '2016-05-05T18:19:08.936',
-        actions: [
-          {
-            type: 'reply',
-            icon: 'icon-back',
-            callback: () => {
-              alert('reply')
-            }
-          }
-        ],
-        badge: {
-          text: '7',
-          theme: 'warning'
-        }
-      }, {
-        name: 'bob+pizza+lover+45@getambassador.com',
-        profileUrl: '/foundations/iconography',
-        profileUrlTarget: '_blank',
-        title: 'was given a pizza coupon and is really happy',
-        text: 'Turducken chuck shoulder, landjaeger brisket shank tri-tip capicola kielbasa jerky alcatra drumstick pork belly filet mignon. ',
-        timestamp: '2016-06-15T18:19:08.936',
-        actions: [
-          {
-            type: 'reply',
-            icon: 'icon-back',
-            callback: () => {
-              alert('reply')
-            }
-          }, {
-            type: 'flag',
-            icon: 'icon-flag-1-1',
-            callback: () => {
-              alert('flag')
-            }
-          }
-        ],
-        badge: {
-          text: '3',
-          theme: 'danger'
-        }
-      }, {
-        name: 'Printed test page.',
-        timestamp: '2016-06-15T18:19:08.936',
-        badge: {
-          icon: 'icon-mail-inbox-1',
-          theme: 'fog'
-        }
-      }
-    ]
+    activities: this.getActivities()
   }
+
+
 
   addActivity = () => {
     let activities = this.state.activities;
@@ -104,7 +62,7 @@ class ExampleActivityFeed extends React.Component {
     return(
       <div>
         <Button optClass={style.add} onClick={this.addActivity}>Add Activity</Button>
-        <ActivityFeed data={this.state.activities} />
+        <ActivityFeed data={this.state.activities} totalCount={300} />
       </div>
     )
   }
