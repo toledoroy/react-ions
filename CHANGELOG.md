@@ -1,5 +1,14 @@
 ## HEAD
 
+## 0.42.0
+###### _August 1, 2016_
+
+##### Component Fixes / Enhancements
+
+- [Alerts] - Added option to have alerts slide in ([#188](https://github.com/GetAmbassador/react-conventions/pull/188))
+
+- [Date Picker] - Added option to keep input fields inline on small screens (default is full width) ([#187](https://github.com/GetAmbassador/react-conventions/pull/187))
+
 ## 0.41.0
 ###### _July 26, 2016_
 
