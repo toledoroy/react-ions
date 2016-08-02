@@ -58,7 +58,11 @@ class Input extends React.Component {
     /**
      * A callback function to be called when the input is blurred.
      */
-    blurCallback: React.PropTypes.func
+    blurCallback: React.PropTypes.func,
+    /**
+     * A callback function to be called when the user hits the enter button.
+     */
+    keypressCallback: React.PropTypes.func
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -88,6 +92,12 @@ class Input extends React.Component {
     }
   }
 
+  handleKeypress = (event) => {
+    if (typeof this.props.keypressCallback === 'function') {
+      this.props.keypressCallback(event)
+    }
+  }
+
   render() {
     const {
       label,
@@ -108,6 +118,7 @@ class Input extends React.Component {
           onFocus={this.handleFocus}
           onChange={this.handleChange}
           onBlur={this.handleBlur}
+          onKeyPress={this.handleKeypress}
           {...other}>
         </input>
       </div>

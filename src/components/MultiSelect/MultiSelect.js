@@ -1,6 +1,6 @@
 import React from 'react'
 import optclass from '../internal/OptClass'
-import TagList from './TagList'
+import TagList from '../internal/TagList'
 import style from './style.scss'
 
 class MultiSelect extends React.Component {
