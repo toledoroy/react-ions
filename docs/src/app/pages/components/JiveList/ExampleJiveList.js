@@ -9,22 +9,17 @@ class ExampleJiveList extends React.Component {
 
   state = {
     value: [
-      {
-        display: 'Test 1',
-        value: 'Test 1'
-      }, {
-        display: 'Test 2',
-        value: 'Test 2'
-      }
-    ]
+      'Test 1',
+      'Test 2'
+    ],    
+    status: 'Chosen options are: Test 1,Test 2'
   }
 
   handleChange = (event) => {
-    this.setState({ value: event.target.value, status: 'The callback was triggered and ' + (event.target.value.length > 0 ? 'the chosen options are: ' + event.target.value : 'there are no options selected') })
-  }
-
-  updateSelected = (index) => {
-    this.setState({ value: [index], status: 'Chosen options are: ' + index })
+    this.setState({
+      values: event.target.value,
+      status: 'The callback was triggered and ' + (event.target.value.length > 0 ? 'the chosen options are: ' + event.target.value.join(',') : 'there are no options selected')
+    })
   }
 
   render() {
