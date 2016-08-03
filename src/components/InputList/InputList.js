@@ -1,7 +1,7 @@
 import React from 'react'
 import optclass from '../internal/OptClass'
-import Icon from 'react-conventions/lib/Icon/Icon'
-import Input from 'react-conventions/lib/Input/Input'
+import Icon from '../Icon'
+import Input from '../Input'
 import TagList from '../internal/TagList'
 import style from './style.scss'
 
