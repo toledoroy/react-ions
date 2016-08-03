@@ -1,8 +1,8 @@
 import React from 'react'
-import JiveList from 'react-conventions/lib/JiveList/JiveList'
+import InputList from 'react-conventions/lib/InputList/InputList'
 import style from './style.scss'
 
-class ExampleJiveList extends React.Component {
+class ExampleInputList extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -11,7 +11,7 @@ class ExampleJiveList extends React.Component {
     value: [
       'Test 1',
       'Test 2'
-    ],    
+    ],
     status: 'Chosen options are: Test 1,Test 2'
   }
 
@@ -25,11 +25,11 @@ class ExampleJiveList extends React.Component {
   render() {
     return(
       <div>
-        <JiveList optClass={style['jive-list']} valueProp='value' displayProp='display' value={this.state.value} changeCallback={this.handleChange} placeholder="Select one or more items" />
+        <InputList optClass={style['input-list']} valueProp='value' displayProp='display' value={this.state.value} changeCallback={this.handleChange} placeholder="Select one or more items" />
         <code className={style['callback-status']}>{this.state.status}</code>
       </div>
     )
   }
 }
 
-export default ExampleJiveList
+export default ExampleInputList

@@ -5,7 +5,7 @@ import Input from 'react-conventions/lib/Input/Input'
 import TagList from '../internal/TagList'
 import style from './style.scss'
 
-class JiveList extends React.Component {
+class InputList extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -59,14 +59,12 @@ class JiveList extends React.Component {
   }
 
   componentWillMount = () => {
-    // Set state
     if (this.state.value instanceof Array && this.state.value.length > 0) {
       this.setState({
         value: this.state.value,
         options: this.generateOptionsList(this.props.value)
       })
     }
-    // No value is passed in
     else {
       this.setState({value: [], options: []})
     }
@@ -74,14 +72,12 @@ class JiveList extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value !== this.state.value) {
-      // Set state
       if (nextProps.value instanceof Array && nextProps.value.length === 0) {
         this.setState({
           value: nextProps.value,
           options: this.generateOptionsList(nextProps.value)
         })
       }
-      // No value is passed in
       else {
         this.setState({value: [], options: []})
       }
@@ -142,16 +138,16 @@ class JiveList extends React.Component {
   }
 
   render() {
-    const jiveListClasses = optclass(style, 'jive-list-wrapper', this.props.optClass)
+    const inputListClasses = optclass(style, 'input-list-wrapper', this.props.optClass)
 
     return (
-      <div className={jiveListClasses}>
+      <div className={inputListClasses}>
         <Input placeholder='Type something and hit enter' value={this.state.currentValue} onKeyUp={this.handleChange} onKeyPress={this.handleChange} />
-        <Icon name='icon-add-1-1' className={style['jive-list-add-item']} width='14' height='14' fill='#9198A0' onClick={this.handleClick} />
+        <Icon name='icon-add-1-1' className={style['input-list-add-item']} width='14' height='14' fill='#9198A0' onClick={this.handleClick} />
         <TagList tags={this.state.options} displayProp={this.props.displayProp} onRemove={this.onRemove} />
       </div>
     )
   }
 }
 
-export default JiveList
+export default InputList
