@@ -17,23 +17,22 @@ const SortableListPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
-        <h3>Examples</h3>
-          <CodeExample
-            title='Default Sortable List'
-            description={description.sortableListDefault}
-            markup={exampleSortableListDefaultCode}>
-            <ExampleSortableListDefault />
-          </CodeExample>
-          <CodeExample
-            title='Sortable List inside a Modal'
-            description={description.sortableListModal}
-            markup={exampleSortableListModalCode}>
-            <ExampleSortableListModal />
-          </CodeExample>
-          <div className={styles.block}>
-            <h3>Props</h3>
-            <PropsList list={docs[0].props} />
-          </div>
+        <CodeExample
+          title='Default Sortable List'
+          description={description.sortableListDefault}
+          markup={exampleSortableListDefaultCode}>
+          <ExampleSortableListDefault />
+        </CodeExample>
+        <CodeExample
+          title='Sortable List inside a Modal'
+          description={description.sortableListModal}
+          markup={exampleSortableListModalCode}>
+          <ExampleSortableListModal />
+        </CodeExample>
+        <div className={styles.block}>
+          <h3>Props</h3>
+          <PropsList list={docs[0].props} />
+        </div>
       </div>
     </div>
   </div>

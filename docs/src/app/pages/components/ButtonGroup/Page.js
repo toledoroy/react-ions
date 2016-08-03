@@ -29,47 +29,46 @@ const ButtonGroupPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
-        <h3>Examples</h3>
-          <CodeExample
-            title='Default Button Group'
-            description={description.buttonGroupDefault}
-            markup={exampleButtonGroupDefaultCode}>
-            <ExampleButtonGroupDefault />
-          </CodeExample>
-          <CodeExample
-            title='Checked Button Group'
-            description={description.buttonGroupChecked}
-            markup={exampleButtonGroupCheckedCode}>
-            <ExampleButtonGroupChecked />
-          </CodeExample>
-          <CodeExample
-            title='Required Button Group'
-            description={description.buttonGroupRequired}
-            markup={exampleButtonGroupRequiredCode}>
-            <ExampleButtonGroupRequired />
-          </CodeExample>
-          <CodeExample
-            title='Disabled Button Group'
-            description={description.buttonGroupDisabled}
-            markup={exampleButtonGroupDisabledCode}>
-            <ExampleButtonGroupDisabled />
-          </CodeExample>
-          <CodeExample
-            title='Button Group With Callback Function'
-            description={description.buttonGroupCallback}
-            markup={exampleButtonGroupCallbackCode}>
-            <ExampleButtonGroupCallback />
-          </CodeExample>
-          <CodeExample
-            title='Button Group Styles'
-            description={description.buttonGroupStyles}
-            markup={exampleButtonGroupStylesCode}>
-            <ExampleButtonGroupStyles />
-          </CodeExample>
-          <div className={styles.block}>
-            <h3>Props</h3>
-            <PropsList list={docs[0].props} />
-          </div>
+        <CodeExample
+          title='Default Button Group'
+          description={description.buttonGroupDefault}
+          markup={exampleButtonGroupDefaultCode}>
+          <ExampleButtonGroupDefault />
+        </CodeExample>
+        <CodeExample
+          title='Checked Button Group'
+          description={description.buttonGroupChecked}
+          markup={exampleButtonGroupCheckedCode}>
+          <ExampleButtonGroupChecked />
+        </CodeExample>
+        <CodeExample
+          title='Required Button Group'
+          description={description.buttonGroupRequired}
+          markup={exampleButtonGroupRequiredCode}>
+          <ExampleButtonGroupRequired />
+        </CodeExample>
+        <CodeExample
+          title='Disabled Button Group'
+          description={description.buttonGroupDisabled}
+          markup={exampleButtonGroupDisabledCode}>
+          <ExampleButtonGroupDisabled />
+        </CodeExample>
+        <CodeExample
+          title='Button Group With Callback Function'
+          description={description.buttonGroupCallback}
+          markup={exampleButtonGroupCallbackCode}>
+          <ExampleButtonGroupCallback />
+        </CodeExample>
+        <CodeExample
+          title='Button Group Styles'
+          description={description.buttonGroupStyles}
+          markup={exampleButtonGroupStylesCode}>
+          <ExampleButtonGroupStyles />
+        </CodeExample>
+        <div className={styles.block}>
+          <h3>Props</h3>
+          <PropsList list={docs[0].props} />
+        </div>
       </div>
     </div>
   </div>

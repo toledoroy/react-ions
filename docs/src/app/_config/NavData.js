@@ -64,11 +64,11 @@ const nav = [
         name: 'Input',
         action: '/components/input'
       }, {
+        name: 'Jive List',
+        action: '/components/jive-list'
+      }, {
         name: 'Modal',
         action: '/components/modal'
-      }, {
-        name: 'Multi Input',
-        action: '/components/multi-input'
       }, {
         name: 'Multi Select',
         action: '/components/multi-select'

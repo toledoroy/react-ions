@@ -32,53 +32,52 @@ const RadioPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
-        <h3>Examples</h3>
-          <CodeExample
-            title='Default Radio'
-            description={description.radioDefault}
-            markup={exampleRadioDefaultCode}>
-            <ExampleRadioDefault />
-          </CodeExample>
-          <CodeExample
-            title='Checked Radio'
-            description={description.radioChecked}
-            markup={exampleRadioCheckedCode}>
-            <ExampleRadioChecked />
-          </CodeExample>
-          <CodeExample
-            title='Disabled Radio'
-            description={description.radioDisabled}
-            markup={exampleRadioDisabledCode}>
-            <ExampleRadioDisabled />
-          </CodeExample>
-          <CodeExample
-            title='Required Radio'
-            description={description.radioRequired}
-            markup={exampleRadioRequiredCode}>
-            <ExampleRadioRequired />
-          </CodeExample>
-          <CodeExample
-            title='Radio with labels on the left side'
-            description={description.radioLeft}
-            markup={exampleRadioLeftCode}>
-            <ExampleRadioLeft />
-          </CodeExample>
-          <CodeExample
-            title='Radio with callback function'
-            description={description.radioCallback}
-            markup={exampleRadioCallbackCode}>
-            <ExampleRadioCallback />
-          </CodeExample>
-          <CodeExample
-            title='Radio with child component'
-            description={description.radioChild}
-            markup={exampleRadioChildCode}>
-            <ExampleRadioChild />
-          </CodeExample>
-          <div className={styles.block}>
-            <h3>Props</h3>
-            <PropsList list={docs[0].props} />
-          </div>
+        <CodeExample
+          title='Default Radio'
+          description={description.radioDefault}
+          markup={exampleRadioDefaultCode}>
+          <ExampleRadioDefault />
+        </CodeExample>
+        <CodeExample
+          title='Checked Radio'
+          description={description.radioChecked}
+          markup={exampleRadioCheckedCode}>
+          <ExampleRadioChecked />
+        </CodeExample>
+        <CodeExample
+          title='Disabled Radio'
+          description={description.radioDisabled}
+          markup={exampleRadioDisabledCode}>
+          <ExampleRadioDisabled />
+        </CodeExample>
+        <CodeExample
+          title='Required Radio'
+          description={description.radioRequired}
+          markup={exampleRadioRequiredCode}>
+          <ExampleRadioRequired />
+        </CodeExample>
+        <CodeExample
+          title='Radio with labels on the left side'
+          description={description.radioLeft}
+          markup={exampleRadioLeftCode}>
+          <ExampleRadioLeft />
+        </CodeExample>
+        <CodeExample
+          title='Radio with callback function'
+          description={description.radioCallback}
+          markup={exampleRadioCallbackCode}>
+          <ExampleRadioCallback />
+        </CodeExample>
+        <CodeExample
+          title='Radio with child component'
+          description={description.radioChild}
+          markup={exampleRadioChildCode}>
+          <ExampleRadioChild />
+        </CodeExample>
+        <div className={styles.block}>
+          <h3>Props</h3>
+          <PropsList list={docs[0].props} />
+        </div>
       </div>
     </div>
   </div>

@@ -1,0 +1,40 @@
+import React from 'react'
+import JiveList from 'react-conventions/lib/JiveList/JiveList'
+import style from './style.scss'
+
+class ExampleJiveList extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  state = {
+    value: [
+      {
+        display: 'Test 1',
+        value: 'Test 1'
+      }, {
+        display: 'Test 2',
+        value: 'Test 2'
+      }
+    ]
+  }
+
+  handleChange = (event) => {
+    this.setState({ value: event.target.value, status: 'The callback was triggered and ' + (event.target.value.length > 0 ? 'the chosen options are: ' + event.target.value : 'there are no options selected') })
+  }
+
+  updateSelected = (index) => {
+    this.setState({ value: [index], status: 'Chosen options are: ' + index })
+  }
+
+  render() {
+    return(
+      <div>
+        <JiveList optClass={style['jive-list']} valueProp='value' displayProp='display' value={this.state.value} changeCallback={this.handleChange} placeholder="Select one or more items" />
+        <code className={style['callback-status']}>{this.state.status}</code>
+      </div>
+    )
+  }
+}
+
+export default ExampleJiveList
