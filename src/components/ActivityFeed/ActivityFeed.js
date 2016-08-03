@@ -40,8 +40,39 @@ class ActivityFeed extends React.Component {
     }
   }
 
+  buildElements = (start, end) => {
+    const badgeClasses = optclass(style, 'indicator')
+
+    let elements = []
+    for (var i = start; i < end; i++) {
+      if(this.props.data[i]) {
+        const item = this.props.data[i]
+        elements.push(<li key={i}>
+          <Badge
+            icon={item.badge.icon}
+            text={item.badge.text}
+            theme={item.badge.theme}
+            optClass={badgeClasses}
+          />
+          <ActivityFeedItem
+            name={item.name}
+            profileUrl={item.profileUrl}
+            profileUrlTarget={item.profileUrlTarget}
+            title={item.title}
+            actions={item.actions}
+            text={item.text}
+            time={item.timestamp}
+          />
+        </li>)
+      }
+    }
+    return elements
+  }
+
+
   state = {
     data: this.props.data,
+    items: this.buildElements(0, 20),
     fetchMoreEnabled: true,
     itemHeight: this.getSize()
   }
@@ -83,32 +114,20 @@ class ActivityFeed extends React.Component {
 
   render() {
     const feedClasses = optclass(style, 'activity-feed', this.props.optClass)
-    const badgeClasses = optclass(style, 'indicator')
-
-    let items = this.state.data.map((item, index) =>
-      <li key={index}>
-        <Badge
-          icon={item.badge.icon}
-          text={item.badge.text}
-          theme={item.badge.theme}
-          optClass={badgeClasses}
-        />
-        <ActivityFeedItem
-          name={item.name}
-          profileUrl={item.profileUrl}
-          profileUrlTarget={item.profileUrlTarget}
-          title={item.title}
-          actions={item.actions}
-          text={item.text}
-          time={item.timestamp}
-        />
-      </li>
-    )
+    const elementInfiniteLoad = (<div className="infinite-list-item">Loading...</div>)
 
     return (
       <div className={feedClasses}>
         <ul>
-         {items}
+          <Infinite
+            elementHeight={this.state.itemHeight}
+            useWindowAsScrollContainer={true}
+            infiniteLoadBeginEdgeOffset={1000}
+            onInfiniteLoad={this.handleInfiniteLoad}
+            loadingSpinnerDelegate={elementInfiniteLoad}
+            isInfiniteLoading={this.state.isInfiniteLoading}>
+              {this.state.items}
+          </Infinite>
         </ul>
       </div>
     )
