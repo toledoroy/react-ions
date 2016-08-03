@@ -122,8 +122,7 @@ class ExampleActivityFeed extends React.Component {
       <div>
         <ActivityFeed
           data={this.state.activities}
-          onInfiniteLoad={this.handleInfiniteLoad}
-          totalCount={500} />
+          onInfiniteLoad={this.handleInfiniteLoad} />
       </div>
     )
   }
