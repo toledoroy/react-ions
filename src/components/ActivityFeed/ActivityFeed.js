@@ -42,6 +42,7 @@ class ActivityFeed extends React.Component {
 
   state = {
     data: this.props.data,
+    fetchMoreEnabled: true,
     itemHeight: this.getSize()
   }
 
@@ -54,11 +55,30 @@ class ActivityFeed extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    this.setState({ data: nextProps.data })
+    this.setState({
+      data: nextProps.data,
+      fetchMoreEnabled: nextProps.data.length > this.state.data.length
+    })
   }
 
   handleResize = () => {
     this.setState({ itemHeight: this.getSize() })
+  }
+
+  handleInfiniteLoad = () => {
+    // If we've already fetched as many items as there are available
+    // or no function has been provided to fetch more
+    // then there is no need to fetch.
+    if (!this.state.fetchMoreEnabled || typeof this.props.onInfiniteLoad !== 'function') {
+      this.setState({ isInfiniteLoading: false })
+      return
+    }
+
+    // Show loader while fetching
+    this.setState({ isInfiniteLoading: true })
+    this.props.onInfiniteLoad.then(() => {
+      this.setState({ isInfiniteLoading: false })
+    })
   }
 
   render() {
