@@ -103,18 +103,20 @@ class ExampleActivityFeed extends React.Component {
     return [...items, ...this.genActivities(16, 5)]
   }
 
-  handleInfiniteLoad = () => {
-    return new Promise((resolve, reject) => {
-      this.setState({
-        count: this.state.count+100,
-        activities: [...this.state.activities, ...this.genActivities(100, this.state.count)]
-      }, () => resolve())
-    })
-  }
-
   state = {
     count: 20,
     activities: this.getInitialActivities()
+  }
+
+  handleInfiniteLoad = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        this.setState({
+          count: this.state.count+100,
+          activities: [...this.state.activities, ...this.genActivities(100, this.state.count)]
+        }, () => resolve())
+      }, 1000)
+    })
   }
 
   render() {

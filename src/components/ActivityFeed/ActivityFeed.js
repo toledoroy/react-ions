@@ -22,7 +22,7 @@ class ActivityFeed extends React.Component {
      * Should return a promise that resolves once the data has been fetched.
      * Should also update this.state.data with the additional items.
      */
-    onInfiniteLoad: React.PropTypes.funct,
+    onInfiniteLoad: React.PropTypes.func,
     /**
      * Optional CSS class(es) to be used for local styles (string or array of strings).
      */
@@ -40,31 +40,29 @@ class ActivityFeed extends React.Component {
     }
   }
 
-  buildElements = (start, end) => {
+  buildElements = (start, data) => {
     const badgeClasses = optclass(style, 'indicator')
 
     let elements = []
-    for (var i = start; i < end; i++) {
-      if(this.props.data[i]) {
-        const item = this.props.data[i]
-        elements.push(<li key={i}>
-          <Badge
-            icon={item.badge.icon}
-            text={item.badge.text}
-            theme={item.badge.theme}
-            optClass={badgeClasses}
-          />
-          <ActivityFeedItem
-            name={item.name}
-            profileUrl={item.profileUrl}
-            profileUrlTarget={item.profileUrlTarget}
-            title={item.title}
-            actions={item.actions}
-            text={item.text}
-            time={item.timestamp}
-          />
-        </li>)
-      }
+    for (var i = start; i < data.length; i++) {
+      const item = data[i]
+      elements.push(<li key={i}>
+        <Badge
+          icon={item.badge.icon}
+          text={item.badge.text}
+          theme={item.badge.theme}
+          optClass={badgeClasses}
+        />
+        <ActivityFeedItem
+          name={item.name}
+          profileUrl={item.profileUrl}
+          profileUrlTarget={item.profileUrlTarget}
+          title={item.title}
+          actions={item.actions}
+          text={item.text}
+          time={item.timestamp}
+        />
+      </li>)
     }
     return elements
   }
@@ -72,7 +70,7 @@ class ActivityFeed extends React.Component {
 
   state = {
     data: this.props.data,
-    items: this.buildElements(0, 20),
+    items: this.buildElements(0, this.props.data),
     fetchMoreEnabled: true,
     itemHeight: this.getSize()
   }
@@ -88,6 +86,7 @@ class ActivityFeed extends React.Component {
   componentWillReceiveProps = (nextProps) => {
     this.setState({
       data: nextProps.data,
+      items: [...this.state.items, ...this.buildElements(this.state.items.length, nextProps.data)],
       fetchMoreEnabled: nextProps.data.length > this.state.data.length
     })
   }
@@ -107,7 +106,7 @@ class ActivityFeed extends React.Component {
 
     // Show loader while fetching
     this.setState({ isInfiniteLoading: true })
-    this.props.onInfiniteLoad.then(() => {
+    this.props.onInfiniteLoad().then(() => {
       this.setState({ isInfiniteLoading: false })
     })
   }
