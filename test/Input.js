@@ -114,7 +114,7 @@ describe('Input', () => {
 
   it('should pass value as number to changeCallback', () => {
     const spy = sinon.spy()
-    wrapper = mount(<Input type='number' value={14.10} changeCallback={spy} />)
+    wrapper = mount(<Input valueType='number' value={14.10} changeCallback={spy} />)
     expect(typeof wrapper.childAt(0).props().changeCallback).to.equal('function')
     wrapper.childAt(0).simulate('change', {target: { value: '19.89', valueAsNumber: 19.89 }})
     expect(spy.calledOnce).to.be.true

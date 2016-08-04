@@ -35,9 +35,9 @@ class ExampleInputNumber extends React.Component {
   render = () => {
     return(
       <div>
-        <Input type='number' value={this.state.valueNumber} changeCallback={this.handleChangeNumber} label='Input of number type' />
+        <Input valueType='number' value={this.state.valueNumber} changeCallback={this.handleChangeNumber} label='Input of number type' />
         <code>{this.state.statusNumber}</code>
-        <Input type='text' value={this.state.valueString} changeCallback={this.handleChangeString} label='Input of string type' />
+        <Input valueType='string' value={this.state.valueString} changeCallback={this.handleChangeString} label='Input of string type' />
         <code>{this.state.statusString}</code>
       </div>
     )
