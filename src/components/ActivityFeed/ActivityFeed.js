@@ -32,14 +32,6 @@ class ActivityFeed extends React.Component {
     ])
   }
 
-  getSize = () => {
-    if(window.innerWidth > 767) {
-      return 108
-    } else if (window.innerWidth > 501) {
-      return 114
-    }
-  }
-
   addHeight = (i, height) => {
     let heights = this.state.heights
     heights[i] = height
@@ -79,8 +71,7 @@ class ActivityFeed extends React.Component {
     data: this.props.data,
     heights: [],
     items: [],
-    fetchMoreEnabled: true,
-    itemHeight: this.getSize()
+    fetchMoreEnabled: true
   }
 
   componentWillMount = () => {

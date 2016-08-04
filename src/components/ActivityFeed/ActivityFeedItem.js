@@ -38,7 +38,14 @@ class ActivityFeedItem extends React.Component {
      * A timestamp that you want to provide to the feed item.
      */
     time: React.PropTypes.string,
-    badge:  React.PropTypes.object
+    /**
+     * The badge configuration for the activity feed item.
+     */
+    badge:  React.PropTypes.object,
+    /**
+     * Callback to send height to parent.
+     */
+    addHeight: React.PropTypes.func
   }
 
   state = {
@@ -47,7 +54,7 @@ class ActivityFeedItem extends React.Component {
 
   generateLinkType = (name) => {
     let link
-    let re = '^(http|https)://'
+    const re = '^(http|https)://'
     if(this.props.profileUrl.match(re)) {
       link = <a href={this.props.profileUrl} target={this.props.profileUrlTarget}>{name}</a>
     } else {
@@ -60,9 +67,9 @@ class ActivityFeedItem extends React.Component {
     let name = this.props.name ? this.props.name : null
     if (!this.props.profileUrl) {
       return name
-    } else {
-      return this.generateLinkType(name)
     }
+
+    return this.generateLinkType(name)
   }
 
   generateActions = () => {
@@ -74,8 +81,9 @@ class ActivityFeedItem extends React.Component {
 
   componentDidMount = () => {
     var height = ReactDOM.findDOMNode(this).getBoundingClientRect().height + 30
-    this.props.addHeight(height)
-    this.setState({ height })
+    this.setState({ height }, () => {
+      this.props.addHeight(height)
+    })
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
