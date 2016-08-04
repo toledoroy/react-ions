@@ -8,6 +8,12 @@
   margin: 0;
   padding: 0 10px;
 
+  .text {
+    margin-right: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   > li {
     align-items: center;
     display: flex;
@@ -21,5 +27,6 @@
 
   svg {
     cursor: pointer;
+    min-width: 12px;
   }
 }
