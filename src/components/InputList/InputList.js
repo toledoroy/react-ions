@@ -10,19 +10,11 @@ class InputList extends React.Component {
     super(props)
   }
 
-  static defaultProps = {
-    disabled: false
-  }
-
   static propTypes = {
     /**
      * The values of the options to be selected.
      */
     value: React.PropTypes.array,
-    /**
-     * Whether the InputList component is disabled.
-     */
-    disabled: React.PropTypes.bool,
     /**
      * A callback function to be called when an option is selected.
      */
