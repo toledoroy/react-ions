@@ -20,15 +20,15 @@ class InputList extends React.Component {
      */
     value: React.PropTypes.array,
     /**
-     * Which field in the option object will be used as the value of the JiveList component.
+     * Which field in the option object will be used as the value of the InputList component.
      */
     valueProp: React.PropTypes.string.isRequired,
     /**
-     * Which field in the option object will be used as the display of the JiveList component.
+     * Which field in the option object will be used as the display of the InputList component.
      */
     displayProp: React.PropTypes.string.isRequired,
     /**
-     * Whether the JiveList component is disabled.
+     * Whether the InputList component is disabled.
      */
     disabled: React.PropTypes.bool,
     /**
