@@ -3,7 +3,6 @@ import optclass from '../internal/OptClass'
 import ActivityFeedItem from './ActivityFeedItem'
 import Infinite from 'react-infinite';
 import throttle from 'lodash/throttle'
-import Badge from '../Badge'
 import Spinner from '../Spinner'
 import style from './style.scss'
 
@@ -41,39 +40,51 @@ class ActivityFeed extends React.Component {
     }
   }
 
-  buildElements = (start, data) => {
-    const badgeClasses = optclass(style, 'indicator')
+  addHeight = (i, height) => {
+    let heights = this.state.heights
+    heights[i] = height
+    this.setState({ heights })
+  }
 
-    let elements = []
+  getHeight = (i) => {
+    return this.state.heights[i]+'-px'
+  }
+
+  buildElements = (start, data) => {
+    let items = []
+    let heights = []
     for (var i = start; i < data.length; i++) {
       const item = data[i]
-      elements.push(<li key={i}>
-        <Badge
-          icon={item.badge.icon}
-          text={item.badge.text}
-          theme={item.badge.theme}
-          optClass={badgeClasses}
-        />
+      const stateIndex = start+i
+      heights.push(this.state && this.state.heights[stateIndex] || 200)
+      items.push(
         <ActivityFeedItem
+          key={stateIndex}
           name={item.name}
+          badge={item.badge}
           profileUrl={item.profileUrl}
           profileUrlTarget={item.profileUrlTarget}
           title={item.title}
           actions={item.actions}
           text={item.text}
           time={item.timestamp}
-        />
-      </li>)
+          addHeight={this.addHeight.bind(this, i)}
+        />)
     }
-    return elements
-  }
 
+    return { items, heights }
+  }
 
   state = {
     data: this.props.data,
-    items: this.buildElements(0, this.props.data),
+    heights: [],
+    items: [],
     fetchMoreEnabled: true,
     itemHeight: this.getSize()
+  }
+
+  componentWillMount = () => {
+    this.setState(this.buildElements(0, this.props.data))
   }
 
   componentDidMount = () => {
@@ -85,9 +96,15 @@ class ActivityFeed extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
+    const {
+      items,
+      heights
+    } = this.buildElements(this.state.items.length, nextProps.data)
+
     this.setState({
       data: nextProps.data,
-      items: [...this.state.items, ...this.buildElements(this.state.items.length, nextProps.data)],
+      items: [...this.state.items, ...items],
+      heights: [...this.state.heights, ...heights],
       fetchMoreEnabled: nextProps.data.length > this.state.data.length
     })
   }
@@ -120,11 +137,12 @@ class ActivityFeed extends React.Component {
       <div className={feedClasses}>
         <ul>
           <Infinite
-            elementHeight={this.state.itemHeight}
+            elementHeight={this.state.heights}
             useWindowAsScrollContainer={true}
             infiniteLoadBeginEdgeOffset={1000}
             onInfiniteLoad={this.handleInfiniteLoad}
             loadingSpinnerDelegate={elementInfiniteLoad}
+            preloadAdditionalHeight={window.innerHeight*2}
             isInfiniteLoading={this.state.isInfiniteLoading}>
               {this.state.items}
           </Infinite>

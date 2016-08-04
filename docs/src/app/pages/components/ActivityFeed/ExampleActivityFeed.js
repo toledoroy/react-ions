@@ -18,13 +18,13 @@ class ExampleActivityFeed extends React.Component {
     let items = []
     for (var i = 0; i < numToAdd; i++) {
       items.push({
-        name: 'New activity ' + (i + 4),
+        name: 'New activity ' + incrementor,
         profileUrl: '/components/button',
         title: 'just happened.',
         text: 'This is just to test whether the component updates correctly.',
         timestamp: (new Date()).toISOString(),
         badge: {
-          text: (incrementor + 1).toString(),
+          text: incrementor.toString(),
           theme: styles[Math.floor(Math.random() * 4)]
         }
       })
@@ -104,7 +104,7 @@ class ExampleActivityFeed extends React.Component {
   }
 
   state = {
-    count: 20,
+    count: 21,
     activities: this.getInitialActivities()
   }
 
