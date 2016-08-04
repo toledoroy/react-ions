@@ -18,18 +18,18 @@ class ExampleInputNumber extends React.Component {
     this.setState({statusString: 'My value is: ' + this.state.valueString + ' and it is of type: ' + typeof this.state.valueString})
   }
 
-  handleChangeNumber = (event, value) => {
-    if (value === '') {
-      value = '\'\' (empty string)'
+  handleChangeNumber = (event) => {
+    if (event.target.value === '') {
+      event.target.value = '\'\' (empty string)'
     }
-    this.setState({statusNumber: 'My value is: ' + value + ' and it is of type: ' + typeof value})
+    this.setState({statusNumber: 'My value is: ' + event.target.value + ' and it is of type: ' + typeof event.target.value})
   }
 
-  handleChangeString = (event, value) => {
-    if (value === '') {
-      value = '\'\' (empty string)'
+  handleChangeString = (event) => {
+    if (event.target.value === '') {
+      event.target.value = '\'\' (empty string)'
     }
-    this.setState({statusString: 'My value is: ' + value + ' and it is of type: ' + typeof value})
+    this.setState({statusString: 'My value is: ' + event.target.value + ' and it is of type: ' + typeof event.target.value})
   }
 
   render = () => {
@@ -37,7 +37,7 @@ class ExampleInputNumber extends React.Component {
       <div>
         <Input type='number' value={this.state.valueNumber} changeCallback={this.handleChangeNumber} label='Input of number type' />
         <code>{this.state.statusNumber}</code>
-        <Input type='string' value={this.state.valueString} changeCallback={this.handleChangeString} label='Input of string type' />
+        <Input type='text' value={this.state.valueString} changeCallback={this.handleChangeString} label='Input of string type' />
         <code>{this.state.statusString}</code>
       </div>
     )

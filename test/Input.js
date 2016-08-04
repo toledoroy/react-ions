@@ -109,7 +109,7 @@ describe('Input', () => {
     expect(typeof wrapper.childAt(0).props().changeCallback).to.equal('function')
     wrapper.childAt(0).simulate('change', {target: { value: '19.89' }})
     expect(spy.calledOnce).to.be.true
-    expect(spy.getCall(0).args[1]).to.equal('19.89')
+    expect(spy.getCall(0).args[0].target.value).to.equal('19.89')
   })
 
   it('should pass value as number to changeCallback', () => {
@@ -118,6 +118,6 @@ describe('Input', () => {
     expect(typeof wrapper.childAt(0).props().changeCallback).to.equal('function')
     wrapper.childAt(0).simulate('change', {target: { value: '19.89', valueAsNumber: 19.89 }})
     expect(spy.calledOnce).to.be.true
-    expect(spy.getCall(0).args[1]).to.equal(19.89)
+    expect(spy.getCall(0).args[0].target.value).to.equal(19.89)
   })
 })

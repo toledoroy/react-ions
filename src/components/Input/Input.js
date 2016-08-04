@@ -17,7 +17,7 @@ class Input extends React.Component {
   static defaultProps = {
     disabled: false,
     value: '',
-    type: 'string'
+    type: 'text'
   }
 
   static propTypes = {
@@ -37,9 +37,9 @@ class Input extends React.Component {
       React.PropTypes.string
     ]),
     /**
-     * Type of the value.
+     * Type of the value (text, number).
      */
-    type: React.PropTypes.oneOf(['string', 'number']),
+    type: React.PropTypes.string,
     /**
      * Optional placeholder text.
      */
@@ -80,7 +80,12 @@ class Input extends React.Component {
 
     this.setState({value: event.target.value}, function() {
       if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(event, value)
+        this.props.changeCallback({
+          target: {
+            name: this.props.name,
+            value: value
+          }
+        })
       }
     })
   }
