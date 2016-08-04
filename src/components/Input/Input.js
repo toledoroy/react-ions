@@ -75,7 +75,7 @@ class Input extends React.Component {
   handleChange = (event) => {
     event.persist()
 
-    const value = this.props.valueType === 'number' && event.target.value !== ''
+    const value = this.props.valueType === 'number' && event.target.value !== '' && !isNaN(event.target.value)
       ? parseFloat(event.target.value) : event.target.value
 
     this.setState({value: event.target.value}, function() {
