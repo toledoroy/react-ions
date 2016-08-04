@@ -59,30 +59,30 @@ class InputList extends React.Component {
     this.setState(this.buildStatefromProps(nextProps.value))
   }
 
+  callback = () => {
+    if (this.props.changeCallback) {
+      this.props.changeCallback({
+        target: {
+          name: this.props.name,
+          value: this.state.value
+        }
+      })
+    }
+  }
+
   onRemove = (index) => {
     const arr = this.state.value
     arr.splice(index, 1)
-    this.setState({value: arr, options: this.generateOptionsList(arr)}, () => {
-      if (this.props.changeCallback) {
-        this.props.changeCallback({
-          target: {
-            name: this.props.name,
-            value: this.state.value
-          }
-        })
-      }
-    })
+    this.setState({ value: arr, options: this.generateOptionsList(arr) }, this.callback)
   }
 
   clearInput = () => {
-    this.setState({currentValue: ''})
+    this.setState({ currentValue: '' })
   }
 
   handleChange = (event) => {
-    if (event.charCode !== 13 && event.type !== 'click' || event.target.value === '') {
-      this.setState({
-        currentValue: event.target.value
-      })
+    if (event.charCode !== 13 && event.type !== 'click' || !event.target.value) {
+      this.setState({ currentValue: event.target.value })
     } else {
       let value = this.state.value
       value.push(event.target.value)
@@ -90,15 +90,8 @@ class InputList extends React.Component {
       const options = this.generateOptionsList(value)
 
       this.setState({value: value, options: options}, () => {
-        if (this.props.changeCallback) {
-          this.props.changeCallback({
-            target: {
-              name: this.props.name,
-              value: this.state.value
-            }
-          })
-          this.clearInput()
-        }
+        this.callback()
+        this.clearInput()
       })
     }
   }
