@@ -25,7 +25,7 @@ class ExampleInputList extends React.Component {
   render() {
     return(
       <div>
-        <InputList optClass={style['input-list']} valueProp='value' displayProp='display' value={this.state.value} changeCallback={this.handleChange} placeholder="Select one or more items" />
+        <InputList optClass={style['input-list']} value={this.state.value} changeCallback={this.handleChange} placeholder="Select one or more items" />
         <code className={style['callback-status']}>{this.state.status}</code>
       </div>
     )

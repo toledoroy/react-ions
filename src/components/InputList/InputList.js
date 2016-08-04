@@ -20,14 +20,6 @@ class InputList extends React.Component {
      */
     value: React.PropTypes.array,
     /**
-     * Which field in the option object will be used as the value of the InputList component.
-     */
-    valueProp: React.PropTypes.string.isRequired,
-    /**
-     * Which field in the option object will be used as the display of the InputList component.
-     */
-    displayProp: React.PropTypes.string.isRequired,
-    /**
      * Whether the InputList component is disabled.
      */
     disabled: React.PropTypes.bool,
@@ -144,7 +136,7 @@ class InputList extends React.Component {
       <div className={inputListClasses}>
         <Input placeholder='Type something and hit enter' value={this.state.currentValue} onKeyUp={this.handleChange} onKeyPress={this.handleChange} />
         <Icon name='icon-add-1-1' className={style['input-list-add-item']} width='14' height='14' fill='#9198A0' onClick={this.handleClick} />
-        <TagList tags={this.state.options} displayProp={this.props.displayProp} onRemove={this.onRemove} />
+        <TagList tags={this.state.options} displayProp='display' onRemove={this.onRemove} />
       </div>
     )
   }
