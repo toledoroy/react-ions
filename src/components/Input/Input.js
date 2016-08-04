@@ -17,6 +17,7 @@ class Input extends React.Component {
   static defaultProps = {
     disabled: false,
     value: '',
+    type: 'string'
   }
 
   static propTypes = {
@@ -35,6 +36,10 @@ class Input extends React.Component {
       React.PropTypes.number,
       React.PropTypes.string
     ]),
+    /**
+     * Type of the value.
+     */
+    type: React.PropTypes.oneOf(['string', 'number']),
     /**
      * Optional placeholder text.
      */
@@ -69,9 +74,13 @@ class Input extends React.Component {
 
   handleChange = (event) => {
     event.persist()
+
+    const value = this.props.type === 'number' && event.target.value !== ''
+      ? event.target.valueAsNumber : event.target.value
+
     this.setState({value: event.target.value}, function() {
       if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(event)
+        this.props.changeCallback(event, value)
       }
     })
   }
