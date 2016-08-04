@@ -2,14 +2,12 @@ import React from 'react'
 import optclass from '../internal/OptClass'
 import ActivityFeedItem from './ActivityFeedItem'
 import Infinite from 'react-infinite';
-import throttle from 'lodash/throttle'
 import Spinner from '../Spinner'
 import style from './style.scss'
 
 class ActivityFeed extends React.Component {
   constructor(props) {
     super(props)
-    this.throttle = throttle(this.handleResize, 200)
   }
 
   static propTypes = {
@@ -32,7 +30,7 @@ class ActivityFeed extends React.Component {
     ])
   }
 
-  addHeight = (i, height) => {
+  handleSetHeight = (i, height) => {
     let heights = this.state.heights
     heights[i] = height
     this.setState({ heights })
@@ -60,7 +58,7 @@ class ActivityFeed extends React.Component {
           actions={item.actions}
           text={item.text}
           time={item.timestamp}
-          addHeight={this.addHeight.bind(this, i)}
+          onSetHeight={this.handleSetHeight.bind(this, i)}
         />)
     }
 
@@ -76,14 +74,6 @@ class ActivityFeed extends React.Component {
 
   componentWillMount = () => {
     this.setState(this.buildElements(0, this.props.data))
-  }
-
-  componentDidMount = () => {
-    window.addEventListener('resize', this.throttle)
-  }
-
-  componentWillUnmount = () => {
-    window.removeEventListener('resize', this.throttle)
   }
 
   componentWillReceiveProps = (nextProps) => {

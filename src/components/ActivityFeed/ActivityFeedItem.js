@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Link } from 'react-router'
+import throttle from 'lodash/throttle'
 import timeString from '../internal/TimeString'
 import Icon from '../Icon'
 import Badge from '../Badge'
@@ -10,6 +11,7 @@ import style from './style.scss'
 class ActivityFeedItem extends React.Component {
   constructor(props) {
     super(props)
+    this.throttle = throttle(this.updateHeight, 200)
   }
 
   static propTypes = {
@@ -45,7 +47,7 @@ class ActivityFeedItem extends React.Component {
     /**
      * Callback to send height to parent.
      */
-    addHeight: React.PropTypes.func
+    onSetHeight: React.PropTypes.func
   }
 
   state = {
@@ -79,11 +81,23 @@ class ActivityFeedItem extends React.Component {
     return actions
   }
 
-  componentDidMount = () => {
-    var height = ReactDOM.findDOMNode(this).getBoundingClientRect().height + 30
-    this.setState({ height }, () => {
-      this.props.addHeight(height)
+  updateHeight = () => {
+    const node = ReactDOM.findDOMNode(this)
+    const nodeHeight = node.getBoundingClientRect().height
+    const margin = parseInt(window.getComputedStyle(node)['margin-bottom'])
+    const totalHeight = nodeHeight+margin;
+    this.setState({ height: totalHeight }, () => {
+      this.props.onSetHeight(totalHeight)
     })
+  }
+
+  componentDidMount = () => {
+    window.addEventListener('resize', this.throttle)
+    this.updateHeight()
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener('resize', this.throttle)
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
