@@ -96,7 +96,7 @@ class InputList extends React.Component {
       let value = this.state.value
       value.push(event.target.value)
 
-      let options = this.generateOptionsList(value)
+      const options = this.generateOptionsList(value)
 
       this.setState({value: value, options: options}, () => {
         if (this.props.changeCallback) {
