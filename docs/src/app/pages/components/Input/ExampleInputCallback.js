@@ -3,7 +3,7 @@ import Input from 'react-conventions/lib/Input'
 
 class ExampleInputCallback extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -11,15 +11,15 @@ class ExampleInputCallback extends React.Component {
   }
 
   handleFocus = () => {
-    this.setState({status: 'I am focused.'});
+    this.setState({status: 'I am focused.'})
   }
 
   handleChange = (event) => {
-    this.setState({status: 'My value is: ' + event.target.value});
+    this.setState({status: 'My value is: ' + event.target.value})
   }
 
   handleBlur = () => {
-    this.setState({status: 'I am blurred.'});
+    this.setState({status: 'I am blurred.'})
   }
 
   render() {

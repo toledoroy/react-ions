@@ -45,6 +45,12 @@ class ExampleFormGroup extends React.Component {
       'subject': {
         'value': 'This is my subject'
       },
+      'amount_number': {
+        'value': 17.89
+      },
+      'amount_string': {
+        'value': '17.89'
+      },
       'message': {
         'value': 'This is my message'
       },
@@ -109,6 +115,12 @@ class ExampleFormGroup extends React.Component {
     this.setState({
       schema: {
         subject: {
+          value: ''
+        },
+        amount_number: {
+          value: ''
+        },
+        amount_string: {
           value: ''
         },
         message: {
@@ -176,6 +188,8 @@ class ExampleFormGroup extends React.Component {
         schema={this.state.schema}>
 
         <Input name='subject' label='Subject line' type='text' optClass={formStyle.field} />
+        <Input valueType='number' name='amount_number' label='Amount As Number' optClass={formStyle.field} />
+        <Input valueType='string' name='amount_string' label='Amount As String' optClass={formStyle.field} />
         <Textarea name='message' label='Message' optClass={formStyle.field} />
 
         <RadioGroup
