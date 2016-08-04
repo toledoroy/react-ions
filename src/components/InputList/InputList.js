@@ -36,10 +36,6 @@ class InputList extends React.Component {
     ])
   }
 
-  state = {
-    value: this.props.value || []
-  }
-
   generateOptionsList = (o) => {
     let options = o.map((v) => {
       return {
@@ -50,30 +46,26 @@ class InputList extends React.Component {
     return options
   }
 
-  componentWillMount = () => {
-    if (this.state.value instanceof Array && this.state.value.length > 0) {
-      this.setState({
-        value: this.state.value,
-        options: this.generateOptionsList(this.props.value)
-      })
+  buildStatefromProps = (value) => {
+    if (value instanceof Array && value.length > 0) {
+      return {
+        value: value,
+        options: this.generateOptionsList(value)
+      }
     }
     else {
-      this.setState({value: [], options: []})
+      return { value: [], options: [] }
     }
   }
 
+  state = this.buildStatefromProps(this.props.value)
+
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value !== this.state.value) {
-      if (nextProps.value instanceof Array && nextProps.value.length === 0) {
-        this.setState({
-          value: nextProps.value,
-          options: this.generateOptionsList(nextProps.value)
-        })
-      }
-      else {
-        this.setState({value: [], options: []})
-      }
+    if (nextProps.value === this.state.value) {
+      return
     }
+
+    this.setState(this.buildStatefromProps(nextProps.value))
   }
 
   onRemove = (index) => {
