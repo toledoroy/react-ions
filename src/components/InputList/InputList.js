@@ -134,7 +134,7 @@ class InputList extends React.Component {
 
     return (
       <div className={inputListClasses}>
-        <Input placeholder='Type something and hit enter' value={this.state.currentValue} onKeyUp={this.handleChange} onKeyPress={this.handleChange} />
+        <Input placeholder={this.props.placeholder} value={this.state.currentValue} onKeyUp={this.handleChange} onKeyPress={this.handleChange} />
         <Icon name='icon-add-1-1' className={style['input-list-add-item']} width='14' height='14' fill='#9198A0' onClick={this.handleClick} />
         <TagList tags={this.state.options} displayProp='display' onRemove={this.onRemove} />
       </div>
