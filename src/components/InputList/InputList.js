@@ -53,9 +53,8 @@ class InputList extends React.Component {
         options: this.generateOptionsList(value)
       }
     }
-    else {
-      return { value: [], options: [] }
-    }
+
+    return { value: [], options: [] }
   }
 
   state = this.buildStatefromProps(this.props.value)
