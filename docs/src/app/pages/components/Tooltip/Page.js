@@ -17,7 +17,6 @@ const TooltipPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
-        <h3>Examples</h3>
         <CodeExample
           title='Default Tooltip'
           description={description.tooltipDefault}

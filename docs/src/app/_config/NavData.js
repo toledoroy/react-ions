@@ -64,6 +64,9 @@ const nav = [
         name: 'Input',
         action: '/components/input'
       }, {
+        name: 'Input List',
+        action: '/components/input-list'
+      }, {
         name: 'Modal',
         action: '/components/modal'
       }, {

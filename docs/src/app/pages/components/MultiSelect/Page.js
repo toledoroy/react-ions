@@ -17,23 +17,22 @@ const SelectFieldPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
-        <h3>Examples</h3>
-          <CodeExample
-            title='Multi Select Field'
-            description={description.multiSelectField}
-            markup={exampleMultiSelectFieldCode}>
-            <ExampleMultiSelectField />
-          </CodeExample>
-          <CodeExample
-            title='Multi Typeahead'
-            description={description.multiTypeahead}
-            markup={exampleMultiTypeaheadCode}>
-            <ExampleMultiTypeahead />
-          </CodeExample>
-          <div className={styles.block}>
-            <h3>Props</h3>
-            <PropsList list={docs[0].props} />
-          </div>
+        <CodeExample
+          title='Multi Select Field'
+          description={description.multiSelectField}
+          markup={exampleMultiSelectFieldCode}>
+          <ExampleMultiSelectField />
+        </CodeExample>
+        <CodeExample
+          title='Multi Typeahead'
+          description={description.multiTypeahead}
+          markup={exampleMultiTypeaheadCode}>
+          <ExampleMultiTypeahead />
+        </CodeExample>
+        <div className={styles.block}>
+          <h3>Props</h3>
+          <PropsList list={docs[0].props} />
+        </div>
       </div>
     </div>
   </div>
