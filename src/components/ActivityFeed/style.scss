@@ -27,7 +27,7 @@
       width: 2px;
     }
 
-    &:last-child {
+    &:last-of-type {
       margin-bottom: 0;
 
       &:after {
@@ -49,6 +49,12 @@
   position: absolute;
   top: -5px;
   z-index: 1;
+}
+
+.loader {
+  position: relative;
+  height: 50px;
+  clear: both;
 }
 
 .item-wrapper {

@@ -4,6 +4,7 @@ import ActivityFeedItem from './ActivityFeedItem'
 import Infinite from 'react-infinite';
 import throttle from 'lodash/throttle'
 import Badge from '../Badge'
+import Spinner from '../Spinner'
 import style from './style.scss'
 
 class ActivityFeed extends React.Component {
@@ -113,7 +114,7 @@ class ActivityFeed extends React.Component {
 
   render() {
     const feedClasses = optclass(style, 'activity-feed', this.props.optClass)
-    const elementInfiniteLoad = (<div className="infinite-list-item">Loading...</div>)
+    const elementInfiniteLoad = (<div className={style['loader']}><Spinner loading={true} optClass={style['spinner']} type='spinner-bounce' /></div>)
 
     return (
       <div className={feedClasses}>
