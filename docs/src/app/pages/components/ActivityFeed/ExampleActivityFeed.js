@@ -111,10 +111,14 @@ class ExampleActivityFeed extends React.Component {
   handleInfiniteLoad = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        this.setState({
-          count: this.state.count+100,
-          activities: [...this.state.activities, ...this.genActivities(100, this.state.count)]
-        }, () => resolve())
+        if(this.state.count > 400) {
+          reject()
+        } else {
+          this.setState({
+            count: this.state.count+100,
+            activities: [...this.state.activities, ...this.genActivities(100, this.state.count)]
+          }, () => resolve())
+        }
       }, 1000)
     })
   }

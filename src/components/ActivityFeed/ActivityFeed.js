@@ -18,6 +18,7 @@ class ActivityFeed extends React.Component {
     /**
      * Callback to fetch more activity feed items.
      * Should return a promise that resolves once the data has been fetched.
+     * The promise should be rejected if there are no more items to load.
      * Should also update this.state.data with the additional items.
      */
     onInfiniteLoad: React.PropTypes.func,
@@ -31,9 +32,11 @@ class ActivityFeed extends React.Component {
   }
 
   handleSetHeight = (i, height) => {
-    let heights = this.state.heights
-    heights[i] = height
-    this.setState({ heights })
+    if(this.state.heights[i] !== height) {
+      let heights = this.state.heights
+      heights[i] = height
+      this.setState({ heights })
+    }
   }
 
   getHeight = (i) => {
@@ -85,13 +88,8 @@ class ActivityFeed extends React.Component {
     this.setState({
       data: nextProps.data,
       items: [...this.state.items, ...items],
-      heights: [...this.state.heights, ...heights],
-      fetchMoreEnabled: nextProps.data.length > this.state.data.length
+      heights: [...this.state.heights, ...heights]
     })
-  }
-
-  handleResize = () => {
-    this.setState({ itemHeight: this.getSize() })
   }
 
   handleInfiniteLoad = () => {
@@ -105,8 +103,12 @@ class ActivityFeed extends React.Component {
 
     // Show loader while fetching
     this.setState({ isInfiniteLoading: true })
-    this.props.onInfiniteLoad().then(() => {
+    this.props.onInfiniteLoad()
+    .then(() => {
       this.setState({ isInfiniteLoading: false })
+    })
+    .catch(() => {
+      this.setState({ isInfiniteLoading: false, fetchMoreEnabled: false })
     })
   }
 
