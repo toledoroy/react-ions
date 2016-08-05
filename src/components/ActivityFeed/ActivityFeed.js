@@ -1,7 +1,7 @@
 import React from 'react'
 import optclass from '../internal/OptClass'
 import ActivityFeedItem from './ActivityFeedItem'
-import Infinite from 'react-infinite';
+import Infinite from 'react-infinite'
 import Spinner from '../Spinner'
 import style from './style.scss'
 

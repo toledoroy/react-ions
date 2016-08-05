@@ -85,7 +85,7 @@ class ActivityFeedItem extends React.Component {
     const node = ReactDOM.findDOMNode(this)
     const nodeHeight = node.getBoundingClientRect().height
     const margin = parseInt(window.getComputedStyle(node)['margin-bottom'])
-    const totalHeight = nodeHeight+margin;
+    const totalHeight = nodeHeight+margin
     this.setState({ height: totalHeight }, () => {
       this.props.onSetHeight(totalHeight)
     })

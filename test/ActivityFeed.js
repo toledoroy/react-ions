@@ -1,8 +1,8 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import ActivityFeed from '../src/components/ActivityFeed/ActivityFeed';
-import ActivityFeedItem from '../src/components/ActivityFeed/ActivityFeedItem';
-import Infinite from 'react-infinite';
+import React from 'react'
+import { shallow } from 'enzyme'
+import ActivityFeed from '../src/components/ActivityFeed/ActivityFeed'
+import ActivityFeedItem from '../src/components/ActivityFeed/ActivityFeedItem'
+import Infinite from 'react-infinite'
 
 describe('ActivityFeed', () => {
 
@@ -37,25 +37,25 @@ describe('ActivityFeed', () => {
         theme: 'warning'
       }
     }
-  ];
+  ]
 
   it('should render an ActivityFeed wrapper with list items', () => {
-    const wrapper = shallow(<ActivityFeed data={data} />);
-    const itemWrapper = wrapper.childAt(0).childAt(0).childAt(1);
-    const itemWrapperAction = wrapper.childAt(0).childAt(1).childAt(1);
+    const wrapper = shallow(<ActivityFeed data={data} />)
+    const itemWrapper = wrapper.childAt(0).childAt(0).childAt(1)
+    const itemWrapperAction = wrapper.childAt(0).childAt(1).childAt(1)
 
-    expect(wrapper.props().className).to.equal('activity-feed');
-    expect(wrapper.find('ul')).to.have.length(1);
+    expect(wrapper.props().className).to.equal('activity-feed')
+    expect(wrapper.find('ul')).to.have.length(1)
     expect(wrapper.find(Infinite)).to.have.length(1)
-    expect(wrapper.find(ActivityFeedItem)).to.have.length(2);
-  });
+    expect(wrapper.find(ActivityFeedItem)).to.have.length(2)
+  })
 
   it('should add an activity to the list', () => {
-    const wrapper = shallow(<ActivityFeed data={data} />);
+    const wrapper = shallow(<ActivityFeed data={data} />)
 
-    expect(wrapper.find(ActivityFeedItem)).to.have.length(2);
+    expect(wrapper.find(ActivityFeedItem)).to.have.length(2)
 
-    let activities = data;
+    let activities = data
     activities.unshift({
       name: 'This test activity',
       title: 'is pretty awesome.',
@@ -66,35 +66,35 @@ describe('ActivityFeed', () => {
         text: '42',
         theme: 'success'
       }
-    });
-    wrapper.setProps({data: activities});
-    wrapper.update();
+    })
+    wrapper.setProps({data: activities})
+    wrapper.update()
 
-    expect(wrapper.find(ActivityFeedItem)).to.have.length(3);
-  });
+    expect(wrapper.find(ActivityFeedItem)).to.have.length(3)
+  })
 
   it('should have an extra class', () => {
-    const wrapper = shallow(<ActivityFeed data={data} optClass="test-class" />);
+    const wrapper = shallow(<ActivityFeed data={data} optClass="test-class" />)
 
-    expect(wrapper.hasClass('test-class')).to.be.true;
-  });
+    expect(wrapper.hasClass('test-class')).to.be.true
+  })
 
   it('should update state when handleSetHeight is called', () => {
-    const wrapper = shallow(<ActivityFeed data={data} />);
+    const wrapper = shallow(<ActivityFeed data={data} />)
     wrapper.instance().handleSetHeight(0, 123)
 
     expect(wrapper.state('heights')[0]).to.equal(123)
   })
 
   it('should return current height string when getHeight is called', () => {
-    const wrapper = shallow(<ActivityFeed data={data} />);
+    const wrapper = shallow(<ActivityFeed data={data} />)
     wrapper.instance().handleSetHeight(0, 123)
 
     expect(wrapper.instance().getHeight(0)).to.equal('123-px')
   })
 
   it('should return items and heights when buildElements is called', () => {
-    const wrapper = shallow(<ActivityFeed data={data} />);
+    const wrapper = shallow(<ActivityFeed data={data} />)
     const buildElementsResponse = wrapper.instance().buildElements(0, data)
 
     expect(buildElementsResponse.items.length).to.equal(3)
@@ -108,7 +108,7 @@ describe('ActivityFeed', () => {
   })
 
   it('should set state when component mounts', () => {
-    const wrapper = shallow(<ActivityFeed data={data} />);
+    const wrapper = shallow(<ActivityFeed data={data} />)
 
     expect(wrapper.state('items').length).to.equal(3)
     expect(wrapper.state('items')[0].type).to.equal(ActivityFeedItem)
@@ -121,7 +121,7 @@ describe('ActivityFeed', () => {
   })
 
   it('should update state when new props are received', () => {
-    const wrapper = shallow(<ActivityFeed data={data} />);
+    const wrapper = shallow(<ActivityFeed data={data} />)
     data.unshift({
       name: 'New Activity',
       title: 'is pretty awesome.',
@@ -143,13 +143,13 @@ describe('ActivityFeed', () => {
   })
 
   it('should not fetch more items if props.onInfiniteLoad is not specified when handleInfiniteLoad is called', () => {
-    const wrapper = shallow(<ActivityFeed data={data} />);
+    const wrapper = shallow(<ActivityFeed data={data} />)
 
     expect(wrapper.instance().handleInfiniteLoad()).to.be.undefined
   })
 
   it('should not fetch more items if state fetchMoreEnabled is false when handleInfiniteLoad is called', () => {
-    const wrapper = shallow(<ActivityFeed data={data} onInfiniteLoad={() => {}} />);
+    const wrapper = shallow(<ActivityFeed data={data} onInfiniteLoad={() => {}} />)
     wrapper.setState({ fetchMoreEnabled: false })
 
     expect(wrapper.instance().handleInfiniteLoad()).to.be.undefined
@@ -157,7 +157,7 @@ describe('ActivityFeed', () => {
 
   it('should call props.onInfiniteLoad when handleInfiniteLoad is called', () => {
     const onInfiniteLoad = sinon.stub().returns(Promise.resolve())
-    const wrapper = shallow(<ActivityFeed data={data} onInfiniteLoad={onInfiniteLoad} />);
+    const wrapper = shallow(<ActivityFeed data={data} onInfiniteLoad={onInfiniteLoad} />)
     wrapper.instance().handleInfiniteLoad()
 
     expect(onInfiniteLoad.calledOnce).to.be.true
@@ -165,7 +165,7 @@ describe('ActivityFeed', () => {
 
   it('should update state when onInfiniteLoad is resolved when handleInfiniteLoad is called', done => {
     const onInfiniteLoad = sinon.stub().returns(Promise.resolve())
-    const wrapper = shallow(<ActivityFeed data={data} onInfiniteLoad={onInfiniteLoad} />);
+    const wrapper = shallow(<ActivityFeed data={data} onInfiniteLoad={onInfiniteLoad} />)
     wrapper.instance().handleInfiniteLoad().then(() => {
       expect(wrapper.state('isInfiniteLoading')).to.be.false
       done()
@@ -174,11 +174,11 @@ describe('ActivityFeed', () => {
 
   it('should update state when onInfiniteLoad is rejected when handleInfiniteLoad is called', done => {
     const onInfiniteLoad = sinon.stub().returns(Promise.reject())
-    const wrapper = shallow(<ActivityFeed data={data} onInfiniteLoad={onInfiniteLoad} />);
+    const wrapper = shallow(<ActivityFeed data={data} onInfiniteLoad={onInfiniteLoad} />)
     wrapper.instance().handleInfiniteLoad().then(() => {
       expect(wrapper.state('isInfiniteLoading')).to.be.false
       expect(wrapper.state('fetchMoreEnabled')).to.be.false
       done()
     })
   })
-});
+})
