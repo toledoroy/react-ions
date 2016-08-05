@@ -14,9 +14,27 @@ class ExampleActivityFeed extends React.Component {
     super(props)
   }
 
-  state = {
-    count: 0,
-    activities: [
+  genActivities = (numToAdd, incrementor) => {
+    let items = []
+    for (var i = 0; i < numToAdd; i++) {
+      items.push({
+        name: 'New activity ' + incrementor,
+        profileUrl: '/components/button',
+        title: 'just happened.',
+        text: 'This is just to test whether the component updates correctly.',
+        timestamp: (new Date()).toISOString(),
+        badge: {
+          text: incrementor.toString(),
+          theme: styles[Math.floor(Math.random() * 4)]
+        }
+      })
+      incrementor++
+    }
+    return items
+  }
+
+  getInitialActivities = () => {
+    let items = [
       {
         name: 'External Link',
         profileUrl: `${config.APP_URL}/v3/c/manage/ambassadors/`,
@@ -81,30 +99,36 @@ class ExampleActivityFeed extends React.Component {
         }
       }
     ]
+
+    return [...items, ...this.genActivities(16, 5)]
   }
 
-  addActivity = () => {
-    let activities = this.state.activities;
-    activities.unshift({
-      name: 'New activity ' + (this.state.count + 1),
-      profileUrl: '/components/button',
-      title: 'just happened.',
-      text: 'This is just to test whether the component updates correctly.',
-      timestamp: (new Date()).toISOString(),
-      badge: {
-        text: (this.state.count + 1).toString(),
-        theme: styles[Math.floor(Math.random() * 4)]
-      }
-    })
+  state = {
+    count: 21,
+    activities: this.getInitialActivities()
+  }
 
-    this.setState({ count: this.state.count + 1, activities: activities });
+  handleInfiniteLoad = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if(this.state.count > 400) {
+          reject()
+        } else {
+          this.setState({
+            count: this.state.count+100,
+            activities: [...this.state.activities, ...this.genActivities(100, this.state.count)]
+          }, () => resolve())
+        }
+      }, 1500)
+    })
   }
 
   render() {
     return(
       <div>
-        <Button optClass={style.add} onClick={this.addActivity}>Add Activity</Button>
-        <ActivityFeed data={this.state.activities} />
+        <ActivityFeed
+          data={this.state.activities}
+          onInfiniteLoad={this.handleInfiniteLoad} />
       </div>
     )
   }
