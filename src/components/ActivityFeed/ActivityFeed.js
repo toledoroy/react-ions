@@ -103,7 +103,7 @@ class ActivityFeed extends React.Component {
 
     // Show loader while fetching
     this.setState({ isInfiniteLoading: true })
-    this.props.onInfiniteLoad()
+    return this.props.onInfiniteLoad()
     .then(() => {
       this.setState({ isInfiniteLoading: false })
     })
