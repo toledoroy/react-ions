@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ActivityFeed from '../src/components/ActivityFeed/ActivityFeed';
 import ActivityFeedItem from '../src/components/ActivityFeed/ActivityFeedItem';
+import Infinite from 'react-infinite';
 
 describe('ActivityFeed', () => {
 
@@ -45,20 +46,14 @@ describe('ActivityFeed', () => {
 
     expect(wrapper.props().className).to.equal('activity-feed');
     expect(wrapper.find('ul')).to.have.length(1);
-    expect(wrapper.find('ul').children()).to.have.length(data.length);
-    expect(itemWrapper.type()).to.equal(ActivityFeedItem);
-    expect(itemWrapper.props().name).to.equal(data[0].name);
-    expect(itemWrapper.props().profileUrl).to.equal(data[0].profileUrl);
-    expect(itemWrapper.props().title).to.equal(data[0].title);
-    expect(itemWrapper.props().text).to.equal(data[0].text);
-    expect(itemWrapper.props().time).to.equal(data[0].timestamp);
-    expect(itemWrapperAction.props().actions).to.equal(data[1].actions);
+    expect(wrapper.find(Infinite)).to.have.length(1)
+    expect(wrapper.find(ActivityFeedItem)).to.have.length(2);
   });
 
   it('should add an activity to the list', () => {
     const wrapper = shallow(<ActivityFeed data={data} />);
 
-    expect(wrapper.find('ul').children()).to.have.length(2);
+    expect(wrapper.find(ActivityFeedItem)).to.have.length(2);
 
     let activities = data;
     activities.unshift({
@@ -75,7 +70,7 @@ describe('ActivityFeed', () => {
     wrapper.setProps({data: activities});
     wrapper.update();
 
-    expect(wrapper.find('ul').children()).to.have.length(3);
+    expect(wrapper.find(ActivityFeedItem)).to.have.length(3);
   });
 
   it('should have an extra class', () => {
