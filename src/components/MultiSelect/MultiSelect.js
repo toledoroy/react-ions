@@ -143,14 +143,20 @@ class MultiSelect extends React.Component {
         })
       }
     })
-    this.refs.typeahead.__wrappedComponent.clearSearchString()
+
+    if (this.refs.typeahead) {
+      this.refs.typeahead.__wrappedComponent.clearSearchString()
+    }
   }
 
   getElements(children) {
     let {options, value, ...props} = this.props
     props.options = this.filterItems()
     props.changeCallback = this.handleChange
-    props.ref = 'typeahead'
+
+    if (children.type.name !== 'SelectField') {
+      props.ref = 'typeahead'
+    }
 
     return React.Children.map(children, child => {
       let {options, value, ...childProps} = child.props
