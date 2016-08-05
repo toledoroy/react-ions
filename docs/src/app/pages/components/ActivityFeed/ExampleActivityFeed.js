@@ -119,7 +119,7 @@ class ExampleActivityFeed extends React.Component {
             activities: [...this.state.activities, ...this.genActivities(100, this.state.count)]
           }, () => resolve())
         }
-      }, 1000)
+      }, 1500)
     })
   }
 
