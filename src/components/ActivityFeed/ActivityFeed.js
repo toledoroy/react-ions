@@ -17,9 +17,9 @@ class ActivityFeed extends React.Component {
     data: React.PropTypes.array.isRequired,
     /**
      * Callback to fetch more activity feed items.
-     * Should return a promise that resolves once the data has been fetched.
+     * The callack should return a promise that resolves once the data has been fetched.
      * The promise should be rejected if there are no more items to load.
-     * Should also update this.state.data with the additional items.
+     * The callback should also update props.data with the additional items before resolving the promise.
      */
     onInfiniteLoad: React.PropTypes.func,
     /**
