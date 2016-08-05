@@ -177,6 +177,10 @@ export class Typeahead extends React.Component {
     })
   }
 
+  clearSearchString = () => {
+    this.setState({searchStr: '', value: ''})
+  }
+
   render() {
     const cx = classNames.bind(style)
     const loaderClass = this.props.loading ? 'loading' : null
