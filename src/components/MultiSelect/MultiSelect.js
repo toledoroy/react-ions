@@ -154,7 +154,7 @@ class MultiSelect extends React.Component {
     props.options = this.filterItems()
     props.changeCallback = this.handleChange
 
-    if (children.type.name !== 'SelectField') {
+    if (children.type.displayName === 'WrappedTypeahead') {
       props.ref = 'typeahead'
     }
 
