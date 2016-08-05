@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
 import { shallow, mount } from 'enzyme';
 import { Link } from 'react-router'
 import timeString from '../src/components/internal/TimeString'
@@ -122,4 +123,16 @@ describe('ActivityFeedItem', () => {
     expect(link.props().href).to.equal('https://getambassador.com/v3/c/manage/ambassadors/');
     expect(link.props().target).to.equal('_blank');
   });
+
+  it('should set state and call props.onSetHeight when updateHeight is called', () => {
+    const onSetHeight = sinon.stub()
+    const div = document.createElement('div')
+    document.body.appendChild(div)
+    const wrapper = ReactDOM.render(<ActivityFeedItem badge={data[0].badge} name={data[0].name} title={data[0].title} onSetHeight={onSetHeight} />, div);
+
+    expect(onSetHeight.calledOnce).to.be.true
+    expect(onSetHeight.calledWith(18)).to.be.true
+
+    ReactDOM.unmountComponentAtNode(div)
+  })
 });
