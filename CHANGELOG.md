@@ -1,5 +1,18 @@
 ## HEAD
 
+## 0.43.0
+###### _August 8, 2016_
+
+##### Component Fixes / Enhancements
+
+- [ActivityFeed] - Added infinite scroll
+
+- [InputList] - Created new component
+ 
+- [Input] - Added valueType prop to handle numbers 
+
+- [MultiSelect / Typeahead] - Clear search string after selection
+
 ## 0.42.0
 ###### _August 1, 2016_
 
