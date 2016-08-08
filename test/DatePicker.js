@@ -85,9 +85,10 @@ describe('DatePicker', () => {
     // click <li>
     wrapper.childAt(2).childAt(2).childAt(0).simulate('click')
 
-    const firstYear = '2006-08-07'
-    expect(result.target.value).to.equal(firstYear)
-    expect(wrapper.state('value')).to.equal(firstYear)
+    let firstDate = moment().subtract(10, 'year').format(defaultFormat)
+
+    expect(result.target.value).to.equal(firstDate)
+    expect(wrapper.state('value')).to.equal(firstDate)
   })
 
   it('should not result in an error if changeCallback is not defined', () => {
