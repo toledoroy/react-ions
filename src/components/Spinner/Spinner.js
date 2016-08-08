@@ -29,23 +29,31 @@ class Spinner extends React.Component {
      */
     type: React.PropTypes.oneOf(['spinner-dots', 'spinner-bounce']).isRequired,
     /**
+     * The hex code of the loader color.
+     */
+    color: React.PropTypes.string,
+    /**
      * Optional styles to add to the textarea.
      */
     optClass: React.PropTypes.string
   }
 
+  getStyle = () => {
+    return this.props.color ? { backgroundColor: this.props.color } : null
+  }
+
   innerHtml = () => {
     if (this.props.type === 'spinner-dots') {
       return <div>
-               <div className={style.dot1}></div>
-               <div className={style.dot2}></div>
+               <div className={style.dot1} style={this.getStyle()}></div>
+               <div className={style.dot2} style={this.getStyle()}></div>
              </div>
     }
     if (this.props.type === 'spinner-bounce') {
       return <div>
-               <div className={style.bounce1}></div>
-               <div className={style.bounce2}></div>
-               <div className={style.bounce3}></div>
+               <div className={style.bounce1} style={this.getStyle()}></div>
+               <div className={style.bounce2} style={this.getStyle()}></div>
+               <div className={style.bounce3} style={this.getStyle()}></div>
              </div>
     }
   }

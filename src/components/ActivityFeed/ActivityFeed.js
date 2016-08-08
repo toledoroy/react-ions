@@ -114,7 +114,7 @@ class ActivityFeed extends React.Component {
 
   render() {
     const feedClasses = optclass(style, 'activity-feed', this.props.optClass)
-    const elementInfiniteLoad = (<div className={style['loader']}><Spinner loading={true} optClass={style['spinner']} type='spinner-bounce' /></div>)
+    const elementInfiniteLoad = (<div className={style['loader']}><Spinner loading={true} optClass={style['spinner']} type='spinner-bounce' color='#3C97D3' /></div>)
 
     return (
       <div className={feedClasses}>
