@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import classNames from 'classnames/bind'
 import enhanceWithClickOutside from 'react-click-outside'
 import fuzzy from 'fuzzy'
