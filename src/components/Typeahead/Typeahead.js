@@ -16,7 +16,8 @@ export class Typeahead extends React.Component {
     disabled: false,
     options: [],
     valueProp: '',
-    displayProp: ''
+    displayProp: '',
+    resetAfterSelection: false
   }
 
   static propTypes = {
@@ -62,7 +63,11 @@ export class Typeahead extends React.Component {
     /**
      * A loading state to be set to true when asynchronous searching is in progress.
      */
-    loading: React.PropTypes.bool
+    loading: React.PropTypes.bool,
+    /**
+     * Clear search string after selection.
+     */
+    resetAfterSelection: React.PropTypes.bool,
   }
 
   state = {
@@ -92,7 +97,21 @@ export class Typeahead extends React.Component {
 
   selectOption = (option) => {
     let normalizedOption = option.original ? option.original : option
-    this.setState({selected: normalizedOption, searchStr: normalizedOption[this.props.displayProp], value: normalizedOption[this.props.valueProp], isActive: false}, () => {
+
+    let newState = {
+      selected: normalizedOption,
+      searchStr: normalizedOption[this.props.displayProp],
+      value: normalizedOption[this.props.valueProp],
+      isActive: false
+    }
+
+    if (this.props.resetAfterSelection) {
+      newState.searchStr = ''
+      newState.value = ''
+    }
+
+
+    this.setState(newState, () => {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {
@@ -175,10 +194,6 @@ export class Typeahead extends React.Component {
         })
       }
     })
-  }
-
-  clearSearchString = () => {
-    this.setState({searchStr: '', value: ''})
   }
 
   render() {

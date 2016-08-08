@@ -143,10 +143,6 @@ class MultiSelect extends React.Component {
         })
       }
     })
-
-    if (this.refs.typeahead) {
-      this.refs.typeahead.__wrappedComponent.clearSearchString()
-    }
   }
 
   getElements(children) {
@@ -155,7 +151,7 @@ class MultiSelect extends React.Component {
     props.changeCallback = this.handleChange
 
     if (children.type.displayName === 'WrappedTypeahead') {
-      props.ref = 'typeahead'
+      props.resetAfterSelection = true
     }
 
     return React.Children.map(children, child => {
