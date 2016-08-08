@@ -150,6 +150,10 @@ class MultiSelect extends React.Component {
     props.options = this.filterItems()
     props.changeCallback = this.handleChange
 
+    if (children.type.displayName === 'WrappedTypeahead') {
+      props.resetAfterSelection = true
+    }
+
     return React.Children.map(children, child => {
       let {options, value, ...childProps} = child.props
 
