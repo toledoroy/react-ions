@@ -5,13 +5,15 @@
 
 ##### Component Fixes / Enhancements
 
-- [ActivityFeed] - Added infinite scroll
+- [Spinner] - Added ability to override spinner color ([#197](https://github.com/GetAmbassador/react-conventions/pull/197))
 
-- [InputList] - Created new component
- 
-- [Input] - Added valueType prop to handle numbers 
+- [ActivityFeed] - Added infinite scroll ([#193](https://github.com/GetAmbassador/react-conventions/pull/193))
 
-- [MultiSelect / Typeahead] - Clear search string after selection
+- [InputList] - New form input to accept a list of strings values ([#194](https://github.com/GetAmbassador/react-conventions/pull/194))
+
+- [Input] - Added valueType prop to handle numbers ([#195](https://github.com/GetAmbassador/react-conventions/pull/195))
+
+- [MultiSelect / Typeahead] - Clear search string after selection ([#196](https://github.com/GetAmbassador/react-conventions/pull/196))
 
 ## 0.42.0
 ###### _August 1, 2016_
