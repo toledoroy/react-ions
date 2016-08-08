@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import classNames from 'classnames/bind'
 import enhanceWithClickOutside from 'react-click-outside'
 import fuzzy from 'fuzzy'
@@ -108,6 +109,10 @@ export class Typeahead extends React.Component {
     if (this.props.resetAfterSelection) {
       newState.searchStr = ''
       newState.value = ''
+      console.log(this._inputField)
+      console.log(ReactDOM.findDOMNode(this._inputField))
+      ReactDOM.findDOMNode(this._inputField).focus()
+      // this._inputField.find('input')[0].focus()
     }
 
 
@@ -219,7 +224,7 @@ export class Typeahead extends React.Component {
 
     return (
       <div className={typeaheadClass}>
-        <Input changeCallback={this.handleChange} value={this.state.searchStr} placeholder={this.props.placeholder} disabled={this.props.disabled} />
+        <Input ref={(c) => this._inputField = c} changeCallback={this.handleChange} value={this.state.searchStr} placeholder={this.props.placeholder} disabled={this.props.disabled} />
 
         {this.state.searchStr !== '' && !this.props.loading && !this.props.disabled
           ? <Icon name='icon-delete-1-1' onClick={this.clearSearch} className={style['reset-button']}>Reset</Icon>
