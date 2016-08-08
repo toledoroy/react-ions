@@ -36,4 +36,12 @@ describe('Spinner', () => {
     expect(wrapper.props().className).to.equal('spinner-wrap loading testing')
   })
 
+  it('should have a custom color', () => {
+    wrapper = mount(<Spinner loading={true} type='spinner-bounce' color='#3C97D3' />)
+
+    expect(wrapper.childAt(0).childAt(0).childAt(0).node.style.backgroundColor).to.equal('rgb(60, 151, 211)')
+    expect(wrapper.childAt(0).childAt(0).childAt(1).node.style.backgroundColor).to.equal('rgb(60, 151, 211)')
+    expect(wrapper.childAt(0).childAt(0).childAt(2).node.style.backgroundColor).to.equal('rgb(60, 151, 211)')
+  })
+
 })
