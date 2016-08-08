@@ -109,10 +109,9 @@ export class Typeahead extends React.Component {
     if (this.props.resetAfterSelection) {
       newState.searchStr = ''
       newState.value = ''
-      console.log(this._inputField)
-      console.log(ReactDOM.findDOMNode(this._inputField))
-      ReactDOM.findDOMNode(this._inputField).focus()
-      // this._inputField.find('input')[0].focus()
+
+      // Focus the input field
+      this._inputField.focus()
     }
 
 

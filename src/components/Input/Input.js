@@ -102,6 +102,10 @@ class Input extends React.Component {
     }
   }
 
+  focus = () => {
+    this._input.focus()
+  }
+
   render() {
     const {
       label,
@@ -118,6 +122,7 @@ class Input extends React.Component {
       <div className={inputClass}>
         { label ? <label>{label}</label> : null }
         <input
+          ref={(c) => this._input = c}
           value={this.state.value}
           onFocus={this.handleFocus}
           onChange={this.handleChange}
