@@ -1,12 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import { shallow, mount } from 'enzyme'
 import Loader from 'react-loader'
 import Input from '../src/components/Input/Input'
 import { Typeahead } from '../src/components/Typeahead/Typeahead'
 
 describe('Typeahead', () => {
-  let wrapper, typeahead, inst
+  let wrapper, typeahead
 
   const options = [
     {value: 'AT', display: 'Austria'},
@@ -60,6 +59,30 @@ describe('Typeahead', () => {
   it('should update when props are set', () => {
     wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' value={10} optClass='test-class' />)
     expect(wrapper.childAt(0).props().value).to.equal('Number')
+  })
+
+  it('should not clear search string after selection', () => {
+    wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' />)
+
+    let inputField = wrapper.find('input')
+
+    inputField.simulate('change', {target: {value: 'a'}})
+    expect(inputField.node.value).to.equal('a')
+
+    wrapper.childAt(2).find('ul').childAt(0).simulate('click')
+    expect(wrapper.find('input').node.value).to.equal(options[0].display)
+  })
+
+  it('should clear search string after selection', () => {
+    wrapper = mount(<Typeahead resetAfterSelection={true} options={options} valueProp='value' displayProp='display' />)
+
+    let inputField = wrapper.find('input')
+
+    inputField.simulate('change', {target: {value: 'a'}})
+    expect(inputField.node.value).to.equal('a')
+
+    wrapper.childAt(2).find('ul').childAt(0).simulate('click')
+    expect(wrapper.find('input').node.value).to.equal('')
   })
 
 })
