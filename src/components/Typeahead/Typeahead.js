@@ -67,7 +67,7 @@ export class Typeahead extends React.Component {
     /**
      * Clear search string after selection.
      */
-    resetAfterSelection: React.PropTypes.bool,
+    resetAfterSelection: React.PropTypes.bool
   }
 
   state = {
