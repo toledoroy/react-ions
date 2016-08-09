@@ -7,19 +7,10 @@ import options from './CountryList'
     super(props)
   }
 
-  state = {
-    loading: false
-  }
-
   handleSearch = (value) => {
+    console.log('Search value: ', value)
     return new Promise((resolve, reject) => {
-      this.setState({loading: true}, () => {
-        // Do asynchronous search here
-        setTimeout(() => {
-          resolve(options)
-          this.setState({loading: false})
-        }, 2000)
-      })
+      resolve(options)
     })
   }
 
@@ -29,8 +20,6 @@ import options from './CountryList'
         options={options}
         valueProp='countryCode'
         displayProp='countryName'
-        value={this.state.selected}
-        loading={this.state.loading}
         searchCallback={this.handleSearch}
         placeholder='Start typing'
         searchDebounceTime={500} />
