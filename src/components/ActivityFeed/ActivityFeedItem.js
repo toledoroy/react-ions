@@ -51,10 +51,6 @@ class ActivityFeedItem extends React.Component {
     onSetHeight: React.PropTypes.func
   }
 
-  state = {
-    height: 0
-  }
-
   generateLinkType = (name) => {
     let link
     const re = '^(http|https)://'
@@ -87,9 +83,7 @@ class ActivityFeedItem extends React.Component {
     const nodeHeight = node.getBoundingClientRect().height
     const margin = parseInt(window.getComputedStyle(node)['margin-bottom'])
     const totalHeight = nodeHeight+margin
-    this.setState({ height: totalHeight }, () => {
-      this.props.onSetHeight(totalHeight)
-    })
+    this.props.onSetHeight(totalHeight)
   }
 
   componentDidMount = () => {
@@ -109,7 +103,7 @@ class ActivityFeedItem extends React.Component {
     const badgeClasses = optclass(style, 'indicator')
 
     return (
-      <li className={this.state.height + '-px'}>
+      <li>
         <Badge
           icon={this.props.badge.icon}
           text={this.props.badge.text}
