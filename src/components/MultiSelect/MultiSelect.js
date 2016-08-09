@@ -150,7 +150,7 @@ class MultiSelect extends React.Component {
     props.options = this.filterItems()
     props.changeCallback = this.handleChange
 
-    if (children.type.displayName === 'WrappedTypeahead') {
+    if (['WrappedTypeahead', 'Wrappedt'].includes(children.type.displayName)) {
       props.resetAfterSelection = true
     }
 
