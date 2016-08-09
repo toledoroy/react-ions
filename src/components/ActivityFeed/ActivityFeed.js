@@ -101,6 +101,11 @@ class ActivityFeed extends React.Component {
       return
     }
 
+    // If we are already loading more items do not keep trying
+    if(this.state.isInfiniteLoading) {
+      return
+    }
+
     // Show loader while fetching
     this.setState({ isInfiniteLoading: true })
     return this.props.onInfiniteLoad()
