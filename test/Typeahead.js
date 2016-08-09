@@ -89,6 +89,18 @@ describe('Typeahead', () => {
     expect(inputField.node.value).to.equal(options[0].display)
   })
 
+  it('should clear search string after selection', () => {
+    wrapper = mount(<Typeahead resetAfterSelection={true} options={options} valueProp='value' displayProp='display' />)
+
+    let inputField = wrapper.find('input')
+
+    inputField.simulate('change', {target: {value: 'a'}})
+    expect(inputField.node.value).to.equal('a')
+
+    wrapper.childAt(2).find('ul').childAt(0).simulate('click')
+    expect(inputField.node.value).to.equal('')
+})
+
   it('should clear search when the clear button is clicked', () => {
     wrapper = mount(<Typeahead resetAfterSelection={true} options={options} valueProp='value' displayProp='display' changeCallback={sinon.spy()} />)
 
