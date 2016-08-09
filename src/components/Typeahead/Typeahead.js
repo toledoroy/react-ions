@@ -12,7 +12,7 @@ export class Typeahead extends React.Component {
   constructor(props) {
     super(props)
 
-    this.debounce = debounce(this.handleChange, typeof this.props.searchCallback === 'function' ? props.searchDebounceTime : 0)
+    this.onChange = typeof this.props.searchCallback === 'function' && props.searchDebounceTime > 0 ? debounce(this.handleChange, props.searchDebounceTime) : this.handleChange
   }
 
   static defaultProps = {
@@ -228,7 +228,7 @@ export class Typeahead extends React.Component {
 
     return (
       <div className={typeaheadClass}>
-        <Input ref={(c) => this._inputField = c} changeCallback={this.debounce} value={this.state.searchStr} placeholder={this.props.placeholder} disabled={this.props.disabled} />
+        <Input ref={(c) => this._inputField = c} changeCallback={this.onChange} value={this.state.searchStr} placeholder={this.props.placeholder} disabled={this.props.disabled} />
 
         {this.state.searchStr !== '' && !this.props.loading && !this.props.disabled
           ? <Icon name='icon-delete-1-1' onClick={this.clearSearch} className={style['reset-button']}>Reset</Icon>
