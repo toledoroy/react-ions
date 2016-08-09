@@ -137,6 +137,7 @@ class ExampleActivityFeed extends React.Component {
         <p><Button onClick={this.changeActivities}>Set Random Activities</Button></p>
         <ActivityFeed
           data={this.state.activities}
+          totalCount={420}
           onInfiniteLoad={this.handleInfiniteLoad} />
       </div>
     )

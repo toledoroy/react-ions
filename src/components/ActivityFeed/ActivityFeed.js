@@ -28,7 +28,11 @@ class ActivityFeed extends React.Component {
     optClass: React.PropTypes.oneOfType([
       React.PropTypes.array,
       React.PropTypes.string
-    ])
+    ]),
+    /**
+     * Optional total count to prevent infinite scroll from requesting more items.
+     */
+    totalCount: React.PropTypes.number
   }
 
   handleSetHeight = (i, height) => {
@@ -96,7 +100,7 @@ class ActivityFeed extends React.Component {
     // If we've already fetched as many items as there are available
     // or no function has been provided to fetch more
     // then there is no need to fetch.
-    if (!this.state.fetchMoreEnabled || typeof this.props.onInfiniteLoad !== 'function') {
+    if (this.props.totalCount && this.state.items.length >= this.props.totalCount || typeof this.props.onInfiniteLoad !== 'function') {
       this.setState({ isInfiniteLoading: false })
       return
     }
@@ -113,7 +117,7 @@ class ActivityFeed extends React.Component {
       this.setState({ isInfiniteLoading: false })
     })
     .catch(() => {
-      this.setState({ isInfiniteLoading: false, fetchMoreEnabled: false })
+      this.setState({ isInfiniteLoading: false })
     })
   }
 
