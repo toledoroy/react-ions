@@ -52,6 +52,7 @@ const options = [
   {countryCode: 'CK', countryName: 'Cook Islands'},
   {countryCode: 'CR', countryName: 'Costa Rica'},
   {countryCode: 'CT', countryName: 'Cote D\'Ivoire'},
+  {countryCode: 'HR', countryName: 'Croatia'},
   {countryCode: 10, countryName: 'Number'}
 ]
 

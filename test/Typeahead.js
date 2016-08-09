@@ -56,6 +56,22 @@ describe('Typeahead', () => {
     expect(searchStub.calledWithExactly('b')).to.be.true
   })
 
+  it('should have a custom search debounce time', (done) => {
+    const promiseOptions = [
+      {value: 'US', display: 'United States'}
+    ]
+    const searchStub = sinon.stub().returns(Promise.resolve(promiseOptions))
+    wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' searchCallback={searchStub} searchDebounceTime={200} />)
+    wrapper.find('input').simulate('change', {target: {value: 'b'}})
+
+    expect(searchStub.calledWithExactly('b')).to.be.false
+
+    setTimeout(() => {
+      expect(searchStub.calledWithExactly('b')).to.be.true
+      done()
+    }, 400)
+  })
+
   it('should update when props are set', () => {
     wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' value={10} optClass='test-class' />)
     expect(wrapper.childAt(0).props().value).to.equal('Number')
@@ -83,6 +99,32 @@ describe('Typeahead', () => {
 
     wrapper.childAt(2).find('ul').childAt(0).simulate('click')
     expect(inputField.node.value).to.equal('')
+})
+
+  it('should clear search when the clear button is clicked', () => {
+    wrapper = mount(<Typeahead resetAfterSelection={true} options={options} valueProp='value' displayProp='display' changeCallback={sinon.spy()} />)
+
+    let inputField = wrapper.find('input')
+
+    inputField.simulate('change', {target: {value: 'a'}})
+    expect(inputField.node.value).to.equal('a')
+
+    wrapper.childAt(1).simulate('click')
+    expect(inputField.node.value).to.equal('')
+  })
+
+  it('should clear search string when input value is an empty string', () => {
+    const changeCallback = sinon.spy()
+    wrapper = mount(<Typeahead resetAfterSelection={true} options={options} valueProp='value' displayProp='display' changeCallback={changeCallback} />)
+
+    let inputField = wrapper.find('input')
+
+    inputField.simulate('change', {target: {value: 'a'}})
+    expect(wrapper.state().searchStr).to.equal('a')
+
+    inputField.simulate('change', {target: {value: ''}})
+    expect(wrapper.state().searchStr).to.equal('')
+    expect(changeCallback.calledWithExactly({ target: { name: '', value: '', option: '' } })).to.be.true
   })
 
 })

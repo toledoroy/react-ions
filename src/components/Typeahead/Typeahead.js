@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames/bind'
 import enhanceWithClickOutside from 'react-click-outside'
 import fuzzy from 'fuzzy'
+import debounce from 'lodash/debounce'
 import Loader from 'react-loader'
 import Input from '../Input'
 import Icon from '../Icon'
@@ -10,6 +11,8 @@ import style from './style.scss'
 export class Typeahead extends React.Component {
   constructor(props) {
     super(props)
+
+    this.onChange = typeof this.props.searchCallback === 'function' && props.searchDebounceTime > 0 ? debounce(this.handleChange, props.searchDebounceTime) : this.handleChange
   }
 
   static defaultProps = {
@@ -17,7 +20,8 @@ export class Typeahead extends React.Component {
     options: [],
     valueProp: '',
     displayProp: '',
-    resetAfterSelection: false
+    resetAfterSelection: false,
+    searchDebounceTime: 0
   }
 
   static propTypes = {
@@ -67,7 +71,11 @@ export class Typeahead extends React.Component {
     /**
      * Clear search string after selection.
      */
-    resetAfterSelection: React.PropTypes.bool
+    resetAfterSelection: React.PropTypes.bool,
+    /**
+     * Search debounce time.
+     */
+    searchDebounceTime: React.PropTypes.number
   }
 
   state = {
@@ -165,8 +173,6 @@ export class Typeahead extends React.Component {
   }
 
   updateResults = (event, options) => {
-    this.setState({isActive: true})
-
     let str = {
       pre: '<b>',
       post: '</b>',
@@ -176,7 +182,7 @@ export class Typeahead extends React.Component {
     }
 
     let results = fuzzy.filter(event.target.value, options, str)
-    this.setState({results: results})
+    this.setState({results: results, isActive: true})
   }
 
   getDynamicList = (str) => {
@@ -222,7 +228,7 @@ export class Typeahead extends React.Component {
 
     return (
       <div className={typeaheadClass}>
-        <Input ref={(c) => this._inputField = c} changeCallback={this.handleChange} value={this.state.searchStr} placeholder={this.props.placeholder} disabled={this.props.disabled} />
+        <Input ref={(c) => this._inputField = c} changeCallback={this.onChange} value={this.state.searchStr} placeholder={this.props.placeholder} disabled={this.props.disabled} />
 
         {this.state.searchStr !== '' && !this.props.loading && !this.props.disabled
           ? <Icon name='icon-delete-1-1' onClick={this.clearSearch} className={style['reset-button']}>Reset</Icon>
