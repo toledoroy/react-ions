@@ -129,20 +129,23 @@ class MultiSelect extends React.Component {
   }
 
   handleChange = (event) => {
-    let values = this.state.value
-    values.push(event.target.value)
+    // when value & option are empty it means that reset button was clicked
+    if (event.target.value !== '' && event.target.option !== '') {
+      let values = this.state.value
+      values.push(event.target.value)
 
-    this.setState({selected: this.getSelectedOptions(values), value: values}, () => {
-      if (this.props.changeCallback) {
-        this.props.changeCallback({
-          target: {
-            name: this.props.name,
-            value: this.state.value,
-            options: this.state.selected
-          }
-        })
-      }
-    })
+      this.setState({selected: this.getSelectedOptions(values), value: values}, () => {
+        if (this.props.changeCallback) {
+          this.props.changeCallback({
+            target: {
+              name: this.props.name,
+              value: this.state.value,
+              options: this.state.selected
+            }
+          })
+        }
+      })
+    }
   }
 
   getElements(children) {
