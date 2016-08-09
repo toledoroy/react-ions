@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Link } from 'react-router'
+import shallowCompare from 'react-addons-shallow-compare'
 import throttle from 'lodash/throttle'
 import timeString from '../internal/TimeString'
 import Icon from '../Icon'
@@ -101,7 +102,7 @@ class ActivityFeedItem extends React.Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    return this.state.height !== nextState.height
+    return shallowCompare(this, nextProps, nextState);
   }
 
   render = () => {

@@ -4,6 +4,7 @@ import Button from 'react-conventions/lib/Button'
 import style from './style.scss'
 
 const styles = ['success', 'info', 'danger', 'warning']
+const actions = ['activity', 'share', 'commission', 'event']
 
 const config = {
   APP_URL: 'http://getambassador.com'
@@ -18,7 +19,7 @@ class ExampleActivityFeed extends React.Component {
     let items = []
     for (var i = 0; i < numToAdd; i++) {
       items.push({
-        name: 'New activity ' + incrementor,
+        name: 'New ' + actions[Math.floor(Math.random() * 4)] + ' ' + incrementor,
         profileUrl: '/components/button',
         title: 'just happened.',
         text: 'This is just to test whether the component updates correctly.',
@@ -108,6 +109,13 @@ class ExampleActivityFeed extends React.Component {
     activities: this.getInitialActivities()
   }
 
+  changeActivities = () => {
+    this.setState({
+      count: 21,
+      activities: this.genActivities(21, 1)
+    })
+  }
+
   handleInfiniteLoad = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -126,6 +134,7 @@ class ExampleActivityFeed extends React.Component {
   render() {
     return(
       <div>
+        <p><Button onClick={this.changeActivities}>Set Random Activities</Button></p>
         <ActivityFeed
           data={this.state.activities}
           onInfiniteLoad={this.handleInfiniteLoad} />

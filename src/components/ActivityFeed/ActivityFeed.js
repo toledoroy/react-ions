@@ -83,12 +83,12 @@ class ActivityFeed extends React.Component {
     const {
       items,
       heights
-    } = this.buildElements(this.state.items.length, nextProps.data)
+    } = this.buildElements(0, nextProps.data)
 
     this.setState({
       data: nextProps.data,
-      items: [...this.state.items, ...items],
-      heights: [...this.state.heights, ...heights]
+      items,
+      heights
     })
   }
 
