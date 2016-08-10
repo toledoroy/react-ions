@@ -1,5 +1,14 @@
 ## HEAD
 
+## 0.44.0
+###### _August 10, 2016_
+
+##### Component Fixes / Enhancements
+
+- [ActivityFeed] - Various improvements ([#202](https://github.com/GetAmbassador/react-conventions/pull/202))
+- [MultiSelect / Typeahead] - Prevent changeCallback from being fired when search value is cleared ([#201](https://github.com/GetAmbassador/react-conventions/pull/201))
+- [Typeahead] - Added searchDebounceTime optional prop ([#200](https://github.com/GetAmbassador/react-conventions/pull/200))
+
 ## 0.43.0
 ###### _August 8, 2016_
 
