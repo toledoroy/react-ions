@@ -96,7 +96,7 @@ class ActivityFeedItem extends React.Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    return shallowCompare(this, nextProps, nextState);
+    return shallowCompare(this, nextProps, nextState)
   }
 
   render = () => {
