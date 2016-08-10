@@ -46,27 +46,37 @@ describe('InputList', () => {
 
   it('should build state from props', () => {
     spy = sinon.spy()
-    wrapper = shallow(<InputList optClass='test' value={value} changeCallback={spy} placeholder='Type something and hit enter' />)
+    wrapper = shallow(<InputList value={value} changeCallback={spy} />)
     expect(wrapper.state().value).to.equal(value)
   })
 
   it('should generate an options list', () => {
     spy = sinon.spy()
-    wrapper = shallow(<InputList optClass='test' value={value} changeCallback={spy} placeholder='Type something and hit enter' />)
+    wrapper = shallow(<InputList value={value} changeCallback={spy} />)
     expect(wrapper.state().options).to.deep.equal(options)
   })
 
-  it('should call handleChange and return if not pressing enter or click', () => {
+  it('should call handleKeyUp and return if not pressing enter or click', () => {
     spy = sinon.spy()
-    wrapper = shallow(<InputList optClass='test' value={value} changeCallback={spy} placeholder='Type something and hit enter' />)
+    wrapper = shallow(<InputList value={value} changeCallback={spy} />)
 
     wrapper.childAt(0).simulate('keyUp', handleChangeReturn)
     expect(wrapper.state().currentValue).to.equal(handleChangeReturn.target.value)
   })
 
+  it('should call handleChange and continue if pressing enter or click', () => {
+    spy = sinon.spy()
+    wrapper = shallow(<InputList value={value} changeCallback={spy} />)
 
+    wrapper.childAt(0).simulate('keyUp', handleChangeClick)
+    expect(wrapper.state().value).to.deep.equal(['Test 1', 'Test 2', 'x'])
+  })
 
-  // wrapper.childAt(0).simulate('keyUp', handleChangeClick)
-  // expect(wrapper.state().currentValue).to.equal(handleChangeClick.target.value)
+  it('should (return) when a non-return or click key is pressed', () => {
+    spy = sinon.spy()
+    wrapper = shallow(<InputList value={value} changeCallback={spy} />)
 
+    wrapper.childAt(0).simulate('keyPress', handleChangeClick)
+    expect(wrapper.state().value).to.deep.equal(['Test 1', 'Test 2', 'x'])
+  })
 })

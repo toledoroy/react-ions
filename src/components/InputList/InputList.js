@@ -80,28 +80,36 @@ class InputList extends React.Component {
     this.setState({ currentValue: '' })
   }
 
-  handleChange = (event) => {
-    // not 13
-    // not click
-    // not from keyUp
+  updateList = (event) => {
+    let value = this.state.value
+    value.push(event.target.value)
 
+    const options = this.generateOptionsList(value)
+
+    this.setState({value: value, options: options}, () => {
+      this.callback()
+      this.clearInput()
+    })
+  }
+
+  handleKeyPress = (event) => {
     if (event.charCode !== 13 && event.type !== 'click' || !event.target.value) {
-      this.setState({ currentValue: event.target.value })
+      return
     } else {
-      let value = this.state.value
-      value.push(event.target.value)
+      this.updateList(event)
+    }
+  }
 
-      const options = this.generateOptionsList(value)
-
-      this.setState({value: value, options: options}, () => {
-        this.callback()
-        this.clearInput()
-      })
+  handleKeyUp = (event) => {
+    if (event.charCode !== 13 && event.type !== 'click' || !event.target.value) {
+      this.setState({currentValue: event.target.value})
+    } else {
+      this.updateList(event)
     }
   }
 
   handleClick = () => {
-    this.handleChange({
+    this.handleKeyUp({
       type: 'click',
       target: {
         value: this.state.currentValue
@@ -114,7 +122,7 @@ class InputList extends React.Component {
 
     return (
       <div className={inputListClasses}>
-        <Input placeholder={this.props.placeholder} value={this.state.currentValue} onKeyUp={this.handleChange} onKeyPress={this.handleChange} />
+        <Input placeholder={this.props.placeholder} value={this.state.currentValue} onKeyUp={this.handleKeyUp} onKeyPress={this.handleKeyPress} />
         <Icon name='icon-add-1-1' className={style['input-list-add-item']} width='14' height='14' fill='#9198A0' onClick={this.handleClick} />
         <TagList tags={this.state.options} displayProp='display' onRemove={this.onRemove} />
       </div>
