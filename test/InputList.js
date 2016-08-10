@@ -6,35 +6,22 @@ import Icon from '../src/components/Icon/Icon'
 import TagList from '../src/components/internal/TagList'
 
 describe('InputList', () => {
-  let wrapper, input, spy, inst
+  let wrapper, input, inst, value
 
-  const value = [
-    'Test 1',
-    'Test 2'
-  ]
+  beforeEach(() => {
+    value = [
+      'Test 1',
+      'Test 2'
+    ]
+  })
 
   const options = [
     { display: 'Test 1', value: 'Test 1' },
     { display: 'Test 2', value: 'Test 2' }
   ]
 
-  const handleChangeReturn = {
-    charCode: 14,
-    target: {
-      value: 'i'
-    }
-  }
-
-  const handleChangeClick = {
-    type: 'click',
-    charCode: 13,
-    target: {
-      value: 'x'
-    }
-  }
-
   it('should shallow render itself', () => {
-    spy = sinon.spy()
+    const spy = sinon.spy()
     wrapper = shallow(<InputList optClass='test' value={[]} changeCallback={spy} placeholder='Type something and hit enter' />)
 
     expect(wrapper.props().className).to.equal('input-list-wrapper test')
@@ -45,38 +32,53 @@ describe('InputList', () => {
   })
 
   it('should build state from props', () => {
-    spy = sinon.spy()
+    const spy = sinon.spy()
     wrapper = shallow(<InputList value={value} changeCallback={spy} />)
     expect(wrapper.state().value).to.equal(value)
   })
 
   it('should generate an options list', () => {
-    spy = sinon.spy()
+    const spy = sinon.spy()
     wrapper = shallow(<InputList value={value} changeCallback={spy} />)
     expect(wrapper.state().options).to.deep.equal(options)
   })
 
-  it('should call handleKeyUp and return if not pressing enter or click', () => {
-    spy = sinon.spy()
+  it('should handleChange on keyUp', () => {
+    const spy = sinon.spy()
+    const keyUpValue = {
+      charCode: 14,
+      type: 'keypress',
+      target: {
+        value: 'Key Upped'
+      }
+    }
     wrapper = shallow(<InputList value={value} changeCallback={spy} />)
-
-    wrapper.childAt(0).simulate('keyUp', handleChangeReturn)
-    expect(wrapper.state().currentValue).to.equal(handleChangeReturn.target.value)
+    wrapper.childAt(0).simulate('keyUp', keyUpValue)
+    expect(wrapper.state().currentValue).to.equal(keyUpValue.target.value)
   })
 
-  it('should call handleChange and continue if pressing enter or click', () => {
-    spy = sinon.spy()
+  it('should handleChange on keyPress', () => {
+    const spy = sinon.spy()
+    const keyPressValue = {
+      charCode: 14,
+      type: 'keypress',
+      target: {
+        value: 'Key Pressed'
+      }
+    }
     wrapper = shallow(<InputList value={value} changeCallback={spy} />)
-
-    wrapper.childAt(0).simulate('keyUp', handleChangeClick)
-    expect(wrapper.state().value).to.deep.equal(['Test 1', 'Test 2', 'x'])
+    wrapper.childAt(0).simulate('keyPress', keyPressValue)
+    expect(wrapper.state().value).to.equal(value)
   })
 
-  it('should (return) when a non-return or click key is pressed', () => {
-    spy = sinon.spy()
+  it('should handleChange onClick', () => {
+    const spy = sinon.spy()
+    const clickValue = {
+      target: {
+        value: 'Clicked'
+      }
+    }
     wrapper = shallow(<InputList value={value} changeCallback={spy} />)
-
-    wrapper.childAt(0).simulate('keyPress', handleChangeClick)
-    expect(wrapper.state().value).to.deep.equal(['Test 1', 'Test 2', 'x'])
+    wrapper.childAt(1).simulate('click', clickValue)
   })
 })
