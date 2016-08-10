@@ -135,4 +135,20 @@ describe('ActivityFeedItem', () => {
 
     ReactDOM.unmountComponentAtNode(div)
   })
+
+  it('should allow re-render if props have changed', () => {
+    const wrapper = shallow(<ActivityFeedItem name={data[0].name} badge={data[0].badge} />)
+    const currentProps = { name: data[0].name, badge: data[0].badge }
+    const nextProps = Object.assign(currentProps, { name: 'new name' })
+
+    expect(wrapper.instance().shouldComponentUpdate(nextProps, null)).to.be.true
+  })
+
+  it('should not allow re-render if props have not changed', () => {
+    const wrapper = shallow(<ActivityFeedItem name={data[0].name} badge={data[0].badge} />)
+    const currentProps = { name: data[0].name, badge: data[0].badge }
+    const nextProps = Object.assign(currentProps)
+
+    expect(wrapper.instance().shouldComponentUpdate(nextProps, null)).to.be.false
+  })
 })
