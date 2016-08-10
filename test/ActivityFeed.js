@@ -148,9 +148,16 @@ describe('ActivityFeed', () => {
     expect(wrapper.instance().handleInfiniteLoad()).to.be.undefined
   })
 
-  it('should not fetch more items if state fetchMoreEnabled is false when handleInfiniteLoad is called', () => {
-    const wrapper = shallow(<ActivityFeed data={data} onInfiniteLoad={() => {}} />)
-    wrapper.setState({ fetchMoreEnabled: false })
+  it('should not fetch more items if props.totalCount has been reached when handleInfiniteLoad is called', () => {
+    const wrapper = shallow(<ActivityFeed totalCount={3} data={data} />)
+
+    expect(wrapper.instance().handleInfiniteLoad()).to.be.undefined
+  })
+
+  it('should not try to fetch more items if already loading more items when handleInfiniteLoad is called', () => {
+    const onInfiniteLoad = sinon.stub().returns(Promise.resolve())
+    const wrapper = shallow(<ActivityFeed data={data} onInfiniteLoad={onInfiniteLoad} />)
+    wrapper.setState({ isInfiniteLoading: true })
 
     expect(wrapper.instance().handleInfiniteLoad()).to.be.undefined
   })
@@ -177,7 +184,6 @@ describe('ActivityFeed', () => {
     const wrapper = shallow(<ActivityFeed data={data} onInfiniteLoad={onInfiniteLoad} />)
     wrapper.instance().handleInfiniteLoad().then(() => {
       expect(wrapper.state('isInfiniteLoading')).to.be.false
-      expect(wrapper.state('fetchMoreEnabled')).to.be.false
       done()
     })
   })

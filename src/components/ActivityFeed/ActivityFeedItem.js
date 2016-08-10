@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Link } from 'react-router'
+import shallowCompare from 'react-addons-shallow-compare'
 import throttle from 'lodash/throttle'
 import timeString from '../internal/TimeString'
 import Icon from '../Icon'
@@ -50,10 +51,6 @@ class ActivityFeedItem extends React.Component {
     onSetHeight: React.PropTypes.func
   }
 
-  state = {
-    height: 0
-  }
-
   generateLinkType = (name) => {
     let link
     const re = '^(http|https)://'
@@ -86,9 +83,7 @@ class ActivityFeedItem extends React.Component {
     const nodeHeight = node.getBoundingClientRect().height
     const margin = parseInt(window.getComputedStyle(node)['margin-bottom'])
     const totalHeight = nodeHeight+margin
-    this.setState({ height: totalHeight }, () => {
-      this.props.onSetHeight(totalHeight)
-    })
+    this.props.onSetHeight(totalHeight)
   }
 
   componentDidMount = () => {
@@ -101,14 +96,14 @@ class ActivityFeedItem extends React.Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    return this.state.height !== nextState.height
+    return shallowCompare(this, nextProps, nextState)
   }
 
   render = () => {
     const badgeClasses = optclass(style, 'indicator')
 
     return (
-      <li className={this.state.height + '-px'}>
+      <li>
         <Badge
           icon={this.props.badge.icon}
           text={this.props.badge.text}
