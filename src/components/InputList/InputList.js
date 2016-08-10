@@ -81,6 +81,10 @@ class InputList extends React.Component {
   }
 
   handleChange = (event) => {
+    // not 13
+    // not click
+    // not from keyUp
+
     if (event.charCode !== 13 && event.type !== 'click' || !event.target.value) {
       this.setState({ currentValue: event.target.value })
     } else {
