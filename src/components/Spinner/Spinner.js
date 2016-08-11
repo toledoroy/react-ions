@@ -50,13 +50,11 @@ class Spinner extends React.Component {
                <span className={style.dot2} style={this.getStyle()}></span>
              </span>
     }
-    if (this.props.type === 'spinner-bounce') {
-      return <span>
-               <span className={style.bounce1} style={this.getStyle()}></span>
-               <span className={style.bounce2} style={this.getStyle()}></span>
-               <span className={style.bounce3} style={this.getStyle()}></span>
-             </span>
-    }
+    return <span>
+             <span className={style.bounce1} style={this.getStyle()}></span>
+             <span className={style.bounce2} style={this.getStyle()}></span>
+             <span className={style.bounce3} style={this.getStyle()}></span>
+           </span>
   }
 
   render() {
