@@ -201,7 +201,7 @@ describe('MultiSelect', () => {
     expect(wrapper.state().value[0]).to.equal('0')
   })
 
-  it('should not contain already selected items in a typeahead dropdown list', () => {
+  it('should not contain already selected items in a typeahead dropdown list', (done) => {
     const changeCallback = sinon.spy()
     const handleSearch = () => {
       return new Promise((resolve) => {
@@ -209,28 +209,31 @@ describe('MultiSelect', () => {
       })
     }
 
-    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><Typeahead options={options} valueProp='value' displayProp='display' searchCallback={handleSearch} /></MultiSelect>)
+    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['2']} changeCallback={changeCallback}><Typeahead options={options} valueProp='value' displayProp='display' searchCallback={handleSearch} /></MultiSelect>)
 
     let typeahead = wrapper.find(Typeahead)
 
-    expect(typeahead.props().options).to.have.length(2)
-    expect(typeahead.props().options[0].value).to.equal('1')
-    expect(typeahead.props().options[1].value).to.equal('3')
+    expect(typeahead.props().options).to.have.length(3)
+    expect(typeahead.props().options[0].value).to.equal('0')
+    expect(typeahead.props().options[1].value).to.equal('1')
+    expect(typeahead.props().options[2].value).to.equal('3')
 
     wrapper.childAt(0).find('input').simulate('change', {target: {value: 't'}})
-    let li = wrapper.find('li')
-    expect(li).to.have.length(2)
 
-    //li.childAt(0).simulate('click')
-    //wrapper.childAt(0).childAt(2).childAt(1).simulate('click')
+    setTimeout(function() {
+      expect(wrapper.childAt(0).find('li')).to.have.length(3)
+      wrapper.childAt(0).childAt(2).childAt(1).simulate('click')
+      expect(changeCallback.called).to.be.true
+      expect(wrapper.state().value).to.have.length(2)
+      expect(wrapper.state().value[0]).to.equal('2')
+      expect(wrapper.state().value[1]).to.equal('1')
+      done()
+    }, 500)
 
-    // expect(changeCallback.called).to.be.true
-    // expect(wrapper.state().value).to.have.length(3)
-    // expect(wrapper.state().value[0]).to.equal('0')
-    // expect(wrapper.state().value[1]).to.equal('2')
-    // expect(wrapper.state().value[2]).to.equal('3')
-
-    // wrapper.find('input').simulate('change', {target: {value: 't'}})
-    // expect(wrapper.find('li')).to.have.length(1)
+    wrapper.find('input').simulate('change', {target: {value: 't'}})
+    setTimeout(function() {
+      expect(wrapper.find('li')).to.have.length(1)
+      done()
+    }, 500)
   })
 })
