@@ -77,6 +77,7 @@ class Checkbox extends React.Component {
     const cx = classNames.bind(style)
     const disabledClass = this.props.disabled ? style['checkbox-disabled'] : ''
     const checkboxClass = cx(style['checkbox-component'], optClass, disabledClass)
+    const inputFillColor = this.props.disabled ? '#9198A0' : '#3C97D3'
 
     return (
       <div className={checkboxClass}>
@@ -88,7 +89,7 @@ class Checkbox extends React.Component {
         <div>
           { label && labelPosition === 'left' ? <label className={style['label-left']}>{label}</label> : null }
           <div className={style['checkbox-input']}>
-            <Icon name='icon-check-1-1' fill='#3C97D3' />
+            <Icon name='icon-check-1-1' fill={inputFillColor} />
           </div>
           { label && labelPosition === 'right' ? <label className={style['label-right']}>{label}</label> : null }
         </div>
