@@ -23,7 +23,7 @@ describe('Spinner', () => {
 
   it('has a loading state', () => {
     wrapper = shallow(<Spinner loading={true} type='spinner-bounce' />)
-    expect(wrapper.props().className).to.equal('spinner-wrap loading')
+    expect(wrapper.props().className).to.equal('spinner-wrap loading absolute')
   })
 
   it('can be set to position: fixed', () => {
@@ -31,14 +31,18 @@ describe('Spinner', () => {
     expect(wrapper.props().className).to.equal('spinner-wrap loading fixed')
   })
 
+  it('can be set to position: inline', () => {
+    wrapper = shallow(<Spinner loading={true} type='spinner-bounce' position='inline' />)
+    expect(wrapper.props().className).to.equal('spinner-wrap loading inline')
+  })
+
   it('can take an optClass', () => {
     wrapper = shallow(<Spinner loading={true} type='spinner-bounce' optClass='testing' />)
-    expect(wrapper.props().className).to.equal('spinner-wrap loading testing')
+    expect(wrapper.props().className).to.equal('spinner-wrap loading absolute testing')
   })
 
   it('should have a custom color', () => {
     wrapper = mount(<Spinner loading={true} type='spinner-bounce' color='#3C97D3' />)
-
     expect(wrapper.childAt(0).childAt(0).childAt(0).node.style.backgroundColor).to.equal('rgb(60, 151, 211)')
     expect(wrapper.childAt(0).childAt(0).childAt(1).node.style.backgroundColor).to.equal('rgb(60, 151, 211)')
     expect(wrapper.childAt(0).childAt(0).childAt(2).node.style.backgroundColor).to.equal('rgb(60, 151, 211)')
