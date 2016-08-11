@@ -17,7 +17,6 @@
     width: 100%;
   }
 
-  &:not(.checkbox-disabled) {
     > input:checked + div .checkbox-input {
       svg {
         display: block;
@@ -26,7 +25,6 @@
         margin: 2px auto;
       }
     }
-  }
 
   > div {
     height: 100%;
