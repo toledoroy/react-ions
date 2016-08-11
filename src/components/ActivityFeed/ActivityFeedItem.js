@@ -92,6 +92,7 @@ class ActivityFeedItem extends React.Component {
   }
 
   componentWillUnmount = () => {
+    this.throttle.cancel();
     window.removeEventListener('resize', this.throttle)
   }
 
