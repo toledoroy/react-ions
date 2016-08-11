@@ -34,7 +34,7 @@ class Spinner extends React.Component {
      */
     color: React.PropTypes.string,
     /**
-     * Optional styles to add to the textarea.
+     * Optional styles to add to the spinner.
      */
     optClass: React.PropTypes.string
   }

@@ -13,8 +13,8 @@ import localStyle from './style.scss'
 
 const description = {
   spinnerDefault: 'This is the default **spinner component**. When `position=\'fixed\'` is passed as a prop, the spinner will fill the entire screen.',
-  spinnerBounce: 'This is variation **spinner component**.',
-  spinnerInline: 'This is variation **spinner component** that allows it to sit inline.'  
+  spinnerBounce: 'This is a variation of the **spinner component**.',
+  spinnerInline: 'This is a variation of the **spinner component** that allows it to sit inline.'  
 }
 
 const SpinnerPage = (props) => {
