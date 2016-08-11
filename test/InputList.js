@@ -43,11 +43,9 @@ describe('InputList', () => {
     expect(wrapper.state().options).to.deep.equal(options)
   })
 
-  it('should handleChange on keyUp', () => {
+  it('should handle keyUp', () => {
     const spy = sinon.spy()
     const keyUpValue = {
-      charCode: 14,
-      type: 'keypress',
       target: {
         value: 'Key Upped'
       }
@@ -57,11 +55,10 @@ describe('InputList', () => {
     expect(wrapper.state().currentValue).to.equal(keyUpValue.target.value)
   })
 
-  it('should handleChange on keyPress', () => {
+  it('should handle keyPress', () => {
     const spy = sinon.spy()
     const keyPressValue = {
-      charCode: 14,
-      type: 'keypress',
+      charCode: 13,
       target: {
         value: 'Key Pressed'
       }
@@ -71,14 +68,55 @@ describe('InputList', () => {
     expect(wrapper.state().value).to.equal(value)
   })
 
-  it('should handleChange onClick', () => {
+  it('should handle click', () => {
     const spy = sinon.spy()
-    const clickValue = {
-      target: {
-        value: 'Clicked'
-      }
+    const clickStateValue = [
+      {display: 'Test 1', value: 'Test 1'},
+      {display: 'Test 2', value: 'Test 2'},
+      {display: 'Something', value: 'Something'}
+    ]
+    wrapper = shallow(<InputList value={value} changeCallback={spy} />)
+    wrapper.setState({currentValue: 'Something'})
+    wrapper.childAt(1).simulate('click')
+    expect(wrapper.state().options).to.deep.equal(clickStateValue)
+  })
+
+  it('should remove an item', () => {
+    const spy = sinon.spy()
+    const initialState = {
+      value: [
+        {display: 'Test 1', value: 'Test 1'},
+        {display: 'Test 2', value: 'Test 2'},
+        {display: 'Something', value: 'Something'}
+      ]
+    }
+    const updatedState = ['Test 1', 'Test 2']
+
+    wrapper = shallow(<InputList value={value} changeCallback={spy} />)
+    inst = wrapper.instance()
+    inst.onRemove(2)
+    expect(wrapper.state().value).to.deep.equal(updatedState)
+  })
+
+  it('should receive props and set new state', () => {
+    const spy = sinon.spy()
+    const nextProps = {
+      value: ['Test 1', 'Test 2', 'Tornado']
     }
     wrapper = shallow(<InputList value={value} changeCallback={spy} />)
-    wrapper.childAt(1).simulate('click', clickValue)
+    wrapper.setProps(nextProps)
+    wrapper.update()
+    expect(wrapper.state().value).to.deep.equal(nextProps.value)
+  })
+
+  it('should not set state when nextProps are the same as state', () => {
+    const spy = sinon.spy()
+    const nextProps = {
+      value: ['Test 1', 'Test 2']
+    }
+    wrapper = shallow(<InputList value={value} changeCallback={spy} />)
+    wrapper.setProps(nextProps)
+    wrapper.update()
+    expect(wrapper.state().value).to.deep.equal(nextProps.value)
   })
 })
