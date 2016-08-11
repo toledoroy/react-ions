@@ -6,7 +6,7 @@
 .panel-group {
 
   > .panel {
-    background: $neutral-2;
+    background: $white;
     border-bottom: 1px solid $neutral-3;
 
     .panel-header {
@@ -123,12 +123,13 @@
 .panel-group.multi-step {
 
   > .panel {
-    background-color: $neutral-2;
+    background-color: $white;
     border-bottom: 0;
     border-radius: 3px;
     margin-bottom: 10px;
 
     > .panel-header {
+      background-color: $neutral-2;
       border-radius: 3px 3px 0 0;
       padding: 13px 20px;
 

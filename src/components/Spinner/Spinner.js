@@ -21,9 +21,10 @@ class Spinner extends React.Component {
      */
     loading: React.PropTypes.bool,
     /**
-     * CSS positioning option for the loader. Default is 'absolute'
+     * CSS positioning options for the loader. By default, the spinner will be positioned
+     * in the center of any element with relative positioning.
      */
-    position: React.PropTypes.oneOf(['fixed']),
+    position: React.PropTypes.oneOf(['fixed', 'inline']),
     /**
      * The type of loader you want to display.
      */
@@ -33,7 +34,7 @@ class Spinner extends React.Component {
      */
     color: React.PropTypes.string,
     /**
-     * Optional styles to add to the textarea.
+     * Optional styles to add to the spinner.
      */
     optClass: React.PropTypes.string
   }
@@ -44,32 +45,31 @@ class Spinner extends React.Component {
 
   innerHtml = () => {
     if (this.props.type === 'spinner-dots') {
-      return <div>
-               <div className={style.dot1} style={this.getStyle()}></div>
-               <div className={style.dot2} style={this.getStyle()}></div>
-             </div>
+      return <span>
+               <span className={style.dot1} style={this.getStyle()}></span>
+               <span className={style.dot2} style={this.getStyle()}></span>
+             </span>
     }
-    if (this.props.type === 'spinner-bounce') {
-      return <div>
-               <div className={style.bounce1} style={this.getStyle()}></div>
-               <div className={style.bounce2} style={this.getStyle()}></div>
-               <div className={style.bounce3} style={this.getStyle()}></div>
-             </div>
-    }
+    return <span>
+             <span className={style.bounce1} style={this.getStyle()}></span>
+             <span className={style.bounce2} style={this.getStyle()}></span>
+             <span className={style.bounce3} style={this.getStyle()}></span>
+           </span>
   }
 
   render() {
     const cx = classNames.bind(style)
     const loadingClass = this.state.loading ? style['loading'] : null
-    const spinnerWrap = cx(style['spinner-wrap'], loadingClass, style[this.props.position], this.props.optClass)
-    const spinnerClass = cx(style[this.props.type], this.props.optClass)
+    const spinnerPosition = this.props.position ? style[this.props.position] : style['absolute']
+    const spinnerWrap = cx(style['spinner-wrap'], loadingClass, spinnerPosition, this.props.optClass)
+    const spinnerClass = cx(style[this.props.type])
 
     return (
-      <div className={spinnerWrap}>
-        <div className={spinnerClass}>
+      <span className={spinnerWrap}>
+        <span className={spinnerClass}>
           {this.innerHtml()}
-        </div>
-      </div>
+        </span>
+      </span>
     )
   }
 }

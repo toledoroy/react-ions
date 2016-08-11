@@ -3,23 +3,35 @@
 @import '../../styles/common/mixins';
 @import '../../styles/common/functions';
 
-.spinner-wrap {
+@mixin sharedSpinnerSettings {
   align-items: center;
-  background-color: $white;
   bottom: 0;
-  display: none;
   justify-content: center;
   left: 0;
-  position: absolute;
   right: 0;
   top: 0;
-  z-index: z('spinner-default');
+}
+
+.spinner-wrap {
+  background-color: $white;
+  display: none;
 
   &.loading {
     display: flex;
   }
 
+  &.inline {
+    display: inline-flex;
+  }
+
+  &.absolute {
+    @include sharedSpinnerSettings;
+    position: absolute;
+    z-index: z('spinner-absolute');
+  }
+
   &.fixed {
+    @include sharedSpinnerSettings;
     position: fixed;
     z-index: z('spinner-fixed');
   }
