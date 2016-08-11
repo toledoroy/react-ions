@@ -71,38 +71,43 @@ class InputList extends React.Component {
   }
 
   onRemove = (index) => {
-    const arr = this.state.value
+    let arr = this.state.value
     arr.splice(index, 1)
-    this.setState({ value: arr, options: this.generateOptionsList(arr) }, this.callback)
+    this.setState({
+      value: arr,
+      options: this.generateOptionsList(arr)
+    }, this.callback)
   }
 
   clearInput = () => {
-    this.setState({ currentValue: '' })
+    this.setState({currentValue: ''})
   }
 
-  handleChange = (event) => {
-    if (event.charCode !== 13 && event.type !== 'click' || !event.target.value) {
-      this.setState({ currentValue: event.target.value })
-    } else {
-      let value = this.state.value
-      value.push(event.target.value)
+  updateList = (v) => {
+    let stateValue = this.state.value
+    stateValue.push(v)
+    const options = this.generateOptionsList(stateValue)
 
-      const options = this.generateOptionsList(value)
+    this.setState({value: stateValue, options: options}, () => {
+      this.callback()
+      this.clearInput()
+    })
+  }
 
-      this.setState({value: value, options: options}, () => {
-        this.callback()
-        this.clearInput()
-      })
+  handleKeyPress = (event) => {
+    if (event.charCode === 13 && event.target.value) {
+      this.updateList(event.target.value)
     }
   }
 
+  handleKeyUp = (event) => {
+    this.setState({currentValue: event.target.value})
+  }
+
   handleClick = () => {
-    this.handleChange({
-      type: 'click',
-      target: {
-        value: this.state.currentValue
-      }
-    })
+    if (this.state.currentValue) {
+      this.updateList(this.state.currentValue)
+    }
   }
 
   render() {
@@ -110,7 +115,13 @@ class InputList extends React.Component {
 
     return (
       <div className={inputListClasses}>
-        <Input placeholder={this.props.placeholder} value={this.state.currentValue} onKeyUp={this.handleChange} onKeyPress={this.handleChange} />
+        <Input
+          placeholder={this.props.placeholder}
+          value={this.state.currentValue}
+          onKeyUp={this.handleKeyUp}
+          onKeyPress={this.handleKeyPress}
+          ref={(i) => { if (i !== null) { i.focus() }}}
+        />
         <Icon name='icon-add-1-1' className={style['input-list-add-item']} width='14' height='14' fill='#9198A0' onClick={this.handleClick} />
         <TagList tags={this.state.options} displayProp='display' onRemove={this.onRemove} />
       </div>
