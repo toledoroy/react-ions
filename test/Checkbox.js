@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Checkbox from '../src/components/Checkbox/Checkbox';
+import Icon from '../src/components//Icon/Icon'
 
 describe('Checkbox', () => {
   let wrapper;
@@ -18,12 +19,13 @@ describe('Checkbox', () => {
   });
 
   it('should be disabled', () => {
-    wrapper = shallow(<Checkbox value={false} label='Test label' disabled></Checkbox>);
+    wrapper = shallow(<Checkbox value={true} label='Test label' disabled></Checkbox>);
     expect(wrapper.hasClass('checkbox-component')).to.equal(true);
     expect(wrapper.hasClass('checkbox-disabled')).to.equal(true);
 
     wrapper = mount(<Checkbox value={false} label='Test label' disabled></Checkbox>);
     expect(wrapper.find('input').node.hasAttribute('disabled')).to.equal(true);
+    expect(wrapper.find(Icon).props().fill).to.equal('#9198A0')
   });
 
   it('should be checked', () => {
@@ -31,6 +33,7 @@ describe('Checkbox', () => {
     wrapper = mount(<Checkbox value={checked} label='Test label'></Checkbox>);
 
     expect(wrapper.childAt(0).props().value).to.equal(checked);
+    expect(wrapper.find(Icon).props().fill).to.equal('#3C97D3')
   });
 
   it('should have an extra class', () => {
