@@ -6,12 +6,15 @@ import ExampleSpinnerDefault from './ExampleSpinnerDefault'
 import exampleSpinnerDefaultCode from '!raw!./ExampleSpinnerDefault'
 import ExampleSpinnerBounce from './ExampleSpinnerBounce'
 import exampleSpinnerBounceCode from '!raw!./ExampleSpinnerBounce'
+import ExampleSpinnerInline from './ExampleSpinnerInline'
+import exampleSpinnerInlineCode from '!raw!./ExampleSpinnerInline'
 import style from 'private/css/content'
 import localStyle from './style.scss'
 
 const description = {
   spinnerDefault: 'This is the default **spinner component**. When `position=\'fixed\'` is passed as a prop, the spinner will fill the entire screen.',
-  spinnerBounce: 'This is variation **spinner component**.'
+  spinnerBounce: 'This is variation **spinner component**.',
+  spinnerInline: 'This is variation **spinner component** that allows it to sit inline.'  
 }
 
 const SpinnerPage = (props) => {
@@ -34,6 +37,13 @@ const SpinnerPage = (props) => {
             optClass={localStyle['component-override']}
           >
             <ExampleSpinnerBounce />
+          </CodeExample>
+          <CodeExample
+            title='Spinner Inline Example'
+            description={description.spinnerInline}
+            markup={exampleSpinnerInlineCode}
+          >
+            <ExampleSpinnerInline />
           </CodeExample>
         </div>
         <div className={style.block}>
