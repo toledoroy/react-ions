@@ -4,7 +4,7 @@ const options = [
   {countryCode: 'DZ', countryName: 'Algeria'},
   {countryCode: 'AS', countryName: 'American Samoa'},
   {countryCode: 'AD', countryName: 'Andorra'},
-  {countryCode: 'AG', countryName: 'Angola'},
+  {countryCode: 'AO', countryName: 'Angola'},
   {countryCode: 'AI', countryName: 'Anguilla'},
   {countryCode: 'AG', countryName: 'Antigua & Barbuda'},
   {countryCode: 'AR', countryName: 'Argentina'},

@@ -172,6 +172,18 @@ export class Typeahead extends React.Component {
     this.setState({isActive: false})
   }
 
+  filterOptions = (options, value) => {
+    let filteredOptions = []
+
+    options.map((option) => {
+      if (value.indexOf(option[this.props.valueProp]) === -1) {
+        filteredOptions.push(option)
+      }
+    })
+
+    return filteredOptions
+  }
+
   updateResults = (event, options) => {
     let str = {
       pre: '<b>',
@@ -179,6 +191,11 @@ export class Typeahead extends React.Component {
       extract: (el) => {
         return el[this.props.displayProp]
       }
+    }
+
+    if (this.props.multiSelectValue) {
+      // filter out options already selected in MultiSelect component
+      options = this.filterOptions(options, this.props.multiSelectValue)
     }
 
     let results = fuzzy.filter(event.target.value, options, str)
