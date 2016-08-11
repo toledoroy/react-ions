@@ -22,7 +22,7 @@ const description = {
   panelGroupAccordion: 'This is the default `panel group component` with accordion functionality.',
   panelGroupMultiStep: 'This is the `panel group component` with a multi-step design variation.',
   panelGroupSimple: 'This is the `panel group component` with simple styles.',
-  panelGroupNested: 'This is a `panel group component` within another component.',
+  panelGroupNested: 'This is a `panel group component` within another component.'
 };
 
 const PanelGroupPage = () => (
