@@ -48,4 +48,9 @@ describe('Spinner', () => {
     expect(wrapper.childAt(0).childAt(0).childAt(2).node.style.backgroundColor).to.equal('rgb(60, 151, 211)')
   })
 
+  it('should be hidden', () => {
+        wrapper = shallow(<Spinner loading={false} type='spinner-bounce' optClass='testing' />)
+        expect(wrapper.hasClass('is-hidden')).to.equal(true)
+  })
+
 })
