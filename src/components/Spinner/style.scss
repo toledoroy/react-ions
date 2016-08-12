@@ -35,6 +35,10 @@
     position: fixed;
     z-index: z('spinner-fixed');
   }
+
+  &.hidden {
+    display: none;
+  }
 }
 
 .spinner-dots {
