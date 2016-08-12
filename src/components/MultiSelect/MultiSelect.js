@@ -116,18 +116,6 @@ class MultiSelect extends React.Component {
     return selectedOptions
   }
 
-  filterItems = () => {
-    let options = []
-
-    this.props.options.map((option, index) => {
-      if (this.state.value.indexOf(option[this.props.valueProp]) === -1) {
-        options.push(option)
-      }
-    })
-
-    return options
-  }
-
   handleChange = (event) => {
     // when value & option are empty it means that reset button was clicked
     if (event.target.value !== '' && event.target.option !== '') {
@@ -148,13 +136,19 @@ class MultiSelect extends React.Component {
     }
   }
 
-  getElements(children) {
+  filterOptions = (option) => {
+    const optionValue = option[this.props.valueProp]
+    return (this.state.value.indexOf(optionValue) === -1)
+  }
+
+  getElements = (children) => {
     let {options, value, ...props} = this.props
-    props.options = this.filterItems()
+    props.options = this.props.options.filter(this.filterOptions)
     props.changeCallback = this.handleChange
 
     if (['WrappedTypeahead', 'Wrappedt'].includes(children.type.displayName)) {
       props.resetAfterSelection = true
+      props.optionsFilterPredicate = this.filterOptions
     }
 
     return React.Children.map(children, child => {

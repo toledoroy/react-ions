@@ -69,6 +69,10 @@ export class Typeahead extends React.Component {
      */
     loading: React.PropTypes.bool,
     /**
+     * A function to filter options.
+     */
+    optionsFilterPredicate: React.PropTypes.func,
+    /**
      * Clear search string after selection.
      */
     resetAfterSelection: React.PropTypes.bool,
@@ -179,6 +183,10 @@ export class Typeahead extends React.Component {
       extract: (el) => {
         return el[this.props.displayProp]
       }
+    }
+
+    if (this.props.optionsFilterPredicate) {
+      options = options.filter(this.props.optionsFilterPredicate)
     }
 
     let results = fuzzy.filter(event.target.value, options, str)
