@@ -153,7 +153,7 @@ class MultiSelect extends React.Component {
     return (this.state.value.indexOf(optionValue) === -1)
   }
 
-  getElements(children) {
+  getElements = (children) => {
     let {options, value, ...props} = this.props
     props.options = this.filterItems()
     props.changeCallback = this.handleChange
