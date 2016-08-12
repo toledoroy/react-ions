@@ -1,5 +1,25 @@
 ## HEAD
 
+## 0.45.0
+###### _August 12, 2016_
+
+##### Component Fixes / Enhancements
+
+- [Spinner] Update spinner to stateless
+([#210](https://github.com/GetAmbassador/react-conventions/pull/210))
+- [Icon] Add Streamline wrench icon
+([#209](https://github.com/GetAmbassador/react-conventions/pull/209))
+- [Checkbox] Show checkmark on disabled checkbox
+([#208](https://github.com/GetAmbassador/react-conventions/pull/208))
+- [ActivityFeed] Fix Uncaught Invariant Violation when feed is resized
+([#207](https://github.com/GetAmbassador/react-conventions/pull/207))
+- [Spinner] added inline option
+([#206](https://github.com/GetAmbassador/react-conventions/pull/206))
+- [MultiSelect] <MultiSelect />/<Typeahead /> filter
+([#205](https://github.com/GetAmbassador/react-conventions/pull/205))
+- [InputList] write tests
+([#204](https://github.com/GetAmbassador/react-conventions/pull/204))
+
 ## 0.44.0
 ###### _August 10, 2016_
 
