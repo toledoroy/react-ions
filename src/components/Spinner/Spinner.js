@@ -6,7 +6,7 @@ const Spinner = (props) => {
   const cx = classNames.bind(style)
   const loadingClass = props.loading ? style['loading'] : null
   const spinnerPosition = props.position ? style[props.position] : style['absolute']
-  const spinnerHidden = props.loading ? '' : style['hidden']
+  const spinnerHidden = props.loading ? '' : style['is-hidden']
   const spinnerWrap = cx(style['spinner-wrap'], loadingClass, spinnerPosition, props.optClass, spinnerHidden)
   const spinnerClass = cx(style[props.type])
 

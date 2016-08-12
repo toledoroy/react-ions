@@ -50,7 +50,7 @@ describe('Spinner', () => {
 
   it('should be hidden', () => {
         wrapper = shallow(<Spinner loading={false} type='spinner-bounce' optClass='testing' />)
-        expect(wrapper.hasClass('hidden')).to.equal(true)
+        expect(wrapper.hasClass('is-hidden')).to.equal(true)
   })
 
 })
