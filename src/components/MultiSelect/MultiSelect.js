@@ -148,14 +148,19 @@ class MultiSelect extends React.Component {
     }
   }
 
+  filterTypeaheadOptions = (option) => {
+    const optionValue = option[this.props.valueProp]
+    return (this.state.value.indexOf(optionValue) === -1)
+  }
+
   getElements(children) {
     let {options, value, ...props} = this.props
     props.options = this.filterItems()
     props.changeCallback = this.handleChange
-    props.multiSelectValue = this.state.value
 
     if (['WrappedTypeahead', 'Wrappedt'].includes(children.type.displayName)) {
       props.resetAfterSelection = true
+      props.optionsFilterPredicate = this.filterTypeaheadOptions
     }
 
     return React.Children.map(children, child => {

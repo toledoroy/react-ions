@@ -69,6 +69,10 @@ export class Typeahead extends React.Component {
      */
     loading: React.PropTypes.bool,
     /**
+     * A function to filter options.
+     */
+    optionsFilterPredicate: React.PropTypes.func,
+    /**
      * Clear search string after selection.
      */
     resetAfterSelection: React.PropTypes.bool,
@@ -172,18 +176,6 @@ export class Typeahead extends React.Component {
     this.setState({isActive: false})
   }
 
-  filterOptions = (options, value) => {
-    let filteredOptions = []
-
-    options.map((option) => {
-      if (value.indexOf(option[this.props.valueProp]) === -1) {
-        filteredOptions.push(option)
-      }
-    })
-
-    return filteredOptions
-  }
-
   updateResults = (event, options) => {
     let str = {
       pre: '<b>',
@@ -193,9 +185,8 @@ export class Typeahead extends React.Component {
       }
     }
 
-    if (this.props.multiSelectValue) {
-      // filter out options already selected in MultiSelect component
-      options = this.filterOptions(options, this.props.multiSelectValue)
+    if (this.props.optionsFilterPredicate) {
+      options = options.filter(this.props.optionsFilterPredicate)
     }
 
     let results = fuzzy.filter(event.target.value, options, str)

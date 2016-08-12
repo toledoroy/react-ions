@@ -233,7 +233,7 @@ describe('MultiSelect', () => {
     wrapper.childAt(0).find('input').simulate('change', {target: {value: 't'}})
 
     setTimeout(function() {
-      expect(wrapper.find('li')).to.have.length(1)
+      expect(wrapper.childAt(0).find('li')).to.have.length(1)
       wrapper.childAt(0).childAt(2).childAt(0).simulate('click')
       expect(changeCallback.called).to.be.true
       expect(wrapper.state().value).to.have.length(4)
@@ -247,7 +247,7 @@ describe('MultiSelect', () => {
     wrapper.childAt(0).find('input').simulate('change', {target: {value: 't'}})
 
     setTimeout(function() {
-      expect(wrapper.find('li')).to.have.length(0)
+      expect(wrapper.childAt(0).find('li')).to.have.length(0)
       done()
     }, 500)
   })
