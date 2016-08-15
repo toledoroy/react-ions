@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import InputList from '../src/components/InputList/InputList'
 import Input from '../src/components/Input/Input'
 import Icon from '../src/components/Icon/Icon'
@@ -75,7 +75,7 @@ describe('InputList', () => {
       {display: 'Test 2', value: 'Test 2'},
       {display: 'Something', value: 'Something'}
     ]
-    wrapper = shallow(<InputList value={value} changeCallback={spy} />)
+    wrapper = mount(<InputList value={value} changeCallback={spy} />)
     wrapper.setState({currentValue: 'Something'})
     wrapper.childAt(1).simulate('click')
     expect(wrapper.state().options).to.deep.equal(clickStateValue)
