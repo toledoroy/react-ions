@@ -6,11 +6,14 @@ import ExampleDropdownButton from './ExampleDropdownButton'
 import exampleDropdownButtonCode from '!raw!./ExampleDropdownButton'
 import ExampleDropdownCallback from './ExampleDropdownCallback'
 import exampleDropdownCallbackCode from '!raw!./ExampleDropdownCallback'
+import ExampleDropdownList from './ExampleDropdownList'
+import exampleDropdownListCode from '!raw!./ExampleDropdownList'
 import styles from 'private/css/content'
 
 const description = {
   dropdownButtonDefault: 'This is the **dropdown component** with a `<Button />` trigger.',
-  dropdownButtonCallback: 'This is the **dropdown component** with a callback function to open.'
+  dropdownButtonCallback: 'This is the **dropdown component** with a callback function to open.',
+  dropdownList: 'This is the **dropdown component** that displays a list.'
 };
 
 const DropdownPage = () => (
@@ -28,6 +31,12 @@ const DropdownPage = () => (
           description={description.dropdownButtonCallback}
           markup={exampleDropdownCallbackCode}>
           <ExampleDropdownCallback />
+        </CodeExample>
+        <CodeExample
+          title='Dropdown with List'
+          description={description.dropdownList}
+          markup={exampleDropdownListCode} >
+          <ExampleDropdownList />
         </CodeExample>
       </div>
       <div className={styles.block}>
