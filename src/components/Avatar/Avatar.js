@@ -64,7 +64,6 @@ class Avatar extends React.Component {
   }
 
   render() {
-    console.log(this.state.loaded)
     const cx = classNames.bind(style)
     const avatarClasses = cx(style['avatar-wrapper'], (this.state.loaded ? 'loaded' : null), this.props.optClass)
 
