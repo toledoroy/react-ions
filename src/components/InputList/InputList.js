@@ -107,8 +107,9 @@ class InputList extends React.Component {
   handleClick = () => {
     if (this.state.currentValue) {
       this.updateList(this.state.currentValue)
-      this._input.focus()
     }
+
+    this._input.focus()
   }
 
   render() {
