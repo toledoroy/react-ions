@@ -73,6 +73,14 @@ class Dropdown extends React.Component {
     })
   }
 
+  listItemCallback(callback) {
+    this.setState({isOpened: false}, () => {
+      if (typeof callback === 'function') {
+        callback()
+      }
+    })
+  }
+
   render() {
     const cx = classNames.bind(style)
     const isOpenedClass = this.state.isOpened ? style['is-opened'] : null
@@ -81,7 +89,7 @@ class Dropdown extends React.Component {
 
     const listitems = this.props.listItems && this.props.listItems.length
       ? this.props.listItems.map((item, index) =>
-          <li key={index}>{item.name}</li>
+          <li key={index} onClick={this.listItemCallback.bind(this, item.callback)}>{item.name}</li>
         )
       : []
 
