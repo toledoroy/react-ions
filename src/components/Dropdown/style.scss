@@ -24,9 +24,36 @@
   z-index: z('dropdown');
 }
 
+.dropdown-wrapper-flush {
+  composes: dropdown-wrapper;
+  padding: 0;
+}
+
 .is-opened {
   .dropdown-wrapper {
     opacity: 1;
     visibility: visible;
+  }
+}
+
+.list-wrapper {
+  margin: 0;
+  min-width: 110px;
+  padding: 0;
+
+  li {
+    box-sizing: border-box;
+    color: $primary-4;
+    cursor: pointer;
+    display: block;
+    min-height: 18px;
+    padding: 10px;
+    text-decoration: none;
+    width: 100%;
+
+    &:hover {
+      background-color: $primary-1;
+      color: $white;
+    }
   }
 }
