@@ -108,6 +108,8 @@ class InputList extends React.Component {
     if (this.state.currentValue) {
       this.updateList(this.state.currentValue)
     }
+
+    this._input.focus()
   }
 
   render() {
@@ -120,7 +122,7 @@ class InputList extends React.Component {
           value={this.state.currentValue}
           onKeyUp={this.handleKeyUp}
           onKeyPress={this.handleKeyPress}
-          ref={(i) => { if (i !== null) { i.focus() }}}
+          ref={(c) => this._input = c}
         />
         <Icon name='icon-add-1-1' className={style['input-list-add-item']} width='14' height='14' fill='#9198A0' onClick={this.handleClick} />
         <TagList tags={this.state.options} displayProp='display' onRemove={this.onRemove} />

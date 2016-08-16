@@ -40,11 +40,11 @@ class ExampleRadioChild extends React.Component {
       <div>
         <RadioGroup name='child-radio-group' label='Child radio label' changeCallback={this.handleChange}>
           <Radio value='option1' label='Option 1' />
-          <Input name='child-input-1' changeCallback={this.handleChange} optClass={this.getClass('option1')} />
+          <Input name='child-input-1' changeCallback={this.handleChange} optClass={this.getClass('option1')} ref={(i) => { if (i !== null) { i.focus() }}} />
           <Radio value='option2' label='Option 2' />
-          <Input name='child-input-2' changeCallback={this.handleChange} optClass={this.getClass('option2')} />
+          <Input name='child-input-2' changeCallback={this.handleChange} optClass={this.getClass('option2')} ref={(i) => { if (i !== null) { i.focus() }}} />
           <Radio value='option3' label='Option 3' />
-          <Input name='child-input-3' changeCallback={this.handleChange} optClass={this.getClass('option3')} />
+          <Input name='child-input-3' changeCallback={this.handleChange} optClass={this.getClass('option3')} ref={(i) => { if (i !== null) { i.focus() }}} />
         </RadioGroup>
 
         <code>{this.state.checkedValue ? this.state.checkedValue + ' is checked' : null}</code>
