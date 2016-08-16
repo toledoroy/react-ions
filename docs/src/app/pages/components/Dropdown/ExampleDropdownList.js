@@ -4,15 +4,35 @@ import Button from 'react-conventions/lib/Button'
 import Badge from 'react-conventions/lib/Badge'
 import styles from './styles'
 
-const listitems = [
-  {name: 'test 1'},
-  {name: 'test 2'},
-  {name: 'test 3'}
-]
 
+class ExampleDropdownList extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
-const ExampleDropdownList = () => (
-  <Dropdown trigger={<Button>Dropdown</Button>} listItems={listitems} />
-)
+  callback1 = () => {
+    alert('Item 1 clicked!');
+  }
+
+  callback2 = () => {
+    alert('Item 2 clicked!');
+  }
+
+  callback3 = () => {
+    alert('Item 3 clicked!');
+  }
+
+  render() {
+    const listItems = [
+      {name: 'Item 1', callback: this.callback1},
+      {name: 'Item 2', callback: this.callback2},
+      {name: 'Item 3', callback: this.callback3}
+    ]
+
+    return(
+      <Dropdown trigger={<Button>Dropdown List</Button>} listItems={listItems} />
+    )
+  }
+}
 
 export default ExampleDropdownList
