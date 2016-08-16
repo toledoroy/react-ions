@@ -33,7 +33,11 @@ class Dropdown extends React.Component {
       React.PropTypes.number,
       React.PropTypes.string,
       React.PropTypes.node
-    ])
+    ]),
+    /**
+     * Optional array of items used in a dropdown list
+     */
+     listItems: React.PropTypes.array
   }
 
   state = {
@@ -74,12 +78,23 @@ class Dropdown extends React.Component {
     const isOpenedClass = this.state.isOpened ? style['is-opened'] : null
     const dropdownClasses = cx(style['dropdown-component'], this.props.optClass, isOpenedClass)
 
+    const listitems = this.props.listItems && this.props.listItems.length
+      ? this.props.listItems.map((item, index) =>
+          <li key={index}>{item.name}</li>
+        )
+      : []
+
     return (
       <div className={dropdownClasses}>
         <span
           className={style.trigger} onClick={this.toggleDropdown}>{this.props.trigger}</span>
         <div className={style['dropdown-wrapper']}>
-          {this.props.children}
+          {listitems.length > 0
+            ? <ul>
+                {listitems}
+              </ul>
+            : this.props.children
+          }
         </div>
       </div>
     )
