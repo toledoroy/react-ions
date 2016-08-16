@@ -77,6 +77,7 @@ class Dropdown extends React.Component {
     const cx = classNames.bind(style)
     const isOpenedClass = this.state.isOpened ? style['is-opened'] : null
     const dropdownClasses = cx(style['dropdown-component'], this.props.optClass, isOpenedClass)
+    const dropdownWrapperClasses = cx(style['dropdown-wrapper'], (this.props.listItems ? style['dropdown-wrapper-flush'] : null))
 
     const listitems = this.props.listItems && this.props.listItems.length
       ? this.props.listItems.map((item, index) =>
@@ -88,9 +89,9 @@ class Dropdown extends React.Component {
       <div className={dropdownClasses}>
         <span
           className={style.trigger} onClick={this.toggleDropdown}>{this.props.trigger}</span>
-        <div className={style['dropdown-wrapper']}>
+        <div className={dropdownWrapperClasses}>
           {listitems.length > 0
-            ? <ul>
+            ? <ul className={style['list-wrapper']}>
                 {listitems}
               </ul>
             : this.props.children
