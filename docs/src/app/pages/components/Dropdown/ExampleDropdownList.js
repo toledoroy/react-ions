@@ -1,7 +1,6 @@
 import React from 'react'
 import Dropdown from 'react-conventions/lib/Dropdown'
 import Button from 'react-conventions/lib/Button'
-import Badge from 'react-conventions/lib/Badge'
 import styles from './styles'
 
 
