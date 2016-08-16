@@ -28,6 +28,9 @@ const nav = [
         name: 'Alerts',
         action: '/components/alerts'
       }, {
+        name: 'Avatar',
+        action: '/components/avatar'
+      }, {
         name: 'Badge',
         action: '/components/badge'
       }, {
