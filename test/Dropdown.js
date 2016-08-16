@@ -13,6 +13,7 @@ describe('Dropdown', () => {
     expect(wrapper.props().trigger).to.equal('Test');
     expect(wrapper.props().isOpened).to.be.false;
     expect(wrapper.childAt(0).text()).to.equal('This is a test.');
+    expect(wrapper.childAt(1).childAt(0).hasClass('list-wrapper')).to.equal(false)
   });
 
   it('should open when clicked', () => {
@@ -67,5 +68,17 @@ describe('Dropdown', () => {
     expect(spy.calledOnce).to.be.true;
     expect(spy.calledWith(true)).to.be.true;
   });
+
+  it('should display list', () => {
+    const listItems = [
+      {name: 'test1'},
+      {name: 'test2'},
+      {name: 'test3'}
+    ]
+
+    wrapper = mount(<Dropdown optClass='test' listItems={listItems}>This is a test.</Dropdown>);
+    expect(wrapper.childAt(1).childAt(0).hasClass('list-wrapper')).to.equal(true)
+    expect(wrapper.childAt(1).childAt(0).find('li').length).to.equal(3)
+  })
 
 });
