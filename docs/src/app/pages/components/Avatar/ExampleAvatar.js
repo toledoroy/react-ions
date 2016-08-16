@@ -10,14 +10,9 @@ const data = [
     size: '100'
   },
   {
-    src: 'http://www.rebuildbydesign.org/wordpress/wp-content/uploads/2013/10/05_BIG_WEB_APPROACH.jpg',
-    alt: 'City',
+    src: 'https://resize.rbl.ms/simage/https%3A%2F%2Fassets.rbl.ms%2F4150006%2F980x.jpg/2000,2000/HIJ%2BU21b7lvSVeoP/img.jpg',
+    alt: 'Maru',
     size: '100'
-  },
-  {
-    src: 'https://ambassador-api.s3.amazonaws.com/uploads/avatars/1088_2016_05_04_12_16_49.jpg',
-    alt: 'Cat',
-    size: '200'
   }
 ]
 
