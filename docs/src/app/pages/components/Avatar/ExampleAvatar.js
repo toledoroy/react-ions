@@ -10,8 +10,8 @@ const data = [
     size: '100'
   },
   {
-    src: 'http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2014/4/11/1397210130748/Spring-Lamb.-Image-shot-2-011.jpg',
-    alt: 'Lamb',
+    src: 'http://www.rebuildbydesign.org/wordpress/wp-content/uploads/2013/10/05_BIG_WEB_APPROACH.jpg',
+    alt: 'City',
     size: '100'
   },
   {
@@ -36,6 +36,14 @@ class ExampleAvatar extends React.Component {
     })
   }
 
+  setSize = (size) => {
+    const current = Object.assign({}, this.state.data)
+    current.size = size
+    this.setState({
+      data: current
+    })
+  }
+
   render() {
     return(
       <div>
@@ -43,7 +51,7 @@ class ExampleAvatar extends React.Component {
         <div className={style['avatar-controls']}>
           <Button onClick={this.setAvatar.bind(this, data[0])}>Avatar 1</Button>
           <Button onClick={this.setAvatar.bind(this, data[1])}>Avatar 2</Button>
-          <Button onClick={this.setAvatar.bind(this, data[2])}>Change size</Button>
+          <Button onClick={this.setSize.bind(this, '200')}>Change size</Button>
         </div>
       </div>
     )

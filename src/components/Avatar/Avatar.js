@@ -30,6 +30,14 @@ class Avatar extends React.Component {
     optClass: React.PropTypes.string
   }
 
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.src !== this.props.src) {
+      this.setState({
+        loaded: false
+      })
+    }
+  }
+
   shouldComponentUpdate = (nextProps, nextState) => {
     return (
       nextProps.src !== this.props.src ||
@@ -46,11 +54,9 @@ class Avatar extends React.Component {
   }
 
   handleLoad = () => {
-    if (this.state.loaded === false) {
-      this.setState({
-        loaded: true
-      })
-    }
+    this.setState({
+      loaded: true
+    })
   }
 
   loadAvatar = () => {
@@ -58,6 +64,7 @@ class Avatar extends React.Component {
   }
 
   render() {
+    console.log(this.state.loaded)
     const cx = classNames.bind(style)
     const avatarClasses = cx(style['avatar-wrapper'], (this.state.loaded ? 'loaded' : null), this.props.optClass)
 
