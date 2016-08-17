@@ -26,6 +26,7 @@
 
 .dropdown-wrapper-flush {
   composes: dropdown-wrapper;
+  overflow: hidden;
   padding: 0;
 }
 
