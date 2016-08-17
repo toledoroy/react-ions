@@ -14,6 +14,8 @@ describe('Dropdown', () => {
     expect(wrapper.props().isOpened).to.be.false;
     expect(wrapper.childAt(0).text()).to.equal('This is a test.');
     expect(wrapper.childAt(1).childAt(0).hasClass('list-wrapper')).to.equal(false)
+    expect(wrapper.childAt(1).find('ul').length).to.equal(0)
+    expect(wrapper.childAt(1).find('li').length).to.equal(0)
   });
 
   it('should open when clicked', () => {
@@ -78,6 +80,7 @@ describe('Dropdown', () => {
 
     wrapper = mount(<Dropdown optClass='test' listItems={listItems}>This is a test.</Dropdown>);
     expect(wrapper.childAt(1).childAt(0).hasClass('list-wrapper')).to.equal(true)
+    expect(wrapper.childAt(1).find('ul').length).to.equal(1)
     expect(wrapper.childAt(1).childAt(0).find('li').length).to.equal(3)
   })
 
