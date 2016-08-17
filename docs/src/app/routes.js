@@ -7,6 +7,7 @@ import Base from './layout/Base'
 // Pages
 import ActivityFeedPage from './pages/components/ActivityFeed/Page'
 import AlertsPage from './pages/components/Alerts/Page'
+import AvatarPage from './pages/components/Avatar/Page'
 import BadgePage from './pages/components/Badge/Page'
 import BreadcrumbPage from './pages/components/Breadcrumb/Page'
 import ButtonsPage from './pages/components/Buttons/Page'
@@ -54,6 +55,7 @@ const Routes = (
     <Route path='components' title='Components'>
       <Route path='activity-feed' title='Activity Feed' component={ActivityFeedPage} />
       <Route path='alerts' title='Alerts' component={AlertsPage} />
+      <Route path='avatar' title='Avatar' component={AvatarPage} />
       <Route path='badge' title='Badge' component={BadgePage} />
       <Route path="breadcrumb" title="Breadcrumb" component={BreadcrumbPage} />
       <Route path='dropdown' title='Dropdown' component={DropdownPage} />
