@@ -65,7 +65,7 @@ class Dropdown extends React.Component {
     })
   }
 
-  handleClickOutside() {
+  handleClickOutside = () => {
     this.setState({isOpened: false}, () => {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback(this.state.isOpened)
@@ -73,10 +73,10 @@ class Dropdown extends React.Component {
     })
   }
 
-  listItemCallback(callback) {
+  listItemCallback = (item) => {
     this.setState({isOpened: false}, () => {
-      if (typeof callback === 'function') {
-        callback()
+      if (typeof item.callback === 'function') {
+        item.callback(item.name)
       }
     })
   }
@@ -87,9 +87,9 @@ class Dropdown extends React.Component {
     const dropdownClasses = cx(style['dropdown-component'], this.props.optClass, isOpenedClass)
     const dropdownWrapperClasses = cx(style['dropdown-wrapper'], (this.props.listItems ? style['dropdown-wrapper-flush'] : null))
 
-    const listitems = this.props.listItems && this.props.listItems.length
+    const listItems = this.props.listItems instanceof Array
       ? this.props.listItems.map((item, index) =>
-          <li key={index} onClick={this.listItemCallback.bind(this, item.callback)}>{item.name}</li>
+          <li key={index} onClick={this.listItemCallback.bind(this, item)}>{item.name}</li>
         )
       : []
 
@@ -98,9 +98,9 @@ class Dropdown extends React.Component {
         <span
           className={style.trigger} onClick={this.toggleDropdown}>{this.props.trigger}</span>
         <div className={dropdownWrapperClasses}>
-          {listitems.length > 0
+          {listItems.length > 0
             ? <ul className={style['list-wrapper']}>
-                {listitems}
+                {listItems}
               </ul>
             : this.props.children
           }
