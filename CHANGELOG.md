@@ -1,6 +1,23 @@
 ## HEAD
 
 ## 0.45.0
+###### _August 18, 2016_
+
+##### Component Fixes / Enhancements
+
+- [Dropdown] Updating CSS
+([#215](https://github.com/GetAmbassador/react-conventions/pull/215))
+
+- [Dropdown] Enhance with list
+([#214](https://github.com/GetAmbassador/react-conventions/pull/214))
+
+- [Avatar]
+([#213](https://github.com/GetAmbassador/react-conventions/pull/213))
+
+- [RadioGroup] focus child input
+([#212](https://github.com/GetAmbassador/react-conventions/pull/212))
+
+## 0.45.0
 ###### _August 12, 2016_
 
 ##### Component Fixes / Enhancements
