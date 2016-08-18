@@ -9,7 +9,8 @@ import throttle from 'lodash/throttle'
 class ActivityFeed extends React.Component {
   constructor(props) {
     super(props)
-    this.throttle = throttle(this.updateOffset, 200)
+    this.offsetThrottle = throttle(this.updateOffset, 200)
+    this.scrollThrottle = throttle(this.scrollUpdate, 120)
   }
 
   static propTypes = {
@@ -88,6 +89,7 @@ class ActivityFeed extends React.Component {
 
   componentDidMount = () => {
     window.addEventListener('resize', this.throttle)
+    window.addEventListener('scroll', this.scrollThrottle)
     this.updateOffset()
   }
 
@@ -105,8 +107,10 @@ class ActivityFeed extends React.Component {
   }
 
   componentWillUnmount = () => {
-    this.throttle.cancel();
-    window.removeEventListener('resize', this.throttle)
+    this.offsetThrottle.cancel()
+    this.scrollThrottle.cancel()
+    window.removeEventListener('resize', this.offsetThrottle)
+    window.removeEventListener('scroll', this.scrollThrottle)
   }
 
   handleInfiniteLoad = () => {
@@ -136,6 +140,19 @@ class ActivityFeed extends React.Component {
 
   updateOffset = () => {
     this.setState({offset: this._table.offsetTop})
+  }
+
+  scrollUpdate = () => {
+    // If the infinite list if about to enter the screen
+    // we re-render it. This is in case the list offset
+    // is changed after the component is loaded.
+    const listTopSpace = this._table.getBoundingClientRect().top
+
+    // The re-render will only occur in a 500px gap
+    if (listTopSpace >= window.innerHeight && listTopSpace <= (window.innerHeight + 500)) {
+      console.log("Updating");
+      this.updateOffset()
+    }
   }
 
   render() {
