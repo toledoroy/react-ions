@@ -150,7 +150,6 @@ class ActivityFeed extends React.Component {
 
     // The re-render will only occur in a 500px gap
     if (listTopSpace >= window.innerHeight && listTopSpace <= (window.innerHeight + 500)) {
-      console.log("Updating");
       this.updateOffset()
     }
   }
