@@ -76,11 +76,16 @@ class ActivityFeed extends React.Component {
     data: this.props.data,
     heights: [],
     items: [],
-    fetchMoreEnabled: true
+    fetchMoreEnabled: true,
+    offset: 0
   }
 
   componentWillMount = () => {
     this.setState(this.buildElements(0, this.props.data))
+  }
+
+  componentDidMount = () => {
+    this.setState({offset: this._table.offsetTop})
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -127,14 +132,14 @@ class ActivityFeed extends React.Component {
 
     return (
       <div className={feedClasses}>
-        <ul>
+        <ul ref={(ref) => this._table = ref}>
           <Infinite
             elementHeight={this.state.heights}
             useWindowAsScrollContainer={true}
             infiniteLoadBeginEdgeOffset={1000}
             onInfiniteLoad={this.handleInfiniteLoad}
             loadingSpinnerDelegate={elementInfiniteLoad}
-            preloadAdditionalHeight={window.innerHeight*2}
+            preloadAdditionalHeight={this.state.offset}
             isInfiniteLoading={this.state.isInfiniteLoading}>
               {this.state.items}
           </Infinite>
