@@ -35,7 +35,11 @@ class Tooltip extends React.Component {
     /**
      * Whether to insert the tooltip element after the trigger element or append it to the document body.
      */
-    appendToBody: React.PropTypes.bool
+    appendToBody: React.PropTypes.bool,
+    /**
+     * Whether to show the tooltip element by default.
+     */
+    show: React.PropTypes.bool
   };
 
   showTooltip = () => {
@@ -43,10 +47,14 @@ class Tooltip extends React.Component {
   }
 
   hideTooltip = () => {
-    this.setState({ showing: false });
+    !this.props.show ? this.setState({ showing: false }) : null
   }
 
   componentWillUpdate = () => {
+    this.tooltipPlacement()
+  }
+
+  tooltipPlacement = () => {
     var triggerRect = this._triggerElement.getBoundingClientRect();
     this._tooltipPlacement = {};
 
@@ -67,6 +75,14 @@ class Tooltip extends React.Component {
         this._tooltipPlacement.left = triggerRect.left + (triggerRect.right - triggerRect.left) / 2;
         this._tooltipPlacement.top = triggerRect.top;
     }
+  }
+
+  handleRef = (c) => {
+    this._triggerElement = c
+    setTimeout(() => {
+      this.tooltipPlacement()
+      this.props.show ? this.showTooltip() : null
+    }, 1000)
   }
 
   getStyles = () => {
@@ -96,7 +112,7 @@ class Tooltip extends React.Component {
 
   render() {
     return (
-      <span onMouseOver={this.showTooltip} onMouseOut={this.hideTooltip} ref={(c) => this._triggerElement = c}>
+      <span onMouseOver={this.showTooltip} onMouseOut={this.hideTooltip} ref={this.handleRef}>
         {this.props.children}
         {this.props.appendToBody ? <RenderToLayer render={this.renderTooltip} open={true} /> : this.renderTooltip()}
       </span>

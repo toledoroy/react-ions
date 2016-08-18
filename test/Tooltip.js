@@ -209,4 +209,21 @@ describe('Tooltip', () => {
     expect(document.body.getElementsByClassName('tooltip-component')[0].style.top).to.be.equal('');
     expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('');
   });
+
+  it('should show by default', () => {
+    wrapper = mount(<Tooltip content="Testing the top tooltip" show={true}>Test text</Tooltip>);
+
+    setTimeout(() => {
+      expect(wrapper.find('.tooltip-component').node.style.opacity).to.be.equal('0.9');
+
+      wrapper.simulate('mouseover');
+
+      expect(wrapper.find('.tooltip-component').node.style.opacity).to.be.equal('0.9');
+
+      wrapper.simulate('mouseout');
+
+      expect(wrapper.find('.tooltip-component').node.style.opacity).to.be.equal('0.9');      
+    }, 1000)
+  });
+
 });

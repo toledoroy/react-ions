@@ -7,10 +7,13 @@ import ExampleTooltipDefault from './ExampleTooltipDefault'
 import exampleTooltipDefaultCode from '!raw!./ExampleTooltipDefault'
 import ExampleTooltipBody from './ExampleTooltipBody'
 import exampleTooltipBodyCode from '!raw!./ExampleTooltipBody'
+import ExampleTooltipVisible from './ExampleTooltipVisible'
+import exampleTooltipVisibleCode from '!raw!./ExampleTooltipVisible'
 
 const description = {
   tooltipDefault: 'This is the `tooltip component` as it appears by default.',
-  tooltipBody: 'This is the `tooltip component` that gets appended to the document body.'
+  tooltipBody: 'This is the `tooltip component` that gets appended to the document body.',
+  tooltipVisible: 'This is the `tooltip component` that has visibility by default.'
 };
 
 const TooltipPage = () => (
@@ -28,6 +31,12 @@ const TooltipPage = () => (
           description={description.tooltipBody}
           markup={exampleTooltipBodyCode}>
           <ExampleTooltipBody />
+        </CodeExample>
+        <CodeExample
+          title='Tooltip Visible by default'
+          description={description.tooltipVisible}
+          markup={exampleTooltipVisibleCode}>
+          <ExampleTooltipVisible />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
