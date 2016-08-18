@@ -4,10 +4,12 @@ import ActivityFeedItem from './ActivityFeedItem'
 import Infinite from 'react-infinite'
 import Spinner from '../Spinner'
 import style from './style.scss'
+import throttle from 'lodash/throttle'
 
 class ActivityFeed extends React.Component {
   constructor(props) {
     super(props)
+    this.throttle = throttle(this.updateOffset, 200)
   }
 
   static propTypes = {
@@ -85,7 +87,8 @@ class ActivityFeed extends React.Component {
   }
 
   componentDidMount = () => {
-    this.setState({offset: this._table.offsetTop})
+    window.addEventListener('resize', this.throttle)
+    this.updateOffset()
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -99,6 +102,11 @@ class ActivityFeed extends React.Component {
       items,
       heights
     })
+  }
+
+  componentWillUnmount = () => {
+    this.throttle.cancel();
+    window.removeEventListener('resize', this.throttle)
   }
 
   handleInfiniteLoad = () => {
@@ -124,6 +132,10 @@ class ActivityFeed extends React.Component {
     .catch(() => {
       this.setState({ isInfiniteLoading: false })
     })
+  }
+
+  updateOffset = () => {
+    this.setState({offset: this._table.offsetTop})
   }
 
   render() {
