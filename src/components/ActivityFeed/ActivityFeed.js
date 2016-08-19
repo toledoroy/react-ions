@@ -140,9 +140,9 @@ class ActivityFeed extends React.Component {
 
   updateOffset = () => {
     const rect = this._table.getBoundingClientRect()
-    const calculatedOffset = rect.top() + document.body.scrollTop
+    const calculatedOffset = rect.top + document.body.scrollTop
     const newOffset = calculatedOffset >= window.innerHeight ? calculatedOffset : window.innerHeight
-    
+
     if (this.state.offset !== newOffset) {
       this.setState({offset: newOffset})
     }
