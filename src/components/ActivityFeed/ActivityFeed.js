@@ -4,10 +4,13 @@ import ActivityFeedItem from './ActivityFeedItem'
 import Infinite from 'react-infinite'
 import Spinner from '../Spinner'
 import style from './style.scss'
+import throttle from 'lodash/throttle'
 
 class ActivityFeed extends React.Component {
   constructor(props) {
     super(props)
+    this.offsetThrottle = throttle(this.updateOffset, 200)
+    this.scrollThrottle = throttle(this.scrollUpdate, 400)
   }
 
   static propTypes = {
@@ -76,11 +79,18 @@ class ActivityFeed extends React.Component {
     data: this.props.data,
     heights: [],
     items: [],
-    fetchMoreEnabled: true
+    fetchMoreEnabled: true,
+    offset: window.innerHeight
   }
 
   componentWillMount = () => {
     this.setState(this.buildElements(0, this.props.data))
+  }
+
+  componentDidMount = () => {
+    window.addEventListener('resize', this.throttle)
+    window.addEventListener('scroll', this.scrollThrottle)
+    this.updateOffset()
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -94,6 +104,13 @@ class ActivityFeed extends React.Component {
       items,
       heights
     })
+  }
+
+  componentWillUnmount = () => {
+    this.offsetThrottle.cancel()
+    this.scrollThrottle.cancel()
+    window.removeEventListener('resize', this.offsetThrottle)
+    window.removeEventListener('scroll', this.scrollThrottle)
   }
 
   handleInfiniteLoad = () => {
@@ -121,20 +138,43 @@ class ActivityFeed extends React.Component {
     })
   }
 
+  updateOffset = () => {
+    const rect = this._table.getBoundingClientRect()
+    const calculatedOffset = rect.top + document.body.scrollTop
+    const newOffset = calculatedOffset >= window.innerHeight ? calculatedOffset : window.innerHeight
+
+    if (this.state.offset !== newOffset) {
+      this.setState({offset: newOffset})
+    }
+  }
+
+  scrollUpdate = () => {
+    // If the infinite list if about to enter the screen
+    // we re-render it. This is in case the list offset
+    // is changed after the component is loaded.
+    const listTopSpace = this._table.getBoundingClientRect().top
+
+    // Once the infinite list is past the top of the screen,
+    // we stop updating the offset
+    if (listTopSpace >= 0) {
+      this.updateOffset()
+    }
+  }
+
   render() {
     const feedClasses = optclass(style, 'activity-feed', this.props.optClass)
     const elementInfiniteLoad = (<div className={style['loader']}><Spinner loading={true} optClass={style['spinner']} type='spinner-bounce' color='#3C97D3' /></div>)
 
     return (
       <div className={feedClasses}>
-        <ul>
+        <ul ref={(ref) => this._table = ref}>
           <Infinite
             elementHeight={this.state.heights}
             useWindowAsScrollContainer={true}
             infiniteLoadBeginEdgeOffset={1000}
             onInfiniteLoad={this.handleInfiniteLoad}
             loadingSpinnerDelegate={elementInfiniteLoad}
-            preloadAdditionalHeight={window.innerHeight*2}
+            preloadAdditionalHeight={this.state.offset}
             isInfiniteLoading={this.state.isInfiniteLoading}>
               {this.state.items}
           </Infinite>

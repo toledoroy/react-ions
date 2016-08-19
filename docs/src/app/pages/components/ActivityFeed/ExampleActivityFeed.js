@@ -135,6 +135,7 @@ class ExampleActivityFeed extends React.Component {
     return(
       <div>
         <p><Button onClick={this.changeActivities}>Set Random Activities</Button></p>
+        <div className={style['test-div']} />
         <ActivityFeed
           data={this.state.activities}
           totalCount={420}

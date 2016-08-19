@@ -118,6 +118,7 @@ describe('ActivityFeed', () => {
     expect(wrapper.state('heights')[0]).to.equal(200)
     expect(wrapper.state('heights')[1]).to.equal(200)
     expect(wrapper.state('heights')[2]).to.equal(200)
+    expect(wrapper.state('offset')).to.equal(window.innerHeight)
   })
 
   it('should update state when new props are received', () => {
@@ -140,6 +141,7 @@ describe('ActivityFeed', () => {
     expect(wrapper.state('heights')[0]).to.equal(200)
     expect(wrapper.state('data')).to.deep.equal(data)
     expect(wrapper.state('data')[0].name).to.equal('New Activity')
+    expect(wrapper.state('offset')).to.equal(window.innerHeight)
   })
 
   it('should not fetch more items if props.onInfiniteLoad is not specified when handleInfiniteLoad is called', () => {
@@ -187,4 +189,5 @@ describe('ActivityFeed', () => {
       done()
     })
   })
+
 })
