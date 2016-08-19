@@ -12,7 +12,7 @@ class ExampleTooltipVisible extends React.Component {
   }
 
   handleVisibility = () => {
-    this.state.showing ? this.setState({ showing: false }) : this.setState({ showing: true })
+    this.setState({ showing: !this.state.showing })
   }
 
   render() {
