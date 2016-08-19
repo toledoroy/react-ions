@@ -10,7 +10,7 @@ class ActivityFeed extends React.Component {
   constructor(props) {
     super(props)
     this.offsetThrottle = throttle(this.updateOffset, 200)
-    this.scrollThrottle = throttle(this.scrollUpdate, 120)
+    this.scrollThrottle = throttle(this.scrollUpdate, 400)
   }
 
   static propTypes = {
@@ -80,7 +80,7 @@ class ActivityFeed extends React.Component {
     heights: [],
     items: [],
     fetchMoreEnabled: true,
-    offset: 0
+    offset: window.innerHeight
   }
 
   componentWillMount = () => {
@@ -139,7 +139,8 @@ class ActivityFeed extends React.Component {
   }
 
   updateOffset = () => {
-    this.setState({offset: this._table.offsetTop})
+    const newOffset = this._table.offsetTop >= window.innerHeight ? this._table.offsetTop : window.innerHeight
+    this.setState({offset: newOffset})
   }
 
   scrollUpdate = () => {
@@ -148,8 +149,9 @@ class ActivityFeed extends React.Component {
     // is changed after the component is loaded.
     const listTopSpace = this._table.getBoundingClientRect().top
 
-    // The re-render will only occur in a 500px gap
-    if (listTopSpace >= window.innerHeight && listTopSpace <= (window.innerHeight + 500)) {
+    // Once the infinite list is past the top of the screen,
+    // we stop updating the offset
+    if (listTopSpace >= 0) {
       this.updateOffset()
     }
   }
