@@ -140,7 +140,9 @@ class ActivityFeed extends React.Component {
 
   updateOffset = () => {
     const newOffset = this._table.offsetTop >= window.innerHeight ? this._table.offsetTop : window.innerHeight
-    this.setState({offset: newOffset})
+    if (this.state.offset !== newOffset) {
+      this.setState({offset: newOffset})
+    }
   }
 
   scrollUpdate = () => {
