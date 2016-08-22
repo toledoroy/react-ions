@@ -1,5 +1,16 @@
 ## HEAD
 
+## 0.46.0
+###### _August 22, 2016_
+
+##### Component Fixes / Enhancements
+
+- [Tooltip] visibility
+([#218](https://github.com/GetAmbassador/react-conventions/pull/218))
+
+- [Activityfeed] offset calculation
+([#217](https://github.com/GetAmbassador/react-conventions/pull/217))
+
 ## 0.45.0
 ###### _August 18, 2016_
 
