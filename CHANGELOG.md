@@ -1,5 +1,16 @@
 ## HEAD
 
+## 0.47.0
+###### _August 23, 2016_
+
+##### Component Fixes / Enhancements
+
+- [Tooltip] Fix position and remove listeners on 'show' by default
+([#221](https://github.com/GetAmbassador/react-conventions/pull/221))
+
+- [RadioGroup] reset to default
+([#220](https://github.com/GetAmbassador/react-conventions/pull/220))
+
 ## 0.46.0
 ###### _August 22, 2016_
 
