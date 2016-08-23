@@ -1,5 +1,4 @@
 import React from 'react'
-import throttle from 'lodash/throttle'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 import RenderToLayer from '../internal/RenderToLayer'
@@ -10,7 +9,6 @@ import RenderToLayer from '../internal/RenderToLayer'
 class Tooltip extends React.Component {
   constructor(props) {
     super(props)
-    this.throttle = throttle(this.showTooltip, 500, {trailing: true})
   }
 
   state = {
@@ -46,10 +44,7 @@ class Tooltip extends React.Component {
 
   componentDidMount = () => {
     if (this.props.show) {
-      window.addEventListener('resize', this.throttle)
-
       setTimeout(() => {
-        this.tooltipPlacement()
         this.props.show ? this.showTooltip() : null
       }, 1000)
     }
@@ -57,12 +52,6 @@ class Tooltip extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     this.setState({ showing: nextProps.show })
-  }
-
-  componentWillUnmount = () => {
-    if (this.props.show) {
-      window.removeEventListener('resize', this.throttle)
-    }
   }
 
   showTooltip = () => {
@@ -79,6 +68,7 @@ class Tooltip extends React.Component {
   tooltipPlacement = () => {
     var triggerRect = this._triggerElement.getBoundingClientRect()
     this._tooltipPlacement = {}
+    this._tooltipPlacement.translate = triggerRect.width / 2
 
     switch (this.props.tooltipPlacement) {
       case 'bottom':
@@ -99,13 +89,22 @@ class Tooltip extends React.Component {
     }
   }
 
+  getTranslate = () => {
+    return this._tooltipPlacement.translate + 'px'
+  }
+
   getStyles = () => {
     var style = {}
 
-    if (this.state.showing) {
+    if (this.state.showing && !this.props.show || this.state.showing && this.props.show && this.props.tooltipPlacement !== 'top') {
       style.top = this._tooltipPlacement.top + window.pageYOffset
       style.left = this._tooltipPlacement.left + window.pageXOffset
       style.opacity = 0.9
+    } else if (this.state.showing && this.props.show && this.props.tooltipPlacement === 'top') {
+      style.top = 'inherit'
+      style.left = 'inherit'
+      style.opacity = 0.9
+      style.transform = `translate(calc(-50% - ${this.getTranslate()}), calc(-100% - 6px))`
     }
 
     return style
