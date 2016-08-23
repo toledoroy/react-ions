@@ -47,12 +47,12 @@ class Tooltip extends React.Component {
   componentDidMount = () => {
     if (this.props.show) {
       window.addEventListener('resize', this.throttle)
-    }
 
-    setTimeout(() => {
-      this.tooltipPlacement()
-      this.props.show ? this.showTooltip() : null
-    }, 1000)
+      setTimeout(() => {
+        this.tooltipPlacement()
+        this.props.show ? this.showTooltip() : null
+      }, 1000)
+    }
   }
 
   componentWillReceiveProps = (nextProps) => {
