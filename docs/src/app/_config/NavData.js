@@ -64,6 +64,9 @@ const nav = [
         name: 'Icons',
         action: '/components/icons'
       }, {
+        name: 'Inline Edit',
+        action: '/components/inline-edit'
+      }, {
         name: 'Input',
         action: '/components/input'
       }, {
