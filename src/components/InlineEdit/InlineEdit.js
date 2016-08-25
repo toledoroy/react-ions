@@ -53,6 +53,16 @@ class InlineEdit extends React.Component {
     this.setState({isEditing: nextProps.isEditing})
   }
 
+  componentDidMount = (props) => {
+    const saveEvent = this.handleSave
+    this._textValue.addEventListener("keypress", (event) => {
+        if (event.charCode === 13) {
+          event.preventDefault();
+          saveEvent()
+        }
+    });
+  }
+
   shouldComponentUpdate = (nextProps, nextState) => {
     return this.state.isEditing !== nextState.isEditing
   }
