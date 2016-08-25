@@ -88,40 +88,39 @@ class Breadcrumb extends React.Component {
       if (item.title === undefined) return
 
       let tags = []
-
-      if (!that.state.minimized) {
-        if (rootRendered) {
-          tags.push(<Icon key={index} name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />)
-          tags.push(<span className={style.secondary}>{item.title}</span>)
-        }
-        else {
-          tags.push(<h2 className={style.primary}>{item.title}</h2>)
-          rootRendered = true
-        }
+      if (!that.state.minimized && rootRendered) {
+        tags.push(<Icon key={index} name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />)
+        tags.push(<span className={style.secondary}>{item.title}</span>)
         return tags
       }
-      if (rootRendered) {
-        if (index === depth - 1) {
-          tags.push(<Icon key={index} name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />)
-          tags.push(<span className={style.secondary}>{item.title}</span>)
-        }
-      } else {
+      
+      if (!that.state.minimized) {
+        tags.push(<h2 className={style.primary}>{item.title}</h2>)
+        rootRendered = true
+        return tags
+      }
+
+      if (rootRendered && index === depth - 1) {
+        tags.push(<Icon key={index} name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />)
+        tags.push(<span className={style.secondary}>{item.title}</span>)
+        return tags
+      }
+
+      if (!rootRendered) {
         tags.push(<span className={style.ellipsis} onClick={that.toggleDropdown}>...</span>)
         rootRendered = true
+        return tags
       }
-      return tags
     })
   }
 
   getHiddenTags = () => {
     const depth = this.props.routes.length
-    let rootRendered = false
 
     return this.props.routes.map((item, index) => {
       if (item.title === undefined) return
 
       let tags = []
-
       if (index + 1 < depth) {
         tags.push(<li className={style['dropdown-item']}>{item.title}</li>)
       }
