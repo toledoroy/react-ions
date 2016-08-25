@@ -36,7 +36,7 @@ class Breadcrumb extends React.Component {
     const children = [].slice.call(this._breadcrumbsContainer.children)
     let width = 0
 
-    children.map(function(element, index) {
+    children.map((element, index) => {
       const elemStyles = window.getComputedStyle(element)
       width += element.getBoundingClientRect().width + parseInt(elemStyles.marginLeft) + parseInt(elemStyles.marginRight)
     })
@@ -48,7 +48,7 @@ class Breadcrumb extends React.Component {
     const children = [].slice.call(this._breadcrumbsDropdown.children)
     let height = 0
 
-    children.map(function(element, index) {
+    children.map((element, index) => {
       const elemStyles = window.getComputedStyle(element)
       height += element.getBoundingClientRect().height
     })
@@ -57,7 +57,7 @@ class Breadcrumb extends React.Component {
   }
 
   componentDidMount = () => {
-    this.setState({ childrenWidth: this.getChildrenWidth() }, function() {
+    this.setState({ childrenWidth: this.getChildrenWidth() }, () => {
       this.handleResize()
       window.addEventListener('resize', this.handleResize)
     })
@@ -69,7 +69,7 @@ class Breadcrumb extends React.Component {
   }
 
   toggleDropdown = () => {
-    this.setState({ dropdownOpen: !this.state.dropdownOpen }, function() {
+    this.setState({ dropdownOpen: !this.state.dropdownOpen }, () => {
       if (this.state.dropdownOpen) {
         document.addEventListener('click', this.toggleDropdown)
       }
@@ -84,11 +84,10 @@ class Breadcrumb extends React.Component {
     const that = this
     let rootRendered = false
 
-    return this.props.routes.map(function(item, index) {
+    return this.props.routes.map((item, index) => {
       if (item.title === undefined) return
 
       let tags = []
-      let hiddenTags = []
 
       if (!that.state.minimized) {
         if (rootRendered) {
@@ -99,20 +98,17 @@ class Breadcrumb extends React.Component {
           tags.push(<h2 className={style.primary}>{item.title}</h2>)
           rootRendered = true
         }
+        return tags
       }
-      else {
-        if (rootRendered) {
-          if (index === depth - 1) {
-            tags.push(<Icon key={index} name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />)
-            tags.push(<span className={style.secondary}>{item.title}</span>)
-          }
+      if (rootRendered) {
+        if (index === depth - 1) {
+          tags.push(<Icon key={index} name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />)
+          tags.push(<span className={style.secondary}>{item.title}</span>)
         }
-        else {
-          tags.push(<span className={style.ellipsis} onClick={that.toggleDropdown}>...</span>)
-          rootRendered = true
-        }
+      } else {
+        tags.push(<span className={style.ellipsis} onClick={that.toggleDropdown}>...</span>)
+        rootRendered = true
       }
-
       return tags
     })
   }
@@ -121,7 +117,7 @@ class Breadcrumb extends React.Component {
     const depth = this.props.routes.length
     let rootRendered = false
 
-    return this.props.routes.map(function(item, index) {
+    return this.props.routes.map((item, index) => {
       if (item.title === undefined) return
 
       let tags = []
