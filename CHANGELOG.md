@@ -1,5 +1,13 @@
 ## HEAD
 
+## 0.48.0
+###### _August 23, 2016_
+
+##### Component Fixes / Enhancements
+
+- [Breadcrumb] Prepend icon to breadcrumb item
+([#223](https://github.com/GetAmbassador/react-conventions/pull/223))
+
 ## 0.47.0
 ###### _August 23, 2016_
 
