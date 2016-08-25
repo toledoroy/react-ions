@@ -78,7 +78,7 @@ class InlineEdit extends React.Component {
     if (this.state.isEditing) {
       return <span id='span_id' contentEditable className={style['inline-text-wrapper']} dangerouslySetInnerHTML={{__html: this.state.value}} ref={(c) => this._textValue = c} />
     } else {
-      return <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper']} ref={(c) => this._textValue = c} >{this.state.value}</span>
+      return <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={(c) => this._textValue = c} >{this.state.value}</span>
     }
   }
 

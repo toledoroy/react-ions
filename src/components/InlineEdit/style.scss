@@ -14,21 +14,32 @@
   width: 8px;
 }
 
+span::-moz-selection {
+  background: transparent;
+}
+
+span::selection {
+  background: transparent;
+}
+
 .inline-edit-wrapper {
   position: relative;
+  width: 100%;
 
   .inline-text-wrapper {
+    color: black;
+    background-color: $sky-text;
     display: inline-block;
+    max-width: calc(100% - 70px);
     outline: none;
     overflow: hidden;
     white-space: nowrap;
-    width: calc(100% - 70px);
   }
 
   .inline-button-wrapper {
     display: inline;
     margin-left: 3px;
-    width: 70px;
+    width: 46px;
   }
 
   .save-button {
@@ -37,5 +48,17 @@
 
   .cancel-button {
     @include inline-edit-button($red, $neutral-1);
+  }
+}
+
+.inline-text-wrapper-hover {
+  composes: inline-edit-wrapper;
+  transition: all 0.35s ease .2s;
+  color: gray;
+
+  &:hover {
+    color: black;
+    cursor: pointer;
+    border-bottom: 1px dotted black;
   }
 }
