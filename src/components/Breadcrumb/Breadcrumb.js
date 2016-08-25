@@ -4,7 +4,7 @@ import style from './style.scss'
 
 class Breadcrumb extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   static propTypes = {
@@ -21,121 +21,111 @@ class Breadcrumb extends React.Component {
   }
 
   handleResize = () => {
-    const breadcrumbsStyle = window.getComputedStyle(this._breadcrumbsContainer);
-    const breadcrumbsRect = this._breadcrumbsContainer.getBoundingClientRect();
+    const breadcrumbsStyle = window.getComputedStyle(this._breadcrumbsContainer)
+    const breadcrumbsRect = this._breadcrumbsContainer.getBoundingClientRect()
 
     if(this.props.routes.length > 1 && this.state.childrenWidth > breadcrumbsRect.width - (parseInt(breadcrumbsStyle.paddingLeft) + parseInt(breadcrumbsStyle.paddingRight))) {
-      this.setState({ minimized: true });
+      this.setState({ minimized: true })
     }
     else {
-      this.setState({ minimized: false, dropdownOpen: false });
+      this.setState({ minimized: false, dropdownOpen: false })
     }
   }
 
   getChildrenWidth = () => {
-    const children = [].slice.call(this._breadcrumbsContainer.children);
-    let width = 0;
+    const children = [].slice.call(this._breadcrumbsContainer.children)
+    let width = 0
 
-    children.map(function(element, index) {
-      const elemStyles = window.getComputedStyle(element);
-      width += element.getBoundingClientRect().width + parseInt(elemStyles.marginLeft) + parseInt(elemStyles.marginRight);
-    });
+    children.map((element, index) => {
+      const elemStyles = window.getComputedStyle(element)
+      width += element.getBoundingClientRect().width + parseInt(elemStyles.marginLeft) + parseInt(elemStyles.marginRight)
+    })
 
-    return width;
+    return width
   }
 
   getDropdownChildrenHeight = () => {
-    const children = [].slice.call(this._breadcrumbsDropdown.children);
-    let height = 0;
+    const children = [].slice.call(this._breadcrumbsDropdown.children)
+    let height = 0
 
-    children.map(function(element, index) {
-      const elemStyles = window.getComputedStyle(element);
-      height += element.getBoundingClientRect().height;
-    });
+    children.map((element, index) => {
+      const elemStyles = window.getComputedStyle(element)
+      height += element.getBoundingClientRect().height
+    })
 
-    return height;
+    return height
   }
 
   componentDidMount = () => {
-    this.setState({ childrenWidth: this.getChildrenWidth() }, function() {
-      this.handleResize();
-      window.addEventListener('resize', this.handleResize);
-    });
+    this.setState({ childrenWidth: this.getChildrenWidth() }, () => {
+      this.handleResize()
+      window.addEventListener('resize', this.handleResize)
+    })
   }
 
   componentWillUnmount = () => {
-    // Remove event listeners
-    window.removeEventListener('resize', this.handleResize);
-    document.removeEventListener('click', this.toggleDropdown);
+    window.removeEventListener('resize', this.handleResize)
+    document.removeEventListener('click', this.toggleDropdown)
   }
 
   toggleDropdown = () => {
-    this.setState({ dropdownOpen: !this.state.dropdownOpen }, function() {
+    this.setState({ dropdownOpen: !this.state.dropdownOpen }, () => {
       if (this.state.dropdownOpen) {
-        document.addEventListener('click', this.toggleDropdown);
+        document.addEventListener('click', this.toggleDropdown)
       }
       else {
-        document.removeEventListener('click', this.toggleDropdown);
+        document.removeEventListener('click', this.toggleDropdown)
       }
     })
   }
 
   getTags = () => {
-    const depth = this.props.routes.length;
-    const that = this;
-    let rootRendered = false;
+    const depth = this.props.routes.length
+    const that = this
+    let rootRendered = false
 
-    return this.props.routes.map(function(item, index) {
-      if (item.title === undefined) return;
+    return this.props.routes.map((item, index) => {
+      if (item.title === undefined) return
 
-      let tags = [];
-      let hiddenTags = [];
-
+      let tags = []
+      if (!that.state.minimized && rootRendered) {
+        tags.push(<Icon key={index} name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />)
+        tags.push(<span className={style.secondary}>{item.title}</span>)
+        return tags
+      }
+      
       if (!that.state.minimized) {
-        if (rootRendered) {
-          tags.push(<span className={style.secondary}>{item.title}</span>);
-        }
-        else {
-          tags.push(<h2 className={style.primary}>{item.title}</h2>);
-          rootRendered = true;
-        }
-
-        // Display arrow if there's another level
-        if ((index + 1) < depth) {
-          tags.push(<Icon key={index} name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />);
-        }
-      }
-      else {
-        if (rootRendered) {
-          if (index === depth - 1) {
-            tags.push(<Icon key={index} name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />);
-            tags.push(<span className={style.secondary}>{item.title}</span>);
-          }
-        }
-        else {
-          tags.push(<span className={style.ellipsis} onClick={that.toggleDropdown}>...</span>);
-          rootRendered = true;
-        }
+        tags.push(<h2 className={style.primary}>{item.title}</h2>)
+        rootRendered = true
+        return tags
       }
 
-      return tags;
+      if (rootRendered && index === depth - 1) {
+        tags.push(<Icon key={index} name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />)
+        tags.push(<span className={style.secondary}>{item.title}</span>)
+        return tags
+      }
+
+      if (!rootRendered) {
+        tags.push(<span className={style.ellipsis} onClick={that.toggleDropdown}>...</span>)
+        rootRendered = true
+        return tags
+      }
     })
   }
 
   getHiddenTags = () => {
-    const depth = this.props.routes.length;
-    let rootRendered = false;
+    const depth = this.props.routes.length
 
-    return this.props.routes.map(function(item, index) {
-      if (item.title === undefined) return;
+    return this.props.routes.map((item, index) => {
+      if (item.title === undefined) return
 
-      let tags = [];
-
+      let tags = []
       if (index + 1 < depth) {
-        tags.push(<li className={style['dropdown-item']}>{item.title}</li>);
+        tags.push(<li className={style['dropdown-item']}>{item.title}</li>)
       }
 
-      return tags;
+      return tags
     })
   }
 
@@ -147,16 +137,16 @@ class Breadcrumb extends React.Component {
     }
 
     if (this.state.dropdownOpen && this.state.minimized) {
-      style.height = this.getDropdownChildrenHeight() + 'px';
-      style.opacity = '1';
-      style.transition = 'height 250ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 0ms, opacity 250ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 0ms';
+      style.height = this.getDropdownChildrenHeight() + 'px'
+      style.opacity = '1'
+      style.transition = 'height 250ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 0ms, opacity 250ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 0ms'
     }
 
-    return style;
+    return style
   }
 
   render() {
-    const breadcrumbs = this.getTags();
+    const breadcrumbs = this.getTags()
 
     return (
       <div className={style['breadcrumbs-container']}>
