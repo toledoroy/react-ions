@@ -1,0 +1,41 @@
+@import '../../styles/common/mixins';
+@import '../../styles/common/colors';
+@import '../../styles/common/functions';
+
+@mixin inline-edit-button($background, $fill) {
+  background-color: $background;
+  border-radius: 50%;
+  cursor: pointer;
+  fill: $fill;
+  height: 8px;
+  padding: 4px;
+  position: relative;
+  margin-left: 7px;
+  width: 8px;
+}
+
+.inline-edit-wrapper {
+  position: relative;
+
+  .inline-text-wrapper {
+    display: inline-block;
+    outline: none;
+    overflow: hidden;
+    white-space: nowrap;
+    width: calc(100% - 70px);
+  }
+
+  .inline-button-wrapper {
+    display: inline;
+    margin-left: 3px;
+    width: 70px;
+  }
+
+  .save-button {
+    @include inline-edit-button($green, $neutral-2);
+  }
+
+  .cancel-button {
+    @include inline-edit-button($red, $neutral-1);
+  }
+}
