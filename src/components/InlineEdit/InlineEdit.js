@@ -49,10 +49,6 @@ class InlineEdit extends React.Component {
     this.setState({isEditing: this.props.isEditing})
   }
 
-  componentWillReceiveProps = (nextProps) => {
-    this.setState({isEditing: nextProps.isEditing})
-  }
-
   componentDidMount = (props) => {
     const saveEvent = this.handleSave
     this._textValue.addEventListener("keypress", (event) => {
@@ -64,12 +60,12 @@ class InlineEdit extends React.Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    this._textValue.style.width = this._textValue.offsetWidth + 'px'
     return this.state.isEditing !== nextState.isEditing
   }
 
   handleSave = () => {
     // Removes '&nbsp' from text value if space added at the end
+    this._textValue.style.width = this._textValue.offsetWidth + 'px'
     this._textValue.innerHTML = this._textValue.innerHTML.replace(/&nbsp;/g,'');
     this.setState({ isEditing: false, value: this._textValue.innerHTML })
 
@@ -83,6 +79,7 @@ class InlineEdit extends React.Component {
   }
 
   showButtons = () => {
+    this._textValue.style.width = this._textValue.offsetWidth + 'px'
     this.setState({ isEditing: true })
     this.selectElementContents(this._textValue)
   }
