@@ -64,10 +64,13 @@ class InlineEdit extends React.Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
+    this._textValue.style.width = this._textValue.offsetWidth + 'px'
     return this.state.isEditing !== nextState.isEditing
   }
 
   handleSave = () => {
+    // Removes '&nbsp' from text value if space added at the end
+    this._textValue.innerHTML = this._textValue.innerHTML.replace(/&nbsp;/g,'');
     this.setState({ isEditing: false, value: this._textValue.innerHTML })
 
     if (typeof this.props.changeCallback === 'function') {

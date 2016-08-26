@@ -14,23 +14,14 @@
   width: 8px;
 }
 
-span::-moz-selection {
-  background: transparent;
-}
-
-span::selection {
-  background: transparent;
-}
-
 .inline-edit-wrapper {
   position: relative;
-  width: 100%;
 
   .inline-text-wrapper {
     color: black;
-    background-color: $sky-text;
     display: inline-block;
     max-width: calc(100% - 70px);
+    min-width: 50px;
     outline: none;
     overflow: hidden;
     white-space: nowrap;
