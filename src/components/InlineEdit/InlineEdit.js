@@ -41,12 +41,8 @@ class InlineEdit extends React.Component {
   }
 
   state = {
-    isEditing: false,
+    isEditing: this.props.isEditing,
     value: this.props.value
-  }
-
-  componentWillMount = () => {
-    this.setState({isEditing: this.props.isEditing})
   }
 
   componentDidMount = (props) => {
@@ -64,18 +60,21 @@ class InlineEdit extends React.Component {
   }
 
   handleSave = () => {
-    // Removes '&nbsp' from text value if space added at the end
-    this._textValue.style.width = this._textValue.offsetWidth + 'px'
-    this._textValue.innerHTML = this._textValue.innerHTML.replace(/&nbsp;/g,'');
-    this.setState({ isEditing: false, value: this._textValue.innerHTML })
+    this.cleanupText()
 
-    if (typeof this.props.changeCallback === 'function') {
-      this.props.changeCallback(this.props.name, this._textValue.innerHTML)
-    }
+    // const newValue = this._textValue.innerHTML === '' ? " " : this._textValue.innerHTML
+    this.setState({ isEditing: false, value: this._textValue.innerHTML }, function() {
+      this.handleBlankValue()
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback(this.props.name, this.state.value)
+      }
+    })
   }
 
   handleCancel = () => {
-    this.setState({ isEditing: false })
+    this.setState({ isEditing: false }, function() {
+      this.handleBlankValue()
+    })
   }
 
   showButtons = () => {
@@ -101,9 +100,25 @@ class InlineEdit extends React.Component {
     selection.addRange(range)
   }
 
+  handleBlankValue = () => {
+    if (this._textValue.innerHTML.replace(/\s/g, '') === '') {
+      this._textValue.innerHTML = 'Click to edit'
+    }
+  }
+
+  cleanupText = () => {
+    // Removes '&nbsp;' and '<br>' from text value if added on accident
+    this._textValue.style.width = this._textValue.offsetWidth + 'px'
+    this._textValue.innerHTML = this._textValue.innerHTML.replace(/&nbsp;/g,'');
+    this._textValue.innerHTML = this._textValue.innerHTML.replace(/<br>/g,'');
+  }
+
   render() {
+    const cx = classNames.bind(style)
+    const inlineEditClass = cx(style['inline-edit-wrapper'], this.props.optClass)
+
     return (
-      <div className={style['inline-edit-wrapper']}>
+      <div className={inlineEditClass}>
         {this.getSpan()}
         {this.state.isEditing
           ? <div className={style['inline-button-wrapper']}>
