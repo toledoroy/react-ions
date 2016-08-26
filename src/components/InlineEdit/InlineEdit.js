@@ -45,6 +45,10 @@ class InlineEdit extends React.Component {
     value: this.props.value
   }
 
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({ isEditing: nextProps.isEditing })
+  }
+
   componentDidMount = (props) => {
     const saveEvent = this.handleSave
     this._textValue.addEventListener("keypress", (event) => {
@@ -74,6 +78,9 @@ class InlineEdit extends React.Component {
   handleCancel = () => {
     this.setState({ isEditing: false }, function() {
       this.handleBlankValue()
+      if (typeof this.props.changeCallback === 'function') {
+        this.props.changeCallback()
+      }
     })
   }
 
