@@ -17,6 +17,18 @@ describe('InlineEdit', () => {
   })
 
   it('should call changeCallback function', () => {
-    const spy = s
+    const spy = sinon.spy()
+    const wrapper = mount(<InlineEdit name='test' isEditing={true} changeCallback={spy} value='test' />)
+    const trigger = wrapper.childAt(1).childAt(0)
+
+    trigger.simulate('click')
+
+    expect(spy.calledOnce).to.be.true
+  })
+
+  it('should prefill blank text', () => {
+    const wrapper = mount(<InlineEdit name='test' value='' isEditing={true} />)
+
+    expect(wrapper.childAt(0).text()).to.equal('Click to edit')
   })
 })
