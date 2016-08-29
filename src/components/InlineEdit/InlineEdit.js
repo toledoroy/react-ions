@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 import Icon from '../Icon'
@@ -46,20 +45,20 @@ class InlineEdit extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    this.setState({ isEditing: nextProps.isEditing }, function() {
+    this.setState({ isEditing: nextProps.isEditing }, () => {
         if (nextProps.isEditing) {
           this.selectElementContents(this._textValue)
         }
     })
   }
 
-  componentDidMount = (props) => {
+  componentDidMount = () => {
     this.handleBlankValue()
 
     const saveEvent = this.handleSave
     this._textValue.addEventListener("keypress", (event) => {
         if (event.charCode === 13) {
-          event.preventDefault();
+          event.preventDefault()
           saveEvent()
         }
     });
@@ -72,8 +71,7 @@ class InlineEdit extends React.Component {
   handleSave = () => {
     this.cleanupText()
 
-    // const newValue = this._textValue.innerHTML === '' ? " " : this._textValue.innerHTML
-    this.setState({ isEditing: false, value: this._textValue.innerHTML }, function() {
+    this.setState({ isEditing: false, value: this._textValue.innerHTML }, () => {
       this.handleBlankValue()
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback(this.props.name, this.state.value)
@@ -82,7 +80,7 @@ class InlineEdit extends React.Component {
   }
 
   handleCancel = () => {
-    this.setState({ isEditing: false }, function() {
+    this.setState({ isEditing: false }, () => {
       this.handleBlankValue()
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback()
@@ -99,9 +97,9 @@ class InlineEdit extends React.Component {
   getSpan = () => {
     if (this.state.isEditing) {
       return <span id='span_id' contentEditable className={style['inline-text-wrapper']} dangerouslySetInnerHTML={{__html: this.state.value}} ref={(c) => this._textValue = c} />
-    } else {
-      return <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={(c) => this._textValue = c} >{this.state.value}</span>
     }
+
+    return <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={(c) => this._textValue = c} >{this.state.value}</span>
   }
 
   selectElementContents = (element) => {

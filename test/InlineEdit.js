@@ -7,7 +7,10 @@ describe('InlineEdit', () => {
   it('should render a span and buttons', () => {
     const wrapper = shallow(<InlineEdit name='test' value='test value' isEditing={true} />)
     expect(wrapper.find('span')).to.have.length(1)
+    expect(wrapper.find('span').hasClass('inline-text-wrapper')).to.be.true
     expect(wrapper.find(Icon)).to.have.length(2)
+    expect(wrapper.childAt(1).childAt(0).hasClass('save-button')).to.be.true
+    expect(wrapper.childAt(1).childAt(1).hasClass('cancel-button')).to.be.true
   })
 
   it('should not render buttons', () => {
@@ -18,12 +21,12 @@ describe('InlineEdit', () => {
 
   it('should call changeCallback function', () => {
     const spy = sinon.spy()
-    const wrapper = mount(<InlineEdit name='test' isEditing={true} changeCallback={spy} value='test' />)
+    const wrapper = mount(<InlineEdit name='test' isEditing={true} changeCallback={spy} value='testValue' />)
     const trigger = wrapper.childAt(1).childAt(0)
 
     trigger.simulate('click')
 
-    expect(spy.calledOnce).to.be.true
+    expect(spy.calledWithExactly('test', 'testValue')).to.be.true
   })
 
   it('should prefill blank text', () => {
