@@ -50,6 +50,7 @@ class InlineEdit extends React.Component {
   }
 
   componentDidMount = (props) => {
+    this.handleBlankValue()
     const saveEvent = this.handleSave
     this._textValue.addEventListener("keypress", (event) => {
         if (event.charCode === 13) {
