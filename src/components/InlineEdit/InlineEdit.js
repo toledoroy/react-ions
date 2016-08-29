@@ -90,8 +90,9 @@ class InlineEdit extends React.Component {
 
   showButtons = () => {
     this._textValue.style.width = this._textValue.offsetWidth + 'px'
-    this.setState({ isEditing: true })
-    this.selectElementContents(this._textValue)
+    this.setState({ isEditing: true }, () => {
+      this.selectElementContents(this._textValue)
+    })
   }
 
   getSpan = () => {
