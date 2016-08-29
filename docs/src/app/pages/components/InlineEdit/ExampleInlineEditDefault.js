@@ -1,7 +1,5 @@
 import React from 'react'
 import InlineEdit from 'react-conventions/lib/InlineEdit'
-import Input from 'react-conventions/lib/Input'
-import Button from 'react-conventions/lib/Button'
 import styles from './styles'
 
 class ExampleInlineEditDefault extends React.Component {
@@ -10,7 +8,7 @@ class ExampleInlineEditDefault extends React.Component {
   }
 
   state = {
-    inlineValue: null
+    inlineValue: 'Click to edit'
   }
 
   handleSave = (name, value) => {
@@ -22,12 +20,8 @@ class ExampleInlineEditDefault extends React.Component {
   render() {
     return (
       <div>
-        <InlineEdit name='test' value='This is a test' changeCallback={this.handleSave} />
-
-        {this.state.inlineValue
-          ? <code>The Inline Edit value is '{this.state.inlineValue}'.</code>
-          : null
-        }
+        <InlineEdit name='test' value={this.state.inlineValue} changeCallback={this.handleSave} />
+        <code>The Inline Edit value is {this.state.inlineValue}.</code>
       </div>
     )
   }
