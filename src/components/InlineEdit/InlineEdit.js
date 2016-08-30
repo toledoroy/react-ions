@@ -45,11 +45,9 @@ class InlineEdit extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    this.setState({ isEditing: nextProps.isEditing }, () => {
-        if (nextProps.isEditing) {
-          this.selectElementContents(this._textValue)
-        }
-    })
+      if (nextProps.isEditing) {
+        this.showButtons()
+      }
   }
 
   componentDidMount = () => {
