@@ -28,6 +28,7 @@ import RadioGroupPage from './pages/components/RadioGroup/Page'
 import InputPage from './pages/components/Input/Page'
 import ModalPage from './pages/components/Modal/Page'
 import InputListPage from './pages/components/InputList/Page'
+import InlineEditPage from './pages/components/InlineEdit/Page'
 import MultiSelectPage from './pages/components/MultiSelect/Page'
 import TooltipPage from './pages/components/Tooltip/Page'
 import ProgressBarPage from './pages/components/ProgressBar/Page'
@@ -67,6 +68,7 @@ const Routes = (
       <Route path='file-upload' title='File Upload' component={FileUploadPage} />
       <Route path='form-group' title='Form Group' component={FormGroupPage} />
       <Route path='icons' title='Icons' component={IconsPage} />
+      <Route path='inline-edit' title='Inline Edit' component={InlineEditPage} />
       <Route path='input' title='Input' component={InputPage} />
       <Route path='input-list' title='Input List' component={InputListPage} />
       <Route path='modal' title='Modal' component={ModalPage} />
