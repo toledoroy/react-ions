@@ -45,9 +45,9 @@ class InlineEdit extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-      if (nextProps.isEditing) {
-        this.showButtons()
-      }
+    if (nextProps.isEditing) {
+      this.showButtons()
+    }
   }
 
   componentDidMount = () => {
