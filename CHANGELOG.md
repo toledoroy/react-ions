@@ -1,5 +1,13 @@
 ## HEAD
 
+## 0.51.0
+###### _September 1, 2016_
+
+##### Component Fixes / Enhancements
+
+- [Icons] Several new icons added
+([#227](https://github.com/GetAmbassador/react-conventions/pull/227)
+
 ## 0.50.0
 ###### _August 30, 2016_
 
