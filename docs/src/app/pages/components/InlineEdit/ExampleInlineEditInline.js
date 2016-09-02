@@ -1,8 +1,9 @@
 import React from 'react'
 import InlineEdit from 'react-conventions/lib/InlineEdit'
+import Icon from 'react-conventions/lib/Icon'
 import styles from './styles'
 
-class ExampleInlineEditDefault extends React.Component {
+class ExampleInlineEditInline extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -21,6 +22,7 @@ class ExampleInlineEditDefault extends React.Component {
     return (
       <div>
         <div className={styles['divClass']}>
+          <Icon name='icon-check-circle-2' height='16' fill='#9198A0' className='custom' />
           <span>Test</span>
           <InlineEdit name='test' value={this.state.inlineValue} changeCallback={this.handleSave} optClass={styles['optClass']}/>
         </div>
@@ -30,4 +32,4 @@ class ExampleInlineEditDefault extends React.Component {
   }
 }
 
-export default ExampleInlineEditDefault
+export default ExampleInlineEditInline
