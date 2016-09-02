@@ -1,32 +1,21 @@
 import React from 'react'
 import InlineEdit from 'react-conventions/lib/InlineEdit'
 import Icon from 'react-conventions/lib/Icon'
-import styles from './styles'
+import style from './styles'
 
 class ExampleInlineEditInline extends React.Component {
   constructor(props) {
     super(props)
   }
 
-  state = {
-    inlineValue: 'Click to edit'
-  }
-
-  handleSave = (name, value) => {
-    if (name === 'test') {
-      this.setState({ inlineValue: value })
-    }
-  }
-
   render() {
     return (
       <div>
-        <div className={styles['divClass']}>
-          <Icon name='icon-check-circle-2' height='16' fill='#9198A0' className='custom' />
-          <span>Test</span>
-          <InlineEdit name='test' value={this.state.inlineValue} changeCallback={this.handleSave} optClass={styles['optClass']}/>
+        <div className={style['inline-div-wrapper']}>
+          <Icon name='icon-mail-1' height='16' fill='#9198A0' className='custom' className={style['icon-wrapper']} />
+          <span className={style['label-wrapper']}>EMAIL</span>
+          <InlineEdit name='test' value='test@example.com' optClass={style['opt-wrapper']}/>
         </div>
-        <code>The Inline Edit value is {this.state.inlineValue}.</code>
       </div>
     )
   }
