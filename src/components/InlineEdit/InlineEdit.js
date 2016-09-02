@@ -88,6 +88,7 @@ class InlineEdit extends React.Component {
 
   showButtons = () => {
     this._textValue.style.width = this._textValue.offsetWidth + 'px'
+
     this.setState({ isEditing: true }, () => {
       this.selectElementContents(this._textValue)
     })
@@ -118,7 +119,6 @@ class InlineEdit extends React.Component {
 
   cleanupText = () => {
     // Removes '&nbsp;' and '<br>' from text value if added on accident
-    this._textValue.style.width = this._textValue.offsetWidth + 'px'
     this._textValue.innerHTML = this._textValue.innerHTML.replace(/&nbsp;/g,'');
     this._textValue.innerHTML = this._textValue.innerHTML.replace(/<br>/g,'');
   }
@@ -132,8 +132,8 @@ class InlineEdit extends React.Component {
         {this.getSpan()}
         {this.state.isEditing
           ? <div className={style['inline-button-wrapper']}>
-              <Icon name='icon-check-2-1' onClick={this.handleSave} className={style['save-button']}>Save</Icon>
-              <Icon name='icon-delete-1-1' onClick={this.handleCancel} className={style['cancel-button']}>Cancel</Icon>
+              <Icon name='icon-check-2-1' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
+              <Icon name='icon-delete-1-1' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
             </div>
           : null
         }

@@ -12,15 +12,15 @@
 }
 
 .inline-edit-wrapper {
-  height: 15px;
+  height: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: normal;
+  white-space: nowrap;
 
   .inline-text-wrapper {
     color: black;
     display: inline-flex;
-    height: 100%;
+    vertical-align: middle;
     max-width: calc(100% - 50px);
     min-width: 50px;
     outline: none;
@@ -30,6 +30,8 @@
 
   .inline-text-wrapper-hover {
    color: gray;
+   height: 100%;
+   vertical-align: middle;
    max-width: calc(100% - 50px);
    transition: all 0.35s ease .2s;
 
@@ -41,6 +43,7 @@
   }
 
   .inline-button-wrapper {
+    vertical-align: top;
     display: inline-block;
     height: 100%;
     margin-left: 2px;
