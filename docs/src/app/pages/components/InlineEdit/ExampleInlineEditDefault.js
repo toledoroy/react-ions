@@ -20,7 +20,7 @@ class ExampleInlineEditDefault extends React.Component {
   render() {
     return (
       <div>
-        <InlineEdit name='test' value={this.state.inlineValue} changeCallback={this.handleSave} />
+        <InlineEdit name='test' value={this.state.inlineValue} changeCallback={this.handleSave} placeholder='Custom Placeholder' />
         <code>The Inline Edit value is {this.state.inlineValue}.</code>
       </div>
     )

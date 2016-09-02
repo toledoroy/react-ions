@@ -9,7 +9,8 @@ class InlineEdit extends React.Component {
   }
 
   static defaultProps = {
-    isEditing: false
+    isEditing: false,
+    placeholder: 'Click to edit'
   }
 
   static propTypes = {
@@ -37,6 +38,10 @@ class InlineEdit extends React.Component {
      * Optional styles to add to the inline-edit.
      */
     optClass: React.PropTypes.string,
+    /**
+     * Optional placeholder string for empty submission.
+     */
+    placeholder: React.PropTypes.string
   }
 
   state = {
@@ -113,7 +118,7 @@ class InlineEdit extends React.Component {
 
   handleBlankValue = () => {
     if (this._textValue.innerHTML.replace(/\s/g, '') === '') {
-      this._textValue.innerHTML = 'Click to edit'
+      this._textValue.innerHTML = this.props.placeholder
     }
   }
 
