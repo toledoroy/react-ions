@@ -85,7 +85,15 @@ describe('DatePicker', () => {
     // click <li>
     wrapper.childAt(2).childAt(2).childAt(0).simulate('click')
 
-    let firstDate = moment().subtract(10, 'year').format(defaultFormat)
+    let firstDate = ''
+    const daySelected = moment(oldDate, defaultFormat).date()
+    const dayToday = moment().date()
+
+    if (daySelected <= dayToday) {
+      firstDate = moment().subtract(10, 'year').format(defaultFormat)
+    } else {
+      firstDate = moment().date(daySelected).subtract(10, 'year').format(defaultFormat)
+    }
 
     expect(result.target.value).to.equal(firstDate)
     expect(wrapper.state('value')).to.equal(firstDate)
