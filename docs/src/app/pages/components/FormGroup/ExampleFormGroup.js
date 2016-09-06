@@ -9,8 +9,10 @@ import SelectField from 'react-conventions/lib/SelectField'
 import Button from 'react-conventions/lib/Button'
 import Toggle from 'react-conventions/lib/Toggle'
 import FileUpload from 'react-conventions/lib/FileUpload'
+import Typeahead from 'react-conventions/lib/Typeahead/Typeahead'
 import formStyle from 'react-conventions/lib/FormGroup/style'
 import style from './style.scss'
+import options from '../Typeahead/CountryList'
 
 let fields = {
   radio: [
@@ -98,6 +100,9 @@ class ExampleFormGroup extends React.Component {
       },
       'logo': {
         'value': 'https://ambassador-api.s3.amazonaws.com/uploads/marketing/54/2016_06_02_18_40_39.png'
+      },
+      'country_typeahead': {
+        'value': 'AF'
       }
     }
   }
@@ -170,6 +175,9 @@ class ExampleFormGroup extends React.Component {
         },
         logo: {
           value: ''
+        },
+        country_typeahead: {
+          value: ''
         }
       }
     })
@@ -214,6 +222,18 @@ class ExampleFormGroup extends React.Component {
           valueProp='value'
           displayProp='display'
           optClass={formStyle.field} />
+
+        <h3>Countries</h3>
+
+        <Typeahead
+          placeholder='Countries starting with the letter A'
+          name='country_typeahead'
+          options={options}
+          valueProp='countryCode'
+          displayProp='countryName'
+          value={this.state.schema.country_typeahead.value}
+          optClass={formStyle.field}
+        />
 
         <Toggle name='toggle' optClass={formStyle.field} label='Would you like to set a toggle?' />
 
