@@ -57,16 +57,7 @@ class InlineEdit extends React.Component {
 
   componentDidMount = () => {
     this.handleBlankValue()
-
-    const saveEvent = this.handleSave
-    this._textValue.addEventListener("keypress", (event) => {
-        // Grabs the character code, even in FireFox
-        const charCode = event.keyCode ? event.keyCode : event.which
-        if (charCode === 13) {
-          event.preventDefault()
-          saveEvent()
-        }
-    });
+    this.attachKeyListeners()
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
@@ -89,6 +80,8 @@ class InlineEdit extends React.Component {
   handleCancel = () => {
     this.setState({ isEditing: false }, () => {
       this.handleBlankValue()
+      this._textValue.blur()
+      
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback()
       }
@@ -125,6 +118,28 @@ class InlineEdit extends React.Component {
     if (this._textValue.innerHTML.replace(/\s/g, '') === '') {
       this._textValue.innerHTML = this.props.placeholder
     }
+  }
+
+  attachKeyListeners = () => {
+    const saveEvent = this.handleSave
+    this._textValue.addEventListener("keypress", (event) => {
+        // Grabs the character code, even in FireFox
+        const charCode = event.keyCode ? event.keyCode : event.which
+        if (charCode === 13) {
+          event.preventDefault()
+          saveEvent()
+        }
+    });
+
+    const cancelEvent = this.handleCancel
+    this._textValue.addEventListener("keyup", (event) => {
+        // Grabs the character code, even in FireFox
+        const charCode = event.keyCode ? event.keyCode : event.which
+        if (charCode === 27) {
+          event.preventDefault()
+          cancelEvent()
+        }
+    });
   }
 
   cleanupText = () => {
