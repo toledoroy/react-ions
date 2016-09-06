@@ -12,22 +12,39 @@
 }
 
 .inline-edit-wrapper {
-  height: 15px;
-  position: relative;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   .inline-text-wrapper {
     color: black;
-    display: inline-block;
-    height: 100%;
-    max-width: calc(100% - 70px);
+    display: inline-flex;
+    vertical-align: middle;
+    max-width: calc(100% - 50px);
     min-width: 50px;
     outline: none;
     overflow: hidden;
     white-space: nowrap;
   }
 
+  .inline-text-wrapper-hover {
+   color: gray;
+   height: 100%;
+   vertical-align: middle;
+   max-width: calc(100% - 50px);
+   transition: all 0.35s ease .1s;
+
+    &:hover {
+      color: black;
+      cursor: pointer;
+      border-bottom: 1px dashed black;
+    }
+  }
+
   .inline-button-wrapper {
-    display: inline;
+    vertical-align: top;
+    display: inline-block;
     height: 100%;
     margin-left: 2px;
     width: 46px;
@@ -39,17 +56,5 @@
 
   .cancel-button {
     @include inline-edit-button($red);
-  }
-}
-
-.inline-text-wrapper-hover {
-  composes: inline-edit-wrapper;
-  color: gray;
-  transition: all 0.35s ease .2s;
-
-  &:hover {
-    color: black;
-    cursor: pointer;
-    border-bottom: 1px dotted black;
   }
 }

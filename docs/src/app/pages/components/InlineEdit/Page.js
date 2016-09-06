@@ -6,11 +6,14 @@ import ExampleInlineEditDefault from './ExampleInlineEditDefault'
 import exampleInlineEditDefaultCode from '!raw!./ExampleInlineEditDefault'
 import ExampleInlineEditCallback from './ExampleInlineEditCallback'
 import exampleInlineEditCallbackCode from '!raw!./ExampleInlineEditCallback'
+import ExampleInlineEditInline from './ExampleInlineEditInline'
+import exampleInlineEditInline from '!raw!./ExampleInlineEditInline'
 import styles from 'private/css/content'
 
 const description = {
   inlineEditDefault: 'This is the default **inline edit component**.',
   inlineEditCallback: 'This is the **inline edit component** with a callback function to edit.',
+  inlineEditInline: 'This is the **inline edit component** that is inline with other components.'
 };
 
 const InlineEditPage = () => (
@@ -28,6 +31,12 @@ const InlineEditPage = () => (
           description={description.inlineEditCallback}
           markup={exampleInlineEditCallbackCode}>
           <ExampleInlineEditCallback />
+        </CodeExample>
+        <CodeExample
+          title='Inline Edit inline'
+          description={description.inlineEditInline}
+          markup={exampleInlineEditInline}>
+          <ExampleInlineEditInline />
         </CodeExample>
       </div>
     </div>

@@ -9,7 +9,8 @@ class InlineEdit extends React.Component {
   }
 
   static defaultProps = {
-    isEditing: false
+    isEditing: false,
+    placeholder: 'Click to edit'
   }
 
   static propTypes = {
@@ -37,6 +38,10 @@ class InlineEdit extends React.Component {
      * Optional styles to add to the inline-edit.
      */
     optClass: React.PropTypes.string,
+    /**
+     * Optional placeholder string for empty submission.
+     */
+    placeholder: React.PropTypes.string
   }
 
   state = {
@@ -52,14 +57,7 @@ class InlineEdit extends React.Component {
 
   componentDidMount = () => {
     this.handleBlankValue()
-
-    const saveEvent = this.handleSave
-    this._textValue.addEventListener("keypress", (event) => {
-        if (event.charCode === 13) {
-          event.preventDefault()
-          saveEvent()
-        }
-    });
+    this.attachKeyListeners()
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
@@ -71,6 +69,8 @@ class InlineEdit extends React.Component {
 
     this.setState({ isEditing: false, value: this._textValue.innerHTML }, () => {
       this.handleBlankValue()
+      this._textValue.blur()
+
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback(this.props.name, this.state.value)
       }
@@ -80,6 +80,8 @@ class InlineEdit extends React.Component {
   handleCancel = () => {
     this.setState({ isEditing: false }, () => {
       this.handleBlankValue()
+      this._textValue.blur()
+      
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback()
       }
@@ -88,6 +90,7 @@ class InlineEdit extends React.Component {
 
   showButtons = () => {
     this._textValue.style.width = this._textValue.offsetWidth + 'px'
+
     this.setState({ isEditing: true }, () => {
       this.selectElementContents(this._textValue)
     })
@@ -108,17 +111,39 @@ class InlineEdit extends React.Component {
     const selection = window.getSelection()
     selection.removeAllRanges()
     selection.addRange(range)
+    element.focus()
   }
 
   handleBlankValue = () => {
     if (this._textValue.innerHTML.replace(/\s/g, '') === '') {
-      this._textValue.innerHTML = 'Click to edit'
+      this._textValue.innerHTML = this.props.placeholder
     }
+  }
+
+  attachKeyListeners = () => {
+    const saveEvent = this.handleSave
+    this._textValue.addEventListener("keypress", (event) => {
+        // Grabs the character code, even in FireFox
+        const charCode = event.keyCode ? event.keyCode : event.which
+        if (charCode === 13) {
+          event.preventDefault()
+          saveEvent()
+        }
+    });
+
+    const cancelEvent = this.handleCancel
+    this._textValue.addEventListener("keyup", (event) => {
+        // Grabs the character code, even in FireFox
+        const charCode = event.keyCode ? event.keyCode : event.which
+        if (charCode === 27) {
+          event.preventDefault()
+          cancelEvent()
+        }
+    });
   }
 
   cleanupText = () => {
     // Removes '&nbsp;' and '<br>' from text value if added on accident
-    this._textValue.style.width = this._textValue.offsetWidth + 'px'
     this._textValue.innerHTML = this._textValue.innerHTML.replace(/&nbsp;/g,'');
     this._textValue.innerHTML = this._textValue.innerHTML.replace(/<br>/g,'');
   }
@@ -132,8 +157,8 @@ class InlineEdit extends React.Component {
         {this.getSpan()}
         {this.state.isEditing
           ? <div className={style['inline-button-wrapper']}>
-              <Icon name='icon-check-2-1' onClick={this.handleSave} className={style['save-button']}>Save</Icon>
-              <Icon name='icon-delete-1-1' onClick={this.handleCancel} className={style['cancel-button']}>Cancel</Icon>
+              <Icon name='icon-check-2-1' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
+              <Icon name='icon-delete-1-1' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
             </div>
           : null
         }

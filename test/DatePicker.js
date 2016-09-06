@@ -4,7 +4,7 @@ import DatePicker from '../src/components/DatePicker/DatePicker'
 import moment from 'moment'
 
 describe('DatePicker', () => {
-  const oldDate = '2017-07-07'
+  const oldDate = '2017-07-02'
   const newDate = '2019-03-03'
   const defaultFormat = 'YYYY-MM-DD'
   let wrapper
@@ -51,7 +51,7 @@ describe('DatePicker', () => {
     // click <li>
     wrapper.childAt(0).childAt(2).childAt(0).simulate('click')
 
-    const firstMonth = '2017-01-07'
+    const firstMonth = '2017-01-02'
     expect(result.target.value).to.equal(firstMonth)
     expect(wrapper.state('value')).to.equal(firstMonth)
   })
