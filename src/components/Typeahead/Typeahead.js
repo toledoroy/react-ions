@@ -26,7 +26,7 @@ export class Typeahead extends React.Component {
 
   static propTypes = {
     /**
-     * Name of the input.
+     * Name of the typeahead.
      */
     name: React.PropTypes.string,
     /**
