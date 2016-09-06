@@ -60,7 +60,9 @@ class InlineEdit extends React.Component {
 
     const saveEvent = this.handleSave
     this._textValue.addEventListener("keypress", (event) => {
-        if (event.charCode === 13) {
+        // Grabs the character code, even in FireFox
+        const charCode = event.keyCode ? event.keyCode : event.which
+        if (charCode === 13) {
           event.preventDefault()
           saveEvent()
         }
@@ -76,6 +78,8 @@ class InlineEdit extends React.Component {
 
     this.setState({ isEditing: false, value: this._textValue.innerHTML }, () => {
       this.handleBlankValue()
+      this._textValue.blur()
+
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback(this.props.name, this.state.value)
       }
@@ -114,6 +118,7 @@ class InlineEdit extends React.Component {
     const selection = window.getSelection()
     selection.removeAllRanges()
     selection.addRange(range)
+    element.focus()
   }
 
   handleBlankValue = () => {
