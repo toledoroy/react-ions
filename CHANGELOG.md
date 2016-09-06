@@ -1,5 +1,13 @@
 ## HEAD
 
+## 0.52.0
+###### _September 6, 2016_
+
+##### Component Fixes / Enhancements
+
+- [Typeahead] Fix: Unable to reset typeahead value in FormGroup
+([#231](https://github.com/GetAmbassador/react-conventions/pull/231)
+
 ## 0.51.0
 ###### _September 1, 2016_
 
