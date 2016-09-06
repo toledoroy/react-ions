@@ -26,6 +26,10 @@ export class Typeahead extends React.Component {
 
   static propTypes = {
     /**
+     * Name of the input.
+     */
+    name: React.PropTypes.string,
+    /**
      * A string to display as the placeholder text.
      */
     placeholder: React.PropTypes.string,
@@ -204,7 +208,7 @@ export class Typeahead extends React.Component {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {
-            name: '',
+            name: this.props.name,
             value: '',
             option: ''
           }
@@ -246,10 +250,10 @@ export class Typeahead extends React.Component {
         { this.props.loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
 
         {this.state.isActive
-        ? <ul className={style['typeahead-list']}>
+          ? <ul className={style['typeahead-list']}>
           {options}
-          </ul>
-        : null
+        </ul>
+          : null
         }
       </div>
     )
