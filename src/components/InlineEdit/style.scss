@@ -33,12 +33,12 @@
    height: 100%;
    vertical-align: middle;
    max-width: calc(100% - 50px);
-   transition: all 0.35s ease .2s;
+   transition: all 0.35s ease .1s;
 
     &:hover {
       color: black;
       cursor: pointer;
-      border-bottom: 1px dotted black;
+      border-bottom: 1px dashed black;
     }
   }
 
