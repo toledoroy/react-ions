@@ -1,5 +1,13 @@
 ## HEAD
 
+## 0.53.0
+###### _September 6, 2016_
+
+##### Component Fixes / Enhancements
+
+- [InlineEdit] Fixed inline issues and added new functionality
+([#229](https://github.com/GetAmbassador/react-conventions/pull/229))
+
 ## 0.52.0
 ###### _September 6, 2016_
 
