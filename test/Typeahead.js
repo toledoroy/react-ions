@@ -115,7 +115,7 @@ describe('Typeahead', () => {
 
   it('should clear search string when input value is an empty string', () => {
     const changeCallback = sinon.spy()
-    wrapper = mount(<Typeahead resetAfterSelection={true} options={options} valueProp='value' displayProp='display' changeCallback={changeCallback} />)
+    wrapper = mount(<Typeahead name='typeahead' resetAfterSelection={true} options={options} valueProp='value' displayProp='display' changeCallback={changeCallback} />)
 
     let inputField = wrapper.find('input')
 
@@ -124,7 +124,7 @@ describe('Typeahead', () => {
 
     inputField.simulate('change', {target: {value: ''}})
     expect(wrapper.state().searchStr).to.equal('')
-    expect(changeCallback.calledWithExactly({ target: { name: '', value: '', option: '' } })).to.be.true
+    expect(changeCallback.calledWithExactly({ target: { name: 'typeahead', value: '', option: '' } })).to.be.true
   })
 
 })

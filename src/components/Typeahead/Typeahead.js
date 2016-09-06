@@ -242,17 +242,17 @@ export class Typeahead extends React.Component {
       <div className={typeaheadClass}>
         <Input ref={(c) => this._inputField = c} changeCallback={this.onChange} value={this.state.searchStr} placeholder={this.props.placeholder} disabled={this.props.disabled} />
 
-        {this.state.searchStr !== '' && !this.props.loading && !this.props.disabled
+        { this.state.searchStr !== '' && !this.props.loading && !this.props.disabled
           ? <Icon name='icon-delete-1-1' onClick={this.clearSearch} className={style['reset-button']}>Reset</Icon>
           : null
         }
 
         { this.props.loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
 
-        {this.state.isActive
-          ? <ul className={style['typeahead-list']}>
-          {options}
-        </ul>
+        { this.state.isActive ?
+          <ul className={style['typeahead-list']}>
+            {options}
+          </ul>
           : null
         }
       </div>
