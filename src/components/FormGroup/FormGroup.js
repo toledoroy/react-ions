@@ -1,5 +1,6 @@
 import React from 'react'
 import debounce from 'lodash/debounce'
+import Immutable from 'immutable'
 import style from './style.scss'
 import optclass from '../internal/OptClass'
 
@@ -47,39 +48,36 @@ class FormGroup extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      fields: nextProps.schema
+      fields: Immutable.fromJS(nextProps.schema)
     })
   }
 
   componentWillMount = () => {
-    this.setState({fields: this.props.schema})
+    this.setState({
+      fields: Immutable.fromJS(this.props.schema)
+    })
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
     if (typeof this.props.submitCallback === 'function') {
-      this.props.submitCallback(event, this.state.fields)
+      this.props.submitCallback(event, this.state.fields.toJS())
     }
   }
 
   handleChange = (event) => {
-    let val
+    if (!this.props.changeCallback) return
 
+    let val = event.target.value
+
+    // Handle checkbox values
     if (event.target.type === 'checkbox') {
       val = event.target.checked
-    } else {
-      val = event.target.value
     }
 
-    var newField = Object.assign({}, this.state.fields[event.target.name], {value: val})
-    var previousState = Object.assign({}, this.state)
-    var newState = previousState.fields[event.target.name] = newField
-
-    if (typeof this.props.changeCallback === 'function') {
-      this.setState(newState, () => {
-        this.props.changeCallback(this.state.fields)
-      })
-    }
+    this.setState(prevState => ({
+      fields: prevState.fields.setIn([event.target.name, 'value'], val)
+    }), this.props.changeCallback.bind(this, this.state.fields.toJS()))
   }
 
   getElements(children) {
@@ -87,14 +85,10 @@ class FormGroup extends React.Component {
       let childProps = {}
       if (child.props) {
         const name = child.props.name
-        const fields = this.state.fields
-
-        if (name in fields) {
-          if (React.isValidElement(child)) {
-            childProps = {
-              changeCallback: this.props.debounceTime ? this.debounce : this.handleChange,
-              value: fields[name].value
-            }
+        if (this.state.fields.has(name) && React.isValidElement(child)) {
+          childProps = {
+            changeCallback: this.props.debounceTime ? this.debounce : this.handleChange,
+            value: this.state.fields.getIn(name, value)
           }
         }
 
