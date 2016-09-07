@@ -1,5 +1,13 @@
 ## HEAD
 
+## 0.54.0
+###### _September 7, 2016_
+
+##### Component Fixes / Enhancements
+
+- [FormGroup] Refactored internal state to use Immutable data structure
+([#235](https://github.com/GetAmbassador/react-conventions/pull/235))
+
 ## 0.53.0
 ###### _September 6, 2016_
 
