@@ -86,6 +86,27 @@ describe('FormGroup', () => {
     expect(wrapper.state().fields.getIn(['subject', 'value'])).to.equal('This is my answer')
   })
 
+  it('should not manupilate provided schema outside to the changeCallback', () => {
+    const changeCallback = sinon.spy()
+
+    const schema = {
+      'subject': {
+        'value':'This is my subject'
+      }
+    }
+
+    wrapper = mount(<FormGroup changeCallback={changeCallback} schema={schema}><Input name='subject' label='Subject line' type='text' /></FormGroup>)
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        name: 'subject',
+        value: 'This is my answer'
+      }
+    })
+
+    expect(schema.subject.value).to.equal('This is my subject')
+  })
+
   it('should render a fieldset without a form wrapper', () => {
     const schema = {
       'subject': {
