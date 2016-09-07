@@ -86,7 +86,7 @@ describe('FormGroup', () => {
     expect(wrapper.state().fields.getIn(['subject', 'value'])).to.equal('This is my answer')
   })
 
-  it('should not manipulate provided schema outside to the changeCallback', () => {
+  it('should not manipulate provided schema outside the changeCallback', () => {
     const changeCallback = sinon.spy()
 
     const schema = {
