@@ -56,12 +56,12 @@ describe('FormGroup', () => {
     }
 
     wrapper = mount(<FormGroup schema={schema}><Input name='subject' label='Subject line' type='text' /></FormGroup>)
-    expect(wrapper.state().fields.subject.value).to.equal('This is my subject')
+    expect(wrapper.state().fields.getIn(['subject', 'value'])).to.equal('This is my subject')
 
     wrapper.setProps({ schema: schema2 })
     wrapper.update()
 
-    expect(wrapper.state().fields.subject.value).to.equal('This is my answer')
+    expect(wrapper.state().fields.getIn(['subject', 'value'])).to.equal('This is my answer')
   })
 
   it('should set the state when a form input is changed', () => {
@@ -83,7 +83,28 @@ describe('FormGroup', () => {
     })
 
     expect(changeCallback.calledOnce).to.be.true
-    expect(wrapper.state().fields.subject.value).to.equal('This is my answer')
+    expect(wrapper.state().fields.getIn(['subject', 'value'])).to.equal('This is my answer')
+  })
+
+  it('should not manipulate provided schema outside the changeCallback', () => {
+    const changeCallback = sinon.spy()
+
+    const schema = {
+      'subject': {
+        'value':'This is my subject'
+      }
+    }
+
+    wrapper = mount(<FormGroup changeCallback={changeCallback} schema={schema}><Input name='subject' label='Subject line' type='text' /></FormGroup>)
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        name: 'subject',
+        value: 'This is my answer'
+      }
+    })
+
+    expect(schema.subject.value).to.equal('This is my subject')
   })
 
   it('should render a fieldset without a form wrapper', () => {
