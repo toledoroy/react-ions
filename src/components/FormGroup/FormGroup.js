@@ -88,7 +88,7 @@ class FormGroup extends React.Component {
         if (this.state.fields.has(name) && React.isValidElement(child)) {
           childProps = {
             changeCallback: this.props.debounceTime ? this.debounce : this.handleChange,
-            value: this.state.fields.getIn(name, value)
+            value: this.state.fields.getIn([name, 'value'])
           }
         }
 
