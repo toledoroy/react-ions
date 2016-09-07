@@ -77,7 +77,9 @@ class FormGroup extends React.Component {
 
     this.setState(prevState => ({
       fields: prevState.fields.setIn([event.target.name, 'value'], val)
-    }), this.props.changeCallback.bind(this, this.state.fields.toJS()))
+    }), () => {
+      this.props.changeCallback(this.state.fields.toJS())
+    })
   }
 
   getElements(children) {
