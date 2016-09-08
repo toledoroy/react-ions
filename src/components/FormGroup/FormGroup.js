@@ -47,9 +47,14 @@ class FormGroup extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      fields: Immutable.fromJS(nextProps.schema)
-    })
+    var nextPropsSchema = Immutable.fromJS(nextProps.schema)
+    var thisPropsSchema = Immutable.fromJS(this.props.schema)
+
+    if(!Immutable.is(nextPropsSchema, thisPropsSchema)) {
+      this.setState({
+        fields: Immutable.fromJS(nextProps.schema)
+      })
+    }
   }
 
   componentWillMount = () => {
