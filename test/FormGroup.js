@@ -64,6 +64,28 @@ describe('FormGroup', () => {
     expect(wrapper.state().fields.getIn(['subject', 'value'])).to.equal('This is my answer')
   })
 
+  it('should not update the state when identical props are passed', () => {
+    const schema = {
+      'subject': {
+        'value':'This is my subject'
+      }
+    }
+
+    const schema2 = {
+      'subject': {
+        'value':'This is my subject'
+      }
+    }
+
+    wrapper = mount(<FormGroup schema={schema}><Input name='subject' label='Subject line' type='text' /></FormGroup>)
+    const previousState = wrapper.state()
+
+    wrapper.setProps({ schema: schema2 })
+    wrapper.update()
+
+    expect(previousState).to.equal(wrapper.state())
+  })
+
   it('should set the state when a form input is changed', () => {
     const changeCallback = sinon.spy()
 
