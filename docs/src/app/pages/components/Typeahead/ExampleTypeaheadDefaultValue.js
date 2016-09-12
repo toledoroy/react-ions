@@ -10,7 +10,7 @@ class ExampleTypeaheadDefaultValue extends React.Component {
   }
 
   state = {
-    selected: ''
+    selected: 'AT'
   }
 
   updateSelected = (index) => {
@@ -33,6 +33,7 @@ class ExampleTypeaheadDefaultValue extends React.Component {
           <Button onClick={this.updateSelected.bind(this, options[1].countryCode)}>Select Albania</Button>
           <Button onClick={this.updateSelected.bind(this, options[18].countryCode)}>Select Belarus</Button>
           <Button onClick={this.updateSelected.bind(this, options[49].countryCode)}>Select Congo</Button>
+          <Button onClick={this.updateSelected.bind(this, '')}>Reset</Button>
         </div>
         <Typeahead
           options={options}

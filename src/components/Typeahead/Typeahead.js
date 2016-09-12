@@ -109,6 +109,9 @@ export class Typeahead extends React.Component {
         this.selectItem(nextProps.value, nextProps.options)
       })
     }
+    else if (nextProps.value === '') {
+      this.clearSearch()
+    }
   }
 
   selectOption = (option) => {
@@ -128,7 +131,6 @@ export class Typeahead extends React.Component {
       // Focus the input field
       this._inputField.focus()
     }
-
 
     this.setState(newState, () => {
       if (typeof this.props.changeCallback === 'function') {
