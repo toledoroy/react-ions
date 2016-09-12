@@ -129,16 +129,14 @@ describe('Typeahead', () => {
 
   it('should set state when props are received', () => {
     const changeCallback = sinon.spy()
-    wrapper = mount(<Typeahead name='typeahead' resetAfterSelection={true} options={options} valueProp='value' displayProp='display' changeCallback={changeCallback} />)
+    wrapper = mount(<Typeahead name='typeahead' options={options} valueProp='value' displayProp='display' changeCallback={changeCallback} />)
 
     wrapper.setProps({ value: 'AT' })
-    wrapper.update()
 
     expect(wrapper.state().selected.value).to.equal('AT')
     expect(wrapper.state().selected.display).to.equal('Austria')
 
     wrapper.setProps({ value: '' })
-    wrapper.update()
 
     expect(wrapper.state().selected).to.equal('')
   })
