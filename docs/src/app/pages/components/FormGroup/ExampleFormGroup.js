@@ -37,6 +37,25 @@ let fields = {
   ]
 }
 
+const CustomFormField = (props) => {
+  const changeCallback = (event) => {
+    props.changeCallback(
+      {
+        target: {
+          name: props.name,
+          value: { uid: 123, name: event.target.value }
+        }
+      }
+    )
+  }
+
+  return (
+    <div className='myCustomFormField'>
+      <Input changeCallback={changeCallback} value={props.value.name} />
+    </div>
+  )
+}
+
 class ExampleFormGroup extends React.Component {
   constructor(props) {
     super(props)
@@ -103,6 +122,12 @@ class ExampleFormGroup extends React.Component {
       },
       'country_typeahead': {
         'value': 'AF'
+      },
+      'custom_field': {
+        value: {
+          uid: 123,
+          name: 'this is the name'
+        }
       }
     }
   }
@@ -178,6 +203,12 @@ class ExampleFormGroup extends React.Component {
         },
         country_typeahead: {
           value: ''
+        },
+        custom_field: {
+          value: {
+            uid: null,
+            name: ''
+          }
         }
       }
     })
@@ -246,6 +277,12 @@ class ExampleFormGroup extends React.Component {
           <Checkbox name='facebook' label='Facebook' optClass={formStyle.field} />
           <Checkbox name='twitter' label='Twitter' optClass={formStyle.field} />
           <Checkbox name='linkedin' label='LinkedIn' optClass={formStyle.field} />
+        </fieldset>
+
+
+        <fieldset>
+          <h3>Custom Form Field</h3>
+          <CustomFormField name='custom_field' />
         </fieldset>
 
         <Button type='submit'>Submit</Button>
