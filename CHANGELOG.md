@@ -1,5 +1,17 @@
 ## HEAD
 
+## 0.55.0
+###### _September 12, 2016_
+
+##### Component Fixes / Enhancements
+
+- [FormGroup] Ensure value is passed to child components as raw js
+([#239](https://github.com/GetAmbassador/react-conventions/pull/239))
+- [FormGroup] Do not update internal FormGroup state if props have not changed
+([#237](https://github.com/GetAmbassador/react-conventions/pull/237))
+- [Typeahead] Fix Typeahead cWRP method to allow value to be an empty string
+([#238](https://github.com/GetAmbassador/react-conventions/pull/238))
+
 ## 0.54.0
 ###### _September 7, 2016_
 
