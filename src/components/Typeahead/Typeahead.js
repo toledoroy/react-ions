@@ -109,7 +109,7 @@ export class Typeahead extends React.Component {
         this.selectItem(nextProps.value, nextProps.options)
       })
     }
-    else if (nextProps.value === '') {
+    else if (nextProps.value === '' && nextProps.value !== this.state.value) {
       this.clearSearch()
     }
   }
