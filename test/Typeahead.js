@@ -99,7 +99,7 @@ describe('Typeahead', () => {
 
     wrapper.childAt(2).find('ul').childAt(0).simulate('click')
     expect(inputField.node.value).to.equal('')
-})
+  })
 
   it('should clear search when the clear button is clicked', () => {
     wrapper = mount(<Typeahead resetAfterSelection={true} options={options} valueProp='value' displayProp='display' changeCallback={sinon.spy()} />)
@@ -125,6 +125,20 @@ describe('Typeahead', () => {
     inputField.simulate('change', {target: {value: ''}})
     expect(wrapper.state().searchStr).to.equal('')
     expect(changeCallback.calledWithExactly({ target: { name: 'typeahead', value: '', option: '' } })).to.be.true
+  })
+
+  it('should set state when props are received', () => {
+    const changeCallback = sinon.spy()
+    wrapper = mount(<Typeahead name='typeahead' options={options} valueProp='value' displayProp='display' changeCallback={changeCallback} />)
+
+    wrapper.setProps({ value: 'AT' })
+
+    expect(wrapper.state().selected.value).to.equal('AT')
+    expect(wrapper.state().selected.display).to.equal('Austria')
+
+    wrapper.setProps({ value: '' })
+
+    expect(wrapper.state().selected).to.equal('')
   })
 
 })
