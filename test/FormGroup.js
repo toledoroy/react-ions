@@ -145,6 +145,25 @@ describe('FormGroup', () => {
       expect(formGroup.hasClass('fieldset')).to.equal(true)
   })
 
+  it('should pass object value as raw js when cloning children', () => {
+    const schema = {
+      'subject': {
+        'value': { test: 'yes' }
+      }
+    }
+
+    const CustomFormField = (props) => {
+      return (<span>hello</span>)
+    }
+
+    formGroup = shallow(
+      <FormGroup schema={schema} nested={true}>
+        <CustomFormField name='subject' />
+      </FormGroup>)
+
+      expect(formGroup.find(CustomFormField).props().value).to.deep.equal(schema.subject.value)
+  })
+
   it('should call a submit callback', () => {
     const submitCallback = sinon.spy()
 
