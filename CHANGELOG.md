@@ -1,5 +1,13 @@
 ## HEAD
 
+## 0.56.0
+###### _September 13, 2016_
+
+##### Component Fixes / Enhancements
+
+- [FormGroup] Fix formgroup not setting fields state if changecallback is not provided
+([#241](https://github.com/GetAmbassador/react-conventions/pull/241))
+
 ## 0.55.0
 ###### _September 12, 2016_
 
