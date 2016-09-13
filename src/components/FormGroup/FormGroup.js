@@ -71,8 +71,6 @@ class FormGroup extends React.Component {
   }
 
   handleChange = (event) => {
-    if (!this.props.changeCallback) return
-
     let val = event.target.value
 
     // Handle checkbox values
@@ -83,7 +81,9 @@ class FormGroup extends React.Component {
     this.setState(prevState => ({
       fields: prevState.fields.setIn([event.target.name, 'value'], val)
     }), () => {
-      this.props.changeCallback(this.state.fields.toJS())
+      if (this.props.changeCallback) {
+        this.props.changeCallback(this.state.fields.toJS())
+      }
     })
   }
 
