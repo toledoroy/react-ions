@@ -62,7 +62,7 @@ class Modal extends React.Component {
 
   handleClick = (event) => {
     event.persist()
-    if (event.target.className.indexOf('modal-scroll-container') !== -1) {
+    if (typeof event.target.className === 'string' && event.target.className.indexOf('modal-scroll-container') !== -1) {
       this.handleCloseClick()
     }
   }
