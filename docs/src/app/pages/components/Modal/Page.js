@@ -11,12 +11,15 @@ import ExampleModalSmall from './ExampleModalSmall'
 import exampleModalSmallCode from '!raw!./ExampleModalSmall'
 import ExampleModalLarge from './ExampleModalLarge'
 import exampleModalLargeCode from '!raw!./ExampleModalLarge'
+import ExampleModalForm from './ExampleModalForm'
+import exampleModalFormCode from '!raw!./ExampleModalForm'
 
 const description = {
   modalDefault: 'This is the `modal component` as it appears by default.',
   modalActions: 'This is the `modal component` with actions.',
   modalSmall: 'This is the small `modal component`.',
-  modalLarge: 'This is the large `modal component`.'
+  modalLarge: 'This is the large `modal component`.',
+  modalForm: 'This is a `modal component` with a form.'
 };
 
 const ModalPage = () => (
@@ -47,6 +50,12 @@ const ModalPage = () => (
           description={description.modalLarge}
           markup={exampleModalLargeCode}>
           <ExampleModalLarge />
+        </CodeExample>
+        <CodeExample
+          title='Form Modal'
+          description={description.modalForm}
+          markup={exampleModalFormCode}>
+          <ExampleModalForm />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>

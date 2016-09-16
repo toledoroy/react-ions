@@ -3,8 +3,14 @@
 @import '../../styles/common/functions';
 
 .modal-component {
-
+  position: fixed;
+  z-index: 3500;
   &.modal-open {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 
     .modal-content {
       opacity: 1;
@@ -13,22 +19,25 @@
     }
   }
 
+  .modal-scroll-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
   .modal-content {
     opacity: 0;
     z-index: -1;
     visibility: hidden;
-    position: fixed;
-    left: 50%;
-    top: 50%;
+    position: relative;
+    margin: 80px auto 40px;
     width: 75%;
     max-width: 708px;
-    max-height: 75%;
     padding: 30px;
     background: $white;
     border-radius: 3px;
     display: flex;
     flex-direction: column;
-    transform: translate(-50%, -50%);
     transition: opacity .4s $animation-in-out-quadratic;
 
     &.modal-sm {
@@ -63,7 +72,6 @@
     .modal-body {
       font-size: 14px;
       color: $navy-text;
-      overflow: auto;
       margin: 0 -15px;
       padding: 0 15px;
     }
