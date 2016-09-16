@@ -10,7 +10,7 @@ import Icon from '../Icon'
  */
 class Modal extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   static defaultProps = {
@@ -51,71 +51,80 @@ class Modal extends React.Component {
      * The size of the modal. The default is 'md' (medium).
      */
     size: React.PropTypes.oneOf(['sm', 'md', 'lg'])
-  };
+  }
 
   handleKeyUp = (event) => {
     // When Esc is pressed
     if (event.keyCode === 27) {
-      this.requestClose(false);
+      this.requestClose(false)
+    }
+  }
+
+  handleClick = (event) => {
+    event.persist()
+    if (typeof event.target.className === 'string' && event.target.className.indexOf('modal-scroll-container') !== -1) {
+      this.handleCloseClick()
     }
   }
 
   handleCloseClick = () => {
-    this.requestClose(false);
+    this.requestClose(false)
   }
 
   requestClose = (buttonClicked) => {
     if (!buttonClicked && this.props.closeOnAction) {
-      return;
+      return
     }
 
     if (this.props.onRequestClose) {
-      this.props.onRequestClose(!!buttonClicked);
+      this.props.onRequestClose(!!buttonClicked)
     }
   }
 
   setKeyupListener = () => {
     if (this.props.open) {
-      window.addEventListener('keyup', this.handleKeyUp);
+      window.addEventListener('keyup', this.handleKeyUp)
     }
     else {
-      window.removeEventListener('keyup', this.handleKeyUp);
+      window.removeEventListener('keyup', this.handleKeyUp)
     }
   }
 
   renderModal = () => {
-    const cx = classNames.bind(style);
-    const modalOpenClass = this.props.open ? style['modal-open'] : '';
-    const modalSizeClass = this.props.size ? style['modal-' + this.props.size] : '';
-    const modalClass = cx(style['modal-component'], this.props.optClass, modalOpenClass);
-    const modalContentClass = cx(style['modal-content'], modalSizeClass);
+    const cx = classNames.bind(style)
+    const modalOpenClass = this.props.open ? style['modal-open'] : ''
+    const modalSizeClass = this.props.size ? style['modal-' + this.props.size] : ''
+    const modalClass = cx(style['modal-component'], this.props.optClass, modalOpenClass)
+    const modalContentClass = cx(style['modal-content'], modalSizeClass)
 
     const actionsContainer = React.Children.count(this.props.actions) > 0 && (
       <div className={style['modal-actions']}>
         {React.Children.toArray(this.props.actions)}
       </div>
-    );
+    )
 
-    this.setKeyupListener();
+    this.setKeyupListener()
 
     return (
       <div className={modalClass}>
-        <Overlay
-          show={this.props.open}
-          onClick={this.handleCloseClick}
-        />
-        <div className={modalContentClass}>
-          <div className={style['modal-header']}>
-            {!this.props.closeOnAction ? <div className={style['modal-close']}>
-              <Icon name='icon-delete-1' width='12' height='12' onClick={this.handleCloseClick} />
-            </div> : null}
-            {this.props.title ? <h1>{this.props.title}</h1> : null}
-          </div>
-          <div className={style['modal-body']}>
-            {this.props.children}
-          </div>
-          <div className={style['modal-footer']}>
-            {actionsContainer}
+        <div className={style['modal-scroll-container']} onClick={this.handleClick}>
+          <Overlay
+            show={this.props.open}
+            onClick={this.handleCloseClick}
+          />
+          <div className={modalContentClass}>
+            <div className={style['modal-header']}>
+              {!this.props.closeOnAction ? <div className={style['modal-close']}>
+                <Icon name='icon-delete-1' width='12' height='12' onClick={this.handleCloseClick} />
+              </div> : null}
+              {this.props.title ? <h1>{this.props.title}</h1> : null}
+            </div>
+            <div className={style['modal-body']}>
+              {this.props.children}
+            </div>
+            <div className={style['modal-footer']}>
+              {actionsContainer}
+            </div>
           </div>
         </div>
       </div>
