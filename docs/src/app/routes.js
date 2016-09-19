@@ -39,6 +39,7 @@ import SpinnerPage from './pages/components/Spinner/Page'
 import TabsPage from './pages/components/TabWrapper/Page'
 import TogglePage from './pages/components/Toggle/Page'
 import TextareaPage from './pages/components/Textarea/Page'
+import TextEditorPage from './pages/components/TextEditor/Page'
 import TypographyPage from './pages/foundations/Typography/Page'
 import TypeaheadPage from './pages/components/Typeahead/Page'
 
@@ -83,6 +84,7 @@ const Routes = (
       <Route path='radio-group' title='Radio Group' component={RadioGroupPage} />
       <Route path='tabs' title='Tabs' component={TabsPage} />
       <Route path='textarea' title='Textarea' component={TextareaPage} />
+      <Route path='text-editor' title='Text Editor' component={TextEditorPage} />
       <Route path='toggle' title='Toggle' component={TogglePage} />
       <Route path='tooltip' title='Tooltip' component={TooltipPage} />
       <Route path='typeahead' title='Typeahead' component={TypeaheadPage} />

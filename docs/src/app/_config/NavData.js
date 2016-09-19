@@ -106,6 +106,9 @@ const nav = [
         name: 'Textarea',
         action: '/components/textarea'
       }, {
+        name: 'Text Editor',
+        action: '/components/text-editor'
+      }, {
         name: 'Toggle',
         action: '/components/toggle'
       }, {

@@ -91,6 +91,7 @@
     "npm": "^3.8.8",
     "postcss-loader": "^0.6.0",
     "precss": "^1.4.0",
+    "quill": "^1.0.4",
     "raw-loader": "^0.5.1",
     "react": "15.1.0",
     "react-addons-shallow-compare": "15.0.1",

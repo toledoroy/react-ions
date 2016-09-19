@@ -1,0 +1,40 @@
+@import '../../styles/common/colors';
+@import '../../styles/common/screen';
+// @import 'style-loader!css-loader!../../../../node_modules/quill/dist/quill.core.css'
+
+.editor-component {
+  // div[class^='ql-toolbar'] {
+  //   border: 1px solid red;
+  //   box-sizing: border-box;
+  //   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  //   padding: 8px;
+  // }
+  // div[class^='ql-formats'] {
+  //   margin-right: 15px;
+  // }
+  //
+  // div[class^='ql-picker-label'] {
+  //   border: 1px solid transparent;
+  // }
+  // div[class^='ql-picker-options'] {
+  //   border: 1px solid transparent;
+  //   box-shadow: rgba(0,0,0,0.2) 0 2px 8px;
+  // }
+  // div[class^='ql-picker']div[class^='ql-expanded'] {
+  //   div[class^='ql-picker-label'] {
+  //     border-color: red;
+  //   }
+  //   div[class^='ql-picker-options'] {
+  //     border-color: red;
+  //   }
+  // }
+  // div[class^='ql-color-picker'] {
+  //   div[class^='ql-picker-item']div[class^='ql-selected'], div[class^='ql-picker-item']:hover {
+  //     border-color: #000;
+  //   }
+  // }
+  //
+  // div[class^='ql-toolbar']div[class^='ql-snow'] + div[class^='ql-container']div[class^='ql-snow'] {
+  //   border-top: 0px;
+  // }
+}
