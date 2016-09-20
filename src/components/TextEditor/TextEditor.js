@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 import Quill from 'quill'
-import 'style-loader!css-loader!quill/dist/quill.core.css'
+import '../../styles/global/quill.scss'
 
 /**
  * The TextEditor component.
@@ -10,6 +10,14 @@ import 'style-loader!css-loader!quill/dist/quill.core.css'
 class TextEditor extends React.Component {
   constructor(props) {
     super(props)
+
+    this.textEditor = false
+
+    this.getHTML = () => {
+      if (this._editor) {
+        return this._editor.firstChild.innerHTML
+      }
+    }
   }
 
   state = {
@@ -45,52 +53,34 @@ class TextEditor extends React.Component {
     changeCallback: React.PropTypes.func
   }
 
+  registerEventHandlers = () => {
+    // Text change
+    this.textEditor.on('text-change', (delta, oldDelta, source) => {
+      const event = {
+        target: {
+          name: this.props.name,
+          value: this.getHTML()
+        }
+      }
+
+      if (this.props.changeCallback) {
+        this.props.changeCallback(event)
+      }
+    })
+  }
+
   componentDidMount = () => {
-    const toolbarOptions = [
-      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-      ['blockquote', 'code-block'],
-
-      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-      [{ 'direction': 'rtl' }],                         // text direction
-
-      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-
-      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-      [{ 'font': [] }],
-      [{ 'align': [] }],
-
-      ['clean']
-    ]
     const options = {
-      debug: 'info',
       modules: {
         toolbar: true
       },
-      placeholder: 'Compose an epic...',
+      placeholder: this.props.placeholder || '',
       theme: 'snow'
     }
-    new Quill(this._editor, options)
-  }
 
-  componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value !== this.props.value) {
-      this.setState({ value: nextProps.value })
-    }
-  }
+    this.textEditor = new Quill(this._editor, options)
 
-  handleChange = (event) => {
-    event.persist()
-    console.log(event)
-  }
-
-  handleFocus = (event) => {
-  }
-
-  handleBlur = (event) => {
+    this.registerEventHandlers()
   }
 
   render() {
