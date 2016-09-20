@@ -21,9 +21,13 @@ class TextEditor extends React.Component {
   }
 
   state = {
+    disabled: this.props.disabled,
+    value: this.props.value
   }
 
   static defaultProps = {
+    disabled: false,
+    value: ''
   }
 
   static propTypes = {
@@ -32,7 +36,7 @@ class TextEditor extends React.Component {
      */
     disabled: React.PropTypes.bool,
     /**
-     * Value of the text editor.
+     * Value of the text editor (HTML).
      */
     value: React.PropTypes.string,
     /**
@@ -54,7 +58,7 @@ class TextEditor extends React.Component {
   }
 
   registerEventHandlers = () => {
-    // Text change
+    // On text change
     this.textEditor.on('text-change', (delta, oldDelta, source) => {
       const event = {
         target: {
@@ -63,13 +67,18 @@ class TextEditor extends React.Component {
         }
       }
 
-      if (this.props.changeCallback) {
+      if (this.props.changeCallback && event.target.value !== this.state.value) {
         this.props.changeCallback(event)
       }
     })
   }
 
+  setContent = (value) => {
+    this._editor.firstChild.innerHTML = value
+  }
+
   componentDidMount = () => {
+    // Define editor options
     const options = {
       modules: {
         toolbar: true
@@ -78,26 +87,50 @@ class TextEditor extends React.Component {
       theme: 'snow'
     }
 
+    // Initialize the editor
     this.textEditor = new Quill(this._editor, options)
 
+    // Set the content
+    if (this.props.value) {
+      this.setContent(this.props.value)
+    }
+
+    // Disable the editor
+    if (this.props.disabled) {
+      this.textEditor.disable()
+    }
+
+    // Register event handlers
     this.registerEventHandlers()
   }
 
-  render() {
-    const {
-      value,
-      optClass,
-      ...other
-    } = this.props
+  componentWillReceiveProps = (nextProps) => {
+    let updatedState = {}
 
+    if (nextProps.value !== this.state.value) {
+      this.setContent(nextProps.value)
+      updatedState.value = nextProps.value
+    }
+    if (nextProps.disabled !== this.state.disabled) {
+      this.textEditor.enable(!nextProps.disabled)
+      updatedState.disabled = nextProps.disabled
+    }
+
+    if (Object.keys(updatedState).length > 0) {
+      this.setState(updatedState)
+    }
+  }
+
+  render() {
     const cx = classNames.bind(style)
-    var disabledClass = this.props.disabled ? style['editor-disabled'] : ''
+    var disabledClass = this.state.disabled ? style['editor-disabled'] : ''
     var editorClass = cx(style['editor-component'], this.props.optClass, disabledClass)
 
     return (
       <div className={editorClass}>
-        <div className={style.toolbar} ref={(c) => this._toolbar = c}></div>
-        <div className={style.editor} ref={(c) => this._editor = c}></div>
+        <div ref={(c) => this._toolbar = c}></div>
+        <div ref={(c) => this._editor = c}></div>
+        <div className={style.overlay}></div>
       </div>
     )
   }

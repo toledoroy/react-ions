@@ -5,10 +5,19 @@ import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleTextEditorDefault from './ExampleTextEditorDefault'
 import exampleTextEditorDefaultCode from '!raw!./ExampleTextEditorDefault'
+import ExampleTextEditorDisabled from './ExampleTextEditorDisabled'
+import exampleTextEditorDisabledCode from '!raw!./ExampleTextEditorDisabled'
+import ExampleTextEditorCallback from './ExampleTextEditorCallback'
+import exampleTextEditorCallbackCode from '!raw!./ExampleTextEditorCallback'
+import ExampleTextEditorPopulated from './ExampleTextEditorPopulated'
+import exampleTextEditorPopulatedCode from '!raw!./ExampleTextEditorPopulated'
 
 
 const description = {
-  textEditorDefault: 'This is the `text editor component` as it appears by default.'
+  textEditorDefault: 'This is the `text editor component` as it appears by default.',
+  textEditorDisabled: 'This is the disabled `text editor component`.',
+  textEditorCallback: 'This is the `text editor component` with a callback and a placeholder.',
+  textEditorPopulated: 'This is the `text editor component` with a set value.'
 }
 
 const TextEditorPage = () => (
@@ -16,10 +25,28 @@ const TextEditorPage = () => (
     <div className={styles.content}>
       <div className={styles.block}>
         <CodeExample
-          title='Default TextEditor'
+          title='Default text editor'
           description={description.textEditorDefault}
           markup={exampleTextEditorDefaultCode}>
           <ExampleTextEditorDefault />
+        </CodeExample>
+        <CodeExample
+          title='Disabled text editor'
+          description={description.textEditorDisabled}
+          markup={exampleTextEditorDisabledCode}>
+          <ExampleTextEditorDisabled />
+        </CodeExample>
+        <CodeExample
+          title='Text editor with a callback and placeholder'
+          description={description.textEditorCallback}
+          markup={exampleTextEditorCallbackCode}>
+          <ExampleTextEditorCallback />
+        </CodeExample>
+        <CodeExample
+          title='Text editor with a set value'
+          description={description.textEditorPopulated}
+          markup={exampleTextEditorPopulatedCode}>
+          <ExampleTextEditorPopulated />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
