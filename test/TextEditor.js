@@ -10,29 +10,20 @@ describe('TextEditor', () => {
 
     expect(wrapper.hasClass('editor-component')).to.equal(true)
     expect(wrapper.children()).to.have.length(3)
-    expect(wrapper.state().disabled).to.be.false
     expect(wrapper.state().value).to.equal('')
   })
 
   it('should update state when props change', () => {
     wrapper = mount(<TextEditor />)
 
-    expect(wrapper.state().disabled).to.be.false
-    expect(wrapper.state().value).to.equal('')
-
-    wrapper.setProps({ disabled: true })
-
-    expect(wrapper.state().disabled).to.be.true
     expect(wrapper.state().value).to.equal('')
 
     wrapper.setProps({ value: '<p>Test</p>' })
 
-    expect(wrapper.state().disabled).to.be.true
     expect(wrapper.state().value).to.equal('<p>Test</p>')
 
     wrapper.setProps({ value: '<p>Testing!</p>', disabled: false })
 
-    expect(wrapper.state().disabled).to.be.false
     expect(wrapper.state().value).to.equal('<p>Testing!</p>')
   })
 
@@ -59,8 +50,8 @@ describe('TextEditor', () => {
   })
 
   it('should be disabled on load', () => {
-    wrapper = mount(<TextEditor disabled />)
+    wrapper = shallow(<TextEditor disabled />)
 
-    expect(wrapper.state().disabled).to.be.true
+    expect(wrapper.hasClass('editor-disabled')).to.equal(true)
   })
 })

@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 import Quill from 'quill'
+import shallowCompare from 'react-addons-shallow-compare'
 import '../../styles/global/quill.scss'
 
 /**
@@ -21,7 +22,6 @@ class TextEditor extends React.Component {
   }
 
   state = {
-    disabled: this.props.disabled,
     value: this.props.value
   }
 
@@ -113,30 +113,25 @@ class TextEditor extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    let updatedState = {}
+    this.textEditor.enable(!nextProps.disabled)
 
     if (nextProps.value !== this.state.value) {
       this.setContent(nextProps.value)
-      updatedState.value = nextProps.value
+      this.setState({ value: nextProps.value })
     }
-    if (nextProps.disabled !== this.state.disabled) {
-      this.textEditor.enable(!nextProps.disabled)
-      updatedState.disabled = nextProps.disabled
-    }
+  }
 
-    if (Object.keys(updatedState).length > 0) {
-      this.setState(updatedState)
-    }
+  shouldComponentUpdate = (nextProps, nextState) => {
+    return shallowCompare(this, nextProps, nextState)
   }
 
   render() {
     const cx = classNames.bind(style)
-    var disabledClass = this.state.disabled ? style['editor-disabled'] : ''
+    var disabledClass = this.props.disabled ? style['editor-disabled'] : ''
     var editorClass = cx(style['editor-component'], this.props.optClass, disabledClass)
 
     return (
       <div className={editorClass}>
-        <div ref={(c) => this._toolbar = c}></div>
         <div ref={(c) => this._editor = c}></div>
         <div className={style.overlay}></div>
       </div>
