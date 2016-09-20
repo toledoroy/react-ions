@@ -44,7 +44,7 @@ describe('TextEditor', () => {
   })
 
   it('should set value on load', () => {
-    wrapper = mount(<TextEditor value='<p>Test!</p>' />)
+    wrapper = shallow(<TextEditor value='<p>Test!</p>' />)
 
     expect(wrapper.state().value).to.equal('<p>Test!</p>')
   })
