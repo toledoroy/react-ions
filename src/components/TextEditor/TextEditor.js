@@ -60,17 +60,25 @@ class TextEditor extends React.Component {
   registerEventHandlers = () => {
     // On text change
     this.textEditor.on('text-change', (delta, oldDelta, source) => {
-      const event = {
-        target: {
-          name: this.props.name,
-          value: this.getHTML()
-        }
-      }
+      const value = this.getHTML()
 
-      if (this.props.changeCallback && event.target.value !== this.state.value) {
-        this.props.changeCallback(event)
+      if (value !== this.state.value) {
+        this.handleChange(value)
       }
     })
+  }
+
+  handleChange = (value) => {
+    const event = {
+      target: {
+        name: this.props.name,
+        value: value
+      }
+    }
+
+    if (this.props.changeCallback) {
+      this.props.changeCallback(event)
+    }
   }
 
   setContent = (value) => {
