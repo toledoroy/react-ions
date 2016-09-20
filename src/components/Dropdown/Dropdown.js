@@ -56,6 +56,10 @@ class Dropdown extends React.Component {
     }
   }
 
+  shouldComponentUpdate = (nextProps, nextState) => {
+    return nextState.isOpened !== this.state.isOpened
+  }
+
   toggleDropdown = (e) => {
     e.preventDefault()
     this.setState({isOpened: !this.state.isOpened}, () => {
@@ -66,6 +70,8 @@ class Dropdown extends React.Component {
   }
 
   handleClickOutside = () => {
+    if (!this.state.isOpened) return
+
     this.setState({isOpened: false}, () => {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback(this.state.isOpened)
@@ -74,11 +80,11 @@ class Dropdown extends React.Component {
   }
 
   listItemCallback = (item) => {
-    this.setState({isOpened: false}, () => {
-      if (typeof item.callback === 'function') {
-        item.callback(item.name)
-      }
-    })
+    this.setState({isOpened: false})
+
+    if (typeof item.callback === 'function') {
+      item.callback(item.name)
+    }
   }
 
   render() {
