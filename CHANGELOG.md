@@ -6,7 +6,7 @@
 ##### Component Fixes / Enhancements
 
 - [Dropdown] use Immutability, don't re-render on click outside if dropdown not opened
-([#241](https://github.com/GetAmbassador/react-conventions/pull/241))
+([#245](https://github.com/GetAmbassador/react-conventions/pull/245))
 
 ## 0.56.0
 ###### _September 13, 2016_
