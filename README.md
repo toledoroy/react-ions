@@ -37,7 +37,7 @@ This project is licensed under the terms of the [MIT license](license)
 1. Checkout / pull latest master branch
 2. Create a new branch (named like `release_v0_0_5`)
 3. Run: `$ npm run build:release`
-4. Run: `$ npm version <semantic_version>`
+4. Run: `$ npm version <semantic_version> (ex: 0.57.0)`
 5. Edit `CHANGELOG.md` to reflect changes
 6. Review `CHANGELOG.md`
 7. Merge pull request
