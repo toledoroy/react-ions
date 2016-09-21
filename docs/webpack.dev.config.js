@@ -56,6 +56,9 @@ const config = {
         'style?sourceMap',
         'css?modules&localIdentName=[local]-[hash:base64:5]!postcss-loader',
         'sass?sourceMap'
+      ],
+      exclude: [
+        path.resolve(__dirname, '../src/styles/global/')
       ]
       // TODO: figure out how to fix this
       // include: [
@@ -63,6 +66,17 @@ const config = {
       //   path.resolve(__dirname, '../src/components'),
       //   path.resolve(__dirname, '../src/styles'),
       // ]
+    }, {
+      test: /\.(css|scss)$/,
+      loaders: [
+        'style?sourceMap',
+        'css',
+        'postcss',
+        'sass?sourceMap'
+      ],
+      include: [
+        path.resolve(__dirname, '../src/styles/global/')
+      ]
     }, {
       test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: 'url-loader?limit=10000&minetype=application/font-woff'

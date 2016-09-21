@@ -55,6 +55,21 @@ module.exports = function(config) {
               'style?sourceMap',
               'css?modules&localIdentName=[local]!postcss-loader',
               'sass?sourceMap'
+            ],
+            exclude: [
+              /src\/styles\/global/
+            ]
+          },
+          {
+            test: /\.(css|scss)$/,
+            loaders: [
+              'style?sourceMap',
+              'css',
+              'postcss',
+              'sass?sourceMap'
+            ],
+            include: [
+              /src\/styles\/global/
             ]
           },
           {
