@@ -1,11 +1,19 @@
 ## HEAD
 
+## 0.57.0
+###### _September 21, 2016_
+
+##### Component Fixes / Enhancements
+
+- [Dropdown] use Immutability, don't re-render on click outside if dropdown not opened
+([#245](https://github.com/GetAmbassador/react-conventions/pull/245))
+
 ## 0.56.0
 ###### _September 13, 2016_
 
 ##### Component Fixes / Enhancements
 
-- [FormGroup] Fix formgroup not setting fields state if changecallback is not provided
+- [FormGroup] Fix formgroup not setting fields state if changeCallback is not provided
 ([#241](https://github.com/GetAmbassador/react-conventions/pull/241))
 
 ## 0.55.0
