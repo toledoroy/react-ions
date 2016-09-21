@@ -1,7 +1,7 @@
 ## HEAD
 
-## 0.56.0
-###### _September 13, 2016_
+## 0.57.0
+###### _September 21, 2016_
 
 ##### Component Fixes / Enhancements
 
