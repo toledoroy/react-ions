@@ -7,6 +7,10 @@
 
 - [Dropdown] use Immutability, don't re-render on click outside if dropdown not opened
 ([#245](https://github.com/GetAmbassador/react-conventions/pull/245))
+- [TextEditor] new component added
+([#244](https://github.com/GetAmbassador/react-conventions/pull/244))
+- [Modal] style changes
+([#243](https://github.com/GetAmbassador/react-conventions/pull/243))
 
 ## 0.56.0
 ###### _September 13, 2016_
