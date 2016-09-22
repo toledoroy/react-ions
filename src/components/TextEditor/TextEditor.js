@@ -86,10 +86,21 @@ class TextEditor extends React.Component {
   }
 
   componentDidMount = () => {
+    // Define toolbar options
+    const toolbarOptions = [
+      [{ 'font': [] }],
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+      [{ 'align': [] }, 'bold', 'italic', 'strike', 'underline'],        // toggled buttons
+      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      ['link', 'image'],
+      ['clean']                                         // remove formatting button
+    ]
+
     // Define editor options
     const options = {
       modules: {
-        toolbar: true
+        toolbar: toolbarOptions
       },
       placeholder: this.props.placeholder || '',
       theme: 'snow'
