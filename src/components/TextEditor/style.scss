@@ -2,6 +2,11 @@
 
 .editor-component {
   position: relative;
+  border: 1px solid $neutral-1;
+  border-radius: 3px;
+  padding: 10px;
+  position: relative;
+
   &.editor-disabled {
     .overlay {
       display: block;
