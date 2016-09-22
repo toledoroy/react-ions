@@ -10,29 +10,23 @@
 
 .ql-toolbar.ql-snow {
   border: 1px solid $neutral-3;
-  border-radius: 2px;
+  border-radius: 3px;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   > .ql-formats {
     padding: 8px;
     margin: 0;
-    &:last-child {
-      flex: 1 1 auto;
-    }
-    + .ql-formats {
-      box-shadow: -1px 0 0 $neutral-3, 0 -1px 0 $neutral-3;
-    }
   }
   .ql-picker.ql-expanded {
     .ql-picker-label {
       border: 1px solid $neutral-3;
-      border-radius: 2px 2px 0 0;
+      border-radius: 3px 3px 0 0;
     }
     .ql-picker-options {
       box-shadow: none;
       border: 1px solid $neutral-3;
-      border-radius: 0 0 2px 2px;
+      border-radius: 0 0 3px 3px;
     }
   }
 }
@@ -47,5 +41,5 @@
   z-index: z('alert');
   box-shadow: none;
   border: 1px solid $neutral-3;
-  border-radius: 2px;
+  border-radius: 3px;
 }
