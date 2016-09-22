@@ -1,0 +1,34 @@
+import React from 'react'
+import InlineEdit from 'react-conventions/lib/InlineEdit'
+import styles from './styles'
+
+class ExampleInlineEditLoading extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  state = {
+    inlineValue: 'I have a loader while saving',
+    loading: false
+  }
+
+  handleSave = (name, value) => {
+    if (name === 'test') {
+      this.setState({ inlineValue: value, loading: true })
+
+      setTimeout(() => {
+        this.setState({ loading: false })
+      }, 3000)
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <InlineEdit name='test' value={this.state.inlineValue} changeCallback={this.handleSave} placeholder='Custom Placeholder' loading={this.state.loading} />
+      </div>
+    )
+  }
+}
+
+export default ExampleInlineEditLoading

@@ -7,13 +7,19 @@ import exampleInlineEditDefaultCode from '!raw!./ExampleInlineEditDefault'
 import ExampleInlineEditCallback from './ExampleInlineEditCallback'
 import exampleInlineEditCallbackCode from '!raw!./ExampleInlineEditCallback'
 import ExampleInlineEditInline from './ExampleInlineEditInline'
-import exampleInlineEditInline from '!raw!./ExampleInlineEditInline'
+import exampleInlineEditInlineCode from '!raw!./ExampleInlineEditInline'
+import ExampleInlineEditReadonly from './ExampleInlineEditReadonly'
+import exampleInlineEditReadonlyCode from '!raw!./ExampleInlineEditReadonly'
+import ExampleInlineEditLoading from './ExampleInlineEditLoading'
+import exampleInlineEditLoadingCode from '!raw!./ExampleInlineEditLoading'
 import styles from 'private/css/content'
 
 const description = {
   inlineEditDefault: 'This is the default **inline edit component**.',
   inlineEditCallback: 'This is the **inline edit component** with a callback function to edit.',
-  inlineEditInline: 'This is the **inline edit component** that is inline with other components.'
+  inlineEditInline: 'This is the **inline edit component** that is inline with other components.',
+  inlineEditReadonly: 'This is the readonly **inline edit component**.',
+  inlineEditLoading: 'This is the **inline edit component** with a loader.'
 };
 
 const InlineEditPage = () => (
@@ -35,8 +41,20 @@ const InlineEditPage = () => (
         <CodeExample
           title='Inline Edit inline'
           description={description.inlineEditInline}
-          markup={exampleInlineEditInline}>
+          markup={exampleInlineEditInlineCode}>
           <ExampleInlineEditInline />
+        </CodeExample>
+        <CodeExample
+          title='Inline Edit readonly'
+          description={description.inlineEditReadonly}
+          markup={exampleInlineEditReadonlyCode}>
+          <ExampleInlineEditReadonly />
+        </CodeExample>
+        <CodeExample
+          title='Inline Edit with a loader'
+          description={description.inlineEditLoading}
+          markup={exampleInlineEditLoadingCode}>
+          <ExampleInlineEditLoading />
         </CodeExample>
       </div>
     </div>
