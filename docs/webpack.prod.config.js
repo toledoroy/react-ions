@@ -75,10 +75,8 @@ const config = {
     }, {
       test: /\.(css|scss)$/,
       loader: ExtractTextPlugin.extract(
-        'style?sourceMap',
-        'css',
-        'postcss',
-        'sass?sourceMap'
+        'style',
+        'css!postcss-loader!sass'
       ),
       include: [
         path.resolve(__dirname, '../src/styles/global/')
