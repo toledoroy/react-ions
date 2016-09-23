@@ -91,6 +91,7 @@ class InlineEdit extends React.Component {
     this.setState({ isEditing: false, value: this._textValue.innerHTML }, () => {
       this.handleBlankValue()
       this._textValue.blur()
+      this._textValue.scrollLeft = 0
 
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback(this.props.name, this.state.value)
@@ -102,6 +103,7 @@ class InlineEdit extends React.Component {
     this.setState({ isEditing: false }, () => {
       this.handleBlankValue()
       this._textValue.blur()
+      this._textValue.scrollLeft = 0
 
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback()
