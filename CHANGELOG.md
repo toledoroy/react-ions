@@ -1,5 +1,17 @@
 ## HEAD
 
+## 0.58.0
+###### _September 23, 2016_
+
+##### Component Fixes / Enhancements
+
+- [InlineEdit] - Added error state ([#251](https://github.com/GetAmbassador/react-conventions/pull/251))
+- [InlineEdit] - Added loading and readonly states ([#248](https://github.com/GetAmbassador/react-conventions/pull/248))
+- [RadioGroup] - Uncheck radios when fasly values are passed ([#250](https://github.com/GetAmbassador/react-conventions/pull/250))
+- [Icon] - Added 3 new icons ([#249](https://github.com/GetAmbassador/react-conventions/pull/249))
+- [TextEditor] Created new theme
+([#246](https://github.com/GetAmbassador/react-conventions/pull/246))
+
 ## 0.57.0
 ###### _September 21, 2016_
 
