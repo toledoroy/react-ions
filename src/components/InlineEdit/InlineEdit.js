@@ -1,4 +1,5 @@
 import React from 'react'
+import CopyToClipboard from 'react-copy-to-clipboard';
 import style from './style.scss'
 import classNames from 'classnames/bind'
 import Icon from '../Icon'
@@ -173,6 +174,10 @@ class InlineEdit extends React.Component {
     this._textValue.innerHTML = this._textValue.innerHTML.replace(/<br>/g,'');
   }
 
+  handleCopy = () => {
+    this.setState({copied: true})
+  }
+
   render() {
     const cx = classNames.bind(style)
     const readonlyClass = this.props.readonly ? 'readonly' : ''
@@ -198,6 +203,9 @@ class InlineEdit extends React.Component {
           ? <div className={style['error-text']}>{this.state.error}</div>
           : null
         }
+        <CopyToClipboard text={this.state.value} onCopy={this.handleCopy}>
+          <Icon name='icon-clipboard-1' height='20' width='20' />
+        </CopyToClipboard>
       </div>
     )
   }
