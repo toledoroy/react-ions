@@ -74,7 +74,7 @@ class RadioGroup extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value && nextProps.value !== this.state.value) {
+    if (nextProps.value !== this.state.value) {
       this.setState({value: nextProps.value}, () => {
         this.checkItem(nextProps.value, this.state.options || nextProps.options)
       })
