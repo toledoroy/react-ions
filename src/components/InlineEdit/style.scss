@@ -1,7 +1,6 @@
 @import '../../styles/common/mixins';
 @import '../../styles/common/colors';
 @import '../../styles/common/functions';
-
 @mixin inline-edit-button($fill) {
   cursor: pointer;
   fill: $fill;
@@ -12,16 +11,23 @@
 }
 
 .inline-edit-wrapper {
-  height: 20px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  position: relative;
+
+  .inline-text-overflow-wrapper {
+    height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-flex;
+    padding-right: 46px;
+    position: relative;
+    max-width: calc(100% - 46px);
+  }
 
   .inline-text-wrapper {
-    color: black;
+    color: $navy-text;
     display: inline-flex;
-    vertical-align: middle;
-    max-width: calc(100% - 50px);
+    max-width: 100%;
     min-width: 50px;
     outline: none;
     overflow: hidden;
@@ -29,33 +35,45 @@
   }
 
   .inline-text-wrapper-hover {
-   color: gray;
-   height: 100%;
-   vertical-align: middle;
-   max-width: calc(100% - 50px);
-   transition: all 0.35s ease .1s;
-   position: relative;
+    color: $navy-text;
+    max-width: 100%;
+    transition: all 0.35s ease 0.1s;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   &:not(.readonly) .inline-text-wrapper-hover:hover {
-    color: black;
     cursor: pointer;
-    border-bottom: 1px dashed black;
+    border-bottom: 1px dashed $neutral-4;
   }
 
   &.readonly .inline-text-wrapper-hover:hover {
     cursor: default;
+
     .readonly-icon {
       opacity: 1;
     }
   }
 
+  &.error .inline-text-wrapper-hover {
+    border-bottom: 1px solid $red;
+    &:hover {
+      border-bottom: 1px dashed $red;
+    }
+  }
+
   .inline-button-wrapper {
-    vertical-align: top;
-    display: inline-block;
+    float: left;
     height: 100%;
     margin-left: 2px;
     width: 46px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
   }
 
   .readonly-icon {
@@ -71,21 +89,34 @@
     top: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
-    transition: all 0.35s ease .1s;
+    transition: all 0.35s ease 0.1s;
   }
 
   .loader-wrapper {
-    display: inline-block;
-    position: relative;
+    float: left;
+    position: absolute;
     margin-left: 5px;
     width: 27px;
     height: 7px;
+    top: 5px;
+    right: 12px;
+
     span[class^="spinner-bounce-"] > span {
-      span[class^="bounce1-"], span[class^="bounce2-"], span[class^="bounce3-"] {
+      span[class^="bounce1-"],
+      span[class^="bounce2-"],
+      span[class^="bounce3-"] {
         width: 7px;
         height: 7px;
       }
     }
+  }
+
+  .error-text {
+    color: $red;
+    font-size: 10px;
+    font-weight: 200;
+    position: absolute;
+    top: 20px;
   }
 
   .save-button {
