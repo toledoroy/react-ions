@@ -13,7 +13,8 @@ class InlineEdit extends React.Component {
     isEditing: false,
     placeholder: 'Click to edit',
     loading: false,
-    readonly: false
+    readonly: false,
+    error: ''
   }
 
   static propTypes = {
@@ -52,21 +53,26 @@ class InlineEdit extends React.Component {
     /**
      * Boolean used to show/hide the loader
      */
-    loading: React.PropTypes.bool
+    loading: React.PropTypes.bool,
+    /**
+     * Error to display under the field
+     */
+    error: React.PropTypes.string
   }
 
   state = {
     isEditing: this.props.isEditing,
     value: this.props.value,
-    loading: this.props.loading
+    loading: this.props.loading,
+    error: this.props.error
   }
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.isEditing) {
       this.showButtons()
     }
-    if (nextProps.loading !== this.state.loading) {
-      this.setState({ loading: nextProps.loading })
+    if (nextProps.loading !== this.state.loading|| nextProps.error !== this.state.error) {
+      this.setState({ loading: nextProps.loading, error: nextProps.error })
     }
   }
 
@@ -76,7 +82,7 @@ class InlineEdit extends React.Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    return this.state.isEditing !== nextState.isEditing || this.state.loading !== nextState.loading
+    return this.state.isEditing !== nextState.isEditing || this.state.loading !== nextState.loading || this.state.error !== nextState.error
   }
 
   handleSave = () => {
@@ -104,8 +110,6 @@ class InlineEdit extends React.Component {
   }
 
   showButtons = () => {
-    this._textValue.style.width = this._textValue.offsetWidth + 'px'
-
     if (!this.props.readonly) {
       this.setState({ isEditing: true }, () => {
         this.selectElementContents(this._textValue)
@@ -170,21 +174,28 @@ class InlineEdit extends React.Component {
   render() {
     const cx = classNames.bind(style)
     const readonlyClass = this.props.readonly ? 'readonly' : ''
-    const inlineEditClass = cx(style['inline-edit-wrapper'], this.props.optClass, readonlyClass)
+    const errorClass = this.props.error ? 'error' : ''
+    const inlineEditClass = cx(style['inline-edit-wrapper'], this.props.optClass, readonlyClass, errorClass)
 
     return (
       <div className={inlineEditClass}>
-        {this.getSpan()}
-        {this.state.isEditing
-          ? <div className={style['inline-button-wrapper']}>
-              <Icon name='icon-check-2-1' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
-              <Icon name='icon-delete-1-1' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
-            </div>
+        <div className={style['inline-text-overflow-wrapper']}>
+          {this.getSpan()}
+          {this.state.isEditing
+            ? <div className={style['inline-button-wrapper']}>
+                <Icon name='icon-check-2-1' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
+                <Icon name='icon-delete-1-1' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
+              </div>
+            : null
+          }
+          <div className={style['loader-wrapper']}>
+            <Spinner loading={!this.state.isEditing && this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198a0' />
+          </div>
+        </div>
+        {this.state.error && this.state.error !== ''
+          ? <div className={style['error-text']}>{this.state.error}</div>
           : null
         }
-        <div className={style['loader-wrapper']}>
-          <Spinner loading={!this.state.isEditing && this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198a0' />
-        </div>
       </div>
     )
   }

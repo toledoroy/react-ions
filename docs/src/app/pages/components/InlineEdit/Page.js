@@ -12,6 +12,8 @@ import ExampleInlineEditReadonly from './ExampleInlineEditReadonly'
 import exampleInlineEditReadonlyCode from '!raw!./ExampleInlineEditReadonly'
 import ExampleInlineEditLoading from './ExampleInlineEditLoading'
 import exampleInlineEditLoadingCode from '!raw!./ExampleInlineEditLoading'
+import ExampleInlineEditError from './ExampleInlineEditError'
+import exampleInlineEditErrorCode from '!raw!./ExampleInlineEditError'
 import styles from 'private/css/content'
 
 const description = {
@@ -19,7 +21,8 @@ const description = {
   inlineEditCallback: 'This is the **inline edit component** with a callback function to edit.',
   inlineEditInline: 'This is the **inline edit component** that is inline with other components.',
   inlineEditReadonly: 'This is the readonly **inline edit component**.',
-  inlineEditLoading: 'This is the **inline edit component** with a loader.'
+  inlineEditLoading: 'This is the **inline edit component** with a loader.',
+  inlineEditError: 'This is the **inline edit component** with an error.'
 };
 
 const InlineEditPage = () => (
@@ -55,6 +58,12 @@ const InlineEditPage = () => (
           description={description.inlineEditLoading}
           markup={exampleInlineEditLoadingCode}>
           <ExampleInlineEditLoading />
+        </CodeExample>
+        <CodeExample
+          title='Inline Edit with an error'
+          description={description.inlineEditError}
+          markup={exampleInlineEditErrorCode}>
+          <ExampleInlineEditError />
         </CodeExample>
       </div>
     </div>
