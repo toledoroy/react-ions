@@ -2,6 +2,7 @@ import React from 'react'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 import Icon from '../Icon'
+import Spinner from '../Spinner'
 
 class InlineEdit extends React.Component {
   constructor(props) {
@@ -10,7 +11,9 @@ class InlineEdit extends React.Component {
 
   static defaultProps = {
     isEditing: false,
-    placeholder: 'Click to edit'
+    placeholder: 'Click to edit',
+    loading: false,
+    readonly: false
   }
 
   static propTypes = {
@@ -41,17 +44,29 @@ class InlineEdit extends React.Component {
     /**
      * Optional placeholder string for empty submission.
      */
-    placeholder: React.PropTypes.string
+    placeholder: React.PropTypes.string,
+    /**
+     * Whether the inline-edit is readonly
+     */
+    readonly: React.PropTypes.bool,
+    /**
+     * Boolean used to show/hide the loader
+     */
+    loading: React.PropTypes.bool
   }
 
   state = {
     isEditing: this.props.isEditing,
-    value: this.props.value
+    value: this.props.value,
+    loading: this.props.loading
   }
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.isEditing) {
       this.showButtons()
+    }
+    if (nextProps.loading !== this.state.loading) {
+      this.setState({ loading: nextProps.loading })
     }
   }
 
@@ -61,7 +76,7 @@ class InlineEdit extends React.Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    return this.state.isEditing !== nextState.isEditing
+    return this.state.isEditing !== nextState.isEditing || this.state.loading !== nextState.loading
   }
 
   handleSave = () => {
@@ -81,7 +96,7 @@ class InlineEdit extends React.Component {
     this.setState({ isEditing: false }, () => {
       this.handleBlankValue()
       this._textValue.blur()
-      
+
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback()
       }
@@ -91,17 +106,21 @@ class InlineEdit extends React.Component {
   showButtons = () => {
     this._textValue.style.width = this._textValue.offsetWidth + 'px'
 
-    this.setState({ isEditing: true }, () => {
-      this.selectElementContents(this._textValue)
-    })
+    if (!this.props.readonly) {
+      this.setState({ isEditing: true }, () => {
+        this.selectElementContents(this._textValue)
+      })
+    }
   }
 
   getSpan = () => {
+    const readonlyIcon = this.props.readonly ? <div className={style['readonly-icon']}><Icon name='icon-delete-2-2' height='18' width='18' /></div> : null
+
     if (this.state.isEditing) {
       return <span id='span_id' contentEditable className={style['inline-text-wrapper']} dangerouslySetInnerHTML={{__html: this.state.value}} ref={(c) => this._textValue = c} />
     }
 
-    return <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={(c) => this._textValue = c} >{this.state.value}</span>
+    return <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={(c) => this._textValue = c} >{this.state.value}{readonlyIcon}</span>
   }
 
   selectElementContents = (element) => {
@@ -123,22 +142,22 @@ class InlineEdit extends React.Component {
   attachKeyListeners = () => {
     const saveEvent = this.handleSave
     this._textValue.addEventListener("keypress", (event) => {
-        // Grabs the character code, even in FireFox
-        const charCode = event.keyCode ? event.keyCode : event.which
-        if (charCode === 13) {
-          event.preventDefault()
-          saveEvent()
-        }
+      // Grabs the character code, even in FireFox
+      const charCode = event.keyCode ? event.keyCode : event.which
+      if (charCode === 13) {
+        event.preventDefault()
+        saveEvent()
+      }
     });
 
     const cancelEvent = this.handleCancel
     this._textValue.addEventListener("keyup", (event) => {
-        // Grabs the character code, even in FireFox
-        const charCode = event.keyCode ? event.keyCode : event.which
-        if (charCode === 27) {
-          event.preventDefault()
-          cancelEvent()
-        }
+      // Grabs the character code, even in FireFox
+      const charCode = event.keyCode ? event.keyCode : event.which
+      if (charCode === 27) {
+        event.preventDefault()
+        cancelEvent()
+      }
     });
   }
 
@@ -150,7 +169,8 @@ class InlineEdit extends React.Component {
 
   render() {
     const cx = classNames.bind(style)
-    const inlineEditClass = cx(style['inline-edit-wrapper'], this.props.optClass)
+    const readonlyClass = this.props.readonly ? 'readonly' : ''
+    const inlineEditClass = cx(style['inline-edit-wrapper'], this.props.optClass, readonlyClass)
 
     return (
       <div className={inlineEditClass}>
@@ -162,6 +182,9 @@ class InlineEdit extends React.Component {
             </div>
           : null
         }
+        <div className={style['loader-wrapper']}>
+          <Spinner loading={!this.state.isEditing && this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198a0' />
+        </div>
       </div>
     )
   }
