@@ -158,7 +158,7 @@ describe('RadioGroup', () => {
     expect(wrapper.childAt(2).props().checked).to.be.true
   })
 
-  it('should not update the state when the value property changes to undefined', () => {
+  it('should uncheck radio when the value property changes to undefined', () => {
     wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' value='option_1' />)
 
     expect(wrapper.childAt(1).props().checked).to.be.true
@@ -167,7 +167,46 @@ describe('RadioGroup', () => {
     wrapper.setProps({ value: undefined })
     wrapper.update()
 
+    expect(wrapper.childAt(1).props().checked).to.be.false
+    expect(wrapper.childAt(2).props().checked).to.be.false
+  })
+
+  it('should uncheck radio when the value property changes to empty string', () => {
+    wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' value='option_1' />)
+
     expect(wrapper.childAt(1).props().checked).to.be.true
+    expect(wrapper.childAt(2).props().checked).to.be.false
+
+    wrapper.setProps({ value: '' })
+    wrapper.update()
+
+    expect(wrapper.childAt(1).props().checked).to.be.false
+    expect(wrapper.childAt(2).props().checked).to.be.false
+  })
+
+  it('should uncheck radio when the value property changes to null', () => {
+    wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' value='option_1' />)
+
+    expect(wrapper.childAt(1).props().checked).to.be.true
+    expect(wrapper.childAt(2).props().checked).to.be.false
+
+    wrapper.setProps({ value: null })
+    wrapper.update()
+
+    expect(wrapper.childAt(1).props().checked).to.be.false
+    expect(wrapper.childAt(2).props().checked).to.be.false
+  })
+
+  it('should uncheck radio when the value property changes to any falsy value (that do not match the radio value)', () => {
+    wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' value='option_1' />)
+
+    expect(wrapper.childAt(1).props().checked).to.be.true
+    expect(wrapper.childAt(2).props().checked).to.be.false
+
+    wrapper.setProps({ value: 'falsy' })
+    wrapper.update()
+
+    expect(wrapper.childAt(1).props().checked).to.be.false
     expect(wrapper.childAt(2).props().checked).to.be.false
   })
 
