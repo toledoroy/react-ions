@@ -1,5 +1,5 @@
 import React from 'react'
-import CopyToClipboard from 'react-copy-to-clipboard'
+import Clipboard from 'clipboard'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 import Icon from '../Icon'
@@ -85,6 +85,7 @@ class InlineEdit extends React.Component {
 
   componentDidMount = () => {
     this.attachKeyListeners()
+    this.activateCopyToClipboard()
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
@@ -99,6 +100,7 @@ class InlineEdit extends React.Component {
     const shouldTriggerCallback = inputText !== this.state.value
 
     this.setState({ isEditing: false, value: inputText }, () => {
+      this.activateCopyToClipboard()
       this._textValue.blur()
       this._textValue.scrollLeft = 0
 
@@ -117,6 +119,7 @@ class InlineEdit extends React.Component {
 
   handleCancel = () => {
     this.setState({ isEditing: false }, () => {
+      this.activateCopyToClipboard()
       this._textValue.blur()
       this._textValue.scrollLeft = 0
     })
@@ -145,7 +148,8 @@ class InlineEdit extends React.Component {
       return 'copied!'
     }
 
-    return <Icon name='icon-clipboard-1' height='14' width='14' fill='#3c97d3' />
+    const copyIconFill = this.state.value === '' ? '#9198A0' : '#3C97D3'
+    return <Icon name='icon-clipboard-1' height='14' width='14' fill={copyIconFill} />
   }
 
   selectElementContents = (element) => {
@@ -180,6 +184,17 @@ class InlineEdit extends React.Component {
     })
   }
 
+  activateCopyToClipboard = () => {
+    if (!this.props.copyToClipboard) {
+      return
+    }
+
+    const clipboard = new Clipboard(this._copyTrigger)
+    clipboard.on('success', () => {
+      this.handleCopy()
+    })
+  }
+
   handleCopy = () => {
     this.setState({ copied: true }, () => {
       setTimeout(() => {
@@ -193,6 +208,8 @@ class InlineEdit extends React.Component {
     const readonlyClass = this.props.readonly ? 'readonly' : ''
     const errorClass = this.props.error ? 'error' : ''
     const placeholderClass = this.state.value === '' ? 'placeholder' : ''
+    const copyDisabledClass = this.state.value === '' ? 'disabled' : ''
+    const copyIconClass = cx(style['copy-icon'], copyDisabledClass)
     const inlineEditClass = cx(style['inline-edit-wrapper'], this.props.optClass, readonlyClass, errorClass, placeholderClass)
 
     return (
@@ -207,13 +224,13 @@ class InlineEdit extends React.Component {
             : null
           }
           {this.props.copyToClipboard && !this.state.isEditing && !this.state.loading
-            ? <CopyToClipboard text={this.state.value} onCopy={this.handleCopy}>
-                <span className={style['copy-icon']}>{this.getCopyIcon()}</span>
-              </CopyToClipboard>
+            ? <span ref={(c) => this._copyTrigger = c} data-clipboard-text={this.state.value}>
+                <span className={copyIconClass}>{this.getCopyIcon()}</span>
+              </span>
             : null
           }
           <div className={style['loader-wrapper']}>
-            <Spinner loading={!this.state.isEditing && this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198a0' />
+            <Spinner loading={!this.state.isEditing && this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198A0' />
           </div>
         </div>
         {this.state.error && this.state.error !== ''
