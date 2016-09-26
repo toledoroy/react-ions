@@ -49,24 +49,29 @@ class InlineEdit extends React.Component {
      */
     placeholder: React.PropTypes.string,
     /**
-     * Whether the inline-edit is readonly
+     * Whether the inline-edit is readonly.
      */
     readonly: React.PropTypes.bool,
     /**
-     * Boolean used to show/hide the loader
+     * Boolean used to show/hide the loader.
      */
     loading: React.PropTypes.bool,
     /**
-     * Error to display under the field
+     * Error to display under the field.
      */
-    error: React.PropTypes.string
+    error: React.PropTypes.string,
+    /**
+     * Boolean used to display the copy to clipboard icon.
+     */
+    copyToClipboard: React.PropTypes.bool
   }
 
   state = {
     isEditing: this.props.isEditing,
     value: this.props.value,
     loading: this.props.loading,
-    error: this.props.error
+    error: this.props.error,
+    copied: false
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -83,7 +88,10 @@ class InlineEdit extends React.Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    return this.state.isEditing !== nextState.isEditing || this.state.loading !== nextState.loading || this.state.error !== nextState.error
+    return this.state.isEditing !== nextState.isEditing
+        || this.state.loading !== nextState.loading
+        || this.state.error !== nextState.error
+        || this.state.copied !== nextState.copied
   }
 
   handleSave = () => {
@@ -133,6 +141,14 @@ class InlineEdit extends React.Component {
     return <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={(c) => this._textValue = c} >{this.state.value || this.props.placeholder }{readonlyIcon}</span>
   }
 
+  getCopyIcon = () => {
+    if (this.state.copied) {
+      return 'copied!'
+    }
+
+    return <Icon name='icon-clipboard-1' height='14' width='14' fill='#3c97d3' />
+  }
+
   selectElementContents = (element) => {
     const range = document.createRange()
     range.selectNodeContents(element)
@@ -172,7 +188,11 @@ class InlineEdit extends React.Component {
   }
 
   handleCopy = () => {
-    this.setState({copied: true})
+    this.setState({ copied: true }, () => {
+      setTimeout(() => {
+        this.setState({ copied: false })
+      }, 2000)
+    })
   }
 
   render() {
@@ -193,6 +213,12 @@ class InlineEdit extends React.Component {
               </div>
             : null
           }
+          {this.props.copyToClipboard && !this.state.isEditing && !this.state.loading
+            ? <CopyToClipboard text={this.state.value} onCopy={this.handleCopy}>
+                <span className={style['copy-icon']}>{this.getCopyIcon()}</span>
+              </CopyToClipboard>
+            : null
+          }
           <div className={style['loader-wrapper']}>
             <Spinner loading={!this.state.isEditing && this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198a0' />
           </div>
@@ -201,9 +227,6 @@ class InlineEdit extends React.Component {
           ? <div className={style['error-text']}>{this.state.error}</div>
           : null
         }
-        <CopyToClipboard text={this.state.value} onCopy={this.handleCopy}>
-          <Icon name='icon-clipboard-1' height='20' width='20' />
-        </CopyToClipboard>
       </div>
     )
   }
