@@ -23,7 +23,7 @@ class ExampleInlineEditTrigger extends React.Component {
   render() {
     return (
       <div>
-        <InlineEdit name='test' value='Click to edit' isEditing={this.state.isEditing} changeCallback={this.handleCallback} />
+        <InlineEdit name='test' value='Example value' isEditing={this.state.isEditing} changeCallback={this.handleCallback} />
         {!this.state.isEditing
           ? <Button onClick={this.buttonCallback} optClass={styles['button-callback']}>Edit</Button>
           : null

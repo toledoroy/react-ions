@@ -52,10 +52,14 @@ describe('InlineEdit', () => {
     expect(changeCallback.called).to.be.false
   })
 
-  it('should prefill blank text', () => {
-    const wrapper = mount(<InlineEdit name='test' value='' isEditing={true} />)
+  it('should show the placeholder when the value is empty', () => {
+    const wrapper = mount(<InlineEdit name='test' value='' />)
 
-    expect(wrapper.childAt(0).text()).to.equal('Click to edit')
+    expect(wrapper.childAt(0).childAt(0).text()).to.equal('Click to edit')
+
+    wrapper.setProps({ isEditing: true })
+
+    expect(wrapper.childAt(0).childAt(0).text()).to.equal('')
   })
 
   it('should be readonly', () => {
