@@ -48,17 +48,25 @@ class InlineEdit extends React.Component {
      */
     placeholder: React.PropTypes.string,
     /**
-     * Whether the inline-edit is readonly
+     * Whether the inline-edit is readonly.
      */
     readonly: React.PropTypes.bool,
     /**
-     * Boolean used to show/hide the loader
+     * Boolean used to show/hide the loader.
      */
     loading: React.PropTypes.bool,
     /**
-     * Error to display under the field
+     * Error to display under the field.
      */
-    error: React.PropTypes.string
+    error: React.PropTypes.string,
+    /**
+     * A label to display next to the component.
+     */
+    label: React.PropTypes.string,
+    /**
+     * An icon to display next to the component.
+     */
+    icon: React.PropTypes.string
   }
 
   state = {
@@ -131,6 +139,18 @@ class InlineEdit extends React.Component {
     return <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={(c) => this._textValue = c} >{this.state.value || this.props.placeholder }{readonlyIcon}</span>
   }
 
+  getIcon = () => {
+    if (this.props.icon) {
+      return <Icon name={this.props.icon} height='20' width='20' />
+    }
+  }
+
+  getLabel = () => {
+    if (this.props.label) {
+      return <label>{this.props.label}</label>
+    }
+  }
+
   selectElementContents = (element) => {
     const range = document.createRange()
     range.selectNodeContents(element)
@@ -172,6 +192,8 @@ class InlineEdit extends React.Component {
 
     return (
       <div className={inlineEditClass}>
+        {this.getIcon()}
+        {this.getLabel()}
         <div className={style['inline-text-overflow-wrapper']}>
           {this.getSpan()}
           {this.state.isEditing

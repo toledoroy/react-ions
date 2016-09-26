@@ -11,11 +11,7 @@ class ExampleInlineEditInline extends React.Component {
   render() {
     return (
       <div>
-        <div className={style['inline-div-wrapper']}>
-          <Icon name='icon-mail-1' height='16' fill='#9198A0' className='custom' className={style['icon-wrapper']} />
-          <span className={style['label-wrapper']}>EMAIL</span>
-          <InlineEdit name='test' value='test@example.com' optClass={style['opt-wrapper']}/>
-        </div>
+        <InlineEdit name='test' value='test@example.com' optClass={style['opt-wrapper']} label='Email' icon='icon-mail-1' />
       </div>
     )
   }
