@@ -86,8 +86,7 @@ class InlineEdit extends React.Component {
   }
 
   handleSave = () => {
-    this.cleanupText()
-    const inputText = this._textValue.innerHTML
+    const inputText = this._textValue.textContent
     const shouldTriggerCallback = inputText !== this.state.value
 
     this.setState({ isEditing: false, value: inputText }, () => {
@@ -162,12 +161,6 @@ class InlineEdit extends React.Component {
         cancelEvent()
       }
     });
-  }
-
-  cleanupText = () => {
-    // Removes '&nbsp;' and '<br>' from text value if added on accident
-    this._textValue.innerHTML = this._textValue.innerHTML.replace(/&nbsp;/g,'');
-    this._textValue.innerHTML = this._textValue.innerHTML.replace(/<br>/g,'');
   }
 
   render() {
