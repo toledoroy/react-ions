@@ -21,7 +21,7 @@ class ExampleInlineEditDefault extends React.Component {
     return (
       <div>
         <InlineEdit name='test' value={this.state.inlineValue} changeCallback={this.handleSave} />
-        <code>The Inline Edit value is {this.state.inlineValue}.</code>
+        <code>The Inline Edit value is '{this.state.inlineValue}'.</code>
       </div>
     )
   }
