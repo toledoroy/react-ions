@@ -6,6 +6,8 @@ import ExampleInlineEditDefault from './ExampleInlineEditDefault'
 import exampleInlineEditDefaultCode from '!raw!./ExampleInlineEditDefault'
 import ExampleInlineEditCallback from './ExampleInlineEditCallback'
 import exampleInlineEditCallbackCode from '!raw!./ExampleInlineEditCallback'
+import ExampleInlineEditTrigger from './ExampleInlineEditTrigger'
+import exampleInlineEditTriggerCode from '!raw!./ExampleInlineEditTrigger'
 import ExampleInlineEditInline from './ExampleInlineEditInline'
 import exampleInlineEditInlineCode from '!raw!./ExampleInlineEditInline'
 import ExampleInlineEditReadonly from './ExampleInlineEditReadonly'
@@ -18,7 +20,8 @@ import styles from 'private/css/content'
 
 const description = {
   inlineEditDefault: 'This is the default **inline edit component**.',
-  inlineEditCallback: 'This is the **inline edit component** with a callback function to edit.',
+  inlineEditCallback: 'This is the **inline edit component** with a callback.',
+  inlineEditTrigger: 'This is the **inline edit component** with an external edit trigger.',
   inlineEditInline: 'This is the **inline edit component** that is inline with other components.',
   inlineEditReadonly: 'This is the readonly **inline edit component**.',
   inlineEditLoading: 'This is the **inline edit component** with a loader.',
@@ -36,10 +39,16 @@ const InlineEditPage = () => (
           <ExampleInlineEditDefault />
         </CodeExample>
         <CodeExample
-          title='Inline Edit with Callback to Edit'
+          title='Inline Edit with a callback'
           description={description.inlineEditCallback}
           markup={exampleInlineEditCallbackCode}>
           <ExampleInlineEditCallback />
+        </CodeExample>
+        <CodeExample
+          title='Inline Edit with an external edit trigger'
+          description={description.inlineEditTrigger}
+          markup={exampleInlineEditTriggerCode}>
+          <ExampleInlineEditTrigger />
         </CodeExample>
         <CodeExample
           title='Inline Edit inline'

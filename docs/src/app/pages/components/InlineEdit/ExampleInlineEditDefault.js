@@ -8,19 +8,19 @@ class ExampleInlineEditDefault extends React.Component {
   }
 
   state = {
-    inlineValue: 'Click to edit'
+    inlineValue: 'Example value'
   }
 
-  handleSave = (name, value) => {
-    if (name === 'test') {
-      this.setState({ inlineValue: value })
+  handleSave = (event) => {
+    if (event.target.name === 'test') {
+      this.setState({ inlineValue: event.target.value })
     }
   }
 
   render() {
     return (
       <div>
-        <InlineEdit name='test' value={this.state.inlineValue} changeCallback={this.handleSave} placeholder='Custom Placeholder' />
+        <InlineEdit name='test' value={this.state.inlineValue} changeCallback={this.handleSave} />
         <code>The Inline Edit value is {this.state.inlineValue}.</code>
       </div>
     )

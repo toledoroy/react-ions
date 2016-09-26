@@ -14,7 +14,8 @@ class InlineEdit extends React.Component {
     placeholder: 'Click to edit',
     loading: false,
     readonly: false,
-    error: ''
+    error: '',
+    value: ''
   }
 
   static propTypes = {
@@ -77,7 +78,6 @@ class InlineEdit extends React.Component {
   }
 
   componentDidMount = () => {
-    this.handleBlankValue()
     this.attachKeyListeners()
   }
 
@@ -87,27 +87,30 @@ class InlineEdit extends React.Component {
 
   handleSave = () => {
     this.cleanupText()
+    const inputText = this._textValue.innerHTML
+    const shouldTriggerCallback = inputText !== this.state.value
 
-    this.setState({ isEditing: false, value: this._textValue.innerHTML }, () => {
-      this.handleBlankValue()
+    this.setState({ isEditing: false, value: inputText }, () => {
       this._textValue.blur()
       this._textValue.scrollLeft = 0
 
-      if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(this.props.name, this.state.value)
+      if (typeof this.props.changeCallback === 'function' && shouldTriggerCallback) {
+        const event = {
+          target: {
+            name: this.props.name,
+            value: this.state.value
+          }
+        }
+
+        this.props.changeCallback(event)
       }
     })
   }
 
   handleCancel = () => {
     this.setState({ isEditing: false }, () => {
-      this.handleBlankValue()
       this._textValue.blur()
       this._textValue.scrollLeft = 0
-
-      if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback()
-      }
     })
   }
 
@@ -126,7 +129,7 @@ class InlineEdit extends React.Component {
       return <span id='span_id' contentEditable className={style['inline-text-wrapper']} dangerouslySetInnerHTML={{__html: this.state.value}} ref={(c) => this._textValue = c} />
     }
 
-    return <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={(c) => this._textValue = c} >{this.state.value}{readonlyIcon}</span>
+    return <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={(c) => this._textValue = c} >{this.state.value || this.props.placeholder }{readonlyIcon}</span>
   }
 
   selectElementContents = (element) => {
@@ -137,12 +140,6 @@ class InlineEdit extends React.Component {
     selection.removeAllRanges()
     selection.addRange(range)
     element.focus()
-  }
-
-  handleBlankValue = () => {
-    if (this._textValue.innerHTML.replace(/\s/g, '') === '') {
-      this._textValue.innerHTML = this.props.placeholder
-    }
   }
 
   attachKeyListeners = () => {
@@ -177,7 +174,8 @@ class InlineEdit extends React.Component {
     const cx = classNames.bind(style)
     const readonlyClass = this.props.readonly ? 'readonly' : ''
     const errorClass = this.props.error ? 'error' : ''
-    const inlineEditClass = cx(style['inline-edit-wrapper'], this.props.optClass, readonlyClass, errorClass)
+    const placeholderClass = this.state.value === '' ? 'placeholder' : ''
+    const inlineEditClass = cx(style['inline-edit-wrapper'], this.props.optClass, readonlyClass, errorClass, placeholderClass)
 
     return (
       <div className={inlineEditClass}>
