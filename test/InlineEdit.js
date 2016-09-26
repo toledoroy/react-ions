@@ -21,14 +21,35 @@ describe('InlineEdit', () => {
     expect(wrapper.find(Icon)).to.have.length(0)
   })
 
-  it('should call changeCallback function', () => {
+  it('should trigger the callback function', () => {
     const spy = sinon.spy()
     const wrapper = mount(<InlineEdit name='test' isEditing={true} changeCallback={spy} value='testValue' />)
     const trigger = wrapper.find('.inline-button-wrapper').at(0).childAt(0)
 
+    wrapper.find('.inline-text-overflow-wrapper').at(0).childAt(0).node.innerHTML = 'test value'
     trigger.simulate('click')
 
-    expect(spy.calledWithExactly('test', 'testValue')).to.be.true
+    expect(spy.calledWithExactly({ target: { name: 'test', value: 'test value' }})).to.be.true
+  })
+
+  it('should not trigger the callback if the edit was canceled', () => {
+    const changeCallback = sinon.spy()
+    const wrapper = mount(<InlineEdit name='test' isEditing={true} value='test value' changeCallback={changeCallback} />)
+    const trigger = wrapper.find('.inline-button-wrapper').at(0).childAt(1)
+
+    trigger.simulate('click')
+
+    expect(changeCallback.called).to.be.false
+  })
+
+  it('should not trigger the callback if the value hasn\'t changed', () => {
+    const changeCallback = sinon.spy()
+    const wrapper = mount(<InlineEdit name='test' isEditing={true} value='test value' changeCallback={changeCallback} />)
+    const trigger = wrapper.find('.inline-button-wrapper').at(0).childAt(0)
+
+    trigger.simulate('click')
+
+    expect(changeCallback.called).to.be.false
   })
 
   it('should prefill blank text', () => {
