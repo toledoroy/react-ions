@@ -19,9 +19,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     display: inline-flex;
-    padding-right: 46px;
+    padding-right: 50px;
     position: relative;
-    max-width: calc(100% - 46px);
+    max-width: calc(100% - 50px);
   }
 
   .inline-text-wrapper {
@@ -72,7 +72,7 @@
     float: left;
     height: 100%;
     margin-left: 2px;
-    width: 46px;
+    width: 50px;
     position: absolute;
     right: 0;
     top: 0;
@@ -95,8 +95,23 @@
     transition: all 0.35s ease 0.1s;
   }
 
+  .copy-icon {
+    color: $primary-1;
+    cursor: pointer;
+    font-size: 14px;
+    position: absolute;
+    right: 0;
+    width: 45px;
+    z-index: 1;
+    > svg {
+      margin-top: 1px;
+    }
+    &.disabled {
+      cursor: not-allowed;
+    }
+  }
+
   .loader-wrapper {
-    float: left;
     position: absolute;
     margin-left: 5px;
     width: 27px;

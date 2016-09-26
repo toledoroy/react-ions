@@ -16,6 +16,8 @@ import ExampleInlineEditLoading from './ExampleInlineEditLoading'
 import exampleInlineEditLoadingCode from '!raw!./ExampleInlineEditLoading'
 import ExampleInlineEditError from './ExampleInlineEditError'
 import exampleInlineEditErrorCode from '!raw!./ExampleInlineEditError'
+import ExampleInlineEditCopy from './ExampleInlineEditCopy'
+import exampleInlineEditCopyCode from '!raw!./ExampleInlineEditCopy'
 import styles from 'private/css/content'
 
 const description = {
@@ -25,7 +27,8 @@ const description = {
   inlineEditInline: 'This is the **inline edit component** that is inline with other components.',
   inlineEditReadonly: 'This is the readonly **inline edit component**.',
   inlineEditLoading: 'This is the **inline edit component** with a loader.',
-  inlineEditError: 'This is the **inline edit component** with an error.'
+  inlineEditError: 'This is the **inline edit component** with an error.',
+  inlineEditCopy: 'This is the **inline edit component** with a copy to clipboard icon.'
 };
 
 const InlineEditPage = () => (
@@ -73,6 +76,12 @@ const InlineEditPage = () => (
           description={description.inlineEditError}
           markup={exampleInlineEditErrorCode}>
           <ExampleInlineEditError />
+        </CodeExample>
+        <CodeExample
+          title='Inline Edit with a copy to clipboard icon'
+          description={description.inlineEditCopy}
+          markup={exampleInlineEditCopyCode}>
+          <ExampleInlineEditCopy />
         </CodeExample>
       </div>
     </div>
