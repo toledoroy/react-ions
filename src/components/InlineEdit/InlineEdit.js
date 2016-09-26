@@ -87,14 +87,23 @@ class InlineEdit extends React.Component {
 
   handleSave = () => {
     this.cleanupText()
+    const inputText = this._textValue.innerHTML
+    const shouldTriggerCallback = inputText !== this.state.value
 
-    this.setState({ isEditing: false, value: this._textValue.innerHTML }, () => {
+    this.setState({ isEditing: false, value: inputText }, () => {
       this.handleBlankValue()
       this._textValue.blur()
       this._textValue.scrollLeft = 0
 
-      if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(this.props.name, this.state.value)
+      if (typeof this.props.changeCallback === 'function' && shouldTriggerCallback) {
+        const event = {
+          target: {
+            name: this.props.name,
+            value: this.state.value
+          }
+        }
+
+        this.props.changeCallback(event)
       }
     })
   }

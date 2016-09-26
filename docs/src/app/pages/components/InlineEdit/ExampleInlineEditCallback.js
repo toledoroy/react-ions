@@ -12,22 +12,14 @@ class ExampleInlineEditCallback extends React.Component {
     isEditing: false
   }
 
-  handleCallback = () => {
-    this.setState({ isEditing: false })
-  }
-
-  buttonCallback = () => {
-    this.setState({ isEditing: true })
+  changeCallback = (event) => {
+    console.log(event.target.value)
   }
 
   render() {
     return (
       <div>
-        <InlineEdit name='test' value='Click to edit' isEditing={this.state.isEditing} changeCallback={this.handleCallback} />
-        {!this.state.isEditing
-          ? <Button onClick={this.buttonCallback} optClass={styles['button-callback']}>Edit</Button>
-          : null
-        }
+        <InlineEdit name='test' value='Click to edit' changeCallback={this.changeCallback} />
       </div>
     )
   }
