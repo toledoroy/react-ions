@@ -13,9 +13,9 @@ class ExampleInlineEditError extends React.Component {
     error: ''
   }
 
-  handleSave = (name, value) => {
-    if (name === 'test') {
-      this.setState({ inlineValue: value, loading: true, error: '' })
+  handleSave = (event) => {
+    if (event.target.name === 'test') {
+      this.setState({ inlineValue: event.target.value, loading: true, error: '' })
 
       setTimeout(() => {
         this.setState({ loading: false, error: 'This is an error' })
