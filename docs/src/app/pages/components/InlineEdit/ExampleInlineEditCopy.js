@@ -14,7 +14,7 @@ class ExampleInlineEditCopy extends React.Component {
   render() {
     return (
       <div>
-        <InlineEdit name='test' value={this.state.inlineValue} copyToClipboard={true} />
+        <InlineEdit name='test' value={this.state.inlineValue} copyToClipboard />
       </div>
     )
   }

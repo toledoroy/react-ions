@@ -13,6 +13,7 @@ describe('InlineEdit', () => {
     expect(wrapper.find(Icon)).to.have.length(2)
     expect(wrapper.find('.inline-button-wrapper').at(0).childAt(0).hasClass('save-button')).to.be.true
     expect(wrapper.find('.inline-button-wrapper').at(0).childAt(1).hasClass('cancel-button')).to.be.true
+    expect(wrapper.find('.copy-icon')).to.have.length(0)
   })
 
   it('should not render buttons', () => {
@@ -96,5 +97,23 @@ describe('InlineEdit', () => {
     expect(wrapper.state().error).to.equal('This is an error')
     expect(wrapper.find('.error-text')).to.have.length(1)
     expect(wrapper.find('.error-text').at(0).text()).to.equal('This is an error')
+  })
+
+  it('should have a copy to clipboard icon', function(done) {
+    this.timeout(3000)
+    const wrapper = mount(<InlineEdit name='test' value='test value' copyToClipboard />)
+
+    expect(wrapper.find('.copy-icon')).to.have.length(1)
+    expect(wrapper.find('.copy-icon').at(0).find('Icon')).to.have.length(1)
+
+    wrapper.instance().handleCopy()
+
+    expect(wrapper.find('.copy-icon').at(0).find('Icon')).to.have.length(0)
+    expect(wrapper.find('.copy-icon').at(0).text()).to.equal('copied!')
+
+    setTimeout(() => {
+      expect(wrapper.find('.copy-icon').at(0).find('Icon')).to.have.length(1)
+      done()
+    }, 2100)
   })
 })

@@ -1,5 +1,5 @@
 import React from 'react'
-import CopyToClipboard from 'react-copy-to-clipboard';
+import CopyToClipboard from 'react-copy-to-clipboard'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 import Icon from '../Icon'
@@ -167,7 +167,7 @@ class InlineEdit extends React.Component {
         event.preventDefault()
         saveEvent()
       }
-    });
+    })
 
     const cancelEvent = this.handleCancel
     this._textValue.addEventListener("keyup", (event) => {
@@ -177,7 +177,7 @@ class InlineEdit extends React.Component {
         event.preventDefault()
         cancelEvent()
       }
-    });
+    })
   }
 
   handleCopy = () => {
