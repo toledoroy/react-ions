@@ -1,7 +1,7 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-import InlineEdit from '../src/components/InlineEdit/InlineEdit';
-import Icon from '../src/components/Icon/Icon';
+import React from 'react'
+import { shallow, mount } from 'enzyme'
+import InlineEdit from '../src/components/InlineEdit/InlineEdit'
+import Icon from '../src/components/Icon/Icon'
 
 describe('InlineEdit', () => {
   it('should render a span and buttons', () => {

@@ -8,7 +8,7 @@ class ExampleInlineEditCopy extends React.Component {
   }
 
   state = {
-    inlineValue: 'Click to edit'
+    inlineValue: 'Example value'
   }
 
   render() {
