@@ -184,7 +184,7 @@ class InlineEdit extends React.Component {
     this.setState({ copied: true }, () => {
       setTimeout(() => {
         this.setState({ copied: false })
-      }, 2000)
+      }, 1800)
     })
   }
 

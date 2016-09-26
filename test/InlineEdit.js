@@ -99,8 +99,7 @@ describe('InlineEdit', () => {
     expect(wrapper.find('.error-text').at(0).text()).to.equal('This is an error')
   })
 
-  it('should have a copy to clipboard icon', function(done) {
-    this.timeout(3000)
+  it('should have a copy to clipboard icon', (done) => {
     const wrapper = mount(<InlineEdit name='test' value='test value' copyToClipboard />)
 
     expect(wrapper.find('.copy-icon')).to.have.length(1)
@@ -114,6 +113,6 @@ describe('InlineEdit', () => {
     setTimeout(() => {
       expect(wrapper.find('.copy-icon').at(0).find('Icon')).to.have.length(1)
       done()
-    }, 2100)
+    }, 1900)
   })
 })
