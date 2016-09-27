@@ -12,10 +12,12 @@
 
 .inline-edit-wrapper {
   position: relative;
-  display: flex;
-  > * {
+  > div {
     display: flex;
-    height: 19px;
+    > * {
+      display: flex;
+      height: 19px;
+    }
   }
 
   .inline-text-overflow-wrapper {
@@ -138,8 +140,7 @@
     color: $red;
     font-size: 10px;
     font-weight: 200;
-    position: absolute;
-    top: 20px;
+    margin-top: 3px;
   }
 
   .save-button {
@@ -150,13 +151,15 @@
     @include inline-edit-button($red);
   }
 
-  > .inline-icon {
+  .inline-icon {
     display: flex;
     margin: -2px 5px 0 0;
     min-width: 18px;
   }
 
-  > label {
+  .inline-label {
     margin: 0 5px 0 0;
+    color: rgba($navy-text, 0.5);
+    font-weight: 200;
   }
 }

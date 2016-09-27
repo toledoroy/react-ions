@@ -14,6 +14,8 @@ describe('InlineEdit', () => {
     expect(wrapper.find('.inline-button-wrapper').at(0).childAt(0).hasClass('save-button')).to.be.true
     expect(wrapper.find('.inline-button-wrapper').at(0).childAt(1).hasClass('cancel-button')).to.be.true
     expect(wrapper.find('.copy-icon')).to.have.length(0)
+    expect(wrapper.find('.inline-icon')).to.have.length(0)
+    expect(wrapper.find('.inline-label')).to.have.length(0)
   })
 
   it('should not render buttons', () => {
@@ -114,5 +116,12 @@ describe('InlineEdit', () => {
       expect(wrapper.find('.copy-icon').at(0).find('Icon')).to.have.length(1)
       done()
     }, 1900)
+  })
+
+  it('should have an inline icon and label', () => {
+    const wrapper = mount(<InlineEdit name='test' value='test value' label='Email' icon='icon-mail-1' />)
+
+    expect(wrapper.find('.inline-icon')).to.have.length(1)
+    expect(wrapper.find('.inline-label')).to.have.length(1)
   })
 })

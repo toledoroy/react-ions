@@ -164,13 +164,13 @@ class InlineEdit extends React.Component {
 
   getIcon = () => {
     if (this.props.icon) {
-      return <span className={style['inline-icon']} ref={(c) => this._inlineIcon = c}><Icon name={this.props.icon} height='18' width='18' /></span>
+      return <span className={style['inline-icon']} ref={(c) => this._inlineIcon = c}><Icon name={this.props.icon} height='18' width='18' fill='#9198A0' /></span>
     }
   }
 
   getLabel = () => {
     if (this.props.label) {
-      return <label ref={(c) => this._inlineLabel = c}>{this.props.label}</label>
+      return <label className={style['inline-label']} ref={(c) => this._inlineLabel = c}>{this.props.label}</label>
     }
   }
 
@@ -249,25 +249,27 @@ class InlineEdit extends React.Component {
 
     return (
       <div className={inlineEditClass}>
-        {this.getIcon()}
-        {this.getLabel()}
-        <div className={style['inline-text-overflow-wrapper']} style={{ maxWidth: this.state.inlineEditMaxWidth }}>
-          {this.getSpan()}
-          {this.state.isEditing
-            ? <div className={style['inline-button-wrapper']}>
-                <Icon name='icon-check-2-1' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
-                <Icon name='icon-delete-1-1' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
-              </div>
-            : null
-          }
-          {this.props.copyToClipboard && !this.state.isEditing && !this.state.loading
-            ? <span ref={(c) => this._copyTrigger = c} data-clipboard-text={this.state.value}>
-                <span className={copyIconClass}>{this.getCopyIcon()}</span>
-              </span>
-            : null
-          }
-          <div className={style['loader-wrapper']}>
-            <Spinner loading={!this.state.isEditing && this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198A0' />
+        <div>
+          {this.getIcon()}
+          {this.getLabel()}
+          <div className={style['inline-text-overflow-wrapper']} style={{ maxWidth: this.state.inlineEditMaxWidth }}>
+            {this.getSpan()}
+            {this.state.isEditing
+              ? <div className={style['inline-button-wrapper']}>
+                  <Icon name='icon-check-2-1' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
+                  <Icon name='icon-delete-1-1' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
+                </div>
+              : null
+            }
+            {this.props.copyToClipboard && !this.state.isEditing && !this.state.loading
+              ? <span ref={(c) => this._copyTrigger = c} data-clipboard-text={this.state.value}>
+                  <span className={copyIconClass}>{this.getCopyIcon()}</span>
+                </span>
+              : null
+            }
+            <div className={style['loader-wrapper']}>
+              <Spinner loading={!this.state.isEditing && this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198A0' />
+            </div>
           </div>
         </div>
         {this.state.error && this.state.error !== ''
