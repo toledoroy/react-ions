@@ -12,12 +12,8 @@
 
 .inline-edit-wrapper {
   position: relative;
-  > div {
+  > .inline-edit-wrapper-inner {
     display: flex;
-    > * {
-      display: flex;
-      height: 19px;
-    }
   }
 
   .inline-text-overflow-wrapper {

@@ -249,7 +249,7 @@ class InlineEdit extends React.Component {
 
     return (
       <div className={inlineEditClass}>
-        <div>
+        <div className={style['inline-edit-wrapper-inner']}>
           {this.getIcon()}
           {this.getLabel()}
           <div className={style['inline-text-overflow-wrapper']} style={{ maxWidth: this.state.inlineEditMaxWidth }}>
