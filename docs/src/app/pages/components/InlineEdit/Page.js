@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/Icon/Icon'
+import docs from '!!docgen!react-conventions/lib/InlineEdit/InlineEdit'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleInlineEditDefault from './ExampleInlineEditDefault'
 import exampleInlineEditDefaultCode from '!raw!./ExampleInlineEditDefault'
@@ -83,6 +83,10 @@ const InlineEditPage = () => (
           markup={exampleInlineEditCopyCode}>
           <ExampleInlineEditCopy />
         </CodeExample>
+      </div>
+      <div className={styles.block}>
+        <h3>Props</h3>
+        <PropsList list={docs[0].props} />
       </div>
     </div>
   </div>
