@@ -1,5 +1,15 @@
 ## HEAD
 
+## 0.59.0
+###### _September 26, 2016_
+
+##### Component Fixes / Enhancements
+
+- [InlineEdit] - Do not fire changeCallback when InlineEdit is canceled ([#253](https://github.com/GetAmbassador/react-conventions/pull/253))
+- [InlineEdit] - Fix copy/paste bug in InlineEdit ([#254](https://github.com/GetAmbassador/react-conventions/pull/254))
+- [InlineEdit] - Added copy value to clipboard functionality ([#255](https://github.com/GetAmbassador/react-conventions/pull/255))
+
+
 ## 0.58.0
 ###### _September 23, 2016_
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import Clipboard from 'clipboard'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 import Icon from '../Icon'
@@ -60,6 +61,10 @@ class InlineEdit extends React.Component {
      */
     error: React.PropTypes.string,
     /**
+     * Boolean used to display the copy to clipboard icon.
+     */
+    copyToClipboard: React.PropTypes.bool,
+    /**
      * A label to display next to the component.
      */
     label: React.PropTypes.string,
@@ -73,7 +78,8 @@ class InlineEdit extends React.Component {
     isEditing: this.props.isEditing,
     value: this.props.value,
     loading: this.props.loading,
-    error: this.props.error
+    error: this.props.error,
+    copied: false
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -87,10 +93,14 @@ class InlineEdit extends React.Component {
 
   componentDidMount = () => {
     this.attachKeyListeners()
+    this.activateCopyToClipboard()
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    return this.state.isEditing !== nextState.isEditing || this.state.loading !== nextState.loading || this.state.error !== nextState.error
+    return this.state.isEditing !== nextState.isEditing
+        || this.state.loading !== nextState.loading
+        || this.state.error !== nextState.error
+        || this.state.copied !== nextState.copied
   }
 
   handleSave = () => {
@@ -98,6 +108,7 @@ class InlineEdit extends React.Component {
     const shouldTriggerCallback = inputText !== this.state.value
 
     this.setState({ isEditing: false, value: inputText }, () => {
+      this.activateCopyToClipboard()
       this._textValue.blur()
       this._textValue.scrollLeft = 0
 
@@ -116,6 +127,7 @@ class InlineEdit extends React.Component {
 
   handleCancel = () => {
     this.setState({ isEditing: false }, () => {
+      this.activateCopyToClipboard()
       this._textValue.blur()
       this._textValue.scrollLeft = 0
     })
@@ -137,6 +149,16 @@ class InlineEdit extends React.Component {
     }
 
     return <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={(c) => this._textValue = c} >{this.state.value || this.props.placeholder }{readonlyIcon}</span>
+  }
+
+  getCopyIcon = () => {
+    if (this.state.copied) {
+      return 'copied!'
+    }
+
+    const copyIconFill = this.state.value === '' ? '#9198A0' : '#3C97D3'
+    return <Icon name='icon-clipboard-1' height='14' width='14' fill={copyIconFill} />
+    }
   }
 
   getIcon = () => {
@@ -170,7 +192,7 @@ class InlineEdit extends React.Component {
         event.preventDefault()
         saveEvent()
       }
-    });
+    })
 
     const cancelEvent = this.handleCancel
     this._textValue.addEventListener("keyup", (event) => {
@@ -180,7 +202,26 @@ class InlineEdit extends React.Component {
         event.preventDefault()
         cancelEvent()
       }
-    });
+    })
+  }
+
+  activateCopyToClipboard = () => {
+    if (!this.props.copyToClipboard) {
+      return
+    }
+
+    const clipboard = new Clipboard(this._copyTrigger)
+    clipboard.on('success', () => {
+      this.handleCopy()
+    })
+  }
+
+  handleCopy = () => {
+    this.setState({ copied: true }, () => {
+      setTimeout(() => {
+        this.setState({ copied: false })
+      }, 1800)
+    })
   }
 
   render() {
@@ -188,6 +229,8 @@ class InlineEdit extends React.Component {
     const readonlyClass = this.props.readonly ? 'readonly' : ''
     const errorClass = this.props.error ? 'error' : ''
     const placeholderClass = this.state.value === '' ? 'placeholder' : ''
+    const copyDisabledClass = this.state.value === '' ? 'disabled' : ''
+    const copyIconClass = cx(style['copy-icon'], copyDisabledClass)
     const inlineEditClass = cx(style['inline-edit-wrapper'], this.props.optClass, readonlyClass, errorClass, placeholderClass)
 
     return (
@@ -203,8 +246,14 @@ class InlineEdit extends React.Component {
               </div>
             : null
           }
+          {this.props.copyToClipboard && !this.state.isEditing && !this.state.loading
+            ? <span ref={(c) => this._copyTrigger = c} data-clipboard-text={this.state.value}>
+                <span className={copyIconClass}>{this.getCopyIcon()}</span>
+              </span>
+            : null
+          }
           <div className={style['loader-wrapper']}>
-            <Spinner loading={!this.state.isEditing && this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198a0' />
+            <Spinner loading={!this.state.isEditing && this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198A0' />
           </div>
         </div>
         {this.state.error && this.state.error !== ''
