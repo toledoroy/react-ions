@@ -4,6 +4,7 @@ import style from './style.scss'
 import classNames from 'classnames/bind'
 import Icon from '../Icon'
 import Spinner from '../Spinner'
+import Tooltip from '../Tooltip'
 
 class InlineEdit extends React.Component {
   constructor(props) {
@@ -16,7 +17,8 @@ class InlineEdit extends React.Component {
     loading: false,
     readonly: false,
     error: '',
-    value: ''
+    value: '',
+    tooltipPlacement: 'right'
   }
 
   static propTypes = {
@@ -71,7 +73,15 @@ class InlineEdit extends React.Component {
     /**
      * An icon to display next to the component.
      */
-    icon: React.PropTypes.string
+    icon: React.PropTypes.string,
+    /**
+     * Text to display inside the tooltip.
+     */
+    tooltipText: React.PropTypes.string,
+    /**
+     * The placement of the tooltip.
+     */
+    tooltipPlacement: React.PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
   }
 
   state = {
@@ -150,7 +160,14 @@ class InlineEdit extends React.Component {
       return <span id='span_id' contentEditable className={style['inline-text-wrapper']} dangerouslySetInnerHTML={{__html: this.state.value}} ref={(c) => this._textValue = c} />
     }
 
-    return <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={(c) => this._textValue = c} >{this.state.value || this.props.placeholder }{readonlyIcon}</span>
+    return (
+      <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={(c) => this._textValue = c}>
+        {this.props.tooltipText
+          ? <Tooltip content={this.props.tooltipText} tooltipPlacement={this.props.tooltipPlacement} appendToBody={true}>{this.state.value || this.props.placeholder }{readonlyIcon}</Tooltip>
+          : <span>{this.state.value || this.props.placeholder }{readonlyIcon}</span>
+        }
+      </span>
+    )
   }
 
   getCopyIcon = () => {
