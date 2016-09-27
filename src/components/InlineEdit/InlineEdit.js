@@ -169,7 +169,7 @@ class InlineEdit extends React.Component {
     return (
       <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={(c) => this._textValue = c}>
         {this.props.tooltipText
-          ? <Tooltip content={this.props.tooltipText} tooltipPlacement={this.props.tooltipPlacement} appendToBody={true} optClass={this.props.tooltipClass || ''}>{this.state.value || this.props.placeholder }{readonlyIcon}</Tooltip>
+          ? <Tooltip content={this.props.tooltipText} tooltipPlacement={this.props.tooltipPlacement} appendToBody={true} className={style['value-tooltip']} optClass={this.props.tooltipClass || ''}>{this.state.value || this.props.placeholder }{readonlyIcon}</Tooltip>
           : <span>{this.state.value || this.props.placeholder }{readonlyIcon}</span>
         }
       </span>
