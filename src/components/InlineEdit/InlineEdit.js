@@ -229,10 +229,12 @@ class InlineEdit extends React.Component {
     let offset = 0
 
     if (this._inlineIcon) {
+      // Add width and margin to the offset
       offset += this._inlineIcon.getBoundingClientRect().width + 5
     }
     if (this._inlineLabel) {
-      offset += this._inlineLabel.getBoundingClientRect().width + 5
+      // Add width and margin to the offset
+      offset += this._inlineLabel.getBoundingClientRect().width + 10
     }
 
     this.setState({ inlineEditMaxWidth: `calc(100% - ${offset}px)` })
