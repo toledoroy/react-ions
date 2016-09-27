@@ -18,6 +18,8 @@ import ExampleInlineEditError from './ExampleInlineEditError'
 import exampleInlineEditErrorCode from '!raw!./ExampleInlineEditError'
 import ExampleInlineEditCopy from './ExampleInlineEditCopy'
 import exampleInlineEditCopyCode from '!raw!./ExampleInlineEditCopy'
+import ExampleInlineEditTooltip from './ExampleInlineEditTooltip'
+import exampleInlineEditTooltipCode from '!raw!./ExampleInlineEditTooltip'
 import styles from 'private/css/content'
 
 const description = {
@@ -28,7 +30,8 @@ const description = {
   inlineEditReadonly: 'This is the readonly **inline edit component**.',
   inlineEditLoading: 'This is the **inline edit component** with a loader.',
   inlineEditError: 'This is the **inline edit component** with an error.',
-  inlineEditCopy: 'This is the **inline edit component** with a copy to clipboard icon.'
+  inlineEditCopy: 'This is the **inline edit component** with a copy to clipboard icon.',
+  inlineEditTooltip: 'This is the **inline edit component** with a tooltip.'
 };
 
 const InlineEditPage = () => (
@@ -82,6 +85,12 @@ const InlineEditPage = () => (
           description={description.inlineEditCopy}
           markup={exampleInlineEditCopyCode}>
           <ExampleInlineEditCopy />
+        </CodeExample>
+        <CodeExample
+          title='Inline Edit with tooltip'
+          description={description.inlineEditTooltip}
+          markup={exampleInlineEditTooltipCode}>
+          <ExampleInlineEditTooltip />
         </CodeExample>
       </div>
       <div className={styles.block}>

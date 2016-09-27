@@ -82,6 +82,10 @@ class InlineEdit extends React.Component {
      * The placement of the tooltip.
      */
     tooltipPlacement: React.PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
+    /**
+     * An optional class to add to the tooltip.
+     */
+    tooltipClass: React.PropTypes.string
   }
 
   state = {
@@ -113,6 +117,8 @@ class InlineEdit extends React.Component {
         || this.state.error !== nextState.error
         || this.state.copied !== nextState.copied
         || this.state.inlineEditMaxWidth !== nextState.inlineEditMaxWidth
+        || this.props.tooltipText !== nextProps.tooltipText
+        || this.props.tooltipPlacement !== nextProps.tooltipPlacement
   }
 
   handleSave = () => {
@@ -163,7 +169,7 @@ class InlineEdit extends React.Component {
     return (
       <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={(c) => this._textValue = c}>
         {this.props.tooltipText
-          ? <Tooltip content={this.props.tooltipText} tooltipPlacement={this.props.tooltipPlacement} appendToBody={true}>{this.state.value || this.props.placeholder }{readonlyIcon}</Tooltip>
+          ? <Tooltip content={this.props.tooltipText} tooltipPlacement={this.props.tooltipPlacement} appendToBody={true} optClass={this.props.tooltipClass || ''}>{this.state.value || this.props.placeholder }{readonlyIcon}</Tooltip>
           : <span>{this.state.value || this.props.placeholder }{readonlyIcon}</span>
         }
       </span>
