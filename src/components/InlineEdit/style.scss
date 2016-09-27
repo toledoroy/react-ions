@@ -13,7 +13,9 @@
 .inline-edit-wrapper {
   position: relative;
   > .inline-edit-wrapper-inner {
+    align-items: center;
     display: flex;
+    height: 19px;
   }
 
   .inline-text-overflow-wrapper {
@@ -25,6 +27,8 @@
     padding-right: 50px;
     position: relative;
     max-width: calc(100% - 50px);
+    align-items: center;
+    margin-top: 1px;
   }
 
   .inline-text-wrapper {
@@ -35,6 +39,7 @@
     outline: none;
     overflow: hidden;
     white-space: nowrap;
+    border-bottom: 1px dashed transparent;
   }
 
   .inline-text-wrapper-hover {
@@ -45,6 +50,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    border-bottom: 1px dashed transparent;
   }
 
   &:not(.readonly) .inline-text-wrapper-hover:hover {
@@ -104,11 +110,12 @@
     font-size: 14px;
     position: absolute;
     right: 0;
+    top: 0;
     width: 45px;
+    height: 19px;
     z-index: 1;
-    > svg {
-      margin-top: 1px;
-    }
+    display: flex;
+    align-items: center;
     &.disabled {
       cursor: not-allowed;
     }
@@ -119,7 +126,7 @@
     margin-left: 5px;
     width: 27px;
     height: 7px;
-    top: 5px;
+    top: 6px;
     right: 12px;
 
     span[class^="spinner-bounce-"] > span {
@@ -149,13 +156,16 @@
 
   .inline-icon {
     display: flex;
-    margin: -2px 5px 0 0;
-    min-width: 18px;
+    margin: 0 5px 0 0;
+    min-width: 14px;
   }
 
   .inline-label {
     margin: 0 5px 0 0;
     color: rgba($navy-text, 0.5);
     font-weight: 200;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-top: 1px;
   }
 }
