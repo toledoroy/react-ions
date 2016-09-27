@@ -11,7 +11,11 @@ class Breadcrumb extends React.Component {
     /**
      * The array of routes to generate the Breadcrumbs.
      */
-    routes: React.PropTypes.array.isRequired
+    routes: React.PropTypes.array.isRequired,
+    /**
+     * Optional offset to trigger 'minimize' state.
+     */
+    offset: React.PropTypes.number
   }
 
   state = {
@@ -24,7 +28,10 @@ class Breadcrumb extends React.Component {
     const breadcrumbsStyle = window.getComputedStyle(this._breadcrumbsContainer)
     const breadcrumbsRect = this._breadcrumbsContainer.getBoundingClientRect()
 
-    if(this.props.routes.length > 1 && this.state.childrenWidth > breadcrumbsRect.width - (parseInt(breadcrumbsStyle.paddingLeft) + parseInt(breadcrumbsStyle.paddingRight))) {
+    var offsetValue = this.props.offset || 0
+    var calculatedBreadcrumbWidth = breadcrumbsRect.width - (parseInt(breadcrumbsStyle.paddingLeft) + parseInt(breadcrumbsStyle.paddingRight)) - offsetValue
+
+    if(this.props.routes.length > 1 && this.state.childrenWidth > calculatedBreadcrumbWidth) {
       this.setState({ minimized: true })
     }
     else {
@@ -54,6 +61,12 @@ class Breadcrumb extends React.Component {
     })
 
     return height
+  }
+
+  componentWillReceiveProps = () => {
+    this.setState({ childrenWidth: this.getChildrenWidth() }, () => {
+      this.handleResize()
+    })
   }
 
   componentDidMount = () => {
@@ -93,7 +106,7 @@ class Breadcrumb extends React.Component {
         tags.push(<span className={style.secondary}>{item.title}</span>)
         return tags
       }
-      
+
       if (!that.state.minimized) {
         tags.push(<h2 className={style.primary}>{item.title}</h2>)
         rootRendered = true
