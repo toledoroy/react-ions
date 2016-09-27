@@ -94,6 +94,7 @@ class InlineEdit extends React.Component {
   componentDidMount = () => {
     this.attachKeyListeners()
     this.activateCopyToClipboard()
+    this.getStyles()
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
@@ -101,6 +102,7 @@ class InlineEdit extends React.Component {
         || this.state.loading !== nextState.loading
         || this.state.error !== nextState.error
         || this.state.copied !== nextState.copied
+        || this.state.inlineEditMaxWidth !== nextState.inlineEditMaxWidth
   }
 
   handleSave = () => {
@@ -158,18 +160,17 @@ class InlineEdit extends React.Component {
 
     const copyIconFill = this.state.value === '' ? '#9198A0' : '#3C97D3'
     return <Icon name='icon-clipboard-1' height='14' width='14' fill={copyIconFill} />
-    }
   }
 
   getIcon = () => {
     if (this.props.icon) {
-      return <Icon name={this.props.icon} height='20' width='20' />
+      return <span className={style['inline-icon']} ref={(c) => this._inlineIcon = c}><Icon name={this.props.icon} height='18' width='18' /></span>
     }
   }
 
   getLabel = () => {
     if (this.props.label) {
-      return <label>{this.props.label}</label>
+      return <label ref={(c) => this._inlineLabel = c}>{this.props.label}</label>
     }
   }
 
@@ -224,7 +225,20 @@ class InlineEdit extends React.Component {
     })
   }
 
-  render() {
+  getStyles = () => {
+    let offset = 0
+
+    if (this._inlineIcon) {
+      offset += this._inlineIcon.getBoundingClientRect().width + 5
+    }
+    if (this._inlineLabel) {
+      offset += this._inlineLabel.getBoundingClientRect().width + 5
+    }
+
+    this.setState({ inlineEditMaxWidth: `calc(100% - ${offset}px)` })
+  }
+
+  render = () => {
     const cx = classNames.bind(style)
     const readonlyClass = this.props.readonly ? 'readonly' : ''
     const errorClass = this.props.error ? 'error' : ''
@@ -237,7 +251,7 @@ class InlineEdit extends React.Component {
       <div className={inlineEditClass}>
         {this.getIcon()}
         {this.getLabel()}
-        <div className={style['inline-text-overflow-wrapper']}>
+        <div className={style['inline-text-overflow-wrapper']} style={{ maxWidth: this.state.inlineEditMaxWidth }}>
           {this.getSpan()}
           {this.state.isEditing
             ? <div className={style['inline-button-wrapper']}>

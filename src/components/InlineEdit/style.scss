@@ -12,9 +12,14 @@
 
 .inline-edit-wrapper {
   position: relative;
+  display: flex;
+  > * {
+    display: flex;
+    height: 19px;
+  }
 
   .inline-text-overflow-wrapper {
-    height: 18px;
+    height: 19px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -143,5 +148,15 @@
 
   .cancel-button {
     @include inline-edit-button($red);
+  }
+
+  > .inline-icon {
+    display: flex;
+    margin: -2px 5px 0 0;
+    min-width: 18px;
+  }
+
+  > label {
+    margin: 0 5px 0 0;
   }
 }
