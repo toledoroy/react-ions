@@ -8,19 +8,20 @@ describe('InlineEdit', () => {
     const wrapper = shallow(<InlineEdit name='test' value='test value' isEditing={true} />)
     expect(wrapper.hasClass('readonly')).to.be.false
     expect(wrapper.find('.readonly-icon')).to.have.length(0)
-    expect(wrapper.find('span')).to.have.length(1)
-    expect(wrapper.find('span').at(0).hasClass('inline-text-wrapper')).to.be.true
+    expect(wrapper.find('.inline-text-wrapper')).to.have.length(1)
+    expect(wrapper.find('.inline-text-wrapper-hover')).to.have.length(0)
     expect(wrapper.find(Icon)).to.have.length(2)
     expect(wrapper.find('.inline-button-wrapper').at(0).childAt(0).hasClass('save-button')).to.be.true
     expect(wrapper.find('.inline-button-wrapper').at(0).childAt(1).hasClass('cancel-button')).to.be.true
     expect(wrapper.find('.copy-icon')).to.have.length(0)
     expect(wrapper.find('.inline-icon')).to.have.length(0)
     expect(wrapper.find('.inline-label')).to.have.length(0)
+    expect(wrapper.find('Tooltip')).to.have.length(0)
   })
 
   it('should not render buttons', () => {
     const wrapper = shallow(<InlineEdit name='test' value='test value' />)
-    expect(wrapper.find('span')).to.have.length(1)
+    expect(wrapper.find('.inline-text-wrapper-hover')).to.have.length(1)
     expect(wrapper.find(Icon)).to.have.length(0)
   })
 
@@ -133,5 +134,14 @@ describe('InlineEdit', () => {
     wrapper = mount(<InlineEdit name='test' value='test value' label='Email' icon='icon-mail-1' />)
 
     expect(wrapper.state().inlineEditMaxWidth).to.not.equal('calc(100% - 0px)')
+  })
+
+  it('should have a tooltip', () => {
+    const wrapper = mount(<InlineEdit name='test' value='test value' tooltipText='test tooltip' tooltipPlacement='top' tooltipClass='test-class' />)
+
+    expect(wrapper.find('Tooltip')).to.have.length(1)
+    expect(wrapper.find('Tooltip').props().content).to.equal('test tooltip')
+    expect(wrapper.find('Tooltip').props().tooltipPlacement).to.equal('top')
+    expect(wrapper.find('Tooltip').props().optClass).to.equal('test-class')
   })
 })
