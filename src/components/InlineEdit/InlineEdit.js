@@ -154,7 +154,7 @@ class InlineEdit extends React.Component {
   }
 
   getSpan = () => {
-    const readonlyIcon = this.props.readonly ? <div className={style['readonly-icon']}><Icon name='icon-delete-2-2' height='18' width='18' /></div> : null
+    const readonlyIcon = this.props.readonly ? <div className={style['readonly-icon']}><Icon name='icon-delete-2-2' height='16' width='16' /></div> : null
 
     if (this.state.isEditing) {
       return <span id='span_id' contentEditable className={style['inline-text-wrapper']} dangerouslySetInnerHTML={{__html: this.state.value}} ref={(c) => this._textValue = c} />
@@ -181,7 +181,7 @@ class InlineEdit extends React.Component {
 
   getIcon = () => {
     if (this.props.icon) {
-      return <span className={style['inline-icon']} ref={(c) => this._inlineIcon = c}><Icon name={this.props.icon} height='18' width='18' fill='#9198A0' /></span>
+      return <span className={style['inline-icon']} ref={(c) => this._inlineIcon = c}><Icon name={this.props.icon} height='14' width='14' fill='#9198A0' /></span>
     }
   }
 
@@ -246,10 +246,12 @@ class InlineEdit extends React.Component {
     let offset = 0
 
     if (this._inlineIcon) {
+      // Add width and margin to the offset
       offset += this._inlineIcon.getBoundingClientRect().width + 5
     }
     if (this._inlineLabel) {
-      offset += this._inlineLabel.getBoundingClientRect().width + 5
+      // Add width and margin to the offset
+      offset += this._inlineLabel.getBoundingClientRect().width + 10
     }
 
     this.setState({ inlineEditMaxWidth: `calc(100% - ${offset}px)` })
@@ -266,7 +268,7 @@ class InlineEdit extends React.Component {
 
     return (
       <div className={inlineEditClass}>
-        <div>
+        <div className={style['inline-edit-wrapper-inner']}>
           {this.getIcon()}
           {this.getLabel()}
           <div className={style['inline-text-overflow-wrapper']} style={{ maxWidth: this.state.inlineEditMaxWidth }}>

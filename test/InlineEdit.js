@@ -124,4 +124,14 @@ describe('InlineEdit', () => {
     expect(wrapper.find('.inline-icon')).to.have.length(1)
     expect(wrapper.find('.inline-label')).to.have.length(1)
   })
+
+  it('should set max-width for the edit component', () => {
+    let wrapper = mount(<InlineEdit name='test' value='test value' />)
+
+    expect(wrapper.state().inlineEditMaxWidth).to.equal('calc(100% - 0px)')
+
+    wrapper = mount(<InlineEdit name='test' value='test value' label='Email' icon='icon-mail-1' />)
+
+    expect(wrapper.state().inlineEditMaxWidth).to.not.equal('calc(100% - 0px)')
+  })
 })
