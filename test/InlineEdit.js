@@ -106,15 +106,21 @@ describe('InlineEdit', () => {
   it('should revert back to the previously saved value if there is an error and the change is canceled', () => {
     const changeCallback = sinon.spy()
     const wrapper = mount(<InlineEdit name='test' isEditing={true} changeCallback={changeCallback} value='testValue' />)
-    const saveTrigger = wrapper.find('.inline-button-wrapper').at(0).childAt(0)
 
     wrapper.find('.inline-text-wrapper').at(0).node.innerHTML = 'test value'
+
+    let saveTrigger = wrapper.find('.inline-button-wrapper').at(0).childAt(0)
     saveTrigger.simulate('click')
 
-    expect(wrapper.instance()._previousValue).to.equal('testValue')
     expect(wrapper.state().value).to.equal('test value')
 
-    wrapper.setProps({ error: 'This is an error', value: 'test value' })
+    wrapper.setProps({ error: 'This is an error' })
+
+    expect(wrapper.state().error).to.equal('This is an error')
+    expect(wrapper.state().isEditing).to.be.true
+
+    saveTrigger = wrapper.find('.inline-button-wrapper').at(0).childAt(0)
+    saveTrigger.simulate('click')
 
     expect(wrapper.state().error).to.equal('This is an error')
     expect(wrapper.state().isEditing).to.be.true
