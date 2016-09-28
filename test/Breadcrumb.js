@@ -418,20 +418,4 @@ describe('Breadcrumb', () => {
     expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.equal('0px')
     expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('0')
   })
-
-  it('should calculate breadcrumb width, with an offset value', () => {
-    const routes = [
-      {
-        path: 'page',
-        title: 'Page'
-      },
-      {
-        path: 'subpage',
-        title: 'Subpage'
-      }
-    ]
-    wrapper = mount(<Breadcrumb routes={routes} offset={200} />)
-    expect(wrapper.props().offset).to.equal(200)
-  })
-
 })
