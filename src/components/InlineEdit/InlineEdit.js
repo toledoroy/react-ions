@@ -9,8 +9,6 @@ import Tooltip from '../Tooltip'
 class InlineEdit extends React.Component {
   constructor(props) {
     super(props)
-
-    this._previousValue = null
   }
 
   static defaultProps = {
@@ -108,11 +106,10 @@ class InlineEdit extends React.Component {
       newState.loading = nextProps.loading
     }
     if (nextProps.error !== this.state.error) {
-      this.showButtons()
+      if (nextProps.error !== '') {
+        this.showButtons()
+      }
       newState.error = nextProps.error
-    }
-    if (nextProps.value !== this.state.value) {
-      newState.value = nextProps.value
     }
 
     if (Object.keys(newState).length > 0) {
@@ -138,18 +135,18 @@ class InlineEdit extends React.Component {
 
   handleSave = () => {
     const inputText = this._textValue.textContent
-    const shouldTriggerCallback = inputText !== this.state.value || this.state.error !== ''
+    const shouldTriggerCallback = inputText !== this.state.value
     const previousValue = this.state.value
+    const isEditing = this.state.error !== '' ? true : false
 
-    this.setState({ isEditing: false, value: inputText }, () => {
-      this.activateCopyToClipboard()
-      this._textValue.blur()
-      this._textValue.scrollLeft = 0
+    this.setState({ isEditing: isEditing, value: inputText }, () => {
+      if (!isEditing) {
+        this.activateCopyToClipboard()
+        this._textValue.blur()
+        this._textValue.scrollLeft = 0
+      }
 
       if (typeof this.props.changeCallback === 'function' && shouldTriggerCallback) {
-        if (this.state.error === '') {
-          this._previousValue = previousValue
-        }
         const event = {
           target: {
             name: this.props.name,
@@ -165,13 +162,12 @@ class InlineEdit extends React.Component {
   handleCancel = () => {
     let newState = { isEditing: false }
 
-    if (this.state.error !== '' && this._previousValue && this._previousValue !== this.state.value) {
+    if (this.state.error !== '' && this.props.value !== this.state.value) {
       newState.error = ''
-      newState.value = this._previousValue
+      newState.value = this.props.value
     }
 
     this.setState(newState, () => {
-      this._previousValue = null
       this.activateCopyToClipboard()
       this._textValue.blur()
       this._textValue.scrollLeft = 0
