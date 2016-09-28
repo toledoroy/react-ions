@@ -9,6 +9,8 @@ import Tooltip from '../Tooltip'
 class InlineEdit extends React.Component {
   constructor(props) {
     super(props)
+
+    this._previousValue = null
   }
 
   static defaultProps = {
@@ -30,6 +32,10 @@ class InlineEdit extends React.Component {
      * A callback function to be called when save is clicked.
      */
     changeCallback: React.PropTypes.func,
+    /**
+     * A callback function to be called when the change is canceled. Will only be called if there is an error.
+     */
+    cancelCallback: React.PropTypes.func,
     /**
      * Value of the input.
      */
@@ -103,8 +109,20 @@ class InlineEdit extends React.Component {
     if (typeof nextProps.error === 'string' && nextProps.error !== '') {
       this.showButtons(nextProps.error)
     }
-    if (nextProps.loading !== this.state.loading || nextProps.error !== this.state.error) {
-      this.setState({ loading: nextProps.loading, error: nextProps.error })
+
+    let newState = {}
+    if (nextProps.loading !== this.state.loading) {
+      newState.loading = nextProps.loading
+    }
+    if (nextProps.error !== this.state.error) {
+      newState.error = nextProps.error
+    }
+    if (nextProps.value !== this.state.value) {
+      newState.value = nextProps.value
+    }
+
+    if (Object.keys(newState).length > 0) {
+      this.setState(newState)
     }
   }
 
@@ -126,7 +144,8 @@ class InlineEdit extends React.Component {
 
   handleSave = () => {
     const inputText = this._textValue.textContent
-    const shouldTriggerCallback = inputText !== this.state.value
+    const shouldTriggerCallback = inputText !== this.state.value || this.props.error !== ''
+    const previousValue = this.state.value
 
     this.setState({ isEditing: false, value: inputText }, () => {
       this.activateCopyToClipboard()
@@ -134,6 +153,9 @@ class InlineEdit extends React.Component {
       this._textValue.scrollLeft = 0
 
       if (typeof this.props.changeCallback === 'function' && shouldTriggerCallback) {
+        if (this.props.error === '') {
+          this._previousValue = previousValue
+        }
         const event = {
           target: {
             name: this.props.name,
@@ -151,6 +173,18 @@ class InlineEdit extends React.Component {
       this.activateCopyToClipboard()
       this._textValue.blur()
       this._textValue.scrollLeft = 0
+
+      if (typeof this.props.cancelCallback === 'function' && this._previousValue && this._previousValue !== this.state.value) {
+        const event = {
+          target: {
+            name: this.props.name,
+            value: this._previousValue
+          }
+        }
+
+        this._previousValue = null
+        this.props.cancelCallback(event)
+      }
     })
   }
 
@@ -273,7 +307,7 @@ class InlineEdit extends React.Component {
   render = () => {
     const cx = classNames.bind(style)
     const readonlyClass = this.props.readonly ? 'readonly' : ''
-    const errorClass = this.props.error ? 'error' : ''
+    const errorClass = this.props.error !== '' ? 'error' : ''
     const placeholderClass = this.state.value === '' ? 'placeholder' : ''
     const copyDisabledClass = this.state.value === '' ? 'disabled' : ''
     const copyIconClass = cx(style['copy-icon'], copyDisabledClass)
