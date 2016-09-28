@@ -23,17 +23,10 @@ class ExampleInlineEditError extends React.Component {
     }
   }
 
-  handleCancel = (event) => {
-    if (event.target.name === 'test') {
-      console.log(event.target.value)
-      this.setState({ inlineValue: event.target.value, loading: false, error: '' })
-    }
-  }
-
   render() {
     return (
       <div>
-        <InlineEdit name='test' value={this.state.inlineValue} changeCallback={this.handleSave} cancelCallback={this.handleCancel} placeholder='Custom Placeholder' loading={this.state.loading} error={this.state.error} />
+        <InlineEdit name='test' value={this.state.inlineValue} changeCallback={this.handleSave} placeholder='Custom Placeholder' loading={this.state.loading} error={this.state.error} />
       </div>
     )
   }

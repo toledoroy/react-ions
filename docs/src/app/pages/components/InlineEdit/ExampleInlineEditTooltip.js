@@ -22,15 +22,21 @@ class ExampleInlineEditTooltip extends React.Component {
   }
 
   render = () => {
+    const buttons = {
+      top: this.state.tooltipPlacement === 'top' ? 'success' : '',
+      right: this.state.tooltipPlacement === 'right' ? 'success' : '',
+      bottom: this.state.tooltipPlacement === 'bottom' ? 'success' : '',
+      left: this.state.tooltipPlacement === 'left' ? 'success' : ''
+    }
     return (
       <div>
-        <InlineEdit name='test' value={this.state.value} tooltipClass={style['tooltip']} label='Email' icon='icon-mail-1' tooltipText={`The value is: '${this.state.value}'`} tooltipPlacement={this.state.tooltipPlacement} changeCallback={this.changeCallback}/>
+        <InlineEdit name='test' value={this.state.value} tooltipClass={style['tooltip']} label='Email' icon='icon-mail-1' tooltipText={`The value is: '${this.state.value}'`} tooltipPlacement={this.state.tooltipPlacement} changeCallback={this.changeCallback} />
         <div className={style['button-callback']}>
           <p>Tooltip placement</p>
-          <Button onClick={this.setTooltipPlacement.bind(this, 'top')}>Top</Button>
-          <Button onClick={this.setTooltipPlacement.bind(this, 'right')}>Right</Button>
-          <Button onClick={this.setTooltipPlacement.bind(this, 'bottom')}>Bottom</Button>
-          <Button onClick={this.setTooltipPlacement.bind(this, 'left')}>Left</Button>
+          <Button onClick={this.setTooltipPlacement.bind(this, 'top')} optClass={buttons.top}>Top</Button>
+          <Button onClick={this.setTooltipPlacement.bind(this, 'right')} optClass={buttons.right}>Right</Button>
+          <Button onClick={this.setTooltipPlacement.bind(this, 'bottom')} optClass={buttons.bottom}>Bottom</Button>
+          <Button onClick={this.setTooltipPlacement.bind(this, 'left')} optClass={buttons.left}>Left</Button>
         </div>
       </div>
     )

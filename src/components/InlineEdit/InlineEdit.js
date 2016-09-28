@@ -33,10 +33,6 @@ class InlineEdit extends React.Component {
      */
     changeCallback: React.PropTypes.func,
     /**
-     * A callback function to be called when the change is canceled. Will only be called if there is an error.
-     */
-    cancelCallback: React.PropTypes.func,
-    /**
      * Value of the input.
      */
     value: React.PropTypes.oneOfType([
@@ -106,15 +102,13 @@ class InlineEdit extends React.Component {
     if (nextProps.isEditing) {
       this.showButtons()
     }
-    if (typeof nextProps.error === 'string' && nextProps.error !== '') {
-      this.showButtons(nextProps.error)
-    }
 
     let newState = {}
     if (nextProps.loading !== this.state.loading) {
       newState.loading = nextProps.loading
     }
     if (nextProps.error !== this.state.error) {
+      this.showButtons()
       newState.error = nextProps.error
     }
     if (nextProps.value !== this.state.value) {
@@ -144,7 +138,7 @@ class InlineEdit extends React.Component {
 
   handleSave = () => {
     const inputText = this._textValue.textContent
-    const shouldTriggerCallback = inputText !== this.state.value || this.props.error !== ''
+    const shouldTriggerCallback = inputText !== this.state.value || this.state.error !== ''
     const previousValue = this.state.value
 
     this.setState({ isEditing: false, value: inputText }, () => {
@@ -153,7 +147,7 @@ class InlineEdit extends React.Component {
       this._textValue.scrollLeft = 0
 
       if (typeof this.props.changeCallback === 'function' && shouldTriggerCallback) {
-        if (this.props.error === '') {
+        if (this.state.error === '') {
           this._previousValue = previousValue
         }
         const event = {
@@ -169,32 +163,23 @@ class InlineEdit extends React.Component {
   }
 
   handleCancel = () => {
-    this.setState({ isEditing: false }, () => {
+    let newState = { isEditing: false }
+
+    if (this.state.error !== '' && this._previousValue && this._previousValue !== this.state.value) {
+      newState.error = ''
+      newState.value = this._previousValue
+    }
+
+    this.setState(newState, () => {
       this.activateCopyToClipboard()
       this._textValue.blur()
       this._textValue.scrollLeft = 0
-
-      if (typeof this.props.cancelCallback === 'function' && this._previousValue && this._previousValue !== this.state.value) {
-        const event = {
-          target: {
-            name: this.props.name,
-            value: this._previousValue
-          }
-        }
-
-        this._previousValue = null
-        this.props.cancelCallback(event)
-      }
     })
   }
 
-  showButtons = (error) => {
+  showButtons = () => {
     if (!this.props.readonly) {
-      let newState = { isEditing: true }
-      if (typeof error === 'string') {
-        newState.error = error
-      }
-      this.setState(newState, () => {
+      this.setState({ isEditing: true }, () => {
         this.selectElementContents(this._textValue)
       })
     }
@@ -307,7 +292,7 @@ class InlineEdit extends React.Component {
   render = () => {
     const cx = classNames.bind(style)
     const readonlyClass = this.props.readonly ? 'readonly' : ''
-    const errorClass = this.props.error !== '' ? 'error' : ''
+    const errorClass = this.state.error !== '' ? 'error' : ''
     const placeholderClass = this.state.value === '' ? 'placeholder' : ''
     const copyDisabledClass = this.state.value === '' ? 'disabled' : ''
     const copyIconClass = cx(style['copy-icon'], copyDisabledClass)
@@ -320,7 +305,7 @@ class InlineEdit extends React.Component {
           {this.getLabel()}
           <div className={style['inline-text-overflow-wrapper']} style={{ maxWidth: this.state.inlineEditMaxWidth }}>
             {this.getSpan()}
-            {this.state.isEditing
+            {this.state.isEditing && !this.state.loading
               ? <div className={style['inline-button-wrapper']}>
                   <Icon name='icon-check-2-1' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
                   <Icon name='icon-delete-1-1' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
@@ -334,7 +319,7 @@ class InlineEdit extends React.Component {
               : null
             }
             <div className={style['loader-wrapper']}>
-              <Spinner loading={!this.state.isEditing && this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198A0' />
+              <Spinner loading={this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198A0' />
             </div>
           </div>
         </div>

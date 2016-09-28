@@ -16,11 +16,9 @@ class ExampleInlineEditCallback extends React.Component {
     console.log(event.target.value)
   }
 
-  render() {
+  render = () => {
     return (
-      <div>
-        <InlineEdit name='test' value='Example value' changeCallback={this.changeCallback} />
-      </div>
+      <InlineEdit name='test' value='Example value' changeCallback={this.changeCallback} />
     )
   }
 }

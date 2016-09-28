@@ -119,6 +119,9 @@
     &.disabled {
       cursor: not-allowed;
     }
+    > svg {
+      margin-top: -2px;
+    }
   }
 
   .loader-wrapper {
