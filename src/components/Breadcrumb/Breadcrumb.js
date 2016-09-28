@@ -1,6 +1,7 @@
 import React from 'react'
 import Icon from '../Icon'
 import style from './style.scss'
+import Immutable from 'immutable'
 
 class Breadcrumb extends React.Component {
   constructor(props) {
@@ -11,20 +12,28 @@ class Breadcrumb extends React.Component {
     /**
      * The array of routes to generate the Breadcrumbs.
      */
-    routes: React.PropTypes.array.isRequired
+    routes: React.PropTypes.array.isRequired,
+    /**
+     * Optional offset to trigger 'minimize' state.
+     */
+    offset: React.PropTypes.number
   }
 
   state = {
     minimized: false,
     childrenWidth: 0,
-    dropdownOpen: false
+    dropdownOpen: false,
+    routes: Immutable.fromJS(this.props.routes)
   }
 
   handleResize = () => {
     const breadcrumbsStyle = window.getComputedStyle(this._breadcrumbsContainer)
     const breadcrumbsRect = this._breadcrumbsContainer.getBoundingClientRect()
 
-    if(this.props.routes.length > 1 && this.state.childrenWidth > breadcrumbsRect.width - (parseInt(breadcrumbsStyle.paddingLeft) + parseInt(breadcrumbsStyle.paddingRight))) {
+    var offsetValue = this.props.offset || 0
+    var calculatedBreadcrumbWidth = breadcrumbsRect.width - (parseInt(breadcrumbsStyle.paddingLeft) + parseInt(breadcrumbsStyle.paddingRight)) - offsetValue
+
+    if(this.state.routes.size > 1 && this.state.childrenWidth > calculatedBreadcrumbWidth) {
       this.setState({ minimized: true })
     }
     else {
@@ -56,6 +65,12 @@ class Breadcrumb extends React.Component {
     return height
   }
 
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({ childrenWidth: this.getChildrenWidth(), routes: Immutable.fromJS(nextProps.routes) }, () => {
+      this.handleResize()
+    })
+  }
+
   componentDidMount = () => {
     this.setState({ childrenWidth: this.getChildrenWidth() }, () => {
       this.handleResize()
@@ -79,30 +94,39 @@ class Breadcrumb extends React.Component {
     })
   }
 
+  shouldComponentUpdate = (nextProps, nextState) => {
+    return nextState.minimized !== this.state.minimized
+           ||
+           nextState.dropdownOpen !== this.state.dropdownOpen
+           ||
+           !Immutable.is(nextState.routes, this.state.routes)
+  }
+
   getTags = () => {
-    const depth = this.props.routes.length
+    const depth = this.state.routes.size
     const that = this
     let rootRendered = false
 
-    return this.props.routes.map((item, index) => {
-      if (item.title === undefined) return
+    return this.state.routes.map((item, index) => {
+      const title = item.get('title')
+      if (title === undefined) return
 
       let tags = []
       if (!that.state.minimized && rootRendered) {
         tags.push(<Icon key={index} name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />)
-        tags.push(<span className={style.secondary}>{item.title}</span>)
+        tags.push(<span className={style.secondary}>{title}</span>)
         return tags
       }
-      
+
       if (!that.state.minimized) {
-        tags.push(<h2 className={style.primary}>{item.title}</h2>)
+        tags.push(<h2 className={style.primary}>{title}</h2>)
         rootRendered = true
         return tags
       }
 
       if (rootRendered && index === depth - 1) {
         tags.push(<Icon key={index} name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />)
-        tags.push(<span className={style.secondary}>{item.title}</span>)
+        tags.push(<span className={style.secondary}>{title}</span>)
         return tags
       }
 
@@ -115,14 +139,15 @@ class Breadcrumb extends React.Component {
   }
 
   getHiddenTags = () => {
-    const depth = this.props.routes.length
+    const depth = this.state.routes.size
 
-    return this.props.routes.map((item, index) => {
-      if (item.title === undefined) return
+    return this.state.routes.map((item, index) => {
+      const title = item.get('title')
+      if (title === undefined) return
 
       let tags = []
       if (index + 1 < depth) {
-        tags.push(<li className={style['dropdown-item']}>{item.title}</li>)
+        tags.push(<li className={style['dropdown-item']}>{title}</li>)
       }
 
       return tags
