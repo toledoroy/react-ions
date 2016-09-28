@@ -106,10 +106,10 @@ class InlineEdit extends React.Component {
       newState.loading = nextProps.loading
     }
     if (nextProps.error !== this.state.error) {
-      if (nextProps.error !== '') {
-        this.showButtons()
-      }
       newState.error = nextProps.error
+    }
+    if (nextProps.error !== '') {
+      this.showButtons()
     }
 
     if (Object.keys(newState).length > 0) {
