@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { shallow, mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import Breadcrumb from '../src/components/Breadcrumb/Breadcrumb'
 import Icon from '../src/components/Icon/Icon'
 
