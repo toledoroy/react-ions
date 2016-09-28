@@ -47,7 +47,7 @@ class Dropdown extends React.Component {
   }
 
   componentWillMount = () => {
-    if (this.props.isOpened === true) {
+    if (this.props.isOpened) {
       this.setState({isOpened: true})
     }
   }
@@ -60,12 +60,6 @@ class Dropdown extends React.Component {
     if (nextProps.listItems && !Immutable.is(Immutable.fromJS(nextProps.listItems), this.state.listItems)) {
       this.setState({listItems: Immutable.fromJS(nextProps.listItems)})
     }
-  }
-
-  shouldComponentUpdate = (nextProps, nextState) => {
-    return nextState.isOpened !== this.state.isOpened
-           ||
-           !Immutable.is(nextState.listItems, this.state.listItems)
   }
 
   toggleDropdown = (e) => {
