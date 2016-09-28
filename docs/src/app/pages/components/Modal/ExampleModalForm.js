@@ -72,7 +72,7 @@ class ExampleModalForm extends React.Component {
           actions={actions}
           size='sm'
         >
-          <FormGroup schema={this.state.schema} optClass={style.form}>
+          <FormGroup schema={this.state.schema} optClass={style['example-modal-form']}>
             <div>
               <label>First Name</label>
               <Input name='first_name' />
