@@ -100,6 +100,9 @@ class InlineEdit extends React.Component {
     if (nextProps.isEditing) {
       this.showButtons()
     }
+    if (typeof nextProps.error === 'string' && nextProps.error !== '') {
+      this.showButtons(nextProps.error)
+    }
     if (nextProps.loading !== this.state.loading || nextProps.error !== this.state.error) {
       this.setState({ loading: nextProps.loading, error: nextProps.error })
     }
@@ -151,9 +154,13 @@ class InlineEdit extends React.Component {
     })
   }
 
-  showButtons = () => {
+  showButtons = (error) => {
     if (!this.props.readonly) {
-      this.setState({ isEditing: true }, () => {
+      let newState = { isEditing: true }
+      if (typeof error === 'string') {
+        newState.error = error
+      }
+      this.setState(newState, () => {
         this.selectElementContents(this._textValue)
       })
     }
