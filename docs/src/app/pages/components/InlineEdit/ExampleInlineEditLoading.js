@@ -22,11 +22,9 @@ class ExampleInlineEditLoading extends React.Component {
     }
   }
 
-  render() {
+  render = () => {
     return (
-      <div>
-        <InlineEdit name='test' value={this.state.inlineValue} changeCallback={this.handleSave} placeholder='Custom Placeholder' loading={this.state.loading} />
-      </div>
+      <InlineEdit name='test' value={this.state.inlineValue} changeCallback={this.handleSave} placeholder='Custom Placeholder' loading={this.state.loading} />
     )
   }
 }

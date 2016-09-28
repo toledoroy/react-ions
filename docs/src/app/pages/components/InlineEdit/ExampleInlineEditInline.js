@@ -8,11 +8,9 @@ class ExampleInlineEditInline extends React.Component {
     super(props)
   }
 
-  render() {
+  render = () => {
     return (
-      <div>
-        <InlineEdit name='test' value='test@example.com' optClass={style['opt-wrapper']} label='Email' icon='icon-mail-1' tooltipText='test tooltip'/>
-      </div>
+      <InlineEdit name='test' value='test@example.com' optClass={style['opt-wrapper']} label='Email' icon='icon-mail-1' />
     )
   }
 }

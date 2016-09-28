@@ -17,7 +17,7 @@ class ExampleInlineEditDefault extends React.Component {
     }
   }
 
-  render() {
+  render = () => {
     return (
       <div>
         <InlineEdit name='test' value={this.state.inlineValue} changeCallback={this.handleSave} />

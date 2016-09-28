@@ -100,8 +100,20 @@ class InlineEdit extends React.Component {
     if (nextProps.isEditing) {
       this.showButtons()
     }
-    if (nextProps.loading !== this.state.loading || nextProps.error !== this.state.error) {
-      this.setState({ loading: nextProps.loading, error: nextProps.error })
+
+    let newState = {}
+    if (nextProps.loading !== this.state.loading) {
+      newState.loading = nextProps.loading
+    }
+    if (nextProps.error !== this.state.error) {
+      newState.error = nextProps.error
+    }
+    if (nextProps.error !== '') {
+      this.showButtons()
+    }
+
+    if (Object.keys(newState).length > 0) {
+      this.setState(newState)
     }
   }
 
@@ -124,11 +136,15 @@ class InlineEdit extends React.Component {
   handleSave = () => {
     const inputText = this._textValue.textContent
     const shouldTriggerCallback = inputText !== this.state.value
+    const previousValue = this.state.value
+    const isEditing = this.state.error !== '' ? true : false
 
-    this.setState({ isEditing: false, value: inputText }, () => {
-      this.activateCopyToClipboard()
-      this._textValue.blur()
-      this._textValue.scrollLeft = 0
+    this.setState({ isEditing: isEditing, value: inputText }, () => {
+      if (!isEditing) {
+        this.activateCopyToClipboard()
+        this._textValue.blur()
+        this._textValue.scrollLeft = 0
+      }
 
       if (typeof this.props.changeCallback === 'function' && shouldTriggerCallback) {
         const event = {
@@ -144,7 +160,14 @@ class InlineEdit extends React.Component {
   }
 
   handleCancel = () => {
-    this.setState({ isEditing: false }, () => {
+    let newState = { isEditing: false }
+
+    if (this.state.error !== '' && this.props.value !== this.state.value) {
+      newState.error = ''
+      newState.value = this.props.value
+    }
+
+    this.setState(newState, () => {
       this.activateCopyToClipboard()
       this._textValue.blur()
       this._textValue.scrollLeft = 0
@@ -266,7 +289,7 @@ class InlineEdit extends React.Component {
   render = () => {
     const cx = classNames.bind(style)
     const readonlyClass = this.props.readonly ? 'readonly' : ''
-    const errorClass = this.props.error ? 'error' : ''
+    const errorClass = this.state.error !== '' ? 'error' : ''
     const placeholderClass = this.state.value === '' ? 'placeholder' : ''
     const copyDisabledClass = this.state.value === '' ? 'disabled' : ''
     const copyIconClass = cx(style['copy-icon'], copyDisabledClass)
@@ -279,7 +302,7 @@ class InlineEdit extends React.Component {
           {this.getLabel()}
           <div className={style['inline-text-overflow-wrapper']} style={{ maxWidth: this.state.inlineEditMaxWidth }}>
             {this.getSpan()}
-            {this.state.isEditing
+            {this.state.isEditing && !this.state.loading
               ? <div className={style['inline-button-wrapper']}>
                   <Icon name='icon-check-2-1' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
                   <Icon name='icon-delete-1-1' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
@@ -293,7 +316,7 @@ class InlineEdit extends React.Component {
               : null
             }
             <div className={style['loader-wrapper']}>
-              <Spinner loading={!this.state.isEditing && this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198A0' />
+              <Spinner loading={this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198A0' />
             </div>
           </div>
         </div>

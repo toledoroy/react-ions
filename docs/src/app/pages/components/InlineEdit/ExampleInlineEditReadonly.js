@@ -11,11 +11,9 @@ class ExampleInlineEditReadonly extends React.Component {
     inlineValue: 'You can\'t click to edit me'
   }
 
-  render() {
+  render = () => {
     return (
-      <div>
-        <InlineEdit name='test' value={this.state.inlineValue} placeholder='Custom Placeholder' readonly />
-      </div>
+      <InlineEdit name='test' value={this.state.inlineValue} placeholder='Custom Placeholder' readonly />
     )
   }
 }

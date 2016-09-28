@@ -8,14 +8,14 @@ class ExampleInlineEditError extends React.Component {
   }
 
   state = {
-    inlineValue: 'I have a loader while saving',
+    inlineValue: 'I will have an error after saving',
     loading: false,
     error: ''
   }
 
   handleSave = (event) => {
     if (event.target.name === 'test') {
-      this.setState({ inlineValue: event.target.value, loading: true, error: '' })
+      this.setState({ loading: true, error: '' })
 
       setTimeout(() => {
         this.setState({ loading: false, error: 'This is an error' })
