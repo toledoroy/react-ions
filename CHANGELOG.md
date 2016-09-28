@@ -1,5 +1,22 @@
 ## HEAD
 
+## 0.60.0
+###### _September 28, 2016_
+
+##### Component Fixes / Enhancements
+
+- [BreadCrumb] - add sCU / Immutability
+([#261](https://github.com/GetAmbassador/react-conventions/pull/261))
+- [InlineEdit] - enhancement: error state enhancements
+([#260](https://github.com/GetAmbassador/react-conventions/pull/260))
+- [BreadCrumb] - updated functionality for mobile/responsive breadcrumb
+([#259](https://github.com/GetAmbassador/react-conventions/pull/259))
+- [InlineEdit] - enhancement: tooltip
+([#258](https://github.com/GetAmbassador/react-conventions/pull/258))
+- [InlineEdit] - enhancement: inline layout
+([#257](https://github.com/GetAmbassador/react-conventions/pull/257))
+
+
 ## 0.59.0
 ###### _September 26, 2016_
 
