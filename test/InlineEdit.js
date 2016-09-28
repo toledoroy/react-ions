@@ -26,14 +26,14 @@ describe('InlineEdit', () => {
   })
 
   it('should trigger the callback function', () => {
-    const spy = sinon.spy()
-    const wrapper = mount(<InlineEdit name='test' isEditing={true} changeCallback={spy} value='testValue' />)
+    const changeCallback = sinon.spy()
+    const wrapper = mount(<InlineEdit name='test' isEditing={true} changeCallback={changeCallback} value='testValue' />)
     const trigger = wrapper.find('.inline-button-wrapper').at(0).childAt(0)
 
     wrapper.find('.inline-text-overflow-wrapper').at(0).childAt(0).node.innerHTML = 'test value'
     trigger.simulate('click')
 
-    expect(spy.calledWithExactly({ target: { name: 'test', value: 'test value' }})).to.be.true
+    expect(changeCallback.calledWithExactly({ target: { name: 'test', value: 'test value' }})).to.be.true
   })
 
   it('should not trigger the callback if the edit was canceled', () => {
@@ -98,8 +98,33 @@ describe('InlineEdit', () => {
 
     expect(wrapper.find('.error')).to.have.length(1)
     expect(wrapper.state().error).to.equal('This is an error')
+    expect(wrapper.state().isEditing).to.be.true
     expect(wrapper.find('.error-text')).to.have.length(1)
     expect(wrapper.find('.error-text').at(0).text()).to.equal('This is an error')
+  })
+
+  it('should revert back to the previously saved value if there is an error and the change is canceled', () => {
+    const changeCallback = sinon.spy()
+    const wrapper = mount(<InlineEdit name='test' isEditing={true} changeCallback={changeCallback} value='testValue' />)
+    const saveTrigger = wrapper.find('.inline-button-wrapper').at(0).childAt(0)
+
+    wrapper.find('.inline-text-wrapper').at(0).node.innerHTML = 'test value'
+    saveTrigger.simulate('click')
+
+    expect(wrapper.instance()._previousValue).to.equal('testValue')
+    expect(wrapper.state().value).to.equal('test value')
+
+    wrapper.setProps({ error: 'This is an error', value: 'test value' })
+
+    expect(wrapper.state().error).to.equal('This is an error')
+    expect(wrapper.state().isEditing).to.be.true
+
+    const cancelTrigger = wrapper.find('.inline-button-wrapper').at(0).childAt(1)
+    cancelTrigger.simulate('click')
+
+    expect(wrapper.state().error).to.equal('')
+    expect(wrapper.state().isEditing).to.be.false
+    expect(wrapper.state().value).to.equal('testValue')
   })
 
   it('should have a copy to clipboard icon', (done) => {

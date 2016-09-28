@@ -171,6 +171,7 @@ class InlineEdit extends React.Component {
     }
 
     this.setState(newState, () => {
+      this._previousValue = null
       this.activateCopyToClipboard()
       this._textValue.blur()
       this._textValue.scrollLeft = 0
