@@ -133,6 +133,28 @@ describe('InlineEdit', () => {
     expect(wrapper.state().value).to.equal('testValue')
   })
 
+  it('should trigger the callback function if there was an error and the change was canceled', () => {
+    const changeCallback = sinon.spy()
+    const wrapper = mount(<InlineEdit name='test' isEditing={true} changeCallback={changeCallback} value='testValue' />)
+
+    wrapper.find('.inline-text-wrapper').at(0).node.innerHTML = 'test value'
+
+    let saveTrigger = wrapper.find('.inline-button-wrapper').at(0).childAt(0)
+    saveTrigger.simulate('click')
+
+    expect(changeCallback.calledWithExactly({ target: { name: 'test', value: 'test value' }})).to.be.true
+
+    wrapper.setProps({ error: 'This is an error' })
+
+    expect(wrapper.state().error).to.equal('This is an error')
+    expect(wrapper.state().isEditing).to.be.true
+
+    const cancelTrigger = wrapper.find('.inline-button-wrapper').at(0).childAt(1)
+    cancelTrigger.simulate('click')
+
+    expect(changeCallback.calledWithExactly({ target: { name: 'test', value: 'testValue', canceled: true }})).to.be.true
+  })
+
   it('should have a copy to clipboard icon', (done) => {
     const wrapper = mount(<InlineEdit name='test' value='test value' copyToClipboard />)
 
