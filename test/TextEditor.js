@@ -9,7 +9,7 @@ describe('TextEditor', () => {
     wrapper = shallow(<TextEditor />)
 
     expect(wrapper.hasClass('editor-component')).to.equal(true)
-    expect(wrapper.children()).to.have.length(2)
+    expect(wrapper.children()).to.have.length(3)
     expect(wrapper.state().value).to.equal('')
   })
 

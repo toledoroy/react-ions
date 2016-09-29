@@ -19,7 +19,11 @@ class Toolbar extends React.Component {
     /**
      * Merge tags to display in the toolbar.
      */
-    mergeTags: React.PropTypes.array
+    mergeTags: React.PropTypes.array,
+    /**
+     * A callback to be called when the component mounts.
+     */
+    onMount: React.PropTypes.func
   }
 
   componentDidMount = () => {

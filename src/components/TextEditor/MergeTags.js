@@ -1,5 +1,5 @@
 import React from 'react'
-import Dropdown from 'react-conventions/lib/Dropdown'
+import Dropdown from '../Dropdown'
 import style from './style.scss'
 import '../../styles/global/quill.scss'
 
