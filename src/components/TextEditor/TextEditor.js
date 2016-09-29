@@ -4,6 +4,7 @@ import style from './style.scss'
 import Quill from 'quill'
 import shallowCompare from 'react-addons-shallow-compare'
 import '../../styles/global/quill.scss'
+import AmbassadorTheme from './AmbassadorTheme'
 
 /**
  * The TextEditor component.
@@ -93,7 +94,8 @@ class TextEditor extends React.Component {
       [{ 'align': [] }, 'bold', 'italic', 'strike', 'underline'],
       [{ 'color': [] }, { 'background': [] }],
       [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      ['link', 'image', 'clean']
+      ['link', 'image', 'clean'],
+      ['test']
     ]
 
     // Define editor options
@@ -102,10 +104,11 @@ class TextEditor extends React.Component {
         toolbar: toolbarOptions
       },
       placeholder: this.props.placeholder || '',
-      theme: 'snow'
+      theme: 'ambassador'
     }
 
     // Initialize the editor
+    Quill.register({ 'themes/ambassador': AmbassadorTheme })
     this.textEditor = new Quill(this._editor, options)
 
     // Set the content
