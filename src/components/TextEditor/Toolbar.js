@@ -31,7 +31,8 @@ class Toolbar extends React.Component {
   }
 
   renderMergeTags = () => {
-    return this.props.mergeTags ? <MergeTags {...this.props} /> : null
+    const { onMount, ...other } = this.props
+    return this.props.mergeTags ? <MergeTags {...other} /> : null
   }
 
   render = () => {
