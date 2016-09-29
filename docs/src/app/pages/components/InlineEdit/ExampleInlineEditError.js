@@ -17,9 +17,15 @@ class ExampleInlineEditError extends React.Component {
     if (event.target.name === 'test') {
       this.setState({ loading: true, error: '' })
 
-      setTimeout(() => {
-        this.setState({ loading: false, error: 'This is an error' })
-      }, 3000)
+      if (event.target.canceled) {
+        console.log('reset error')
+        this.setState({ loading: false, error: '' })
+      }
+      else {
+        setTimeout(() => {
+          this.setState({ loading: false, error: 'This is an error' })
+        }, 3000)
+      }
     }
   }
 

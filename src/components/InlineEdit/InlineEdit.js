@@ -161,16 +161,30 @@ class InlineEdit extends React.Component {
 
   handleCancel = () => {
     let newState = { isEditing: false }
+    let shouldTriggerCallback = false
 
     if (this.state.error !== '' && this.props.value !== this.state.value) {
       newState.error = ''
       newState.value = this.props.value
+      shouldTriggerCallback = true
     }
 
     this.setState(newState, () => {
       this.activateCopyToClipboard()
       this._textValue.blur()
       this._textValue.scrollLeft = 0
+
+      if (typeof this.props.changeCallback === 'function' && shouldTriggerCallback) {
+        const event = {
+          target: {
+            name: this.props.name,
+            value: this.state.value,
+            canceled: true
+          }
+        }
+
+        this.props.changeCallback(event)
+      }
     })
   }
 
