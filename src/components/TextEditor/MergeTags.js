@@ -24,7 +24,6 @@ class MergeTags extends React.Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    console.log(nextProps.mergeTags)
     return shallowCompare(this, nextProps, nextState)
   }
 
