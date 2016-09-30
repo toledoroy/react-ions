@@ -3,6 +3,7 @@ import moment from 'moment'
 import SelectField from '../SelectField/SelectField'
 import style from './style.scss'
 import optclass from '../internal/OptClass'
+import DateHelper  from './DateHelper'
 
 /**
  * The DatePicker component.
@@ -11,6 +12,8 @@ class DatePicker extends React.Component {
   constructor(props) {
     super(props)
   }
+
+  _dateHelper = this.props.dateHelper ? this.props.dateHelper : DateHelper
 
   state = {
     year: {
@@ -99,9 +102,9 @@ class DatePicker extends React.Component {
     let mDate = date === undefined ? moment() : moment(date, format)
 
     // selected date values
-    dateObj.year.value = mDate.year()
-    dateObj.month.value = mDate.month()
-    dateObj.day.value = mDate.date()
+    dateObj.year.value = this._dateHelper.getYear(mDate)
+    dateObj.month.value = this._dateHelper.getMonth(mDate)
+    dateObj.day.value = this._dateHelper.getDate(mDate)
 
     dateObj.value = mDate.format(format)
 
@@ -138,7 +141,7 @@ class DatePicker extends React.Component {
     if (momentDate) {
       switch (type) {
         case 'year':
-          value = momentDate.year()
+          value = this._dateHelper.getYear(momentDate)
           break
         case 'month':
           value = momentDate.month()
