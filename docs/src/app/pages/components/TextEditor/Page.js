@@ -11,13 +11,16 @@ import ExampleTextEditorCallback from './ExampleTextEditorCallback'
 import exampleTextEditorCallbackCode from '!raw!./ExampleTextEditorCallback'
 import ExampleTextEditorPopulated from './ExampleTextEditorPopulated'
 import exampleTextEditorPopulatedCode from '!raw!./ExampleTextEditorPopulated'
+import ExampleTextEditorMergeTags from './ExampleTextEditorMergeTags'
+import exampleTextEditorMergeTagsCode from '!raw!./ExampleTextEditorMergeTags'
 
 
 const description = {
   textEditorDefault: 'This is the `text editor component` as it appears by default.',
   textEditorDisabled: 'This is the disabled `text editor component`.',
   textEditorCallback: 'This is the `text editor component` with a callback and a placeholder.',
-  textEditorPopulated: 'This is the `text editor component` with a set value.'
+  textEditorPopulated: 'This is the `text editor component` with a set value.',
+  textEditorMergeTags: 'This is the `text editor component` with merge tags.'
 }
 
 const TextEditorPage = () => (
@@ -47,6 +50,12 @@ const TextEditorPage = () => (
           description={description.textEditorPopulated}
           markup={exampleTextEditorPopulatedCode}>
           <ExampleTextEditorPopulated />
+        </CodeExample>
+        <CodeExample
+          title='Text editor with merge tags'
+          description={description.textEditorMergeTags}
+          markup={exampleTextEditorMergeTagsCode}>
+          <ExampleTextEditorMergeTags />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
