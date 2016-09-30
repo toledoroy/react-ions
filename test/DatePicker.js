@@ -2,6 +2,8 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import DatePicker from '../src/components/DatePicker/DatePicker'
 import moment from 'moment'
+const rewire = require('rewire')
+const DateHelper = rewire('../src/components/DatePicker/DateHelper')
 
 describe('DatePicker', () => {
   const oldDate = '2017-07-02'
@@ -16,10 +18,13 @@ describe('DatePicker', () => {
   })
 
   it('should have current date by default', () => {
-    wrapper = shallow(<DatePicker />)
+    DateHelper.__set__('_getDate', function() { return '20' })
+    DateHelper.__set__('_getMonth', function() { return '10' })
+    DateHelper.__set__('_getYear', function() { return '2012' })
+    wrapper = shallow(<DatePicker dateHelper={DateHelper} />)
     expect(wrapper.find('.datepicker-component')).to.have.length(1)
     expect(wrapper.children()).to.have.length(3)
-    expect(wrapper.state('value')).to.equal(moment().format(defaultFormat))
+    expect(wrapper.state('value')).to.equal('2012-11-20')
   })
 
   it('should have an extra class', () => {
