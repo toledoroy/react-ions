@@ -1,6 +1,9 @@
 var path = require('path');
 
 module.exports = function(config) {
+
+  var rewirePlugin = require('rewire-webpack')
+
   config.set({
     basePath: '../',
     frameworks: ['mocha', 'chai', 'sinon'],
@@ -85,7 +88,10 @@ module.exports = function(config) {
         'react/lib/ExecutionEnvironment': true,
         'react/lib/ReactContext': true,
         'react/addons': true
-      }
+      },
+      plugins: [
+        new rewirePlugin()
+      ]
     },
 
     webpackServer: {
