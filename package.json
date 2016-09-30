@@ -111,6 +111,7 @@
     "react-svg-inline": "^1.1.0",
     "react-transform-hmr": "^1.0.0",
     "rewire": "^2.5.2",
+    "rewire-webpack": "^1.0.1",
     "rimraf": "^2.4.3",
     "sass-loader": "^3.2.0",
     "sinon": "^1.17.4",
