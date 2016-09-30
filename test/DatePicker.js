@@ -2,8 +2,8 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import DatePicker from '../src/components/DatePicker/DatePicker'
 import moment from 'moment'
-var rewire = require('rewire')
-var DateHelper = rewire('../src/components/DatePicker/DateHelper')
+const rewire = require('rewire')
+const DateHelper = rewire('../src/components/DatePicker/DateHelper')
 
 describe('DatePicker', () => {
   const oldDate = '2017-07-02'
