@@ -1,4 +1,5 @@
 import React from 'react'
+import shallowCompare from 'react-addons-shallow-compare'
 import Dropdown from '../Dropdown'
 import style from './style.scss'
 import '../../styles/global/quill.scss'
@@ -20,6 +21,11 @@ class MergeTags extends React.Component {
      * Merge tags to display.
      */
     mergeTags: React.PropTypes.array.isRequired
+  }
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+    console.log(nextProps.mergeTags)
+    return shallowCompare(this, nextProps, nextState)
   }
 
   insertTag = (tag) => {

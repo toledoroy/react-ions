@@ -1,4 +1,5 @@
 import React from 'react'
+import shallowCompare from 'react-addons-shallow-compare'
 import MergeTags from './MergeTags'
 import style from './style.scss'
 import '../../styles/global/quill.scss'
@@ -24,6 +25,10 @@ class Toolbar extends React.Component {
      * A callback to be called when the component mounts.
      */
     onMount: React.PropTypes.func
+  }
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+    return shallowCompare(this, nextProps, nextState)
   }
 
   componentDidMount = () => {

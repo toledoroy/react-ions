@@ -8,7 +8,7 @@ describe('TextEditor', () => {
   it('should shallow render itself', () => {
     wrapper = shallow(<TextEditor />)
 
-    expect(wrapper.hasClass('editor-component')).to.equal(true)
+    expect(wrapper.hasClass('editor-component')).to.be.true
     expect(wrapper.children()).to.have.length(3)
     expect(wrapper.state().value).to.equal('')
   })
@@ -44,14 +44,15 @@ describe('TextEditor', () => {
   })
 
   it('should set value on load', () => {
-    wrapper = shallow(<TextEditor value='<p>Test!</p>' />)
+    wrapper = mount(<TextEditor value='<p>Test!</p>' />)
 
     expect(wrapper.state().value).to.equal('<p>Test!</p>')
   })
 
   it('should be disabled on load', () => {
-    wrapper = shallow(<TextEditor disabled />)
+    wrapper = mount(<TextEditor disabled />)
 
-    expect(wrapper.hasClass('editor-disabled')).to.equal(true)
+    expect(wrapper.find('.editor-disabled')).to.have.length(1)
+    expect(wrapper.find('.overlay')).to.have.length(1)
   })
 })

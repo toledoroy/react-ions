@@ -60,4 +60,21 @@ describe('MergeTags', () => {
     expect(textEditor.insertText.calledWithExactly(5, '{tag_1}')).to.be.true
     expect(textEditor.setSelection.calledWithExactly(12)).to.be.true
   })
+
+  it('should update when props change', () => {
+    wrapper = shallow(<MergeTags textEditor={textEditor} mergeTags={mergeTags} />)
+    let shouldUpdate
+
+    shouldUpdate = wrapper.instance().shouldComponentUpdate({ textEditor, mergeTags }, null)
+
+    expect(shouldUpdate).to.be.false
+
+    const newMergeTags = [
+      { name: 'Tag 1', tag: '{tag_1}' },
+      { name: 'Tag 2', tag: '{tag_2}' }
+    ]
+    shouldUpdate = wrapper.instance().shouldComponentUpdate({ textEditor, mergeTags: newMergeTags }, null)
+
+    expect(shouldUpdate).to.be.true
+  })
 })
