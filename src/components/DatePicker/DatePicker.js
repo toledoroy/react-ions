@@ -141,7 +141,7 @@ class DatePicker extends React.Component {
     if (momentDate) {
       switch (type) {
         case 'year':
-          value = this._dateHelper.getYear(momentDate)
+          value = momentDate.year()
           break
         case 'month':
           value = momentDate.month()
