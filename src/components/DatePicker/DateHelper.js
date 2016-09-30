@@ -1,7 +1,7 @@
 import moment from 'moment'
 
 let _getDate = (momentDate) => {
-  return momentDate ? momentDate.date() : moment().date()
+  return momentDate ? momentDate.date() : moment().utc().date()
 }
 
 export const getDate = (momentDate) => {
@@ -9,7 +9,7 @@ export const getDate = (momentDate) => {
 }
 
 let _getMonth = (momentDate) => {
-  return momentDate ? momentDate.month() : moment().month()
+  return momentDate ? momentDate.month() : moment().utc().month()
 }
 
 export const getMonth = (momentDate) => {
@@ -17,7 +17,7 @@ export const getMonth = (momentDate) => {
 }
 
 let _getYear = (momentDate) => {
-  return momentDate ? momentDate.year() : moment().year()
+  return momentDate ? momentDate.year() : moment().utc().year()
 }
 
 export const getYear = (momentDate) => {
