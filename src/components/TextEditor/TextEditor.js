@@ -79,6 +79,7 @@ class TextEditor extends React.Component {
       }
     }
 
+    // Set state before triggering the callback
     this.setState({ value: value }, () => {
       if (this.props.changeCallback) {
         this.props.changeCallback(event)
@@ -118,8 +119,10 @@ class TextEditor extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
+    // Enable/disable the editor
     this.state.textEditor.enable(!nextProps.disabled)
 
+    // If the value changed set the editor content and state
     if (nextProps.value !== this.state.value) {
       this.setContent(nextProps.value)
       this.setState({ value: nextProps.value })
