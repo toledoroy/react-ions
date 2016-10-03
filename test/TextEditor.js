@@ -13,18 +13,20 @@ describe('TextEditor', () => {
     expect(wrapper.state().value).to.equal('')
   })
 
-  it('should update state when props change', () => {
+  it('should call the enable method on the editor when the disabled prop changes', () => {
     wrapper = mount(<TextEditor />)
 
-    expect(wrapper.state().value).to.equal('')
+    const editorEnableSpy = sinon.spy(wrapper.state().textEditor, 'enable')
 
-    wrapper.setProps({ value: '<p>Test</p>' })
+    wrapper.setProps({ disabled: true })
 
-    expect(wrapper.state().value).to.equal('<p>Test</p>')
+    expect(editorEnableSpy.calledWith(false)).to.be.true
 
-    wrapper.setProps({ value: '<p>Testing!</p>', disabled: false })
+    wrapper.setProps({ disabled: false })
 
-    expect(wrapper.state().value).to.equal('<p>Testing!</p>')
+    expect(editorEnableSpy.calledWith(true)).to.be.true
+
+    editorEnableSpy.restore()
   })
 
   it('should trigger the callback when the value changes', () => {
