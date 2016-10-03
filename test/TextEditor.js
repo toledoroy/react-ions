@@ -13,6 +13,16 @@ describe('TextEditor', () => {
     expect(wrapper.state().value).to.equal('')
   })
 
+  it('should update state when props change', () => {
+    wrapper = mount(<TextEditor />)
+
+    expect(wrapper.state().value).to.equal('')
+
+    wrapper.setProps({ value: '<p>Test</p>' })
+
+    expect(wrapper.state().value).to.equal('<p>Test</p>')
+  })
+
   it('should call the enable method on the editor when the disabled prop changes', () => {
     wrapper = mount(<TextEditor />)
 
