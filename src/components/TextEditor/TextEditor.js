@@ -65,9 +65,7 @@ class TextEditor extends React.Component {
     this.state.textEditor.on('text-change', (delta, oldDelta, source) => {
       const value = this.getHTML()
 
-      if (value !== this.state.value) {
-        this.handleChange(value)
-      }
+      this.handleChange(value)
     })
   }
 
