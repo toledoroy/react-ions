@@ -39,11 +39,11 @@ describe('TextEditor', () => {
     editorEnableSpy.restore()
   })
 
-  it('should trigger the callback when the value changes', () => {
+  it('should trigger the callback when the value changes', (done) => {
     const changeCallback = sinon.spy()
-    wrapper = shallow(<TextEditor changeCallback={changeCallback} name='textEditor' />)
+    wrapper = mount(<TextEditor changeCallback={changeCallback} name='textEditor' />)
 
-    wrapper.instance().handleChange('<p>Test!</p>')
+    wrapper.instance().setContent('<p>Test!</p>')
 
     const event = {
       target: {
@@ -52,7 +52,10 @@ describe('TextEditor', () => {
       }
     }
 
-    expect(changeCallback.calledWithExactly(event)).to.be.true
+    setTimeout(() => {
+      expect(changeCallback.calledWithExactly(event)).to.be.true
+      done()
+    })
   })
 
   it('should set value on load', () => {
