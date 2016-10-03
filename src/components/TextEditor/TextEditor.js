@@ -117,11 +117,6 @@ class TextEditor extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     this.state.textEditor.enable(!nextProps.disabled)
-
-    if (nextProps.value !== this.state.value) {
-      this.setContent(nextProps.value)
-      this.setState({ value: nextProps.value })
-    }
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
