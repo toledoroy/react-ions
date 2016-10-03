@@ -65,7 +65,9 @@ class TextEditor extends React.Component {
     this.state.textEditor.on('text-change', (delta, oldDelta, source) => {
       const value = this.getHTML()
 
-      this.handleChange(value)
+      if (value !== this.state.value) {
+        this.handleChange(value)
+      }
     })
   }
 
@@ -77,9 +79,12 @@ class TextEditor extends React.Component {
       }
     }
 
-    if (this.props.changeCallback) {
-      this.props.changeCallback(event)
-    }
+    // Set state before triggering the callback
+    this.setState({ value: value }, () => {
+      if (this.props.changeCallback) {
+        this.props.changeCallback(event)
+      }
+    })
   }
 
   setContent = (value) => {
@@ -114,7 +119,14 @@ class TextEditor extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
+    // Enable/disable the editor
     this.state.textEditor.enable(!nextProps.disabled)
+
+    // If the value changed set the editor content and state
+    if (nextProps.value !== this.state.value) {
+      this.setContent(nextProps.value)
+      this.setState({ value: nextProps.value })
+    }
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
