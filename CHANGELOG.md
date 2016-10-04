@@ -1,5 +1,19 @@
 ## HEAD
 
+## 0.61.0
+###### _October 4, 2016_
+
+##### Component Fixes / Enhancements
+
+- [TextEditor] - Set TextEditor state before triggering the callback
+([#270](https://github.com/GetAmbassador/react-conventions/pull/270))
+- [TextEditor] - Fix global css import in TextEditor styles
+([#268](https://github.com/GetAmbassador/react-conventions/pull/268))
+- [TextEditor] - Add merge tags plugin to rich text component
+([#266](https://github.com/GetAmbassador/react-conventions/pull/266))
+- [InlineEdit] - Add a cancel callback to InlineEdit
+([#265](https://github.com/GetAmbassador/react-conventions/pull/265))
+
 ## 0.60.0
 ###### _September 28, 2016_
 
