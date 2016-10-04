@@ -1,5 +1,13 @@
 ## HEAD
 
+## 0.62.0
+###### _October 4, 2016_
+
+##### Component Fixes / Enhancements
+
+- [TextEditor] - Use style attribute for align and font formats
+([#272](https://github.com/GetAmbassador/react-conventions/pull/272))
+
 ## 0.61.0
 ###### _October 4, 2016_
 
