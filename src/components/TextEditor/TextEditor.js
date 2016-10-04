@@ -101,6 +101,12 @@ class TextEditor extends React.Component {
       theme: 'snow'
     }
 
+    // Use style attribute for align and font tools
+    const AlignAttribute = Quill.import('attributors/style/align')
+    const FontAttribute = Quill.import('attributors/style/font')
+    Quill.register(AlignAttribute, true)
+    Quill.register(FontAttribute, true)
+
     // Initialize the editor
     this.setState({ textEditor: new Quill(this._editor, options) }, () => {
       // Set the content

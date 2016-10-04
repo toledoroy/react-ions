@@ -70,4 +70,25 @@ describe('TextEditor', () => {
     expect(wrapper.find('.editor-disabled')).to.have.length(1)
     expect(wrapper.find('.overlay')).to.have.length(1)
   })
+
+  it('should use style attribute for align tool', () => {
+    wrapper = mount(<TextEditor value='<p>Test!</p>' />)
+
+    expect(wrapper.instance().getHTML()).to.equal('<p>Test!</p>')
+
+    const editor = wrapper.state().textEditor
+    editor.formatLine(1, 2, 'align', 'right')
+
+    expect(wrapper.instance().getHTML()).to.equal('<p style="text-align: right;">Test!</p>')
+  })
+
+  it('should use style attribute for font family tool', () => {
+    wrapper = mount(<TextEditor value='<p>Test!</p>' />)
+
+    expect(wrapper.instance().getHTML()).to.equal('<p>Test!</p>')
+
+    const editor = wrapper.state().textEditor
+    editor.formatText(0, 5, 'font', 'serif')
+    expect(wrapper.instance().getHTML()).to.equal('<p><span style="font-family: serif;">Test!</span></p>')
+  })
 })
