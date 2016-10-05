@@ -33,12 +33,13 @@ class DatePicker extends React.Component {
       value: 0,
       max: 0,
       options: []
-    }
+    },
+    value: ''
   }
 
   static defaultProps = {
-    min: { month: '-0', day: '-0', year: '-10'},
-    max: { month: '+0', day: '+0', year: '+10'},
+    min: { month: '-0', day: '-0', year: '-10' },
+    max: { month: '+0', day: '+0', year: '+10' },
     format: 'YYYY-MM-DD'
   }
 
@@ -99,7 +100,7 @@ class DatePicker extends React.Component {
       value: ''
     }
 
-    let mDate = date === undefined ? moment() : moment(date, format)
+    let mDate = date === undefined ? moment().utc() : moment(date, format)
 
     // selected date values
     dateObj.year.value = this._dateHelper.getYear(mDate)
@@ -124,16 +125,23 @@ class DatePicker extends React.Component {
     this.setState(dateObj)
   }
 
+  /**
+   *
+   * @param {Object} minOrMax Example: { month: '-0', day: '-0', year: '-10' } | { month: 'current', day: 'current', year: 'current' }
+   * @param {String} type String. Options: ['year', 'month', 'day']
+   * @returns {Number} Calculated min or max value for given type
+   * @private
+   */
   _getMinOrMax = (minOrMax, type) => {
     let momentDate
     let value
 
     if (minOrMax[type] === 'current') {
-      momentDate = moment()
+      momentDate = moment().utc()
     } else if (minOrMax[type].indexOf('+') !== -1) {
-      momentDate = moment().add(Math.abs(minOrMax[type]), type)
+      momentDate = moment().utc().add(Math.abs(minOrMax[type]), type)
     } else if (minOrMax[type].indexOf('-') !== -1) {
-      momentDate = moment().subtract(Math.abs(minOrMax[type]), type)
+      momentDate = moment().utc().subtract(Math.abs(minOrMax[type]), type)
     } else {
       value = minOrMax[type]
     }
@@ -141,13 +149,13 @@ class DatePicker extends React.Component {
     if (momentDate) {
       switch (type) {
         case 'year':
-          value = momentDate.year()
+          value = this._dateHelper.getYear(momentDate)
           break
         case 'month':
-          value = momentDate.month()
+          value = this._dateHelper.getMonth(momentDate)
           break
         case 'day':
-          value = momentDate.date()
+          value = this._dateHelper.getDate(momentDate)
           break
       }
     }
@@ -155,6 +163,13 @@ class DatePicker extends React.Component {
     return parseInt(value)
   }
 
+  /**
+   *
+   * @param {Integer} min First year
+   * @param {Integer} max Last year
+   * @returns {Array} Array of objects, ex. [{ value: '2010' }, (...), { value: '2020' }]
+   * @private
+   */
   _getYears = (min, max) => {
     let yearOptions = []
 
@@ -165,6 +180,12 @@ class DatePicker extends React.Component {
     return yearOptions
   }
 
+  /**
+   *
+   * @param {Object} dateObj State object
+   * @returns {Array} Array of objects, ex. [{ value: '0', display: 'Jan' }, (...), { value: '11', display: 'Dec' }]
+   * @private
+   */
   _getMonths = (dateObj) => {
     let monthOptions = []
     const checkMin = dateObj.year.value === dateObj.year.min
@@ -190,6 +211,12 @@ class DatePicker extends React.Component {
     return monthOptions
   }
 
+  /**
+   *
+   * @param {Object} dateObj State object
+   * @returns {Array} Array of objects, ex. [{ value: '1' }, (...), { value: '31' }]
+   * @private
+   */
   _getDays = (dateObj) => {
     let dayOptions = []
 
@@ -219,19 +246,25 @@ class DatePicker extends React.Component {
         dateObj.day.value = dateObj.day.min
     }
 
-    dateObj.value = this._getValue(dateObj)
-
+    dateObj.value = this._getValue(dateObj, this.props.format)
     return dayOptions
   }
 
-  _getValue = (state) => {
-    return moment().year(state.year.value).month(state.month.value).date(state.day.value).format(this.props.format)
+  /**
+   *
+   * @param {Object} state State object
+   * @param {String} format String with a valid moment.js format, ex. 'YYYY-MM-DD'
+   * @returns {String} Date string according to passed format, ex. '2016-09-04'
+   * @private
+   */
+  _getValue = (state, format) => {
+    return moment().utc().year(state.year.value).month(state.month.value).date(state.day.value).format(format)
   }
 
   handleChangeYear = (event) => {
     let state = this.state
     state.year.value = parseInt(event.target.value)
-    state.value = this._getValue(state)
+    state.value = this._getValue(state, this.props.format)
 
     state.month.options = this._getMonths(state)
     state.day.options = this._getDays(state)
@@ -248,7 +281,7 @@ class DatePicker extends React.Component {
   handleChangeMonth = (event) => {
     let state = this.state
     state.month.value = parseInt(event.target.value)
-    state.value = this._getValue(state)
+    state.value = this._getValue(state, this.props.format)
     state.day.options = this._getDays(state)
     this.setState({
       month: state.month,
@@ -262,7 +295,7 @@ class DatePicker extends React.Component {
   handleChangeDay = (event) => {
     let state = this.state
     state.day.value = parseInt(event.target.value)
-    state.value = this._getValue(state)
+    state.value = this._getValue(state, this.props.format)
     this.setState({
       day: state.day,
       value: state.value
