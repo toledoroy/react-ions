@@ -100,7 +100,7 @@ class DatePicker extends React.Component {
       value: ''
     }
 
-    let mDate = date === undefined ? moment().utc() : moment(date, format)
+    let mDate = date === undefined ? moment.utc() : moment.utc(date, format)
 
     // selected date values
     dateObj.year.value = this._dateHelper.getYear(mDate)
@@ -137,11 +137,11 @@ class DatePicker extends React.Component {
     let value
 
     if (minOrMax[type] === 'current') {
-      momentDate = moment().utc()
+      momentDate = moment.utc()
     } else if (minOrMax[type].indexOf('+') !== -1) {
-      momentDate = moment().utc().add(Math.abs(minOrMax[type]), type)
+      momentDate = moment.utc().add(Math.abs(minOrMax[type]), type)
     } else if (minOrMax[type].indexOf('-') !== -1) {
-      momentDate = moment().utc().subtract(Math.abs(minOrMax[type]), type)
+      momentDate = moment.utc().subtract(Math.abs(minOrMax[type]), type)
     } else {
       value = minOrMax[type]
     }
@@ -195,7 +195,7 @@ class DatePicker extends React.Component {
     let end = checkMax ? dateObj.month.max+1 : 12
 
     for (var i=start; i<end; i++) {
-      monthOptions.push({value: i.toString(), display: moment(i+1, 'MM').format('MMM')})
+      monthOptions.push({value: i.toString(), display: moment.utc(i+1, 'MM').format('MMM')})
     }
 
     // if selected month is greater than max month, change it to max month
@@ -222,7 +222,7 @@ class DatePicker extends React.Component {
 
     const checkMin = dateObj.year.value === dateObj.year.min && dateObj.month.value === dateObj.month.min
     const checkMax = dateObj.year.value === dateObj.year.max && dateObj.month.value === dateObj.month.max
-    const daysInMonth = moment(dateObj.year.value+'-'+(dateObj.month.value+1), 'YYYY-M').daysInMonth()
+    const daysInMonth = moment.utc(dateObj.year.value+'-'+(dateObj.month.value+1), 'YYYY-M').daysInMonth()
 
     let start = checkMin ? dateObj.day.min : 1
     let end = checkMax ? dateObj.day.max : daysInMonth
@@ -258,7 +258,7 @@ class DatePicker extends React.Component {
    * @private
    */
   _getValue = (state, format) => {
-    return moment().utc().year(state.year.value).month(state.month.value).date(state.day.value).format(format)
+    return moment.utc().year(state.year.value).month(state.month.value).date(state.day.value).format(format)
   }
 
   handleChangeYear = (event) => {

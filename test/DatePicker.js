@@ -91,13 +91,13 @@ describe('DatePicker', () => {
     wrapper.childAt(2).childAt(2).childAt(0).simulate('click')
 
     let firstDate = ''
-    const daySelected = moment(oldDate, defaultFormat).date()
-    const dayToday = moment().utc().date()
+    const daySelected = moment.utc(oldDate, defaultFormat).date()
+    const dayToday = moment.utc().date()
 
     if (daySelected <= dayToday) {
-      firstDate = moment().utc().subtract(10, 'year').format(defaultFormat)
+      firstDate = moment.utc().subtract(10, 'year').format(defaultFormat)
     } else {
-      firstDate = moment().utc().date(daySelected).subtract(10, 'year').format(defaultFormat)
+      firstDate = moment.utc().date(daySelected).subtract(10, 'year').format(defaultFormat)
     }
 
     expect(result.target.value).to.equal(firstDate)
@@ -124,7 +124,7 @@ describe('DatePicker', () => {
     }
     const maxCalc = { month: '5', day: '20', year: '+1'}
     const minCurrent = { month: 'current', day: 'current', year: 'current'}
-    const date = moment().utc().month(11).date(31).format(defaultFormat)
+    const date = moment.utc().month(11).date(31).format(defaultFormat)
 
     wrapper = mount(<DatePicker value={date} min={minCurrent} max={maxCalc} changeCallback={callback} />)
 
@@ -133,7 +133,7 @@ describe('DatePicker', () => {
     // click <li>
     wrapper.childAt(2).childAt(2).childAt(1).simulate('click')
 
-    const firstYear = moment().utc().add(1, 'year').format('YYYY')+'-06-20'
+    const firstYear = moment.utc().add(1, 'year').format('YYYY')+'-06-20'
     expect(result.target.value).to.equal(firstYear)
     expect(wrapper.state('value')).to.equal(firstYear)
   })
@@ -145,7 +145,7 @@ describe('DatePicker', () => {
     }
     const minCalc = { month: '5', day: '20', year: '-1'}
     const maxCurrent = { month: 'current', day: 'current', year: 'current'}
-    const date = moment().utc().month(0).date(1).format(defaultFormat)
+    const date = moment.utc().month(0).date(1).format(defaultFormat)
 
     wrapper = mount(<DatePicker value={date} min={minCalc} max={maxCurrent} changeCallback={callback} />)
 
@@ -154,7 +154,7 @@ describe('DatePicker', () => {
     // click <li>
     wrapper.childAt(2).childAt(2).childAt(0).simulate('click')
 
-    const firstYear = moment().utc().subtract(1, 'year').format('YYYY')+'-06-20'
+    const firstYear = moment.utc().subtract(1, 'year').format('YYYY')+'-06-20'
     expect(result.target.value).to.equal(firstYear)
     expect(wrapper.state('value')).to.equal(firstYear)
   })
@@ -166,7 +166,7 @@ describe('DatePicker', () => {
     }
 
     const format = 'DD-MM-YYYY'
-    const date = moment().utc().format(format)
+    const date = moment.utc().format(format)
     const minCurrent = { month: 'current', day: 'current', year: 'current'}
 
     wrapper = mount(<DatePicker value={date} min={minCurrent} format={format} changeCallback={callback} />)
@@ -177,7 +177,7 @@ describe('DatePicker', () => {
     // click <li>
     wrapper.childAt(2).childAt(2).childAt(1).simulate('click')
 
-    const newDate = moment().utc().add(1, 'year').format(format)
+    const newDate = moment.utc().add(1, 'year').format(format)
     expect(result.target.value).to.equal(newDate)
     expect(wrapper.state('value')).to.equal(newDate)
   })
