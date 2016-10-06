@@ -90,7 +90,7 @@ class InlineEdit extends React.Component {
 
   state = {
     isEditing: this.props.isEditing,
-    value: this.props.value,
+    value: this.props.value || '',
     loading: this.props.loading,
     error: this.props.error,
     copied: false
@@ -197,7 +197,6 @@ class InlineEdit extends React.Component {
   }
 
   getSpan = () => {
-
     if (this.state.isEditing) {
       return <span id='span_id' contentEditable className={style['inline-text-wrapper']} dangerouslySetInnerHTML={{__html: this.state.value}} ref={(c) => this._textValue = c} />
     }
