@@ -1,5 +1,15 @@
 ## HEAD
 
+## 0.63.0
+###### _October 6, 2016_
+
+##### Component Fixes / Enhancements
+
+- [InlineEdit] - Various bug fixes ([#276](https://github.com/GetAmbassador/react-conventions/pull/276))
+- [InlineEdit] - Improve read only experience ([#275](https://github.com/GetAmbassador/react-conventions/pull/275))
+- [Datepicker] - Improve tests
+([#274](https://github.com/GetAmbassador/react-conventions/pull/274))
+
 ## 0.62.0
 ###### _October 4, 2016_
 
