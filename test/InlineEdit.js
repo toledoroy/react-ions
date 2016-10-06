@@ -7,7 +7,6 @@ describe('InlineEdit', () => {
   it('should render a span and buttons', () => {
     const wrapper = shallow(<InlineEdit name='test' value='test value' isEditing={true} />)
     expect(wrapper.hasClass('readonly')).to.be.false
-    expect(wrapper.find('.readonly-icon')).to.have.length(0)
     expect(wrapper.find('.inline-text-wrapper')).to.have.length(1)
     expect(wrapper.find('.inline-text-wrapper-hover')).to.have.length(0)
     expect(wrapper.find(Icon)).to.have.length(2)
@@ -72,7 +71,6 @@ describe('InlineEdit', () => {
     const editTrigger = wrapper.childAt(0)
 
     expect(wrapper.find('.readonly')).to.have.length(1)
-    expect(wrapper.find('.readonly-icon')).to.have.length(1)
 
     editTrigger.simulate('click')
 
