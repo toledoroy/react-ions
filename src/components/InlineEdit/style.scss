@@ -59,11 +59,7 @@
   }
 
   &.readonly .inline-text-wrapper-hover:hover {
-    cursor: default;
-
-    .readonly-icon {
-      opacity: 1;
-    }
+    cursor: not-allowed;
   }
 
   &.error .inline-text-wrapper-hover {
@@ -86,22 +82,6 @@
     right: 0;
     top: 0;
     z-index: 1;
-  }
-
-  .readonly-icon {
-    border-radius: 50%;
-    width: 22px;
-    height: 22px;
-    background-color: $white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: all 0.35s ease 0.1s;
   }
 
   .copy-icon {
