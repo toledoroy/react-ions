@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import enhanceWithClickOutside from 'react-click-outside'
+import Button from '../Button/Button'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 import Immutable from 'immutable'
@@ -43,7 +44,8 @@ class Dropdown extends React.Component {
 
   state = {
     isOpened: this.props.isOpened,
-    listItems: this.props.listItems ? Immutable.fromJS(this.props.listItems) : Immutable.fromJS([])
+    listItems: this.props.listItems ? Immutable.fromJS(this.props.listItems) : Immutable.fromJS([]),
+    clickedItem: null
   }
 
   componentWillMount = () => {
@@ -74,7 +76,7 @@ class Dropdown extends React.Component {
   handleClickOutside = () => {
     if (!this.state.isOpened) return
 
-    this.setState({isOpened: false}, () => {
+    this.setState({isOpened: false, confirmationOverlayOpen: false, clickedItem: null}, () => {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback(this.state.isOpened)
       }
@@ -82,10 +84,28 @@ class Dropdown extends React.Component {
   }
 
   listItemCallback = (item) => {
-    this.setState({isOpened: false})
+    this.setState({isOpened: false, confirmationOverlayOpen: false, clickedItem: null})
 
     if (typeof item.callback === 'function') {
       item.callback(item.name)
+    }
+  }
+
+  handleConfirmation = (confirm) => {
+    if (confirm) {
+      this.listItemCallback(this.state.clickedItem)
+    }
+    else {
+      this.setState({ confirmationOverlayOpen: false, clickedItem: null })
+    }
+  }
+
+  handleItemClick = (item) => {
+    if (item.callbackConfirmation) {
+      this.setState({ confirmationOverlayOpen: true, clickedItem: item })
+    }
+    else {
+      this.listItemCallback(item)
     }
   }
 
@@ -98,20 +118,31 @@ class Dropdown extends React.Component {
     const listItems = this.state.listItems.toJS()
     const listItemNodes = listItems instanceof Array
       ? listItems.map((item, index) =>
-          <li key={index} onClick={this.listItemCallback.bind(this, item)}>{item.name}</li>
+          <li key={index} onClick={this.handleItemClick.bind(this, item)}>{item.name}</li>
         )
       : []
 
     return (
       <div className={dropdownClasses}>
-        <span
-          className={style.trigger} onClick={this.toggleDropdown}>{this.props.trigger}</span>
+        <span className={style.trigger} onClick={this.toggleDropdown}>{this.props.trigger}</span>
         <div className={dropdownWrapperClasses}>
-          {listItemNodes.length > 0
+          {
+            listItemNodes.length > 0 && !this.state.confirmationOverlayOpen
             ? <ul className={style['list-wrapper']}>
                 {listItemNodes}
               </ul>
             : this.props.children
+          }
+          {
+            this.state.confirmationOverlayOpen
+            ? <div className={style.overlay}>
+                <span>Are you sure?</span>
+                <div className={style['button-wrapper']}>
+                  <Button onClick={this.handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>
+                  <Button onClick={this.handleConfirmation.bind(this, true)}>Yes</Button>
+                </div>
+              </div>
+            : null
           }
         </div>
       </div>

@@ -8,12 +8,15 @@ import ExampleDropdownCallback from './ExampleDropdownCallback'
 import exampleDropdownCallbackCode from '!raw!./ExampleDropdownCallback'
 import ExampleDropdownList from './ExampleDropdownList'
 import exampleDropdownListCode from '!raw!./ExampleDropdownList'
+import ExampleDropdownConfirmation from './ExampleDropdownConfirmation'
+import exampleDropdownConfirmationCode from '!raw!./ExampleDropdownConfirmation'
 import styles from 'private/css/content'
 
 const description = {
   dropdownButtonDefault: 'This is the **dropdown component** with a `<Button />` trigger.',
   dropdownButtonCallback: 'This is the **dropdown component** with a callback function to open.',
-  dropdownList: 'This is the **dropdown component** that displays a list.'
+  dropdownList: 'This is the **dropdown component** that displays a list.',
+  dropdownConfirmation: 'This is the **dropdown component** that displays a list with a confirmation overlay when clicked.'
 };
 
 const DropdownPage = () => (
@@ -27,16 +30,22 @@ const DropdownPage = () => (
           <ExampleDropdownButton />
         </CodeExample>
         <CodeExample
-          title='Dropdown with Callback for Open/Close'
+          title='Dropdown with callback for open/close'
           description={description.dropdownButtonCallback}
           markup={exampleDropdownCallbackCode}>
           <ExampleDropdownCallback />
         </CodeExample>
         <CodeExample
-          title='Dropdown with List'
+          title='Dropdown with list'
           description={description.dropdownList}
           markup={exampleDropdownListCode} >
           <ExampleDropdownList />
+        </CodeExample>
+        <CodeExample
+          title='Dropdown with confirmation'
+          description={description.dropdownConfirmation}
+          markup={exampleDropdownConfirmationCode} >
+          <ExampleDropdownConfirmation />
         </CodeExample>
       </div>
       <div className={styles.block}>
