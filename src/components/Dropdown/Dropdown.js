@@ -6,7 +6,7 @@ import style from './style.scss'
 import classNames from 'classnames/bind'
 import Immutable from 'immutable'
 
-class Dropdown extends React.Component {
+export class Dropdown extends React.Component {
   constructor(props) {
     super(props)
   }

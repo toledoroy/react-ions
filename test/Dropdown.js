@@ -1,14 +1,14 @@
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
 import { shallow, mount } from 'enzyme'
-import Dropdown from '../src/components/Dropdown'
+import WrappedDropdown, { Dropdown } from '../src/components/Dropdown'
 import Immutable from 'immutable'
 
 describe('Dropdown', () => {
   let wrapper, trigger
 
   it('should display a dropdown', () => {
-    wrapper = shallow(<Dropdown trigger='Test'>This is a test.</Dropdown>)
+    wrapper = shallow(<WrappedDropdown trigger='Test'>This is a test.</WrappedDropdown>)
 
     expect(wrapper.props().trigger).to.equal('Test')
     expect(wrapper.props().isOpened).to.be.false
@@ -19,7 +19,7 @@ describe('Dropdown', () => {
   })
 
   it('should open when clicked', () => {
-    wrapper = mount(<Dropdown trigger='Test'>This is a test.</Dropdown>)
+    wrapper = mount(<WrappedDropdown trigger='Test'>This is a test.</WrappedDropdown>)
     trigger = wrapper.childAt(0)
     expect(trigger.hasClass('trigger')).to.equal(true)
     expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true)
@@ -29,13 +29,13 @@ describe('Dropdown', () => {
   })
 
   it('should be opened by default', () => {
-    wrapper = mount(<Dropdown isOpened={true} trigger='Test'>This is a test.</Dropdown>)
+    wrapper = mount(<WrappedDropdown isOpened={true} trigger='Test'>This is a test.</WrappedDropdown>)
     expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true)
     expect(wrapper.find('.dropdown-component').hasClass('is-opened')).to.equal(true)
    })
 
   it('should take an optional CSS class', () => {
-    wrapper = mount(<Dropdown optClass='test' trigger='Test'>This is a test.</Dropdown>)
+    wrapper = mount(<WrappedDropdown optClass='test' trigger='Test'>This is a test.</WrappedDropdown>)
     expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true)
     expect(wrapper.find('.dropdown-component').hasClass('test')).to.equal(true)
   })
@@ -46,7 +46,7 @@ describe('Dropdown', () => {
         return {isOpened: false}
       },
       render() {
-        return <Dropdown ref='dropdown' trigger='Test' isOpened={this.state.isOpened}>This is a test.</Dropdown>
+        return <WrappedDropdown ref='dropdown' trigger='Test' isOpened={this.state.isOpened}>This is a test.</WrappedDropdown>
       }
     }))
 
@@ -62,7 +62,7 @@ describe('Dropdown', () => {
 
   it('should call changeCallback function', () => {
     const spy = sinon.spy()
-    wrapper = mount(<Dropdown optClass='test' trigger='Test' changeCallback={spy}>This is a test.</Dropdown>)
+    wrapper = mount(<WrappedDropdown optClass='test' trigger='Test' changeCallback={spy}>This is a test.</WrappedDropdown>)
     trigger = wrapper.childAt(0)
 
     trigger.simulate('click')
@@ -78,9 +78,52 @@ describe('Dropdown', () => {
       {name: 'test3'}
     ]
 
-    wrapper = mount(<Dropdown optClass='test' listItems={listItems}>This is a test.</Dropdown>)
+    wrapper = mount(<WrappedDropdown optClass='test' listItems={listItems}>This is a test.</WrappedDropdown>)
     expect(wrapper.childAt(1).childAt(0).hasClass('list-wrapper')).to.equal(true)
     expect(wrapper.childAt(1).find('ul').length).to.equal(1)
     expect(wrapper.childAt(1).childAt(0).find('li').length).to.equal(3)
+  })
+
+  it('should display a confirmation overlay when an item is clicked', () => {
+    const listItems = [
+      {name: 'test1'},
+      {name: 'test2'},
+      {name: 'test3', callbackConfirmation: true}
+    ]
+
+    wrapper = shallow(<Dropdown optClass='test' listItems={listItems}>This is a test.</Dropdown>)
+    wrapper.instance().handleItemClick(listItems[0])
+
+    expect(wrapper.state().confirmationOverlayOpen).to.be.false
+    expect(wrapper.state().clickedItem).to.be.null
+
+    wrapper.instance().handleItemClick(listItems[2])
+
+    expect(wrapper.state().confirmationOverlayOpen).to.be.true
+    expect(wrapper.state().clickedItem).to.deep.equal(listItems[2])
+  })
+
+  it('should close the confirmation overlay when action buttons are clicked', () => {
+    const listItems = [
+      {name: 'test1'},
+      {name: 'test2'},
+      {name: 'test3', callbackConfirmation: true}
+    ]
+
+    wrapper = shallow(<Dropdown optClass='test' listItems={listItems} isOpened={true}>This is a test.</Dropdown>)
+
+    wrapper.instance().handleItemClick(listItems[2])
+    wrapper.instance().handleConfirmation(false)
+
+    expect(wrapper.state().isOpened).to.be.true
+    expect(wrapper.state().confirmationOverlayOpen).to.be.false
+    expect(wrapper.state().clickedItem).to.be.null
+
+    wrapper.instance().handleItemClick(listItems[2])
+    wrapper.instance().handleConfirmation(true)
+
+    expect(wrapper.state().isOpened).to.be.false
+    expect(wrapper.state().confirmationOverlayOpen).to.be.false
+    expect(wrapper.state().clickedItem).to.be.null
   })
 })
