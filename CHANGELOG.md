@@ -1,12 +1,26 @@
 ## HEAD
 
+## 0.64.0
+###### _October 10, 2016_
+
+##### Component Fixes / Enhancements
+
+- [Dropdown] - Add callbackConfirmation option to Dropdown list item config
+([#278](https://github.com/GetAmbassador/react-conventions/pull/278))
+- [Icon] - Add icon for klout
+([#279](https://github.com/GetAmbassador/react-conventions/pull/279))
+- [InlineEdit] - Only show copy icon on hover
+([#280](https://github.com/GetAmbassador/react-conventions/pull/280))
+
 ## 0.63.0
 ###### _October 6, 2016_
 
 ##### Component Fixes / Enhancements
 
-- [InlineEdit] - Various bug fixes ([#276](https://github.com/GetAmbassador/react-conventions/pull/276))
-- [InlineEdit] - Improve read only experience ([#275](https://github.com/GetAmbassador/react-conventions/pull/275))
+- [InlineEdit] - Various bug fixes
+([#276](https://github.com/GetAmbassador/react-conventions/pull/276))
+- [InlineEdit] - Improve read only experience
+([#275](https://github.com/GetAmbassador/react-conventions/pull/275))
 - [Datepicker] - Improve tests
 ([#274](https://github.com/GetAmbassador/react-conventions/pull/274))
 
