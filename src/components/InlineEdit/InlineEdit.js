@@ -304,7 +304,7 @@ class InlineEdit extends React.Component {
     const errorClass = this.state.error !== '' ? 'error' : ''
     const placeholderClass = this.state.value === '' ? 'placeholder' : ''
     const copyDisabledClass = this.state.value === '' ? 'disabled' : ''
-    const copyIconClass = cx(style['copy-icon'], copyDisabledClass)
+    const copyIconClass = cx(style['copy-icon'], copyDisabledClass, this.state.copied ? 'copied' : '')
     const inlineEditClass = cx(style['inline-edit-wrapper'], this.props.optClass, readonlyClass, errorClass, placeholderClass)
 
     return (

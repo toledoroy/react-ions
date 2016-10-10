@@ -95,12 +95,18 @@
     z-index: 1;
     display: flex;
     align-items: center;
-    &.disabled {
-      cursor: not-allowed;
+    opacity: 0;
+    transition: opacity .25s ease-in;
+    &.copied {
+      opacity: 1;
     }
     > svg {
       margin-top: -2px;
     }
+  }
+
+  &:hover .copy-icon:not(.disabled) {
+    opacity: 1;
   }
 
   .loader-wrapper {
