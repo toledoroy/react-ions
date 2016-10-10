@@ -171,14 +171,17 @@ describe('InlineEdit', () => {
 
     expect(wrapper.find('.copy-icon')).to.have.length(1)
     expect(wrapper.find('.copy-icon').at(0).find('Icon')).to.have.length(1)
+    expect(wrapper.find('.copy-icon').hasClass('copied')).to.be.false
 
     wrapper.instance().handleCopy()
 
     expect(wrapper.find('.copy-icon').at(0).find('Icon')).to.have.length(0)
+    expect(wrapper.find('.copy-icon').hasClass('copied')).to.be.true
     expect(wrapper.find('.copy-icon').at(0).text()).to.equal('copied!')
 
     setTimeout(() => {
       expect(wrapper.find('.copy-icon').at(0).find('Icon')).to.have.length(1)
+      expect(wrapper.find('.copy-icon').hasClass('copied')).to.be.false
       done()
     }, 1900)
   })
