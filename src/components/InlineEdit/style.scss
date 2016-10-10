@@ -96,7 +96,6 @@
     display: flex;
     align-items: center;
     opacity: 0;
-    transition: opacity .25s ease-in;
     &.copied {
       opacity: 1;
     }
@@ -106,6 +105,7 @@
   }
 
   &:hover .copy-icon:not(.disabled) {
+    transition: opacity .25s ease-in;
     opacity: 1;
   }
 
