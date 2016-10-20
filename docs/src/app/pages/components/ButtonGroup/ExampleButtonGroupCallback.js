@@ -4,7 +4,7 @@ import style from './style'
 
 class ExampleButtonGroupCallback extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -12,7 +12,7 @@ class ExampleButtonGroupCallback extends React.Component {
   }
 
   handleChange = (event, value) => {
-    this.setState({status: value + ' is checked'});
+    this.setState({status: value + ' is checked'})
   }
 
   render() {
@@ -27,7 +27,7 @@ class ExampleButtonGroupCallback extends React.Component {
         value: 'Option 3',
         label: 'Option 3'
       }
-    ];
+    ]
 
     return(
       <div>

@@ -6,7 +6,7 @@ import style from './style'
 
 class ExampleButtonGroupStyles extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -14,7 +14,7 @@ class ExampleButtonGroupStyles extends React.Component {
   }
 
   updateButtons = () => {
-    this.setState({ buttonStyle: this._buttonStyle.state.value });
+    this.setState({ buttonStyle: this._buttonStyle.state.value })
   }
 
   render() {
@@ -29,7 +29,7 @@ class ExampleButtonGroupStyles extends React.Component {
         value: 'Option 3',
         label: 'Option 3'
       }
-    ];
+    ]
 
     return(
       <div>

@@ -8,7 +8,7 @@ import Button from '../Button/Button'
  */
 class ButtonToggle extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   static defaultProps = {
@@ -45,11 +45,11 @@ class ButtonToggle extends React.Component {
      * A callback function (from ButtonGroup) to be called when the option is changed.
      */
     changeCallback: React.PropTypes.func
-  };
+  }
 
   handleChange = (event) => {
     if (typeof this.props.changeCallback === 'function') {
-      this.props.changeCallback(event, this.props.value);
+      this.props.changeCallback(event, this.props.value)
     }
   }
 
@@ -59,12 +59,12 @@ class ButtonToggle extends React.Component {
       optClass,
       type,
       ...other
-    } = this.props;
+    } = this.props
 
-    const cx = classNames.bind(style);
-    var disabledClass = this.props.disabled ? style['button-toggle-disabled'] : '';
-    var activeClass = this.props.checked ? 'active' : '';
-    var buttonToggleClass = cx(style['button-toggle-component'], optClass, disabledClass, activeClass);
+    const cx = classNames.bind(style)
+    var disabledClass = this.props.disabled ? style['button-toggle-disabled'] : ''
+    var activeClass = this.props.checked ? 'active' : ''
+    var buttonToggleClass = cx(style['button-toggle-component'], optClass, disabledClass, activeClass)
 
     return (
       <div className={buttonToggleClass}>

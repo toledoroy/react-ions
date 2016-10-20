@@ -1,26 +1,53 @@
 import React from 'react'
 import ButtonGroup from 'react-conventions/lib/ButtonGroup/ButtonGroup'
+import Button from 'react-conventions/lib/Button'
+import style from './style'
 
-const options = [
-  {
-    value: 'option_1',
-    label: 'Option 1'
-  },{
-    value: 'option_2',
-    label: 'Option 2'
-  },{
-    value: 'option_3',
-    label: 'Option 3'
+class ExampleRadioChecked extends React.Component {
+  constructor(props) {
+    super(props)
   }
-];
 
-const ExampleRadioChecked = () => (
-  <ButtonGroup
-    label="Checked button group label"
-    name="checked-button-group"
-    options={options}
-    defaultOption={1}>
-  </ButtonGroup>
-)
+  state = {
+    defaultOption: 1
+  }
 
-export default ExampleRadioChecked;
+  handleChange = (index) => {
+    this.setState({defaultOption: index})
+  }
+
+  render() {
+    const options = [
+      {
+        customValue: 'option_1',
+        customLabel: 'Option 1'
+      },{
+        customValue: 'option_2',
+        customLabel: 'Option 2'
+      },{
+        customValue: 'option_3',
+        customLabel: 'Option 3'
+      }
+    ]
+
+    return(
+      <div>
+        <div className={style['button-wrapper']}>
+          <Button onClick={this.handleChange.bind(this, 0)}>Select 1st option</Button>
+          <Button onClick={this.handleChange.bind(this, 1)}>Select 2nd option</Button>
+          <Button onClick={this.handleChange.bind(this, 2)}>Select 3rd option</Button>
+        </div>
+        <ButtonGroup
+          label="Checked button group label"
+          name="checked-button-group"
+          options={options}
+          valueProp='customValue'
+          displayProp='customLabel'
+          defaultOption={this.state.defaultOption}>
+        </ButtonGroup>
+      </div>
+    )
+  }
+}
+
+export default ExampleRadioChecked

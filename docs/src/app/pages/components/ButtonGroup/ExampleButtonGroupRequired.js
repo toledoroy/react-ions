@@ -12,7 +12,7 @@ const options = [
     value: 'option_3',
     label: 'Option 3'
   }
-];
+]
 
 const ExampleButtonGroupRequired = () => (
   <ButtonGroup
@@ -23,4 +23,4 @@ const ExampleButtonGroupRequired = () => (
   </ButtonGroup>
 )
 
-export default ExampleButtonGroupRequired;
+export default ExampleButtonGroupRequired
