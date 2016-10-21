@@ -8,17 +8,19 @@ import style from './style.scss'
  */
 class ButtonGroup extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
-    checkedOption: this.props.defaultOption !== undefined ? this.props.options[this.props.defaultOption].value : ''
-  };
+    checkedOption: this.props.defaultOption !== undefined ? this.props.options[this.props.defaultOption][this.props.valueProp] : ''
+  }
 
   static defaultProps = {
     disabled: false,
-    required: false
-  };
+    required: false,
+    displayProp: 'label',
+    valueProp: 'value'
+  }
 
   static propTypes = {
     /**
@@ -42,6 +44,14 @@ class ButtonGroup extends React.Component {
      */
     options: React.PropTypes.array.isRequired,
     /**
+     * The property to be used as the display property
+     */
+    displayProp: React.PropTypes.string,
+    /**
+     * The property to be used as the value property
+     */
+    valueProp: React.PropTypes.string,
+    /**
      * Which option is checked by default.
      */
     defaultOption: React.PropTypes.number,
@@ -53,45 +63,52 @@ class ButtonGroup extends React.Component {
      * The style for the buttons in the group.
      */
     buttonStyle: React.PropTypes.string
-  };
+  }
 
-  componentWillMount() {
+  componentWillMount = () => {
     if (typeof this.props.defaultOption !== 'undefined') {
-      this.props.options[this.props.defaultOption].checked = true;
+      this.props.options[this.props.defaultOption].checked = true
+    }
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    if (typeof nextProps.defaultOption !== 'undefined' && nextProps.options[nextProps.defaultOption][nextProps.valueProp] !== this.state.checkedOption) {
+      nextProps.options[nextProps.defaultOption].checked = true
+      this.setState({checkedOption: nextProps.options[nextProps.defaultOption][nextProps.valueProp]})
     }
   }
 
   handleChange = (event, value) => {
-    event.persist();
-    this.setState({checkedOption: value}, function() {
+    event.persist()
+    this.setState({checkedOption: value}, () => {
       if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(event, value);
+        this.props.changeCallback(event, value)
       }
-    });
+    })
   }
 
-  getOptions() {
-    const groupName = this.props.name;
-    const buttonStyle = this.props.buttonStyle;
-    const { options, label, name, value, required, defaultOption, changeCallback, ...other } = this.props;
+  getOptions = () => {
+    const groupName = this.props.name
+    const buttonStyle = this.props.buttonStyle
+    const { options, label, name, value, required, defaultOption, changeCallback, ...other } = this.props
 
     return this.props.options.map((buttonToggle, index) =>
       <ButtonToggle
-        key={buttonToggle.value}
-        value={buttonToggle.value}
-        label={buttonToggle.label}
+        key={buttonToggle[this.props.valueProp]}
+        value={buttonToggle[this.props.valueProp]}
+        label={buttonToggle[this.props.displayProp]}
         name={groupName}
-        checked={this.state.checkedOption === buttonToggle.value}
+        checked={this.state.checkedOption === buttonToggle[this.props.valueProp]}
         size='lg'
-        optClass={this.state.checkedOption === buttonToggle.value ? buttonStyle : 'secondary'}
+        optClass={this.state.checkedOption === buttonToggle[this.props.valueProp] ? buttonStyle : 'secondary'}
         changeCallback={this.handleChange}
         {...other} />
-    );
+    )
   }
 
-  render() {
-    const cx = classNames.bind(style);
-    var buttonGroupClass = cx(style['button-group'], this.props.optClass);
+  render = () => {
+    const cx = classNames.bind(style)
+    var buttonGroupClass = cx(style['button-group'], this.props.optClass)
 
     return (
       <div className={buttonGroupClass}>

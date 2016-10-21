@@ -12,7 +12,7 @@ const options = [
     value: 'option_3',
     label: 'Option 3'
   }
-];
+]
 
 const ExampleRadioDefault = () => (
   <ButtonGroup
@@ -22,4 +22,4 @@ const ExampleRadioDefault = () => (
   </ButtonGroup>
 )
 
-export default ExampleRadioDefault;
+export default ExampleRadioDefault

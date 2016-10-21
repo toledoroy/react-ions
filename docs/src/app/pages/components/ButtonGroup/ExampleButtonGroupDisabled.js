@@ -12,9 +12,9 @@ const options = [
     value: 'option_3',
     label: 'Option 3'
   }
-];
+]
 
-const disabled = true;
+const disabled = true
 
   const ExampleButtonGroupDisabled = () => (
   <ButtonGroup
@@ -25,4 +25,4 @@ const disabled = true;
   </ButtonGroup>
 )
 
-export default ExampleButtonGroupDisabled;
+export default ExampleButtonGroupDisabled

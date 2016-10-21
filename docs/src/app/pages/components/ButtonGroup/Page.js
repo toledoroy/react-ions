@@ -1,6 +1,6 @@
 import React from 'react'
-import PropsList from 'private/modules/PropsList';
-import docs from '!!docgen!react-conventions/lib/ButtonGroup/ButtonGroup';
+import PropsList from 'private/modules/PropsList'
+import docs from '!!docgen!react-conventions/lib/ButtonGroup/ButtonGroup'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleButtonGroupDefault from './ExampleButtonGroupDefault'
 import exampleButtonGroupDefaultCode from '!raw!./ExampleButtonGroupDefault'
@@ -23,7 +23,7 @@ const description = {
   buttonGroupRequired: 'This is the required `ButtonGroup component`.',
   buttonGroupCallback: 'This is the `ButtonGroup component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
   buttonGroupStyles: 'This is the `ButtonGroup component` with different styles applied to the buttons. __Note__: the `style import` is for display purposes only.'
-};
+}
 
 const ButtonGroupPage = () => (
   <div>
@@ -74,4 +74,4 @@ const ButtonGroupPage = () => (
   </div>
 )
 
-export default ButtonGroupPage;
+export default ButtonGroupPage
