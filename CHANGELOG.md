@@ -1,5 +1,13 @@
 ## HEAD
 
+## 0.66.0
+###### _October 21, 2016_
+
+##### Component Fixes / Enhancements
+
+- [ButtonGroup] ButtonGroup enhancements
+([#284](https://github.com/GetAmbassador/react-conventions/pull/284)
+
 ## 0.65.0
 ###### _October 11, 2016_
 
