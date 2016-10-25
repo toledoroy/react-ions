@@ -37,7 +37,7 @@
   }
 
   @if $fadeOnHover {
-    transition-property: background-color,  color, opacity;
+    transition-property: background-color, color, opacity;
     transition-duration: .15s;
     transition-timing-function: ease-in-out;
 
