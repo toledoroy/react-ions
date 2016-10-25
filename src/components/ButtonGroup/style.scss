@@ -38,7 +38,7 @@
         border-left: none;
         border-radius: 0 3px 3px 0;
       }
-      &:not(.active) + .button-toggle-component:not(.active) {
+      + .button-toggle-component {
         margin-left: 1px;
         &:before {
           content: "";
@@ -50,12 +50,16 @@
           left: -1px;
           z-index: 1;
         }
-      }
-      + .button-toggle-component {
         &:not(:last-child) button {
           border-radius: 0;
           border-right: none;
           border-left: none;
+        }
+      }
+      &.active + .button-toggle-component, + .button-toggle-component.active {
+        &:before {
+          transition: all .15s ease-in-out;
+          background-color: $primary-1;
         }
       }
     }
