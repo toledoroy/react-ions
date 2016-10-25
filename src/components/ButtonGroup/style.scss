@@ -38,7 +38,7 @@
         border-left: none;
         border-radius: 0 3px 3px 0;
       }
-      + .button-toggle-component {
+      &:not(.active) + .button-toggle-component:not(.active) {
         margin-left: 1px;
         &:before {
           content: "";
@@ -50,16 +50,26 @@
           left: -1px;
           z-index: 1;
         }
+      }
+      + .button-toggle-component {
         &:not(:last-child) button {
           border-radius: 0;
           border-right: none;
           border-left: none;
         }
       }
-      &.active + .button-toggle-component, + .button-toggle-component.active {
-        &:before {
-          transition: all .15s ease-in-out;
-          background-color: $primary-1;
+      &.active {
+        button[class^='btn'] {
+          padding-right: 9px;
+          padding-left: 9px;
+        }
+        &:first-child button[class^='btn'] {
+          padding-right: 9px;
+          padding-left: 8px;
+        }
+        &:last-child button[class^='btn'] {
+          padding-right: 8px;
+          padding-left: 9px;
         }
       }
     }
@@ -72,8 +82,8 @@
   > label {
     display: block;
     margin-bottom: 10px;
-  	font-size: 16px;
-  	color: $navy-text;
+    font-size: 16px;
+    color: $navy-text;
     font-family: proxima_nova;
     font-weight: 200;
   }

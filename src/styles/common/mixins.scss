@@ -37,7 +37,7 @@
   }
 
   @if $fadeOnHover {
-    transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out, padding 0;
 
     &:hover {
       background-color: darken($bg-color, 15%);
