@@ -11,6 +11,12 @@ const options = [
   },{
     value: 'option_3',
     label: 'Option 3'
+  },{
+    value: 'option_4',
+    label: 'Option 4'
+  },{
+    value: 'option_5',
+    label: 'Option 5'
   }
 ]
 
