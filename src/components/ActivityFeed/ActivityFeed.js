@@ -93,9 +93,7 @@ class ActivityFeed extends React.Component {
     heights: [],
     items: [],
     fetchMoreEnabled: true,
-    offset: window.innerHeight,
-    useWindowAsScrollContainer: this.props.useWindowAsScrollContainer,
-    containerHeight: this.props.containerHeight
+    offset: window.innerHeight
   }
 
   componentWillMount = () => {
@@ -116,8 +114,6 @@ class ActivityFeed extends React.Component {
 
     this.setState({
       data: nextProps.data,
-      useWindowAsScrollContainer: nextProps.useWindowAsScrollContainer,
-      containerHeight: nextProps.containerHeight,
       items,
       heights
     })
@@ -180,7 +176,7 @@ class ActivityFeed extends React.Component {
 
   render() {
     let classArray = ['activity-feed']
-    if (!this.state.useWindowAsScrollContainer) {
+    if (!this.props.useWindowAsScrollContainer) {
       classArray.push('element-scrollable')
     }
     const feedClasses = optclass(style, classArray, this.props.optClass)
@@ -191,8 +187,8 @@ class ActivityFeed extends React.Component {
         <ul ref={(ref) => this._table = ref}>
           <Infinite
             elementHeight={this.state.heights}
-            useWindowAsScrollContainer={this.state.useWindowAsScrollContainer}
-            containerHeight={this.state.containerHeight}
+            useWindowAsScrollContainer={this.props.useWindowAsScrollContainer}
+            containerHeight={this.props.containerHeight}
             infiniteLoadBeginEdgeOffset={1000}
             onInfiniteLoad={this.handleInfiniteLoad}
             loadingSpinnerDelegate={elementInfiniteLoad}
