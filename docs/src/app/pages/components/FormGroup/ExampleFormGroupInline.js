@@ -73,9 +73,11 @@ class ExampleFormGroupInline extends React.Component {
 
   handleChange = (fields) => {
     console.log(fields);
+    this.setState({ schema: fields })
   }
 
   render() {
+    const defaultOption = this.state.schema.buttonGroup.value === 'or' ? 1 : 0
     return (
       <FormGroup
         changeCallback={this.handleChange}
@@ -93,7 +95,7 @@ class ExampleFormGroupInline extends React.Component {
         </fieldset>
         <fieldset className={style.row}>
           <div className={style.field}>
-            <ButtonGroup name="buttonGroup" options={fields.buttonGroup} defaultOption={0}></ButtonGroup>
+            <ButtonGroup name="buttonGroup" options={fields.buttonGroup} defaultOption={defaultOption}></ButtonGroup>
           </div>
           <div className={style['fields']}>
             <SelectField name='selectField4' options={fields.selectField} valueProp='value' displayProp='display' optClass={style.field} />
