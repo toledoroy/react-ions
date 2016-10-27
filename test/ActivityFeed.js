@@ -190,4 +190,13 @@ describe('ActivityFeed', () => {
     })
   })
 
+  it('should use the element as the scroll container', () => {
+    const onInfiniteLoad = sinon.stub().returns(Promise.resolve())
+    const wrapper = shallow(<ActivityFeed data={data} onInfiniteLoad={onInfiniteLoad} useWindowAsScrollContainer={false} containerHeight={200} />)
+
+    expect(wrapper.hasClass('activity-feed')).to.be.true
+    expect(wrapper.hasClass('element-scrollable')).to.be.true
+    expect(wrapper.find(Infinite).props().useWindowAsScrollContainer).to.be.false
+    expect(wrapper.find(Infinite).props().containerHeight).to.equal(200)
+  })
 })
