@@ -106,13 +106,21 @@ class ExampleActivityFeed extends React.Component {
 
   state = {
     count: 21,
-    activities: this.getInitialActivities()
+    activities: this.getInitialActivities(),
+    useWindowAsScrollContainer: true
   }
 
   changeActivities = () => {
     this.setState({
       count: 21,
       activities: this.genActivities(21, 1)
+    })
+  }
+
+  toggleContainer = () => {
+    const useWindowAsScrollContainer = !this.state.useWindowAsScrollContainer
+    this.setState({
+      useWindowAsScrollContainer: useWindowAsScrollContainer
     })
   }
 
@@ -134,11 +142,16 @@ class ExampleActivityFeed extends React.Component {
   render() {
     return(
       <div>
-        <p><Button onClick={this.changeActivities}>Set Random Activities</Button></p>
+        <p>
+          <Button onClick={this.changeActivities}>Set random activities</Button>
+          <Button onClick={this.toggleContainer}>{ this.state.useWindowAsScrollContainer ? 'Use element as scroll container' : 'Use window as scroll container'}</Button>
+        </p>
         <div className={style['test-div']} />
         <ActivityFeed
           data={this.state.activities}
           totalCount={420}
+          useWindowAsScrollContainer={this.state.useWindowAsScrollContainer}
+          containerHeight={400}
           onInfiniteLoad={this.handleInfiniteLoad} />
       </div>
     )

@@ -35,7 +35,20 @@ class ActivityFeed extends React.Component {
     /**
      * Optional total count to prevent infinite scroll from requesting more items.
      */
-    totalCount: React.PropTypes.number
+    totalCount: React.PropTypes.number,
+    /**
+     * Whether to use the window or the wrapper element for the scroll container
+     */
+    useWindowAsScrollContainer: React.PropTypes.bool,
+    /**
+     * The container height (required if useWindowAsScrollContainer is set to false)
+     */
+    containerHeight: React.PropTypes.number
+  }
+
+  static defaultProps = {
+    useWindowAsScrollContainer: true,
+    containerHeight: 0
   }
 
   handleSetHeight = (i, height) => {
@@ -162,7 +175,11 @@ class ActivityFeed extends React.Component {
   }
 
   render() {
-    const feedClasses = optclass(style, 'activity-feed', this.props.optClass)
+    let classArray = ['activity-feed']
+    if (!this.props.useWindowAsScrollContainer) {
+      classArray.push('element-scrollable')
+    }
+    const feedClasses = optclass(style, classArray, this.props.optClass)
     const elementInfiniteLoad = (<div className={style['loader']}><Spinner loading={true} optClass={style['spinner']} type='spinner-bounce' color='#3C97D3' /></div>)
 
     return (
@@ -170,7 +187,8 @@ class ActivityFeed extends React.Component {
         <ul ref={(ref) => this._table = ref}>
           <Infinite
             elementHeight={this.state.heights}
-            useWindowAsScrollContainer={true}
+            useWindowAsScrollContainer={this.props.useWindowAsScrollContainer}
+            containerHeight={this.props.containerHeight}
             infiniteLoadBeginEdgeOffset={1000}
             onInfiniteLoad={this.handleInfiniteLoad}
             loadingSpinnerDelegate={elementInfiniteLoad}
