@@ -1,5 +1,17 @@
 ## HEAD
 
+## 0.67.0
+###### _October 28, 2016_
+
+##### Component Fixes / Enhancements
+
+- [ButtonGroup] Make the button groups the same height as the regular buttons
+([#288](https://github.com/GetAmbassador/react-conventions/pull/288)
+- [ActivityFeed] ActivityFeed enhancements
+([#287](https://github.com/GetAmbassador/react-conventions/pull/287)
+- [ButtonGroup] Remove border in between selected / non-selected buttons in ButtonGroup
+([#286](https://github.com/GetAmbassador/react-conventions/pull/286)
+
 ## 0.66.0
 ###### _October 21, 2016_
 
