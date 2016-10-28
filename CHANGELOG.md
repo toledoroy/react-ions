@@ -6,11 +6,11 @@
 ##### Component Fixes / Enhancements
 
 - [ButtonGroup] Make the button groups the same height as the regular buttons
-([#288](https://github.com/GetAmbassador/react-conventions/pull/288)
+([#288](https://github.com/GetAmbassador/react-conventions/pull/288))
 - [ActivityFeed] ActivityFeed enhancements
-([#287](https://github.com/GetAmbassador/react-conventions/pull/287)
+([#287](https://github.com/GetAmbassador/react-conventions/pull/287))
 - [ButtonGroup] Remove border in between selected / non-selected buttons in ButtonGroup
-([#286](https://github.com/GetAmbassador/react-conventions/pull/286)
+([#286](https://github.com/GetAmbassador/react-conventions/pull/286))
 
 ## 0.66.0
 ###### _October 21, 2016_
@@ -18,7 +18,7 @@
 ##### Component Fixes / Enhancements
 
 - [ButtonGroup] ButtonGroup enhancements
-([#284](https://github.com/GetAmbassador/react-conventions/pull/284)
+([#284](https://github.com/GetAmbassador/react-conventions/pull/284))
 
 ## 0.65.0
 ###### _October 11, 2016_
@@ -26,7 +26,7 @@
 ##### Component Fixes / Enhancements
 
 - [Icons] Added new icon
-([#282](https://github.com/GetAmbassador/react-conventions/pull/282)
+([#282](https://github.com/GetAmbassador/react-conventions/pull/282))
 
 ## 0.64.0
 ###### _October 10, 2016_
@@ -167,7 +167,7 @@
 ##### Component Fixes / Enhancements
 
 - [Typeahead] Fix: Unable to reset typeahead value in FormGroup
-([#231](https://github.com/GetAmbassador/react-conventions/pull/231)
+([#231](https://github.com/GetAmbassador/react-conventions/pull/231))
 
 ## 0.51.0
 ###### _September 1, 2016_
@@ -175,7 +175,7 @@
 ##### Component Fixes / Enhancements
 
 - [Icons] Several new icons added
-([#227](https://github.com/GetAmbassador/react-conventions/pull/227)
+([#227](https://github.com/GetAmbassador/react-conventions/pull/227))
 
 ## 0.50.0
 ###### _August 30, 2016_
@@ -183,7 +183,7 @@
 ##### Component Fixes / Enhancements
 
 - [InlineEdit] New component added
-([#225](https://github.com/GetAmbassador/react-conventions/pull/225)
+([#225](https://github.com/GetAmbassador/react-conventions/pull/225))
 
 ## 0.48.0
 ###### _August 23, 2016_
