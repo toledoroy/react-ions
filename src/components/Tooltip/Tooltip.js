@@ -104,7 +104,7 @@ class Tooltip extends React.Component {
       style.top = 'inherit'
       style.left = 'inherit'
       style.opacity = 0.9
-      style.transform = `translate(calc(-50% - ${this.getTranslate()}), calc(-100% - 6px))`
+      style.transform = `translateX(-50%) translateX(-${this.getTranslate()}) translateY(-100%) translateY(-6px)`
     }
 
     return style
