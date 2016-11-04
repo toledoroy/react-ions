@@ -78,6 +78,7 @@
 
     .action-items {
       display: block;
+      visibility: visible;
     }
 
     time:not(:only-child) {
@@ -168,6 +169,10 @@
 
     @media #{$media-small-minus} {
       display: block;
+    }
+
+    @media #{$media-extra-small} {
+      visibility: hidden;
     }
   }
 
