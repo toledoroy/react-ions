@@ -68,94 +68,69 @@
   border-radius: 3px;
   border: 1px solid $neutral-1;
   box-sizing: border-box;
-  float: left;
-  padding: 15px 170px 15px 15px;
-  position: relative;
+  display: flex;
+  padding: 15px;
   margin-left: 60px;
   width: calc(100% - 60px);
 
-  h3 {
-    float: left;
+  &:hover {
+    border: 1px solid $primary-1;
+
+    .action-items {
+      display: block;
+    }
+
+    time:not(:only-child) {
+      opacity: 0;
+      visibility: none;
+    }
+  }
+}
+
+.item-detail {
+  flex: 3;
+
+  .item-title {
     margin: 0;
     word-break: break-word;
-
-    @media #{$media-extra-small} {
-      + svg {
-        margin-top: 3px;
-      }
-    }
 
     a {
       color: $primary-1;
       text-decoration: none;
     }
+
+    + .item-text {
+      margin-top: 10px;
+    }
   }
 
-  p {
+  .item-text {
     float: left;
     margin: 5px 0 0;
-  }
-
-  h3 + p {
-    margin-top: 10px;
-  }
-
-  time {
-    color: $primary-4;
-    display: block;
-    font-size: 14px;
-    position: absolute;
-    right: 15px;
-    top: 15px;
-
-    @media #{$media-extra-small} {
-      position: static;
-      margin-bottom: 5px;
-    }
-  }
-
-  @media #{$media-extra-small} {
-    margin-left: 45px;
-    padding-right: 15px;
-    width: calc(100% - 45px);
-  }
-
-  &:hover {
-    .title-wrapper svg {
-      opacity: 1;
-      visibility: visible;
-    }
-  }
-}
-
-.title-wrapper {
-  @include clearfix;
-
-  svg {
-    cursor: pointer;
-    margin-right: 5px;
-    opacity: 0;
-    position: relative;
-    top: -2px;
-    transition: visibility 0s, opacity 0.25s ease-in;
-    visibility: hidden;
-
-    @media #{$media-extra-small} {
-      opacity: 1;
-      visibility: visible;
-    }
   }
 }
 
 .action-wrapper {
-  display: inline-block;
-  margin-left: 5px;
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
   position: relative;
-  top: 2px;
 
-  @media #{$media-extra-small} {
-    position: absolute;
-    top: 15px;
-    right: 10px;
+  time {
+    color: $primary-4;
+    font-size: 14px;
+  }
+
+  .action-items {
+    display: none;
+
+    svg {
+      cursor: pointer;
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 }

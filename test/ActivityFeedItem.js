@@ -61,20 +61,20 @@ describe('ActivityFeedItem', () => {
 
   it('should render a name', () => {
     const wrapper = shallow(<ActivityFeedItem name={data[0].name} badge={data[0].badge} />)
-    const nameWrapper = wrapper.find('.title-wrapper')
-    expect(nameWrapper.childAt(0).type()).to.equal('h3')
+    const nameWrapper = wrapper.find('.item-detail')
+    expect(nameWrapper.childAt(0).props().className).to.equal('item-title')
     expect(nameWrapper.childAt(0).text()).to.equal(data[0].name + ' ')
   })
 
   it('should render a title', () => {
     const wrapper = shallow(<ActivityFeedItem title={data[0].title} badge={data[0].badge} />)
-    const titleWrapper = wrapper.find('.title-wrapper')
+    const titleWrapper = wrapper.find('.item-detail')
     expect(titleWrapper.childAt(0).text()).to.equal(' ' + data[0].title)
   })
 
   it('should render a profile url', () => {
     const wrapper = shallow(<ActivityFeedItem name={data[0].name} profileUrl={data[0].profileUrl} badge={data[0].badge} />)
-    const titleWrapper = wrapper.find('.title-wrapper')
+    const titleWrapper = wrapper.find('.item-detail')
     const linkWrapper = titleWrapper.childAt(0).childAt(0)
     expect(linkWrapper.type()).to.equal(Link)
     expect(linkWrapper.props().to).to.equal(data[0].profileUrl)
@@ -87,17 +87,9 @@ describe('ActivityFeedItem', () => {
     expect(textWrapper.text().trim()).to.equal(data[0].text.trim())
   })
 
-  // Skip until we've created a test for timeStamp
-  it.skip('should render the time', () => {
-    const wrapper = shallow(<ActivityFeedItem time={data[0].timestamp} badge={data[0].badge} />)
-    const timeWrapper = wrapper.childAt(0)
-    const timeStamp = timeString(data[0].timestamp)
-    expect(timeWrapper.text()).to.equal(timeStamp)
-  })
-
   it('should render an action block', () => {
     const wrapper = shallow(<ActivityFeedItem actions={data[1].actions} badge={data[1].badge} />)
-    const actionWrapper = wrapper.find('.action-wrapper')
+    const actionWrapper = wrapper.find('.action-items')
     expect(actionWrapper.find(Icon)).to.have.length(2)
     expect(actionWrapper.childAt(0).props().name).to.equal(data[1].actions[0].icon)
     expect(actionWrapper.childAt(1).props().name).to.equal(data[1].actions[1].icon)
@@ -108,7 +100,7 @@ describe('ActivityFeedItem', () => {
     var onSetHeight = sinon.spy()
     data[1].actions[0].callback = spy
     const wrapper = shallow(<ActivityFeedItem actions={data[1].actions} badge={data[1].badge} onSetHeight={onSetHeight} />)
-    const actionWrapper = wrapper.childAt(1).childAt(0).childAt(1)
+    const actionWrapper = wrapper.childAt(1).childAt(1).childAt(0)
     expect(typeof actionWrapper.childAt(0).props().onClick).to.equal('function')
     actionWrapper.childAt(0).simulate('click')
     expect(spy.calledOnce).to.be.true
@@ -116,7 +108,7 @@ describe('ActivityFeedItem', () => {
 
   it('should link to an external URL when provided', () => {
     const wrapper = shallow(<ActivityFeedItem badge={data[2].badge} profileUrl={data[2].profileUrl} profileUrlTarget={data[2].profileUrlTarget}/>)
-    const titleWrapper = wrapper.find('.title-wrapper')
+    const titleWrapper = wrapper.find('.item-detail')
     const linkWrapper = titleWrapper.childAt(0)
     const link = linkWrapper.childAt(0)
 
@@ -131,7 +123,6 @@ describe('ActivityFeedItem', () => {
     const wrapper = ReactDOM.render(<ActivityFeedItem badge={data[0].badge} name={data[0].name} title={data[0].title} onSetHeight={onSetHeight} />, div)
 
     expect(onSetHeight.calledOnce).to.be.true
-    expect(onSetHeight.calledWith(18)).to.be.true
 
     ReactDOM.unmountComponentAtNode(div)
   })
