@@ -110,7 +110,7 @@
 }
 
 .item-detail {
-  flex: 3;
+  flex: 3 0 0;
 
   .item-title {
     margin: 0;
@@ -142,7 +142,7 @@
 
 .action-wrapper {
   display: flex;
-  flex: 1;
+  flex: 1 0 0;
   justify-content: flex-end;
   position: relative;
 
