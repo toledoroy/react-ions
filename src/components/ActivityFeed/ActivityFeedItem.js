@@ -112,12 +112,14 @@ class ActivityFeedItem extends React.Component {
           optClass={badgeClasses}
         />
         <div className={style['item-wrapper']}>
-          {this.props.time ? <time>{timeString(this.props.time)}</time> : null}
-          <div className={style['title-wrapper']}>
-            <h3>{this.generateProfileName()} {this.props.title ? this.props.title : null}</h3>
-            {this.props.actions ? <div className={style['action-wrapper']}>{this.generateActions()}</div> : null}
+          <div className={style['item-detail']}>
+            <h3 className={style['item-title']}>{this.generateProfileName()} {this.props.title ? this.props.title : null}</h3>
+            {this.props.text ? <p className={style['item-text']}>{this.props.text}</p> : null}
           </div>
-          {this.props.text ? <p>{this.props.text}</p> : null}
+          <div className={style['action-wrapper']}>
+            {this.props.time ? <time>{timeString(this.props.time)}</time> : null}
+            {this.props.actions ? <div className={style['action-items']}>{this.generateActions()}</div> : null}
+          </div>
         </div>
       </li>
     )
