@@ -131,9 +131,8 @@ class ActivityFeedItem extends React.Component {
   }
 
   handleActionClick = (action, event) => {
-    this.getActionOverlayOffset(event)
-
     if (action.callbackConfirmation) {
+      this.getActionOverlayOffset(event)
       this.setState({ confirmationOverlayOpen: true, hasActiveAction: true, clickedItem: action })
     }
     else {
@@ -152,6 +151,7 @@ class ActivityFeedItem extends React.Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
+    console.log(nextProps, nextState)
     return shallowCompare(this, nextProps, nextState)
   }
 
