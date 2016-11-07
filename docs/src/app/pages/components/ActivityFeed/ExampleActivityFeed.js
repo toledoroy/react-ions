@@ -56,9 +56,10 @@ class ExampleActivityFeed extends React.Component {
           {
             type: 'reply',
             icon: 'icon-back',
-            callback: () => {
-              alert('reply')
-            }
+            callback: (type) => {
+              alert(type)
+            },
+            callbackConfirmation: true
           }
         ],
         badge: {
@@ -76,15 +77,17 @@ class ExampleActivityFeed extends React.Component {
           {
             type: 'reply',
             icon: 'icon-back',
-            callback: () => {
-              alert('reply')
-            }
+            callback: (type) => {
+              alert(type)
+            },
+            callbackConfirmation: true
           }, {
             type: 'flag',
             icon: 'icon-flag-1-1',
-            callback: () => {
-              alert('flag')
-            }
+            callback: (type) => {
+              alert(type)
+            },
+            callbackConfirmation: false
           }
         ],
         badge: {
@@ -108,6 +111,10 @@ class ExampleActivityFeed extends React.Component {
     count: 21,
     activities: this.getInitialActivities(),
     useWindowAsScrollContainer: true
+  }
+
+  handleCallback = () => {
+    alert('callback called')
   }
 
   changeActivities = () => {
