@@ -118,12 +118,12 @@ class ActivityFeedItem extends React.Component {
       this.handleActionCallback(this.state.clickedItem)
     }
     else {
-      this.setState({ confirmationOverlayOpen: false, hasActiveAction: false, clickedItem: null })
+      this.setState({ confirmationOverlayOpen: false, clickedItem: null })
     }
   }
 
   handleActionCallback = (action) => {
-    this.setState({isOpened: false, confirmationOverlayOpen: false, hasActiveAction: false, clickedItem: null})
+    this.setState({ confirmationOverlayOpen: false, clickedItem: null })
 
     if (typeof action.callback === 'function') {
       action.callback(action.type)
@@ -133,7 +133,7 @@ class ActivityFeedItem extends React.Component {
   handleActionClick = (action, event) => {
     if (action.callbackConfirmation) {
       this.getActionOverlayOffset(event)
-      this.setState({ confirmationOverlayOpen: true, hasActiveAction: true, clickedItem: action })
+      this.setState({ confirmationOverlayOpen: true, clickedItem: action })
     }
     else {
       this.handleActionCallback(action)
@@ -151,7 +151,6 @@ class ActivityFeedItem extends React.Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    console.log(nextProps, nextState)
     return shallowCompare(this, nextProps, nextState)
   }
 
