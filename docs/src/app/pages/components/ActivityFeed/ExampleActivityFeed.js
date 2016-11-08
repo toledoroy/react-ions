@@ -113,10 +113,6 @@ class ExampleActivityFeed extends React.Component {
     useWindowAsScrollContainer: true
   }
 
-  handleCallback = () => {
-    alert('callback called')
-  }
-
   changeActivities = () => {
     this.setState({
       count: 21,
