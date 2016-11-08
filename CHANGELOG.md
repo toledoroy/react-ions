@@ -1,7 +1,15 @@
 ## HEAD
 
+## 0.68.0
+###### _November 8, 2016_
+
+##### Component Fixes / Enhancements
+
 ## 0.67.0
 ###### _October 28, 2016_
+
+- [Alerts] Re-position to 15px from top and right
+([#294](https://github.com/GetAmbassador/react-conventions/pull/294))
 
 ##### Component Fixes / Enhancements
 
