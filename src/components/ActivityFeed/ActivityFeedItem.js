@@ -118,12 +118,12 @@ class ActivityFeedItem extends React.Component {
       this.handleActionCallback(this.state.clickedItem)
     }
     else {
-      this.setState({ confirmationOverlayOpen: false, clickedItem: null })
+      this.setState({ hasActiveAction: false, confirmationOverlayOpen: false, clickedItem: null })
     }
   }
 
   handleActionCallback = (action) => {
-    this.setState({ confirmationOverlayOpen: false, clickedItem: null })
+    this.setState({ hasActiveAction: false, confirmationOverlayOpen: false, clickedItem: null })
 
     if (typeof action.callback === 'function') {
       action.callback(action.type)
@@ -133,7 +133,7 @@ class ActivityFeedItem extends React.Component {
   handleActionClick = (action, event) => {
     if (action.callbackConfirmation) {
       this.getActionOverlayOffset(event)
-      this.setState({ confirmationOverlayOpen: true, clickedItem: action })
+      this.setState({ hasActiveAction: true, confirmationOverlayOpen: true, clickedItem: action })
     }
     else {
       this.handleActionCallback(action)
