@@ -33,7 +33,7 @@ module.exports = function(config) {
           {
             test: /\.js$/,
             exclude: [/node_modules/, /test/, /\TimeString\.js/, /\index\.js/],
-            loader: 'isparta-instrumenter-loader',
+            loader: 'isparta-loader',
             query: {
               babel: {
                 presets: ['airbnb', 'es2015'],
