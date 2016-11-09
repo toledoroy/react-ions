@@ -1,9 +1,12 @@
 ## HEAD
 
-## 0.68.0
-###### _November 8, 2016_
+## 0.69.0
+###### _November 9, 2016_
 
 ##### Component Fixes / Enhancements
+
+- [ActivityFeed] Ability to add "confirmation" dropdown
+([#296](https://github.com/GetAmbassador/react-conventions/pull/296))
 
 ## 0.67.0
 ###### _October 28, 2016_
