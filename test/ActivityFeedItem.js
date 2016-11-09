@@ -149,11 +149,30 @@ describe('ActivityFeedItem', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
+  it('should not render if currentState and nextState are the same', () => {
+    const wrapper = shallow(<ActivityFeedItem name={data[0].name} badge={data[0].badge} />)
+    const currentProps = { name: data[0].name, badge: data[0].badge }
+    const nextProps = Object.assign(currentProps)
+    const nextState = Object.assign(wrapper.state())
+
+    expect(wrapper.instance().shouldComponentUpdate(nextProps, nextState)).to.be.false
+  })
+
+  it('should re-render if state has changed', () => {
+    const wrapper = shallow(<ActivityFeedItem name={data[0].name} badge={data[0].badge} />)
+    const currentProps = { name: data[0].name, badge: data[0].badge }
+    const nextProps = Object.assign(currentProps)
+    const nextState = Object.assign(wrapper.state(), {confirmationOverlayOpen: true})
+
+    expect(wrapper.instance().shouldComponentUpdate(nextProps, null)).to.be.true
+  })
+
   it('should allow re-render if props have changed', () => {
     const wrapper = shallow(<ActivityFeedItem name={data[0].name} badge={data[0].badge} />)
     const currentProps = { name: data[0].name, badge: data[0].badge }
     const nextProps = Object.assign(currentProps, { name: 'new name' })
+    const nextState = Object.assign(wrapper.state())
 
-    expect(wrapper.instance().shouldComponentUpdate(nextProps, null)).to.be.true
+    expect(wrapper.instance().shouldComponentUpdate(nextProps, nextState)).to.be.true
   })
 })
