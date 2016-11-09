@@ -1,5 +1,13 @@
 ## HEAD
 
+## 0.70.0
+###### _November 9, 2016_
+
+##### Component Fixes / Enhancements
+
+- [ActivityFeed] Slight tweak to flex width
+([#297](https://github.com/GetAmbassador/react-conventions/pull/297))
+
 ## 0.69.0
 ###### _November 9, 2016_
 
