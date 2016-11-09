@@ -85,7 +85,7 @@ class ExampleActivityFeed extends React.Component {
             type: 'flag',
             icon: 'icon-flag-1-1',
             callback: (type) => {
-              alert(type)
+              console.log(type)
             },
             callbackConfirmation: false
           }

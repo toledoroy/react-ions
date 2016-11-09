@@ -123,7 +123,9 @@ class ActivityFeedItem extends React.Component {
   }
 
   handleActionCallback = (action) => {
-    this.setState({ hasActiveAction: false, confirmationOverlayOpen: false, clickedItem: null })
+    this.setState({
+      hasActiveAction: false, confirmationOverlayOpen: false, clickedItem: null
+    })
 
     if (typeof action.callback === 'function') {
       action.callback(action.type)
