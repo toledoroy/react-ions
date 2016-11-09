@@ -73,11 +73,12 @@
   margin-left: 60px;
   width: calc(100% - 60px);
 
-  &:hover {
+  &:hover, &.has-active-action {
     border: 1px solid $primary-1;
 
     .action-items {
       display: block;
+      position: relative;
       visibility: visible;
     }
 
@@ -189,5 +190,58 @@
 
   @media #{$media-extra-small} {
     margin: 10px 0 -10px;
+  }
+}
+
+.action-overlay {
+  background-color: $white;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 27px;
+  width: 130px;
+  z-index: 1;
+
+  > span {
+    font-size: 16px;
+    font-weight: 200;
+    color: $navy-text;
+    margin-left: 10px;
+    margin-top: 10px;
+    display: block;
+  }
+
+  .button-wrapper {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px 10px 0;
+    width: 100%;
+
+    button {
+      margin: 0;
+    }
+  }
+
+  &:before {
+    border-style: solid;
+    border-width: 0 5px 5px 5px;
+    border-color: transparent transparent $white transparent;
+    content: '';
+    display: block;
+    height: 0;
+    filter: drop-shadow(0px -1px 1px rgba(0, 0, 0, .2));
+    left: calc(50% - 3.5px);
+    position: relative;
+    top: -5px;
+    width: 0;
+
+    @media #{$media-extra-small} {
+      left: calc(100% - 20.5px); // slide the arrow to the right side as overlay is now right-aligned
+    }
+  }
+
+  @media #{$media-extra-small} {
+    left: -108px !important; // necessary because we're inlining the left position on desktop
   }
 }

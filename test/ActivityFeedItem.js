@@ -30,15 +30,17 @@ describe('ActivityFeedItem', () => {
         {
           type: 'reply',
           icon: 'icon-back',
-          callback: () => {
-            alert('reply')
-          }
+          callback: (type) => {
+            alert(type)
+          },
+          callbackConfirmation: false
         }, {
           type: 'reply',
           icon: 'icon-arrow-68',
-          callback: () => {
-            alert('reply')
-          }
+          callback: (type) => {
+            alert(type)
+          },
+          callbackConfirmation: false
         }
       ],
       badge: {
@@ -55,6 +57,26 @@ describe('ActivityFeedItem', () => {
       badge: {
         text: '9',
         theme: 'success'
+      }
+    }, {
+      name: 'The Nav Component',
+      title: 'is really great, actually.',
+      profileUrl: '/components/nav',
+      text: 'Bacon ipsum dolor amet venison bresaola kevin chuck. Pig turkey alcatra beef ribs salami pork.',
+      timestamp: '2016-05-05T18:19:08.936',
+      actions: [
+        {
+          type: 'reply',
+          icon: 'icon-back',
+          callback: (type) => {
+            alert(type)
+          },
+          callbackConfirmation: true
+        }
+      ],
+      badge: {
+        text: '7',
+        theme: 'warning'
       }
     }
   ]
@@ -127,19 +149,30 @@ describe('ActivityFeedItem', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
-  it('should allow re-render if props have changed', () => {
+  it('should not render if currentState and nextState are the same', () => {
     const wrapper = shallow(<ActivityFeedItem name={data[0].name} badge={data[0].badge} />)
     const currentProps = { name: data[0].name, badge: data[0].badge }
-    const nextProps = Object.assign(currentProps, { name: 'new name' })
+    const nextProps = Object.assign(currentProps)
+    const nextState = Object.assign(wrapper.state())
+
+    expect(wrapper.instance().shouldComponentUpdate(nextProps, nextState)).to.be.false
+  })
+
+  it('should re-render if state has changed', () => {
+    const wrapper = shallow(<ActivityFeedItem name={data[0].name} badge={data[0].badge} />)
+    const currentProps = { name: data[0].name, badge: data[0].badge }
+    const nextProps = Object.assign(currentProps)
+    const nextState = Object.assign(wrapper.state(), {confirmationOverlayOpen: true})
 
     expect(wrapper.instance().shouldComponentUpdate(nextProps, null)).to.be.true
   })
 
-  it('should not allow re-render if props have not changed', () => {
+  it('should allow re-render if props have changed', () => {
     const wrapper = shallow(<ActivityFeedItem name={data[0].name} badge={data[0].badge} />)
     const currentProps = { name: data[0].name, badge: data[0].badge }
-    const nextProps = Object.assign(currentProps)
+    const nextProps = Object.assign(currentProps, { name: 'new name' })
+    const nextState = Object.assign(wrapper.state())
 
-    expect(wrapper.instance().shouldComponentUpdate(nextProps, null)).to.be.false
+    expect(wrapper.instance().shouldComponentUpdate(nextProps, nextState)).to.be.true
   })
 })
