@@ -39,7 +39,15 @@ class Tooltip extends React.Component {
     /**
      * Whether to show the tooltip element by default.
      */
-    show: React.PropTypes.bool
+    show: React.PropTypes.bool,
+    /**
+     * Callback to call when mouseover is called
+     */
+    mouseOverCallback: React.PropTypes.func,
+    /**
+     * Callback to call when mouseout is called
+     */
+    bobCallback: React.PropTypes.func
   }
 
   componentDidMount = () => {
@@ -56,11 +64,18 @@ class Tooltip extends React.Component {
 
   showTooltip = () => {
     this.tooltipPlacement()
+    if (this.props.mouseOverCallback) {
+      this.props.mouseOverCallback()
+    }
     this.setState({ showing: true })
   }
 
   hideTooltip = () => {
     if (!this.props.show) {
+      if (this.props.bobCallback) {
+        console.log('bobCallback')
+        this.props.bobCallback()
+      }
       this.setState({ showing: false })
     }
   }

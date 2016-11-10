@@ -4,10 +4,12 @@ import classNames from 'classnames/bind'
 import { Link } from 'react-router'
 import shallowCompare from 'react-addons-shallow-compare'
 import throttle from 'lodash/throttle'
+import closest from '../internal/Closest'
 import timeString from '../internal/TimeString'
 import Badge from '../Badge'
 import Button from '../Button'
 import Icon from '../Icon'
+import Tooltip from '../Tooltip'
 import optclass from '../internal/OptClass'
 import style from './style.scss'
 
@@ -56,7 +58,8 @@ class ActivityFeedItem extends React.Component {
   state = {
     confirmationOverlayOpen: false,
     hasActiveAction: false,
-    actionOverlayLeft: -62.5
+    actionOverlayLeft: -62.5,
+    isHoveringTooltip: false
   }
 
   generateLinkType = (name) => {
@@ -80,9 +83,15 @@ class ActivityFeedItem extends React.Component {
   }
 
   generateActions = () => {
-    const actions = this.props.actions.map((action, index) =>
-      <Icon name={action.icon} onClick={this.handleActionClick.bind(this, action)} fill='#3c97d3' height='16' width='16' key={index} />
-    )
+    const actions = this.props.actions.map((action, index) => {
+      if (action.tooltip) {
+        return <Tooltip content={action.tooltip} appendToBody={true} tooltipPlacement={'bottom'} key={index} mouseOverCallback={this.handleMouseOverTooltip} bobCallback={this.handleMouseOutTooltip}>
+                 <Icon name={action.icon} onClick={this.handleActionClick.bind(this, action)} fill='#3c97d3' height='16' width='16' />
+               </Tooltip>
+      }
+      return <Icon name={action.icon} onClick={this.handleActionClick.bind(this, action)} fill='#3c97d3' height='16' width='16' key={index} />
+    })
+
     return actions
   }
 
@@ -96,17 +105,7 @@ class ActivityFeedItem extends React.Component {
 
   getActionOverlayOffset = (event) => {
     let targetLeft = event.target.getBoundingClientRect().left
-    let parentLeft
-
-    // Because the user might click on the <use> svg child element,
-    // we do a check for the type, and get the parent's parent, if it's an svg
-    // we need this check because IE doesn't support element.closest() and
-    // we don't want to polyfill
-    if (event.target.parentNode.tagName === 'svg') {
-      parentLeft = event.target.parentNode.parentNode.getBoundingClientRect().left
-    } else {
-      parentLeft = event.target.parentNode.getBoundingClientRect().left
-    }
+    let parentLeft = closest(event.target, 'div').getBoundingClientRect().left
 
     this.setState({
       actionOverlayLeft: - ((parentLeft - targetLeft) + 62.5) + 'px' // 62.5 is half the width of the overlay
@@ -118,13 +117,19 @@ class ActivityFeedItem extends React.Component {
       this.handleActionCallback(this.state.clickedItem)
     }
     else {
-      this.setState({ hasActiveAction: false, confirmationOverlayOpen: false, clickedItem: null })
+      this.setState({
+        hasActiveAction: false,
+        confirmationOverlayOpen: false,
+        clickedItem: null
+      })
     }
   }
 
   handleActionCallback = (action) => {
     this.setState({
-      hasActiveAction: false, confirmationOverlayOpen: false, clickedItem: null
+      hasActiveAction: false,
+      confirmationOverlayOpen: false,
+      clickedItem: null
     })
 
     if (typeof action.callback === 'function') {
@@ -135,11 +140,23 @@ class ActivityFeedItem extends React.Component {
   handleActionClick = (action, event) => {
     if (action.callbackConfirmation) {
       this.getActionOverlayOffset(event)
-      this.setState({ hasActiveAction: true, confirmationOverlayOpen: true, clickedItem: action })
+      this.setState({
+        hasActiveAction: true,
+        confirmationOverlayOpen: true,
+        clickedItem: action
+      })
     }
     else {
       this.handleActionCallback(action)
     }
+  }
+
+  handleMouseOverTooltip = () => {
+    this.setState({ isHoveringTooltip: true })
+  }
+
+  handleMouseOutTooltip = () => {
+    this.setState({ isHoveringTooltip: false })
   }
 
   componentDidMount = () => {
@@ -159,11 +176,14 @@ class ActivityFeedItem extends React.Component {
   render = () => {
     const cx = classNames.bind(style)
     const badgeClasses = optclass(style, 'indicator')
+    const hoveringTooltipClass = this.state.isHoveringTooltip ? style['is-hovering-tooltip'] : null
     const activeActionClass = this.state.hasActiveAction ? style['has-active-action'] : null
     const itemWrapperClass = cx(style['item-wrapper'], activeActionClass)
     const actionOverlayPosition = {
       left: this.state.actionOverlayLeft
     }
+
+    console.log(hoveringTooltipClass, itemWrapperClass)
 
     return (
       <li>

@@ -73,7 +73,9 @@
   margin-left: 60px;
   width: calc(100% - 60px);
 
-  &:hover, &.has-active-action {
+  &:hover,
+  &.has-active-action,
+  &.is-hovering-tooltip {
     border: 1px solid $primary-1;
 
     .action-items {
@@ -164,7 +166,7 @@
   .action-items {
     display: none;
 
-    svg {
+    > svg, > span {
       cursor: pointer;
       margin-right: 15px;
 
