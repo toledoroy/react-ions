@@ -101,7 +101,7 @@ class ActivityFeed extends React.Component {
   }
 
   componentDidMount = () => {
-    window.addEventListener('resize', this.throttle)
+    window.addEventListener('resize', this.offsetThrottle)
     window.addEventListener('scroll', this.scrollThrottle)
     this.updateOffset()
   }

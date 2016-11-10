@@ -5,6 +5,24 @@ import Tooltip from '../src/components/Tooltip/Tooltip'
 describe('Tooltip', () => {
   let wrapper, inst, spy
 
+  const shallowRender = (props) => {
+    const shallowWrapper = shallow(<Tooltip content="Testing the top tooltip" {...props}>Test text</Tooltip>)
+    // Mock the getBoundingClientRect method
+    shallowWrapper.instance()._triggerElement = {
+      getBoundingClientRect: () => {
+        return {
+          width: 100,
+          left: 100,
+          right: 200,
+          top: 0,
+          bottom: 50
+        }
+      }
+    }
+
+    return shallowWrapper
+  }
+
   afterEach(function() {
     var elems = document.body.children
     if (elems.length > 0) {
@@ -210,7 +228,7 @@ describe('Tooltip', () => {
     expect(document.body.getElementsByClassName('tooltip-component')[0].style.opacity).to.be.equal('')
   })
 
-  it('should show by default', () => {
+  it('should show by default', (done) => {
     wrapper = mount(<Tooltip content="Testing the top tooltip" show={true}>Test text</Tooltip>)
 
     setTimeout(() => {
@@ -223,6 +241,8 @@ describe('Tooltip', () => {
       wrapper.simulate('mouseout')
 
       expect(wrapper.find('.tooltip-component').node.style.opacity).to.be.equal('0.9')
+
+      done()
     }, 1000)
   })
 
@@ -238,4 +258,33 @@ describe('Tooltip', () => {
     expect(wrapper.hasClass('test-class')).to.be.true
   })
 
+  it('should return the correct styles', () => {
+    wrapper = shallowRender()
+    wrapper.instance().showTooltip()
+
+    expect(wrapper.instance().getStyles()).to.deep.equal({top: 0, left: 150, opacity: 0.9})
+
+    wrapper = shallowRender({ tooltipPlacement: 'bottom' })
+    wrapper.instance().showTooltip()
+
+    expect(wrapper.instance().getStyles()).to.deep.equal({top: 50, left: 150, opacity: 0.9})
+
+    wrapper = shallowRender({ tooltipPlacement: 'top', show: true })
+    wrapper.instance().showTooltip()
+
+    expect(wrapper.instance().getStyles()).to.deep.equal({top: 'inherit', left: 'inherit', opacity: 0.9, transform: 'translateX(-50%) translateX(-50px) translateY(-100%) translateY(-6px)'})
+
+    wrapper = shallowRender()
+    expect(wrapper.instance().getStyles()).to.deep.equal({})
+  })
+
+  it('should show the tooltip when mounted if the show property is true', (done) => {
+    wrapper = mount(<Tooltip content="Testing the top tooltip" show={true}>Test text</Tooltip>)
+    expect(wrapper.state().showing).to.be.false
+
+    setTimeout(() => {
+      expect(wrapper.state().showing).to.be.true
+      done()
+    }, 1500)
+  })
 })

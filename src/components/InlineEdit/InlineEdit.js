@@ -243,25 +243,26 @@ class InlineEdit extends React.Component {
   }
 
   attachKeyListeners = () => {
-    const saveEvent = this.handleSave
-    this._textValue.addEventListener("keypress", (event) => {
-      // Grabs the character code, even in FireFox
-      const charCode = event.keyCode ? event.keyCode : event.which
-      if (charCode === 13) {
-        event.preventDefault()
-        saveEvent()
-      }
-    })
+    this._textValue.addEventListener('keypress', this.handleKeyPress)
+    this._textValue.addEventListener('keyup', this.handleKeyUp)
+  }
 
-    const cancelEvent = this.handleCancel
-    this._textValue.addEventListener("keyup", (event) => {
-      // Grabs the character code, even in FireFox
-      const charCode = event.keyCode ? event.keyCode : event.which
-      if (charCode === 27) {
-        event.preventDefault()
-        cancelEvent()
-      }
-    })
+  handleKeyPress = (event) => {
+    // Grabs the character code, even in FireFox
+    const charCode = event.keyCode ? event.keyCode : event.which
+    if (charCode === 13) {
+      event.preventDefault()
+      this.handleSave()
+    }
+  }
+
+  handleKeyUp = (event) => {
+    // Grabs the character code, even in FireFox
+    const charCode = event.keyCode ? event.keyCode : event.which
+    if (charCode === 27) {
+      event.preventDefault()
+      this.handleCancel()
+    }
   }
 
   activateCopyToClipboard = () => {

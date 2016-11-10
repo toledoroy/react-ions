@@ -4,6 +4,7 @@ import InlineEdit from '../src/components/InlineEdit/InlineEdit'
 import Icon from '../src/components/Icon/Icon'
 
 describe('InlineEdit', () => {
+
   it('should render a span and buttons', () => {
     const wrapper = shallow(<InlineEdit name='test' value='test value' isEditing={true} />)
     expect(wrapper.hasClass('readonly')).to.be.false
@@ -210,5 +211,61 @@ describe('InlineEdit', () => {
     expect(wrapper.find('Tooltip').props().content).to.equal('test tooltip')
     expect(wrapper.find('Tooltip').props().tooltipPlacement).to.equal('top')
     expect(wrapper.find('Tooltip').props().optClass).to.equal('test-class')
+  })
+
+  it('should attach key listeners', () => {
+    const wrapper = mount(<InlineEdit name='test' value='test value' />)
+    const addEventListenerSpy = sinon.spy(wrapper.instance()._textValue, 'addEventListener')
+
+    wrapper.instance().attachKeyListeners()
+
+    expect(addEventListenerSpy.calledWithExactly('keypress', wrapper.instance().handleKeyPress)).to.be.true
+    expect(addEventListenerSpy.calledWithExactly('keyup', wrapper.instance().handleKeyUp)).to.be.true
+  })
+
+  it('should handle keyPress events', () => {
+    const wrapper = shallow(<InlineEdit name='test' value='test value' />)
+    const saveStub = sinon.stub(wrapper.instance(), 'handleSave')
+
+    let event = { keyCode: 13, preventDefault: sinon.spy() }
+    wrapper.instance().handleKeyPress(event)
+
+    expect(event.preventDefault.called).to.be.true
+    expect(saveStub.calledOnce).to.be.true
+
+    event = { which: 13, preventDefault: sinon.spy() }
+    wrapper.instance().handleKeyPress(event)
+
+    expect(event.preventDefault.called).to.be.true
+    expect(saveStub.calledTwice).to.be.true
+
+    event = { keyCode: 40, preventDefault: sinon.spy() }
+    wrapper.instance().handleKeyPress(event)
+
+    expect(event.preventDefault.called).to.be.false
+    expect(saveStub.calledThrice).to.be.false
+  })
+
+  it('should handle keyUp events', () => {
+    const wrapper = shallow(<InlineEdit name='test' value='test value' />)
+    const cancelStub = sinon.stub(wrapper.instance(), 'handleCancel')
+
+    let event = { keyCode: 27, preventDefault: sinon.spy() }
+    wrapper.instance().handleKeyUp(event)
+
+    expect(event.preventDefault.called).to.be.true
+    expect(cancelStub.calledOnce).to.be.true
+
+    event = { which: 27, preventDefault: sinon.spy() }
+    wrapper.instance().handleKeyUp(event)
+
+    expect(event.preventDefault.called).to.be.true
+    expect(cancelStub.calledTwice).to.be.true
+
+    event = { keyCode: 40, preventDefault: sinon.spy() }
+    wrapper.instance().handleKeyUp(event)
+
+    expect(event.preventDefault.called).to.be.false
+    expect(cancelStub.calledThrice).to.be.false
   })
 })
