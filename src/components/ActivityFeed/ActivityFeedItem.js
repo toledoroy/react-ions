@@ -85,7 +85,7 @@ class ActivityFeedItem extends React.Component {
   generateActions = () => {
     const actions = this.props.actions.map((action, index) => {
       if (action.tooltip) {
-        return <Tooltip content={action.tooltip} appendToBody={true} tooltipPlacement={'bottom'} key={index} mouseOverCallback={this.handleMouseOverTooltip} bobCallback={this.handleMouseOutTooltip}>
+        return <Tooltip content={action.tooltip} appendToBody={true} tooltipPlacement={'bottom'} key={index} mouseOverCallback={this.handleMouseOverTooltip} mouseOutCallback={this.handleMouseOutTooltip}>
                  <Icon name={action.icon} onClick={this.handleActionClick.bind(this, action)} fill='#3c97d3' height='16' width='16' />
                </Tooltip>
       }
@@ -178,12 +178,10 @@ class ActivityFeedItem extends React.Component {
     const badgeClasses = optclass(style, 'indicator')
     const hoveringTooltipClass = this.state.isHoveringTooltip ? style['is-hovering-tooltip'] : null
     const activeActionClass = this.state.hasActiveAction ? style['has-active-action'] : null
-    const itemWrapperClass = cx(style['item-wrapper'], activeActionClass)
+    const itemWrapperClass = cx(style['item-wrapper'], activeActionClass, hoveringTooltipClass)
     const actionOverlayPosition = {
       left: this.state.actionOverlayLeft
     }
-
-    console.log(hoveringTooltipClass, itemWrapperClass)
 
     return (
       <li>

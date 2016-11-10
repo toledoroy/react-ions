@@ -47,7 +47,7 @@ class Tooltip extends React.Component {
     /**
      * Callback to call when mouseout is called
      */
-    bobCallback: React.PropTypes.func
+    mouseOutCallback: React.PropTypes.func
   }
 
   componentDidMount = () => {
@@ -59,24 +59,32 @@ class Tooltip extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    this.setState({ showing: nextProps.show })
+    if(typeof nextProps.show !== 'undefined') {
+      this.setState({ showing: nextProps.show })
+    }
   }
 
   showTooltip = () => {
     this.tooltipPlacement()
-    if (this.props.mouseOverCallback) {
-      this.props.mouseOverCallback()
-    }
     this.setState({ showing: true })
+
   }
 
   hideTooltip = () => {
     if (!this.props.show) {
-      if (this.props.bobCallback) {
-        console.log('bobCallback')
-        this.props.bobCallback()
-      }
       this.setState({ showing: false })
+    }
+  }
+
+  handleTooltipEnter = () => {
+    if (this.props.mouseOverCallback) {
+      this.props.mouseOverCallback()
+    }
+  }
+
+  handleTooltipOut = () => {
+    if (this.props.mouseOutCallback) {
+      this.props.mouseOutCallback()
     }
   }
 
@@ -132,7 +140,7 @@ class Tooltip extends React.Component {
     const styles = this.getStyles()
 
     return (
-      <span className={tooltipClass} style={styles}>
+      <span className={tooltipClass} style={styles} onMouseEnter={this.handleTooltipEnter} onMouseOut={this.handleTooltipOut}>
         {this.props.content}
       </span>
     )
