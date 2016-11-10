@@ -85,11 +85,11 @@ class ActivityFeedItem extends React.Component {
   generateActions = () => {
     const actions = this.props.actions.map((action, index) => {
       if (action.tooltip) {
-        return <Tooltip content={action.tooltip} appendToBody={true} tooltipPlacement={'bottom'} key={index} mouseOverCallback={this.handleMouseOverTooltip} mouseOutCallback={this.handleMouseOutTooltip}>
-                 <Icon name={action.icon} onClick={this.handleActionClick.bind(this, action)} fill='#3c97d3' height='16' width='16' />
+        return <Tooltip content={action.tooltip} appendToBody={true} show={!this.state.hasActiveAction === index} tooltipPlacement={'bottom'} key={index} mouseOverCallback={this.handleMouseOverTooltip} mouseOutCallback={this.handleMouseOutTooltip}>
+                 <Icon name={action.icon} onClick={this.handleActionClick.bind(this, index, action)} fill='#3c97d3' height='16' width='16' />
                </Tooltip>
       }
-      return <Icon name={action.icon} onClick={this.handleActionClick.bind(this, action)} fill='#3c97d3' height='16' width='16' key={index} />
+      return <Icon name={action.icon} onClick={this.handleActionClick.bind(this, index, action)} fill='#3c97d3' height='16' width='16' key={index} />
     })
 
     return actions
@@ -137,11 +137,11 @@ class ActivityFeedItem extends React.Component {
     }
   }
 
-  handleActionClick = (action, event) => {
+  handleActionClick = (index, action, event) => {
     if (action.callbackConfirmation) {
       this.getActionOverlayOffset(event)
       this.setState({
-        hasActiveAction: true,
+        hasActiveAction: index,
         confirmationOverlayOpen: true,
         clickedItem: action
       })
