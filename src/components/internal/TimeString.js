@@ -2,7 +2,6 @@ import moment from 'moment'
 
 const TimeString = (timestamp) => {
   timestamp = timestamp.slice(-1) === 'Z' ? timestamp : timestamp + 'Z'
-  console.log(timestamp)
 
   let lessThanOneHour = (moment().diff(timestamp, 'hours') < 1)
   let taskRelative = moment(timestamp).fromNow()
