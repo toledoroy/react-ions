@@ -164,7 +164,7 @@
   .action-items {
     display: none;
 
-    svg {
+    > span, > svg {
       cursor: pointer;
       margin-right: 15px;
 
