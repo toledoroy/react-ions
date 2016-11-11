@@ -73,7 +73,8 @@
   margin-left: 60px;
   width: calc(100% - 60px);
 
-  &:hover, &.has-active-action {
+  &:hover,
+  &.has-active-action {
     border: 1px solid $primary-1;
 
     .action-items {
@@ -257,6 +258,6 @@
   }
 
   @media #{$media-extra-small} {
-    left: -108px !important; // necessary because we're inlining the left position on desktop
+    left: calc(100% - 130px + -24px) !important;
   }
 }
