@@ -199,4 +199,78 @@ describe('ActivityFeed', () => {
     expect(wrapper.find(Infinite).props().useWindowAsScrollContainer).to.be.false
     expect(wrapper.find(Infinite).props().containerHeight).to.equal(200)
   })
+
+  it('should update offset if the infinite list is below or on the top of the screen', () => {
+    const onInfiniteLoad = sinon.stub().returns(Promise.resolve())
+    const wrapper = shallow(<ActivityFeed data={data} onInfiniteLoad={onInfiniteLoad} />)
+    const updateOffsetSpy = sinon.spy(wrapper.instance(), 'updateOffset')
+
+    // Mock the getBoundingClientRect method
+    wrapper.instance()._table = {
+      getBoundingClientRect: () => {
+        return {
+          top: 0
+        }
+      }
+    }
+    wrapper.instance().scrollUpdate()
+
+    expect(updateOffsetSpy.calledOnce).to.be.true
+
+    wrapper.instance()._table = {
+      getBoundingClientRect: () => {
+        return {
+          top: 1000
+        }
+      }
+    }
+    wrapper.instance().scrollUpdate()
+
+    expect(updateOffsetSpy.calledTwice).to.be.true
+
+    wrapper.instance()._table = {
+      getBoundingClientRect: () => {
+        return {
+          top: -100
+        }
+      }
+    }
+    wrapper.instance().scrollUpdate()
+
+    expect(updateOffsetSpy.calledThrice).to.be.false
+  })
+
+  it('should add event listeners when mounted', () => {
+    const addEventListenerSpy = sinon.spy(window, 'addEventListener')
+    const onInfiniteLoad = sinon.stub().returns(Promise.resolve())
+    const wrapper = shallow(<ActivityFeed data={data} onInfiniteLoad={onInfiniteLoad} />)
+    const updateOffsetStub = sinon.stub(wrapper.instance(), 'updateOffset')
+
+    wrapper.instance().componentDidMount()
+
+    expect(addEventListenerSpy.calledWithExactly('resize', wrapper.instance().offsetThrottle)).to.be.true
+    expect(addEventListenerSpy.calledWithExactly('scroll', wrapper.instance().scrollThrottle)).to.be.true
+    expect(updateOffsetStub.called).to.be.true
+
+    wrapper.instance().componentWillUnmount()
+    updateOffsetStub.restore()
+    addEventListenerSpy.restore()
+  })
+
+  it('should remove event listeners when unmounted', () => {
+    const removeEventListenerSpy = sinon.spy(window, 'removeEventListener')
+    const onInfiniteLoad = sinon.stub().returns(Promise.resolve())
+    const wrapper = shallow(<ActivityFeed data={data} onInfiniteLoad={onInfiniteLoad} />)
+    const resizeThrottleCancelSpy = sinon.spy(wrapper.instance().offsetThrottle, 'cancel')
+    const scrollThrottleCancelSpy = sinon.spy(wrapper.instance().scrollThrottle, 'cancel')
+
+    wrapper.instance().componentWillUnmount()
+
+    expect(resizeThrottleCancelSpy.called).to.be.true
+    expect(scrollThrottleCancelSpy.called).to.be.true
+    expect(removeEventListenerSpy.calledWithExactly('resize', wrapper.instance().offsetThrottle)).to.be.true
+    expect(removeEventListenerSpy.calledWithExactly('scroll', wrapper.instance().scrollThrottle)).to.be.true
+
+    removeEventListenerSpy.restore()
+  })
 })
