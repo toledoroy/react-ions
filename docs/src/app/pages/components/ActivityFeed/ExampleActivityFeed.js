@@ -37,29 +37,33 @@ class ExampleActivityFeed extends React.Component {
   getInitialActivities = () => {
     let items = [
       {
-        name: 'External Link',
-        profileUrl: `${config.APP_URL}/v3/c/manage/ambassadors/`,
-        profileUrlTarget: '_blank',
-        title: 'is pretty awesome.',
-        text: 'Beef ribs shoulder bresaola hamburger brisket filet mignon turkey kevin frankfurter andouille spare ribs shankle chicken swine ham hock. Ham pork belly alcatra venison.',
+        title: 'Earned a commission of $10.00',
         timestamp: '2016-05-06T18:19:08.936',
         badge: {
           text: '9',
           theme: 'success'
         }
       }, {
-        name: 'The Nav Component',
-        title: 'is really great, actually.',
-        text: 'Bacon ipsum dolor amet venison bresaola kevin chuck. Pig turkey alcatra beef ribs salami pork.',
+        title: 'Shared via Facebook',
+        text: 'I really love the way they implmemented this.',
         timestamp: '2016-05-05T18:19:08.936',
         actions: [
           {
-            type: 'reply',
-            icon: 'icon-back',
+            type: 'approve',
+            icon: 'icon-hand-like-1-1',
+            tooltip: 'Approve',
+          }, {
+            type: 'deny',
+            icon: 'icon-hand-unlike-1',
+            callbackConfirmation: true,
             callback: (type) => {
               alert(type)
             },
-            callbackConfirmation: true
+            tooltip: 'Deny'
+          }, {
+            type: 'info',
+            icon: 'icon-information-1',
+            tooltip: 'This is info'
           }
         ],
         badge: {
@@ -67,11 +71,9 @@ class ExampleActivityFeed extends React.Component {
           theme: 'warning'
         }
       }, {
-        name: 'bob+pizza+lover+45@getambassador.com',
+        name: 'Linkable name',
         profileUrl: '/foundations/iconography',
         profileUrlTarget: '_blank',
-        title: 'was given a pizza coupon and is really happy',
-        text: 'Turducken chuck shoulder, landjaeger brisket shank tri-tip capicola kielbasa jerky alcatra drumstick pork belly filet mignon. ',
         timestamp: '2016-06-15T18:19:08.936',
         actions: [
           {
@@ -87,7 +89,8 @@ class ExampleActivityFeed extends React.Component {
             callback: (type) => {
               console.log(type)
             },
-            callbackConfirmation: false
+            callbackConfirmation: false,
+            tooltip: 'Flag this item'
           }
         ],
         badge: {

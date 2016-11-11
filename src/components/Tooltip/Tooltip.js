@@ -39,7 +39,15 @@ class Tooltip extends React.Component {
     /**
      * Whether to show the tooltip element by default.
      */
-    show: React.PropTypes.bool
+    show: React.PropTypes.bool,
+    /**
+     * Callback to call when mouseover is called
+     */
+    mouseOverCallback: React.PropTypes.func,
+    /**
+     * Callback to call when mouseout is called
+     */
+    mouseOutCallback: React.PropTypes.func
   }
 
   componentDidMount = () => {
@@ -51,17 +59,32 @@ class Tooltip extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    this.setState({ showing: nextProps.show })
+    if(typeof nextProps.show !== 'undefined') {
+      this.setState({ showing: nextProps.show })
+    }
   }
 
   showTooltip = () => {
     this.tooltipPlacement()
     this.setState({ showing: true })
+
   }
 
   hideTooltip = () => {
     if (!this.props.show) {
       this.setState({ showing: false })
+    }
+  }
+
+  handleTooltipEnter = () => {
+    if (this.props.mouseOverCallback) {
+      this.props.mouseOverCallback()
+    }
+  }
+
+  handleTooltipOut = () => {
+    if (this.props.mouseOutCallback) {
+      this.props.mouseOutCallback()
     }
   }
 
@@ -117,7 +140,7 @@ class Tooltip extends React.Component {
     const styles = this.getStyles()
 
     return (
-      <span className={tooltipClass} style={styles}>
+      <span className={tooltipClass} style={styles} onMouseEnter={this.handleTooltipEnter} onMouseOut={this.handleTooltipOut}>
         {this.props.content}
       </span>
     )
