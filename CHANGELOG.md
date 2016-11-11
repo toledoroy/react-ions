@@ -1,5 +1,18 @@
 ## HEAD
 
+## 0.71.0
+###### _November 11, 2016_
+
+##### General
+
+- Move all packages we don't need to devDependencies
+([#296](https://github.com/GetAmbassador/react-conventions/pull/296))
+
+##### Component Fixes / Enhancements
+
+- [Icons] Adding icon
+([#301](https://github.com/GetAmbassador/react-conventions/pull/301))
+
 ## 0.70.0
 ###### _November 9, 2016_
 
