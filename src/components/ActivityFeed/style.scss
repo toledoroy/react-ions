@@ -74,7 +74,8 @@
   width: calc(100% - 60px);
 
   &:hover,
-  &.has-active-action {
+  &.has-active-action,
+  &.is-hovering-tooltip {
     border: 1px solid $primary-1;
 
     .action-items {
