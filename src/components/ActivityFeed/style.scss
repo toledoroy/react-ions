@@ -44,7 +44,6 @@
 
 .element-scrollable {
   width: calc(100% + 10px);
-
   > ul > div {
     padding-right: 10px;
   }
@@ -165,7 +164,7 @@
   .action-items {
     display: none;
 
-    > svg, > span {
+    svg {
       cursor: pointer;
       margin-right: 15px;
 
@@ -242,7 +241,22 @@
     }
   }
 
+  &:after {
+    background-color: $white;
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    right: 57.5px;
+    top: 0;
+    width: 13px;
+
+    @media #{$media-extra-small} {
+      right: 10px;
+    }
+  }
+
   @media #{$media-extra-small} {
-    left: calc(100% - 130px + -24px) !important;
+    left: -108px !important; // necessary because we're inlining the left position on desktop
   }
 }
