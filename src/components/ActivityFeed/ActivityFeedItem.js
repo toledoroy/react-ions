@@ -50,7 +50,12 @@ class ActivityFeedItem extends React.Component {
     /**
      * Callback to send height to parent.
      */
-    onSetHeight: React.PropTypes.func
+    onSetHeight: React.PropTypes.func,
+    /**
+     * Forces browser to display "narrow" layout for implementations use fixed
+     * positioning
+     */
+    forceNarrowLayout: React.PropTypes.bool
   }
 
   state = {
