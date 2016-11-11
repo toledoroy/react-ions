@@ -84,12 +84,14 @@ class ActivityFeedItem extends React.Component {
 
   generateActions = () => {
     const actions = this.props.actions.map((action, index) => {
+      let currentIndex = index + 1 // because setting state on a zeroth index produces a falsy value
+
       if (action.tooltip) {
-        return <Tooltip content={action.tooltip} appendToBody={true} show={!this.state.hasActiveAction === index} tooltipPlacement={'bottom'} key={index} mouseOverCallback={this.handleMouseOverTooltip} mouseOutCallback={this.handleMouseOutTooltip}>
-                 <Icon name={action.icon} onClick={this.handleActionClick.bind(this, index, action)} fill='#3c97d3' height='16' width='16' />
+        return <Tooltip content={action.tooltip} appendToBody={true} show={!this.state.hasActiveAction === currentIndex} tooltipPlacement={'bottom'} key={index} mouseOverCallback={this.handleMouseOverTooltip} mouseOutCallback={this.handleMouseOutTooltip}>
+                 <Icon name={action.icon} onClick={this.handleActionClick.bind(this, currentIndex, action)} fill='#3c97d3' height='16' width='16' />
                </Tooltip>
       }
-      return <Icon name={action.icon} onClick={this.handleActionClick.bind(this, index, action)} fill='#3c97d3' height='16' width='16' key={index} />
+      return <Icon name={action.icon} onClick={this.handleActionClick.bind(this, currentIndex, action)} fill='#3c97d3' height='16' width='16' key={index} />
     })
 
     return actions

@@ -149,6 +149,47 @@ describe('ActivityFeedItem', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
+  it('should handle the action callback', () => {
+    const onSetHeight = sinon.stub()
+
+    const localAction = {
+      type: 'reply',
+      icon: 'icon-back',
+      callback: (type) => {
+        alert(type)
+      },
+      callbackConfirmation: false
+    }
+    const wrapper = shallow(<ActivityFeedItem actions={data[1].actions} badge={data[1].badge} onSetHeight={onSetHeight} />)
+    wrapper.instance().handleActionCallback(localAction)
+    expect(wrapper.state().hasActiveAction).to.be.false
+    expect(wrapper.state().confirmationOverlayOpen).to.be.false
+    expect(wrapper.state().clickedItem).to.be.null
+  })
+
+  it('should set state when mouse over tooltip', () => {
+    const onSetHeight = sinon.stub()
+    const wrapper = shallow(<ActivityFeedItem actions={data[1].actions} badge={data[1].badge} onSetHeight={onSetHeight} />)
+
+    wrapper.instance().handleMouseOverTooltip()
+    expect(wrapper.state().isHoveringTooltip).to.be.true
+
+    wrapper.update()
+
+    wrapper.instance().handleMouseOutTooltip()
+    expect(wrapper.state().isHoveringTooltip).to.be.false
+  })
+
+  it('should handle confirmation', () => {
+    const onSetHeight = sinon.stub()
+    const wrapper = shallow(<ActivityFeedItem actions={data[1].actions} badge={data[1].badge} onSetHeight={onSetHeight} />)
+
+    wrapper.instance().handleConfirmation(false)
+    expect(wrapper.state().hasActiveAction).to.be.false
+    expect(wrapper.state().confirmationOverlayOpen).to.be.false
+    expect(wrapper.state().clickedItem).to.be.null
+  })
+
   it('should not render if currentState and nextState are the same', () => {
     const wrapper = shallow(<ActivityFeedItem name={data[0].name} badge={data[0].badge} />)
     const currentProps = { name: data[0].name, badge: data[0].badge }

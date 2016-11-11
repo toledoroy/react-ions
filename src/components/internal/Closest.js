@@ -14,7 +14,7 @@ const Closest = (el, selector) => {
 
   // traverse parents
   while (el) {
-    parent = el.parentElement
+    parent = el.parentNode
     if (parent && parent[matchesFn](selector)) {
       return parent
     }
