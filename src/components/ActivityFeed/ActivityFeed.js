@@ -37,13 +37,17 @@ class ActivityFeed extends React.Component {
      */
     totalCount: React.PropTypes.number,
     /**
-     * Whether to use the window or the wrapper element for the scroll container
+     * Whether to use the window or the wrapper element for the scroll container,
      */
     useWindowAsScrollContainer: React.PropTypes.bool,
     /**
-     * The container height (required if useWindowAsScrollContainer is set to false)
+     * The container height (required if useWindowAsScrollContainer is set to false),
      */
-    containerHeight: React.PropTypes.number
+    containerHeight: React.PropTypes.number,
+    /**
+     * Force "compact" view on all screen sizes.
+     */
+    compactView: React.PropTypes.bool
   }
 
   static defaultProps = {
@@ -82,6 +86,7 @@ class ActivityFeed extends React.Component {
           text={item.text}
           time={item.timestamp}
           onSetHeight={this.handleSetHeight.bind(this, i)}
+          compactView={this.props.compactView}
         />)
     }
 

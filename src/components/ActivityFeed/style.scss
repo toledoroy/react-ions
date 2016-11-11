@@ -262,3 +262,49 @@
     left: calc(100% - 154px) !important;
   }
 }
+
+// The following are styles that are used above
+// on small breakpoints.
+.compact-view {
+
+  &.item-wrapper {
+    border: 0;
+    flex-direction: column;
+    margin-left: 45px;
+    margin-top: -7px;
+    padding: 7px 7px 15px;
+    width: calc(100% - 45px);
+
+    &:hover {
+      background-color: $neutral-2;
+      border: 0;
+
+      time:not(:only-child) {
+        display: block;
+      }
+    }
+  }
+
+  .item-detail  {
+    flex: 0 0 auto;
+
+    .item-title {
+      font-size: 15px;
+
+      + .item-text {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .action-wrapper {
+    flex: 0 0 auto;
+    justify-content: space-between;
+    margin: 10px 0 -10px;
+
+    time {
+      color: #9198a0;
+      font-size: 12px;
+    }
+  }
+}

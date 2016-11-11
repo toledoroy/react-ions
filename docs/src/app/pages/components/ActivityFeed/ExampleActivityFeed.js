@@ -158,7 +158,9 @@ class ExampleActivityFeed extends React.Component {
           totalCount={420}
           useWindowAsScrollContainer={this.state.useWindowAsScrollContainer}
           containerHeight={400}
-          onInfiniteLoad={this.handleInfiniteLoad} />
+          onInfiniteLoad={this.handleInfiniteLoad}
+          compactView={true}
+        />
       </div>
     )
   }
