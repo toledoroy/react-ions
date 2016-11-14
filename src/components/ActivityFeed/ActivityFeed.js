@@ -86,7 +86,6 @@ class ActivityFeed extends React.Component {
           text={item.text}
           time={item.timestamp}
           onSetHeight={this.handleSetHeight.bind(this, i)}
-          compactView={this.props.compactView}
         />)
     }
 
@@ -180,12 +179,13 @@ class ActivityFeed extends React.Component {
   }
 
   render() {
-    let classArray = ['activity-feed']
-    if (!this.props.useWindowAsScrollContainer) {
-      classArray.push('element-scrollable')
-    }
-    const feedClasses = optclass(style, classArray, this.props.optClass)
+    const compactViewClass = this.props.compactView ? 'compact-view' : null
+    const windowAsScrollContainerClass = !this.props.useWindowAsScrollContainer ? 'element-scrollable' : null
     const elementInfiniteLoad = (<div className={style['loader']}><Spinner loading={true} optClass={style['spinner']} type='spinner-bounce' color='#3C97D3' /></div>)
+
+    let classArray = ['activity-feed', compactViewClass, windowAsScrollContainerClass]
+
+    const feedClasses = optclass(style, classArray, this.props.optClass)
 
     return (
       <div className={feedClasses}>

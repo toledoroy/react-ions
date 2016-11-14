@@ -273,4 +273,9 @@ describe('ActivityFeed', () => {
 
     removeEventListenerSpy.restore()
   })
+
+  it('should display as compact view', () => {
+    const wrapper = shallow(<ActivityFeed data={data} compactView={true} />)
+    expect(wrapper.hasClass('activity-feed compact-view')).to.be.true
+  })
 })

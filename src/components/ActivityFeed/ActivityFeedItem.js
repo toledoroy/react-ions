@@ -52,11 +52,7 @@ class ActivityFeedItem extends React.Component {
     /**
      * Callback to send height to parent.
      */
-    onSetHeight: React.PropTypes.func,
-    /**
-     * Force "compact" view on all screen sizes.
-     */
-    compactView: React.PropTypes.bool
+    onSetHeight: React.PropTypes.func
   }
 
   state = {
@@ -184,8 +180,7 @@ class ActivityFeedItem extends React.Component {
     const badgeClasses = optclass(style, 'indicator')
     const hoveringTooltipClass = this.state.isHoveringTooltip ? style['is-hovering-tooltip'] : null
     const activeActionClass = this.state.hasActiveAction ? style['has-active-action'] : null
-    const compactViewClass = this.props.compactView ? style['compact-view'] : null
-    const itemWrapperClass = cx(style['item-wrapper'], activeActionClass, hoveringTooltipClass, compactViewClass)
+    const itemWrapperClass = cx(style['item-wrapper'], activeActionClass, hoveringTooltipClass)
     const actionOverlayPosition = {
       left: this.state.actionOverlayLeft
     }
