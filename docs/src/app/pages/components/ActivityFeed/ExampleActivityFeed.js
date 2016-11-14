@@ -130,6 +130,13 @@ class ExampleActivityFeed extends React.Component {
     })
   }
 
+  toggleCompactView = () => {
+    const compactView = !this.state.compactView
+    this.setState({
+      compactView: compactView
+    })
+  }
+
   handleInfiniteLoad = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -151,6 +158,7 @@ class ExampleActivityFeed extends React.Component {
         <p>
           <Button onClick={this.changeActivities}>Set random activities</Button>
           <Button onClick={this.toggleContainer}>{ this.state.useWindowAsScrollContainer ? 'Use element as scroll container' : 'Use window as scroll container'}</Button>
+          <Button onClick={this.toggleCompactView}>Toggle compact view</Button>
         </p>
         <div className={style['test-div']} />
         <ActivityFeed
@@ -159,7 +167,7 @@ class ExampleActivityFeed extends React.Component {
           useWindowAsScrollContainer={this.state.useWindowAsScrollContainer}
           containerHeight={400}
           onInfiniteLoad={this.handleInfiniteLoad}
-          compactView={true}
+          compactView={this.state.compactView}
         />
       </div>
     )
