@@ -262,3 +262,54 @@
     left: calc(100% - 154px) !important;
   }
 }
+
+// The following styles can be triggered from the compactView prop option
+// passed into the activity feed component
+.compact-view {
+
+  &.activity-feed li {
+
+    .item-wrapper {
+      border: 0;
+      flex-direction: column;
+      margin-left: 45px;
+      margin-top: -7px;
+      padding: 7px 7px 15px;
+      width: calc(100% - 45px);
+
+      &:hover {
+        background-color: $neutral-2;
+        border: 0;
+
+        time:not(:only-child) {
+          display: block;
+        }
+      }
+    }
+
+    .item-detail  {
+      flex: 0 0 auto;
+
+      .item-title {
+        font-size: 15px;
+
+        + .item-text {
+          margin-top: 5px;
+        }
+      }
+    }
+
+    .action-wrapper {
+      flex: 0 0 auto;
+      justify-content: space-between;
+      margin: 10px 0 -10px;
+      min-height: 21px;
+
+      time {
+        color: #9198a0;
+        display: block;
+        font-size: 12px;
+      }
+    }
+  }
+}

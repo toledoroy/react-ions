@@ -37,13 +37,17 @@ class ActivityFeed extends React.Component {
      */
     totalCount: React.PropTypes.number,
     /**
-     * Whether to use the window or the wrapper element for the scroll container
+     * Whether to use the window or the wrapper element for the scroll container,
      */
     useWindowAsScrollContainer: React.PropTypes.bool,
     /**
-     * The container height (required if useWindowAsScrollContainer is set to false)
+     * The container height (required if useWindowAsScrollContainer is set to false),
      */
-    containerHeight: React.PropTypes.number
+    containerHeight: React.PropTypes.number,
+    /**
+     * Force "compact" view on all screen sizes.
+     */
+    compactView: React.PropTypes.bool
   }
 
   static defaultProps = {
@@ -175,12 +179,13 @@ class ActivityFeed extends React.Component {
   }
 
   render() {
-    let classArray = ['activity-feed']
-    if (!this.props.useWindowAsScrollContainer) {
-      classArray.push('element-scrollable')
-    }
-    const feedClasses = optclass(style, classArray, this.props.optClass)
+    const compactViewClass = this.props.compactView ? 'compact-view' : null
+    const windowAsScrollContainerClass = !this.props.useWindowAsScrollContainer ? 'element-scrollable' : null
     const elementInfiniteLoad = (<div className={style['loader']}><Spinner loading={true} optClass={style['spinner']} type='spinner-bounce' color='#3C97D3' /></div>)
+
+    let classArray = ['activity-feed', compactViewClass, windowAsScrollContainerClass]
+
+    const feedClasses = optclass(style, classArray, this.props.optClass)
 
     return (
       <div className={feedClasses}>
