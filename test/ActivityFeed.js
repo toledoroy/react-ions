@@ -86,13 +86,6 @@ describe('ActivityFeed', () => {
     expect(wrapper.state('heights')[0]).to.equal(123)
   })
 
-  it('should return current height string when getHeight is called', () => {
-    const wrapper = shallow(<ActivityFeed data={data} />)
-    wrapper.instance().handleSetHeight(0, 123)
-
-    expect(wrapper.instance().getHeight(0)).to.equal('123-px')
-  })
-
   it('should return items and heights when buildElements is called', () => {
     const wrapper = shallow(<ActivityFeed data={data} />)
     const buildElementsResponse = wrapper.instance().buildElements(0, data)

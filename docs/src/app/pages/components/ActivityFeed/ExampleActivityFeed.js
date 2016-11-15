@@ -75,6 +75,15 @@ class ExampleActivityFeed extends React.Component {
             },
             tooltip: 'Deny'
           }, {
+            type: 'reply',
+            icon: 'icon-back',
+            callbackConfirmation: true,
+            callback: (type, index) => {
+              console.log('action type: ' + type, 'item index: ' + index)
+              this.asyncFunction(index)
+            },
+            tooltip: 'Reply'
+          }, {
             type: 'info',
             icon: 'icon-information-1',
             tooltip: 'This is info'

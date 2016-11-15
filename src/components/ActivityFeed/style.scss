@@ -268,10 +268,6 @@
       right: 10px;
     }
   }
-
-  @media #{$media-extra-small} {
-    left: calc(100% - 154px) !important;
-  }
 }
 
 // The following styles can be triggered from the compactView prop option
