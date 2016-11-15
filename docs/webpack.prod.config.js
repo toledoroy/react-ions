@@ -34,7 +34,7 @@ const config = {
     new CleanWebpackPlugin(['dist'], {
       root: path.join(__dirname, '/')
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src/app/index.html'),
       inject: 'body',
