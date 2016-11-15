@@ -184,10 +184,17 @@ class ActivityFeedItem extends React.Component {
    */
   handleMediaChange = (mediaQueryList) => {
     if (mediaQueryList.matches) {
-      this.setState({ isSmallScreen: true })
+      console.log('here')
+      this.setState({
+        isSmallScreen: true,
+        confirmationOverlayOpen: false
+      })
     }
     else {
-      this.setState({ isSmallScreen: false })
+      this.setState({
+        isSmallScreen: false,
+        confirmationOverlayOpen: false
+      })
     }
   }
 
