@@ -77,6 +77,7 @@ class ActivityFeed extends React.Component {
       items.push(
         <ActivityFeedItem
           key={stateIndex}
+          index={stateIndex}
           name={item.name}
           badge={item.badge}
           profileUrl={item.profileUrl}
@@ -85,6 +86,7 @@ class ActivityFeed extends React.Component {
           actions={item.actions}
           text={item.text}
           time={item.timestamp}
+          loading={item.loading}
           onSetHeight={this.handleSetHeight.bind(this, i)}
         />)
     }

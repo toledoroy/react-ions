@@ -34,6 +34,19 @@ class ExampleActivityFeed extends React.Component {
     return items
   }
 
+  asyncFunction = (index) => {
+    let activities = this.state.activities
+    activities[index].loading = true
+
+    this.setState({ activities: activities }, () => {
+      setTimeout(() => {
+        let activities = this.state.activities
+        activities[index].loading = false
+        this.setState({ activities: activities })
+      }, 2000)
+    })
+  }
+
   getInitialActivities = () => {
     let items = [
       {
@@ -45,7 +58,7 @@ class ExampleActivityFeed extends React.Component {
         }
       }, {
         title: 'Shared via Facebook',
-        text: 'I really love the way they implmemented this.',
+        text: 'I really love the way they implemented this.',
         timestamp: '2016-05-05T18:19:08.936',
         actions: [
           {
@@ -56,8 +69,9 @@ class ExampleActivityFeed extends React.Component {
             type: 'deny',
             icon: 'icon-hand-unlike-1',
             callbackConfirmation: true,
-            callback: (type) => {
-              alert(type)
+            callback: (type, index) => {
+              console.log('action type: ' + type, 'item index: ' + index)
+              this.asyncFunction(index)
             },
             tooltip: 'Deny'
           }, {
@@ -79,15 +93,17 @@ class ExampleActivityFeed extends React.Component {
           {
             type: 'reply',
             icon: 'icon-back',
-            callback: (type) => {
-              alert(type)
+            callback: (type, index) => {
+              console.log('action type: ' + type, 'item index: ' + index)
+              this.asyncFunction(index)
             },
             callbackConfirmation: true
           }, {
             type: 'flag',
             icon: 'icon-flag-1-1',
-            callback: (type) => {
-              console.log(type)
+            callback: (type, index) => {
+              console.log('action type: ' + type, 'item index: ' + index)
+              this.asyncFunction(index)
             },
             callbackConfirmation: false,
             tooltip: 'Flag this item'
