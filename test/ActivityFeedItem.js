@@ -293,4 +293,23 @@ describe('ActivityFeedItem', () => {
     expect(itemActions.type).to.equal(Spinner)
     expect(wrapper.find('.has-active-action')).to.have.length(1)
   })
+
+  it('should handle match media', () => {
+    const wrapper = shallow(<ActivityFeedItem actions={data[3].actions} name={data[3].name} badge={data[3].badge} loading={true} />)
+    const smallScreen = {
+      media: "(max-width: 768px)",
+      matches: true
+    }
+    const bigScreen = {
+      media: "(max-width: 768px)",
+      matches: false
+    }
+    wrapper.instance().handleMediaChange(smallScreen)
+    expect(wrapper.state().isSmallScreen).to.be.true
+
+    wrapper.update()
+
+    wrapper.instance().handleMediaChange(bigScreen)
+    expect(wrapper.state().isSmallScreen).to.be.false
+  })
 })
