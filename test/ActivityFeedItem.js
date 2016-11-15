@@ -306,10 +306,12 @@ describe('ActivityFeedItem', () => {
     }
     wrapper.instance().handleMediaChange(smallScreen)
     expect(wrapper.state().isSmallScreen).to.be.true
+    expect(wrapper.state().confirmationOverlayOpen).to.be.false
 
     wrapper.update()
 
     wrapper.instance().handleMediaChange(bigScreen)
     expect(wrapper.state().isSmallScreen).to.be.false
+    expect(wrapper.state().confirmationOverlayOpen).to.be.false
   })
 })
