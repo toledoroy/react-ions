@@ -152,6 +152,9 @@
   flex: 1 0 0%;
   justify-content: flex-end;
   position: relative;
+  @media #{$media-extra-small} {
+    min-height: 21px;
+  }
 
   time {
     color: $primary-4;
@@ -172,6 +175,14 @@
 
       &:last-child {
         margin-right: 0;
+      }
+    }
+
+    .action-spinner {
+      cursor: default;
+      background-color: transparent;
+      * {
+        cursor: default;
       }
     }
 
@@ -277,6 +288,7 @@
       padding: 7px 7px 15px;
       width: calc(100% - 45px);
 
+      &.has-active-action,
       &:hover {
         background-color: $neutral-2;
         border: 0;

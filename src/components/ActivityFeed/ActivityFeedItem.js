@@ -10,6 +10,7 @@ import Badge from '../Badge'
 import Button from '../Button'
 import Icon from '../Icon'
 import Tooltip from '../Tooltip'
+import Spinner from '../Spinner'
 import optclass from '../internal/OptClass'
 import style from './style.scss'
 
@@ -52,7 +53,15 @@ class ActivityFeedItem extends React.Component {
     /**
      * Callback to send height to parent.
      */
-    onSetHeight: React.PropTypes.func
+    onSetHeight: React.PropTypes.func,
+    /**
+     * Whether the loading spinner is displayed.
+     */
+    loading: React.PropTypes.bool,
+    /**
+     * Index of the item in the list.
+     */
+    index: React.PropTypes.number
   }
 
   state = {
@@ -83,18 +92,23 @@ class ActivityFeedItem extends React.Component {
   }
 
   generateActions = () => {
-    const actions = this.props.actions.map((action, index) => {
-      let currentIndex = index + 1 // because setting state on a zeroth index produces a falsy value
+    if (this.props.loading) {
+      return <Spinner loading={true} type='spinner-bounce' position='inline' color='#3C97D3' optClass={style['action-spinner']} />
+    }
+    else {
+      const actions = this.props.actions.map((action, index) => {
+        let currentIndex = index + 1 // because setting state on a zeroth index produces a falsy value
 
-      if (action.tooltip) {
-        return <Tooltip content={action.tooltip} appendToBody={true} show={!this.state.hasActiveAction === currentIndex} tooltipPlacement={'bottom'} key={index} mouseOverCallback={this.handleMouseOverTooltip} mouseOutCallback={this.handleMouseOutTooltip}>
-                 <Icon name={action.icon} onClick={this.handleActionClick.bind(this, currentIndex, action)} fill='#3c97d3' height='16' width='16' />
-               </Tooltip>
-      }
-      return <Icon name={action.icon} onClick={this.handleActionClick.bind(this, currentIndex, action)} fill='#3c97d3' height='16' width='16' key={index} />
-    })
+        if (action.tooltip) {
+          return <Tooltip content={action.tooltip} appendToBody={true} show={!this.state.hasActiveAction === currentIndex} tooltipPlacement={'bottom'} key={index} mouseOverCallback={this.handleMouseOverTooltip} mouseOutCallback={this.handleMouseOutTooltip}>
+                   <Icon name={action.icon} onClick={this.handleActionClick.bind(this, currentIndex, action)} fill='#3C97D3' height='16' width='16' />
+                 </Tooltip>
+        }
+        return <Icon name={action.icon} onClick={this.handleActionClick.bind(this, currentIndex, action)} fill='#3C97D3' height='16' width='16' key={index} />
+      })
 
-    return actions
+      return actions
+    }
   }
 
   updateHeight = () => {
@@ -135,7 +149,7 @@ class ActivityFeedItem extends React.Component {
     })
 
     if (typeof action.callback === 'function') {
-      action.callback(action.type)
+      action.callback(action.type, this.props.index)
     }
   }
 
@@ -179,7 +193,7 @@ class ActivityFeedItem extends React.Component {
     const cx = classNames.bind(style)
     const badgeClasses = optclass(style, 'indicator')
     const hoveringTooltipClass = this.state.isHoveringTooltip ? style['is-hovering-tooltip'] : null
-    const activeActionClass = this.state.hasActiveAction ? style['has-active-action'] : null
+    const activeActionClass = this.state.hasActiveAction || this.props.loading ? style['has-active-action'] : null
     const itemWrapperClass = cx(style['item-wrapper'], activeActionClass, hoveringTooltipClass)
     const actionOverlayPosition = {
       left: this.state.actionOverlayLeft
