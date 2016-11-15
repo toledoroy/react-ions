@@ -31,6 +31,11 @@ describe('InputList', () => {
     expect(wrapper.find(TagList)).to.have.length(1)
   })
 
+  it('should return falsy for cWRP if same props.value is passed', () => {
+    wrapper = shallow(<InputList optClass='test' value={value} placeholder='Type something and hit enter' />)
+    expect(!!wrapper.instance().componentWillReceiveProps({ value })).to.be.false
+  })
+
   it('should build state from props', () => {
     const spy = sinon.spy()
     wrapper = shallow(<InputList value={value} changeCallback={spy} />)

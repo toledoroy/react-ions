@@ -4,8 +4,10 @@ import { shallow, mount } from 'enzyme'
 import { Link } from 'react-router'
 import timeString from '../src/components/internal/TimeString'
 import Icon from '../src/components/Icon'
+import Tooltip from '../src/components/Tooltip'
 import ActivityFeed from '../src/components/ActivityFeed/ActivityFeed'
 import ActivityFeedItem from '../src/components/ActivityFeed/ActivityFeedItem'
+import * as closestHelper from '../src/components/internal/Closest'
 
 describe('ActivityFeedItem', () => {
 
@@ -69,7 +71,8 @@ describe('ActivityFeedItem', () => {
           type: 'reply',
           icon: 'icon-back',
           callback: sinon.spy(),
-          callbackConfirmation: true
+          callbackConfirmation: true,
+          tooltip: 'Action Tooltip'
         }
       ],
       badge: {
@@ -261,5 +264,23 @@ describe('ActivityFeedItem', () => {
     expect(wrapper.state().confirmationOverlayOpen).to.be.false
     expect(wrapper.state().clickedItem).to.equal(null)
     expect(data[3].actions[0].callback.called).to.be.true
+  })
+
+  it('should get the action overlay left', () => {
+    const closestStub = sinon.stub(closestHelper, 'default').returns({ getBoundingClientRect: () => { return { left: 100 } } })
+    const wrapper = shallow(<ActivityFeedItem actions={data[3].actions} name={data[3].name} badge={data[3].badge} />)
+
+    wrapper.instance().getActionOverlayOffset({ target: { getBoundingClientRect: () => { return { left: 50 } } } })
+
+    expect(wrapper.state().actionOverlayLeft).to.equal('-112.5px')
+  })
+
+  it('should show render tooltip on an action icon', () => {
+    const wrapper = shallow(<ActivityFeedItem actions={data[3].actions} name={data[3].name} badge={data[3].badge} />)
+
+    const itemActions = wrapper.instance().generateActions()
+
+    expect(itemActions[0].type).to.equal(Tooltip)
+    expect(itemActions[0].props.content).to.equal('Action Tooltip')
   })
 })
