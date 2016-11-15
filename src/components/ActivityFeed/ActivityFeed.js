@@ -63,16 +63,12 @@ class ActivityFeed extends React.Component {
     }
   }
 
-  getHeight = (i) => {
-    return this.state.heights[i]+'-px'
-  }
-
   buildElements = (start, data) => {
     let items = []
     let heights = []
     for (var i = start; i < data.length; i++) {
       const item = data[i]
-      const stateIndex = start+i
+      const stateIndex = start + i
       heights.push(this.state && this.state.heights[stateIndex] || 200)
       items.push(
         <ActivityFeedItem

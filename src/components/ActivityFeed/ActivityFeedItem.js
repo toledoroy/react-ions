@@ -18,6 +18,7 @@ class ActivityFeedItem extends React.Component {
   constructor(props) {
     super(props)
     this.throttle = throttle(this.updateHeight, 200)
+    this.mql = window.matchMedia('(max-width: 768px)')
   }
 
   static propTypes = {
@@ -67,7 +68,6 @@ class ActivityFeedItem extends React.Component {
   state = {
     confirmationOverlayOpen: false,
     hasActiveAction: false,
-    actionOverlayLeft: -62.5,
     isHoveringTooltip: false
   }
 
@@ -123,8 +123,10 @@ class ActivityFeedItem extends React.Component {
     let targetLeft = event.target.getBoundingClientRect().left
     let parentLeft = closest(event.target, 'div').getBoundingClientRect().left
 
+    let divotOffset = this.state.isSmallScreen ? 107.5 : 62.5
+
     this.setState({
-      actionOverlayLeft: - ((parentLeft - targetLeft) + 62.5) + 'px' // 62.5 is half the width of the overlay
+      actionOverlayLeft: - ((parentLeft - targetLeft) + divotOffset) + 'px'
     })
   }
 
@@ -175,14 +177,35 @@ class ActivityFeedItem extends React.Component {
     this.setState({ isHoveringTooltip: false })
   }
 
+  /**
+   * To trigger JavaScript changes on a breakpoint
+   * @param  {Object} mediaQueryList
+   * @return {Boolean} whether the viewport is < or > than max-width 768px
+   */
+  handleMediaChange = (mediaQueryList) => {
+    if (mediaQueryList.matches) {
+      this.setState({ isSmallScreen: true })
+    }
+    else {
+      this.setState({ isSmallScreen: false })
+    }
+  }
+
   componentDidMount = () => {
     window.addEventListener('resize', this.throttle)
     this.updateHeight()
+
+    if (this.props.actions) {
+      this.mql.addListener(this.handleMediaChange)
+      this.handleMediaChange(this.mql)
+    }
   }
 
   componentWillUnmount = () => {
-    this.throttle.cancel();
+    this.throttle.cancel()
     window.removeEventListener('resize', this.throttle)
+
+    this.mql.removeListener(this.handleMediaChange)
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
@@ -195,9 +218,7 @@ class ActivityFeedItem extends React.Component {
     const hoveringTooltipClass = this.state.isHoveringTooltip ? style['is-hovering-tooltip'] : null
     const activeActionClass = this.state.hasActiveAction || this.props.loading ? style['has-active-action'] : null
     const itemWrapperClass = cx(style['item-wrapper'], activeActionClass, hoveringTooltipClass)
-    const actionOverlayPosition = {
-      left: this.state.actionOverlayLeft
-    }
+    const actionOverlayPosition = { left: this.state.actionOverlayLeft }
 
     return (
       <li>
