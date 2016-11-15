@@ -1,5 +1,25 @@
 ## HEAD
 
+## 0.72.0
+###### _November 15, 2016_
+
+##### Component Fixes / Enhancements
+
+- Functionality for isSmallScreen on Activity Feed
+([#308](https://github.com/GetAmbassador/react-conventions/pull/308))
+
+- [#133708091] Add ability to pass in a loading state to activity feed items
+([#307](https://github.com/GetAmbassador/react-conventions/pull/307))
+
+- [#131100595] Use ~ version for dependencies
+([#306](https://github.com/GetAmbassador/react-conventions/pull/306))
+
+- [#134339973] Update package.json and webpack config
+([#305](https://github.com/GetAmbassador/react-conventions/pull/305))
+
+- [#134026857] activityfeed allow manual override for fixed position feed
+([#304](https://github.com/GetAmbassador/react-conventions/pull/304))
+
 ## 0.71.0
 ###### _November 11, 2016_
 
