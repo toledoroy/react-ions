@@ -5,6 +5,7 @@ import { Link } from 'react-router'
 import timeString from '../src/components/internal/TimeString'
 import Icon from '../src/components/Icon'
 import Tooltip from '../src/components/Tooltip'
+import Spinner from '../src/components/Spinner'
 import ActivityFeed from '../src/components/ActivityFeed/ActivityFeed'
 import ActivityFeedItem from '../src/components/ActivityFeed/ActivityFeedItem'
 import * as closestHelper from '../src/components/internal/Closest'
@@ -275,12 +276,21 @@ describe('ActivityFeedItem', () => {
     expect(wrapper.state().actionOverlayLeft).to.equal('-112.5px')
   })
 
-  it('should show render tooltip on an action icon', () => {
+  it('should render tooltip on an action icon', () => {
     const wrapper = shallow(<ActivityFeedItem actions={data[3].actions} name={data[3].name} badge={data[3].badge} />)
 
     const itemActions = wrapper.instance().generateActions()
 
     expect(itemActions[0].type).to.equal(Tooltip)
     expect(itemActions[0].props.content).to.equal('Action Tooltip')
+  })
+
+  it('should render spinner instead of item actions', () => {
+    const wrapper = shallow(<ActivityFeedItem actions={data[3].actions} name={data[3].name} badge={data[3].badge} loading={true} />)
+
+    const itemActions = wrapper.instance().generateActions()
+
+    expect(itemActions.type).to.equal(Spinner)
+    expect(wrapper.find('.has-active-action')).to.have.length(1)
   })
 })

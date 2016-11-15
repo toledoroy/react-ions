@@ -58,7 +58,7 @@ class ExampleActivityFeed extends React.Component {
         }
       }, {
         title: 'Shared via Facebook',
-        text: 'I really love the way they implmemented this.',
+        text: 'I really love the way they implemented this.',
         timestamp: '2016-05-05T18:19:08.936',
         actions: [
           {
