@@ -126,7 +126,7 @@ class ActivityFeedItem extends React.Component {
     let divotOffset = this.state.isSmallScreen ? 107.5 : 62.5
 
     this.setState({
-      actionOverlayLeft: - ((parentLeft - targetLeft) + divotOffset) + 'px'
+      actionOverlayLeft: - (parentLeft - targetLeft + divotOffset) + 'px'
     })
   }
 
@@ -183,18 +183,10 @@ class ActivityFeedItem extends React.Component {
    * @return {Boolean} whether the viewport is < or > than max-width 768px
    */
   handleMediaChange = (mediaQueryList) => {
-    if (mediaQueryList.matches) {
-      this.setState({
-        isSmallScreen: true,
-        confirmationOverlayOpen: false
-      })
-    }
-    else {
-      this.setState({
-        isSmallScreen: false,
-        confirmationOverlayOpen: false
-      })
-    }
+    this.setState({
+      isSmallScreen: mediaQueryList.matches,
+      confirmationOverlayOpen: false
+    })
   }
 
   componentDidMount = () => {
