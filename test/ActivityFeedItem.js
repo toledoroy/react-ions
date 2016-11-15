@@ -4,8 +4,10 @@ import { shallow, mount } from 'enzyme'
 import { Link } from 'react-router'
 import timeString from '../src/components/internal/TimeString'
 import Icon from '../src/components/Icon'
+import Tooltip from '../src/components/Tooltip'
 import ActivityFeed from '../src/components/ActivityFeed/ActivityFeed'
 import ActivityFeedItem from '../src/components/ActivityFeed/ActivityFeedItem'
+import * as closestHelper from '../src/components/internal/Closest'
 
 describe('ActivityFeedItem', () => {
 
@@ -40,7 +42,7 @@ describe('ActivityFeedItem', () => {
           callback: (type) => {
             alert(type)
           },
-          callbackConfirmation: false
+          callbackConfirmation: true
         }
       ],
       badge: {
@@ -68,10 +70,9 @@ describe('ActivityFeedItem', () => {
         {
           type: 'reply',
           icon: 'icon-back',
-          callback: (type) => {
-            alert(type)
-          },
-          callbackConfirmation: true
+          callback: sinon.spy(),
+          callbackConfirmation: true,
+          tooltip: 'Action Tooltip'
         }
       ],
       badge: {
@@ -215,5 +216,71 @@ describe('ActivityFeedItem', () => {
     const nextState = Object.assign(wrapper.state())
 
     expect(wrapper.instance().shouldComponentUpdate(nextProps, nextState)).to.be.true
+  })
+
+  it('should show a callback confirmation when an action icon is clicked', () => {
+    const wrapper = shallow(<ActivityFeedItem actions={data[3].actions} name={data[3].name} badge={data[3].badge} />)
+    const getActionOverlayOffsetStub = sinon.stub(wrapper.instance(), 'getActionOverlayOffset')
+    const handleActionCallbackSpy = sinon.spy(wrapper.instance(), 'handleActionCallback')
+
+    wrapper.instance().handleActionClick(1, data[3].actions[0], 'event')
+
+    expect(getActionOverlayOffsetStub.called).to.be.true
+    expect(wrapper.state().hasActiveAction).to.equal(1)
+    expect(wrapper.state().confirmationOverlayOpen).to.be.true
+    expect(wrapper.state().clickedItem).to.deep.equal(data[3].actions[0])
+    expect(handleActionCallbackSpy.called).to.be.false
+  })
+
+  it('should close the confirmation when Cancel is clicked', () => {
+    const wrapper = shallow(<ActivityFeedItem actions={data[3].actions} name={data[3].name} badge={data[3].badge} />)
+    wrapper.setState({ hasActiveAction: 1, confirmationOverlayOpen: true, clickedItem: data[3].actions[0] })
+
+    wrapper.instance().handleConfirmation(false)
+
+    expect(wrapper.state().hasActiveAction).to.be.false
+    expect(wrapper.state().confirmationOverlayOpen).to.be.false
+    expect(wrapper.state().clickedItem).to.equal(null)
+  })
+
+  it('should trigger the callback when Yes is clicked', () => {
+    const wrapper = shallow(<ActivityFeedItem actions={data[3].actions} name={data[3].name} badge={data[3].badge} />)
+    const handleActionCallbackStub = sinon.stub(wrapper.instance(), 'handleActionCallback')
+    wrapper.setState({ hasActiveAction: 1, confirmationOverlayOpen: true, clickedItem: data[3].actions[0] })
+
+    wrapper.instance().handleConfirmation(true)
+
+    expect(handleActionCallbackStub.called).to.be.true
+
+  })
+
+  it('should set state and trigger the callback', () => {
+    const wrapper = shallow(<ActivityFeedItem actions={data[3].actions} name={data[3].name} badge={data[3].badge} />)
+    wrapper.setState({ hasActiveAction: 1, confirmationOverlayOpen: true, clickedItem: data[3].actions[0] })
+
+    wrapper.instance().handleActionCallback(data[3].actions[0])
+
+    expect(wrapper.state().hasActiveAction).to.be.false
+    expect(wrapper.state().confirmationOverlayOpen).to.be.false
+    expect(wrapper.state().clickedItem).to.equal(null)
+    expect(data[3].actions[0].callback.called).to.be.true
+  })
+
+  it('should get the action overlay left', () => {
+    const closestStub = sinon.stub(closestHelper, 'default').returns({ getBoundingClientRect: () => { return { left: 100 } } })
+    const wrapper = shallow(<ActivityFeedItem actions={data[3].actions} name={data[3].name} badge={data[3].badge} />)
+
+    wrapper.instance().getActionOverlayOffset({ target: { getBoundingClientRect: () => { return { left: 50 } } } })
+
+    expect(wrapper.state().actionOverlayLeft).to.equal('-112.5px')
+  })
+
+  it('should show render tooltip on an action icon', () => {
+    const wrapper = shallow(<ActivityFeedItem actions={data[3].actions} name={data[3].name} badge={data[3].badge} />)
+
+    const itemActions = wrapper.instance().generateActions()
+
+    expect(itemActions[0].type).to.equal(Tooltip)
+    expect(itemActions[0].props.content).to.equal('Action Tooltip')
   })
 })

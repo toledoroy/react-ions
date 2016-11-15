@@ -287,4 +287,22 @@ describe('Tooltip', () => {
       done()
     }, 1500)
   })
+
+  it('should trigger the mouseover callback if defined', () => {
+    const mouseOverSpy = sinon.spy()
+    wrapper = shallow(<Tooltip content="Testing the top tooltip" show={true} mouseOverCallback={mouseOverSpy}>Test text</Tooltip>)
+
+    wrapper.instance().handleTooltipEnter()
+
+    expect(mouseOverSpy.called).to.be.true
+  })
+
+  it('should trigger the mouseout callback if defined', () => {
+    const mouseOutSpy = sinon.spy()
+    wrapper = shallow(<Tooltip content="Testing the top tooltip" show={true} mouseOutCallback={mouseOutSpy}>Test text</Tooltip>)
+
+    wrapper.instance().handleTooltipOut()
+
+    expect(mouseOutSpy.called).to.be.true
+  })
 })

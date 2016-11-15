@@ -234,4 +234,12 @@ describe('RadioGroup', () => {
     expect(wrapper.childAt(1).props().checked).to.be.false
     expect(wrapper.childAt(2).props().checked).to.be.true
   })
+
+  it('should set the checked property on an item to true', () => {
+    wrapper = shallow(<RadioGroup name='test-group' options={options} label='Test label' labelPosition='left' />)
+
+    wrapper.instance().checkItem('option_2', options)
+
+    expect(options[1].checked).to.be.true
+  })
 })
