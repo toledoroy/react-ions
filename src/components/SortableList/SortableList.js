@@ -6,7 +6,7 @@ import HTML5Backend from 'react-dnd-html5-backend'
 import CustomDragLayer from './CustomDragLayer'
 import style from './style.scss'
 
-class SortableList extends React.Component {
+export class SortableList extends React.Component {
   constructor(props) {
     super(props)
   }
