@@ -63,11 +63,17 @@ class ExampleActivityFeed extends React.Component {
         actions: [
           {
             type: 'approve',
-            icon: 'icon-hand-like-1-1',
+            icon: {
+              name: 'icon-hand-like-1',
+              fill: 'grey'
+            },
             tooltip: 'Approve',
           }, {
             type: 'deny',
-            icon: 'icon-hand-unlike-1',
+            icon: {
+              name: 'icon-hand-unlike-1',
+              fill: 'red'
+            },
             callbackConfirmation: true,
             callback: (type, index) => {
               console.log('action type: ' + type, 'item index: ' + index)

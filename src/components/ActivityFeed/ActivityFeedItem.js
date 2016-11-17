@@ -99,12 +99,16 @@ class ActivityFeedItem extends React.Component {
       const actions = this.props.actions.map((action, index) => {
         let currentIndex = index + 1 // because setting state on a zeroth index produces a falsy value
 
+        // We'll do a type check here until we've updated any components that massage activityFeed data
+        let iconName = typeof action.icon === 'object' ? action.icon.name : action.icon
+        let iconFill = typeof action.icon === 'object' ? action.icon.fill || '#3C97D3' : '#3C97D3'
+
         if (action.tooltip) {
           return <Tooltip content={action.tooltip} appendToBody={true} show={!this.state.hasActiveAction === currentIndex} tooltipPlacement={'bottom'} key={index} mouseOverCallback={this.handleMouseOverTooltip} mouseOutCallback={this.handleMouseOutTooltip}>
-                   <Icon name={action.icon} onClick={this.handleActionClick.bind(this, currentIndex, action)} fill='#3C97D3' height='16' width='16' />
+                   <Icon name={iconName} onClick={this.handleActionClick.bind(this, currentIndex, action)} fill={iconFill} height='16' width='16' />
                  </Tooltip>
         }
-        return <Icon name={action.icon} onClick={this.handleActionClick.bind(this, currentIndex, action)} fill='#3C97D3' height='16' width='16' key={index} />
+        return <Icon name={iconName} onClick={this.handleActionClick.bind(this, currentIndex, action)} fill={iconFill} height='16' width='16' key={index} />
       })
 
       return actions
