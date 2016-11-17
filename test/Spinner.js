@@ -49,8 +49,19 @@ describe('Spinner', () => {
   })
 
   it('should be hidden', () => {
-        wrapper = shallow(<Spinner loading={false} type='spinner-bounce' optClass='testing' />)
-        expect(wrapper.hasClass('is-hidden')).to.equal(true)
+    wrapper = shallow(<Spinner loading={false} type='spinner-bounce' />)
+    expect(wrapper.hasClass('is-hidden')).to.be.true
+  })
+
+  it('should set state when passed props', () => {
+    wrapper = shallow(<Spinner loading={false} type='spinner-bounce' />)
+    wrapper.setProps({loading: true})
+    expect(wrapper.hasClass('is-hidden')).to.be.false
+  })
+
+  it('should set state after a delay', () => {
+    wrapper = shallow(<Spinner loading={true} type='spinner-bounce' delay={500} />)
+    expect(wrapper.hasClass('loading')).to.be.false
   })
 
 })

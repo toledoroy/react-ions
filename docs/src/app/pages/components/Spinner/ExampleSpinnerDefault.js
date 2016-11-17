@@ -6,4 +6,4 @@ const ExampleSpinnerDefault = () => (
   <Spinner loading={true} type='spinner-dots' />
 )
 
-export default ExampleSpinnerDefault;
+export default ExampleSpinnerDefault
