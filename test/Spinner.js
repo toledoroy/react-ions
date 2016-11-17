@@ -53,6 +53,11 @@ describe('Spinner', () => {
     expect(wrapper.hasClass('is-hidden')).to.be.true
   })
 
+  it('should not be hidden', () => {
+    wrapper = shallow(<Spinner loading={true} type='spinner-bounce' />)
+    expect(wrapper.hasClass('is-hidden')).to.be.false
+  })
+
   it('should set state when passed props', () => {
     wrapper = shallow(<Spinner loading={false} type='spinner-bounce' />)
     wrapper.setProps({loading: true})
@@ -62,6 +67,18 @@ describe('Spinner', () => {
   it('should set state after a delay', () => {
     wrapper = shallow(<Spinner loading={true} type='spinner-bounce' delay={500} />)
     expect(wrapper.hasClass('loading')).to.be.false
+  })
+
+  it('should update component if state changes', () => {
+    wrapper = shallow(<Spinner loading={true} type='spinner-bounce' />)
+    const nextState = Object.assign({loading: false})
+
+    expect(wrapper.instance().shouldComponentUpdate(null, nextState)).to.be.true
+
+    wrapper.update()
+
+    const anotherNextState = Object.assign({loading: true})
+    expect(wrapper.instance().shouldComponentUpdate(null, anotherNextState)).to.be.false
   })
 
 })
