@@ -274,6 +274,8 @@ describe('ActivityFeedItem', () => {
     wrapper.instance().getActionOverlayOffset({ target: { getBoundingClientRect: () => { return { left: 50 } } } })
 
     expect(wrapper.state().actionOverlayLeft).to.equal('-112.5px')
+
+    closestStub.restore()
   })
 
   it('should render tooltip on an action icon', () => {
