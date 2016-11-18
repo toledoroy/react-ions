@@ -55,10 +55,11 @@ class Spinner extends React.Component {
 
   getLoadingState = (props) => {
     if (props.loading && props.delay) {
-      window.setTimeout(() => {
-        this.setState({ loading: props.loading })
+      this.timeout = setTimeout(() => {
+        this.setState({ loading: true })
       }, props.delay)
     } else {
+      clearTimeout(this.timeout)
       this.setState({ loading: props.loading })
     }
   }
