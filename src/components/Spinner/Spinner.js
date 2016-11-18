@@ -5,6 +5,10 @@ import classNames from 'classnames/bind'
 class Spinner extends React.Component {
   constructor(props) {
     super(props)
+
+    this.timeout = setTimeout(() => {
+      this.setState({ loading: props.loading })
+    }, props.delay)
   }
 
   state = {
@@ -55,10 +59,9 @@ class Spinner extends React.Component {
 
   getLoadingState = (props) => {
     if (props.loading && props.delay) {
-      window.setTimeout(() => {
-        this.setState({ loading: props.loading })
-      }, props.delay)
+      this.timeout
     } else {
+      clearTimeout(this.timeout)
       this.setState({ loading: props.loading })
     }
   }

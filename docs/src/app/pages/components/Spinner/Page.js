@@ -17,7 +17,7 @@ const description = {
   spinnerDefault: 'This is the default **spinner component**. When `position=\'fixed\'` is passed as a prop, the spinner will fill the entire screen.',
   spinnerBounce: 'This is a variation of the **spinner component**.',
   spinnerInline: 'This is a variation of the **spinner component** that allows it to sit inline.',
-  spinnerDelay: 'This is spinner with a ten second delay before it\'s shown'
+  spinnerDelay: 'This is spinner with a five second delay before it\'s shown'
 }
 
 const SpinnerPage = (props) => {
