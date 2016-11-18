@@ -86,6 +86,8 @@ export class Dropdown extends React.Component {
   listItemCallback = (item) => {
     this.setState({isOpened: false, confirmationOverlayOpen: false, clickedItem: null})
 
+    console.log('listItemCallback')
+
     if (typeof item.callback === 'function') {
       item.callback(item.name)
     }
