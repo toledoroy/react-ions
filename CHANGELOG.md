@@ -1,5 +1,12 @@
 ## HEAD
 
+## 0.74.0
+###### _November 18, 2016_
+
+- 129557149 spinner enhancement delay
+([#313](https://github.com/GetAmbassador/react-conventions/pull/313))
+([#314](https://github.com/GetAmbassador/react-conventions/pull/314))
+
 ## 0.73.0
 ###### _November 17, 2016_
 - (Re-release of 0.72.0 to fix build issues)
