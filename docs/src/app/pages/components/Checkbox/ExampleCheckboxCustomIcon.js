@@ -6,7 +6,7 @@ import style from './style.scss'
 
 class ExampleCheckboxToggle extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -16,11 +16,11 @@ class ExampleCheckboxToggle extends React.Component {
 
   toggleIcon = () => {
     const iconName = this.state.iconName === 'icon-minus-2' ? 'icon-check-1-1' : 'icon-minus-2'
-    this.setState({ iconName: iconName });
+    this.setState({ iconName: iconName })
   }
 
   handleChange = (event) => {
-    this.setState({ checked: event.target.checked });
+    this.setState({ checked: event.target.checked })
   }
 
   render() {

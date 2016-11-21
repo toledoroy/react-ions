@@ -29,7 +29,7 @@ const description = {
   checkboxCallback: 'This is the `checkbox component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
   checkboxToggle: 'This is the `checkbox component` that you can toggle from the outside by changing its checked property.',
   checkboxCustomIcon: 'This is the `checkbox component` with a custom icon.'
-};
+}
 
 const CheckboxPage = () => (
   <div>
@@ -90,6 +90,6 @@ const CheckboxPage = () => (
       </div>
     </div>
   </div>
-);
+)
 
 export default CheckboxPage
