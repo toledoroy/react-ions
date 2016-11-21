@@ -16,6 +16,8 @@ import ExampleCheckboxCallback from './ExampleCheckboxCallback'
 import exampleCheckboxCallbackCode from '!raw!./ExampleCheckboxCallback'
 import ExampleCheckboxToggle from './ExampleCheckboxToggle'
 import exampleCheckboxToggleCode from '!raw!./ExampleCheckboxToggle'
+import ExampleCheckboxCustomIcon from './ExampleCheckboxCustomIcon'
+import exampleCheckboxCustomIconCode from '!raw!./ExampleCheckboxCustomIcon'
 import styles from 'private/css/content'
 
 const description = {
@@ -25,7 +27,8 @@ const description = {
   checkboxError: 'This is the `checkbox component` with an error.',
   checkboxLeft: 'This is a `checkbox component` with the label on the left side.',
   checkboxCallback: 'This is the `checkbox component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
-  checkboxToggle: 'This is the `checkbox component` that you can toggle from the outside by changing its checked property.'
+  checkboxToggle: 'This is the `checkbox component` that you can toggle from the outside by changing its checked property.',
+  checkboxCustomIcon: 'This is the `checkbox component` with a custom icon.'
 };
 
 const CheckboxPage = () => (
@@ -73,6 +76,12 @@ const CheckboxPage = () => (
           description={description.checkboxToggle}
           markup={exampleCheckboxToggleCode}>
           <ExampleCheckboxToggle />
+        </CodeExample>
+        <CodeExample
+          title='Checkbox with a custom icon'
+          description={description.checkboxCustomIcon}
+          markup={exampleCheckboxCustomIconCode}>
+          <ExampleCheckboxCustomIcon />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
