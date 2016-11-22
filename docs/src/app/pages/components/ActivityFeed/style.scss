@@ -7,3 +7,12 @@
   height: 0px;
   width: 100%;
 }
+
+.item-wrapper {
+  border-radius: 3px;
+  border: 1px solid #ff0000;
+  box-sizing: border-box;
+  padding: 15px;
+  margin-left: 60px;
+  width: calc(100% - 60px);
+}

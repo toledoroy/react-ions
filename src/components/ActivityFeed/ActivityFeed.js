@@ -87,7 +87,8 @@ class ActivityFeed extends React.Component {
           text={item.text}
           time={item.timestamp}
           loading={item.loading}
-          onSetHeight={this.handleSetHeight.bind(this, i)}/>)
+          renderer={this.props.renderer}
+          onSetHeight={this.handleSetHeight.bind(this, i)} />)
     }
 
     return { items, heights }

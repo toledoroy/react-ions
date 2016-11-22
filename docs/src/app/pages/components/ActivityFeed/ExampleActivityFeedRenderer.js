@@ -4,36 +4,52 @@ import style from './style.scss'
 
 const styles = ['success', 'info', 'danger', 'warning']
 const actions = ['activity', 'share', 'commission', 'event']
+const data = [
+  {
+    title: 'Submitted a positive score',
+    timestamp: '2016-05-06T18:19:08.936',
+    badge: {
+      text: '9',
+      theme: 'success'
+    },
+    type: 'survey'
+  }, {
+    name: 'Earned a commission of $10.00',
+    timestamp: '2016-06-15T18:19:08.936',
+    badge: {
+      icon: 'icon-hand-coin-1',
+      theme: 'fog'
+    },
+    type: 'commission'
+  }
+]
 
 class ExampleActivityFeedRenderer extends React.Component {
   constructor(props) {
     super(props)
   }
 
-  getInitialActivities = () => {
-    let items = [
-      {
-        title: 'Earned a commission of $10.00',
-        timestamp: '2016-05-06T18:19:08.936',
-        badge: {
-          text: '9',
-          theme: 'success'
-        }
-      }, {
-        name: 'Printed test page.',
-        timestamp: '2016-06-15T18:19:08.936',
-        badge: {
-          icon: 'icon-mail-inbox-1',
-          theme: 'fog'
-        }
-      }
-    ]
+  renderer = (index) => {
+    let node
 
-    return items
-  }
+    const item = data[index]
+    switch (item.type) {
+      case 'commission':
+        node = <div className={style['item-wrapper']}>
+                {item.timestamp}
+               </div>
+        break
+      case 'survey':
+        node = <div className={style['item-wrapper']}>
+                {item.timestamp}
+               </div>
+        break
+      default:
+        node = ''
+        break
+    }
 
-  state = {
-    activities: this.getInitialActivities()
+    return node
   }
 
   render() {
@@ -41,8 +57,9 @@ class ExampleActivityFeedRenderer extends React.Component {
       <div>
         <div className={style['test-div']} />
         <ActivityFeed
-          data={this.state.activities}
-          totalCount={4} />
+          data={data}
+          totalCount={4}
+          renderer={this.renderer} />
       </div>
     )
   }
