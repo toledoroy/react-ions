@@ -47,7 +47,11 @@ class ActivityFeed extends React.Component {
     /**
      * Force "compact" view on all screen sizes.
      */
-    compactView: React.PropTypes.bool
+    compactView: React.PropTypes.bool,
+    /**
+     * Optional function for custom rendering.
+     */
+    renderer: React.PropTypes.func
   }
 
   static defaultProps = {
@@ -83,8 +87,7 @@ class ActivityFeed extends React.Component {
           text={item.text}
           time={item.timestamp}
           loading={item.loading}
-          onSetHeight={this.handleSetHeight.bind(this, i)}
-        />)
+          onSetHeight={this.handleSetHeight.bind(this, i)}/>)
     }
 
     return { items, heights }

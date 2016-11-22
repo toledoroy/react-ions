@@ -228,8 +228,7 @@ class ActivityFeedItem extends React.Component {
           icon={this.props.badge.icon}
           text={this.props.badge.text}
           theme={this.props.badge.theme}
-          optClass={badgeClasses}
-        />
+          optClass={badgeClasses} />
         <div className={itemWrapperClass}>
           <div className={style['item-detail']}>
             <h3 className={style['item-title']}>{this.generateProfileName()} {this.props.title ? this.props.title : null}</h3>
