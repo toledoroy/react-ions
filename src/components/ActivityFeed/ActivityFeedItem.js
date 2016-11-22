@@ -62,7 +62,11 @@ class ActivityFeedItem extends React.Component {
     /**
      * Index of the item in the list.
      */
-    index: React.PropTypes.number
+    index: React.PropTypes.number,
+    /**
+     * Optional function for custom rendering.
+     */
+    renderer: React.PropTypes.func
   }
 
   state = {
@@ -228,13 +232,17 @@ class ActivityFeedItem extends React.Component {
           icon={this.props.badge.icon}
           text={this.props.badge.text}
           theme={this.props.badge.theme}
-          optClass={badgeClasses}
-        />
+          optClass={badgeClasses} />
+
+        {typeof this.props.renderer === 'function'
+        ?
+        this.props.renderer(this.props.index)
+        :
         <div className={itemWrapperClass}>
-          <div className={style['item-detail']}>
-            <h3 className={style['item-title']}>{this.generateProfileName()} {this.props.title ? this.props.title : null}</h3>
-            {this.props.text ? <p className={style['item-text']}>{this.props.text}</p> : null}
-          </div>
+            <div className={style['item-detail']}>
+              <h3 className={style['item-title']}>{this.generateProfileName()} {this.props.title ? this.props.title : null}</h3>
+              {this.props.text ? <p className={style['item-text']}>{this.props.text}</p> : null}
+            </div>
           <div className={style['action-wrapper']}>
             {this.props.time ? <time>{timeString(this.props.time)}</time> : null}
             {this.props.actions
@@ -256,6 +264,7 @@ class ActivityFeedItem extends React.Component {
             }
           </div>
         </div>
+        }
       </li>
     )
   }

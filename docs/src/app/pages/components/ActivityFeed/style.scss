@@ -1,3 +1,5 @@
+@import '~react-conventions/styles/common/colors';
+
 .add {
   margin-bottom: 20px;
 }
@@ -6,4 +8,25 @@
   background-color: red;
   height: 0px;
   width: 100%;
+}
+
+.item-wrapper {
+  border-radius: 3px;
+  border: 1px solid $black;
+  box-sizing: border-box;
+  padding: 15px;
+  margin-left: 60px;
+
+  a {
+    color: $primary-1;
+    text-decoration: none;
+  }
+
+  blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    67% { opacity: 0 }
+  }
 }
