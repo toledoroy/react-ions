@@ -316,4 +316,12 @@ describe('ActivityFeedItem', () => {
     expect(wrapper.state().isSmallScreen).to.be.false
     expect(wrapper.state().confirmationOverlayOpen).to.be.false
   })
+
+  it('should call a renderer with index', () => {
+    const spy = sinon.spy()
+    const wrapper = shallow(<ActivityFeedItem index={0} badge={data[3].badge} renderer={spy} />)
+
+    expect(spy.calledOnce).to.be.true
+    expect(spy.calledWithExactly(0)).to.be.true
+  })
 })
