@@ -4,7 +4,7 @@ import style from './style'
 
 class ExampleCheckboxCallback extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -12,7 +12,7 @@ class ExampleCheckboxCallback extends React.Component {
   }
 
   handleChange = (event) => {
-    this.setState({status: 'Checked state is ' + event.target.checked});
+    this.setState({status: 'Checked state is ' + event.target.checked})
   }
 
   render() {

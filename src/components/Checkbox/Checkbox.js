@@ -10,11 +10,13 @@ class Checkbox extends React.Component {
 
   static defaultProps = {
     disabled: false,
-    labelPosition: 'right'
+    labelPosition: 'right',
+    iconName: 'icon-check-1-1'
   }
 
   state = {
-    value: this.props.value
+    value: this.props.value,
+    iconName: this.props.iconName
   }
 
   static propTypes = {
@@ -41,7 +43,11 @@ class Checkbox extends React.Component {
     /**
      * A callback function to be called when the checkbox changes.
      */
-    changeCallback: React.PropTypes.func
+    changeCallback: React.PropTypes.func,
+    /**
+     * Icon to be used in the checkbox.
+     */
+    iconName: React.PropTypes.string
   }
 
   handleChange = (event) => {
@@ -53,16 +59,17 @@ class Checkbox extends React.Component {
     })
   }
 
-  componentWillMount = () => {
-    if (this.props.value) {
-      this.setState({ value: this.props.value })
-    }
-  }
-
   componentWillReceiveProps = (nextProps) => {
+    let newState = {}
+
     if (nextProps.value !== this.props.value) {
-      this.setState({ value: nextProps.value })
+      newState.value = nextProps.value
     }
+    if (nextProps.iconName !== this.state.iconName) {
+      newState.iconName = nextProps.iconName
+    }
+
+    this.setState(newState)
   }
 
   render() {
@@ -89,7 +96,7 @@ class Checkbox extends React.Component {
         <div>
           { label && labelPosition === 'left' ? <label className={style['label-left']}>{label}</label> : null }
           <div className={style['checkbox-input']}>
-            <Icon name='icon-check-1-1' fill={inputFillColor} />
+            <Icon name={this.state.iconName} fill={inputFillColor} />
           </div>
           { label && labelPosition === 'right' ? <label className={style['label-right']}>{label}</label> : null }
         </div>
