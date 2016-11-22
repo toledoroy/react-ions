@@ -53,6 +53,12 @@ describe('Spinner', () => {
     expect(wrapper.hasClass('is-hidden')).to.be.true
   })
 
+  it('should be hidden and loading state false, even if no loading prop passed in', () => {
+    wrapper = shallow(<Spinner type='spinner-bounce' />)
+    expect(wrapper.state().loading).to.be.false
+    expect(wrapper.hasClass('is-hidden')).to.be.true
+  })
+
   it('should not be hidden', () => {
     wrapper = shallow(<Spinner loading={true} type='spinner-bounce' />)
     expect(wrapper.hasClass('is-hidden')).to.be.false

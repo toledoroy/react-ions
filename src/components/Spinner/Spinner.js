@@ -60,7 +60,7 @@ class Spinner extends React.Component {
       }, props.delay)
     } else {
       clearTimeout(this.timeout)
-      this.setState({ loading: props.loading })
+      this.setState({ loading: props.loading || false })
     }
   }
 
