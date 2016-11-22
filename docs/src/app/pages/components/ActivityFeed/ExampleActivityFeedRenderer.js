@@ -6,7 +6,7 @@ const styles = ['success', 'info', 'danger', 'warning']
 const actions = ['activity', 'share', 'commission', 'event']
 const data = [
   {
-    title: 'Submitted a positive score',
+    title: 'Submitted a positive score!',
     timestamp: '2016-05-06T18:19:08.936',
     badge: {
       text: '9',
@@ -14,7 +14,7 @@ const data = [
     },
     type: 'survey'
   }, {
-    name: 'Earned a commission of $10.00',
+    amount: '$10.00',
     timestamp: '2016-06-15T18:19:08.936',
     badge: {
       icon: 'icon-hand-coin-1',
@@ -36,12 +36,12 @@ class ExampleActivityFeedRenderer extends React.Component {
     switch (item.type) {
       case 'commission':
         node = <div className={style['item-wrapper']}>
-                {item.timestamp}
+                Earned a commission of <a href='#'>{item.amount}</a>
                </div>
         break
       case 'survey':
         node = <div className={style['item-wrapper']}>
-                {item.timestamp}
+                <blink>{item.title}</blink>
                </div>
         break
       default:
@@ -58,7 +58,7 @@ class ExampleActivityFeedRenderer extends React.Component {
         <div className={style['test-div']} />
         <ActivityFeed
           data={data}
-          totalCount={4}
+          totalCount={2}
           renderer={this.renderer} />
       </div>
     )
