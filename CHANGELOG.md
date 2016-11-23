@@ -1,5 +1,13 @@
 ## HEAD
 
+## 0.75.0
+###### _November 23, 2016_
+
+- [ActivityFeed] Add optional renderer function prop
+- [Spinner] Fix undefined loading prop issue
+
+([#318](https://github.com/GetAmbassador/react-conventions/pull/318))
+
 ## 0.74.0
 ###### _November 18, 2016_
 
