@@ -20,7 +20,6 @@
 
   .inline-text-overflow-wrapper {
     height: 19px;
-    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     display: inline-flex;
@@ -28,7 +27,11 @@
     position: relative;
     max-width: calc(100% - 50px);
     align-items: center;
-    margin-top: 1px;
+
+    &:not(.visible) {
+      margin-top: 1px;
+      overflow: hidden;
+    }
   }
 
   .inline-text-wrapper {
@@ -162,5 +165,34 @@
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .inline-edit-select {
+    z-index: 1;
+    > [class^='selectfield-value'] {
+      border: none;
+      padding: 0;
+      color: $navy-text;
+    }
+    svg:last-of-type {
+      right: -15px;
+      top: 4px;
+      display: none;
+      fill: $navy-text;
+    }
+    ul {
+      min-width: 120px;
+      width: auto;
+    }
+
+    &:hover:not(.loading):not([class*='selectfield-disabled']) svg:last-of-type {
+      display: block;
+    }
+    &[class*='selectfield-disabled'] {
+      > [class^='selectfield-value'] {
+        background-color: $white;
+        color: $navy-text;
+      }
+    }
   }
 }
