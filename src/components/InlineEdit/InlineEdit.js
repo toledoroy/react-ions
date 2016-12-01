@@ -5,6 +5,7 @@ import classNames from 'classnames/bind'
 import Icon from '../Icon'
 import Spinner from '../Spinner'
 import Tooltip from '../Tooltip'
+import SelectField from '../SelectField'
 
 class InlineEdit extends React.Component {
   constructor(props) {
@@ -18,7 +19,8 @@ class InlineEdit extends React.Component {
     readonly: false,
     error: '',
     value: '',
-    tooltipPlacement: 'right'
+    tooltipPlacement: 'right',
+    type: 'text'
   }
 
   static propTypes = {
@@ -85,7 +87,15 @@ class InlineEdit extends React.Component {
     /**
      * An optional class to add to the tooltip.
      */
-    tooltipClass: React.PropTypes.string
+    tooltipClass: React.PropTypes.string,
+    /**
+     * Type of the field.
+     */
+    type: React.PropTypes.oneOf(['text', 'select']),
+    /**
+     * Options for the dropdown menu (required if type is 'select').
+     */
+    selectOptions: React.PropTypes.array
   }
 
   state = {
@@ -108,7 +118,7 @@ class InlineEdit extends React.Component {
     if (nextProps.error !== this.state.error) {
       newState.error = nextProps.error
     }
-    if (nextProps.error !== '') {
+    if (nextProps.error !== '' && this.props.type === 'text') {
       this.showButtons()
     }
 
@@ -118,45 +128,67 @@ class InlineEdit extends React.Component {
   }
 
   componentDidMount = () => {
-    this.attachKeyListeners()
-    this.activateCopyToClipboard()
+    if (this.props.type === 'text') {
+      this.attachKeyListeners()
+      this.activateCopyToClipboard()
+    }
     this.getStyles()
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
     return this.state.isEditing !== nextState.isEditing
+        || this.state.value !== nextState.value
         || this.state.loading !== nextState.loading
         || this.state.error !== nextState.error
         || this.state.copied !== nextState.copied
         || this.state.inlineEditMaxWidth !== nextState.inlineEditMaxWidth
         || this.props.tooltipText !== nextProps.tooltipText
         || this.props.tooltipPlacement !== nextProps.tooltipPlacement
+        || this.props.readonly !== nextProps.readonly
   }
 
-  handleSave = () => {
-    const inputText = this._textValue.textContent
-    const shouldTriggerCallback = inputText !== this.state.value
-    const previousValue = this.state.value
-    const isEditing = this.state.error !== '' ? true : false
+  handleSave = (event) => {
+    if (this.props.type === 'text') {
+      const inputText = this._textValue.textContent
+      const shouldTriggerCallback = inputText !== this.state.value
+      const previousValue = this.state.value
+      const isEditing = this.state.error !== '' ? true : false
 
-    this.setState({ isEditing: isEditing, value: inputText }, () => {
-      if (!isEditing) {
-        this.activateCopyToClipboard()
-        this._textValue.blur()
-        this._textValue.scrollLeft = 0
-      }
-
-      if (typeof this.props.changeCallback === 'function' && shouldTriggerCallback) {
-        const event = {
-          target: {
-            name: this.props.name,
-            value: this.state.value
-          }
+      this.setState({ isEditing: isEditing, value: inputText }, () => {
+        if (!isEditing) {
+          this.activateCopyToClipboard()
+          this._textValue.blur()
+          this._textValue.scrollLeft = 0
         }
 
-        this.props.changeCallback(event)
-      }
-    })
+        if (typeof this.props.changeCallback === 'function' && shouldTriggerCallback) {
+          const event = {
+            target: {
+              name: this.props.name,
+              value: this.state.value
+            }
+          }
+
+          this.props.changeCallback(event)
+        }
+      })
+    }
+    else {
+      const shouldTriggerCallback = event.target.value !== this.state.value
+
+      this.setState({ value: event.target.value }, () => {
+        if (typeof this.props.changeCallback === 'function' && shouldTriggerCallback) {
+          const event = {
+            target: {
+              name: this.props.name,
+              value: this.state.value
+            }
+          }
+
+          this.props.changeCallback(event)
+        }
+      })
+    }
   }
 
   handleCancel = () => {
@@ -194,6 +226,31 @@ class InlineEdit extends React.Component {
         this.selectElementContents(this._textValue)
       })
     }
+  }
+
+  getField = () => {
+    if (this.props.type === 'select') {
+      return this.getSelect()
+    }
+    else {
+      return this.getSpan()
+    }
+  }
+
+  getSelect = () => {
+    const selectClass = classNames.bind(style)(style['inline-edit-select'], this.state.loading ? 'loading' : '')
+
+    return (
+      <SelectField
+        options={this.props.options}
+        valueProp='value'
+        displayProp='name'
+        changeCallback={this.handleSave}
+        value={this.state.value}
+        optClass={selectClass}
+        disabled={this.props.readonly}>
+      </SelectField>
+    )
   }
 
   getSpan = () => {
@@ -307,14 +364,15 @@ class InlineEdit extends React.Component {
     const copyDisabledClass = this.state.value === '' ? 'disabled' : ''
     const copyIconClass = cx(style['copy-icon'], copyDisabledClass, this.state.copied ? 'copied' : '')
     const inlineEditClass = cx(style['inline-edit-wrapper'], this.props.optClass, readonlyClass, errorClass, placeholderClass)
+    const overflowWrapperClass = cx(style['inline-text-overflow-wrapper'], this.props.type === 'select' ? style['visible'] : '')
 
     return (
       <div className={inlineEditClass}>
         <div className={style['inline-edit-wrapper-inner']}>
           {this.getIcon()}
           {this.getLabel()}
-          <div className={style['inline-text-overflow-wrapper']} style={{ maxWidth: this.state.inlineEditMaxWidth }}>
-            {this.getSpan()}
+          <div className={overflowWrapperClass} style={{ maxWidth: this.state.inlineEditMaxWidth }}>
+            {this.getField()}
             {this.state.isEditing && !this.state.loading
               ? <div className={style['inline-button-wrapper']}>
                   <Icon name='icon-check-2-1' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
