@@ -244,7 +244,7 @@ class InlineEdit extends React.Component {
       <SelectField
         options={this.props.options}
         valueProp='value'
-        displayProp='name'
+        displayProp='label'
         changeCallback={this.handleSave}
         value={this.state.value}
         optClass={selectClass}

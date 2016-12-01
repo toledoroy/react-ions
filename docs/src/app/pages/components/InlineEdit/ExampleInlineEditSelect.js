@@ -34,9 +34,9 @@ class ExampleInlineEditSelect extends React.Component {
 
   render = () => {
     const options = [
-      { name: 'Item 1', value: 'item_1' },
-      { name: 'Item 2', value: 'item_2' },
-      { name: 'Item 3', value: 'item_3' }
+      { label: 'Item 1', value: 'item_1' },
+      { label: 'Item 2', value: 'item_2' },
+      { label: 'Item 3', value: 'item_3' }
     ]
 
     return (
