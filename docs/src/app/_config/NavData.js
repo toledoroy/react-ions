@@ -22,9 +22,6 @@ const nav = [
     action: '/components',
     nav: [
       {
-        name: 'Activity Feed',
-        action: '/components/activity-feed'
-      }, {
         name: 'Alerts',
         action: '/components/alerts'
       }, {

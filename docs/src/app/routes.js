@@ -5,7 +5,6 @@ import { Route, Redirect, IndexRoute } from 'react-router'
 import Base from './layout/Base'
 
 // Pages
-import ActivityFeedPage from './pages/components/ActivityFeed/Page'
 import AlertsPage from './pages/components/Alerts/Page'
 import AvatarPage from './pages/components/Avatar/Page'
 import BadgePage from './pages/components/Badge/Page'
@@ -53,9 +52,8 @@ const Routes = (
       <Route path='iconography' title='Iconography' component={IconographyPage} />
       <Route path='layout' title='Layout' component={LayoutPage} />
     </Route>
-    <Redirect from='components' to='/components/activity-feed' />
+    <Redirect from='components' to='/components/alerts' />
     <Route path='components' title='Components'>
-      <Route path='activity-feed' title='Activity Feed' component={ActivityFeedPage} />
       <Route path='alerts' title='Alerts' component={AlertsPage} />
       <Route path='avatar' title='Avatar' component={AvatarPage} />
       <Route path='badge' title='Badge' component={BadgePage} />
