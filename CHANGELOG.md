@@ -1,11 +1,20 @@
 ## HEAD
 
+## 0.76.0
+###### _December 2, 2016_
+
+- [InlineEdit] Build out select field option for the <InlineEdit /> component
+([#320](https://github.com/GetAmbassador/react-conventions/pull/320))
+
+- [ActivityFeed] Remove ActivityFeed Component
+([#319](https://github.com/GetAmbassador/react-conventions/pull/319))
+
 ## 0.75.0
 ###### _November 23, 2016_
 
 - [ActivityFeed] Add optional renderer function prop
 - [Spinner] Fix undefined loading prop issue
-([#318](https://github.com/GetAmbassador/react-conventions/pull/318))
+([#317](https://github.com/GetAmbassador/react-conventions/pull/318))
 
 - [Checkbox] Allow different icons
 ([#316](https://github.com/GetAmbassador/react-conventions/pull/316))
