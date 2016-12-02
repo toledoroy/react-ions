@@ -14,7 +14,7 @@
 
 - [ActivityFeed] Add optional renderer function prop
 - [Spinner] Fix undefined loading prop issue
-([#317](https://github.com/GetAmbassador/react-conventions/pull/318))
+([#317](https://github.com/GetAmbassador/react-conventions/pull/317))
 
 - [Checkbox] Allow different icons
 ([#316](https://github.com/GetAmbassador/react-conventions/pull/316))
