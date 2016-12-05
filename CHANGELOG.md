@@ -1,5 +1,11 @@
 ## HEAD
 
+## 0.77.0
+###### _December 5, 2016_
+
+- [Icons] Add a hand card icon (and more)
+([#322](https://github.com/GetAmbassador/react-conventions/pull/322))
+
 ## 0.76.0
 ###### _December 2, 2016_
 
