@@ -185,8 +185,10 @@
       width: auto;
     }
 
-    &:hover:not(.loading):not([class*='selectfield-disabled']) svg:last-of-type {
-      display: block;
+    &:hover:not(.loading):not([class*='selectfield-disabled']), &[class*='active']:not(.loading):not([class*='selectfield-disabled']) {
+      svg:last-of-type {
+        display: block;
+      }
     }
     &[class*='selectfield-disabled'] {
       > [class^='selectfield-value'] {
