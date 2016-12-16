@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from 'react-conventions/lib/Button'
-import Icon from 'react-conventions/lib/Icon'
+import Button from 'react-ions/lib/Button'
+import Icon from 'react-ions/lib/Icon'
 
 class ExampleButtonLoaders extends React.Component {
   constructor(props) {

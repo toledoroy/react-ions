@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from 'react-conventions/lib/Button'
-import Textarea from 'react-conventions/lib/Textarea'
+import Button from 'react-ions/lib/Button'
+import Textarea from 'react-ions/lib/Textarea'
 import style from './style.scss'
 
 class ExampleTextareaDisabled extends React.Component {

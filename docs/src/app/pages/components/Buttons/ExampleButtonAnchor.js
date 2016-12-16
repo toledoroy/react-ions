@@ -1,6 +1,6 @@
 import React from 'react'
-import ButtonAnchor from 'react-conventions/lib/Button/ButtonAnchor'
-import Icon from 'react-conventions/lib/Icon'
+import ButtonAnchor from 'react-ions/lib/Button/ButtonAnchor'
+import Icon from 'react-ions/lib/Icon'
 
 const ExampleButtonAnchor = () => (
   <div>

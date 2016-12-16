@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from 'react-conventions/lib/Button'
+import Button from 'react-ions/lib/Button'
 
 const ExampleButtonTypes = () => (
   <div>

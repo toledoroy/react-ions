@@ -1,5 +1,5 @@
 import React from 'react'
-import DatePicker from 'react-conventions/lib/DatePicker'
+import DatePicker from 'react-ions/lib/DatePicker'
 
 const minCustomDate = { month: '10', day: '5', year: '2011' }
 const maxCustomDate = { month: '7', day: '15', year: '2030' }

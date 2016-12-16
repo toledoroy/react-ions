@@ -6,7 +6,7 @@ import svg4everybody from 'svg4everybody'
 import style from 'private/css/base'
 import Sidebar from './Sidebar'
 import Main from './Main'
-import Breadcrumb from 'react-conventions/lib/Breadcrumb'
+import Breadcrumb from 'react-ions/lib/Breadcrumb'
 
 class Base extends React.Component {
   constructor(props) {

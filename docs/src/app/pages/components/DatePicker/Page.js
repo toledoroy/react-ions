@@ -11,7 +11,7 @@ import exampleDatePickerSelectedCode from '!raw!./ExampleDatePickerSelected'
 import ExampleDatePickerCallback from './ExampleDatePickerCallback'
 import exampleDatePickerCallbackCode from '!raw!./ExampleDatePickerCallback'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/DatePicker/DatePicker'
+import docs from '!!docgen!react-ions/lib/DatePicker/DatePicker'
 import styles from 'private/css/content'
 
 

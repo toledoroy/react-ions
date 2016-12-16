@@ -1,6 +1,6 @@
 import React from 'react'
-import {PanelGroup, Panel, PanelHeader, PanelContent} from 'react-conventions/lib/PanelGroup'
-import Badge from 'react-conventions/lib/Badge'
+import {PanelGroup, Panel, PanelHeader, PanelContent} from 'react-ions/lib/PanelGroup'
+import Badge from 'react-ions/lib/Badge'
 import style from './style.scss'
 
 const content = {

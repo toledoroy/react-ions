@@ -1,6 +1,6 @@
 import React from 'react'
-import SelectField from 'react-conventions/lib/SelectField/SelectField'
-import Button from 'react-conventions/lib/Button'
+import SelectField from 'react-ions/lib/SelectField/SelectField'
+import Button from 'react-ions/lib/Button'
 import style from './style.scss'
 
 const options = [

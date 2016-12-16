@@ -1,7 +1,7 @@
 import React from 'react'
-import RadioGroup from 'react-conventions/lib/Radio/RadioGroup'
-import Radio from 'react-conventions/lib/Radio/Radio'
-import Input from 'react-conventions/lib/Input'
+import RadioGroup from 'react-ions/lib/Radio/RadioGroup'
+import Radio from 'react-ions/lib/Radio/Radio'
+import Input from 'react-ions/lib/Input'
 import style from './style.scss'
 
 class ExampleRadioChild extends React.Component {

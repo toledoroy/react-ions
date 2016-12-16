@@ -1,6 +1,6 @@
 import React from 'react'
-import Avatar from 'react-conventions/lib/Avatar'
-import Button from 'react-conventions/lib/Button'
+import Avatar from 'react-ions/lib/Avatar'
+import Button from 'react-ions/lib/Button'
 import style from './style.scss'
 
 const data = [

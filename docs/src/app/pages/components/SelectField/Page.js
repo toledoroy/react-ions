@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/SelectField/SelectField'
+import docs from '!!docgen!react-ions/lib/SelectField/SelectField'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleSelectFieldDefault from './ExampleSelectFieldDefault'
 import exampleSelectFieldDefaultCode from '!raw!./ExampleSelectFieldDefault'

@@ -1,6 +1,6 @@
 import React from 'react'
-import TextEditor from 'react-conventions/lib/TextEditor'
-import Button from 'react-conventions/lib/Button'
+import TextEditor from 'react-ions/lib/TextEditor'
+import Button from 'react-ions/lib/Button'
 
 class ExampleTextEditorDisabled extends React.Component {
   constructor(props) {
