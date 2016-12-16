@@ -1,4 +1,5 @@
 import React from 'react'
+import { Alert } from 'react-conventions/lib/Alerts'
 import styles from 'private/css/content'
 
 const ComponentsPage = () => (

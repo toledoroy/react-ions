@@ -53,7 +53,8 @@ const Routes = (
       <Route path='iconography' title='Iconography' component={IconographyPage} />
       <Route path='layout' title='Layout' component={LayoutPage} />
     </Route>
-    <Route path='components' title='Components' component={ComponentsPage}>
+    <Route path='components' title='Components'>
+      <IndexRoute component={ComponentsPage} />
       <Route path='alerts' title='Alerts' component={AlertsPage} />
       <Route path='avatar' title='Avatar' component={AvatarPage} />
       <Route path='badge' title='Badge' component={BadgePage} />
