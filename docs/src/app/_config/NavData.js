@@ -116,12 +116,6 @@ const nav = [
         action: '/components/typeahead'
       }
     ]
-  }, {
-    name: 'Patterns',
-    action: '/patterns'
-  }, {
-    name: 'Resources',
-    action: '/resources'
   }
 ]
 
