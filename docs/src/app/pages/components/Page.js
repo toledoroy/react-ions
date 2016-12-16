@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert } from 'react-conventions/lib/Alerts'
+import { Alert } from 'react-ions/lib/Alerts'
 import styles from 'private/css/content'
 
 const ComponentsPage = () => (
@@ -17,7 +17,7 @@ const ComponentsPage = () => (
           <p>After installation, you'll be able to import the React components in your application:</p>
           <pre className={styles.editor}>
             <div className={styles.line}>import React from 'react'</div>
-            <div className={styles.line}>import Button from 'react-conventions/lib/Button'</div>
+            <div className={styles.line}>import Button from 'react-ions/lib/Button'</div>
 
             <div className={styles.line}>&nbsp;</div>
 
