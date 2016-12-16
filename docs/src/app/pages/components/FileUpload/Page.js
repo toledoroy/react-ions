@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/FileUpload/FileUpload'
+import docs from '!!docgen!react-ions/lib/FileUpload/FileUpload'
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleFileUploadDefault from './ExampleFileUploadDefault'

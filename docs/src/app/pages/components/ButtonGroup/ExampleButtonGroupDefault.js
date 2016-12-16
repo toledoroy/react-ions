@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonGroup from 'react-conventions/lib/ButtonGroup/ButtonGroup'
+import ButtonGroup from 'react-ions/lib/ButtonGroup/ButtonGroup'
 
 const options = [
   {

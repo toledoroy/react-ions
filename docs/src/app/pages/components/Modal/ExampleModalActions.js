@@ -1,6 +1,6 @@
 import React from 'react'
-import Modal from 'react-conventions/lib/Modal'
-import Button from 'react-conventions/lib/Button'
+import Modal from 'react-ions/lib/Modal'
+import Button from 'react-ions/lib/Button'
 
 class ExampleModalActions extends React.Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/ProgressBar/ProgressBar';
+import docs from '!!docgen!react-ions/lib/ProgressBar/ProgressBar';
 import CodeExample from 'private/modules/CodeExample'
 import ExampleProgressBarDefault from './ExampleProgressBarDefault'
 import exampleProgressBarDefaultCode from '!raw!./ExampleProgressBarDefault'

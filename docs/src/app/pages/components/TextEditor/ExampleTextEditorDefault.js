@@ -1,5 +1,5 @@
 import React from 'react'
-import TextEditor from 'react-conventions/lib/TextEditor'
+import TextEditor from 'react-ions/lib/TextEditor'
 
 const ExampleTextEditorDefault = () => (
   <TextEditor />

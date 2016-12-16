@@ -1,6 +1,6 @@
 import React from 'react'
-import Tooltip from 'react-conventions/lib/Tooltip'
-import Button from 'react-conventions/lib/Button'
+import Tooltip from 'react-ions/lib/Tooltip'
+import Button from 'react-ions/lib/Button'
 
 class ExampleTooltipVisible extends React.Component {
   constructor(props) {

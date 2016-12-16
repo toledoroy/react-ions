@@ -1,11 +1,11 @@
 {
-  "name": "react-conventions",
+  "name": "react-ions",
   "version": "0.77.0",
   "description": "An open source set of React components that implement Ambassador's Design and UX patterns.",
   "main": "./lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GetAmbassador/react-conventions.git"
+    "url": "https://github.com/GetAmbassador/react-ions.git"
   },
   "engines": {
     "node": "4.4.2",
@@ -21,9 +21,9 @@
   "author": "Ambassador Engineering",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/GetAmbassador/react-conventions/issues"
+    "url": "https://github.com/GetAmbassador/react-ions/issues"
   },
-  "homepage": "https://github.com/GetAmbassador/react-conventions",
+  "homepage": "https://github.com/GetAmbassador/react-ions",
   "scripts": {
     "test": "export NODE_ENV=test && node_modules/karma/bin/karma start test/config/karma.local.conf.js",
     "start": "node docs/server",

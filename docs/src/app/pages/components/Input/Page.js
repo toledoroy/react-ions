@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/Input/Input'
+import docs from '!!docgen!react-ions/lib/Input/Input'
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleInputDefault from './ExampleInputDefault'

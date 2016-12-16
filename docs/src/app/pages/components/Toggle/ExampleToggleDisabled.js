@@ -1,5 +1,5 @@
 import React from 'react'
-import Toggle from 'react-conventions/lib/Toggle'
+import Toggle from 'react-ions/lib/Toggle'
 
 const ExampleToggleDisabled = () => (
   <Toggle label='Would you like to set this?' disabled={true} />

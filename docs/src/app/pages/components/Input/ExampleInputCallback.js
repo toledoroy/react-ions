@@ -1,5 +1,5 @@
 import React from 'react'
-import Input from 'react-conventions/lib/Input'
+import Input from 'react-ions/lib/Input'
 
 class ExampleInputCallback extends React.Component {
   constructor(props) {

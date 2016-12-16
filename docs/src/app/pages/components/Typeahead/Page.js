@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/Typeahead/Typeahead'
+import docs from '!!docgen!react-ions/lib/Typeahead/Typeahead'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleTypeaheadDefault from './ExampleTypeaheadDefault'
 import exampleTypeaheadDefaultCode from '!raw!./ExampleTypeaheadDefault'

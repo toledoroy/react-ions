@@ -1,5 +1,5 @@
 import React from 'react'
-import Input from 'react-conventions/lib/Input'
+import Input from 'react-ions/lib/Input'
 
 const ExampleInputPlaceholder = () => (
   <Input value='' placeholder='Placeholder text.' />

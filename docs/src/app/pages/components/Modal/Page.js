@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/Modal/Modal'
+import docs from '!!docgen!react-ions/lib/Modal/Modal'
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleModalDefault from './ExampleModalDefault'

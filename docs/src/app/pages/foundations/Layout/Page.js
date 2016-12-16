@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames/bind'
 import style from 'private/css/content'
-import grid from 'react-conventions/styles/common/grid'
+import grid from 'react-ions/styles/common/grid'
 
 const LayoutPage = (props) => {
   const cx = classNames.bind(style);

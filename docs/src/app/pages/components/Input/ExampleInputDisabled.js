@@ -1,6 +1,6 @@
 import React from 'react'
-import Input from 'react-conventions/lib/Input'
-import Button from 'react-conventions/lib/Button'
+import Input from 'react-ions/lib/Input'
+import Button from 'react-ions/lib/Button'
 import style from './style.scss'
 
 class ExampleInputDisabled extends React.Component {
