@@ -38,7 +38,6 @@ class ExampleRadioChecked extends React.Component {
           <Button onClick={this.handleChange.bind(this, 2)}>Select 3rd option</Button>
         </div>
         <ButtonGroup
-          label="Checked button group label"
           name="checked-button-group"
           options={options}
           valueProp='customValue'

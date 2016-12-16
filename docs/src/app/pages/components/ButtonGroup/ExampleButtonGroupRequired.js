@@ -16,7 +16,6 @@ const options = [
 
 const ExampleButtonGroupRequired = () => (
   <ButtonGroup
-    label="Required button group label"
     name="required-button-group"
     options={options}
     required={true}>

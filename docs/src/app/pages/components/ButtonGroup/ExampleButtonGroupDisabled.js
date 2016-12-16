@@ -18,7 +18,6 @@ const disabled = true
 
   const ExampleButtonGroupDisabled = () => (
   <ButtonGroup
-    label="Disabled button group label"
     name="disabled-button-group"
     options={options}
     disabled={disabled}>
