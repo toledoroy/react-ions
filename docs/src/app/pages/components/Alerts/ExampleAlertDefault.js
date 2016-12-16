@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert } from 'react-conventions/lib/Alerts'
+import { Alert } from 'react-ions/lib/Alerts'
 import style from './style.scss'
 
 const ExampleAlertDefault = () => (

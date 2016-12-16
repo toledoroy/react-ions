@@ -1,5 +1,5 @@
 import React from 'react'
-import Typeahead from 'react-conventions/lib/Typeahead/Typeahead'
+import Typeahead from 'react-ions/lib/Typeahead/Typeahead'
 import options from './CountryList'
 
 class ExampleTypeaheadCallback extends React.Component {

@@ -1,5 +1,5 @@
 import React from 'react'
-import ColorPicker from 'react-conventions/lib/ColorPicker'
+import ColorPicker from 'react-ions/lib/ColorPicker'
 
 const ExampleColorPickerDefault = () => (
   <div>

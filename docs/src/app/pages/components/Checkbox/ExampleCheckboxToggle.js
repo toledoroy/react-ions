@@ -1,6 +1,6 @@
 import React from 'react'
-import Checkbox from 'react-conventions/lib/Checkbox'
-import Button from 'react-conventions/lib/Button'
+import Checkbox from 'react-ions/lib/Checkbox'
+import Button from 'react-ions/lib/Button'
 import style from './style.scss'
 
 class ExampleCheckboxToggle extends React.Component {

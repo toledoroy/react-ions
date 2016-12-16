@@ -1,6 +1,6 @@
 import React from 'react'
-import ColorPicker from 'react-conventions/lib/ColorPicker'
-import Button from 'react-conventions/lib/Button'
+import ColorPicker from 'react-ions/lib/ColorPicker'
+import Button from 'react-ions/lib/Button'
 import style from './style.scss'
 
 const oldColor = '#3c97d3'

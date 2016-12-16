@@ -1,6 +1,6 @@
 import React from 'react'
-import {TabWrapper, Tab} from 'react-conventions/lib/TabWrapper'
-import ProgressBar from 'react-conventions/lib/ProgressBar'
+import {TabWrapper, Tab} from 'react-ions/lib/TabWrapper'
+import ProgressBar from 'react-ions/lib/ProgressBar'
 import style from './style.scss'
 
 class ExampleTabWrapperSecondary extends React.Component {

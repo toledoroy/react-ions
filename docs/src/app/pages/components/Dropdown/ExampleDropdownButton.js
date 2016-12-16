@@ -1,7 +1,7 @@
 import React from 'react'
-import Dropdown from 'react-conventions/lib/Dropdown'
-import Button from 'react-conventions/lib/Button'
-import Badge from 'react-conventions/lib/Badge'
+import Dropdown from 'react-ions/lib/Dropdown'
+import Button from 'react-ions/lib/Button'
+import Badge from 'react-ions/lib/Badge'
 import styles from './styles'
 
 const ExampleDropdownButton = () => (

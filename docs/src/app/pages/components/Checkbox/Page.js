@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/Checkbox/Checkbox'
+import docs from '!!docgen!react-ions/lib/Checkbox/Checkbox'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleCheckboxDefault from './ExampleCheckboxDefault'
 import exampleCheckboxDefaultCode from '!raw!./ExampleCheckboxDefault'

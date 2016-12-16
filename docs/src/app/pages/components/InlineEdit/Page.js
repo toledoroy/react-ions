@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/InlineEdit/InlineEdit'
+import docs from '!!docgen!react-ions/lib/InlineEdit/InlineEdit'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleInlineEditDefault from './ExampleInlineEditDefault'
 import exampleInlineEditDefaultCode from '!raw!./ExampleInlineEditDefault'

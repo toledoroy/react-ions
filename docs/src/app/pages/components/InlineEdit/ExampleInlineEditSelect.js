@@ -1,6 +1,6 @@
 import React from 'react'
-import InlineEdit from 'react-conventions/lib/InlineEdit'
-import Button from 'react-conventions/lib/Button'
+import InlineEdit from 'react-ions/lib/InlineEdit'
+import Button from 'react-ions/lib/Button'
 import style from './styles'
 
 class ExampleInlineEditSelect extends React.Component {

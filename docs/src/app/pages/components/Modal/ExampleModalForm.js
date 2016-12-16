@@ -1,9 +1,9 @@
 import React from 'react'
-import Modal from 'react-conventions/lib/Modal'
-import Button from 'react-conventions/lib/Button'
-import SelectField from 'react-conventions/lib/SelectField'
-import Input from 'react-conventions/lib/Input'
-import FormGroup from 'react-conventions/lib/FormGroup'
+import Modal from 'react-ions/lib/Modal'
+import Button from 'react-ions/lib/Button'
+import SelectField from 'react-ions/lib/SelectField'
+import Input from 'react-ions/lib/Input'
+import FormGroup from 'react-ions/lib/FormGroup'
 import style from './style'
 
 class ExampleModalForm extends React.Component {

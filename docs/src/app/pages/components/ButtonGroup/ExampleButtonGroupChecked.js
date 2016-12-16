@@ -1,6 +1,6 @@
 import React from 'react'
-import ButtonGroup from 'react-conventions/lib/ButtonGroup/ButtonGroup'
-import Button from 'react-conventions/lib/Button'
+import ButtonGroup from 'react-ions/lib/ButtonGroup/ButtonGroup'
+import Button from 'react-ions/lib/Button'
 import style from './style'
 
 class ExampleRadioChecked extends React.Component {
