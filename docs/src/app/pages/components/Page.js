@@ -11,6 +11,10 @@ const ComponentsPage = () => (
         <h3>NPM installation</h3>
 
         <div className={styles.block}>
+          <p><b>React&#123;ions&#125;</b> currently requires <b>React 15.1.0</b>. Support for 15.2+ coming soon.</p>
+        </div>
+
+        <div className={styles.block}>
           <p>Install the core package with an NPM client like npm or yarn, pulling in all relevant dependencies:</p>
           <Snippet markup='npm install --save react-ions' />
         </div>
