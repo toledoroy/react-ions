@@ -39,7 +39,6 @@ class ExampleRadioChecked extends React.Component {
           <Button onClick={this.updateSelected.bind(this, '')}>Uncheck</Button>
         </div>
         <RadioGroup
-          label="Checked radio label"
           name="checked-radio-group"
           options={options}
           value={this.state.selected}>

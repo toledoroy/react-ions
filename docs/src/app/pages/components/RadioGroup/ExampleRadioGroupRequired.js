@@ -16,7 +16,6 @@ const options = [
 
 const ExampleRadioRequired = () => (
   <RadioGroup
-    label="Required radio label"
     name="required-radio-group"
     options={options}
     required={true}>

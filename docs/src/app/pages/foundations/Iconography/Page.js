@@ -17,9 +17,7 @@ const IconographyPage = (props) => {
       <div className={baseStyle.content}>
         <div className={baseStyle.block}>
           <h3>Iconography</h3>
-          <p>The SvgIcon component takes an SVG path element as its child, and converts it to a React component which displays the path and allows the icon to be styled and respond to mouse events.</p>
-          <p>The resulting icon can be used as is, or included as a child for other Material-UI components that use icons, such as Icon Button.</p>
-          <h4>Current Library</h4>
+          <p>The Ambassador icon library currently uses the Streamline icon font.</p>
           <div className={localStyle['icon-list']}>
             {iconsList}
           </div>

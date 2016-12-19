@@ -5,6 +5,7 @@ import { Route, Redirect, IndexRoute } from 'react-router'
 import Base from './layout/Base'
 
 // Pages
+import ComponentsPage from './pages/components/Page'
 import AlertsPage from './pages/components/Alerts/Page'
 import AvatarPage from './pages/components/Avatar/Page'
 import BadgePage from './pages/components/Badge/Page'
@@ -52,8 +53,8 @@ const Routes = (
       <Route path='iconography' title='Iconography' component={IconographyPage} />
       <Route path='layout' title='Layout' component={LayoutPage} />
     </Route>
-    <Redirect from='components' to='/components/alerts' />
     <Route path='components' title='Components'>
+      <IndexRoute component={ComponentsPage} />
       <Route path='alerts' title='Alerts' component={AlertsPage} />
       <Route path='avatar' title='Avatar' component={AvatarPage} />
       <Route path='badge' title='Badge' component={BadgePage} />
@@ -86,10 +87,6 @@ const Routes = (
       <Route path='toggle' title='Toggle' component={TogglePage} />
       <Route path='tooltip' title='Tooltip' component={TooltipPage} />
       <Route path='typeahead' title='Typeahead' component={TypeaheadPage} />
-    </Route>
-    <Route path='patterns' title='Patterns'>
-    </Route>
-    <Route path='resources' title='Resources'>
     </Route>
     <Redirect from='*' to='/' />
   </Route>
