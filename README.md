@@ -31,7 +31,7 @@ Using Ambassador's react components is very straightforward.
 	export default MyComponent
 
 ### License
-This project is licensed under the terms of the [MIT license](license)
+This project is licensed under the terms of the [MIT license](LICENSE)
 
 ### Release Process
 1. Checkout / pull latest master branch
