@@ -1,5 +1,6 @@
 import React from 'react'
-import { Alert } from 'react-ions/lib/Alerts'
+import Snippet from '../../modules/Snippet'
+import buttonExampleSnippet from '!raw!./Buttons/ExampleButtonDefault'
 import styles from 'private/css/content'
 
 const ComponentsPage = () => (
@@ -10,25 +11,12 @@ const ComponentsPage = () => (
 
         <div className={styles.block}>
           <p>Install the core package with an NPM client like npm or yarn, pulling in all relevant dependencies:</p>
-          <pre className={styles.editor}>npm install --save react-ions</pre>
+          <Snippet markup='npm install --save react-ions' />
         </div>
 
         <div className={styles.block}>
           <p>After installation, you'll be able to import the React components in your application:</p>
-          <pre className={styles.editor}>
-            <div className={styles.line}>import React from 'react'</div>
-            <div className={styles.line}>import Button from 'react-ions/lib/Button'</div>
-
-            <div className={styles.line}>&nbsp;</div>
-
-            <div className={styles.line}>const ExampleButtonDefault = () =&#62; (</div>
-              <div className={styles.line}>&nbsp;&nbsp;&#60;Button&#62;I am a Button&#60;/Button&#62;</div>
-            <div className={styles.line}>)</div>
-
-            <div className={styles.line}>&nbsp;</div>
-
-            <div className={styles.line}>export default ExampleButtonDefault</div>
-          </pre>
+          <Snippet markup={buttonExampleSnippet} />
         </div>
       </div>
     </div>

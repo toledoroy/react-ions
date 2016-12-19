@@ -17,7 +17,7 @@ const IconographyPage = (props) => {
       <div className={baseStyle.content}>
         <div className={baseStyle.block}>
           <h3>Iconography</h3>
-          <p>The Ambassador icon library currently uses the Streamline icon set. These icons are</p>
+          <p>The Ambassador icon library currently uses the Streamline icon set. </p>
           <div className={localStyle['icon-list']}>
             {iconsList}
           </div>
