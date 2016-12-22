@@ -6,11 +6,6 @@
 $white: #fff;
 $black: #000;
 
-// Text Colors
-$base-text: #879098;
-$navy-text: #233040;
-$sky-text: #C8F0FF;
-
 // Neutral Colors
 $neutral-1: #ECF0F0;
 $neutral-2: #F7F7F9;
@@ -30,6 +25,11 @@ $green: #26B894;
 $orange: #F29C1E;
 $red: #E54C3B;
 $aqua: #62CAF3;
+
+// Text Colors
+$base-text: $primary-3 + 40%;
+$navy-text: #233040;
+$sky-text: #C8F0FF;
 
 // Contextual References
 $danger: $red;

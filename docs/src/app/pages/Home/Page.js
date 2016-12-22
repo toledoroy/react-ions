@@ -15,7 +15,7 @@ const HomePage = (props) => {
       <div className={heroClass}>
         <div className={localStyles.skew}>
           <h1>React &#123;ions&#125;</h1>
-          <h3>A set of React Components used for building user interfaces.</h3>
+          <h3>A suite of React components that implement Ambassador's Design and UX patterns.</h3>
           <ButtonAnchor path='/components' internal={true} size='lg' optClass='inverted'>Get Started</ButtonAnchor>
           <ButtonAnchor path='https://github.com/GetAmbassador/react-ions' external={true} target='_blank' size='lg' optClass='inverted'>
             <Icon name='icon-github' width='13' height='13' />
@@ -27,7 +27,7 @@ const HomePage = (props) => {
         <div className={localStyles['intro-block']}>
           <Icon name='icon-heart-1' fill='#3c97d3' height='48' width='48' />
           <h4>Coherent Design Language</h4>
-          <p>An elegant and easy-to-use UI that's simple, fun, flexible and customizable.</p>
+          <p>An elegant and easy-to-use UI that's simple, flexible and customizable.</p>
         </div>
         <div className={localStyles['intro-block']}>
           <Icon name='icon-globe-1' fill='#3c97d3' height='48' width='48' />

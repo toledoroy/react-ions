@@ -19,3 +19,10 @@
     white-space: nowrap;
   }
 }
+
+.snippet-inline {
+  composes: snippet;
+  display: inline;
+  padding: 3px 5px;
+  word-break: inherit;
+}
