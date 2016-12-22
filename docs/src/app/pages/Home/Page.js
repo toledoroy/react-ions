@@ -15,7 +15,7 @@ const HomePage = (props) => {
       <div className={heroClass}>
         <div className={localStyles.skew}>
           <h1>React &#123;ions&#125;</h1>
-          <h3>A set of React Components used for building user interfaces.</h3>
+          <h3>A suite of React components that implement Ambassador's Design and UX patterns.</h3>
           <ButtonAnchor path='/components' internal={true} size='lg' optClass='inverted'>Get Started</ButtonAnchor>
           <ButtonAnchor path='https://github.com/GetAmbassador/react-ions' external={true} target='_blank' size='lg' optClass='inverted'>
             <Icon name='icon-github' width='13' height='13' />
