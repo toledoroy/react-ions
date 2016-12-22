@@ -1,5 +1,11 @@
 ## HEAD
 
+## 1.0.0
+###### _December 22, 2016_
+
+- First major release.
+
+
 ## 0.77.0
 ###### _December 5, 2016_
 

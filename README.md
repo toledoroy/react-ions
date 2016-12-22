@@ -35,3 +35,6 @@ Live examples and more info [documentation site](http://reactions.getambassador.
 
 ## License
 This project is licensed under the terms of the [MIT license](LICENSE)
+
+## Icon License
+This project uses [Streamline Icons](http://www.streamlineicons.com/). If you use React{ions} in your project please adhere to the Streamline Icons [license agreement](http://www.streamlineicons.com/license.html).
