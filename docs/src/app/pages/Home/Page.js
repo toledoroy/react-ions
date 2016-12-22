@@ -27,7 +27,7 @@ const HomePage = (props) => {
         <div className={localStyles['intro-block']}>
           <Icon name='icon-heart-1' fill='#3c97d3' height='48' width='48' />
           <h4>Coherent Design Language</h4>
-          <p>An elegant and easy-to-use UI that's simple, fun, flexible and customizable.</p>
+          <p>An elegant and easy-to-use UI that's simple, flexible and customizable.</p>
         </div>
         <div className={localStyles['intro-block']}>
           <Icon name='icon-globe-1' fill='#3c97d3' height='48' width='48' />

@@ -5,6 +5,7 @@ $ga-font-folder: '../../../../src/assets/fonts';
 
 body {
   background-color: $neutral-1;
+  color: $base-text;
   font-family: proxima_nova;
   font-size: 14px;
   -moz-osx-font-smoothing: grayscale;
@@ -40,4 +41,8 @@ body {
 
 .breadcrumb-active {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+a {
+  color: $primary-1;
 }
