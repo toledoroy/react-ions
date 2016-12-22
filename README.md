@@ -35,16 +35,3 @@ Live examples and more info [documentation site](http://react-ions.herokuapp.com
 
 ## License
 This project is licensed under the terms of the [MIT license](LICENSE)
-
-## Release Process
-1. Checkout / pull latest master branch
-2. Create a new branch (named like `release_v0_0_5`)
-3. Run: `$ npm run build:release`
-4. Run: `$ npm version <semantic_version> (ex: 0.57.0)`
-5. Edit `CHANGELOG.md` to reflect changes since last release
-6. Ping someone to review `CHANGELOG.md`
-3. Create a pull request for this branch
-7. Merge pull request
-8. Create release on Github
-9. Run: `$ npm publish`
-10. Ensure new version is published: [https://npmjs.com/react-ions](https://npmjs.com/react-ions)
