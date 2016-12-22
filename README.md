@@ -6,7 +6,7 @@
 
 **React{ions}** is a suite of React components that implement Ambassador's Design and UX patterns. They are designed to be re-usable and composable across large-scale web applications.
 
-Check out our [documentation site](http://react-ions.herokuapp.com/) for live examples.
+Check out our [documentation site](http://reactions.getambassador.com/) for live examples.
 
 ## Installation
 Ambassador's React{ions} is available as an [npm package](https://npmjs.com/react-ions).
@@ -31,7 +31,7 @@ In this minimal example, we import a Button with styles already bundled:
 
 	export default ExampleButtonDefault
 
-Live examples and more info [documentation site](http://react-ions.herokuapp.com/components).
+Live examples and more info [documentation site](http://reactions.getambassador.com/components).
 
 ## License
 This project is licensed under the terms of the [MIT license](LICENSE)
