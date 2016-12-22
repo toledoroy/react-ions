@@ -31,7 +31,7 @@ In this minimal example, we import a Button with styles already bundled:
 
 	export default ExampleButtonDefault
 
-Live examples and more info [documentation site](http://react-ions.herokuapp.com/components)
+Live examples and more info [documentation site](http://react-ions.herokuapp.com/components).
 
 ## License
 This project is licensed under the terms of the [MIT license](LICENSE)
