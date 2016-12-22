@@ -1,7 +1,10 @@
 import React from 'react'
 import Icon from '../Icon'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 import Immutable from 'immutable'
+
+const style = prefix(rawStyle)
 
 class Breadcrumb extends React.Component {
   constructor(props) {

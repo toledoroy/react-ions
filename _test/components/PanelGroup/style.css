@@ -1,0 +1,154 @@
+.mbsy-style > .mbsy-style {
+  background: #fff;
+  border-bottom: 1px solid #DEE0E3; }
+  .mbsy-style > .mbsy-style .mbsy-style {
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 200;
+    padding: 12px 15px;
+    position: relative;
+    user-select: none; }
+    .mbsy-style > .mbsy-style .mbsy-style .mbsy-style {
+      align-items: center;
+      display: flex;
+      user-select: none; }
+      .mbsy-style > .mbsy-style .mbsy-style .mbsy-style h4 {
+        color: #9198A0;
+        margin: 0;
+        padding-right: 30px;
+        position: relative;
+        top: 1px;
+        transition: all .25s ease; }
+      .mbsy-style > .mbsy-style .mbsy-style .mbsy-style .mbsy-style {
+        position: relative;
+        top: 2px; }
+      .mbsy-style > .mbsy-style .mbsy-style .mbsy-style svg {
+        fill: #9198A0;
+        transition: fill .25s ease; }
+      .mbsy-style > .mbsy-style .mbsy-style .mbsy-style .mbsy-style + h4,
+      .mbsy-style > .mbsy-style .mbsy-style .mbsy-style .mbsy-style + h4 {
+        margin-left: 10px; }
+    .mbsy-style > .mbsy-style .mbsy-style .mbsy-style {
+      opacity: 0;
+      position: absolute;
+      right: 15px;
+      top: 13px;
+      transform: rotate(-135deg); }
+  .mbsy-style > .mbsy-style .mbsy-style {
+    display: none;
+    padding: 0 40px 15px; }
+  .mbsy-style > .mbsy-style:last-child {
+    border-bottom: none; }
+
+.mbsy-style > .mbsy-style.mbsy-style > .mbsy-style {
+  display: block; }
+
+.mbsy-style > .mbsy-style.mbsy-style .mbsy-style {
+  opacity: 1;
+  top: 15px;
+  transform: rotate(0); }
+
+.mbsy-style.mbsy-style .mbsy-style .mbsy-style {
+  transition: all .25s ease; }
+
+.mbsy-style.mbsy-style .mbsy-style .mbsy-style {
+  transition: all .25s ease; }
+
+.mbsy-style.mbsy-style .mbsy-style:hover .mbsy-style h4 {
+  color: #2D3E50; }
+
+.mbsy-style.mbsy-style .mbsy-style:hover .mbsy-style svg {
+  fill: #2D3E50; }
+
+.mbsy-style.mbsy-style .mbsy-style:hover .mbsy-style {
+  opacity: 1; }
+
+.mbsy-style.mbsy-style > .mbsy-style .mbsy-style h4 {
+  color: #2D3E50; }
+
+.mbsy-style.mbsy-style > .mbsy-style .mbsy-style svg {
+  fill: #2D3E50; }
+
+.mbsy-style.mbsy-style > .mbsy-style {
+  background-color: #fff;
+  border-bottom: 0;
+  border-radius: 3px;
+  margin-bottom: 10px; }
+  .mbsy-style.mbsy-style > .mbsy-style > .mbsy-style {
+    background-color: #F7F7F9;
+    border-radius: 3px 3px 0 0;
+    padding: 13px 20px; }
+    .mbsy-style.mbsy-style > .mbsy-style > .mbsy-style [class^='badge'] {
+      border: none;
+      border-radius: 50%;
+      font-size: 14px;
+      height: 20px;
+      min-width: 20px;
+      width: 20px; }
+    .mbsy-style.mbsy-style > .mbsy-style > .mbsy-style h4 {
+      font-size: 16px;
+      position: relative;
+      top: 1px; }
+    .mbsy-style.mbsy-style > .mbsy-style > .mbsy-style svg {
+      fill: #9198A0; }
+    .mbsy-style.mbsy-style > .mbsy-style > .mbsy-style svg + h4,
+    .mbsy-style.mbsy-style > .mbsy-style > .mbsy-style .mbsy-style + h4 {
+      margin-left: 20px; }
+    .mbsy-style.mbsy-style > .mbsy-style > .mbsy-style .mbsy-style {
+      opacity: 1;
+      top: calc(50% - 9px);
+      transform: rotate(0); }
+    .mbsy-style.mbsy-style > .mbsy-style > .mbsy-style:hover .mbsy-style h4 {
+      color: #2D3E50; }
+    .mbsy-style.mbsy-style > .mbsy-style > .mbsy-style:hover .mbsy-style svg {
+      fill: #2D3E50; }
+    .mbsy-style.mbsy-style > .mbsy-style > .mbsy-style:hover .mbsy-style {
+      opacity: 1; }
+    @media (max-width: 991px) {
+      .mbsy-style.mbsy-style > .mbsy-style > .mbsy-style {
+        padding: 13px; } }
+  .mbsy-style.mbsy-style > .mbsy-style .mbsy-style {
+    padding: 0; }
+  .mbsy-style.mbsy-style > .mbsy-style:last-child {
+    margin-bottom: 0; }
+
+.mbsy-style.mbsy-style > .mbsy-style.mbsy-style > .mbsy-style {
+  background-color: #3C97D3; }
+  .mbsy-style.mbsy-style > .mbsy-style.mbsy-style > .mbsy-style [class^='badge'] {
+    background-color: #3178B7; }
+  .mbsy-style.mbsy-style > .mbsy-style.mbsy-style > .mbsy-style .mbsy-style h4 {
+    color: #fff; }
+  .mbsy-style.mbsy-style > .mbsy-style.mbsy-style > .mbsy-style .mbsy-style {
+    top: calc(50% - 15px);
+    transform: rotate(180deg); }
+    .mbsy-style.mbsy-style > .mbsy-style.mbsy-style > .mbsy-style .mbsy-style svg {
+      fill: #fff; }
+
+.mbsy-style.mbsy-style > .mbsy-style.mbsy-style .mbsy-style {
+  padding: 20px; }
+
+.mbsy-style.mbsy-style > .mbsy-style {
+  background: transparent;
+  border-bottom: 0; }
+  .mbsy-style.mbsy-style > .mbsy-style > .mbsy-style {
+    padding: 15px 0; }
+    .mbsy-style.mbsy-style > .mbsy-style > .mbsy-style h4 {
+      color: #3C97D3;
+      font-size: 18px; }
+    .mbsy-style.mbsy-style > .mbsy-style > .mbsy-style svg {
+      fill: #3C97D3; }
+    .mbsy-style.mbsy-style > .mbsy-style > .mbsy-style .mbsy-style {
+      display: none; }
+  .mbsy-style.mbsy-style > .mbsy-style > .mbsy-style {
+    padding: 0; }
+  .mbsy-style.mbsy-style > .mbsy-style:last-child {
+    margin-bottom: 0; }
+
+.mbsy-style.mbsy-style > .mbsy-style.mbsy-style .mbsy-style .mbsy-style {
+  left: -2px;
+  top: 0;
+  transform: rotate(90deg); }
+
+.mbsy-style.mbsy-style > .mbsy-style.mbsy-style > .mbsy-style {
+  padding: 0 0 15px; }

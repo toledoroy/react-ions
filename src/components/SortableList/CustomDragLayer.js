@@ -1,7 +1,10 @@
 import React from 'react'
 import SortableItemPreview from './SortableItemPreview'
 import { DragLayer } from 'react-dnd'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
+
+const style = prefix(rawStyle)
 
 function getItemStyles(props) {
   const { initialOffset, currentOffset } = props

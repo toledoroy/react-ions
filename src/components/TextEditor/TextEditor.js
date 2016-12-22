@@ -3,12 +3,12 @@ import classNames from 'classnames/bind'
 import Quill from 'quill'
 import shallowCompare from 'react-addons-shallow-compare'
 import Toolbar from './Toolbar'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 import '../../styles/global/quill.scss'
 
-/**
- * The TextEditor component.
- */
+const style = prefix(rawStyle)
+
 class TextEditor extends React.Component {
   constructor(props) {
     super(props)

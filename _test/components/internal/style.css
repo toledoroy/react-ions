@@ -1,0 +1,22 @@
+.mbsy-style {
+  box-sizing: border-box;
+  color: #233040;
+  font-size: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0 10px; }
+  .mbsy-style .mbsy-style {
+    margin-right: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .mbsy-style > li {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0; }
+    .mbsy-style > li + li {
+      border-top: 1px solid #DEE0E3; }
+  .mbsy-style svg {
+    cursor: pointer;
+    user-select: none;
+    min-width: 12px; }

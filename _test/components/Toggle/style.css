@@ -1,0 +1,44 @@
+.mbsy-style {
+  cursor: pointer; }
+  .mbsy-style .mbsy-style {
+    display: inline-block;
+    height: 15px;
+    position: relative;
+    width: 26px; }
+    .mbsy-style .mbsy-style .mbsy-style {
+      background: #243140;
+      border-radius: 100px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+      transition: background 0.15s ease-in;
+      top: 0; }
+      .mbsy-style .mbsy-style .mbsy-style.mbsy-style {
+        background: #26B894; }
+    .mbsy-style .mbsy-style .mbsy-style {
+      background: #ECF0F0;
+      border-radius: 50%;
+      height: 13px;
+      position: absolute;
+      right: 12px;
+      top: 1px;
+      transition: background 0.15s ease-in, right 0.15s ease-out;
+      width: 13px; }
+      .mbsy-style .mbsy-style .mbsy-style.mbsy-style {
+        background: #fff;
+        right: 1px; }
+  .mbsy-style.mbsy-style {
+    cursor: not-allowed; }
+    .mbsy-style.mbsy-style div:first-child {
+      background: #9198A0; }
+  .mbsy-style.mbsy-style .mbsy-style.mbsy-style {
+    background: #E54C3B; }
+  .mbsy-style label {
+    color: #243140;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 5px;
+    user-select: none; }
+    .mbsy-style label + .mbsy-style {
+      top: 3px; }

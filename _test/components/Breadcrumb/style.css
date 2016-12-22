@@ -1,0 +1,53 @@
+.mbsy-style {
+  position: relative; }
+
+.mbsy-style {
+  align-items: center;
+  display: inline-flex;
+  height: 65px;
+  padding: 0 15px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%; }
+  .mbsy-style .mbsy-style {
+    display: inline-block;
+    font-weight: 200;
+    font-size: 20px; }
+  .mbsy-style .mbsy-style {
+    color: #879098;
+    font-size: 14px;
+    position: relative;
+    top: 1px; }
+  .mbsy-style .mbsy-style {
+    margin: 0 6px;
+    min-width: 14px; }
+  @media (max-width: 991px) {
+    .mbsy-style {
+      height: 50px; } }
+
+.mbsy-style {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 200;
+  color: #3C97D3; }
+
+.mbsy-style {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow: hidden;
+  color: #233040;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2); }
+  .mbsy-style > li {
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    cursor: pointer; }
+    .mbsy-style > li:hover {
+      color: #fff;
+      background-color: #3C97D3; }

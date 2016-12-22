@@ -2,11 +2,11 @@ import React from 'react'
 import Dropzone from 'react-dropzone'
 import Icon from '../Icon'
 import classNames from 'classnames/bind'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 
-/**
- * The FileUpload component.
- */
+const style = prefix(rawStyle)
+
 class FileUpload extends React.Component {
   constructor(props) {
     super(props)

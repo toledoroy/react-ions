@@ -1,0 +1,28 @@
+.mbsy-style label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #233040;
+  font-family: proxima_nova;
+  font-weight: 200; }
+
+.mbsy-style input {
+  color: #243140;
+  border: solid 1px #DEE0E3;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 10px;
+  width: 100%;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
+  .mbsy-style input:focus {
+    border-color: #3C97D3;
+    box-shadow: 0 0 2px #3C97D3;
+    outline: 0; }
+  .mbsy-style input:disabled {
+    cursor: not-allowed; }
+
+.mbsy-style.mbsy-style input {
+  border: 2px solid #E54C3B; }
+  .mbsy-style.mbsy-style input:focus {
+    box-shadow: 0 0 2px #E54C3B; }

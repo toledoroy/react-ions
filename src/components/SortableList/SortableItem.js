@@ -6,7 +6,10 @@ import classNames from 'classnames/bind'
 import Badge from '../Badge'
 import Toggle from '../Toggle'
 import flow from 'lodash/flow'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
+
+const style = prefix(rawStyle)
 
 const sortableItemSource = {
   beginDrag(props) {

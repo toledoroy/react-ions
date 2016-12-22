@@ -1,10 +1,10 @@
 import React from 'react'
 import classNames from 'classnames/bind'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 
-/**
- * The Textarea component.
- */
+const style = prefix(rawStyle)
+
 class Textarea extends React.Component {
   constructor(props) {
     super(props);

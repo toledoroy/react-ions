@@ -1,0 +1,65 @@
+.mbsy-style {
+  cursor: pointer;
+  position: relative; }
+  .mbsy-style > input {
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 2; }
+  .mbsy-style.mbsy-style {
+    cursor: not-allowed; }
+    .mbsy-style.mbsy-style > input {
+      cursor: not-allowed; }
+
+.mbsy-style .mbsy-style {
+  display: flex; }
+  .mbsy-style .mbsy-style .mbsy-style button {
+    margin: 0; }
+  .mbsy-style .mbsy-style .mbsy-style:first-child button {
+    border-right: none;
+    border-radius: 3px 0 0 3px; }
+  .mbsy-style .mbsy-style .mbsy-style:last-child button {
+    border-left: none;
+    border-radius: 0 3px 3px 0; }
+  .mbsy-style .mbsy-style .mbsy-style:not(.mbsy-style) + .mbsy-style:not(.mbsy-style) {
+    margin-left: 1px; }
+    .mbsy-style .mbsy-style .mbsy-style:not(.mbsy-style) + .mbsy-style:not(.mbsy-style):before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 1px;
+      background-color: #DEE0E3;
+      top: 0;
+      left: -1px;
+      z-index: 1; }
+  .mbsy-style .mbsy-style .mbsy-style + .mbsy-style:not(:last-child) button {
+    border-radius: 0;
+    border-right: none;
+    border-left: none; }
+  .mbsy-style .mbsy-style .mbsy-style.mbsy-style button {
+    padding-right: 9px;
+    padding-left: 9px; }
+  .mbsy-style .mbsy-style .mbsy-style.mbsy-style:first-child button {
+    padding-right: 9px;
+    padding-left: 8px; }
+  .mbsy-style .mbsy-style .mbsy-style.mbsy-style:last-child button {
+    padding-right: 8px;
+    padding-left: 9px; }
+
+.mbsy-style > .mbsy-style {
+  color: #E54C3B;
+  float: left;
+  margin-right: 5px; }
+
+.mbsy-style > label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #233040;
+  font-family: proxima_nova;
+  font-weight: 200; }

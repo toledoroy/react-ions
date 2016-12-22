@@ -1,0 +1,53 @@
+.mbsy-style {
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  width: 100%; }
+  .mbsy-style > input {
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%; }
+  .mbsy-style > input:checked + div .mbsy-style svg {
+    display: block;
+    width: 75%;
+    height: 75%;
+    margin: 2px auto; }
+  .mbsy-style > div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center; }
+    .mbsy-style > div .mbsy-style {
+      background-color: #fff;
+      border: solid 2px #DEE0E3;
+      border-radius: 10%;
+      height: 20px;
+      flex-shrink: 0;
+      width: 20px; }
+      .mbsy-style > div .mbsy-style svg {
+        display: none; }
+    .mbsy-style > div label {
+      color: #233040;
+      font-size: 14px; }
+      .mbsy-style > div label.mbsy-style {
+        margin-right: 10px; }
+      .mbsy-style > div label.mbsy-style {
+        margin-left: 10px; }
+  .mbsy-style.mbsy-style > div .mbsy-style {
+    border-color: #E54C3B; }
+  .mbsy-style.mbsy-style {
+    cursor: not-allowed; }
+    .mbsy-style.mbsy-style > input {
+      cursor: not-allowed; }
+    .mbsy-style.mbsy-style > div label {
+      color: #DEE0E3; }
+    .mbsy-style.mbsy-style > div .mbsy-style {
+      background-color: #DEE0E3;
+      border-color: #DEE0E3; }
+      .mbsy-style.mbsy-style > div .mbsy-style:before {
+        display: none; }

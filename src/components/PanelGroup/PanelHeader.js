@@ -1,7 +1,10 @@
 import React from 'react'
 import optclass from '../internal/OptClass'
 import Icon from '../Icon'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
+
+const style = prefix(rawStyle)
 
 class PanelHeader extends React.Component {
   constructor(props) {

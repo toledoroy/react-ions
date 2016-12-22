@@ -1,7 +1,10 @@
 import React from 'react'
 import Loader from 'react-loader'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 import optclass from '../internal/OptClass'
+
+const style = prefix(rawStyle)
 
 const Button = (props) => {
   const collapseClass = props.collapse ? 'collapse' : null

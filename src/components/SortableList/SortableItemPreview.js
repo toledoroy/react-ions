@@ -3,7 +3,10 @@ import SortableItem from './SortableItem'
 import Badge from '../Badge'
 import Toggle from '../Toggle'
 import classNames from 'classnames/bind'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
+
+const style = prefix(rawStyle)
 
 class SortableItemPreview extends React.Component {
   constructor(props) {

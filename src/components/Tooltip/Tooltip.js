@@ -1,11 +1,11 @@
 import React from 'react'
 import classNames from 'classnames/bind'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 import RenderToLayer from '../internal/RenderToLayer'
 
-/**
- * The Tooltip component.
- */
+const style = prefix(rawStyle)
+
 class Tooltip extends React.Component {
   constructor(props) {
     super(props)

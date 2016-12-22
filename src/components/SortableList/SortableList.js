@@ -4,7 +4,10 @@ import SortableItem from './SortableItem'
 import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
 import CustomDragLayer from './CustomDragLayer'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
+
+const style = prefix(rawStyle)
 
 export class SortableList extends React.Component {
   constructor(props) {

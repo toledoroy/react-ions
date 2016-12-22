@@ -1,0 +1,57 @@
+.mbsy-style {
+  position: fixed;
+  z-index: 3500; }
+  .mbsy-style.mbsy-style {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; }
+    .mbsy-style.mbsy-style .mbsy-style {
+      opacity: 1;
+      z-index: 3500;
+      visibility: visible; }
+  .mbsy-style .mbsy-style {
+    position: absolute;
+    top: 0;
+    width: 100%; }
+  .mbsy-style .mbsy-style {
+    opacity: 0;
+    z-index: -1;
+    visibility: hidden;
+    position: relative;
+    margin: 80px auto 40px;
+    width: 75%;
+    max-width: 708px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96); }
+    .mbsy-style .mbsy-style.mbsy-style {
+      max-width: 320px; }
+    .mbsy-style .mbsy-style.mbsy-style {
+      max-width: 1200px; }
+    .mbsy-style .mbsy-style .mbsy-style .mbsy-style {
+      position: absolute;
+      right: 30px; }
+      .mbsy-style .mbsy-style .mbsy-style .mbsy-style > svg {
+        cursor: pointer; }
+    .mbsy-style .mbsy-style .mbsy-style h1 {
+      font-family: proxima_nova;
+      font-weight: 200;
+      font-size: 20px;
+      margin: 15px 0;
+      color: #233040; }
+    .mbsy-style .mbsy-style .mbsy-style {
+      font-size: 14px;
+      color: #233040;
+      margin: 0 -15px;
+      padding: 0 15px; }
+    .mbsy-style .mbsy-style .mbsy-style {
+      margin-top: 30px;
+      float: right; }
+      .mbsy-style .mbsy-style .mbsy-style button {
+        margin-right: 0;
+        margin-left: 12px; }

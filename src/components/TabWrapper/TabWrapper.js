@@ -1,7 +1,10 @@
 import React from 'react'
 import TabTemplate from './TabTemplate';
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 import classNames from 'classnames/bind'
+
+const style = prefix(rawStyle)
 
 class TabWrapper extends React.Component {
   constructor(props) {

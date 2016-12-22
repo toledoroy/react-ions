@@ -1,6 +1,9 @@
 import React from 'react'
 import optclass from '../internal/OptClass'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
+
+const style = prefix(rawStyle)
 
 class PanelContent extends React.Component {
   constructor(props) {

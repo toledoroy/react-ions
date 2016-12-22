@@ -1,11 +1,14 @@
 import React from 'react'
 import Clipboard from 'clipboard'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 import classNames from 'classnames/bind'
 import Icon from '../Icon'
 import Spinner from '../Spinner'
 import Tooltip from '../Tooltip'
 import SelectField from '../SelectField'
+
+const style = prefix(rawStyle)
 
 class InlineEdit extends React.Component {
   constructor(props) {

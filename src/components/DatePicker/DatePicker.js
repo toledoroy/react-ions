@@ -1,13 +1,13 @@
 import React from 'react'
 import moment from 'moment'
 import SelectField from '../SelectField/SelectField'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 import optclass from '../internal/OptClass'
 import DateHelper  from './DateHelper'
 
-/**
- * The DatePicker component.
- */
+const style = prefix(rawStyle)
+
 class DatePicker extends React.Component {
   constructor(props) {
     super(props)

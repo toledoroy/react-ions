@@ -4,6 +4,20 @@
   "env": {
     "development": {
       "presets": ["react-hmre"]
+    },
+    "release": {
+      "plugins": [
+        ["css-modules-transform", {
+          "extractCss": {
+            "dir": "./_test/",
+            "relativeRoot": "./src/",
+            "filename": "[path]/[name].css"
+          },
+          "preprocessCss": "./scripts/process-styles.js",
+          "generateScopedName": "mbsy-[name]",
+          "extensions": [".css", ".scss"]
+        }]
+      ]
     }
   }
 }

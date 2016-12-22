@@ -1,0 +1,56 @@
+.mbsy-style label {
+  color: #243140;
+  display: block;
+  font-size: 16px;
+  font-weight: 200;
+  margin-bottom: 10px; }
+
+.mbsy-style.mbsy-style .mbsy-style {
+  cursor: not-allowed;
+  background-color: #DEE0E3 !important;
+  border: 1px solid #DEE0E3 !important; }
+
+.mbsy-style {
+  width: 100%;
+  min-height: 100px;
+  border-radius: 3px;
+  background-color: #fff;
+  border: 1px dashed #ECF0F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 20px; }
+  .mbsy-style > div {
+    font-size: 13px;
+    color: rgba(36, 49, 64, 0.5); }
+  .mbsy-style.mbsy-style {
+    border-color: #26B894;
+    background-color: rgba(38, 184, 148, 0.3); }
+
+.mbsy-style {
+  font-size: 14px;
+  margin-top: 12px; }
+  .mbsy-style span {
+    color: #243140;
+    font-weight: 200; }
+
+.mbsy-style .mbsy-style {
+  display: inline-block;
+  position: relative;
+  margin-top: 15px; }
+  .mbsy-style .mbsy-style + .mbsy-style {
+    margin-left: 15px; }
+  .mbsy-style .mbsy-style img {
+    transition: all 0.25s ease 0s; }
+  .mbsy-style .mbsy-style svg {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer; }
+  .mbsy-style .mbsy-style:hover img {
+    opacity: 0.3; }
+  .mbsy-style .mbsy-style:hover svg {
+    display: block; }

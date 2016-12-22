@@ -1,0 +1,10 @@
+.mbsy-style {
+  position: relative; }
+  .mbsy-style .mbsy-style {
+    cursor: pointer;
+    position: absolute;
+    right: 11px;
+    top: 12px;
+    user-select: none; }
+  .mbsy-style input {
+    padding-right: 30px; }

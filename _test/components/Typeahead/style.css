@@ -1,0 +1,42 @@
+.mbsy-style {
+  position: relative; }
+  .mbsy-style .mbsy-style {
+    background-color: #fff;
+    color: #243140;
+    border-radius: 0 0 3px 3px;
+    border: 1px solid #ECF0F0;
+    border-top: 0;
+    list-style-type: none;
+    margin: 0;
+    max-height: 300px;
+    overflow: auto;
+    padding: 0;
+    position: absolute;
+    width: calc(100% - 2px);
+    z-index: 1; }
+    .mbsy-style .mbsy-style li {
+      border-bottom: 1px solid #ECF0F0;
+      cursor: pointer;
+      padding: 10px; }
+      .mbsy-style .mbsy-style li:last-child {
+        border-bottom: 0; }
+      .mbsy-style .mbsy-style li:hover {
+        background-color: #3C97D3;
+        color: #fff; }
+
+.mbsy-style {
+  position: absolute;
+  right: 18px;
+  top: 18px; }
+
+.mbsy-style {
+  background-color: #9198A0;
+  border-radius: 50%;
+  cursor: pointer;
+  fill: #fff;
+  height: 11px;
+  padding: 3px;
+  position: absolute;
+  right: 11px;
+  top: 11px;
+  width: 10px; }

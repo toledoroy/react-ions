@@ -1,0 +1,47 @@
+.mbsy-style .mbsy-style {
+  display: flex; }
+
+.mbsy-style .mbsy-style > div {
+  box-sizing: border-box; }
+
+.mbsy-style.mbsy-style .mbsy-style {
+  border-bottom: 1px solid #ECF0F0; }
+
+.mbsy-style.mbsy-style .mbsy-style {
+  border: none;
+  color: #9198A0;
+  padding: 8px 15px; }
+  .mbsy-style.mbsy-style .mbsy-style + .mbsy-style {
+    margin-left: 0; }
+  .mbsy-style.mbsy-style .mbsy-style.mbsy-style {
+    color: #3C97D3;
+    border-bottom: 3px solid #3C97D3;
+    margin-bottom: -1px;
+    background-color: #fff; }
+
+.mbsy-style {
+  background-color: #fff;
+  font-size: 13px;
+  font-weight: 200;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #DEE0E3;
+  color: #9198A0;
+  padding: 12px 15px;
+  cursor: pointer; }
+  .mbsy-style > span {
+    font-weight: normal; }
+  .mbsy-style + .mbsy-style {
+    margin-left: -1px; }
+    .mbsy-style + .mbsy-style.mbsy-style {
+      border-left: none;
+      margin-left: 0; }
+  .mbsy-style.mbsy-style {
+    color: #233040;
+    background-color: #F7F7F9;
+    border-width: 1px 1px 0;
+    border-style: solid solid none;
+    border-color: #F7F7F9 #F7F7F9 transparent;
+    padding-bottom: 13px; }
+    .mbsy-style.mbsy-style > span {
+      color: #9198A0; }

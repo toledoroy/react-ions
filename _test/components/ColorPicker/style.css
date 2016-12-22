@@ -1,0 +1,27 @@
+.mbsy-style {
+  position: relative; }
+  .mbsy-style input {
+    padding-left: 44px; }
+  .mbsy-style .mbsy-style {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    width: 22px;
+    height: 22px;
+    border-radius: 2px;
+    transform: translate(0, -50%); }
+    .mbsy-style .mbsy-style.mbsy-style {
+      width: 22px;
+      height: 22px;
+      border: 1px solid #DEE0E3; }
+  .mbsy-style .mbsy-style {
+    margin-top: 5px;
+    position: absolute;
+    z-index: 1; }
+    .mbsy-style .mbsy-style > div:nth-of-type(1) {
+      padding: 10px 10px 6px !important;
+      box-shadow: none !important;
+      border: 1px solid #DEE0E3 !important;
+      border-radius: 2px !important; }
+      .mbsy-style .mbsy-style > div:nth-of-type(1) div:nth-of-type(3), .mbsy-style .mbsy-style > div:nth-of-type(1) div:nth-of-type(4) {
+        display: none; }

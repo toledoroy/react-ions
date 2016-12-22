@@ -1,12 +1,12 @@
 import React from 'react'
 import shallowCompare from 'react-addons-shallow-compare'
 import Dropdown from '../Dropdown'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 import '../../styles/global/quill.scss'
 
-/**
- * The MergeTags component.
- */
+const style = prefix(rawStyle)
+
 class MergeTags extends React.Component {
   constructor(props) {
     super(props)

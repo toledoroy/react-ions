@@ -1,11 +1,11 @@
 import React from 'react'
 import classNames from 'classnames'
 import ProgressBarLabel from './ProgressBarLabel'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 
-/**
- * The ProgressBar fills from 0% to 100% to show the progress of a task.
- */
+const style = prefix(rawStyle)
+
 const ProgressBar = (props) => {
   let percentage = props.value > props.denominator ? 100 : (props.value / props.denominator) * 100;
   let progressStyles = classNames(style['progress-bar'], style[props.optClass]);

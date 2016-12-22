@@ -3,7 +3,10 @@ import optclass from '../internal/OptClass'
 import Icon from '../Icon'
 import Input from '../Input'
 import TagList from '../internal/TagList'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
+
+const style = prefix(rawStyle)
 
 class InputList extends React.Component {
   constructor(props) {

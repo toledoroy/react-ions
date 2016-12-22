@@ -1,0 +1,46 @@
+.mbsy-style > div:first-of-type {
+  width: 70px; }
+  .mbsy-style > div:first-of-type > div {
+    border-radius: 3px 0 0 3px; }
+    @media (max-width: 991px) {
+      .mbsy-style > div:first-of-type > div {
+        border-radius: 3px 3px 0 0; } }
+
+.mbsy-style > div:nth-of-type(2) {
+  width: 60px;
+  margin-left: -1px; }
+  .mbsy-style > div:nth-of-type(2) > div {
+    border-radius: 0; }
+  @media (max-width: 991px) {
+    .mbsy-style > div:nth-of-type(2) {
+      margin-top: -1px;
+      margin-left: 0; } }
+
+.mbsy-style > div:nth-of-type(3) {
+  width: 75px;
+  margin-left: -1px; }
+  .mbsy-style > div:nth-of-type(3) > div {
+    border-radius: 0 3px 3px 0; }
+    @media (max-width: 991px) {
+      .mbsy-style > div:nth-of-type(3) > div {
+        border-radius: 0 0 3px 3px; } }
+  @media (max-width: 991px) {
+    .mbsy-style > div:nth-of-type(3) {
+      margin-top: -1px;
+      margin-left: 0; } }
+
+@media (max-width: 991px) {
+  .mbsy-style.mbsy-style [class^='selectfield-component'] {
+    min-width: auto; } }
+
+@media (max-width: 991px) {
+  .mbsy-style.mbsy-style > div:first-of-type > div {
+    border-radius: 3px 0 0 3px; } }
+
+.mbsy-style.mbsy-style > div:nth-of-type(2) {
+  margin-left: -1px; }
+
+@media (max-width: 991px) {
+  .mbsy-style.mbsy-style > div:nth-of-type(3) > div {
+    margin-left: -1px;
+    border-radius: 0 3px 3px 0; } }

@@ -1,0 +1,55 @@
+.mbsy-style {
+  align-items: center;
+  display: inline-flex;
+  color: #fff;
+  background-color: #DEE0E3;
+  border-radius: 3px;
+  border: 1px solid #DEE0E3;
+  font-size: 18px;
+  font-weight: 200;
+  float: left;
+  height: 30px;
+  justify-content: center;
+  min-width: 30px; }
+  .mbsy-style.mbsy-style {
+    height: 95px;
+    min-width: 95px;
+    font-size: 32px; }
+    .mbsy-style.mbsy-style svg + span {
+      margin-left: 10px; }
+    .mbsy-style.mbsy-style span {
+      font-weight: normal; }
+    .mbsy-style.mbsy-style.mbsy-style {
+      padding: 0 15px; }
+  .mbsy-style.mbsy-style {
+    padding: 0 7px; }
+  .mbsy-style svg {
+    fill: #fff; }
+  .mbsy-style svg + span {
+    margin-left: 5px; }
+  .mbsy-style.mbsy-style svg {
+    fill: #9198A0; }
+  .mbsy-style.mbsy-style span {
+    color: #9198A0; }
+  .mbsy-style.mbsy-style {
+    background-color: #26B894;
+    border: 1px solid #26B894; }
+  .mbsy-style.mbsy-style {
+    background-color: #E54C3B;
+    border: 1px solid #E54C3B; }
+  .mbsy-style.mbsy-style {
+    background-color: #F29C1E;
+    border: 1px solid #F29C1E; }
+  .mbsy-style.mbsy-style {
+    background-color: #3C97D3;
+    border: 1px solid #3C97D3; }
+  .mbsy-style.mbsy-style {
+    background-color: #2D3E50;
+    border: 1px solid #2D3E50; }
+  .mbsy-style.mbsy-style {
+    background-color: transparent;
+    border: 1px solid #DEE0E3;
+    color: #243140; }
+
+.mbsy-style + .mbsy-style {
+  margin-left: 10px; }

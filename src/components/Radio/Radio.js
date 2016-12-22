@@ -1,6 +1,9 @@
 import React from 'react'
 import classNames from 'classnames/bind'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
+
+const style = prefix(rawStyle)
 
 const Radio = (props) => {
   const {

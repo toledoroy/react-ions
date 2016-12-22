@@ -60,12 +60,6 @@ const config = {
       exclude: [
         path.resolve(__dirname, '../src/styles/global/')
       ]
-      // TODO: figure out how to fix this
-      // include: [
-      //   path.resolve(__dirname, '../app'),
-      //   path.resolve(__dirname, '../src/components'),
-      //   path.resolve(__dirname, '../src/styles'),
-      // ]
     }, {
       test: /\.(css|scss)$/,
       loaders: [

@@ -1,13 +1,13 @@
 import React from 'react'
 import classNames from 'classnames/bind'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 import Overlay from './Overlay'
 import RenderToLayer from '../internal/RenderToLayer'
 import Icon from '../Icon'
 
-/**
- * The Modal component.
- */
+const style = prefix(rawStyle)
+
 class Modal extends React.Component {
   constructor(props) {
     super(props)

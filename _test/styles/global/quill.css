@@ -1,0 +1,32 @@
+@import url(~quill/dist/quill.core.css);
+@import url(~quill/dist/quill.snow.css);
+.mbsy-quill.mbsy-quill {
+  border: none; }
+
+.mbsy-quill.mbsy-quill {
+  border: 1px solid #DEE0E3;
+  border-radius: 3px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap; }
+  .mbsy-quill.mbsy-quill > .mbsy-quill {
+    padding: 6px 8px;
+    margin: 0; }
+  .mbsy-quill.mbsy-quill .mbsy-quill.mbsy-quill .mbsy-quill {
+    border: 1px solid #DEE0E3;
+    border-radius: 3px 3px 0 0; }
+  .mbsy-quill.mbsy-quill .mbsy-quill.mbsy-quill .mbsy-quill {
+    box-shadow: none;
+    border: 1px solid #DEE0E3;
+    border-radius: 0 0 3px 3px; }
+
+.mbsy-quill {
+  padding: 15px 5px;
+  min-height: 120px;
+  color: #000; }
+
+.mbsy-quill .mbsy-quill {
+  z-index: 3750;
+  box-shadow: none;
+  border: 1px solid #DEE0E3;
+  border-radius: 3px; }

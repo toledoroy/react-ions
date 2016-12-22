@@ -1,0 +1,97 @@
+.mbsy-style h3 {
+  margin: 0 0 10px 0; }
+
+.mbsy-style [class^='button-group'] {
+  display: block; }
+  .mbsy-style [class^='button-group'] button {
+    height: 39px; }
+
+.mbsy-style {
+  position: absolute;
+  right: 0;
+  top: 11px; }
+
+.mbsy-style {
+  margin-bottom: 15px; }
+
+.mbsy-style > fieldset {
+  margin-bottom: 15px; }
+
+fieldset.mbsy-style {
+  margin-bottom: 0;
+  padding-right: 20px;
+  position: relative; }
+  fieldset.mbsy-style .mbsy-style {
+    float: left;
+    display: block;
+    margin: 0 15px 15px 0;
+    min-width: auto; }
+    @media (max-width: 991px) {
+      fieldset.mbsy-style .mbsy-style {
+        margin: 0;
+        min-width: 100%; } }
+  @media (max-width: 991px) {
+    fieldset.mbsy-style {
+      padding-right: 0;
+      margin-bottom: 15px; }
+      fieldset.mbsy-style [class^='button-group'] {
+        margin-bottom: 15px; }
+      fieldset.mbsy-style .mbsy-style {
+        right: 12px;
+        top: 64px; }
+      fieldset.mbsy-style .mbsy-style {
+        padding-right: 40px; }
+        fieldset.mbsy-style .mbsy-style [class*='datepicker-component-'] > div + div {
+          margin: -1px 0 0; }
+        fieldset.mbsy-style .mbsy-style [class*='datepicker-component-'] > div:first-of-type > div {
+          border-radius: 3px 3px 0 0; }
+        fieldset.mbsy-style .mbsy-style [class*='datepicker-component-'] > div:nth-of-type(2) > div, fieldset.mbsy-style .mbsy-style [class*='datepicker-component-'] > div:last-of-type > div {
+          border-radius: 0; }
+        fieldset.mbsy-style .mbsy-style > .mbsy-style > div, fieldset.mbsy-style .mbsy-style > .mbsy-style > input {
+          border-radius: 3px 3px 0 0; }
+        fieldset.mbsy-style .mbsy-style > .mbsy-style + .mbsy-style {
+          margin-top: -1px; }
+          fieldset.mbsy-style .mbsy-style > .mbsy-style + .mbsy-style > div, fieldset.mbsy-style .mbsy-style > .mbsy-style + .mbsy-style > input {
+            border-radius: 0; }
+          fieldset.mbsy-style .mbsy-style > .mbsy-style + .mbsy-style[class*='datepicker-component-'] > div:first-of-type > div, fieldset.mbsy-style .mbsy-style > .mbsy-style + .mbsy-style[class*='datepicker-component-'] > div:nth-of-type(2) > div, fieldset.mbsy-style .mbsy-style > .mbsy-style + .mbsy-style[class*='datepicker-component-'] > div:last-of-type > div {
+            border-radius: 0; }
+          fieldset.mbsy-style .mbsy-style > .mbsy-style + .mbsy-style:last-child > div, fieldset.mbsy-style .mbsy-style > .mbsy-style + .mbsy-style:last-child > input {
+            border-radius: 0 0 3px 3px; }
+          fieldset.mbsy-style .mbsy-style > .mbsy-style + .mbsy-style:last-child[class*='datepicker-component-'] > div:first-of-type > div, fieldset.mbsy-style .mbsy-style > .mbsy-style + .mbsy-style:last-child[class*='datepicker-component-'] > div:nth-of-type(2) > div {
+            border-radius: 0; }
+          fieldset.mbsy-style .mbsy-style > .mbsy-style + .mbsy-style:last-child[class*='datepicker-component-'] > div:last-of-type > div {
+            border-radius: 0 0 3px 3px; } }
+  fieldset.mbsy-style [class^='selectfield'].mbsy-style ul {
+    min-width: auto; }
+
+[class^='checkbox'].mbsy-style {
+  margin-bottom: 6px; }
+  [class^='checkbox'].mbsy-style:last-child {
+    margin-bottom: inherit; }
+
+.mbsy-style legend {
+  color: #243140;
+  display: block;
+  float: left;
+  font-size: 12px;
+  font-weight: normal;
+  margin: 30px 0 10px;
+  position: relative;
+  text-transform: uppercase;
+  width: 100%; }
+  .mbsy-style legend span {
+    background-color: #fff;
+    padding-right: 5px;
+    position: relative;
+    z-index: 1; }
+  .mbsy-style legend:after {
+    background-color: #ECF0F0;
+    content: '';
+    display: block;
+    height: 1px;
+    position: absolute;
+    top: 7px;
+    width: 100%; }
+
+.mbsy-style {
+  display: none !important; }

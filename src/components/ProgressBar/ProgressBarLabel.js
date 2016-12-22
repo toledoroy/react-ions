@@ -1,10 +1,13 @@
 import React from 'react'
 import classNames from 'classnames'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
+
+const style = prefix(rawStyle)
 
 const ProgressBarLabel = (props) => {
   return (
-    <label className={style.label}>{ props.text } 
+    <label className={style.label}>{ props.text }
       { props.showPercentage ? <span className={style.percentage}>({ props.percentage }%)</span> : null }
     </label>
   );

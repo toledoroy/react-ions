@@ -1,11 +1,11 @@
 import React from 'react'
 import classNames from 'classnames/bind'
 import ButtonToggle from './ButtonToggle'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 
-/**
- * The ButtonGroup component.
- */
+const style = prefix(rawStyle)
+
 class ButtonGroup extends React.Component {
   constructor(props) {
     super(props)

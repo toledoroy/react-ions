@@ -1,7 +1,10 @@
 import React from 'react'
 import Node from './Node'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 import classNames from 'classnames/bind'
+
+const style = prefix(rawStyle)
 
 const Nav = (props) => {
   const cx = classNames.bind(style);

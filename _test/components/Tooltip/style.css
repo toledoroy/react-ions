@@ -1,0 +1,52 @@
+.mbsy-style {
+  position: absolute;
+  top: -99999px;
+  left: -99999px;
+  line-height: 1.4em;
+  opacity: 0;
+  max-width: 160px;
+  padding: 10px 13px;
+  border-radius: 3px;
+  background-color: #1B252F;
+  color: #fff;
+  text-align: center;
+  z-index: 2;
+  transition: opacity 400ms cubic-bezier(0.46, 0.03, 0.52, 0.96); }
+  .mbsy-style:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid; }
+  .mbsy-style.mbsy-style {
+    transform: translateX(-50%) translateX(0) translateY(-100%) translateY(-6px); }
+    .mbsy-style.mbsy-style:before {
+      border-width: 6px 6px 0;
+      border-color: #1B252F transparent transparent;
+      left: 50%;
+      bottom: -6px;
+      transform: translate(-50%, 0); }
+  .mbsy-style.mbsy-style {
+    transform: translate(-50%, 6px); }
+    .mbsy-style.mbsy-style:before {
+      border-width: 0 6px 6px;
+      border-color: transparent transparent #1B252F;
+      left: 50%;
+      top: -6px;
+      transform: translate(-50%, 0); }
+  .mbsy-style.mbsy-style {
+    transform: translateX(-100%) translateX(-8px) translateY(-50%) translateY(0); }
+    .mbsy-style.mbsy-style:before {
+      border-width: 6px 0 6px 6px;
+      border-color: transparent transparent transparent #1B252F;
+      right: -6px;
+      top: 50%;
+      transform: translate(0, -50%); }
+  .mbsy-style.mbsy-style {
+    transform: translate(8px, -50%); }
+    .mbsy-style.mbsy-style:before {
+      border-width: 6px 6px 6px 0;
+      border-color: transparent #1B252F transparent transparent;
+      left: -6px;
+      top: 50%;
+      transform: translate(0, -50%); }

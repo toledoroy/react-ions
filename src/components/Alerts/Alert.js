@@ -1,7 +1,10 @@
 import React from 'react'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 import classNames from 'classnames/bind'
 import Icon from '../Icon'
+
+const style = prefix(rawStyle)
 
 class Alert extends React.Component {
   constructor(props) {

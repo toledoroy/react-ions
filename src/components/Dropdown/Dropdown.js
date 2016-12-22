@@ -2,9 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import enhanceWithClickOutside from 'react-click-outside'
 import Button from '../Button/Button'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 import classNames from 'classnames/bind'
 import Immutable from 'immutable'
+
+const style = prefix(rawStyle)
 
 export class Dropdown extends React.Component {
   constructor(props) {

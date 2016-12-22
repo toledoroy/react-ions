@@ -6,7 +6,10 @@ import debounce from 'lodash/debounce'
 import Loader from 'react-loader'
 import Input from '../Input'
 import Icon from '../Icon'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
+
+const style = prefix(rawStyle)
 
 export class Typeahead extends React.Component {
   constructor(props) {

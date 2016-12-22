@@ -1,7 +1,10 @@
 import React from 'react'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 import classNames from 'classnames/bind'
 import Alert from './Alert'
+
+const style = prefix(rawStyle)
 
 class AlertSystem extends React.Component {
   constructor(props) {

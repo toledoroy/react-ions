@@ -1,0 +1,7 @@
+.mbsy-style {
+  opacity: 0;
+  overflow: hidden;
+  position: relative;
+  transition: opacity .25s ease-in; }
+  .mbsy-style.mbsy-style {
+    opacity: 1; }

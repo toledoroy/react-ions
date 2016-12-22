@@ -1,6 +1,9 @@
 import React from 'react'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 import classNames from 'classnames/bind'
+
+const style = prefix(rawStyle)
 
 class Avatar extends React.Component {
   constructor(props) {

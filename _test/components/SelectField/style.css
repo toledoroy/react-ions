@@ -1,0 +1,92 @@
+.mbsy-style {
+  display: inline-block;
+  position: relative; }
+  .mbsy-style label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #233040;
+    font-family: proxima_nova;
+    font-weight: 200; }
+  .mbsy-style .mbsy-style {
+    background-color: #fff;
+    border: 1px solid #DEE0E3;
+    border-radius: 3px;
+    color: #243140;
+    cursor: pointer;
+    background: #fff;
+    position: relative;
+    padding: 10px 29px 10px 10px;
+    user-select: none; }
+    .mbsy-style .mbsy-style > svg:last-of-type {
+      position: absolute;
+      right: 10px;
+      top: 13px;
+      transform: rotate(0); }
+    .mbsy-style .mbsy-style > .mbsy-style {
+      left: 10px;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%); }
+  .mbsy-style .mbsy-style {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block; }
+  .mbsy-style ul {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    display: none;
+    margin: 3px 0 30px;
+    overflow: auto;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    max-height: 247px;
+    z-index: 3; }
+    .mbsy-style ul li {
+      color: #243140;
+      cursor: pointer;
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      min-height: 18px;
+      align-items: center;
+      display: flex; }
+      .mbsy-style ul li svg {
+        margin-right: 10px; }
+      .mbsy-style ul li:not(.mbsy-style):hover {
+        background-color: #3C97D3;
+        color: #fff; }
+        .mbsy-style ul li:not(.mbsy-style):hover svg {
+          fill: #fff; }
+      .mbsy-style ul li.mbsy-style {
+        cursor: default; }
+    @media (max-width: 991px) {
+      .mbsy-style ul {
+        left: 0;
+        min-width: 100%; } }
+  .mbsy-style.mbsy-style {
+    cursor: not-allowed; }
+    .mbsy-style.mbsy-style > div {
+      background-color: #DEE0E3;
+      border-color: #DEE0E3;
+      color: #9198A0;
+      cursor: not-allowed; }
+      .mbsy-style.mbsy-style > div > svg {
+        fill: #9198A0; }
+    .mbsy-style.mbsy-style > ul {
+      display: none; }
+  .mbsy-style.mbsy-style > div {
+    border-color: #E54C3B; }
+  .mbsy-style.mbsy-style:not(.mbsy-style) .mbsy-style > svg:last-of-type {
+    transform: rotate(180deg); }
+  .mbsy-style.mbsy-style:not(.mbsy-style) ul {
+    display: inline-block; }
+  .mbsy-style.mbsy-style .mbsy-style {
+    padding-left: 35px; }
+  @media (max-width: 991px) {
+    .mbsy-style {
+      min-width: 100%; } }

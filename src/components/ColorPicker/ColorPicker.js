@@ -4,12 +4,12 @@ import colorLuminance from '../internal/ColorLuminance'
 import { SketchPicker } from 'react-color'
 import enhanceWithClickOutside from 'react-click-outside'
 import throttle from 'lodash/throttle'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 import classNames from 'classnames/bind'
 
-/**
- * The ColorPicker component.
- */
+const style = prefix(rawStyle)
+
 class ColorPicker extends React.Component {
   constructor(props) {
     super(props)

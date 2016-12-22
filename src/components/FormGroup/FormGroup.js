@@ -1,8 +1,11 @@
 import React from 'react'
 import debounce from 'lodash/debounce'
 import Immutable from 'immutable'
-import style from './style.scss'
+import prefix from '../internal/Prefix'
+import rawStyle from './style.scss'
 import optclass from '../internal/OptClass'
+
+const style = prefix(rawStyle)
 
 class FormGroup extends React.Component {
   constructor(props) {
