@@ -93,11 +93,15 @@ describe('DatePicker', () => {
     let firstDate = ''
     const daySelected = moment.utc(oldDate, defaultFormat).date()
     const dayToday = moment.utc().date()
+    const monthSelected = moment.utc(oldDate, defaultFormat).month()
+    const monthToday = moment.utc().month()
 
-    if (daySelected <= dayToday) {
+    //if trying to select the minimum year, if the day and month selected are less
+    //then today's respective values, the datepicker will default to today's today - 10 years
+    if (daySelected <= dayToday && monthSelected <= monthToday) {
       firstDate = moment.utc().subtract(10, 'year').format(defaultFormat)
     } else {
-      firstDate = moment.utc().date(daySelected).subtract(10, 'year').format(defaultFormat)
+      firstDate = moment.utc().date(daySelected).month(monthSelected).subtract(10, 'year').format(defaultFormat)
     }
 
     expect(result.target.value).to.equal(firstDate)
