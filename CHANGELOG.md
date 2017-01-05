@@ -1,5 +1,10 @@
 ## HEAD
 
+## 1.0.1
+###### _January 5, 2016_
+
+- [Icons] Added Dwolla and Paypal
+
 ## 1.0.0
 ###### _December 22, 2016_
 
