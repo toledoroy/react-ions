@@ -1,10 +1,6 @@
 {
   "name": "react-ions",
-<<<<<<< HEAD
-  "version": "1.0.1",
-=======
   "version": "1.0.2",
->>>>>>> a7a54e7a40fa507229f8ea83f6e008be64f876fe
   "description": "An open source set of React components that implement Ambassador's Design and UX patterns.",
   "main": "./lib/index.js",
   "repository": {
