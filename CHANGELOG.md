@@ -1,7 +1,12 @@
 ## HEAD
 
+## 1.0.2
+###### _January 9, 2017_
+
+- Updated scripts in package.json
+
 ## 1.0.1
-###### _January 5, 2016_
+###### _January 5, 2017_
 
 - [Icons] Added Dwolla and Paypal
 
