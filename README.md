@@ -17,6 +17,7 @@ React{ions} currently requires React 15.1.0 (support for 15.2+ coming soon).
 
 We use CSS Modules by default to import stylesheets written in SASS. In case you want to import the components already bundled with CSS, your module bundler should be able to require these SASS modules.
 
+## Example Webpack App
 Here is an example [Rect{ions} Webpack app](https://github.com/GetAmbassador/reactions-webpack-example) to get you started.
 
 ## Basic Usage
