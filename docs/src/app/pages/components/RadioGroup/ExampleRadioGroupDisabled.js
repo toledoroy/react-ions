@@ -18,7 +18,6 @@ const disabled = true;
 
 const ExampleRadioDisabled = () => (
   <RadioGroup
-    label="Disabled radio label"
     name="disabled-radio-group"
     options={options}
     disabled={disabled}>

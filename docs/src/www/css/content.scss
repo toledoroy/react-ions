@@ -11,7 +11,7 @@
 }
 
 .block {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 
   > h3 {
     font-weight: normal;
@@ -38,4 +38,14 @@
 // For display purposes only
 [class^='col-'] {
   display: flex;
+}
+
+.alert-override {
+  background-color: $primary-1;
+  border-radius: 2px;
+  color: $white;
+
+  svg {
+    fill: $white !important;
+  }
 }

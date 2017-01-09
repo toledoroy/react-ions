@@ -35,59 +35,58 @@ const SelectFieldPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
-        <h3>Examples</h3>
-          <CodeExample
-            title='Default Select Field'
-            description={description.selectFieldDefault}
-            markup={exampleSelectFieldDefaultCode}>
-            <ExampleSelectFieldDefault />
-          </CodeExample>
-          <CodeExample
-            title='Select Field with Placeholder'
-            description={description.selectFieldPlaceholder}
-            markup={exampleSelectFieldPlaceholderCode}>
-            <ExampleSelectFieldPlaceholder />
-          </CodeExample>
-          <CodeExample
-            title='Disabled Select Field'
-            description={description.selectFieldDisabled}
-            markup={exampleSelectFieldDisabledCode}>
-            <ExampleSelectFieldDisabled />
-          </CodeExample>
-          <CodeExample
-            title='Error Select Field'
-            description={description.selectFieldError}
-            markup={exampleSelectFieldErrorCode}>
-            <ExampleSelectFieldError />
-          </CodeExample>
-          <CodeExample
-            title='Select Field with Default Option Selected'
-            description={description.selectFieldSelected}
-            markup={exampleSelectFieldSelectedCode}>
-            <ExampleSelectFieldSelected />
-          </CodeExample>
-          <CodeExample
-            title='Select Field with Callback'
-            description={description.selectFieldCallback}
-            markup={exampleSelectFieldCallbackCode}>
-            <ExampleSelectFieldCallback />
-          </CodeExample>
-          <CodeExample
-            title='Select Field with Icon'
-            description={description.selectFieldIcon}
-            markup={exampleSelectFieldIconCode}>
-            <ExampleSelectFieldIcon />
-          </CodeExample>
-          <CodeExample
-            title='Select Field with Option Icons'
-            description={description.selectFieldOptionIcons}
-            markup={exampleSelectFieldOptionIconsCode}>
-            <ExampleSelectFieldOptionIcons />
-          </CodeExample>
-          <div className={styles.block}>
-            <h3>Props</h3>
-            <PropsList list={docs[0].props} />
-          </div>
+        <CodeExample
+          title='Default Select Field'
+          description={description.selectFieldDefault}
+          markup={exampleSelectFieldDefaultCode}>
+          <ExampleSelectFieldDefault />
+        </CodeExample>
+        <CodeExample
+          title='Select Field with Placeholder'
+          description={description.selectFieldPlaceholder}
+          markup={exampleSelectFieldPlaceholderCode}>
+          <ExampleSelectFieldPlaceholder />
+        </CodeExample>
+        <CodeExample
+          title='Disabled Select Field'
+          description={description.selectFieldDisabled}
+          markup={exampleSelectFieldDisabledCode}>
+          <ExampleSelectFieldDisabled />
+        </CodeExample>
+        <CodeExample
+          title='Error Select Field'
+          description={description.selectFieldError}
+          markup={exampleSelectFieldErrorCode}>
+          <ExampleSelectFieldError />
+        </CodeExample>
+        <CodeExample
+          title='Select Field with Default Option Selected'
+          description={description.selectFieldSelected}
+          markup={exampleSelectFieldSelectedCode}>
+          <ExampleSelectFieldSelected />
+        </CodeExample>
+        <CodeExample
+          title='Select Field with Callback'
+          description={description.selectFieldCallback}
+          markup={exampleSelectFieldCallbackCode}>
+          <ExampleSelectFieldCallback />
+        </CodeExample>
+        <CodeExample
+          title='Select Field with Icon'
+          description={description.selectFieldIcon}
+          markup={exampleSelectFieldIconCode}>
+          <ExampleSelectFieldIcon />
+        </CodeExample>
+        <CodeExample
+          title='Select Field with Option Icons'
+          description={description.selectFieldOptionIcons}
+          markup={exampleSelectFieldOptionIconsCode}>
+          <ExampleSelectFieldOptionIcons />
+        </CodeExample>
+        <div className={styles.block}>
+          <h3>Props</h3>
+          <PropsList list={docs[0].props} />
+        </div>
       </div>
     </div>
   </div>

@@ -32,7 +32,6 @@ class ExampleButtonGroupCallback extends React.Component {
     return(
       <div>
         <ButtonGroup
-          label="Callback button group label"
           name="callback-button-group"
           options={options}
           changeCallback={this.handleChange}>

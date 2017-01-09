@@ -31,7 +31,6 @@ class ExampleRadioCallback extends React.Component {
     return(
       <div>
         <RadioGroup
-          label="Callback radio label"
           name="callback-radio-group"
           options={options}
           changeCallback={this.handleChange}>
