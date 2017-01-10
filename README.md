@@ -26,7 +26,7 @@ In this minimal example, we import a Button with styles already bundled:
 	import React from 'react'
 	import Button from 'react-ions/lib/Button'
 
-  <Button>I am a Button</Button>
+	<Button>I am a Button</Button>
 
 Live examples and more info [documentation site](http://reactions.getambassador.com/components).
 
