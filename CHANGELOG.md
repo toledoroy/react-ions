@@ -1,5 +1,10 @@
 ## HEAD
 
+## 1.0.3
+###### _January 11, 2017_
+
+- Added example Webpack app to README 
+
 ## 1.0.2
 ###### _January 9, 2017_
 
