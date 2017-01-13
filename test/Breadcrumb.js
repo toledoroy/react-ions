@@ -146,7 +146,7 @@ describe('Breadcrumb', () => {
     expect(wrapper.contains(<span className='secondary'>Test</span>)).to.equal(true)
   })
 
-  it('should display minimized breadcrumbs when there\'s not enough space after resize', () => {
+  it.skip('should display minimized breadcrumbs when there\'s not enough space after resize', () => {
     routes = [
       {
         path: 'first',
