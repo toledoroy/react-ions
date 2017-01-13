@@ -6,7 +6,7 @@ import Icon from '../src/components/Icon/Icon'
 import TagList from '../src/components/internal/TagList'
 
 describe('InputList', () => {
-  let wrapper, input, inst, value
+  let wrapper, inst, value
 
   beforeEach(() => {
     value = [
@@ -88,13 +88,6 @@ describe('InputList', () => {
 
   it('should remove an item', () => {
     const spy = sinon.spy()
-    const initialState = {
-      value: [
-        {display: 'Test 1', value: 'Test 1'},
-        {display: 'Test 2', value: 'Test 2'},
-        {display: 'Something', value: 'Something'}
-      ]
-    }
     const updatedState = ['Test 1', 'Test 2']
 
     wrapper = shallow(<InputList value={value} changeCallback={spy} />)

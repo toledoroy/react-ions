@@ -5,7 +5,7 @@ import localStyles from './styles'
 import ButtonAnchor from 'react-ions/lib/Button/ButtonAnchor'
 import Icon from 'react-ions/lib/Icon'
 
-const HomePage = (props) => {
+const HomePage = () => {
   const cx = classNames.bind(baseStyles);
   var heroClass = cx(baseStyles.block, localStyles.hero);
   var secondaryClass = cx(baseStyles.block, localStyles.secondary);

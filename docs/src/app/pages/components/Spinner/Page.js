@@ -20,7 +20,7 @@ const description = {
   spinnerDelay: 'This is spinner with a five second delay before it\'s shown'
 }
 
-const SpinnerPage = (props) => {
+const SpinnerPage = () => {
   return (
     <div>
       <div className={style.content}>

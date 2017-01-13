@@ -1,7 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList';
 import buttonDocs from '!!docgen!react-ions/lib/Button/Button';
-import buttonAnchorDocs from '!!docgen!react-ions/lib/Button/ButtonAnchor';
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleButtonDefault from './ExampleButtonDefault'

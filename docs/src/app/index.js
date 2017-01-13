@@ -1,7 +1,7 @@
 // Core
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import { Router, browserHistory, IndexRoute } from 'react-router'
 
 // Routes
 import Routes from './routes'

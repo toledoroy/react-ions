@@ -5,7 +5,7 @@ import Input from '../src/components/Input/Input'
 import { Typeahead } from '../src/components/Typeahead/Typeahead'
 
 describe('Typeahead', () => {
-  let wrapper, typeahead
+  let wrapper
 
   const options = [
     {value: 'AT', display: 'Austria'},

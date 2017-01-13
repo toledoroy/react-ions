@@ -164,7 +164,6 @@ describe('Breadcrumb', () => {
 
     const div = document.createElement('div')
     document.body.appendChild(div)
-    const component = ReactDOM.render(<Breadcrumb routes={routes} />, div)
     const containerDiv = ReactDOM.findDOMNode(div)
 
     // 3 breadcrumbs and 2 arrow icons

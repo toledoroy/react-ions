@@ -1,5 +1,4 @@
 import React from 'react'
-import Icon from 'react-ions/lib/Icon'
 import Nav from 'react-ions/lib/Nav'
 import style from './style'
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import {PanelGroup, Panel, PanelHeader, PanelContent} from 'react-ions/lib/PanelGroup'
 import RadioGroup from 'react-ions/lib/Radio/RadioGroup'
-import style from './style.scss'
 
 const options = [
   {

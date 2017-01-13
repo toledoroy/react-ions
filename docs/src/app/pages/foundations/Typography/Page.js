@@ -4,7 +4,7 @@ import list from './FontList'
 import styles from 'private/css/content'
 import localStyles from './styles.scss'
 
-const TypographyPage = (props) => {
+const TypographyPage = () => {
 
   let proximaNovaList = list.proximaNova.map((font, index) =>
     <div key={index} className={localStyles['font-wrapper']}>
