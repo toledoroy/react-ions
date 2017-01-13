@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow, render } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import RadioGroup from '../src/components/Radio/RadioGroup'
 import Radio from '../src/components/Radio/'
 import Input from '../src/components/Input'
