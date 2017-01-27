@@ -140,12 +140,10 @@ describe('SortableList', () => {
     expect(sortableItems[2].value).to.equal('web')
     expect(sortableItems[3].value).to.equal('sms')
 
-    const SortableListContext = wrapInTestContext(SortableList)
     const root = TestUtils.renderIntoDocument(<SortableListWrapped items={items} changeCallback={changeCallback} />)
 
     // Obtain a reference to the backend
     const backend = root.getManager().getBackend()
-    const registry = root.getManager().getRegistry()
 
     // Find the drag source ID and use it to simulate the dragging operation
     const allItems = TestUtils.scryRenderedComponentsWithType(root, SortableItem)

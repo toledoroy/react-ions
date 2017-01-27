@@ -3,9 +3,9 @@ import classNames from 'classnames/bind'
 import style from 'private/css/content'
 import grid from 'react-ions/styles/common/grid'
 
-const LayoutPage = (props) => {
-  const cx = classNames.bind(style);
-  var boxColumnClass = cx(style['box'], style['col']);
+const LayoutPage = () => {
+  const cx = classNames.bind(style)
+  var boxColumnClass = cx(style['box'], style['col'])
 
   return (
     <div className={style.content}>
@@ -48,4 +48,4 @@ const LayoutPage = (props) => {
   )
 }
 
-export default LayoutPage;
+export default LayoutPage

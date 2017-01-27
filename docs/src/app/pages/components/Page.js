@@ -23,6 +23,7 @@ const ComponentsPage = () => (
         <h3>Prerequisites</h3>
         <p>React&#123;ions&#125; currently requires <b>React 15.1.0</b> (support for 15.2+ coming soon).</p>
         <p>We use <a href="https://github.com/css-modules/css-modules">CSS Modules</a> by default to import stylesheets written in SASS. In case you want to import the components already bundled with CSS, your module bundler should be able to require these SASS modules.</p>
+        <p>To allow your app to render SCSS and import CSS into JavaScript, you'll need the following: <i>node-sass sass-loader & style-loader</i></p>
       </div>
 
       <div className={styles.block}>
@@ -30,6 +31,11 @@ const ComponentsPage = () => (
         <p>In this minimal example, we import a Button with styles already bundled:</p>
         <Snippet markup={buttonExampleSnippet} />
         <Alert type="info" optClass={styles['alert-override']}>If you are not seeing any styles when you load a component, please make sure your project configuration (Webpack, etc.) is using CSS modules to process SASS.</Alert>
+      </div>
+
+      <div className={styles.block}>
+        <h3>Example Webpack Config</h3>
+        <p>Here is an <a href="https://github.com/GetAmbassador/reactions-webpack-example" target="_blank">example Rect&#123;ions&#125; Webpack app</a> to get you started.</p>
       </div>
 
       <div className={styles.block}>

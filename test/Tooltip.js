@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme'
 import Tooltip from '../src/components/Tooltip/Tooltip'
 
 describe('Tooltip', () => {
-  let wrapper, inst, spy
+  let wrapper, spy
 
   const shallowRender = (props) => {
     const shallowWrapper = shallow(<Tooltip content="Testing the top tooltip" {...props}>Test text</Tooltip>)

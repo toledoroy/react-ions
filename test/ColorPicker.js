@@ -1,6 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { shallow, mount } from 'enzyme'
+import { mount } from 'enzyme'
 import ColorPicker from '../src/components/ColorPicker/ColorPicker'
 import { SketchPicker } from 'react-color'
 

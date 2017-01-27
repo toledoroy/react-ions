@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow, mount, render } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import ButtonGroup from '../src/components/ButtonGroup/ButtonGroup'
 
 describe('ButtonGroup', () => {

@@ -4,7 +4,7 @@ import baseStyle from 'private/css/content'
 import localStyle from './styles'
 import list from './IconList'
 
-const IconographyPage = (props) => {
+const IconographyPage = () => {
   let iconsList = list.map((icon, index) =>
     <div key={index} className={localStyle['icon-block']}>
       <Icon name={icon} className={localStyle.icon}></Icon>

@@ -10,7 +10,7 @@ const description = {
   navDefault: 'This is the `nav component`.'
 };
 
-const NavPage = (props) => {
+const NavPage = () => {
   return (
     <div>
       <div className={style.content}>
