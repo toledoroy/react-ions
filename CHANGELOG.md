@@ -1,31 +1,34 @@
 ## HEAD
 
+## 1.0.4
+###### _January 27, 2017_
+
+- Removing unused imports from components and tests ([#339](https://github.com/GetAmbassador/react-ions/pull/339))
+
 ## 1.0.3
 ###### _January 11, 2017_
 
-- Added example Webpack app to README 
+- Added example Webpack app to README ([#337](https://github.com/GetAmbassador/react-ions/pull/337))
 
 ## 1.0.2
 ###### _January 9, 2017_
 
-- Updated scripts in package.json
+- Updated scripts in package.json ([#335](https://github.com/GetAmbassador/react-ions/pull/335))
 
 ## 1.0.1
 ###### _January 5, 2017_
 
-- [Icons] Added Dwolla and Paypal
+- [Icons] Added Dwolla and Paypal ([#332](https://github.com/GetAmbassador/react-ions/pull/332))
 
 ## 1.0.0
 ###### _December 22, 2016_
 
-- First major release.
-
+- First major release. ([#330](https://github.com/GetAmbassador/react-ions/pull/330))
 
 ## 0.77.0
 ###### _December 5, 2016_
 
-- [Icons] Add a hand card icon (and more)
-([#322](https://github.com/GetAmbassador/react-ions/pull/322))
+- [Icons] Add a hand card icon (and more) ([#322](https://github.com/GetAmbassador/react-ions/pull/322))
 
 ## 0.76.0
 ###### _December 2, 2016_
