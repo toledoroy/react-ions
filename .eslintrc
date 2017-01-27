@@ -12,7 +12,8 @@
     "node": true
   },
   "plugins": [
-    "react"
+    "react",
+    "mocha"
   ],
   "rules": {
     "no-console": 0,
