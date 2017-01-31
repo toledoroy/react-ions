@@ -1,4 +1,8 @@
 ## HEAD
+##1.0.5
+###### _January 31, 2017_
+
+- Add screen variable for xlarge screens ([#341](https://github.com/GetAmbassador/react-ions/pull/341))
 
 ## 1.0.4
 ###### _January 27, 2017_
