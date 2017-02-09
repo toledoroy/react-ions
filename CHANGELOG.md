@@ -1,5 +1,12 @@
 ## HEAD
 
+##1.0.6
+###### _February 9, 2017_
+
+- Updates to autoprefixer and postcss-loader to handle build failure ([#345](https://github.com/GetAmbassador/react-ions/pull/345))
+
+- Add coupon/voucher icon ([#344](https://github.com/GetAmbassador/react-ions/pull/344))
+
 ##1.0.5
 ###### _January 31, 2017_
 
