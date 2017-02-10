@@ -111,6 +111,7 @@ class Input extends React.Component {
       label,
       value,
       optClass,
+      valueType,
       ...other
     } = this.props
 

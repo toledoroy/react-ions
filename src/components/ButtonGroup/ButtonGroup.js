@@ -90,7 +90,18 @@ class ButtonGroup extends React.Component {
   getOptions = () => {
     const groupName = this.props.name
     const buttonStyle = this.props.buttonStyle
-    const { options, label, name, value, required, defaultOption, changeCallback, ...other } = this.props
+    const {
+      options,
+      label,
+      name,
+      value,
+      required,
+      defaultOption,
+      changeCallback,
+      displayProp,
+      valueProp,
+      ...other
+    } = this.props
 
     return this.props.options.map((buttonToggle, index) =>
       <ButtonToggle

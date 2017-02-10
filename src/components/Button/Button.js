@@ -15,7 +15,7 @@ const Button = (props) => {
   }
 
   return (
-    <button type='button' className={btnClasses} disabled={props.disabled || props.loading} {...props}>
+    <button type='button' className={btnClasses} disabled={props.disabled || props.loading}>
       { props.loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
       <em>{props.children}</em>
     </button>
