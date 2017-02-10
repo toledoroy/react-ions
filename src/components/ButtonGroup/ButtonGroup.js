@@ -89,7 +89,6 @@ class ButtonGroup extends React.Component {
 
   getOptions = () => {
     const groupName = this.props.name
-    const buttonStyle = this.props.buttonStyle
     const {
       options,
       label,
@@ -100,6 +99,7 @@ class ButtonGroup extends React.Component {
       changeCallback,
       displayProp,
       valueProp,
+      buttonStyle,
       ...other
     } = this.props
 

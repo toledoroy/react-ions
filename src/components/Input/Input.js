@@ -112,6 +112,9 @@ class Input extends React.Component {
       value,
       optClass,
       valueType,
+      changeCallback,
+      focusCallback,
+      blurCallback,
       ...other
     } = this.props
 

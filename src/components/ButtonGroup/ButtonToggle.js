@@ -58,6 +58,7 @@ class ButtonToggle extends React.Component {
       label,
       optClass,
       type,
+      changeCallback,
       ...other
     } = this.props
 

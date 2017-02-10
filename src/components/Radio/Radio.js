@@ -7,17 +7,18 @@ const Radio = (props) => {
     label,
     labelPosition,
     optClass,
+    changeCallback,
     ...other
-  } = props;
+  } = props
 
-  const cx = classNames.bind(style);
-  const disabledClass = props.disabled ? style['radio-disabled'] : '';
-  const radioClass = cx(style['radio-component'], optClass, disabledClass);
+  const cx = classNames.bind(style)
+  const disabledClass = props.disabled ? style['radio-disabled'] : ''
+  const radioClass = cx(style['radio-component'], optClass, disabledClass)
 
   const handleChange = function(event) {
-    event.persist();
+    event.persist()
     if (typeof props.changeCallback === 'function') {
-      props.changeCallback(event, props.value);
+      props.changeCallback(event, props.value)
     }
   }
 

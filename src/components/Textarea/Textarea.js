@@ -86,6 +86,9 @@ class Textarea extends React.Component {
       label,
       value,
       optClass,
+      changeCallback,
+      focusCallback,
+      blurCallback,
       ...other
     } = this.props;
 
