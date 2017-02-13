@@ -34,7 +34,7 @@ ButtonAnchor.propTypes = {
   /**
    * A path to pass to the anchor tag.
    */
-  path: React.PropTypes.string,
+  to: React.PropTypes.string,
   /**
    * Whether the link it to an internal page, or external (default)
    */

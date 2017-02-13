@@ -15,7 +15,7 @@ const Button = (props) => {
   }
 
   return (
-    <button type='button' className={btnClasses} disabled={props.disabled || props.loading}>
+    <button type='button' className={btnClasses} disabled={props.disabled || props.loading} onClick={props.onClick}>
       { props.loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
       <em>{props.children}</em>
     </button>
@@ -45,7 +45,8 @@ Button.propTypes = {
   optClass: React.PropTypes.oneOfType([
     React.PropTypes.array,
     React.PropTypes.string
-  ])
+  ]),
+  onClick: React.PropTypes.func
 }
 
 export default Button

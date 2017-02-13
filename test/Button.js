@@ -30,20 +30,16 @@ describe('Button', () => {
 
   it('displays a button anchor', () => {
     wrapper = shallow(<ButtonAnchor path='http://www.google.com' target='_blank'>External</ButtonAnchor>)
-    expect(wrapper.props().path).to.equal('http://www.google.com')
-    expect(wrapper.props().target).to.equal('_blank')
     expect(wrapper.text()).to.equal('External')
     expect(wrapper.type()).to.equal('a')
 
     wrapper = shallow(<ButtonAnchor path='/components/progress-bar' internal={true}>Internal</ButtonAnchor>)
-    expect(wrapper.props().path).to.equal('/components/progress-bar')
-    expect(wrapper.props().internal).to.equal(true)
+    expect(wrapper.props().to).to.equal('/components/progress-bar')
     expect(wrapper.type()).to.equal(Link)
   })
 
   it('hides text when collapse prop is passed', () => {
     wrapper = shallow(<Button collapse={true}>Test</Button>)
-    expect(wrapper.props().collapse).to.equal(true)
     expect(wrapper.props().className).to.equal('btn collapse')
   })
 

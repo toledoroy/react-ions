@@ -44,7 +44,6 @@ describe('Input', () => {
   it('should run the changeCallback on change', () => {
     const spy = sinon.spy()
     wrapper = mount(<Input value='test' changeCallback={spy} />)
-    expect(typeof wrapper.childAt(0).props().changeCallback).to.equal('function')
     wrapper.childAt(0).simulate('change')
     expect(spy.calledOnce).to.be.true
   })
@@ -52,7 +51,6 @@ describe('Input', () => {
   it('should run the blurCallback on blur', () => {
     const spy = sinon.spy()
     wrapper = mount(<Input value='test' blurCallback={spy} />)
-    expect(typeof wrapper.childAt(0).props().blurCallback).to.equal('function')
     wrapper.childAt(0).simulate('blur')
     expect(spy.calledOnce).to.be.true
   })
@@ -60,7 +58,6 @@ describe('Input', () => {
   it('should run the focusCallback on focus', () => {
     const spy = sinon.spy()
     wrapper = mount(<Input value='test' focusCallback={spy} />)
-    expect(typeof wrapper.childAt(0).props().focusCallback).to.equal('function')
     wrapper.childAt(0).simulate('focus')
     expect(spy.calledOnce).to.be.true
   })
@@ -106,7 +103,6 @@ describe('Input', () => {
   it('should pass value as string to changeCallback', () => {
     const spy = sinon.spy()
     wrapper = mount(<Input value='14.10' changeCallback={spy} />)
-    expect(typeof wrapper.childAt(0).props().changeCallback).to.equal('function')
     wrapper.childAt(0).simulate('change', {target: { value: '19.89' }})
     expect(spy.calledOnce).to.be.true
     expect(spy.getCall(0).args[0].target.value).to.equal('19.89')
@@ -115,7 +111,6 @@ describe('Input', () => {
   it('should pass value as number to changeCallback', () => {
     const spy = sinon.spy()
     wrapper = mount(<Input valueType='number' value={14.10} changeCallback={spy} />)
-    expect(typeof wrapper.childAt(0).props().changeCallback).to.equal('function')
     wrapper.childAt(0).simulate('change', {target: { value: '19.89', valueAsNumber: 19.89 }})
     expect(spy.calledOnce).to.be.true
     expect(spy.getCall(0).args[0].target.value).to.equal(19.89)

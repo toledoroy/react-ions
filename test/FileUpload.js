@@ -24,8 +24,7 @@ describe('FileUpload', () => {
   it('should be disabled', () => {
     wrapper = shallow(<FileUpload label='Default file upload' disabled />)
 
-    expect(wrapper.hasClass('disabled')).to.be.true
-    expect(wrapper.childAt(1).prop('disabled')).to.be.true
+    expect(wrapper.hasClass('file-upload-component disabled')).to.be.true
   })
 
   it('should have a preview', () => {
