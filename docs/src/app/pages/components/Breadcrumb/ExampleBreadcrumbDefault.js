@@ -1,6 +1,10 @@
 import React from 'react'
 import Breadcrumb from 'react-ions/lib/Breadcrumb'
 
+const ExampleRouteTitleComponent = () => (
+  <span>Tertiary</span>
+)
+
 const routes = [
   {
     path: 'page',
@@ -9,6 +13,10 @@ const routes = [
   {
     path: 'subpage',
     title: 'Subpage'
+  },
+  {
+    path: 'tertiary',
+    components: { title: <ExampleRouteTitleComponent /> }
   }
 ];
 

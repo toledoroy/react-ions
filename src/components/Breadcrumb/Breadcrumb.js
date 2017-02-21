@@ -102,13 +102,29 @@ class Breadcrumb extends React.Component {
            !Immutable.is(nextState.routes, this.state.routes)
   }
 
+  getTitle = (route) => {
+    // Get provided route title
+    const titleText = route.get('title')
+
+    // Get provided route title component
+    // If title component is defined we have to convert to JS for the component to be rendered properly
+    let titleComponent = route.getIn(['components', 'title'])
+        titleComponent = titleComponent ? titleComponent.toJS() : undefined
+
+    // Text title takes precedence
+    return titleText || titleComponent
+  }
+
   getTags = () => {
     const depth = this.state.routes.size
     const that = this
     let rootRendered = false
 
     return this.state.routes.map((item, index) => {
-      const title = item.get('title')
+
+      // Get provided route title
+      const title = this.getTitle(item)
+
       if (title === undefined) return
 
       let tags = []
@@ -142,7 +158,10 @@ class Breadcrumb extends React.Component {
     const depth = this.state.routes.size
 
     return this.state.routes.map((item, index) => {
-      const title = item.get('title')
+
+      // Get provided route title
+      const title = this.getTitle(item)
+
       if (title === undefined) return
 
       let tags = []
