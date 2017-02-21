@@ -1,10 +1,14 @@
 ## HEAD
 
+##1.0.7
+###### _February 21, 2017_
+
+- Add a new download icon ([#348](https://github.com/GetAmbassador/react-ions/pull/348))
+
 ##1.0.6
 ###### _February 9, 2017_
 
 - Updates to autoprefixer and postcss-loader to handle build failure ([#345](https://github.com/GetAmbassador/react-ions/pull/345))
-
 - Add coupon/voucher icon ([#344](https://github.com/GetAmbassador/react-ions/pull/344))
 
 ##1.0.5
