@@ -215,7 +215,8 @@ const iconList = [
   "icon-radio",
   "icon-dwolla-logo",
   "icon-paypal-logo",
-  "icon-receipt-4"
+  "icon-receipt-4",
+  "icon-download-13"
 ];
 
 export default iconList;
