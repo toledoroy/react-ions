@@ -16,7 +16,7 @@ const routes = [
   },
   {
     path: 'tertiary',
-    components: { title: <ExampleRouteTitleComponent /> }
+    components: { breadcrumbTitle: <ExampleRouteTitleComponent /> }
   }
 ];
 

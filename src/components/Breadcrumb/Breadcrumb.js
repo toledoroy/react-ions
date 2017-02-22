@@ -108,7 +108,7 @@ class Breadcrumb extends React.Component {
 
     // Get provided route title component
     // If title component is defined we have to convert to JS for the component to be rendered properly
-    let titleComponent = route.getIn(['components', 'title'])
+    let titleComponent = route.getIn(['components', 'breadcrumbTitle'])
         titleComponent = titleComponent ? titleComponent.toJS() : undefined
 
     // Text title takes precedence

@@ -430,11 +430,11 @@ describe('Breadcrumb', () => {
     routes = [
       {
         path: 'PrimaryTitleComponent',
-        components: { title: <PrimaryTitleComponent /> }
+        components: { breadcrumbTitle: <PrimaryTitleComponent /> }
       },
       {
         path: 'TitleComponent',
-        components: { title: <TitleComponent /> }
+        components: { breadcrumbTitle: <TitleComponent /> }
       }
     ]
 
