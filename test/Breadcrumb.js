@@ -417,4 +417,30 @@ describe('Breadcrumb', () => {
     expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.height).to.equal('0px')
     expect(document.body.getElementsByClassName('breadcrumbs-dropdown')[0].style.opacity).to.equal('0')
   })
+
+  it('should render title component if provided', () => {
+    const PrimaryTitleComponent = () => (
+      <span>Primary Title Component</span>
+    )
+
+    const TitleComponent = () => (
+      <span>Title Component</span>
+    )
+
+    routes = [
+      {
+        path: 'PrimaryTitleComponent',
+        components: { title: <PrimaryTitleComponent /> }
+      },
+      {
+        path: 'TitleComponent',
+        components: { title: <TitleComponent /> }
+      }
+    ]
+
+    wrapper = shallow(<Breadcrumb routes={routes} />)
+    expect(wrapper.contains(<h2 className='primary'><PrimaryTitleComponent /></h2>)).to.be.true
+    expect(wrapper.contains(<span className='secondary'><TitleComponent /></span>)).to.be.true
+    expect(wrapper.contains(<li><PrimaryTitleComponent /></li>)).to.be.true
+  })
 })

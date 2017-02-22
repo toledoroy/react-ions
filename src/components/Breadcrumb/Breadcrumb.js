@@ -166,7 +166,7 @@ class Breadcrumb extends React.Component {
 
       let tags = []
       if (index + 1 < depth) {
-        tags.push(<li className={style['dropdown-item']}>{title}</li>)
+        tags.push(<li>{title}</li>)
       }
 
       return tags
@@ -190,8 +190,6 @@ class Breadcrumb extends React.Component {
   }
 
   render() {
-    const breadcrumbs = this.getTags()
-
     return (
       <div className={style['breadcrumbs-container']}>
         <div className={style.breadcrumb} ref={(c) => this._breadcrumbsContainer = c}>{this.getTags()}</div>
