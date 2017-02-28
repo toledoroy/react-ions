@@ -12,7 +12,11 @@ const routes = [
   },
   {
     path: 'subpage',
-    title: 'Another Subpage'
+    title: 'Second Subpage'
+  },
+  {
+    path: 'subpage',
+    title: 'Third Subpage'
   }
 ];
 
