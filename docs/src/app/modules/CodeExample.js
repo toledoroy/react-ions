@@ -53,7 +53,6 @@ class CodeExample extends React.Component {
 
   highlightCode() {
     var ref = this.refs.example
-    console.log('refs: ', this.refs)
     var nodes = ref.querySelectorAll('pre code')
     if (nodes.length > 0) {
       for (var i = 0; i < nodes.length; i = i + 1) {
