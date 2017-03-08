@@ -16,6 +16,9 @@ describe('Helpers::InlineStylePrefixer', () => {
       'userSelect': 'none'
     }
 
+    console.log('styles', styles)
+    console.log('expectedStyles', expectedStyles)
+
     expect(styles).to.deep.equal(expectedStyles)
   })
 })
