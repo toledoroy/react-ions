@@ -11,7 +11,8 @@ class Checkbox extends React.Component {
   static defaultProps = {
     disabled: false,
     labelPosition: 'right',
-    iconName: 'icon-check-1-1'
+    iconName: 'icon-check-1-1',
+    locked: false
   }
 
   state = {
@@ -47,16 +48,22 @@ class Checkbox extends React.Component {
     /**
      * Icon to be used in the checkbox.
      */
-    iconName: React.PropTypes.string
+    iconName: React.PropTypes.string,
+    /**
+     * Whether the checkbox is locked from change outside of receiving props
+     */
+    locked: React.PropTypes.bool
   }
 
   handleChange = (event) => {
     event.persist()
-    this.setState({ value: event.target.checked }, () => {
-      if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(event)
-      }
-    })
+    if (!this.props.locked) {
+      this.setState({ value: event.target.checked }, () => {
+        if (typeof this.props.changeCallback === 'function') {
+          this.props.changeCallback(event)
+        }
+      })
+    }
   }
 
   componentWillReceiveProps = (nextProps) => {
