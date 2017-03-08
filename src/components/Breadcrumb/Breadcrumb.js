@@ -1,7 +1,6 @@
 import React from 'react'
 import Immutable from 'immutable'
 import InlineStylePrefixer from '../internal/InlineStylePrefixer'
-import camelcaseKeys from 'camelcase-keys'
 import Icon from '../Icon'
 import style from './style.scss'
 
@@ -54,16 +53,16 @@ class Breadcrumb extends React.Component {
 
   getContainerStyles = () => {
     let styles = {
-      marginLeft: this.props.padding,
-      paddingRight: this.props.padding
+      marginLeft: this.props.padding || '0',
+      paddingRight: this.props.padding || '0'
     }
 
     return InlineStylePrefixer(styles)
   }
 
-  breadcrumbNode = (index, title) => {
+  breadcrumbNode = (title) => {
     return <em>
-       <Icon key={index} name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />
+       <Icon name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />
        <span className={style.secondary}>{title}</span>
      </em>
   }
@@ -78,7 +77,7 @@ class Breadcrumb extends React.Component {
 
       let tags = []
       if (rootRendered) {
-        tags.push(this.breadcrumbNode(index, title))
+        tags.push(this.breadcrumbNode(title))
         return tags
       }
 

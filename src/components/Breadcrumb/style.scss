@@ -20,10 +20,14 @@
 
 .breadcrumbs-container {
   display: block;
-  overflow-y: hidden;
-  overflow-x: scroll;
-  position: relative;
-  -webkit-overflow-scrolling: touch;
+
+  @media #{$media-small-minus} {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
 }
 
 .breadcrumb {
