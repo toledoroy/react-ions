@@ -1,7 +1,9 @@
 import React from 'react'
+import Immutable from 'immutable'
+import InlineStylePrefixer from '../internal/InlineStylePrefixer'
+import camelcaseKeys from 'camelcase-keys'
 import Icon from '../Icon'
 import style from './style.scss'
-import Immutable from 'immutable'
 
 class Breadcrumb extends React.Component {
   constructor(props) {
@@ -12,7 +14,16 @@ class Breadcrumb extends React.Component {
     /**
      * The array of routes to generate the Breadcrumbs.
      */
-    routes: React.PropTypes.array.isRequired
+    routes: React.PropTypes.array.isRequired,
+    /**
+     * Optional margin to add to the left and right side of the breadcrumb
+    */
+    margin: React.PropTypes.number,
+    /**
+     * Optional background color for overflow gradient on small screens
+     * Defaults to white
+    */
+    gradientColor: React.PropTypes.string
   }
 
   state = {
@@ -31,10 +42,27 @@ class Breadcrumb extends React.Component {
     return false
   }
 
-  breadcrumbNode = (index, title) => {
-    let nodeClass = index !== this.state.routes.size - 1 ? style['ellipsis'] : null
+  getGradientStyles = () => {
+    let backgroundColor = this.props.gradientColor || '#fff'
 
-    return <em className={nodeClass}>
+    let styles = {
+      background: `linear-gradient(90deg, transparent, ${backgroundColor})`
+    }
+
+    return InlineStylePrefixer(styles)
+  }
+
+  getContainerStyles = () => {
+    let styles = {
+      marginLeft: this.props.margin,
+      marginRight: this.props.margin
+    }
+
+    return InlineStylePrefixer(styles)
+  }
+
+  breadcrumbNode = (index, title) => {
+    return <em>
        <Icon key={index} name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />
        <span className={style.secondary}>{title}</span>
      </em>
@@ -61,9 +89,16 @@ class Breadcrumb extends React.Component {
   }
 
   render() {
+    const gradientColor = {
+      color: this.props.gradientColor || 'white'
+    }
+
     return (
-      <div className={style['breadcrumbs-container']}>
-        <div className={style.breadcrumb}>{this.getTags()}</div>
+      <div className={style['breadcrumbs-outer']}>
+        <div className={style['overflow-gradient']} style={this.getGradientStyles()} />
+        <div className={style['breadcrumbs-container']} style={this.getContainerStyles()}>
+          <div className={style.breadcrumb}>{this.getTags()}</div>
+        </div>
       </div>
     )
   }

@@ -3,14 +3,32 @@
 @import '../../styles/common/screen';
 @import '../../styles/common/functions';
 
-.breadcrumbs-container {
+.breadcrumbs-outer {
   position: relative;
+
+  .overflow-gradient {
+    height: 50px;
+    position: absolute;
+    pointer-events: none;
+    right: 0;
+    top: 0;
+    width: 24px;
+    z-index: 2;
+  }
+}
+
+.breadcrumbs-container {
+  display: block;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 .breadcrumb {
   @include vertical-align('inline');
   height: 65px;
-  padding: 0 15px;
+  padding: 0;
   white-space: nowrap;
   box-sizing: border-box;
   width: 100%;
@@ -38,25 +56,7 @@
     height: 50px;
   }
 
-
   em {
     display: flex;
-
-    @media #{$media-small-minus} {
-      &.ellipsis {
-        background: $neutral-3;
-        display: flex;
-
-        .icon-arrow-68, .secondary {
-          display: none;
-        }
-
-        &:after {
-          content: '...';
-          display: inline-block;
-          padding-left: 10px;
-        }
-      }
-    }
   }
 }

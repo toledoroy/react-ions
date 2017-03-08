@@ -5,12 +5,12 @@ import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleBreadcrumbDefault from './ExampleBreadcrumbDefault'
 import exampleBreadcrumbDefaultCode from '!raw!./ExampleBreadcrumbDefault'
-import ExampleBreadcrumbTwoSubpages from './ExampleBreadcrumbTwoSubpages'
-import exampleBreadcrumbTwoSubpagesCode from '!raw!./ExampleBreadcrumbTwoSubpages'
+import ExampleBreadcrumbMultipleSubpages from './ExampleBreadcrumbMultipleSubpages'
+import exampleBreadcrumbMultipleSubpagesCode from '!raw!./ExampleBreadcrumbMultipleSubpages'
 
 const description = {
   breadcrumbDefault: 'This is the `breadcrumb component` showing a page with a subpage.',
-  breadcrumbTwoSubpages: 'This is the `breadcrumb component` showing a page and two subpages.'
+  breadcrumbMultipleSubpages: 'This is the `breadcrumb component` showing a page and two subpages.'
 };
 
 const BreadcrumbsPage = () => (
@@ -24,10 +24,10 @@ const BreadcrumbsPage = () => (
           <ExampleBreadcrumbDefault />
         </CodeExample>
         <CodeExample
-          title='Breadcrumb With Two Subpages'
-          description={description.breadcrumbTwoSubpages}
-          markup={exampleBreadcrumbTwoSubpagesCode}>
-          <ExampleBreadcrumbTwoSubpages />
+          title='Breadcrumb with Multiple Subpages'
+          description={description.breadcrumbMultipleSubpages}
+          markup={exampleBreadcrumbMultipleSubpagesCode}>
+          <ExampleBreadcrumbMultipleSubpages />
         </CodeExample>
       </div>
       <div className={styles.block}>

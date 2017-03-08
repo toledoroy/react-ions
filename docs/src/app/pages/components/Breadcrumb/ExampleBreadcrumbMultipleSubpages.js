@@ -18,10 +18,10 @@ const routes = [
     path: 'subpage',
     title: 'Third Subpage'
   }
-];
+]
 
-const ExampleBreadcrumbTwoSubpages = () => (
+const ExampleBreadcrumbMultipleSubpages = () => (
   <Breadcrumb routes={routes} />
 )
 
-export default ExampleBreadcrumbTwoSubpages
+export default ExampleBreadcrumbMultipleSubpages
