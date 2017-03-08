@@ -53,8 +53,8 @@ class Breadcrumb extends React.Component {
 
   getContainerStyles = () => {
     let styles = {
-      marginLeft: this.props.padding || '0',
-      paddingRight: this.props.padding || '0'
+      marginLeft: this.props.padding || '0px',
+      paddingRight: this.props.padding || '0px'
     }
 
     return InlineStylePrefixer(styles)
