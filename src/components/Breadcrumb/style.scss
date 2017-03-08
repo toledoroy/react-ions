@@ -5,6 +5,7 @@
 
 .breadcrumbs-outer {
   position: relative;
+  min-width: 0; // https://css-tricks.com/flexbox-truncated-text/
 
   .overflow-gradient {
     height: 50px;

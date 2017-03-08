@@ -1,4 +1,5 @@
-require('../Breadcrumb.js')
+require('../InlineStylePrefixer.js')
+
 // // require all test .js files
 // const testsContext = require.context('../', false, /\.js/)
 // //NOTE: in the interest of speed, to test an individual component, use something like this:

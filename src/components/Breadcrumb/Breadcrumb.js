@@ -16,9 +16,9 @@ class Breadcrumb extends React.Component {
      */
     routes: React.PropTypes.array.isRequired,
     /**
-     * Optional margin to add to the left and right side of the breadcrumb
+     * Optional padding to add to the left and right side of the breadcrumb
     */
-    margin: React.PropTypes.number,
+    padding: React.PropTypes.number,
     /**
      * Optional background color for overflow gradient on small screens
      * Defaults to white
@@ -54,8 +54,8 @@ class Breadcrumb extends React.Component {
 
   getContainerStyles = () => {
     let styles = {
-      marginLeft: this.props.margin,
-      marginRight: this.props.margin
+      marginLeft: this.props.padding,
+      paddingRight: this.props.padding
     }
 
     return InlineStylePrefixer(styles)

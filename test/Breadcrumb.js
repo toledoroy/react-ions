@@ -68,7 +68,7 @@ describe('Breadcrumb', () => {
   })
 
   it('should return a container style', () => {
-    wrapper = shallow(<Breadcrumb routes={routes} margin={25} />)
-    expect(wrapper.instance().getContainerStyles()).to.deep.equal({marginLeft: 25, marginRight: 25})
+    wrapper = shallow(<Breadcrumb routes={routes} padding={25} />)
+    expect(wrapper.instance().getContainerStyles()).to.deep.equal({marginLeft: 25, paddingRight: 25})
   })
 })
