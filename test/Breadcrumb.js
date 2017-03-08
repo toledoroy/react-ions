@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Immutable from 'immutable'
 import { shallow } from 'enzyme'
 import Breadcrumb from '../src/components/Breadcrumb/Breadcrumb'
 import Icon from '../src/components/Icon/Icon'
@@ -12,6 +13,13 @@ describe('Breadcrumb', () => {
       title: undefined
     }
   ]
+
+  let updatedRoutes = Immutable.fromJS([
+    {
+      path: '/',
+      title: 'Defined'
+    }
+  ])
 
   it('should shall render with no children', () => {
     wrapper = shallow(<Breadcrumb routes={routes} />)
@@ -70,5 +78,15 @@ describe('Breadcrumb', () => {
   it('should return a container style', () => {
     wrapper = shallow(<Breadcrumb routes={routes} padding={25} />)
     expect(wrapper.instance().getContainerStyles()).to.deep.equal({marginLeft: 25, paddingRight: 25})
+  })
+
+  it('should update only if the route changes', () => {
+    wrapper = shallow(<Breadcrumb routes={routes} />)
+
+    wrapper.setState({
+      routes: updatedRoutes
+    })
+
+    expect(wrapper.instance().shouldComponentUpdate(null, updatedRoutes)).to.be.true
   })
 })
