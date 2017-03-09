@@ -49,11 +49,7 @@ describe('Checkbox', () => {
 
     wrapper.childAt(0).simulate('change', {target: { checked: false }})
     expect(checked).to.equal(true)
-
-    wrapper.setProps({ value: false })
-    wrapper.update()
-
-    expect(wrapper.childAt(0).props().value).to.equal(false)
+    
   })
 
   it('should not be locked when value is false', () => {
