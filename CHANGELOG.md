@@ -1,5 +1,12 @@
 ## HEAD
 
+##1.0.8
+###### _March 8, 2017_
+
+- Refactor breadcrumbs component to use breakpoints for mobile  ([#352](https://github.com/GetAmbassador/react-ions/pull/352))
+
+- Add "locked" checkbox option ([#351](https://github.com/GetAmbassador/react-ions/pull/351))
+
 ##1.0.7
 ###### _February 21, 2017_
 
