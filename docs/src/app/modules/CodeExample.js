@@ -63,7 +63,7 @@ class CodeExample extends React.Component {
 
   generateRawMarkup() {
     const text = `\`\`\`js
-${this.props.markup}
+    ${this.props.markup}
     \`\`\``
 
     return {

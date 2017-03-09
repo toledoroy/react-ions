@@ -36,6 +36,26 @@ describe('Checkbox', () => {
     expect(wrapper.find(Icon).props().fill).to.equal('#3C97D3')
   })
 
+  it('should be locked', () => {
+    let checked = true
+    const callback = function(event) {
+      checked = event.target.checked
+    }
+
+    wrapper = mount(<Checkbox value={checked} locked={true} label='Test label' changeCallback={callback}/>)
+
+    wrapper.childAt(0).simulate('change', {target: { checked: true }})
+    expect(checked).to.equal(true)
+
+    wrapper.childAt(0).simulate('change', {target: { checked: false }})
+    expect(checked).to.equal(true)
+
+    wrapper.setProps({ value: false })
+    wrapper.update()
+
+    expect(wrapper.childAt(0).props().value).to.equal(false)
+  })
+
   it('should have an extra class', () => {
     wrapper = shallow(<Checkbox value={false} label='Test label' optClass='checkbox-error'></Checkbox>)
 
