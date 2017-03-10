@@ -4,7 +4,7 @@ import Checkbox from '../src/components/Checkbox/Checkbox'
 import Icon from '../src/components//Icon/Icon'
 
 describe('Checkbox', () => {
-  let wrapper
+  let wrapper, inst
 
   it('should shallow render itself', () => {
     wrapper = shallow(<Checkbox label='Test label'></Checkbox>)
@@ -36,24 +36,44 @@ describe('Checkbox', () => {
     expect(wrapper.find(Icon).props().fill).to.equal('#3C97D3')
   })
 
-  it('should be locked', () => {
+  it('should be locked when value is true', () => {
     let checked = true
     const callback = function(event) {
       checked = event.target.checked
     }
+    const event = {
+      target: {
+        checked: false
+      },
+      persist: sinon.spy()
+    }
 
-    wrapper = mount(<Checkbox value={checked} locked={true} label='Test label' changeCallback={callback}/>)
+    wrapper = shallow(<Checkbox value={checked} locked={true} label='Test label' changeCallback={callback}/>)
+    inst = wrapper.instance()
 
-    wrapper.childAt(0).simulate('change', {target: { checked: true }})
-    expect(checked).to.equal(true)
+    inst.handleChange(event)
+    expect(event.persist.calledOnce).to.be.true
+    expect(wrapper.state().value).to.be.true
+  })
 
-    wrapper.childAt(0).simulate('change', {target: { checked: false }})
-    expect(checked).to.equal(true)
+  it('should not be locked when value is false', () => {
+    let checked = false
+    const callback = function(event) {
+      checked = event.target.checked
+    }
+    const event = {
+      target: {
+        checked: true
+      },
+      persist: sinon.spy()
+    }
 
-    wrapper.setProps({ value: false })
-    wrapper.update()
+    wrapper = shallow(<Checkbox value={checked} locked={true} label='Test label' changeCallback={callback}/>)
+    inst = wrapper.instance()
 
-    expect(wrapper.childAt(0).props().value).to.equal(false)
+    inst.handleChange(event)
+    expect(event.persist.calledOnce).to.be.true
+    expect(wrapper.state().value).to.be.true
   })
 
   it('should have an extra class', () => {
