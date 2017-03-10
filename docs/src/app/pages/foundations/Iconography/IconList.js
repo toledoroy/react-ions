@@ -216,7 +216,16 @@ const iconList = [
   "icon-dwolla-logo",
   "icon-paypal-logo",
   "icon-receipt-4",
-  "icon-download-13"
+  "icon-download-13",
+  "icon-business-chart-2",
+  "icon-star-2",
+  "icon-chat-1",
+  "icon-pie-chart-1",
+  "icon-window-edit",
+  "icon-layers",
+  "icon-power-4"
+
+
 ];
 
 export default iconList;
