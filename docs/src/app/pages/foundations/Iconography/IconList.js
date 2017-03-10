@@ -1,11 +1,11 @@
 const iconList = [
   "icon-arrow-68",
   "icon-bin-2",
-  "icon-clip-1",
+  "icon-clip-2",
   "icon-link-2",
   "icon-lock-2",
   "icon-lock-unlock-2",
-  "icon-magnifier",
+  "icon-magnifier-1",
   "icon-pencil-3",
   "icon-preview-1",
   "icon-cursor-2",
