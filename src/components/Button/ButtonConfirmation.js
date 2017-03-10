@@ -1,21 +1,35 @@
-import React from 'react'
-import { Link } from 'react-router'
+import React, { Component } from 'react'
+import Button from 'button'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 
-const ButtonConfirmation = (props) => {
+export ButtonConfirmation extends Component {
   const cx = classNames.bind(style)
   const collapseClass = props.collapse ? 'collapse' : null
   const btnConfirmationClasses = cx(style.btn, props.optClass, props.size, collapseClass)
 
-  let buttonConfirmation
-
-  if (props.internal) {
-    buttonConfirmation = <Link to={props.path} className={btnConfirmationClasses} {...props}>{props.children}</Link>
-  } else {
-    buttonConfirmation = <a href={props.path} className={btnConfirmationClasses} {...props}>{props.children}</a>
+state = {
+  confirmationOverlayOpen: false,
+  disabled: false
+}
+  handleOpen = (confirm) => {
+    this.setState({ confirmationOverlayOpen: true })
   }
-  return buttonConfirmation
+
+
+render = () => {
+  return (
+      this.state.confirmationOverlayOpen
+      ? <div className={style['action-overlay']} style={actionOverlayPosition}>
+          <span>Are you sure?</span>
+          <div className={style['button-wrapper']}>
+            <Button onClick={this.handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>
+            <Button onClick={this.handleConfirmation.bind(this, true)}>Yes</Button>
+          </div>
+        </div>
+      : null
+    )
+  }
 }
 
 ButtonConfirmation.propTypes = {
@@ -35,10 +49,6 @@ ButtonConfirmation.propTypes = {
    * A path to pass to the anchor tag.
    */
   path: React.PropTypes.string,
-  /**
-   * Whether the link it to an internal page, or external (default)
-   */
-  internal: React.PropTypes.bool,
   /**
    * Whether to display only an icon on small screens
    */
