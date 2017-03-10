@@ -57,6 +57,7 @@ class Checkbox extends React.Component {
 
   handleChange = (event) => {
     event.persist()
+    // Allow user to interact with checkbox only if value is false.
     if (!this.props.locked || !this.props.value) {
       this.setState({ value: event.target.checked }, () => {
         if (typeof this.props.changeCallback === 'function') {
