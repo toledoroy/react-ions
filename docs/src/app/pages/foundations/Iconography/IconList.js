@@ -193,6 +193,7 @@ const iconList = [
   "icon-preview-1",
   "icon-preview-1-1",
   "icon-profile-1",
+  "icon-profile-1-1",
   "icon-pulse",
   "icon-question-mark",
   "icon-question-mark-1",
