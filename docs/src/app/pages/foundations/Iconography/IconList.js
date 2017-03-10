@@ -1,3 +1,5 @@
+//Icons are in alphabetical order
+
 const iconList = [
   "icon-add-1",
   "icon-add-1-1",
