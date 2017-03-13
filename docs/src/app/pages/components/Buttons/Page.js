@@ -78,7 +78,7 @@ const ButtonsPage = () => (
           <ExampleButtonAnchor />
         </CodeExample>
         <CodeExample
-          title='Confirmation Button'
+          title='Button with Confirmation'
           description={description.buttonConfirmation}
           markup={exampleButtonConfirmationCode}>
           <ExampleButtonConfirmation />
