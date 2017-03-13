@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import ImmutablePropTypes from 'react-immutable-proptypes'
-import Button from '/button'
+import Button from './Button'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 
@@ -51,24 +50,25 @@ state = {
 
 render = () => {
   const cx = classNames.bind(style)
-  const collapseClass = props.collapse ? 'collapse' : null
-  const actionOverlayPosition = { left: this.state.actionOverlayLeft }
+  const collapseClass = this.props.collapse ? 'collapse' : null
+
 
   return (
     <div>
       <Button onClick={this.handleOpen}>
-        <Icon name={}/>
-        <span>Delete</span>
+        Delete
       </Button>
-      this.state.confirmationOverlayOpen
-      ? <div className={style['overlay']} style={actionOverlayPosition}>
-          <span>Are you sure?</span>
-          <div className={style['button-wrapper']}>
-            <Button onClick={this.handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>
-            <Button onClick={this.handleConfirmation.bind(this, true)}>Yes</Button>
+      {
+        this.state.confirmationOverlayOpen
+        ? <div className={style['overlay']}>
+            <span>Are you sure?</span>
+            <div className={style['button-wrapper']}>
+              <Button onClick={this.handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>
+              <Button onClick={this.handleConfirmation.bind(this, true)}>Yes</Button>
+            </div>
           </div>
-        </div>
-      : null
+        : null
+      }
     </div>
     )
   }
