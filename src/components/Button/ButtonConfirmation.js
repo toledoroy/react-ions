@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import classNames from 'classnames/bind'
 import Button from './Button'
 import style from './style.scss'
 
@@ -29,13 +30,18 @@ export class ButtonConfirmation extends Component {
      */
     collapse: PropTypes.bool,
     /**
+     * Position of the button on the page for overlay carrot orientation when the screen size is tablet sized or smaller
+     */
+    position: PropTypes.oneOf(['left', 'right']),
+    /**
      * Function used to pass up the confirmation to the parent component
      */
     handleConfirmation: PropTypes.func
   }
 
   state = {
-    confirmationOverlayOpen: false
+    confirmationOverlayOpen: false,
+    confirmationOverlayOffset: 0
   }
 
   handleOpen = () => {
@@ -50,43 +56,51 @@ export class ButtonConfirmation extends Component {
     })
   }
 
-  getOverlayOffset = (overlayPosition) => {
+  handleTrigger = () => {
+    const trigger = this._trigger.children[0].getBoundingClientRect()
 
+    this.setState({triggerWidth: trigger.width})
   }
 
-  /**
-   * To trigger JavaScript changes on a breakpoint
-   * @param  {Object} mediaQueryList
-   * @return {Boolean} whether the viewport is < or > than max-width 768px
-   */
-  handleMediaChange = (mediaQueryList) => {
-    this.setState({
-      isSmallScreen: mediaQueryList.matches,
-      confirmationOverlayOpen: false
-    })
-  }
-
-  componentDidMount = () => {
-    const overlayPosition = this._trigger.firstChild.getBoundingClientRect()
-    this.getOverlayOffset(overlayPosition)
-
-    if (this.props.actions) {
-      this.mql.addListener(this.handleMediaChange)
-      this.handleMediaChange(this.mql)
+  getStyles = () => {
+    if (this.props.position === 'right') {
+      return { right: `${this.state.confirmationOverlayOffset}`}
+    }
+    if (this.props.position === 'left') {
+      return { left: `${this.state.confirmationOverlayOffset}` }
     }
   }
 
+  getCaretStyles = () => {
+    // Divet size is 10px
+    if (this.props.position === 'right') {
+      return { right: `calc(-100% + ${this.state.triggerWidth / 2}px)`}
+    }
+    if (this.props.position === 'left') {
+      return { left: `calc(0% + ${(this.state.triggerWidth / 2) - 15}px)` }
+    }
+    return { left: `calc(0% + 50px)` }
+  }
+
+  componentDidMount = () => {
+      this.handleTrigger()
+  }
+
   render = () => {
+    const cx = classNames.bind(style)
     const { collapse, handleConfirmation, ...other } = this.props
-    const confirmationOverlayPosition = { left: this.state.confirmationOverlayLeft }
+    const overlayPositionClass = this.props.position ? style[this.props.position] : null
+    const confirmationOverlayClasses = cx(overlayPositionClass, style['confirmation-overlay'])
+
     return (
       <div ref={ (trigger) => this._trigger = trigger } className={style['confirmation-wrapper']}>
-        <Button {...other} onClick={this.handleOpen}>
+        <Button {...other} collapse={collapse} disabled={this.state.confirmationOverlayOpen} onClick={this.handleOpen}>
           { this.props.children }
         </Button>
         {
           this.state.confirmationOverlayOpen
-          ? <div className={style['confirmation-overlay']}>
+          ? <div className={confirmationOverlayClasses} style={this.getStyles()}>
+              <em style={this.getCaretStyles()}></em>
               <span>Are you sure?</span>
               <div className={style['button-wrapper']}>
                 <Button onClick={this.handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>

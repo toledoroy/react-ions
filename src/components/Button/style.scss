@@ -113,15 +113,14 @@
   }
 }
 .confirmation-wrapper {
-  display: inline-block;
+  display: inline-flex;
   position: relative;
   flex: 0 0 auto;
-  justify-content: space-between;
-  margin: 10px 0 -10px;
+  justify-content: center;
   min-height: 21px;
 
   .btn {
-    margin-bottom: 10px;
+    margin: 0px 0px 10px 0px;
   }
 }
 
@@ -131,16 +130,15 @@
   box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 100%;
-  left: -50%;
   width: 130px;
+  padding: 5px 10px 10px;
   z-index: 1;
+  box-sizing: border-box;
 
   > span {
     font-size: 16px;
     font-weight: 200;
     color: $navy-text;
-    margin-left: 10px;
-    margin-top: 10px;
     display: block;
   }
 
@@ -148,7 +146,7 @@
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    padding: 10px 10px 10px 0;
+    padding-top: 10px;
     width: 100%;
 
     button {
@@ -156,7 +154,7 @@
     }
   }
 
-  &:before {
+  > em {
     border-style: solid;
     border-width: 0 5px 5px 5px;
     border-color: transparent transparent $white transparent;
@@ -164,25 +162,21 @@
     display: block;
     height: 0;
     filter: drop-shadow(0px -1px 1px rgba(0, 0, 0, .2));
-    left: calc(50% - 3.5px);
     position: relative;
-    top: -5px;
+    top: -10px;
     width: 0;
 
-    @media #{$media-extra-small} {
-      left: calc(100% - 20.5px); // slide the arrow to the right side as overlay is now right-aligned
-    }
+    &:after {
+      background-color: $white;
+      content: '';
+      display: block;
+      height: 2px;
+      position: absolute;
+      left: -6.4px;
+      top: 5px;
+      width: 13px;
   }
 
-  &:after {
-    background-color: $white;
-    content: '';
-    display: block;
-    height: 2px;
-    position: absolute;
-    right: 57.5px;
-    top: 0;
-    width: 13px;
 
     @media #{$media-extra-small} {
       right: 10px;
