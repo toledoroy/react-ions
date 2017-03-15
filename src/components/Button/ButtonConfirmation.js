@@ -50,7 +50,8 @@ export class ButtonConfirmation extends Component {
 
   state = {
     confirmationOverlayOpen: false,
-    confirmationOverlayOffset: 0
+    confirmationOverlayOffset: 0,
+    wide: false
   }
 
   handleOpen = () => {
@@ -68,7 +69,15 @@ export class ButtonConfirmation extends Component {
   handleTrigger = () => {
     const trigger = this._trigger.children[0].getBoundingClientRect()
 
-    this.setState({triggerWidth: trigger.width})
+    this.setState({triggerWidth: trigger.width}, () => {
+      this.handleWide()
+    })
+  }
+
+  handleWide = () => {
+    if (this.props.prompt.length > 25) {
+      return this.setState({wide: true})
+    }
   }
 
   getStyles = () => {
@@ -83,12 +92,16 @@ export class ButtonConfirmation extends Component {
   getCaretStyles = () => {
     // Divet size is 10px
     if (this.props.position === 'right') {
-      return { right: `calc(-100% + ${this.state.triggerWidth / 2}px)`}
+      return { right: `calc(-100% + ${(this.state.triggerWidth / 2) - 4}px)`}
     }
     if (this.props.position === 'left') {
       return { left: `calc(0% + ${(this.state.triggerWidth / 2) - 15}px)` }
     }
-    return { left: `calc(0% + 50px)` }
+    if (!this.props.position && this.state.wide) {
+      return { left: `calc(0% + 86px)` }
+    } else if (!this.props.position && !this.state.wide){
+      return { left: `calc(0% + 66px)` }
+    }
   }
 
   componentDidMount = () => {
@@ -99,8 +112,9 @@ export class ButtonConfirmation extends Component {
     const cx = classNames.bind(style)
     const { collapse, handleConfirmation, ...other } = this.props
     const overlayPositionClass = this.props.position ? style[this.props.position] : null
-    const confirmationOverlayClasses = cx(overlayPositionClass, style['confirmation-overlay'])
     const customButtonClass = optclass(style, ['confirmation-approve-btn'])
+    const customOverlayWidthClass = this.state.wide ? style['wide'] : null
+    const confirmationOverlayClasses = cx(overlayPositionClass, customOverlayWidthClass, style['confirmation-overlay'])
 
     return (
       <div ref={ (trigger) => this._trigger = trigger } className={style['confirmation-wrapper']}>
@@ -111,7 +125,7 @@ export class ButtonConfirmation extends Component {
           this.state.confirmationOverlayOpen
           ? <div className={confirmationOverlayClasses} style={this.getStyles()}>
               <em style={this.getCaretStyles()}></em>
-              <span>{this.props.prompt}</span>
+              <span className={style['confirmation-text']}>{this.props.prompt}</span>
               <div className={style['button-wrapper']}>
                 <Button onClick={this.handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>
                 <Button onClick={this.handleConfirmation.bind(this, true)} optClass={customButtonClass} >Yes</Button>

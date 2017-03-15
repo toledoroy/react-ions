@@ -130,34 +130,39 @@
   border-radius: 3px;
   box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
   position: absolute;
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: column;
   top: 100%;
-  width: 130px;
-  padding: 5px 10px 10px;
+  width: 160px;
+  padding: 8px;
   z-index: 1;
   box-sizing: border-box;
 
-  > span {
+  &.wide {
+    width: 200px;
+  }
+
+
+  .confirmation-text {
     font-size: 14px;
     font-weight: 200;
     color: #233040;
-    margin-left: 10px;
-    margin-top: 7px;
+    margin: 8px 8px 16px 8px;
     display: block;
   }
 
   .confirmation-approve-btn {
-    padding: 0 13px;
+    padding: 0 16px;
   }
 
   .button-wrapper {
-    box-sizing: border-box;
     display: flex;
-    justify-content: space-between;
-    padding-top: 10px;
-    width: 100%;
+    justify-content: flex-end;
 
-    button {
-      margin: 0;
+    > button {
+      position: relative;
+      margin-right: 8px;
     }
   }
 
@@ -170,7 +175,7 @@
     height: 0;
     filter: drop-shadow(0px -1px 1px rgba(0, 0, 0, .2));
     position: relative;
-    top: -10px;
+    top: -13px;
     width: 0;
 
     &:after {

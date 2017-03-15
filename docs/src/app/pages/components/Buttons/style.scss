@@ -14,5 +14,6 @@
 }
 
 .custom-confirmation-wrapper {
-  display: inline-flex;
+  display: flex;
+  justify-content: space-between;
 }

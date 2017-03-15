@@ -3,6 +3,7 @@ import { shallow, mount, render } from 'enzyme'
 import { Link } from 'react-router'
 import Button from '../src/components/Button/Button'
 import ButtonAnchor from '../src/components/Button/ButtonAnchor'
+import ButtonAnchor from '../src/components/Button/ButtonConfirmation'
 
 describe('Button', () => {
   let wrapper
@@ -60,5 +61,24 @@ describe('Button', () => {
     expect(wrapper.hasClass('test-class')).to.be.true
     expect(wrapper.hasClass('test-class-2')).to.be.true
     expect(wrapper.hasClass('test-class-3')).to.be.true
+  })
+
+  it('displays confirmation button', () => {
+    wrapper = shallow(<ButtonConfirmation></ButtonConfirmation>)
+    expect(wrapper.props().path).to.equal('http://www.google.com')
+    expect(wrapper.props().target).to.equal('_blank')
+    expect(wrapper.text()).to.equal('External')
+    expect(wrapper.type()).to.equal('a')
+
+    wrapper = shallow(<ButtonAnchor path='/components/progress-bar' internal={true}>Internal</ButtonAnchor>)
+    expect(wrapper.props().path).to.equal('/components/progress-bar')
+    expect(wrapper.props().internal).to.equal(true)
+    expect(wrapper.type()).to.equal(Link)
+  })
+
+  it('hides text when collapse prop is passed', () => {
+    wrapper = shallow(<Button collapse={true}>Test</Button>)
+    expect(wrapper.props().collapse).to.equal(true)
+    expect(wrapper.props().className).to.equal('btn collapse')
   })
 })
