@@ -3,7 +3,7 @@ import { shallow, mount, render } from 'enzyme'
 import { Link } from 'react-router'
 import Button from '../src/components/Button/Button'
 import ButtonAnchor from '../src/components/Button/ButtonAnchor'
-import ButtonAnchor from '../src/components/Button/ButtonConfirmation'
+import ButtonConfirmation from '../src/components/Button/ButtonConfirmation'
 
 describe('Button', () => {
   let wrapper
@@ -63,17 +63,57 @@ describe('Button', () => {
     expect(wrapper.hasClass('test-class-3')).to.be.true
   })
 
-  it('displays confirmation button', () => {
-    wrapper = shallow(<ButtonConfirmation></ButtonConfirmation>)
-    expect(wrapper.props().path).to.equal('http://www.google.com')
-    expect(wrapper.props().target).to.equal('_blank')
-    expect(wrapper.text()).to.equal('External')
-    expect(wrapper.type()).to.equal('a')
+  it('displays confirmation button without prompt', () => {
+    wrapper = shallow(<ButtonConfirmation>Delete</ButtonConfirmation>)
 
-    wrapper = shallow(<ButtonAnchor path='/components/progress-bar' internal={true}>Internal</ButtonAnchor>)
-    expect(wrapper.props().path).to.equal('/components/progress-bar')
-    expect(wrapper.props().internal).to.equal(true)
-    expect(wrapper.type()).to.equal(Link)
+    expect(wrapper.props().className).to.equal('confirmation-wrapper')
+    expect(wrapper.children().length).to.be.equal(1)
+    expect(wrapper.props().children[0].props.prompt).to.equal('Are you sure?')
+    expect(wrapper.props().children[0].props.children).to.equal('Delete')
+  })
+
+  it('displays confirmation button with prompt', () => {
+    wrapper = shallow(<ButtonConfirmation prompt={'Are you a robot?'}>Robot?</ButtonConfirmation>)
+
+    expect(wrapper.props().children[0].props.prompt).to.equal('Are you a robot?')
+    expect(wrapper.props().children[0].props.children).to.equal('Robot?')
+  })
+
+  it('handles collapse with confirmation button', () => {
+    wrapper = shallow(<ButtonConfirmation collapse={true}>Delete</ButtonConfirmation>)
+
+    expect(wrapper.props().children[0].props.collapse).to.be.true
+  })
+
+  it('handles trigger on the confirmation button', () => {
+    wrapper = shallow(<ButtonConfirmation>Delete</ButtonConfirmation>)
+    wrapper.instance()._trigger = {
+      children: [{
+        getBoundingClientRect: () => {
+          return {
+            width: 40
+          }
+        }
+    }]
+  }
+    let inst = wrapper.instance()
+
+    inst.handleTrigger()
+    expect(wrapper.state().triggerWidth).to.equal(40)
+  })
+
+  it('handles wide on the confirmation button', () => {
+    wrapper = shallow(<ButtonConfirmation prompt={'This is a test to check if wide is handled.'}>Delete</ButtonConfirmation>)
+    let inst = wrapper.instance()
+
+    inst.handleWide()
+    expect(wrapper.state().wide).to.be.true
+
+    wrapper = shallow(<ButtonConfirmation prompt={'This is a test.'}>Delete</ButtonConfirmation>)
+    inst = wrapper.instance()
+    inst.handleWide()
+
+    expect(wrapper.state().wide).to.be.false
   })
 
   it('hides text when collapse prop is passed', () => {
