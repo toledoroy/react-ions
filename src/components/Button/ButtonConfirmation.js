@@ -99,7 +99,7 @@ export class ButtonConfirmation extends Component {
     }
     if (!this.props.position && this.state.wide) {
       return { left: `calc(0% + 86px)` }
-    } else if (!this.props.position && !this.state.wide){
+    } else {
       return { left: `calc(0% + 66px)` }
     }
   }
