@@ -67,7 +67,7 @@ describe('Button', () => {
     wrapper = shallow(<ButtonConfirmation>Delete</ButtonConfirmation>)
 
     expect(wrapper.props().className).to.equal('confirmation-wrapper')
-    expect(wrapper.children().length).to.be.equal(1)
+    expect(wrapper.children().length).to.be.equal(2)
     expect(wrapper.props().children[0].props.prompt).to.equal('Are you sure?')
     expect(wrapper.props().children[0].props.children).to.equal('Delete')
   })
@@ -85,7 +85,7 @@ describe('Button', () => {
     expect(wrapper.props().children[0].props.collapse).to.be.true
   })
 
-  it('handles trigger on the confirmation button', () => {
+  it('handles setup on the confirmation button', () => {
     wrapper = shallow(<ButtonConfirmation>Delete</ButtonConfirmation>)
     wrapper.instance()._trigger = {
       children: [{
@@ -94,26 +94,42 @@ describe('Button', () => {
             width: 40
           }
         }
-    }]
-  }
+      }],
+      querySelector: () => {
+        return {
+          getBoundingClientRect: () => {
+            return {
+              width: 40
+            }
+          }
+        }
+      }
+    }
+
     let inst = wrapper.instance()
 
-    inst.handleTrigger()
+    inst.handleSetup()
     expect(wrapper.state().triggerWidth).to.equal(40)
+    expect(wrapper.state().overlayWidth).to.equal(40)
   })
 
   it('handles wide on the confirmation button', () => {
-    wrapper = shallow(<ButtonConfirmation prompt={'This is a test to check if wide is handled.'}>Delete</ButtonConfirmation>)
+    wrapper = shallow(<ButtonConfirmation prompt={'This is a test.'}>Delete</ButtonConfirmation>)
+
     let inst = wrapper.instance()
 
     inst.handleWide()
-    expect(wrapper.state().wide).to.be.true
-
-    wrapper = shallow(<ButtonConfirmation prompt={'This is a test.'}>Delete</ButtonConfirmation>)
-    inst = wrapper.instance()
-    inst.handleWide()
-
     expect(wrapper.state().wide).to.be.false
+
+    wrapper.setProps({ prompt: 'This is a test that will make it wide' })
+    wrapper.update()
+
+    // mocking handleSetup because it was already tested and requires a decent setup
+    inst.handleSetup = sinon.spy()
+
+    inst.handleWide()
+    expect(inst.handleSetup.calledOnce).to.be.true
+    expect(wrapper.state().wide).to.be.true
   })
 
   it('hides text when collapse prop is passed', () => {

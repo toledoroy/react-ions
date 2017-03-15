@@ -78,9 +78,7 @@ export class ButtonConfirmation extends Component {
 
   handleWide = () => {
     if (this.props.prompt.length > 25) {
-      this.setState({
-        wide: true
-      }, () => {
+      this.setState({ wide: true }, () => {
         this.handleSetup()
       })
     }
