@@ -79,6 +79,86 @@ describe('Button', () => {
     expect(wrapper.props().children[0].props.children).to.equal('Robot?')
   })
 
+  it('handles opening and closing on the confirmation button', () => {
+    wrapper = shallow(<ButtonConfirmation prompt={'This is a test.'}>Delete</ButtonConfirmation>)
+
+    let inst = wrapper.instance()
+
+    inst.handleOpen()
+    expect(wrapper.state().confirmationOverlayOpen).to.be.true
+
+    inst.handleOpen()
+    expect(wrapper.state().confirmationOverlayOpen).to.be.false
+  })
+
+  it('handles confirmation on the confirmation button', () => {
+    wrapper = shallow(<ButtonConfirmation>Delete</ButtonConfirmation>)
+    wrapper.setState({confirmationOverlayOpen: true})
+    let inst = wrapper.instance()
+
+    inst.handleConfirmation()
+    expect(wrapper.state().confirmationOverlayOpen).to.be.false
+  })
+
+  it('get styles on the confirmation button when position not passed', () => {
+    wrapper = shallow(<ButtonConfirmation>Delete</ButtonConfirmation>)
+    wrapper.setState({
+      overlayWidth: 20,
+      triggerWidth: 10
+    })
+    let inst = wrapper.instance()
+
+    expect(inst.getStyles()).to.deep.equal({left: '-5px'})
+  })
+
+  it('get styles on the confirmation button when position right', () => {
+    wrapper = shallow(<ButtonConfirmation position={'right'}>Delete</ButtonConfirmation>)
+    wrapper.setState({confirmationOverlayOffset: 40})
+    let inst = wrapper.instance()
+
+    expect(inst.getStyles()).to.deep.equal({right: '40px'})
+  })
+
+  it('get styles on the confirmation button when position left', () => {
+    wrapper = shallow(<ButtonConfirmation position={'left'}>Delete</ButtonConfirmation>)
+    wrapper.setState({confirmationOverlayOffset: 40})
+    let inst = wrapper.instance()
+
+    expect(inst.getStyles()).to.deep.equal({left: '40px'})
+  })
+
+  it('get caret styles on the confirmation button when position not passed and is not wide', () => {
+    wrapper = shallow(<ButtonConfirmation>Delete</ButtonConfirmation>)
+    wrapper.setState({ wide: false })
+    let inst = wrapper.instance()
+
+    expect(inst.getCaretStyles()).to.deep.equal({left: 'calc(0% + 66px)'})
+  })
+
+  it('get caret styles on the confirmation button when position not passed and is wide', () => {
+    wrapper = shallow(<ButtonConfirmation>Delete</ButtonConfirmation>)
+    wrapper.setState({ wide: true })
+    let inst = wrapper.instance()
+
+    expect(inst.getCaretStyles()).to.deep.equal({left: 'calc(0% + 96px)'})
+  })
+
+  it('get caret styles on the confirmation button when position right', () => {
+    wrapper = shallow(<ButtonConfirmation position={'right'}>Delete</ButtonConfirmation>)
+    wrapper.setState({triggerWidth: 40})
+    let inst = wrapper.instance()
+
+    expect(inst.getCaretStyles()).to.deep.equal({right: 'calc(15px)'})
+  })
+
+  it('get caret styles on the confirmation button when position left', () => {
+    wrapper = shallow(<ButtonConfirmation position={'left'}>Delete</ButtonConfirmation>)
+    wrapper.setState({triggerWidth: 40})
+    let inst = wrapper.instance()
+
+    expect(inst.getCaretStyles()).to.deep.equal({left: 'calc(0% + 15px)'})
+  })
+
   it('handles collapse with confirmation button', () => {
     wrapper = shallow(<ButtonConfirmation collapse={true}>Delete</ButtonConfirmation>)
 
