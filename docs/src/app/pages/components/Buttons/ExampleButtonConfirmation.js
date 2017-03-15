@@ -8,7 +8,7 @@ const ExampleButtonConfirmation = () => (
     <ButtonConfirmation position={'left'}>Left</ButtonConfirmation>
     <ButtonConfirmation prompt={'Are you sure you are not a robot?'} collapse={true}>
       <Icon name='icon-upload-2-1' height='14' width='14' fill='#fff'></Icon>
-      <span>Default Button</span>
+      <span>Default</span>
     </ButtonConfirmation>
     <ButtonConfirmation prompt={'You are definitely not a robot right? That would be unfortunate.'} position={'right'}>Right</ButtonConfirmation>
   </div>
