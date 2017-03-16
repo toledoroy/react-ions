@@ -28,7 +28,7 @@ const description = {
   buttonLoaders: 'Here are the available button types with loaders.',
   buttonMultipleOptClassesCode: 'This is the `button component` with multiple optClasses',
   buttonAnchor: 'The `<ButtonAnchor />` component generates an anchor tag.',
-  buttonConfirmation: 'The `<ButtonConfirmation />` component generates a overlay for a confirmation of an action.'
+  buttonConfirmation: 'The `<ButtonConfirmation />` component generates an overlay to confirm an action.'
 };
 
 const ButtonsPage = () => (

@@ -35,7 +35,7 @@ export class ButtonConfirmation extends Component {
      */
     collapse: PropTypes.bool,
     /**
-     * Position of the button on the page for overlay carrot orientation when the screen size is tablet sized or smaller
+     * Position of the button on the page for overlay caret orientation when the screen size is tablet-sized or smaller
      */
     position: PropTypes.oneOf(['left', 'right']),
     /**
@@ -97,7 +97,7 @@ export class ButtonConfirmation extends Component {
     }
 
     // https://developers.google.com/web/updates/2016/06/absolute-positioned-children
-    // Once ^ is supported in Safari and Firefox we can remove this and allow flex box to do it's thing
+    // Once ^ is supported in Safari and Firefox we can remove this and allow flex box to do its thing
     if (this.props.collapse) {
       return {
         left: `-${((this.state.overlayWidth - this.state.triggerWidth) / 2 + 2)}px`
@@ -115,11 +115,7 @@ export class ButtonConfirmation extends Component {
     if (this.props.position === 'left') {
       return { left: `calc(0% + ${(this.state.triggerWidth / 2) - 5}px)` }
     }
-    if (!this.props.position && this.state.wide) {
-      return { left: `calc(0% + 96px)` }
-    } else if (!this.props.position && !this.state.wide){
-      return { left: `calc(0% + 66px)` }
-    }
+    return this.state.wide ? { left: `calc(0% + 96px)` } :  { left: `calc(0% + 66px)` }
   }
 
   /**
@@ -142,7 +138,7 @@ export class ButtonConfirmation extends Component {
 
   render = () => {
     const cx = classNames.bind(style)
-    const { collapse, handleConfirmation, ...other } = this.props
+    const { ...other } = this.props
 
     const buttonClass = optclass(style, ['confirmation-approve-btn'])
     const overlayPositionClass = this.props.position ? style[this.props.position] : null
@@ -152,15 +148,15 @@ export class ButtonConfirmation extends Component {
 
     return (
       <div ref={(trigger) => this._trigger = trigger} className={style['confirmation-wrapper']}>
-        <Button {...other} collapse={collapse} disabled={this.state.confirmationOverlayOpen} onClick={this.handleOpen}>
+        <Button {...other} disabled={this.state.confirmationOverlayOpen} onClick={this.handleOpen}>
           { this.props.children }
         </Button>
         <div className={confirmationOverlayClasses} style={this.getStyles()}>
           <em style={this.getCaretStyles()}></em>
           <span className={style['confirmation-text']}>{this.props.prompt}</span>
           <div className={style['button-wrapper']}>
-            <Button onClick={this.handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>
-            <Button onClick={this.handleConfirmation.bind(this, true)} optClass={buttonClass} >Yes</Button>
+            <Button onClick={this.handleConfirmation.bind(false)} optClass='danger-alt'>Cancel</Button>
+            <Button onClick={this.handleConfirmation.bind(true)} optClass={buttonClass} >Yes</Button>
           </div>
         </div>
       </div>
