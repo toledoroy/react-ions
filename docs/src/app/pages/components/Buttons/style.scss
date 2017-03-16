@@ -14,6 +14,9 @@
 }
 
 .custom-confirmation-wrapper {
-  display: flex;
-  justify-content: space-between;
+  display: inline-flex;
+
+  > div {
+    margin-right: 16px;
+  }
 }
