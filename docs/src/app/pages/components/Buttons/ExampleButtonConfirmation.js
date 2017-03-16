@@ -5,7 +5,7 @@ import style from './style.scss'
 
 const ExampleButtonConfirmation = () => (
   <div className={style['custom-confirmation-wrapper']}>
-    <ButtonConfirmation position={'left'}>Left</ButtonConfirmation>
+    <ButtonConfirmation position={'left'} collapse={true}><Icon name='icon-upload-2-1' height='14' width='14' fill='#fff'></Icon><span>Left</span></ButtonConfirmation>
     <ButtonConfirmation prompt={'Are you sure you are not a robot?'} collapse={true}>
       <Icon name='icon-upload-2-1' height='14' width='14' fill='#fff'></Icon>
       <span>Default</span>

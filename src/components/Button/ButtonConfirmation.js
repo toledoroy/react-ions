@@ -98,8 +98,13 @@ export class ButtonConfirmation extends Component {
 
     // https://developers.google.com/web/updates/2016/06/absolute-positioned-children
     // Once ^ is supported in Safari and Firefox we can remove this and allow flex box to do it's thing
+    if (this.props.collapse) {
+      return {
+        left: `-${((this.state.overlayWidth - this.state.triggerWidth) / 2 + 2)}px`
+      }
+    }
     return {
-      left: `-${(this.state.overlayWidth - this.state.triggerWidth) / 2}px`
+      left: `-${((this.state.overlayWidth - this.state.triggerWidth) / 2)}px`
     }
   }
 
