@@ -1,5 +1,14 @@
 ## HEAD
 
+##1.0.9
+###### _March 17, 2017_
+
+- Create Button Confirmation component and add in examples to docs ([#357](https://github.com/GetAmbassador/react-ions/pull/357))
+
+- Add new nave icons and update docs ([#355](https://github.com/GetAmbassador/react-ions/pull/355))
+
+- Create new attribute for checkbox to lock it ([#354](https://github.com/GetAmbassador/react-ions/pull/354))
+
 ##1.0.8
 ###### _March 8, 2017_
 
