@@ -1,3 +1,5 @@
+@import '~react-ions/styles/common/mixins';
+
 .custom-background {
   background-color: yellow;
 }
@@ -11,4 +13,17 @@
     color: red;
     background-color: black;
   }
+}
+
+.custom-confirmation-wrapper {
+  display: inline-flex;
+
+  > div {
+    margin-right: 32px;
+  }
+}
+
+.callback-status {
+  @include monospace;
+  display: block;
 }
