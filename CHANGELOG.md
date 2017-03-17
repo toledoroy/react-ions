@@ -5,7 +5,7 @@
 
 - Create Button Confirmation component and add in examples to docs ([#357](https://github.com/GetAmbassador/react-ions/pull/357))
 
-- Add new nave icons and update docs ([#355](https://github.com/GetAmbassador/react-ions/pull/355))
+- Add new nav icons and update docs ([#355](https://github.com/GetAmbassador/react-ions/pull/355))
 
 - Create new attribute for checkbox to lock it ([#354](https://github.com/GetAmbassador/react-ions/pull/354))
 
