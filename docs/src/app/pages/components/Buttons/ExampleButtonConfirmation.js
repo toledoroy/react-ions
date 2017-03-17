@@ -1,3 +1,4 @@
+import React from 'react'
 import ButtonConfirmation from 'react-ions/lib/Button/ButtonConfirmation'
 import Icon from 'react-ions/lib/Icon'
 import style from './style.scss'

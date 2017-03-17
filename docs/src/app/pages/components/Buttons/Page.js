@@ -19,6 +19,8 @@ import ExampleButtonAnchor from './ExampleButtonAnchor'
 import exampleButtonAnchorCode from '!raw!./ExampleButtonAnchor'
 import ExampleButtonConfirmation from './ExampleButtonConfirmation'
 import exampleButtonConfirmationCode from '!raw!./ExampleButtonConfirmation'
+import ExampleButtonConfirmationCallback from './ExampleButtonConfirmationCallback'
+import exampleButtonConfirmationCallbackCode from '!raw!./ExampleButtonConfirmationCallback'
 
 const description = {
   buttonDefault: 'This is the `button component` as it appears by default.',
@@ -28,7 +30,8 @@ const description = {
   buttonLoaders: 'Here are the available button types with loaders.',
   buttonMultipleOptClassesCode: 'This is the `button component` with multiple optClasses',
   buttonAnchor: 'The `<ButtonAnchor />` component generates an anchor tag.',
-  buttonConfirmation: 'The `<ButtonConfirmation />` component generates an overlay to confirm an action.'
+  buttonConfirmation: 'The `<ButtonConfirmation />` component generates an overlay to confirm an action.',
+  buttonConfirmationCallback: 'This is `<ButtonConfirmation />` component showing the callback in action.'
 };
 
 const ButtonsPage = () => (
@@ -82,6 +85,12 @@ const ButtonsPage = () => (
           description={description.buttonConfirmation}
           markup={exampleButtonConfirmationCode}>
           <ExampleButtonConfirmation />
+        </CodeExample>
+        <CodeExample
+          title='Button with Confirmation callback'
+          description={description.buttonConfirmationCallback}
+          markup={exampleButtonConfirmationCallbackCode}>
+          <ExampleButtonConfirmationCallback />
         </CodeExample>
       </div>
       <div className={styles.block}>
