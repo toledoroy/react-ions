@@ -1,5 +1,10 @@
 ## HEAD
 
+##1.0.10
+###### _March 19, 2017_
+
+- Re-releasing to update icon set
+
 ##1.0.9
 ###### _March 17, 2017_
 
