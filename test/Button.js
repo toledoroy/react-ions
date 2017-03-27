@@ -132,7 +132,7 @@ describe('Button', () => {
     wrapper.setState({ wide: false })
     let inst = wrapper.instance()
 
-    expect(inst.getCaretStyles()).to.deep.equal({left: '66px'})
+    expect(inst.getCaretStyles()).to.deep.equal({left: '75px'})
   })
 
   it('get caret styles on the confirmation button when position not passed and is wide', () => {
@@ -140,7 +140,7 @@ describe('Button', () => {
     wrapper.setState({ wide: true })
     let inst = wrapper.instance()
 
-    expect(inst.getCaretStyles()).to.deep.equal({left: '96px'})
+    expect(inst.getCaretStyles()).to.deep.equal({left: '95px'})
   })
 
   it('get caret styles on the confirmation button when position right', () => {
