@@ -118,7 +118,7 @@ export class ButtonConfirmation extends Component {
     if (this.props.position === 'left') {
       return { left: `calc(${(this.state.triggerWidth / 2) - 5}px)` }
     }
-    return this.state.wide ? { left: `96px` } :  { left: `66px` }
+    return this.state.wide ? { left: `95px` } :  { left: `75px` }
   }
 
   /**
