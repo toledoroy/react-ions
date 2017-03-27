@@ -13,7 +13,8 @@ const ExampleButtonConfirmation = () => (
       <Icon name='icon-upload-2-1' height='14' width='14' fill='#fff'></Icon>
       <span>Default</span>
     </ButtonConfirmation>
-    <ButtonConfirmation prompt={'You are definitely not a robot right? That would be unfortunate. Also does that mean that you are skynet? Please tell me you are not skynet!'} position={'right'}>Right</ButtonConfirmation>
+    <ButtonConfirmation
+      prompt={'You are definitely not a robot right? That would be unfortunate. Also does that mean that you are skynet? Please tell me you are not skynet!'} position={'right'}>Right</ButtonConfirmation>
   </div>
 )
 
