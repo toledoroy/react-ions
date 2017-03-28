@@ -51,11 +51,21 @@ export class ButtonConfirmation extends Component {
   state = {
     confirmationOverlayOpen: false,
     confirmationOverlayOffset: 0,
+    hasBeenOpened: false,
     wide: false
   }
 
   handleOpen = () => {
-    this.setState({ confirmationOverlayOpen: !this.state.confirmationOverlayOpen })
+    if (!this.props.hasBeenOpened) {
+      this.setState({
+        hasBeenOpened: true
+      }, () => {
+        this.handleSetup()
+      })
+    }
+    this.setState({
+      confirmationOverlayOpen: !this.state.confirmationOverlayOpen
+    })
   }
 
   handleConfirmation = (confirm) => {
@@ -78,9 +88,7 @@ export class ButtonConfirmation extends Component {
 
   handleWide = () => {
     if (this.props.prompt.length > 25) {
-      this.setState({ wide: true }, () => {
-        this.handleSetup()
-      })
+      this.setState({ wide: true })
     }
   }
 
@@ -98,11 +106,6 @@ export class ButtonConfirmation extends Component {
 
     // https://developers.google.com/web/updates/2016/06/absolute-positioned-children
     // Once ^ is supported in Safari and Firefox we can remove this and allow flex box to do its thing
-    if (this.props.collapse) {
-      return {
-        left: `-${((this.state.overlayWidth - this.state.triggerWidth) / 2 + 2)}px`
-      }
-    }
     return {
       left: `-${((this.state.overlayWidth - this.state.triggerWidth) / 2)}px`
     }
@@ -110,12 +113,12 @@ export class ButtonConfirmation extends Component {
 
   getCaretStyles = () => {
     if (this.props.position === 'right') {
-      return { right: `calc(${(this.state.triggerWidth / 2) - 5}px)`}
+      return { right: `calc(${(this.state.triggerWidth / 2) + 7.5}px)`}
     }
     if (this.props.position === 'left') {
-      return { left: `calc(0% + ${(this.state.triggerWidth / 2) - 5}px)` }
+      return { left: `calc(${(this.state.triggerWidth / 2) - 5}px)` }
     }
-    return this.state.wide ? { left: `calc(0% + 96px)` } :  { left: `calc(0% + 66px)` }
+    return this.state.wide ? { left: `95px` } :  { left: `75px` }
   }
 
   /**
@@ -129,11 +132,23 @@ export class ButtonConfirmation extends Component {
 
   componentDidMount = () => {
     this.mql.addListener(this.handleMediaChange)
+    this.handleSetup()
     this.handleWide()
   }
 
   componentWillUnmount = () => {
     this.mql.removeListener(this.handleMediaChange)
+  }
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+    if (nextProps.position !== this.props.position) return true
+    if (nextState.wide !== this.state.wide) return true
+    if (nextState.triggerWidth !== this.state.triggerWidth) return true
+    if (nextState.overlayWidth !== this.state.overlayWidth) return true
+    if (nextState.confirmationOverlayOpen !== this.state.confirmationOverlayOpen) return true
+    if (nextProps.prompt !== this.props.prompt) return true
+
+    return false
   }
 
   render = () => {

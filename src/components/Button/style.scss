@@ -115,14 +115,10 @@
 
 .confirmation-wrapper {
   align-items: center;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   position: relative;
   justify-content: center;
-
-  .btn {
-    margin: 0 0 10px 0;
-  }
 }
 
 .confirmation-overlay {
@@ -133,9 +129,9 @@
   position: absolute;
   visibility: hidden;
   opacity: 0;
-  top: 100%;
+  top: calc(100% + 10px);
   padding: 8px;
-  transition: all .25s ease;
+  transition: opacity .25s ease;
   width: 160px;
   z-index: 1;
 
@@ -167,6 +163,10 @@
     > button {
       position: relative;
       margin-right: 8px;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 

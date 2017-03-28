@@ -80,7 +80,7 @@ describe('Button', () => {
   })
 
   it('handles opening and closing on the confirmation button', () => {
-    wrapper = shallow(<ButtonConfirmation prompt={'This is a test.'}>Delete</ButtonConfirmation>)
+    wrapper = shallow(<ButtonConfirmation hasBeenOpened={true}>Delete</ButtonConfirmation>)
 
     let inst = wrapper.instance()
 
@@ -132,7 +132,7 @@ describe('Button', () => {
     wrapper.setState({ wide: false })
     let inst = wrapper.instance()
 
-    expect(inst.getCaretStyles()).to.deep.equal({left: 'calc(0% + 66px)'})
+    expect(inst.getCaretStyles()).to.deep.equal({left: '75px'})
   })
 
   it('get caret styles on the confirmation button when position not passed and is wide', () => {
@@ -140,7 +140,7 @@ describe('Button', () => {
     wrapper.setState({ wide: true })
     let inst = wrapper.instance()
 
-    expect(inst.getCaretStyles()).to.deep.equal({left: 'calc(0% + 96px)'})
+    expect(inst.getCaretStyles()).to.deep.equal({left: '95px'})
   })
 
   it('get caret styles on the confirmation button when position right', () => {
@@ -148,7 +148,7 @@ describe('Button', () => {
     wrapper.setState({triggerWidth: 40})
     let inst = wrapper.instance()
 
-    expect(inst.getCaretStyles()).to.deep.equal({right: 'calc(15px)'})
+    expect(inst.getCaretStyles()).to.deep.equal({right: 'calc(27.5px)'})
   })
 
   it('get caret styles on the confirmation button when position left', () => {
@@ -156,7 +156,7 @@ describe('Button', () => {
     wrapper.setState({triggerWidth: 40})
     let inst = wrapper.instance()
 
-    expect(inst.getCaretStyles()).to.deep.equal({left: 'calc(0% + 15px)'})
+    expect(inst.getCaretStyles()).to.deep.equal({left: 'calc(15px)'})
   })
 
   it('handles collapse with confirmation button', () => {
@@ -208,7 +208,6 @@ describe('Button', () => {
     inst.handleSetup = sinon.spy()
 
     inst.handleWide()
-    expect(inst.handleSetup.calledOnce).to.be.true
     expect(wrapper.state().wide).to.be.true
   })
 

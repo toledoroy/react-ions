@@ -21,8 +21,10 @@ class ExampleButtonConfirmationCallback extends React.Component {
 
   render() {
     return(
-      <div className={style['custom-confirmation-wrapper']}>
-        <ButtonConfirmation prompt={'Would you like to see the callback fire?'} position={'left'} handleConfirmation={this.handleConfirmation}>Test</ButtonConfirmation>
+      <div>
+        <div className={style['custom-confirmation-wrapper']}>
+          <ButtonConfirmation prompt={'Would you like to see the callback fire?'} position={'left'} handleConfirmation={this.handleConfirmation}>Test</ButtonConfirmation>
+        </div>
         <code className={style['callback-status']}>{this.state.status}</code>
       </div>
     )
