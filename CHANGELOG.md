@@ -1,5 +1,10 @@
 ## HEAD
 
+##1.0.11
+###### _March 28, 2017_
+
+- Fix for Button Confirmation layout ([#361](https://github.com/GetAmbassador/react-ions/pull/361))
+
 ##1.0.10
 ###### _March 19, 2017_
 
