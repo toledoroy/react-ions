@@ -9,7 +9,7 @@ const ExampleButtonConfirmation = () => (
       <Icon name='icon-upload-2-1' height='14' width='14' fill='#fff'></Icon>
       <span>Left</span>
     </ButtonConfirmation>
-    <ButtonConfirmation prompt={'Are you sure you are not a robot?'} collapse={true} optClass='danger'>
+    <ButtonConfirmation prompt={'Are you sure you are not a robot?'} optClass='danger'>
       <span>Delete</span>
     </ButtonConfirmation>
     <ButtonConfirmation
