@@ -1,5 +1,10 @@
 ## HEAD
 
+##1.0.12
+###### _March 29, 2017_
+
+- Increased the size of the power-4 icon ([#364](https://github.com/GetAmbassador/react-ions/pull/364))
+
 ##1.0.11
 ###### _March 28, 2017_
 
