@@ -22,7 +22,11 @@ class Panel extends React.Component {
   }
 
   getHeader = () => {
-    return this.props.children[0]
+    if (this.props.children[0].type.displayName === 'PanelHeader') {
+      return this.props.children[0]
+    }
+
+    return null
   }
 
   handlePanelClick = () => {
@@ -42,8 +46,15 @@ class Panel extends React.Component {
 
     return (
       <div className={panelClasses}>
-        {header}
-        {this.props.children[1]}
+        {this.getHeader()
+          ? <span>
+              {header}
+              {this.props.children[1]}
+            </span>
+          : <span>
+              {this.props.children[0]}
+            </span>
+          }
       </div>
     )
   }
