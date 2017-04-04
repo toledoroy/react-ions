@@ -18,57 +18,31 @@ class PanelSlider extends React.Component {
     optClass: React.PropTypes.oneOfType([
       React.PropTypes.array,
       React.PropTypes.string
-    ]),
-    /**
-     * A callback that gets triggered when a panel is activated
-     */
-    onPanelActive: React.PropTypes.func
+    ])
   }
 
   static defaultProps = {
     activePanel: 0
   }
 
-  state = {
-    panels: []
+  shouldComponentUpdate = (nextProps, nextState) => {
+    if (nextProps.activePanel !== this.props.activePanel) return true
+
+    return false
   }
 
-  componentWillMount = () => {
-    this.setInitialState()
-  }
+  getStyle = (index) => {
+    let translateValue
 
-  activatePanel = (activePanel) => {
-    var panels = this.getPanels()
-    var initialPanels = []
+    if (index === 0) {
+      translateValue = 0
+    } else {
+      translateValue = `-${index}00`
+    }
 
-    panels.forEach((panel, index) => {
-      if (activePanel === index) {
-        initialPanels = [...initialPanels, {active: true}]
-      } else {
-        initialPanels = [...initialPanels, {active: false}]
-      }
-    })
-
-    this.setState({panels: initialPanels})
-  }
-
-  setInitialState = () => {
-    this.activatePanel(this.props.activePanel)
-  }
-
-  componentWillReceiveProps = (nextProps) => {
-    this.activatePanel(nextProps.activePanel)
-  }
-
-  collapsePanels = () => {
-    var panels = this.getPanels()
-    var collapsedPanels = []
-
-    panels.forEach((panel, index) => {
-      collapsedPanels = [...collapsedPanels, {active: false}]
-    })
-
-    return collapsedPanels
+    return {
+      'transform': `translateX(${translateValue}%)`
+    }
   }
 
   getPanels = () => {
@@ -81,25 +55,25 @@ class PanelSlider extends React.Component {
     return panels
   }
 
-  handlePanelActive = () => {
-    console.log('handlePanelActive')
-  }
-
   render() {
-    // const panelGroupClasses = optclass(style, 'panel-group', this.props.optClass)
+    const panelSliderClasses = optclass(style, 'panel-slider', this.props.optClass)
 
     const panels = this.getPanels().map((panel, index) => {
       return React.cloneElement(panel, {
         key: index,
-        panelIndex: index,
-        active: this.state.panels[index].active,
-        onPanelActive: this.handlePanelActive
+        panelIndex: index
       })
     })
 
     return (
-      <div>
-        {panels}
+      <div className={panelSliderClasses}>
+        <div className={style['wrapper']}>
+          <div className={style['inner']}>
+            <div className={style['panel-wrap']} style={this.getStyle(this.props.activePanel)}>
+              {panels}
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

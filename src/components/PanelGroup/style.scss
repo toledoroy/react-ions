@@ -279,3 +279,35 @@
   }
 
 }
+
+// Panel Slider
+.panel-slider {
+	margin: 0 auto;
+	position: relative;
+	width: 100%;
+
+  .wrapper {
+  	position: relative;
+  	width: 100%;
+    transform-style: preserve-3d;
+  }
+
+  .inner {
+  	overflow: hidden;
+  	position: relative;
+  	width: 100%;
+  }
+
+  .panel-wrap {
+  	margin: 0;
+  	padding: 0;
+  	position: relative;
+    transition: transform .5s cubic-bezier(.75, 0, .1, 1);
+  	white-space: nowrap;
+  }
+
+  .panel {
+  	display: inline-block;
+  	width: 100%;
+  }
+}

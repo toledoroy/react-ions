@@ -9,32 +9,47 @@ class ExamplePanelSlider extends React.Component {
   }
 
   state = {
-    content: {
-      firstPanel: 'First PanelContent block here',
-      secondPanel: 'Second PanelContent block here',
-      thirdPanel: 'Third PanelContent block here'
-    }
+    activePanel: null
+  }
+
+  setActivePanel = (index, event) => {
+    event.preventDefault()
+
+    this.setState({
+      activePanel: index
+    })
   }
 
   render() {
+    const currentlyActive = style[`custom-panel-slider-demo-slide-${this.state.activePanel + 1}`]
+
     return (
-      <PanelSlider activePanel={1}>
-        <Panel>
-          <PanelContent>
-            <p>{this.state.content.firstPanel}</p>
-          </PanelContent>
-        </Panel>
-        <Panel>
-          <PanelContent>
-            <p>{this.state.content.secondPanel}</p>
-          </PanelContent>
-        </Panel>
-        <Panel>
-          <PanelContent>
-            <p>{this.state.content.thirdPanel}</p>
-          </PanelContent>
-        </Panel>
-      </PanelSlider>
+      <div>
+        <PanelSlider activePanel={this.state.activePanel}>
+          <Panel>
+            <PanelContent optClass={style['custom-panel-slider']}>
+              <h1>1</h1>
+              <p>Bacon ipsum dolor amet sausage kielbasa pancetta turkey shankle, ball tip spare ribs meatball.</p>
+            </PanelContent>
+          </Panel>
+          <Panel>
+            <PanelContent optClass={style['custom-panel-slider']}>
+              <h1>2</h1>
+              <p>Pork sausage cupim beef.</p>
+            </PanelContent>
+          </Panel>
+          <Panel>
+            <PanelContent optClass={style['custom-panel-slider']}>
+              <h1>3</h1>
+              <p> Flank meatball andouille prosciutto spare ribs.</p>
+            </PanelContent>
+          </Panel>
+        </PanelSlider>
+
+        <span className={currentlyActive}>
+          <a href="#" onClick={this.setActivePanel.bind(this, 0)} className={style['slide-1']}>Slide 1</a> <a href="#" onClick={this.setActivePanel.bind(this, 1)} className={style['slide-2']}>Slide 2</a> <a href="#" onClick={this.setActivePanel.bind(this, 2)} className={style['slide-3']}>Slide 3</a>
+        </span>
+      </div>
     )
   }
 }
