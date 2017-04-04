@@ -1,5 +1,10 @@
 ## HEAD
 
+##1.0.13
+###### _April 4, 2017_
+
+- Fix for word break on tooltips ([#368](https://github.com/GetAmbassador/react-ions/pull/368))
+
 ##1.0.12
 ###### _March 29, 2017_
 
