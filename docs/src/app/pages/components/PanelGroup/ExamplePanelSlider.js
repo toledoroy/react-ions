@@ -1,5 +1,5 @@
 import React from 'react'
-import {PanelGroup, Panel, PanelContent} from 'react-ions/lib/PanelGroup'
+import {PanelSlider, Panel, PanelContent} from 'react-ions/lib/PanelGroup'
 import Button from 'react-ions/lib/Button'
 import style from './style.scss'
 
@@ -10,21 +10,31 @@ class ExamplePanelSlider extends React.Component {
 
   state = {
     content: {
-      firstPanel: 'Just a PanelContent block here. No header.'
+      firstPanel: 'First PanelContent block here',
+      secondPanel: 'Second PanelContent block here',
+      thirdPanel: 'Third PanelContent block here'
     }
   }
 
   render() {
     return (
-      <div>
-        <PanelGroup activePanels={[0]}>
-          <Panel>
-            <PanelContent>
-              <p>{this.state.content.firstPanel}</p>
-            </PanelContent>
-          </Panel>
-        </PanelGroup>
-      </div>
+      <PanelSlider activePanel={1}>
+        <Panel>
+          <PanelContent>
+            <p>{this.state.content.firstPanel}</p>
+          </PanelContent>
+        </Panel>
+        <Panel>
+          <PanelContent>
+            <p>{this.state.content.secondPanel}</p>
+          </PanelContent>
+        </Panel>
+        <Panel>
+          <PanelContent>
+            <p>{this.state.content.thirdPanel}</p>
+          </PanelContent>
+        </Panel>
+      </PanelSlider>
     )
   }
 }
