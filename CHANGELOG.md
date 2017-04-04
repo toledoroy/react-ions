@@ -1,9 +1,14 @@
 ## HEAD
 
-##1.0.12
+##1.0.13
 ###### _April 4, 2017_
 
 - Fix for word break on tooltips ([#368](https://github.com/GetAmbassador/react-ions/pull/368))
+
+##1.0.12
+###### _March 29, 2017_
+
+- Increased the size of the power-4 icon ([#364](https://github.com/GetAmbassador/react-ions/pull/364))
 
 ##1.0.11
 ###### _March 28, 2017_
