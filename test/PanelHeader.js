@@ -11,6 +11,7 @@ describe('PanelHeader', () => {
     panelHeader = shallow(<PanelHeader title='Rating' contextIcon='icon-star-1' />)
     titleGroup = panelHeader.childAt(0).childAt(0)
     toggleIconWrap = panelHeader.childAt(0).childAt(1)
+
     expect(panelHeader.hasClass('panel-header')).to.equal(true)
     expect(titleGroup.hasClass('title-group')).to.equal(true)
     expect(titleGroup.childAt(0).childAt(0).props().name).to.equal('icon-star-1')
@@ -41,7 +42,7 @@ describe('PanelHeader', () => {
   it('should call an onClick handler when clicked when clicked', () => {
     var spy = sinon.spy()
     panel = shallow(<Panel optClass={'test'}><PanelHeader onClick={spy} /><PanelContent optClass='test-class'>Test Content</PanelContent></Panel>)
-    panelHeader = panel.childAt(0)
+    panelHeader = panel.childAt(0).childAt(0)
 
     expect(typeof panelHeader.props().onClick).to.equal('function')
     panelHeader.simulate('click')

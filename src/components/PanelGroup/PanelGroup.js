@@ -107,6 +107,7 @@ class PanelGroup extends React.Component {
 
   onPanelToggle = () => {
     let activePanels = []
+    console.log(this.state.panels)
     this.state.panels.map((panel, index) => {
       if (panel.active) {
         activePanels.push(index)

@@ -1,81 +1,49 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
+import React from 'react'
+import { shallow, mount } from 'enzyme'
 import {PanelGroup, Panel, PanelHeader, PanelContent} from '../src/components/PanelGroup'
 
 describe('PanelGroup', () => {
-  let panelGroup, panel;
+  let panelGroup, panel
 
   it('should shallow render itself', () => {
-    panelGroup = shallow(<PanelGroup />);
-    expect(panelGroup.find('div')).to.have.length(1);
-    expect(panelGroup.hasClass('panel-group')).to.equal(true);
-  });
+    panelGroup = shallow(<PanelGroup />)
+    expect(panelGroup.find('div')).to.have.length(1)
+    expect(panelGroup.hasClass('panel-group')).to.equal(true)
+  })
 
   it('should render with an optional CSS class', () => {
-    panelGroup = shallow(<PanelGroup optClass='test' />);
-    expect(panelGroup.hasClass('panel-group test')).to.equal(true);
-  });
+    panelGroup = shallow(<PanelGroup optClass='test' />)
+    expect(panelGroup.hasClass('panel-group test')).to.equal(true)
+  })
 
   it('should render with one panel active', () => {
-    panelGroup = shallow(<PanelGroup activePanels={[0]}><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>);
-    panel = panelGroup.childAt(0);
-    expect(panel.props().panelIndex).to.equal(0);
-    expect(panel.props().active).to.equal(true);
-    expect(typeof panel.props().onPanelClick).to.equal('function');
-  });
+    panelGroup = shallow(<PanelGroup activePanels={[0]}><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>)
+    panel = panelGroup.childAt(0)
+    expect(panel.props().panelIndex).to.equal(0)
+    expect(panel.props().active).to.equal(true)
+    expect(typeof panel.props().onPanelClick).to.equal('function')
+  })
 
   it('should render with two panels active', () => {
-    panelGroup = shallow(<PanelGroup activePanels={[0, 1]}><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>);
-    panel = panelGroup.childAt(1);
-    expect(panel.props().panelIndex).to.equal(1);
-    expect(panel.props().active).to.equal(true);
-  });
+    panelGroup = shallow(<PanelGroup activePanels={[0, 1]}><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>)
+    panel = panelGroup.childAt(1)
+    expect(panel.props().panelIndex).to.equal(1)
+    expect(panel.props().active).to.equal(true)
+  })
 
   it('should render with no active panels', () => {
-    panelGroup = shallow(<PanelGroup><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>);
-    panel = panelGroup.childAt(0);
-    expect(panel.props().active).to.equal(false);
-  });
+    panelGroup = shallow(<PanelGroup><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>)
+    panel = panelGroup.childAt(0)
+    expect(panel.props().active).to.equal(false)
+  })
 
   it('should trigger a panel toggle callback when a panel header is clicked', () => {
-    let activePanels = [];
-    const onPanelToggle = (panels) => {
-      activePanels = panels;
-    }
-    panelGroup = mount(<PanelGroup onPanelToggle={onPanelToggle}><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>);
+    const onPanelToggleStub = sinon.stub()
 
-    panelGroup.childAt(0).childAt(0).simulate('click');
+    panelGroup = shallow(<PanelGroup onPanelToggle={onPanelToggleStub}><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>)
+    panelGroup.instance().onPanelToggle()
 
-    expect(activePanels).to.have.length(1);
-    expect(activePanels[0]).to.be.equal(0);
-
-    panelGroup.childAt(1).childAt(0).simulate('click');
-
-    expect(activePanels).to.have.length(2);
-    expect(activePanels[0]).to.be.equal(0);
-    expect(activePanels[1]).to.be.equal(1);
-
-    panelGroup.childAt(0).childAt(0).simulate('click');
-
-    expect(activePanels).to.have.length(1);
-    expect(activePanels[0]).to.be.equal(1);
-  });
-
-  it('should trigger a panel toggle callback when a panel header is clicked on accordion', () => {
-    let activePanels = [];
-    const onPanelToggle = (panels) => {
-      activePanels = panels;
-    }
-    panelGroup = mount(<PanelGroup onPanelToggle={onPanelToggle} accordion={true}><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>);
-
-    panelGroup.childAt(0).childAt(0).simulate('click');
-
-    expect(activePanels).to.have.length(1);
-    expect(activePanels[0]).to.be.equal(0);
-
-    panelGroup.childAt(1).childAt(0).simulate('click');
-
-    expect(activePanels).to.have.length(1);
-    expect(activePanels[0]).to.be.equal(1);
-  });
-});
+    expect(onPanelToggleStub.calledOnce).to.be.true
+    expect(onPanelToggleStub.calledWithExactly([])).to.be.true
+  })
+})
