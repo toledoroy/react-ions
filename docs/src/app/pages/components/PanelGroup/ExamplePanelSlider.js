@@ -25,7 +25,7 @@ class ExamplePanelSlider extends React.Component {
 
     return (
       <div>
-        <PanelSlider activePanel={this.state.activePanel}>
+        <PanelSlider activePanel={this.state.activePanel} vertical={true}>
           <Panel>
             <PanelContent optClass={style['custom-panel-slider']}>
               <h1>1</h1>

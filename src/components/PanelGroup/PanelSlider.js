@@ -13,6 +13,10 @@ class PanelSlider extends React.Component {
      */
     activePanel: React.PropTypes.number,
     /**
+     * Whether to slide the items vertically (default is horizontal)
+     */
+    vertical: React.PropTypes.bool,
+    /**
      * Optional CSS class(es) to be used for local styles (string or array of strings)
      */
     optClass: React.PropTypes.oneOfType([
@@ -40,6 +44,12 @@ class PanelSlider extends React.Component {
       translateValue = `-${index}00`
     }
 
+    if (this.props.vertical) {
+      return {
+        'transform': `translateY(${translateValue}%)`
+      }
+    }
+
     return {
       'transform': `translateX(${translateValue}%)`
     }
@@ -56,7 +66,9 @@ class PanelSlider extends React.Component {
   }
 
   render() {
+    const verticalClass = this.props.vertical ? style['vertical'] : null
     const panelSliderClasses = optclass(style, 'panel-slider', this.props.optClass)
+    const panelWrapClasses = optclass(style, 'panel-wrap', verticalClass)
 
     const panels = this.getPanels().map((panel, index) => {
       return React.cloneElement(panel, {
@@ -69,7 +81,7 @@ class PanelSlider extends React.Component {
       <div className={panelSliderClasses}>
         <div className={style['wrapper']}>
           <div className={style['inner']}>
-            <div className={style['panel-wrap']} style={this.getStyle(this.props.activePanel)}>
+            <div className={panelWrapClasses} style={this.getStyle(this.props.activePanel)}>
               {panels}
             </div>
           </div>

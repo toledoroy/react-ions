@@ -299,15 +299,21 @@
   }
 
   .panel-wrap {
+    display: flex;
   	margin: 0;
   	padding: 0;
   	position: relative;
     transition: transform .5s cubic-bezier(.75, 0, .1, 1);
   	white-space: nowrap;
+
+    &.vertical {
+      flex-direction: column;
+    }
   }
 
   .panel {
   	display: inline-block;
+    flex: 1 0 auto;
   	width: 100%;
   }
 }
