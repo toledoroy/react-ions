@@ -9,7 +9,7 @@
     background: $white;
     border-bottom: 1px solid $neutral-3;
 
-    .panel-header {
+    > span > .panel-header {
       box-sizing: border-box;
       cursor: pointer;
       font-size: 14px;
@@ -57,7 +57,7 @@
 
     }
 
-    .panel-content {
+    > span > .panel-content {
       display: none;
       padding: 0 40px 15px;
     }
@@ -68,7 +68,8 @@
   }
 
   > .panel.panel-active {
-    > .panel-content {
+
+    > span > .panel-content {
       display: block;
     }
 
@@ -83,31 +84,33 @@
 // Default Theme
 .panel-group.default {
 
-  .panel-header {
-    .context-icon {
-      transition: all .25s ease;
-    }
-
-    .toggle-icon {
-      transition: all .25s ease;
-    }
-
-    &:hover {
-      .title-group {
-        h4 {
-          color: $primary-5;
-        }
-        svg {
-          fill: $primary-5;
-        }
+  > .panel {
+    > span > .panel-header {
+      .context-icon {
+        transition: all .25s ease;
       }
+
       .toggle-icon {
-        opacity: 1;
+        transition: all .25s ease;
+      }
+
+      &:hover {
+        .title-group {
+          h4 {
+            color: $primary-5;
+          }
+          svg {
+            fill: $primary-5;
+          }
+        }
+        .toggle-icon {
+          opacity: 1;
+        }
       }
     }
   }
 
-  > .panel-active {
+  > .panel.panel-active {
     .title-group {
       h4 {
         color: $primary-5;
@@ -115,6 +118,11 @@
       svg {
         fill: $primary-5;
       }
+    }
+    .toggle-icon {
+      opacity: 1;
+      top: 15px;
+      transform: rotate(0);
     }
   }
 }
@@ -128,7 +136,7 @@
     border-radius: 3px;
     margin-bottom: 10px;
 
-    > .panel-header {
+    > span > .panel-header {
       background-color: $neutral-2;
       border-radius: 3px 3px 0 0;
       padding: 13px 20px;
@@ -182,7 +190,7 @@
       }
     }
 
-    .panel-content {
+    > span > .panel-content {
       padding: 0;
     }
 
@@ -193,7 +201,7 @@
 
   > .panel.panel-active {
 
-      > .panel-header {
+       > span > .panel-header {
         background-color: $primary-1;
 
         [class^='badge'] {
@@ -216,7 +224,7 @@
         }
       }
 
-      .panel-content {
+       > span > .panel-content {
         padding: 20px;
       }
     }
@@ -230,7 +238,7 @@
     background: transparent;
     border-bottom: 0;
 
-    > .panel-header {
+     > span > .panel-header {
       padding: 15px 0;
 
       h4 {
@@ -247,7 +255,7 @@
       }
     }
 
-    > .panel-content {
+    > span > .panel-content {
       padding: 0;
     }
 
@@ -257,16 +265,53 @@
   }
 
   > .panel.panel-active {
-    .panel-header {
+    > span > .panel-header {
       .context-icon {
         left: -2px;
         top: 0;
         transform: rotate(90deg);
       }
     }
-    > .panel-content {
+    > span > .panel-content {
       padding: 0 0 15px;
     }
   }
+}
 
+// Panel Slider
+.panel-slider {
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+
+  .wrapper {
+    position: relative;
+    width: 100%;
+    transform-style: preserve-3d;
+  }
+
+  .inner {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .panel-wrap {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    transition: transform .5s cubic-bezier(.75, 0, .1, 1);
+    white-space: nowrap;
+
+    &.vertical {
+      flex-direction: column;
+    }
+  }
+
+  .panel {
+    display: inline-block;
+    flex: 1 0 auto;
+    width: 100%;
+  }
 }

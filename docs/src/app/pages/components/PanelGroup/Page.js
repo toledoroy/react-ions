@@ -4,6 +4,7 @@ import panelGroupDocs from '!!docgen!react-ions/lib/PanelGroup/PanelGroup';
 import panelDocs from '!!docgen!react-ions/lib/PanelGroup/Panel';
 import panelHeaderDocs from '!!docgen!react-ions/lib/PanelGroup/PanelHeader';
 import panelContentDocs from '!!docgen!react-ions/lib/PanelGroup/PanelContent';
+import panelSliderDocs from '!!docgen!react-ions/lib/PanelGroup/PanelSlider';
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExamplePanelGroup from './ExamplePanelGroup'
@@ -16,13 +17,16 @@ import ExamplePanelGroupSimple from './ExamplePanelGroupSimple'
 import ExamplePanelGroupSimpleCode from '!raw!./ExamplePanelGroupSimple'
 import ExamplePanelGroupNested from './ExamplePanelGroupNested'
 import ExamplePanelGroupNestedCode from '!raw!./ExamplePanelGroupNested'
+import ExamplePanelSlider from './ExamplePanelSlider'
+import ExamplePanelSliderCode from '!raw!./ExamplePanelSlider'
 
 const description = {
   panelGroup: 'This is the default `panel group component`.',
   panelGroupAccordion: 'This is the default `panel group component` with accordion functionality.',
   panelGroupMultiStep: 'This is the `panel group component` with a multi-step design variation.',
   panelGroupSimple: 'This is the `panel group component` with simple styles.',
-  panelGroupNested: 'This is a `panel group component` within another component.'
+  panelGroupNested: 'This is a `panel group component` within another component.',
+  panelSlider: 'This is a `panel slider component`.'
 };
 
 const PanelGroupPage = () => (
@@ -59,10 +63,20 @@ const PanelGroupPage = () => (
           markup={ExamplePanelGroupNestedCode}>
           <ExamplePanelGroupNested />
         </CodeExample>
+        <CodeExample
+          title='Panel Slider'
+          description={description.panelSlider}
+          markup={ExamplePanelSliderCode}>
+          <ExamplePanelSlider />
+        </CodeExample>
       </div>
       <div className={styles.block}>
         <h3>Panel Group Props</h3>
         <PropsList list={panelGroupDocs[0].props} />
+      </div>
+      <div className={styles.block}>
+        <h3>Panel Slider Props</h3>
+        <PropsList list={panelSliderDocs[0].props} />
       </div>
       <div className={styles.block}>
         <h3>Panel Props</h3>
