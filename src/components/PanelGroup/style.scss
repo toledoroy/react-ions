@@ -265,7 +265,6 @@
   }
 
   > .panel.panel-active {
-
     > span > .panel-header {
       .context-icon {
         left: -2px;
@@ -277,34 +276,33 @@
       padding: 0 0 15px;
     }
   }
-
 }
 
 // Panel Slider
 .panel-slider {
-	margin: 0 auto;
-	position: relative;
-	width: 100%;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
 
   .wrapper {
-  	position: relative;
-  	width: 100%;
+    position: relative;
+    width: 100%;
     transform-style: preserve-3d;
   }
 
   .inner {
-  	overflow: hidden;
-  	position: relative;
-  	width: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
   }
 
   .panel-wrap {
     display: flex;
-  	margin: 0;
-  	padding: 0;
-  	position: relative;
+    margin: 0;
+    padding: 0;
+    position: relative;
     transition: transform .5s cubic-bezier(.75, 0, .1, 1);
-  	white-space: nowrap;
+    white-space: nowrap;
 
     &.vertical {
       flex-direction: column;
@@ -312,8 +310,8 @@
   }
 
   .panel {
-  	display: inline-block;
+    display: inline-block;
     flex: 1 0 auto;
-  	width: 100%;
+    width: 100%;
   }
 }
