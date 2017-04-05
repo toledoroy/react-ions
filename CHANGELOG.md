@@ -1,5 +1,10 @@
 ## HEAD
 
+##1.0.15
+###### _April 5, 2017_
+
+- Build out panelslider component ([#371](https://github.com/GetAmbassador/react-ions/pull/371))
+
 ##1.0.14
 ###### _April 4, 2017_
 
