@@ -44,12 +44,6 @@ class PanelSlider extends React.Component {
       translateValue = `-${index}00`
     }
 
-    if (this.props.vertical) {
-      return {
-        'transform': `translateY(${translateValue}%)`
-      }
-    }
-
     return {
       'transform': `translateX(${translateValue}%)`
     }
@@ -66,9 +60,8 @@ class PanelSlider extends React.Component {
   }
 
   render() {
-    const verticalClass = this.props.vertical ? style['vertical'] : null
     const panelSliderClasses = optclass(style, 'panel-slider', this.props.optClass)
-    const panelWrapClasses = optclass(style, 'panel-wrap', verticalClass)
+    const panelWrapClasses = optclass(style, 'panel-wrap')
 
     const panels = this.getPanels().map((panel, index) => {
       return React.cloneElement(panel, {
