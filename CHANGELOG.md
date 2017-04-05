@@ -1,36 +1,36 @@
 ## HEAD
 
-##1.0.15
+## 1.0.15
 ###### _April 5, 2017_
 
 - Build out panelslider component ([#371](https://github.com/GetAmbassador/react-ions/pull/371))
 
-##1.0.14
+## 1.0.14
 ###### _April 4, 2017_
 
 - Re-release of 1.0.14
 
-##1.0.13
+## 1.0.13
 ###### _April 4, 2017_
 
 - Fix for word break on tooltips ([#368](https://github.com/GetAmbassador/react-ions/pull/368))
 
-##1.0.12
+## 1.0.12
 ###### _March 29, 2017_
 
 - Increased the size of the power-4 icon ([#364](https://github.com/GetAmbassador/react-ions/pull/364))
 
-##1.0.11
+## 1.0.11
 ###### _March 28, 2017_
 
 - Fix for Button Confirmation layout ([#361](https://github.com/GetAmbassador/react-ions/pull/361))
 
-##1.0.10
+## 1.0.10
 ###### _March 19, 2017_
 
 - Re-releasing to update icon set
 
-##1.0.9
+## 1.0.9
 ###### _March 17, 2017_
 
 - Create Button Confirmation component and add in examples to docs ([#357](https://github.com/GetAmbassador/react-ions/pull/357))
@@ -39,25 +39,25 @@
 
 - Create new attribute for checkbox to lock it ([#354](https://github.com/GetAmbassador/react-ions/pull/354))
 
-##1.0.8
+## 1.0.8
 ###### _March 8, 2017_
 
 - Refactor breadcrumbs component to use breakpoints for mobile  ([#352](https://github.com/GetAmbassador/react-ions/pull/352))
 
 - Add "locked" checkbox option ([#351](https://github.com/GetAmbassador/react-ions/pull/351))
 
-##1.0.7
+## 1.0.7
 ###### _February 21, 2017_
 
 - Add a new download icon ([#348](https://github.com/GetAmbassador/react-ions/pull/348))
 
-##1.0.6
+## 1.0.6
 ###### _February 9, 2017_
 
 - Updates to autoprefixer and postcss-loader to handle build failure ([#345](https://github.com/GetAmbassador/react-ions/pull/345))
 - Add coupon/voucher icon ([#344](https://github.com/GetAmbassador/react-ions/pull/344))
 
-##1.0.5
+## 1.0.5
 ###### _January 31, 2017_
 
 - Add screen variable for xlarge screens ([#341](https://github.com/GetAmbassador/react-ions/pull/341))
