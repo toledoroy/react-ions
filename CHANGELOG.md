@@ -1,5 +1,10 @@
 ## HEAD
 
+## 1.0.16
+###### _April 6, 2017_
+
+- Removing white-space property from panel slider ([#374](https://github.com/GetAmbassador/react-ions/pull/374))
+
 ## 1.0.15
 ###### _April 5, 2017_
 
