@@ -311,7 +311,14 @@
 
   .panel {
     display: inline-block;
+    max-height: 100px;
     flex: 1 0 auto;
+    transition: max-height .5s ease;
     width: 100%;
+
+    &.panel-active {
+      max-height: 1000px;
+      overflow: auto;
+    }
   }
 }

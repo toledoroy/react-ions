@@ -29,10 +29,23 @@ class PanelSlider extends React.Component {
     activePanel: 0
   }
 
+  state = {
+    panels: []
+  }
+
+  componentWillMount = () => {
+    this.activatePanel(this.props.activePanel)
+  }
+
   shouldComponentUpdate = (nextProps, nextState) => {
     if (nextProps.activePanel !== this.props.activePanel) return true
+    if (nextState.panels.length !== this.state.panels.length) return true
 
     return false
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    this.activatePanel(nextProps.activePanel)
   }
 
   getStyle = (index) => {
@@ -59,6 +72,21 @@ class PanelSlider extends React.Component {
     return panels
   }
 
+  activatePanel = (activePanel) => {
+    var panels = this.getPanels()
+    var initialPanels = []
+
+    panels.forEach((panel, index) => {
+      if (activePanel === index) {
+        initialPanels = [...initialPanels, {active: true}]
+      } else {
+        initialPanels = [...initialPanels, {active: false}]
+      }
+    })
+
+    this.setState({panels: initialPanels})
+  }
+
   render() {
     const panelSliderClasses = optclass(style, 'panel-slider', this.props.optClass)
     const panelWrapClasses = optclass(style, 'panel-wrap')
@@ -66,7 +94,8 @@ class PanelSlider extends React.Component {
     const panels = this.getPanels().map((panel, index) => {
       return React.cloneElement(panel, {
         key: index,
-        panelIndex: index
+        panelIndex: index,
+        active: this.state.panels[index].active
       })
     })
 

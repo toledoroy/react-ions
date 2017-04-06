@@ -9,7 +9,7 @@ class ExamplePanelSlider extends React.Component {
   }
 
   state = {
-    activePanel: null
+    activePanel: 0
   }
 
   setActivePanel = (index, event) => {
@@ -35,13 +35,15 @@ class ExamplePanelSlider extends React.Component {
           <Panel>
             <PanelContent optClass={style['custom-panel-slider']}>
               <h1>2</h1>
-              <p>Pork sausage cupim beef.</p>
+              <p>Bacon ipsum dolor amet corned beef short loin cupim short ribs. Jerky ground round drumstick sirloin burgdoggen chicken leberkas cupim, t-bone doner meatball short loin pork loin. Kielbasa chuck drumstick boudin kevin shank bresaola swine ham hock cow jerky pancetta capicola frankfurter. Bacon spare ribs shoulder ball tip picanha ham beef t-bone ribeye landjaeger cupim venison jerky pork.</p>
             </PanelContent>
           </Panel>
           <Panel>
             <PanelContent optClass={style['custom-panel-slider']}>
               <h1>3</h1>
-              <p> Flank meatball andouille prosciutto spare ribs.</p>
+              <p>Flank beef ribs ribeye andouille, sirloin pork belly salami swine. Porchetta beef short loin shank shankle jowl filet mignon turkey frankfurter meatloaf drumstick. Rump alcatra t-bone strip steak, meatball picanha cupim cow short ribs shoulder chicken ham hock turducken ribeye. Venison rump meatball shankle chuck corned beef ground round pig. Pig pork chop tenderloin ground round picanha. Flank brisket swine biltong shoulder shankle ribeye turkey fatback filet mignon kielbasa</p>
+              <p>pancetta rump. Brisket beef venison, andouille beef ribs jowl cupim picanha.</p>
+              <p>Burgdoggen ball tip frankfurter ribeye alcatra tail boudin chuck corned beef bresaola tongue venison fatback cow shoulder. Meatloaf burgdoggen pig pork loin drumstick. Jowl meatball pork loin, biltong short ribs andouille ham hock pastrami ball tip. Rump beef ribs flank biltong t-bone tail cupim salami pancetta meatloaf bresaola hamburger pastrami.</p>
             </PanelContent>
           </Panel>
         </PanelSlider>
