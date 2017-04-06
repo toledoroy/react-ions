@@ -302,7 +302,7 @@
     padding: 0;
     position: relative;
     transition: transform .5s cubic-bezier(.75, 0, .1, 1);
-    white-space: nowrap;
+    white-space: normal;
 
     &.vertical {
       flex-direction: column;
