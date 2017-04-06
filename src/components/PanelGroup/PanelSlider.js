@@ -13,10 +13,6 @@ class PanelSlider extends React.Component {
      */
     activePanel: React.PropTypes.number,
     /**
-     * Whether to slide the items vertically (default is horizontal)
-     */
-    vertical: React.PropTypes.bool,
-    /**
      * Optional CSS class(es) to be used for local styles (string or array of strings)
      */
     optClass: React.PropTypes.oneOfType([
