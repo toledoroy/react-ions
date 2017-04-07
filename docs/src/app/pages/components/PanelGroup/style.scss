@@ -1,3 +1,5 @@
+@import '~react-ions/styles/common/screen.scss';
+
 .paragraph {
   margin: 0;
 }
@@ -5,10 +7,15 @@
 .custom-panel-slider {
   align-items: center;
   display: flex;
-  height: 300px;
   flex-direction: column;
+  min-height: 300px;
+  padding: 0 5rem;
   justify-content: center;
   white-space: normal;
+
+  @media #{$media-small-minus} {
+    padding: 0 1rem;    
+  }
 }
 
 [class^='custom-panel-slider-demo-slide'] {
