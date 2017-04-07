@@ -72,7 +72,7 @@ describe('Breadcrumb', () => {
 
   it('should return a gradient style', () => {
     wrapper = shallow(<Breadcrumb routes={routes} gradientColor='red' />)
-    expect(wrapper.instance().getGradientStyles()).to.deep.equal({background: 'linear-gradient(90deg, transparent, red)'})
+    expect(wrapper.instance().getGradientStyles()).to.deep.equal({background: 'linear-gradient(90deg, rgba(255, 255, 255, 000.1), red)'})
   })
 
   it('should return a container style', () => {
