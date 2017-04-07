@@ -73,11 +73,8 @@ class PanelSlider extends React.Component {
     var initialPanels = []
 
     panels.forEach((panel, index) => {
-      if (activePanel === index) {
-        initialPanels = [...initialPanels, {active: true}]
-      } else {
-        initialPanels = [...initialPanels, {active: false}]
-      }
+      const active = activePanel === index
+      initialPanels = [...initialPanels, { active }]
     })
 
     this.setState({panels: initialPanels})
