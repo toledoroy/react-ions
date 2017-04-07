@@ -24,15 +24,9 @@
   .modal-scroll-container {
     align-items: center;
     display: flex;
-    height: 100%;
-    margin: 0 auto;
-    max-height: 70%;
+    margin: 80px auto 30px;
     justify-content: center;
     width: 100%;
-
-    @media #{$media-small-minus} {
-      max-height: 100%;
-    }
   }
 
   .modal-content {
