@@ -8,13 +8,18 @@
   min-width: 0; // https://css-tricks.com/flexbox-truncated-text/
 
   .overflow-gradient {
-    height: 50px;
+    display: none;
+    height: 100%;
     position: absolute;
     pointer-events: none;
     right: 0;
     top: 0;
     width: 24px;
     z-index: 2;
+
+    @media #{$media-small-minus} {
+      display: block;
+    }
   }
 }
 
@@ -62,6 +67,15 @@
   }
 
   em {
+    align-items: center;
     display: flex;
+
+    &:last-child {
+      padding-right: 8px;
+
+      @media #{$media-small-minus} {
+        padding-right: 24px;
+      }
+    }
   }
 }

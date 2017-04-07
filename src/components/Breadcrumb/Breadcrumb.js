@@ -45,7 +45,7 @@ class Breadcrumb extends React.Component {
     let backgroundColor = this.props.gradientColor || '#fff'
 
     let styles = {
-      background: `linear-gradient(90deg, transparent, ${backgroundColor})`
+      background: `linear-gradient(90deg, rgba(255, 255, 255, 000.1), ${backgroundColor})`
     }
 
     return InlineStylePrefixer(styles)
