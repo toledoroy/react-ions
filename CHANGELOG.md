@@ -1,5 +1,14 @@
 ## HEAD
 
+## 1.0.17
+###### _April 7, 2017_
+
+- Visual tweaks to the modal ([#378](https://github.com/GetAmbassador/react-ions/pull/378))
+
+- Minor fixes to breadcrumb UI ([#377](https://github.com/GetAmbassador/react-ions/pull/377))
+
+- PanelSlider - Logic and CSS to handle varying heights ([#376](https://github.com/GetAmbassador/react-ions/pull/376))
+
 ## 1.0.16
 ###### _April 6, 2017_
 
