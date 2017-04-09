@@ -1,5 +1,10 @@
 ## HEAD
 
+## 1.0.18
+###### _April 8, 2017_
+
+- PanelSlider - Fix for detecting whether Panel is rendering a Slider or a Group ([#380](https://github.com/GetAmbassador/react-ions/pull/380))
+
 ## 1.0.17
 ###### _April 7, 2017_
 
