@@ -22,7 +22,8 @@ class PanelSlider extends React.Component {
   }
 
   static defaultProps = {
-    activePanel: 0
+    activePanel: 0,
+    name: 'PanelSlider'
   }
 
   state = {
@@ -88,7 +89,8 @@ class PanelSlider extends React.Component {
       return React.cloneElement(panel, {
         key: index,
         panelIndex: index,
-        active: this.state.panels[index].active
+        active: this.state.panels[index].active,
+        name: this.props.name
       })
     })
 

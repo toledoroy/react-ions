@@ -22,14 +22,12 @@ class Panel extends React.Component {
   }
 
   getHeader = () => {
-    if (this.props.children[0] && this.props.children[0].type.displayName === 'PanelHeader') {
+    if (this.props.name === 'PanelGroup') {
       return React.cloneElement(this.props.children[0], {
         active: this.props.active,
         onPanelClick: this.handlePanelClick
       })
     }
-
-    return null
   }
 
   handlePanelClick = () => {

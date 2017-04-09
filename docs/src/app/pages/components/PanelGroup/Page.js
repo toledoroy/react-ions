@@ -1,10 +1,9 @@
 import React from 'react'
-import PropsList from 'private/modules/PropsList';
-import panelGroupDocs from '!!docgen!react-ions/lib/PanelGroup/PanelGroup';
-import panelDocs from '!!docgen!react-ions/lib/PanelGroup/Panel';
-import panelHeaderDocs from '!!docgen!react-ions/lib/PanelGroup/PanelHeader';
-import panelContentDocs from '!!docgen!react-ions/lib/PanelGroup/PanelContent';
-import panelSliderDocs from '!!docgen!react-ions/lib/PanelGroup/PanelSlider';
+import PropsList from 'private/modules/PropsList'
+import panelGroupDocs from '!!docgen!react-ions/lib/PanelGroup/PanelGroup'
+import panelDocs from '!!docgen!react-ions/lib/PanelGroup/Panel'
+import panelHeaderDocs from '!!docgen!react-ions/lib/PanelGroup/PanelHeader'
+import panelContentDocs from '!!docgen!react-ions/lib/PanelGroup/PanelContent'
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExamplePanelGroup from './ExamplePanelGroup'
@@ -27,7 +26,7 @@ const description = {
   panelGroupSimple: 'This is the `panel group component` with simple styles.',
   panelGroupNested: 'This is a `panel group component` within another component.',
   panelSlider: 'This is a `panel slider component`.'
-};
+}
 
 const PanelGroupPage = () => (
   <div>
@@ -70,7 +69,7 @@ const PanelGroupPage = () => (
           <ExamplePanelSlider />
         </CodeExample>
       </div>
-      <div className={styles.block}>
+      {/*<div className={styles.block}>
         <h3>Panel Group Props</h3>
         <PropsList list={panelGroupDocs[0].props} />
       </div>
@@ -89,7 +88,7 @@ const PanelGroupPage = () => (
       <div className={styles.block}>
         <h3>Panel Content Props</h3>
         <PropsList list={panelContentDocs[0].props} />
-      </div>
+      </div>*/}
     </div>
   </div>
 )

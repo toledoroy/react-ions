@@ -32,7 +32,8 @@ class PanelGroup extends React.Component {
   }
 
   static defaultProps = {
-    activePanels: []
+    activePanels: [],
+    name: 'PanelGroup'
   }
 
   state = {
@@ -126,7 +127,8 @@ class PanelGroup extends React.Component {
         key: index,
         panelIndex: index,
         active: this.state.panels[index].active,
-        onPanelClick: this.handlePanelClick
+        onPanelClick: this.handlePanelClick,
+        name: this.props.name
       })
     })
 
