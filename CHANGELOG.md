@@ -1,5 +1,10 @@
 ## HEAD
 
+## 1.0.19
+###### _April 10, 2017_
+
+- PanelGroup - Added a couple of tests to detect PanelHeader condition ([#382](https://github.com/GetAmbassador/react-ions/pull/382))
+
 ## 1.0.18
 ###### _April 8, 2017_
 
