@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import {PanelSlider, Panel, PanelContent} from '../src/components/PanelGroup'
+import {PanelSlider, PanelHeader, Panel, PanelContent} from '../src/components/PanelGroup'
 
 describe('PanelSlider', () => {
   let panelSlider, panel
@@ -53,5 +53,11 @@ describe('PanelSlider', () => {
     panelSlider.instance().activatePanel(1)
 
     expect(panelSlider.state().panels).to.deep.equal([{active: false},{active: true}])
+  })
+
+  it('should not return a PanelHeader', () => {
+    panelSlider = shallow(<PanelSlider activePanels={[0]}><Panel><PanelContent>Test Content</PanelContent></Panel></PanelSlider>)
+
+    expect(panelSlider.find(PanelHeader)).to.be.length(0)
   })
 })
