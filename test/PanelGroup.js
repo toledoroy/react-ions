@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import {PanelGroup, Panel, PanelHeader, PanelContent} from '../src/components/PanelGroup'
+import { PanelGroup, Panel, PanelHeader, PanelContent } from '../src/components/PanelGroup'
 
 describe('PanelGroup', () => {
   let panelGroup, panel
@@ -45,5 +45,10 @@ describe('PanelGroup', () => {
 
     expect(onPanelToggleStub.calledOnce).to.be.true
     expect(onPanelToggleStub.calledWithExactly([])).to.be.true
+  })
+
+  it('should return a PanelHeader', () => {
+    panelGroup = shallow(<PanelGroup activePanels={[0]}><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>)
+    expect(panelGroup.find(PanelHeader)).to.be.length(1)
   })
 })
