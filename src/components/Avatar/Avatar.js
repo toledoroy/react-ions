@@ -15,7 +15,7 @@ class Avatar extends React.Component {
     /**
      * The source of the image to load.
      */
-    src: React.PropTypes.string.isRequired,
+    src: React.PropTypes.string,
     /**
      * Optional alt text for the image
      */
@@ -32,9 +32,7 @@ class Avatar extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.src !== this.props.src) {
-      this.setState({
-        loaded: false
-      })
+      this.setState({ loaded: false })
     }
   }
 
@@ -54,9 +52,7 @@ class Avatar extends React.Component {
   }
 
   handleLoad = () => {
-    this.setState({
-      loaded: true
-    })
+    this.setState({ loaded: true })
   }
 
   loadAvatar = () => {
