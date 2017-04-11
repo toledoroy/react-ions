@@ -13,7 +13,7 @@ const data = [
     src: 'https://resize.rbl.ms/simage/https%3A%2F%2Fassets.rbl.ms%2F4150006%2F980x.jpg/2000,2000/HIJ%2BU21b7lvSVeoP/img.jpg',
     alt: 'Maru',
     size: '100'
-  }
+  } 
 ]
 
 class ExampleAvatar extends React.Component {
