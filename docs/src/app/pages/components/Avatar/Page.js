@@ -9,7 +9,8 @@ import FallbackAvatar from './FallbackAvatar'
 import fallbackAvatarCode from '!raw!./FallbackAvatar'
 
 const description = {
-  avatar: 'This is the `avatar component`.'
+  avatar: 'This is the `avatar component`.',
+  fallbackAvatar: 'This is the `avatar component` with fallback letters and color'
 };
 
 const AvatarPage = () => (
@@ -23,8 +24,8 @@ const AvatarPage = () => (
           <ExampleAvatar />
         </CodeExample>
         <CodeExample
-          title='Avatar with fallback letters/color'
-          description={description.avatar}
+          title='Fallback Avatar'
+          description={description.fallbackAvatar}
           markup={fallbackAvatarCode}>
           <FallbackAvatar />
         </CodeExample>

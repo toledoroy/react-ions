@@ -9,7 +9,7 @@ class ExampleAvatar extends React.Component {
 
   render() {
     return(
-      <Avatar />
+      <Avatar letters='cf' size='200' letterBackgroundColor='#ff0000' letterTextColor='#fff' />
     )
   }
 }

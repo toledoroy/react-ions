@@ -8,14 +8,28 @@ class Avatar extends React.Component {
   }
 
   state = {
-    loaded: false
+    // If image src was passed in, it is not yet loaded
+    // Else, if letters were passed in, set loaded to true
+    loaded: this.props.src ? false : true
   }
 
   static propTypes = {
     /**
-     * The source of the image to load.
+     * Optional source of the image to load.
      */
     src: React.PropTypes.string,
+    /**
+     * Optional letters to display in lieu of an image.
+     */
+    letters: React.PropTypes.string,
+    /**
+     * Optional background for the letters.
+     */
+    letterBackgroundColor: React.PropTypes.string,
+    /**
+     * Optional text color for the letters.
+     */
+    letterTextColor: React.PropTypes.string,
     /**
      * Optional alt text for the image
      */
@@ -44,10 +58,18 @@ class Avatar extends React.Component {
     )
   }
 
-  inlineStyle = () => {
+  getWrapperStyle = () => {
     return {
+      backgroundColor: this.props.letterBackgroundColor,
       width: this.props.size + 'px',
       height: this.props.size + 'px'
+    }
+  }
+
+  getTextStyle = () => {
+    return {
+      fontSize: (+this.props.size)*.6 + 'px',
+      color: this.props.letterTextColor
     }
   }
 
@@ -56,7 +78,16 @@ class Avatar extends React.Component {
   }
 
   loadAvatar = () => {
-    return <img src={this.props.src} onLoad={this.handleLoad} alt={this.props.alt} height={this.props.size} />
+    if (this.props.src) {
+      return <img src={this.props.src} onLoad={this.handleLoad} alt={this.props.alt} height={this.props.size} />
+    }
+    else if (this.props.letters) {
+      return (
+        <div style={this.getWrapperStyle()}>
+          <span style={this.getTextStyle()}>{this.props.letters.toUpperCase()}</span>
+        </div>
+      )
+    }
   }
 
   render() {
@@ -64,7 +95,7 @@ class Avatar extends React.Component {
     const avatarClasses = cx(style['avatar-wrapper'], (this.state.loaded ? 'loaded' : null), this.props.optClass)
 
     return (
-      <div className={avatarClasses} style={this.props.size ? this.inlineStyle() : null}>
+      <div className={avatarClasses} style={this.props.size ? this.getWrapperStyle() : null}>
         {this.loadAvatar()}
       </div>
     )

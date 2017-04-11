@@ -1,3 +1,5 @@
+@import '../../styles/common/colors';
+
 .avatar-wrapper {
   opacity: 0;
   overflow: hidden;
@@ -6,5 +8,17 @@
 
   &.loaded {
     opacity: 1;
+  }
+
+  > div {
+    background-color: $primary-1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+
+    span {
+      color: $white;
+    }
   }
 }
