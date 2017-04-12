@@ -27,10 +27,6 @@ class Avatar extends React.Component {
      */
     letterBackgroundColor: React.PropTypes.string,
     /**
-     * Optional text color for the letters.
-     */
-    letterTextColor: React.PropTypes.string,
-    /**
      * Optional alt text for the image
      */
     alt: React.PropTypes.string,
@@ -68,8 +64,7 @@ class Avatar extends React.Component {
 
   getTextStyle = () => {
     return {
-      fontSize: (+this.props.size)*.6 + 'px',
-      color: this.props.letterTextColor
+      fontSize: (+this.props.size)*.6 + 'px'
     }
   }
 
