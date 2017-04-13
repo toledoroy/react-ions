@@ -11,7 +11,6 @@
   }
 
   > div {
-    background-color: $success;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,6 +18,7 @@
 
     span {
       color: $white;
+      text-transform: uppercase;
     }
   }
 }

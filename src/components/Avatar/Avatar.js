@@ -56,9 +56,53 @@ class Avatar extends React.Component {
 
   getWrapperStyle = () => {
     return {
-      backgroundColor: this.props.letterBackgroundColor,
+      backgroundColor: this.props.letterBackgroundColor || this.getBackgroundColor(),
       width: this.props.size + 'px',
       height: this.props.size + 'px'
+    }
+  }
+
+  getBackgroundColor = () => {
+    //if no letters passed in, use the default color in the stylesheet
+    if (!this.props.letters) return
+
+    switch (this.props.letters.charAt(0)) {
+      case 'a':
+      case 'k':
+      case 'u':
+        return '#F93943'
+      case 'b':
+      case 'l':
+      case 'v':
+        return '#796DE8'
+      case 'c':
+      case 'm':
+      case 'w':
+        return '#6E3FAF'
+      case 'd':
+      case 'n':
+      case 'x':
+        return '#28D397'
+      case 'e':
+      case 'o':
+      case 'y':
+        return '#ED7C5A'
+      case 'f':
+      case 'p':
+      case 'z':
+        return '#F93983'
+      case 'g':
+      case 'q':
+        return '#F9B339'
+      case 'h':
+      case 'r':
+        return '#6BE2F9'
+      case 'i':
+      case 's':
+        return '#AAE667'
+      case 'j':
+      case 't':
+        return '#ED7BE9'
     }
   }
 
@@ -79,7 +123,7 @@ class Avatar extends React.Component {
     else if (this.props.letters) {
       return (
         <div style={this.getWrapperStyle()}>
-          <span style={this.getTextStyle()}>{this.props.letters.toUpperCase()}</span>
+          <span style={this.getTextStyle()}>{this.props.letters.length <= 2 ? this.props.letters : this.props.letters.substr(0, 2)}</span>
         </div>
       )
     }

@@ -19,18 +19,17 @@ class ExampleAvatar extends React.Component {
     for (let i=0; i<2; i++)
       letters += possible.charAt(Math.floor(Math.random()*possible.length))
 
-    const size = (Math.floor(Math.random()*200)+100).toString()
-    const letterBackgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16)
+    const size = (Math.floor(Math.random()*200)+30).toString()
 
-    this.setState({ letters, size, letterBackgroundColor })
+    this.setState({ letters, size })
   }
 
   render = () => {
     return(
       <div>
-        <Avatar letters={this.state.letters} size={this.state.size} letterBackgroundColor={this.state.letterBackgroundColor} />
+        <Avatar letters={this.state.letters} size={this.state.size} />
         <div className={style['avatar-controls']}>
-          <Button onClick={this.randomize}>Random letters/size/color</Button>
+          <Button onClick={this.randomize}>Random letters/size</Button>
         </div>
       </div>
     )
