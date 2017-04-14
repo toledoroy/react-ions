@@ -1,10 +1,15 @@
 ## HEAD
 
+## 1.0.21
+###### _April 14, 2017_
+
+- Added new icon: icon-calendar-alert ([#388](https://github.com/GetAmbassador/react-ions/pull/388))
+- Added fallback avatar ([#384](https://github.com/GetAmbassador/react-ions/pull/384))
+
 ## 1.0.20
 ###### _April 14, 2017_
 
 - Added new icon: icon-hourglass-1 ([#386](https://github.com/GetAmbassador/react-ions/pull/386))
-
 
 ## 1.0.19
 ###### _April 10, 2017_
