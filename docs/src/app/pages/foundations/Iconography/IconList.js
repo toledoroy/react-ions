@@ -226,7 +226,8 @@ const iconList = [
   "icon-webhooks",
   "icon-wrench",
   "icon-window-edit",
-  "icon-hourglass-1"
+  "icon-hourglass-1",
+  "icon-calendar-alert"
 ];
 
 export default iconList;
