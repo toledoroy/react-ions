@@ -1,5 +1,11 @@
 ## HEAD
 
+## 1.0.20
+###### _April 14, 2017_
+
+- Added new icon: icon-hourglass-1 ([#386](https://github.com/GetAmbassador/react-ions/pull/386))
+
+
 ## 1.0.19
 ###### _April 10, 2017_
 
