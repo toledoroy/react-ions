@@ -5,9 +5,12 @@ import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleAvatar from './ExampleAvatar'
 import exampleAvatarCode from '!raw!./ExampleAvatar'
+import FallbackAvatar from './FallbackAvatar'
+import fallbackAvatarCode from '!raw!./FallbackAvatar'
 
 const description = {
-  avatar: 'This is the `avatar component`.'
+  avatar: 'This is the `avatar component`.',
+  fallbackAvatar: 'This is the `avatar component` with fallback letters and color'
 };
 
 const AvatarPage = () => (
@@ -19,6 +22,12 @@ const AvatarPage = () => (
           description={description.avatar}
           markup={exampleAvatarCode}>
           <ExampleAvatar />
+        </CodeExample>
+        <CodeExample
+          title='Fallback Avatar'
+          description={description.fallbackAvatar}
+          markup={fallbackAvatarCode}>
+          <FallbackAvatar />
         </CodeExample>
       </div>
       <div className={styles.block}>

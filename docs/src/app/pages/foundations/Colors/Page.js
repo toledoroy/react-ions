@@ -9,17 +9,17 @@ const ColorsPage = () => {
     <div key={index} className={localStyles['color-wrapper']}>
       <Color hex={color.hex} sass={color.sass} />
     </div>
-  );
+  )
   let primaryColorList = list.primaryColors.map((color, index) =>
     <div key={index} className={localStyles['color-wrapper']}>
       <Color hex={color.hex} sass={color.sass} />
     </div>
-  );
+  )
   let secondaryColorList = list.secondaryColors.map((color, index) =>
     <div key={index} className={localStyles['color-wrapper']}>
       <Color hex={color.hex} sass={color.sass} />
     </div>
-  );
+  )
 
   return (
     <div>
