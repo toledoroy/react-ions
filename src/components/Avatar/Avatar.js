@@ -63,7 +63,7 @@ class Avatar extends React.Component {
   }
 
   getBackgroundColor = () => {
-    //if no letters passed in, use the default color in the stylesheet
+    // If no letters passed in, use the default color in the stylesheet
     if (!this.props.letters) return
 
     switch (this.props.letters.charAt(0)) {
