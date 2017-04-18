@@ -101,6 +101,36 @@ describe('Avatar', () => {
     expect(style.fontSize).to.equal('60px')
   })
 
+ it('should only update under certain circumstances', () => {
+    wrapper = shallow(<Avatar size='100' src='test' letters='aa' />)
+
+    inst = wrapper.instance()
+    let nextProps = {
+      size: '100',
+      src: 'test',
+      letters: 'aa'
+    }
+    let nextState = {
+      loaded: false
+    }
+
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.false
+    nextProps.size = '90'
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
+    nextProps.size = '100'
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.false
+    nextProps.letters = 'ab'
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
+    nextProps.letters = 'aa'
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.false
+    nextProps.src = 'test2'
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
+    nextProps.src = 'test'
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.false
+    nextState.loaded = true
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
+ })
+
  it('should return a proper background color based on the first character of the letter', () => {
     wrapper = shallow(<Avatar letters='ab' />)
 

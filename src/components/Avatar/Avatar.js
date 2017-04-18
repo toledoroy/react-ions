@@ -48,6 +48,7 @@ class Avatar extends React.Component {
 
   shouldComponentUpdate = (nextProps, nextState) => {
     return (
+      nextProps.letters !== this.props.letters ||
       nextProps.src !== this.props.src ||
       nextProps.size !== this.props.size ||
       nextState.loaded !== this.state.loaded

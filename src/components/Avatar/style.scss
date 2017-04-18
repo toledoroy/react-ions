@@ -11,14 +11,16 @@
   }
 
   > div {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
     user-select: none;
 
     span {
       color: $white;
+      position: relative;
       text-transform: uppercase;
+      top: 2%;
     }
   }
 }
