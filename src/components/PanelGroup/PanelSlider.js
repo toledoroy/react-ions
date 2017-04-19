@@ -34,12 +34,9 @@ class PanelSlider extends React.Component {
     this.activatePanel(this.props.activePanel)
   }
 
-  shouldComponentUpdate = (nextProps, nextState) => {
-    if (nextProps.activePanel !== this.props.activePanel) return true
-    if (nextState.panels.length !== this.state.panels.length) return true
-
-    return false
-  }
+  // No sCU on this component because
+  // nested child components need to be
+  // able to update as needed
 
   componentWillReceiveProps = (nextProps) => {
     this.activatePanel(nextProps.activePanel)
