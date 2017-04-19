@@ -1,5 +1,10 @@
 ## HEAD
 
+## 1.0.22
+###### _April 19, 2017_
+
+- PanelSlider: removing sCU ([#391](https://github.com/GetAmbassador/react-ions/pull/391))
+
 ## 1.0.21
 ###### _April 14, 2017_
 
