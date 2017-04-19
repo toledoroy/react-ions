@@ -24,23 +24,6 @@ describe('PanelSlider', () => {
     expect(panel.props().panelIndex).to.equal(0)
   })
 
-  it('should not render if specified props and state do not change', () => {
-    let nextProps = {
-      activePanel: 1
-    }
-    let nextState = {
-      panels: [
-        {active: false}, {active: true}
-      ]
-    }
-
-    panelSlider = shallow(<PanelSlider activePanel={0}><Panel><PanelContent>Test Content</PanelContent></Panel><Panel><PanelContent>Test Content</PanelContent></Panel></PanelSlider>)
-    expect(panelSlider.instance().shouldComponentUpdate(nextProps, nextState)).to.be.true
-
-    panelSlider = shallow(<PanelSlider activePanel={1}><Panel><PanelContent>Test Content</PanelContent></Panel><Panel><PanelContent>Test Content</PanelContent></Panel></PanelSlider>)
-    expect(panelSlider.instance().shouldComponentUpdate(nextProps, nextState)).to.be.false
-  })
-
   it('should return a transform value', () => {
     panelSlider = shallow(<PanelSlider activePanel={0}><Panel><PanelContent>Test Content</PanelContent></Panel><Panel><PanelContent>Test Content</PanelContent></Panel></PanelSlider>)
     expect(panelSlider.instance().getStyle(1)).to.deep.equal({
