@@ -137,6 +137,10 @@ describe('Avatar', () => {
     inst = wrapper.instance()
     expect(inst.getBackgroundColor()).to.equal('#F93943')
 
+    wrapper.setProps({ letters: undefined })
+    wrapper.update()
+    expect(inst.getBackgroundColor()).to.equal('#F93943')
+
     wrapper.setProps({ letters: 'k' })
     wrapper.update()
     expect(inst.getBackgroundColor()).to.equal('#F93943')
