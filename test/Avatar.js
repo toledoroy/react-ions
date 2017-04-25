@@ -132,113 +132,80 @@ describe('Avatar', () => {
  })
 
  it('should return a proper background color based on the first character of the letter', () => {
+    const colorCases = [
+        {character: undefined, color: '#F93943'},
+        {character: 'k', color: '#F93943'},
+        {character: 'u', color: '#F93943'},
+        {character: 'b', color: '#796DE8'},
+        {character: 'l', color: '#796DE8'},
+        {character: 'v', color: '#796DE8'},
+        {character: 'c', color: '#6E3FAF'},
+        {character: 'm', color: '#6E3FAF'},
+        {character: 'w', color: '#6E3FAF'},
+        {character: 'd', color: '#28D397'},
+        {character: 'n', color: '#28D397'},
+        {character: 'x', color: '#28D397'},
+        {character: 'e', color: '#ED7C5A'},
+        {character: 'o', color: '#ED7C5A'},
+        {character: 'y', color: '#ED7C5A'},
+        {character: 'f', color: '#F93983'},
+        {character: 'p', color: '#F93983'},
+        {character: 'z', color: '#F93983'},
+        {character: 'g', color: '#F9B339'},
+        {character: 'q', color: '#F9B339'},
+        {character: 'h', color: '#6BE2F9'},
+        {character: 'r', color: '#6BE2F9'},
+        {character: 'i', color: '#AAE667'},
+        {character: 's', color: '#AAE667'},
+        {character: 'j', color: '#ED7BE9'},
+        {character: 't', color: '#ED7BE9'},
+        {character: 'K', color: '#F93943'},
+        {character: 'U', color: '#F93943'},
+        {character: 'B', color: '#796DE8'},
+        {character: 'L', color: '#796DE8'},
+        {character: 'V', color: '#796DE8'},
+        {character: 'C', color: '#6E3FAF'},
+        {character: 'M', color: '#6E3FAF'},
+        {character: 'W', color: '#6E3FAF'},
+        {character: 'D', color: '#28D397'},
+        {character: 'N', color: '#28D397'},
+        {character: 'X', color: '#28D397'},
+        {character: 'E', color: '#ED7C5A'},
+        {character: 'O', color: '#ED7C5A'},
+        {character: 'Y', color: '#ED7C5A'},
+        {character: 'F', color: '#F93983'},
+        {character: 'P', color: '#F93983'},
+        {character: 'Z', color: '#F93983'},
+        {character: 'G', color: '#F9B339'},
+        {character: 'Q', color: '#F9B339'},
+        {character: 'H', color: '#6BE2F9'},
+        {character: 'R', color: '#6BE2F9'},
+        {character: 'I', color: '#AAE667'},
+        {character: 'S', color: '#AAE667'},
+        {character: 'J', color: '#ED7BE9'},
+        {character: 'T', color: '#ED7BE9'},
+        {character: '0', color: '#F93943'},
+        {character: '1', color: '#F93943'},
+        {character: '2', color: '#F93943'},
+        {character: '3', color: '#F93943'},
+        {character: '4', color: '#F93943'},
+        {character: '5', color: '#F93943'},
+        {character: '6', color: '#F93943'},
+        {character: '7', color: '#F93943'},
+        {character: '8', color: '#F93943'},
+        {character: '9', color: '#F93943'}
+    ]
+
     wrapper = shallow(<Avatar letters='ab' />)
 
     inst = wrapper.instance()
     expect(inst.getBackgroundColor()).to.equal('#F93943')
 
-    wrapper.setProps({ letters: undefined })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#F93943')
+    for (let i = colorCases.length - 1; i >= 0; i--) {
+        wrapper.setProps({ letters: colorCases[i].character})
+        wrapper.update()
+        expect(inst.getBackgroundColor()).to.equal(colorCases[i].color)
+    }
 
-    wrapper.setProps({ letters: 'k' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#F93943')
-
-    wrapper.setProps({ letters: 'u' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#F93943')
-
-    wrapper.setProps({ letters: 'b' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#796DE8')
-
-    wrapper.setProps({ letters: 'l' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#796DE8')
-
-    wrapper.setProps({ letters: 'v' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#796DE8')
-
-    wrapper.setProps({ letters: 'c' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#6E3FAF')
-
-    wrapper.setProps({ letters: 'm' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#6E3FAF')
-
-    wrapper.setProps({ letters: 'w' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#6E3FAF')
-
-    wrapper.setProps({ letters: 'd' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#28D397')
-
-    wrapper.setProps({ letters: 'n' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#28D397')
-
-    wrapper.setProps({ letters: 'x' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#28D397')
-
-    wrapper.setProps({ letters: 'e' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#ED7C5A')
-
-    wrapper.setProps({ letters: 'o' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#ED7C5A')
-
-    wrapper.setProps({ letters: 'y' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#ED7C5A')
-
-    wrapper.setProps({ letters: 'f' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#F93983')
-
-    wrapper.setProps({ letters: 'p' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#F93983')
-
-    wrapper.setProps({ letters: 'z' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#F93983')
-
-    wrapper.setProps({ letters: 'g' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#F9B339')
-
-    wrapper.setProps({ letters: 'q' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#F9B339')
-
-    wrapper.setProps({ letters: 'h' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#6BE2F9')
-
-    wrapper.setProps({ letters: 'r' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#6BE2F9')
-
-    wrapper.setProps({ letters: 'i' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#AAE667')
-
-    wrapper.setProps({ letters: 's' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#AAE667')
-
-    wrapper.setProps({ letters: 'j' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#ED7BE9')
-
-    wrapper.setProps({ letters: 't' })
-    wrapper.update()
-    expect(inst.getBackgroundColor()).to.equal('#ED7BE9')
  })
 })
