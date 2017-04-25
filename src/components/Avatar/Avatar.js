@@ -67,7 +67,7 @@ class Avatar extends React.Component {
     // If no letters passed in, return a default color
     if (!this.props.letters) return '#F93943'
 
-    switch (this.props.letters.charAt(0)) {
+    switch (this.props.letters.charAt(0).toLowerCase()) {
       case 'a':
       case 'k':
       case 'u':
@@ -104,6 +104,8 @@ class Avatar extends React.Component {
       case 'j':
       case 't':
         return '#ED7BE9'
+      default:
+        return '#F93943'
     }
   }
 
