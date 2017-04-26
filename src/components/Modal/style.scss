@@ -107,10 +107,5 @@
         max-width: 100%;
       }
     }
-
-    @media (orientation: landscape) {
-      max-height: 100%;
-      overflow-y: auto;
-    }
   }
 }
