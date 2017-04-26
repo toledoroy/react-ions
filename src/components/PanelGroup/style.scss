@@ -291,13 +291,14 @@
   }
 
   .inner {
-    overflow: hidden;
+    overflow: visible;
     position: relative;
     width: 100%;
   }
 
   .panel-wrap {
     display: flex;
+    overflow: visible;
     margin: 0;
     padding: 0;
     position: relative;
@@ -316,9 +317,24 @@
     transition: max-height .5s ease;
     width: 100%;
 
+    .panel-content {
+      display: none;
+    }
+
     &.panel-active {
       max-height: 1000px;
-      overflow: auto;
+
+      .panel-content {
+        display: flex;
+        overflow: visible;
+        visibility: visible;
+      }
+    }
+  }
+
+  .is-transitioning {
+    .inner {
+      overflow: hidden;
     }
   }
 }

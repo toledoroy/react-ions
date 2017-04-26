@@ -23,7 +23,9 @@ class PanelSlider extends React.Component {
 
   static defaultProps = {
     activePanel: 0,
-    name: 'PanelSlider'
+    name: 'PanelSlider',
+    isTransitioning: false,
+    activePanelHeight: null
   }
 
   state = {
@@ -32,6 +34,27 @@ class PanelSlider extends React.Component {
 
   componentWillMount = () => {
     this.activatePanel(this.props.activePanel)
+  }
+
+  componentDidMount = () => {
+    this._panelSlider.addEventListener('transitionstart', () => {
+      this.setState({
+        isTransitioning: true
+      })
+      console.log('transitionstart')
+    })
+
+    this._panelSlider.addEventListener('transitionend', () => {
+      console.log('transitionend')
+      this.setState({
+        isTransitioning: false
+      })
+    })
+  }
+
+  componentWillUnmount = () => {
+    this._panelSlider.removeEventListener('transitionstart')
+    this._panelSlider.removeEventListener('transitionend')
   }
 
   // No sCU on this component because
@@ -51,8 +74,11 @@ class PanelSlider extends React.Component {
       translateValue = `-${index}00`
     }
 
+    let panelHeight = this._panelSlider ? this._panelSlider.querySelector('[class*="panel-active-"] [class*="panel-content-"]').getBoundingClientRect().height : null
+
     return {
-      'transform': `translateX(${translateValue}%)`
+      'transform': `translateX(${translateValue}%)`,
+      'maxHeight': panelHeight ? `${panelHeight}px` : null
     }
   }
 
@@ -92,7 +118,7 @@ class PanelSlider extends React.Component {
     })
 
     return (
-      <div className={panelSliderClasses}>
+      <div className={panelSliderClasses} ref={(c) => this._panelSlider = c}>
         <div className={style['wrapper']}>
           <div className={style['inner']}>
             <div className={panelWrapClasses} style={this.getStyle(this.props.activePanel)}>
