@@ -9,7 +9,6 @@
 
 - Avatar: show default color if no letters passed in ([#393](https://github.com/GetAmbassador/react-ions/pull/393))
 
-
 ## 1.0.22
 ###### _April 19, 2017_
 
