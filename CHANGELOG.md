@@ -1,15 +1,28 @@
 ## HEAD
 
+## 1.0.23
+###### _April 26, 2017_
+
+- Modal: fixing overflow ([#397](https://github.com/GetAmbassador/react-ions/pull/397))
+
+- SelectField: adjusting width ([#395](https://github.com/GetAmbassador/react-ions/pull/395))
+
+- Avatar: toLowerCase() letters for the switch statement to support uppercase ([#394](https://github.com/GetAmbassador/react-ions/pull/394))
+
+- Avatar: show default color if no letters passed in ([#393](https://github.com/GetAmbassador/react-ions/pull/393))
+
 ## 1.0.22
 ###### _April 19, 2017_
 
 - PanelSlider: removing sCU ([#391](https://github.com/GetAmbassador/react-ions/pull/391))
+
 - Avatar: allow Avatar to update if letters change ([#390](https://github.com/GetAmbassador/react-ions/pull/390))
 
 ## 1.0.21
 ###### _April 14, 2017_
 
 - Added new icon: icon-calendar-alert ([#388](https://github.com/GetAmbassador/react-ions/pull/388))
+
 - Added fallback avatar ([#384](https://github.com/GetAmbassador/react-ions/pull/384))
 
 ## 1.0.20
