@@ -1,6 +1,8 @@
 import React from 'react'
+import InlineStylePrefixer from '../internal/InlineStylePrefixer'
 
 const Overlay = (props) => {
+
   const getStyles = function() {
     var style = {
       position: 'fixed',
@@ -14,7 +16,7 @@ const Overlay = (props) => {
       willChange: 'opacity',
       transform: 'translateZ(0)',
       zIndex: -1,
-      transition: 'left 0ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 400ms, opacity 400ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 0ms'
+      transition: 'left 0ms, opacity 0.3s'
     }
 
     document.body.style.removeProperty('overflow')
@@ -23,10 +25,10 @@ const Overlay = (props) => {
       document.body.style.overflow = 'hidden'
       style.left = 0
       style.opacity = 0.6
-      style.transition = 'left 0ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 0ms, opacity 400ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 0ms'
+      style.transition = 'left 0ms, opacity 0.3s'
     }
 
-    return style
+    return InlineStylePrefixer(style)
   }
 
   var style = getStyles()
