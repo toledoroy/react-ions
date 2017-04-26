@@ -1,5 +1,4 @@
 import React from 'react'
-import { HotKeys } from 'react-hotkeys'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 import Icon from '../Icon'
@@ -164,14 +163,6 @@ class SelectField extends React.Component {
     const valueProp = this.props.valueProp
     const selectedValues = this.state.value
 
-    const keyMap = {
-      'open': 'enter'
-    }
-
-    const handlers = {
-      'open': (event) => this.toggleSelectField()
-    }
-
     let options = this.props.options.map((option, index) =>
       <li key={index} onClick={this.selectOption.bind(null, option, true)}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
     )
@@ -186,19 +177,17 @@ class SelectField extends React.Component {
     }
 
     return (
-      <HotKeys keyMap={keyMap} handlers={handlers} className={style['selectfield-hotkey']}>
-        <div className={selectFieldClass}>
-          <input type='hidden' name='selectfield-value' value={value} />
-          <div className={style['selectfield-value']} onClick={this.toggleSelectField}>
-            {this.getDisplayIcon()}
-            <span className={style['display-text']}>{this.getDisplayText()}</span>
-            <Icon name='icon-caret' width='10' height='10' />
-          </div>
-          <ul>
-            {options}
-          </ul>
+      <div className={selectFieldClass}>
+        <input type='hidden' name='selectfield-value' value={value} />
+        <div className={style['selectfield-value']} onClick={this.toggleSelectField}>
+          {this.getDisplayIcon()}
+          <span className={style['display-text']}>{this.getDisplayText()}</span>
+          <Icon name='icon-caret' width='10' height='10' />
         </div>
-      </HotKeys>
+        <ul>
+          {options}
+        </ul>
+      </div>
     )
   }
 }
