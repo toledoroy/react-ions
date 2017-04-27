@@ -51,7 +51,11 @@ class SelectField extends React.Component {
     /**
      * Icon to be displayed on the left
      */
-    icon: React.PropTypes.string
+    icon: React.PropTypes.string,
+    /**
+     * Option to make select field fill 100% width of containing element
+     */
+    fill: React.PropTypes.bool
   }
 
   state = {
@@ -159,7 +163,8 @@ class SelectField extends React.Component {
     const disabledClass = this.props.disabled ? style['selectfield-disabled'] : ''
     const activeClass = this.state.isOpen ? style['active'] : ''
     const hasIconClass = !!this.getDisplayIcon() ? style['has-icon'] : ''
-    const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, hasIconClass, this.props.optClass)
+    const fillWidthClass = this.props.fill ? style['fill'] : ''
+    const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, hasIconClass, fillWidthClass, this.props.optClass)
     const valueProp = this.props.valueProp
     const selectedValues = this.state.value
 
@@ -183,10 +188,10 @@ class SelectField extends React.Component {
           {this.getDisplayIcon()}
           <span className={style['display-text']}>{this.getDisplayText()}</span>
           <Icon name='icon-caret' width='10' height='10' />
+          <ul>
+            {options}
+          </ul>
         </div>
-        <ul>
-          {options}
-        </ul>
       </div>
     )
   }

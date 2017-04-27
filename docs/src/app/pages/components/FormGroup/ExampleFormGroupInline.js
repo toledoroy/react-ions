@@ -29,11 +29,11 @@ let fields = {
     {value: 'and', label: 'And'},
     {value: 'or', label: 'Or'}
   ]
-};
+}
 
 class ExampleFormGroupInline extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -72,7 +72,7 @@ class ExampleFormGroupInline extends React.Component {
   }
 
   handleChange = (fields) => {
-    console.log(fields);
+    console.log(fields)
     this.setState({ schema: fields })
   }
 

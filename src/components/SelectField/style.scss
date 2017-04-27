@@ -56,11 +56,12 @@
     display: none;
     left: 1px;
     margin: 3px 0 30px;
+    max-height: 247px;
     overflow: auto;
     padding: 0;
     position: absolute;
+    top: 100%;
     width: calc(100% - 2px);
-    max-height: 247px;
     z-index: 3;
 
     li {
@@ -136,5 +137,9 @@
 
   @media #{$media-small-minus} {
     min-width: 100%;
+  }
+
+  &.fill {
+    width: 100%;
   }
 }
