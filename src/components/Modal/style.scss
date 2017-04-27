@@ -13,7 +13,6 @@
     overflow: auto;
     top: 0;
     width: 100%;
-    transition: opacity 0.3s;
 
     .modal-content {
       opacity: 1;
@@ -41,9 +40,10 @@
     position: relative;
     padding: 24px;
     transform: scale(0.7);
-    transition: all 0.3s;
+    transition: scale 0.3s, opacity 0.3s, transform 0.3s;
     visibility: hidden;
     width: 75%;
+    will-change: scale, opacity, transform;
     z-index: z('below');
 
     .modal-header {
