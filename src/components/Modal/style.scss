@@ -18,8 +18,6 @@
       opacity: 1;
       visibility: visible;
       transform: scale(1);
-      transition: scale 0.3s, opacity 0.3s, transform 0.3s;
-      will-change: scale, opacity, transform;
       z-index: z('modal');
     }
   }
