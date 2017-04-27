@@ -1,5 +1,10 @@
 ## HEAD
 
+## 1.0.24
+###### _April 27, 2017_
+
+- Modal: patch for fade ([#399](https://github.com/GetAmbassador/react-ions/pull/399))
+
 ## 1.0.23
 ###### _April 26, 2017_
 
