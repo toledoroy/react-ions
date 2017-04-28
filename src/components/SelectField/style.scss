@@ -54,14 +54,14 @@
     box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     display: none;
-    left: 1px;
+    left: 0;
     margin: 3px 0 30px;
     max-height: 247px;
     overflow: auto;
     padding: 0;
     position: absolute;
     top: 100%;
-    width: calc(100% - 2px);
+    width: calc(100%);
     z-index: 3;
 
     li {
@@ -131,12 +131,12 @@
     }
   }
 
-  &.has-icon .selectfield-value {
-    padding-left: 35px;
-  }
-
   @media #{$media-small-minus} {
     min-width: 100%;
+  }
+
+  &.has-icon .selectfield-value {
+    padding-left: 35px;
   }
 
   &.fill {

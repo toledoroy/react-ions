@@ -93,7 +93,7 @@ describe('SelectField', () => {
     expect(wrapper.find('ul').childAt(1).find(Icon).props().fill).to.equal('#3C97D3')
 
     wrapper.childAt(1).simulate('click')
-    wrapper.childAt(2).childAt(1).simulate('click')
+    wrapper.childAt(1).childAt(2).childAt(0).simulate('click')
 
     expect(wrapper.hasClass('has-icon')).to.be.true
   })
