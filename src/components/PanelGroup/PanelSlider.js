@@ -62,8 +62,7 @@ class PanelSlider extends React.Component {
     }
 
     return {
-      'transform': `translateX(${translateValue}%)`,
-      'width': `${this.state.panelWidth}`
+      'transform': `translateX(${translateValue}%)`
     }
   }
 

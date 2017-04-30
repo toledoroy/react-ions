@@ -24,7 +24,7 @@ class ExamplePanelSlider extends React.Component {
     const currentlyActive = style[`custom-panel-slider-demo-slide-${this.state.activePanel + 1}`]
 
     return (
-      <div>
+      <div className={style['panel-slider-wrapper']}>
         <PanelSlider activePanel={this.state.activePanel}>
           <Panel>
             <PanelContent optClass={style['custom-panel-slider']}>
