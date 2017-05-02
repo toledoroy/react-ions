@@ -37,7 +37,15 @@ class Avatar extends React.Component {
     /**
      * Optional CSS class to pass to the badge.
      */
-    optClass: React.PropTypes.string
+    optClass: React.PropTypes.string,
+    /**
+     * Option to turn the opacity fade off (defaults to true)
+     */
+    fadeIn: React.PropTypes.bool
+  }
+
+  static defaultProps = {
+    fadeIn: true
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -57,7 +65,7 @@ class Avatar extends React.Component {
 
   getWrapperStyle = () => {
     return {
-      backgroundColor: this.props.letterBackgroundColor || this.getBackgroundColor(),
+      backgroundColor: this.props.fadeIn ? this.props.letterBackgroundColor || this.getBackgroundColor() : 'transparent',
       width: this.props.size + 'px',
       height: this.props.size + 'px'
     }
@@ -134,7 +142,9 @@ class Avatar extends React.Component {
 
   render() {
     const cx = classNames.bind(style)
-    const avatarClasses = cx(style['avatar-wrapper'], (this.state.loaded ? 'loaded' : null), this.props.optClass)
+    const avatarClasses = (this.props.fadeIn || this.props.letter)
+      ? cx(style['avatar-wrapper'], (this.state.loaded ? 'loaded' : null), this.props.optClass)
+      : cx(style['avatar-wrapper'], style['loaded'], this.props.optClass)
 
     return (
       <div className={avatarClasses} style={this.props.size ? this.getWrapperStyle() : null}>
