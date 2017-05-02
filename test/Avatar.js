@@ -206,6 +206,10 @@ describe('Avatar', () => {
         wrapper.update()
         expect(inst.getBackgroundColor()).to.equal(colorCases[i].color)
     }
+  })
 
- })
+  it('should return a "loaded" CSS class by default', () => {
+    wrapper = shallow(<Avatar fadeIn={false} />)
+    expect(wrapper.hasClass('avatar-wrapper loaded')).to.be.true
+  })
 })
