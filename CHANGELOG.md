@@ -1,5 +1,14 @@
 ## HEAD
 
+## 1.0.25
+###### _May 2, 2017_
+
+- Avatar: added fade-in feature/option ([#404](https://github.com/GetAmbassador/react-ions/pull/404))
+
+- PanelSlider: allowing overflow in table, when slider is not transitioning ([#403](https://github.com/GetAmbassador/react-ions/pull/403))
+
+- Replace default panel group icon ([#402](https://github.com/GetAmbassador/react-ions/pull/402))
+
 ## 1.0.24
 ###### _April 27, 2017_
 
