@@ -24,8 +24,9 @@
 
   .modal-scroll-container {
     align-items: center;
+    box-sizing: border-box;
     display: flex;
-    margin: 80px auto 30px;
+    padding: 80px 0;
     justify-content: center;
     width: 100%;
   }

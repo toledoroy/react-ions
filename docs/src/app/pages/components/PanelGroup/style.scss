@@ -4,6 +4,11 @@
   margin: 0;
 }
 
+.custom-panel-slider-demo-wrapper {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
 .custom-panel-slider {
   align-items: center;
   display: flex;
@@ -14,7 +19,7 @@
   white-space: normal;
 
   @media #{$media-small-minus} {
-    padding: 0 1rem;    
+    padding: 0 1rem;
   }
 }
 

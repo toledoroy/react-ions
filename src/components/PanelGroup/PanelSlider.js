@@ -27,7 +27,8 @@ class PanelSlider extends React.Component {
   }
 
   state = {
-    panels: []
+    panels: [],
+    isTransitioning: false
   }
 
   componentWillMount = () => {
@@ -37,9 +38,18 @@ class PanelSlider extends React.Component {
   // No sCU on this component because
   // nested child components need to be
   // able to update as needed
-
   componentWillReceiveProps = (nextProps) => {
-    this.activatePanel(nextProps.activePanel)
+    if (nextProps.activePanel !== this.props.activePanel) {
+      this.setState({
+        isTransitioning: true
+      })
+      this.activatePanel(nextProps.activePanel)
+      setTimeout(() => {
+        this.setState({
+          isTransitioning: false
+        })
+      }, 500)
+    }
   }
 
   getStyle = (index) => {
@@ -79,7 +89,8 @@ class PanelSlider extends React.Component {
   }
 
   render() {
-    const panelSliderClasses = optclass(style, 'panel-slider', this.props.optClass)
+    const isTransitioningClass = this.state.isTransitioning ? style['is-transitioning'] : null
+    const panelSliderClasses = optclass(style, 'panel-slider', [this.props.optClass, isTransitioningClass])
     const panelWrapClasses = optclass(style, 'panel-wrap')
 
     const panels = this.getPanels().map((panel, index) => {

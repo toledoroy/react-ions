@@ -291,7 +291,7 @@
   }
 
   .inner {
-    overflow: hidden;
+    overflow: visible;
     position: relative;
     width: 100%;
   }
@@ -303,10 +303,6 @@
     position: relative;
     transition: transform .5s cubic-bezier(.75, 0, .1, 1);
     white-space: normal;
-
-    &.vertical {
-      flex-direction: column;
-    }
   }
 
   .panel {
@@ -314,11 +310,22 @@
     max-height: 100px;
     flex: 1 0 auto;
     transition: max-height .5s ease;
+    visibility: hidden;
     width: 100%;
 
     &.panel-active {
       max-height: 1000px;
-      overflow: auto;
+      overflow: visible;
+      visibility: visible;
+    }
+  }
+
+  &.is-transitioning {
+    .inner {
+      overflow: hidden;
+    }
+    .panel {
+      visibility: visible;
     }
   }
 }
