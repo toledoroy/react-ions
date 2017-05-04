@@ -1,5 +1,10 @@
 ## HEAD
 
+## 1.0.26
+###### _May 4, 2017_
+
+- Avatar: update to fade-in option to handle transparency ([#406](https://github.com/GetAmbassador/react-ions/pull/406))
+
 ## 1.0.25
 ###### _May 2, 2017_
 
