@@ -59,9 +59,6 @@ class Avatar extends React.Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    console.log('props', this.props, 'nextProps', nextProps)
-    console.log('state', this.state, 'nextState', nextState)
-
     return (
       nextProps.letters !== this.props.letters ||
       nextProps.src !== this.props.src ||

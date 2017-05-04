@@ -101,7 +101,7 @@ describe('Avatar', () => {
     expect(style.fontSize).to.equal('60px')
   })
 
- it.only('should only update under certain circumstances', () => {
+ it('should only update under certain circumstances', () => {
     wrapper = shallow(<Avatar size='100' src='test' letters='aa' />)
 
     inst = wrapper.instance()
@@ -109,7 +109,7 @@ describe('Avatar', () => {
       size: '100',
       src: 'test',
       letters: 'aa',
-      fadein: true
+      fadeIn: true
     }
 
     let nextState = {
@@ -117,22 +117,22 @@ describe('Avatar', () => {
     }
 
     expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.false
-    // nextProps.size = '90'
-    // expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
-    // nextProps.size = '100'
-    // expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.false
-    // nextProps.letters = 'ab'
-    // expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
-    // nextProps.letters = 'aa'
-    // expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.false
-    // nextProps.src = 'test2'
-    // expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
-    // nextProps.src = 'test'
-    // expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.false
-    // nextState.loaded = true
-    // expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
-    // nextProps.fadeIn = false
-    // expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
+    nextProps.size = '90'
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
+    nextProps.size = '100'
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.false
+    nextProps.letters = 'ab'
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
+    nextProps.letters = 'aa'
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.false
+    nextProps.src = 'test2'
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
+    nextProps.src = 'test'
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.false
+    nextState.loaded = true
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
+    nextProps.fadeIn = false
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
  })
 
  it('should return a proper background color based on the first character of the letter', () => {
@@ -212,8 +212,9 @@ describe('Avatar', () => {
     }
   })
 
-  it('should return a "loaded" CSS class when fadeIn is set', () => {
+  it('should set the loaded state to true under certain conditions', () => {
     wrapper = shallow(<Avatar fadeIn={false} />)
     expect(wrapper.hasClass('avatar-wrapper loaded')).to.be.true
   })
+
 })
