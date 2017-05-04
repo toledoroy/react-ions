@@ -16,10 +16,10 @@ class ExampleAvatar extends React.Component {
   randomize = () => {
     const possible = 'abcdefghijklmnopqrstuvwxyz'
     let letters = ''
-    for (let i=0; i<2; i++)
-      letters += possible.charAt(Math.floor(Math.random()*possible.length))
+    for (let i = 0; i < 2; i++)
+      letters += possible.charAt(Math.floor(Math.random() * possible.length))
 
-    const size = (Math.floor(Math.random()*200)+30).toString()
+    const size = (Math.floor(Math.random() * 200) + 30).toString()
 
     this.setState({ letters, size })
   }

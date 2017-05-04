@@ -48,8 +48,17 @@ class Avatar extends React.Component {
     fadeIn: true
   }
 
+  /* If fadeIn is set to false,
+   * or if it's a letter-based avatar,
+   * set loaded to true, so it won't fade in */
+  state = {
+    loaded: !this.props.fadeIn || !this.props.src ? true : false
+  }
+
+  /* If the source changes, and fadeIn
+   * is set, fade in the new avatar */
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.src !== this.props.src) {
+    if (nextProps.src !== this.props.src && this.props.fadeIn) {
       this.setState({ loaded: false })
     }
   }
@@ -59,19 +68,23 @@ class Avatar extends React.Component {
       nextProps.letters !== this.props.letters ||
       nextProps.src !== this.props.src ||
       nextProps.size !== this.props.size ||
+      nextProps.fadeIn !== this.props.fadeIn ||
       nextState.loaded !== this.state.loaded
     )
   }
 
   getWrapperStyle = () => {
     return {
-      backgroundColor: this.props.fadeIn ? this.props.letterBackgroundColor || this.getBackgroundColor() : 'transparent',
+      backgroundColor: this.props.letterBackgroundColor || this.getBackgroundColor(),
       width: this.props.size + 'px',
       height: this.props.size + 'px'
     }
   }
 
   getBackgroundColor = () => {
+    // If no letters passed in, but a src exists
+    if (!this.props.letters && this.props.src) return 'transparent'
+
     // If no letters passed in, return a default color
     if (!this.props.letters) return '#F93943'
 
@@ -119,7 +132,7 @@ class Avatar extends React.Component {
 
   getTextStyle = () => {
     return {
-      fontSize: (+this.props.size)*.6 + 'px'
+      fontSize: (+this.props.size) * .6 + 'px'
     }
   }
 
@@ -142,9 +155,7 @@ class Avatar extends React.Component {
 
   render() {
     const cx = classNames.bind(style)
-    const avatarClasses = (this.props.fadeIn || this.props.letter)
-      ? cx(style['avatar-wrapper'], (this.state.loaded ? 'loaded' : null), this.props.optClass)
-      : cx(style['avatar-wrapper'], style['loaded'], this.props.optClass)
+    const avatarClasses = cx(style['avatar-wrapper'], (this.state.loaded ? 'loaded' : null), this.props.optClass)
 
     return (
       <div className={avatarClasses} style={this.props.size ? this.getWrapperStyle() : null}>

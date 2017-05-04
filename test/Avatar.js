@@ -108,8 +108,10 @@ describe('Avatar', () => {
     let nextProps = {
       size: '100',
       src: 'test',
-      letters: 'aa'
+      letters: 'aa',
+      fadeIn: true
     }
+
     let nextState = {
       loaded: false
     }
@@ -128,6 +130,8 @@ describe('Avatar', () => {
     nextProps.src = 'test'
     expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.false
     nextState.loaded = true
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
+    nextProps.fadeIn = false
     expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
  })
 
@@ -208,8 +212,16 @@ describe('Avatar', () => {
     }
   })
 
-  it('should return a "loaded" CSS class by default', () => {
+  it('should set the loaded state to true under certain conditions', () => {
     wrapper = shallow(<Avatar fadeIn={false} />)
     expect(wrapper.hasClass('avatar-wrapper loaded')).to.be.true
   })
+
+  it('should set the background color to transparent when there are no letters', () => {
+    wrapper = shallow(<Avatar src='test' />)
+
+    inst = wrapper.instance()
+    expect(inst.getBackgroundColor()).to.equal('transparent')
+  })
+
 })
