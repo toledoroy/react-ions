@@ -217,4 +217,11 @@ describe('Avatar', () => {
     expect(wrapper.hasClass('avatar-wrapper loaded')).to.be.true
   })
 
+  it('should set the background color to transparent when there are no letters', () => {
+    wrapper = shallow(<Avatar src='test' />)
+
+    inst = wrapper.instance()
+    expect(inst.getBackgroundColor()).to.equal('transparent')
+  })
+
 })
