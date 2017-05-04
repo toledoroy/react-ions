@@ -8,10 +8,13 @@ import ExampleTabWrapperDefault from './ExampleTabWrapperDefault'
 import exampleTabWrapperDefaultCode from '!raw!./ExampleTabWrapperDefault'
 import ExampleTabWrapperSecondary from './ExampleTabWrapperSecondary'
 import exampleTabWrapperSecondaryCode from '!raw!./ExampleTabWrapperSecondary'
+import ExampleTabWrapperDisabled from './ExampleTabWrapperDisabled'
+import exampleTabWrapperDisabledCode from '!raw!./ExampleTabWrapperDisabled'
 
 const description = {
   tabWrapperDefault: 'This is the `tab wrapper component` as it appears by default.',
-  tabWrapperSecondary: 'This is the secondary style for the `tab wrapper component`.'
+  tabWrapperSecondary: 'This is the secondary style for the `tab wrapper component`.',
+  tabWrapperDisabled: 'This is the `tab wrapper component` with a disabled tab.'
 };
 
 const TabWrapperPage = () => (
@@ -29,6 +32,12 @@ const TabWrapperPage = () => (
           description={description.tabWrapperSecondary}
           markup={exampleTabWrapperSecondaryCode}>
           <ExampleTabWrapperSecondary />
+        </CodeExample>
+        <CodeExample
+          title='Disabled Tab'
+          description={description.tabWrapperDisabled}
+          markup={exampleTabWrapperSecondaryCode}>
+          <ExampleTabWrapperDisabled />
         </CodeExample>
         <div className={styles.block}>
           <h3>Tab Wrapper Props</h3>

@@ -16,6 +16,10 @@ class Tab extends React.Component {
      */
     active: React.PropTypes.bool,
     /**
+     * Whether the tab is disabled.
+     */
+    disabled: React.PropTypes.bool,
+    /**
      * The tab count.
      */
     count: React.PropTypes.number,
@@ -39,7 +43,7 @@ class Tab extends React.Component {
   }
 
   handleClick = (event) => {
-    if (this.props.onClick) {
+    if (this.props.onClick && !this.props.disabled) {
       this.props.onClick(event, this);
     }
   };
@@ -47,7 +51,8 @@ class Tab extends React.Component {
   render() {
     const cx = classNames.bind(style);
     const tabActiveClass = (this.props.active) ? 'active' : null;
-    const tabClasses = cx(style.tab, this.props.optClass, tabActiveClass);
+    const tabDisabledClass = (this.props.disabled) ? 'disabled' : null;
+    const tabClasses = cx(style.tab, this.props.optClass, tabActiveClass, tabDisabledClass);
 
     return (
       <div className={tabClasses} onClick={this.handleClick}>

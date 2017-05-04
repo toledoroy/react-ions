@@ -134,4 +134,17 @@ describe('TabWrapper', () => {
     expect(wrapper.childAt(0).childAt(0).props().active).to.be.true;
     expect(wrapper.childAt(0).childAt(1).props().active).to.be.false;
   });
+
+  it('should have a disabled tab', () => {
+    wrapper = mount(<TabWrapper><Tab title="Test Tab">Test tab content</Tab><Tab title="Test Tab With Count" disabled={true}>Test disabled tab content</Tab></TabWrapper>);
+
+    expect(wrapper.childAt(0).childAt(0).props().active).to.be.true;
+    expect(wrapper.childAt(0).childAt(1).props().active).to.be.false;
+
+    wrapper.childAt(0).childAt(1).simulate('click');
+
+    expect(wrapper.childAt(0).childAt(0).props().active).to.be.true;
+    expect(wrapper.childAt(0).childAt(1).props().active).to.be.false;
+    expect(wrapper.childAt(0).childAt(1).props().disabled).to.be.true;
+  });
 });
