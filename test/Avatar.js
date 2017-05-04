@@ -102,9 +102,10 @@ describe('Avatar', () => {
   })
 
  it.only('should only update under certain circumstances', () => {
-    wrapper = shallow(<Avatar size='100' src='test' letters='aa' />)
+    wrapper = shallow(<Avatar size='100' src='test' letters='aa' fadeIn={true} />)
 
     inst = wrapper.instance()
+
     let nextProps = {
       size: '100',
       src: 'test',

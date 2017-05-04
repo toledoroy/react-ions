@@ -28,9 +28,6 @@ class ExampleAvatar extends React.Component {
     return(
       <div>
         <Avatar letters={this.state.letters} size={this.state.size} />
-        <Avatar letters={this.state.letters} size={this.state.size} fadeIn={false} />
-        <Avatar letters={this.state.letters} size={this.state.size} letterBackgroundColor={'green'} />
-        <Avatar letters={this.state.letters} size={this.state.size} letterBackgroundColor={'purple'} fadeIn={false} />
         <div className={style['avatar-controls']}>
           <Button onClick={this.randomize}>Random letters/size</Button>
         </div>
