@@ -48,7 +48,6 @@ class Avatar extends React.Component {
     fadeIn: true
   }
 
-
   /* If fadeIn is set to false,
    * or if it's a letter-based avatar,
    * set loaded to true, so it won't fade in */
