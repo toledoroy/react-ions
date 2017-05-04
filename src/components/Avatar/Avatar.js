@@ -82,6 +82,9 @@ class Avatar extends React.Component {
   }
 
   getBackgroundColor = () => {
+    // If no letters passed in, but a src exists
+    if (!this.props.letters && this.props.src) return 'transparent'
+
     // If no letters passed in, return a default color
     if (!this.props.letters) return '#F93943'
 
