@@ -34,7 +34,11 @@ class Tab extends React.Component {
     /**
      * The tab title.
      */
-    title: React.PropTypes.string.isRequired
+    title: React.PropTypes.string.isRequired,
+    /**
+     * Optional title prefix renders in front of the title.
+     */
+    titlePrefix: React.PropTypes.node
   };
 
   formatCount = () => {
@@ -56,7 +60,10 @@ class Tab extends React.Component {
 
     return (
       <div className={tabClasses} onClick={this.handleClick}>
-        {this.props.title} {this.props.count ? <span className={style.count}>({this.formatCount()})</span> : null}
+        {this.props.titlePrefix}
+        {this.props.title} {this.props.count
+          ? <span className={style.count}>({this.formatCount()})</span>
+          : null}
       </div>
     )
   }

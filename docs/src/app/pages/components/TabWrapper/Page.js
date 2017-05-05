@@ -10,11 +10,14 @@ import ExampleTabWrapperSecondary from './ExampleTabWrapperSecondary'
 import exampleTabWrapperSecondaryCode from '!raw!./ExampleTabWrapperSecondary'
 import ExampleTabWrapperDisabled from './ExampleTabWrapperDisabled'
 import exampleTabWrapperDisabledCode from '!raw!./ExampleTabWrapperDisabled'
+import ExampleTabWrapperTitlePrefix from './ExampleTabWrapperTitlePrefix'
+import exampleTabWrapperTitlePrefixCode from '!raw!./ExampleTabWrapperTitlePrefix'
 
 const description = {
   tabWrapperDefault: 'This is the `tab wrapper component` as it appears by default.',
   tabWrapperSecondary: 'This is the secondary style for the `tab wrapper component`.',
-  tabWrapperDisabled: 'This is the `tab wrapper component` with a disabled tab.'
+  tabWrapperDisabled: 'This is the `tab wrapper component` with a disabled tab.',
+  tabWrapperTitlePrefix: 'This is the `tab wrapper component` with `titlePrefix`'
 };
 
 const TabWrapperPage = () => (
@@ -36,8 +39,14 @@ const TabWrapperPage = () => (
         <CodeExample
           title='Disabled Tab'
           description={description.tabWrapperDisabled}
-          markup={exampleTabWrapperSecondaryCode}>
+          markup={exampleTabWrapperDisabledCode}>
           <ExampleTabWrapperDisabled />
+        </CodeExample>
+        <CodeExample
+          title='Prefixed Tabs'
+          description={description.tabWrapperTitlePrefix}
+          markup={exampleTabWrapperTitlePrefixCode}>
+          <ExampleTabWrapperTitlePrefix />
         </CodeExample>
         <div className={styles.block}>
           <h3>Tab Wrapper Props</h3>
