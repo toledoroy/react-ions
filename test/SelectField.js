@@ -8,7 +8,7 @@ describe('SelectField', () => {
   let wrapper
   const options = [
     {value: '0', display: 'test 1', someOtherProp: true},
-    {value: '1', display: 'test 2', someOtherProp: false}
+    {value: '1', display: 'test 2', someOtherProp: false, hidden: true}
   ]
 
   const optionsWithIcons = [
@@ -243,5 +243,13 @@ describe('SelectField', () => {
     wrapper = mount(<SelectField options={[]} valueProp='value' displayProp='display' />)
 
     expect(wrapper.childAt(2).childAt(0).text()).to.equal('Nothing to select')
+  })
+
+  it('should add a "hidden" class to an item if it has the hidden prop set to true', () => {
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' />)
+
+    expect(wrapper.childAt(2).children()).to.have.length(2)
+    expect(wrapper.childAt(2).childAt(0).props().className).to.not.equal('hidden')
+    expect(wrapper.childAt(2).childAt(1).props().className).to.equal('hidden')
   })
 })

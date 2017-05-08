@@ -88,6 +88,10 @@
         cursor: default;
       }
 
+      &.hidden {
+        display: none;
+      }
+
     }
 
     @media #{$media-small-minus} {

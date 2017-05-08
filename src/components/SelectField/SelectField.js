@@ -164,7 +164,7 @@ class SelectField extends React.Component {
     const selectedValues = this.state.value
 
     let options = this.props.options.map((option, index) =>
-      <li key={index} onClick={this.selectOption.bind(null, option, true)}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
+      <li key={index} onClick={this.selectOption.bind(null, option, true)} className={option.hidden && style['hidden']}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
     )
 
     if (options.length === 0) {
