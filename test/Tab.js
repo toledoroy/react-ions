@@ -1,6 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import Tab from '../src/components/TabWrapper/Tab'
+import Badge from '../src/components/Badge'
 
 describe('Tab', () => {
   let wrapper;
@@ -51,5 +52,11 @@ describe('Tab', () => {
     wrapper.simulate('click');
 
     expect(callbackTriggered).to.be.false;
+  });
+
+  it('should render a badge prefix node', () => {
+    wrapper = shallow(<Tab titlePrefix={<Badge />} title="Test Tab With Prefix" />)
+
+    expect(wrapper.find(Badge).length).to.equal(1)
   });
 });
