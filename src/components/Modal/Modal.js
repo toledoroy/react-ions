@@ -96,6 +96,8 @@ class Modal extends React.Component {
     const modalSizeClass = this.props.size ? style['modal-' + this.props.size] : ''
     const modalClass = cx(style['modal-component'], this.props.optClass, modalOpenClass)
     const modalContentClass = cx(style['modal-content'], modalSizeClass)
+    const modalTitleIsElement = !(typeof this.props.title === 'string')
+    const modalTitle = modalTitleIsElement ?  this.props.title : <h1>{this.props.title}</h1>
 
     const actionsContainer = React.Children.count(this.props.actions) > 0 && (
       <div className={style['modal-actions']}>
@@ -114,10 +116,21 @@ class Modal extends React.Component {
           />
           <div className={modalContentClass}>
             <div className={style['modal-header']}>
-              {!this.props.closeOnAction ? <div className={style['modal-close']}>
-                <Icon name='icon-delete-1' width='12' height='12' onClick={this.handleCloseClick} />
-              </div> : null}
-              {this.props.title ? <h1>{this.props.title}</h1> : null}
+              {
+                //render close button if closeOnAction is false and modalTitle is not an element
+                !this.props.closeOnAction && !modalTitleIsElement
+                  ? <div className={style['modal-close']}>
+                      <Icon
+                        name="icon-delete-1"
+                        width="12"
+                        height="12"
+                        onClick={this.handleCloseClick}
+                      />
+                    </div>
+                  : null
+              }
+
+              {modalTitle}
             </div>
             <div className={style['modal-body']}>
               {this.props.children}

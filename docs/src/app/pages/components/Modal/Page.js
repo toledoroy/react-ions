@@ -11,12 +11,15 @@ import ExampleModalSmall from './ExampleModalSmall'
 import exampleModalSmallCode from '!raw!./ExampleModalSmall'
 import ExampleModalLarge from './ExampleModalLarge'
 import exampleModalLargeCode from '!raw!./ExampleModalLarge'
+import ExampleModalCustomTitle from './ExampleModalCustomTitle'
+import exampleModalCustomTitleCode from '!raw!./ExampleModalCustomTitle'
 
 const description = {
   modalDefault: 'This is the `modal component` as it appears by default.',
   modalActions: 'This is the `modal component` with actions.',
   modalSmall: 'This is the small `modal component`.',
-  modalLarge: 'This is the large `modal component`.'
+  modalLarge: 'This is the large `modal component`.',
+  modalCustomTitle: 'This is the `modal component` with a custom title element.',
 };
 
 const ModalPage = () => (
@@ -46,6 +49,12 @@ const ModalPage = () => (
           description={description.modalLarge}
           markup={exampleModalLargeCode}>
           <ExampleModalLarge />
+        </CodeExample>
+        <CodeExample
+          title='Modal With Custom Title'
+          description={description.modalCustomTitle}
+          markup={exampleModalCustomTitleCode}>
+          <ExampleModalCustomTitle />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
