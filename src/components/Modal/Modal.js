@@ -117,7 +117,7 @@ class Modal extends React.Component {
           <div className={modalContentClass}>
             <div className={style['modal-header']}>
               {
-                //render close button if closeOnActionis false and modalTitle is not an element
+                //render close button if closeOnAction is false and modalTitle is not an element
                 !this.props.closeOnAction && !modalTitleIsElement
                   ? <div className={style['modal-close']}>
                       <Icon
