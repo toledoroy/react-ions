@@ -1,5 +1,16 @@
 ## HEAD
 
+## 1.0.27
+###### _May 9, 2017_
+
+- SelectField: Allow hiding items in the select dropdown ([#412](https://github.com/GetAmbassador/react-ions/pull/412))
+
+- Modal: adding CSS selector to enable modal footer wrap ([#411](https://github.com/GetAmbassador/react-ions/pull/411))
+
+- Tabs: Add titlePrefix prop, and associated examples and tests ([#410](https://github.com/GetAmbassador/react-ions/pull/410))
+
+- Modal: Allow elements to be rendered without an <h1 /> wrapper ([#409](https://github.com/GetAmbassador/react-ions/pull/406))
+
 ## 1.0.26
 ###### _May 4, 2017_
 
