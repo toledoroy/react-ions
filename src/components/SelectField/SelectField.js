@@ -37,6 +37,10 @@ class SelectField extends React.Component {
      */
     displayProp: React.PropTypes.string.isRequired,
     /**
+     * Which field in the option object will be used to determine whether the option should be hidden.
+     */
+    hideProp: React.PropTypes.string,
+    /**
      * Whether the select field is disabled.
      */
     disabled: React.PropTypes.bool,
@@ -160,11 +164,10 @@ class SelectField extends React.Component {
     const activeClass = this.state.isOpen ? style['active'] : ''
     const hasIconClass = !!this.getDisplayIcon() ? style['has-icon'] : ''
     const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, hasIconClass, this.props.optClass)
-    const valueProp = this.props.valueProp
-    const selectedValues = this.state.value
+    const { valueProp, hideProp } = this.props
 
     let options = this.props.options.map((option, index) =>
-      <li key={index} onClick={this.selectOption.bind(null, option, true)}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
+      <li key={index} onClick={this.selectOption.bind(null, option, true)} className={hideProp && option[hideProp] && style['hidden']}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
     )
 
     if (options.length === 0) {
@@ -173,7 +176,7 @@ class SelectField extends React.Component {
 
     let value = ''
     if (this.state.selected) {
-      value = this.state.selected[this.props.valueProp]
+      value = this.state.selected[valueProp]
     }
 
     return (
