@@ -247,11 +247,31 @@ describe('SelectField', () => {
     expect(wrapper.childAt(2).childAt(0).text()).to.equal('Nothing to select')
   })
 
-  it('should add a "hidden" class to an item if it has a specific "hideProp" prop set to true', () => {
-    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' value='1' hideProp='hidden' />)
+  it('should add a "hidden" class to an item if it has a specific "hideProp" property set to true', () => {
+    const optionsHideProp = [
+      {value: '0', display: 'test 1', someOtherProp: true},
+      {value: '1', display: 'test 2', someOtherProp: false},
+      {value: '2', display: 'test 3', someOtherProp: false, hidden: false}
+    ]
+    wrapper = shallow(<SelectField options={optionsHideProp} valueProp='value' displayProp='display' value='0' hideProp='hidden' />)
 
-    expect(wrapper.childAt(2).children()).to.have.length(2)
+    expect(wrapper.childAt(2).children()).to.have.length(3)
+    expect(wrapper.childAt(2).childAt(0).props().className).to.equal('hidden')
+    expect(wrapper.childAt(2).childAt(1).props().className).to.not.equal('hidden')
+    expect(wrapper.childAt(2).childAt(2).props().className).to.not.equal('hidden')
+  })
+
+  it('should not override the "hideProp" property if already set in the option object', () => {
+    const optionsHideProp = [
+      {value: '0', display: 'test 1', someOtherProp: true},
+      {value: '1', display: 'test 2', someOtherProp: false},
+      {value: '2', display: 'test 3', someOtherProp: false, hidden: false}
+    ]
+    wrapper = shallow(<SelectField options={optionsHideProp} valueProp='value' displayProp='display' value='2' hideProp='hidden' />)
+
+    expect(wrapper.childAt(2).children()).to.have.length(3)
     expect(wrapper.childAt(2).childAt(0).props().className).to.not.equal('hidden')
-    expect(wrapper.childAt(2).childAt(1).props().className).to.equal('hidden')
+    expect(wrapper.childAt(2).childAt(1).props().className).to.not.equal('hidden')
+    expect(wrapper.childAt(2).childAt(2).props().className).to.not.equal('hidden')
   })
 })
