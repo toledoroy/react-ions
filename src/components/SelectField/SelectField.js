@@ -166,9 +166,9 @@ class SelectField extends React.Component {
     const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, hasIconClass, this.props.optClass)
     const { valueProp, hideProp } = this.props
 
-    let options = this.props.options.map((option, index) => {
-      return <li key={index} onClick={this.selectOption.bind(null, option, true)} className={hideProp && option[hideProp] && style['hidden']}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
-    })
+    let options = this.props.options.map((option, index) =>
+      <li key={index} onClick={this.selectOption.bind(null, option, true)} className={hideProp && option[hideProp] && style['hidden']}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
+    )
 
     if (options.length === 0) {
       options.push(<li key={0} className={style['not-clickable']}>Nothing to select</li>)
