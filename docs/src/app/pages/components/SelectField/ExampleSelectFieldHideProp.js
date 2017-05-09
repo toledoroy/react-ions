@@ -2,7 +2,7 @@ import React from 'react'
 import SelectField from 'react-ions/lib/SelectField/SelectField'
 import style from './style'
 
-class ExampleSelectFieldCallback extends React.Component {
+class ExampleSelectFieldHideProp extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -35,4 +35,4 @@ class ExampleSelectFieldCallback extends React.Component {
   }
 }
 
-export default ExampleSelectFieldCallback
+export default ExampleSelectFieldHideProp
