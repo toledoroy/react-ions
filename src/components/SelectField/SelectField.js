@@ -53,7 +53,7 @@ class SelectField extends React.Component {
      */
     icon: React.PropTypes.string,
     /**
-     * Which field in the option object will be used to determine whether the option should be hidden
+     * Which field in the option object will be used to determine whether the option should be hidden.
      */
     hideField: React.PropTypes.string
   }
