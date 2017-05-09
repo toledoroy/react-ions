@@ -167,11 +167,6 @@ class SelectField extends React.Component {
     const { valueProp, hideProp } = this.props
 
     let options = this.props.options.map((option, index) => {
-      // Hide the option if an option is selected and the hideProp prop is provided
-      if (hideProp && typeof option[hideProp] === 'undefined') {
-        option[hideProp] = this.state.selected && this.state.selected[valueProp] === option[valueProp]
-      }
-
       return <li key={index} onClick={this.selectOption.bind(null, option, true)} className={hideProp && option[hideProp] && style['hidden']}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
     })
 
