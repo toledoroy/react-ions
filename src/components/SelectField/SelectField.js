@@ -164,12 +164,16 @@ class SelectField extends React.Component {
     const activeClass = this.state.isOpen ? style['active'] : ''
     const hasIconClass = !!this.getDisplayIcon() ? style['has-icon'] : ''
     const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, hasIconClass, this.props.optClass)
-    const valueProp = this.props.valueProp
-    const selectedValues = this.state.value
+    const { valueProp, hideField } = this.props
 
-    let options = this.props.options.map((option, index) =>
-      <li key={index} onClick={this.selectOption.bind(null, option, true)} className={this.props.hideField && option[this.props.hideField] && style['hidden']}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
-    )
+    let options = this.props.options.map((option, index) => {
+      // Hide the option if an option is selected and the hideField prop is provided
+      if (hideField) {
+        option[hideField] = this.state.selected && this.state.selected[valueProp] === option[valueProp]
+      }
+
+      return <li key={index} onClick={this.selectOption.bind(null, option, true)} className={hideField && option[hideField] && style['hidden']}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
+    })
 
     if (options.length === 0) {
       options.push(<li key={0} className={style['not-clickable']}>Nothing to select</li>)
@@ -177,7 +181,7 @@ class SelectField extends React.Component {
 
     let value = ''
     if (this.state.selected) {
-      value = this.state.selected[this.props.valueProp]
+      value = this.state.selected[valueProp]
     }
 
     return (
