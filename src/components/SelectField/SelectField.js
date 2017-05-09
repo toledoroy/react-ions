@@ -37,6 +37,10 @@ class SelectField extends React.Component {
      */
     displayProp: React.PropTypes.string.isRequired,
     /**
+     * Which field in the option object will be used to determine whether the option should be hidden.
+     */
+    hideProp: React.PropTypes.string,
+    /**
      * Whether the select field is disabled.
      */
     disabled: React.PropTypes.bool,
@@ -51,11 +55,7 @@ class SelectField extends React.Component {
     /**
      * Icon to be displayed on the left
      */
-    icon: React.PropTypes.string,
-    /**
-     * Which field in the option object will be used to determine whether the option should be hidden.
-     */
-    hideField: React.PropTypes.string
+    icon: React.PropTypes.string
   }
 
   state = {
@@ -164,15 +164,15 @@ class SelectField extends React.Component {
     const activeClass = this.state.isOpen ? style['active'] : ''
     const hasIconClass = !!this.getDisplayIcon() ? style['has-icon'] : ''
     const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, hasIconClass, this.props.optClass)
-    const { valueProp, hideField } = this.props
+    const { valueProp, hideProp } = this.props
 
     let options = this.props.options.map((option, index) => {
-      // Hide the option if an option is selected and the hideField prop is provided
-      if (hideField) {
-        option[hideField] = this.state.selected && this.state.selected[valueProp] === option[valueProp]
+      // Hide the option if an option is selected and the hideProp prop is provided
+      if (hideProp) {
+        option[hideProp] = this.state.selected && this.state.selected[valueProp] === option[valueProp]
       }
 
-      return <li key={index} onClick={this.selectOption.bind(null, option, true)} className={hideField && option[hideField] && style['hidden']}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
+      return <li key={index} onClick={this.selectOption.bind(null, option, true)} className={hideProp && option[hideProp] && style['hidden']}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
     })
 
     if (options.length === 0) {

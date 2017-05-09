@@ -18,8 +18,8 @@ import ExampleSelectFieldIcon from './ExampleSelectFieldIcon'
 import exampleSelectFieldIconCode from '!raw!./ExampleSelectFieldIcon'
 import ExampleSelectFieldOptionIcons from './ExampleSelectFieldOptionIcons'
 import exampleSelectFieldOptionIconsCode from '!raw!./ExampleSelectFieldOptionIcons'
-import ExampleSelectFieldHideField from './ExampleSelectFieldHideField'
-import exampleSelectFieldHideFieldCode from '!raw!./ExampleSelectFieldHideField'
+import ExampleSelectFieldHideProp from './ExampleSelectFieldHideProp'
+import exampleSelectFieldHidePropCode from '!raw!./ExampleSelectFieldHideProp'
 import styles from 'private/css/content'
 
 const description = {
@@ -89,8 +89,8 @@ const SelectFieldPage = () => (
         <CodeExample
           title='Select Field with Hidden Selected Option'
           description={description.selectFieldHideOptions}
-          markup={exampleSelectFieldHideFieldCode}>
-          <ExampleSelectFieldHideField />
+          markup={exampleSelectFieldHidePropCode}>
+          <ExampleSelectFieldHideProp />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>

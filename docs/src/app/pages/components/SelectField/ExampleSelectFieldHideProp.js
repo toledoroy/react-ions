@@ -29,7 +29,7 @@ class ExampleSelectFieldCallback extends React.Component {
         displayProp='display'
         changeCallback={this.handleChange}
         value={this.state.value}
-        hideField='notShowing'
+        hideProp='notShowing'
       />
     )
   }
