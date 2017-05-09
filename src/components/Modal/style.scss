@@ -73,6 +73,10 @@
       }
     }
 
+    .modal-footer {
+      display: block; // because CSS modules won't render the style w/o a defined selector
+    }
+
     .modal-actions {
       margin-top: 24px;
       float: right;
