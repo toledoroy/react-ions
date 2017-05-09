@@ -51,7 +51,11 @@ class SelectField extends React.Component {
     /**
      * Icon to be displayed on the left
      */
-    icon: React.PropTypes.string
+    icon: React.PropTypes.string,
+    /**
+     * The name of the field to check for hiding options
+     */
+    hideField: React.PropTypes.string
   }
 
   state = {
@@ -164,7 +168,7 @@ class SelectField extends React.Component {
     const selectedValues = this.state.value
 
     let options = this.props.options.map((option, index) =>
-      <li key={index} onClick={this.selectOption.bind(null, option, true)} className={option.hidden && style['hidden']}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
+      <li key={index} onClick={this.selectOption.bind(null, option, true)} className={this.props.hideField && option[this.props.hideField] && style['hidden']}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
     )
 
     if (options.length === 0) {
