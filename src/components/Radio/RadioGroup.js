@@ -14,9 +14,7 @@ class RadioGroup extends React.Component {
   }
 
   static defaultProps = {
-    disabled: false,
-    required: false,
-    labelPosition: 'right'
+    disabled: false
   }
 
   static propTypes = {
@@ -28,10 +26,6 @@ class RadioGroup extends React.Component {
      * The name that will be applied to all radio buttons inside it.
      */
     name: React.PropTypes.string.isRequired,
-    /**
-     * Whether the radio group is required.
-     */
-    required: React.PropTypes.bool,
     /**
      * Whether the radio group is disabled.
      */
@@ -45,13 +39,13 @@ class RadioGroup extends React.Component {
      */
     value: React.PropTypes.string,
     /**
-     * Where the label will be placed for all radio buttons. This will override any labelPosition properties defined for an individual radio button.
-     */
-    labelPosition: React.PropTypes.oneOf(['left', 'right']),
-    /**
      * A callback function to be called when an option is changed.
      */
-    changeCallback: React.PropTypes.func
+    changeCallback: React.PropTypes.func,
+    /**
+     * An optional string that appears below the label
+     */
+    description: React.PropTypes.string
   }
 
   componentWillMount = () => {
@@ -73,8 +67,15 @@ class RadioGroup extends React.Component {
     }
   }
 
+  shouldComponentUpdate = (nextProps, nextState) => {
+    if (nextState.value !== this.state.value) return true
+    if (nextProps.disabled !== this.props.disabled) return true
+
+    return false
+  }
+
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value !== this.state.value) {
+    if (typeof nextProps.value !== 'undefined' && nextProps.value !== this.state.value) {
       this.setState({value: nextProps.value}, () => {
         this.checkItem(nextProps.value, this.state.options || nextProps.options)
       })
@@ -114,8 +115,7 @@ class RadioGroup extends React.Component {
 
   getOptions = () => {
     const groupName = this.props.name
-    const groupLabelPosition = this.props.labelPosition
-    const { options, label, name, value, required, labelPosition, changeCallback, ...other } = this.props
+    const { options, label, name, value, description, changeCallback, ...other } = this.props
 
     //this means explicit radio buttons were defined (usually paired with other form fields)
     //we create an options array in the state (because there is no options in props) for checkItem to use
@@ -126,8 +126,7 @@ class RadioGroup extends React.Component {
             key: index,
             name: groupName,
             checked: this.state.value === child.props.value,
-            changeCallback: this.handleChange,
-            labelPosition: groupLabelPosition
+            changeCallback: this.handleChange
           })
         }
         else {
@@ -142,9 +141,9 @@ class RadioGroup extends React.Component {
           key={option.value}
           value={option.value}
           label={option.label}
+          description={option.description}
           name={groupName}
           checked={this.state.value === option.value}
-          labelPosition={groupLabelPosition}
           optClass={option.optClass}
           changeCallback={this.handleChange}
           {...other} />
@@ -158,7 +157,6 @@ class RadioGroup extends React.Component {
 
     return (
       <div className={radioGroupClass}>
-        {this.props.required ? <span className={style.asterisk}>*</span> : null}
         {this.props.label ? <label className={style['radio-group-label']}>{this.props.label}</label> : null}
         {this.getOptions()}
       </div>
