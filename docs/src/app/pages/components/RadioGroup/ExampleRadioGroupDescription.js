@@ -30,7 +30,7 @@ class ExampleRadioGroupDescription extends React.Component {
   render() {
     return (
       <div>
-        <RadioGroup name='child-radio-group' changeCallback={this.handleChange}>
+        <RadioGroup name='child-description-group' changeCallback={this.handleChange}>
           {this.getRadioBlocks()}
         </RadioGroup>
       </div>

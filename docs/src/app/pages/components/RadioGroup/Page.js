@@ -54,6 +54,12 @@ const RadioPage = () => (
           <ExampleRadioCallback />
         </CodeExample>
         <CodeExample
+          title='Radio with child'
+          description={description.radioChild}
+          markup={exampleRadioChildCode}>
+          <ExampleRadioChild />
+        </CodeExample>
+        <CodeExample
           title='Radio with description'
           description={description.radioGroupDescription}
           markup={exampleRadioGroupDescriptionCode}>
