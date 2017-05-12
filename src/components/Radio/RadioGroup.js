@@ -75,7 +75,7 @@ class RadioGroup extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (typeof nextProps.value !== 'undefined' && nextProps.value !== this.state.value) {
+    if (nextProps.value !== undefined && nextProps.value !== this.state.value) {
       this.setState({value: nextProps.value}, () => {
         this.checkItem(nextProps.value, this.state.options || nextProps.options)
       })
