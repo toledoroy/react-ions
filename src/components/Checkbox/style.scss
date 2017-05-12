@@ -15,47 +15,67 @@
     padding: 0;
     position: absolute;
     width: 100%;
+    top: 0;
+    z-index: 2;
   }
 
     > input:checked + div .checkbox-input {
       svg {
         display: block;
-        width: 75%;
-        height: 75%;
-        margin: 2px auto;
+        width: 12px;
+        height: 12px;
       }
     }
 
   > div {
+    align-items: center;
+    display: flex;
     height: 100%;
     width: 100%;
-    display: flex;
-    align-items: center;
+
+    &.label-group {
+      align-items: inherit;
+    }
 
     .checkbox-input {
+      align-items: center;
       background-color: $white;
       border: solid 2px $neutral-3;
       border-radius: 10%;
-      height: 20px;
+      display: flex;
       flex-shrink: 0;
-      width: 20px;
+      height: 14px;
+      justify-content: center;
+      width: 14px;
 
       svg {
         display: none;
       }
     }
 
+    .label-wrapper {
+      display: flex;
+
+      .label-title {
+        font-size: 15px;
+        font-weight: 200;
+        line-height: 18px;
+      }
+
+      .label-description {
+        display: block;
+        line-height: 22px;
+        opacity: 0.85;
+        margin-bottom: -4px;
+        margin-top: 8px;
+      }
+    }
+
     label {
       color: $navy-text;
       font-size: 14px;
-
-      &.label-left{
-        margin-right: 10px;
-      }
-
-      &.label-right {
-        margin-left: 10px;
-      }
+      margin-left: 10px;
+      margin-top: 1px;
     }
 
   }
@@ -81,9 +101,11 @@
       .checkbox-input {
         background-color: $neutral-3;
         border-color: $neutral-3;
+
         &:before {
           display: none;
         }
+
       }
     }
   }

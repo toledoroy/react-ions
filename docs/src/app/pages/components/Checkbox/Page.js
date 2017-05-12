@@ -20,6 +20,8 @@ import ExampleCheckboxToggle from './ExampleCheckboxToggle'
 import exampleCheckboxToggleCode from '!raw!./ExampleCheckboxToggle'
 import ExampleCheckboxCustomIcon from './ExampleCheckboxCustomIcon'
 import exampleCheckboxCustomIconCode from '!raw!./ExampleCheckboxCustomIcon'
+import ExampleCheckboxDescription from './ExampleCheckboxDescription'
+import exampleCheckboxDescriptionCode from '!raw!./ExampleCheckboxDescription'
 import styles from 'private/css/content'
 
 const description = {
@@ -31,7 +33,8 @@ const description = {
   checkboxLocked: 'This is the `checkbox component` when locked. It can only be changed by receiving props.',
   checkboxCallback: 'This is the `checkbox component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
   checkboxToggle: 'This is the `checkbox component` that you can toggle from the outside by changing its checked property.',
-  checkboxCustomIcon: 'This is the `checkbox component` with a custom icon.'
+  checkboxCustomIcon: 'This is the `checkbox component` with a custom icon.',
+  checkboxDescription: 'This is the `checkbox component` with a description.'
 }
 
 const CheckboxPage = () => (
@@ -91,6 +94,12 @@ const CheckboxPage = () => (
           description={description.checkboxCustomIcon}
           markup={exampleCheckboxCustomIconCode}>
           <ExampleCheckboxCustomIcon />
+        </CodeExample>
+        <CodeExample
+          title='Checkbox with a description'
+          description={description.checkboxDescription}
+          markup={exampleCheckboxDescriptionCode}>
+          <ExampleCheckboxDescription />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
