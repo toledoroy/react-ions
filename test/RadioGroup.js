@@ -225,18 +225,4 @@ describe('RadioGroup', () => {
 
     expect(options[1].checked).to.be.true
   })
-
-  it('should update according to sCU', () => {
-    const nextState = {
-      value: 'test'
-    }
-
-    const nextProps = {
-      disabled: true
-    }
-
-    wrapper = shallow(<RadioGroup name='test-group' options={options} label='Test label' />)
-    expect(wrapper.instance().shouldComponentUpdate(null, nextState)).to.be.true
-    expect(wrapper.instance().shouldComponentUpdate(nextProps, nextState)).to.be.true
-  })
 })
