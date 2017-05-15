@@ -1,5 +1,12 @@
 ## HEAD
 
+##1.0.28
+###### _May 15, 2017_
+
+- Checkbox: implement description layout ([#415](https://github.com/GetAmbassador/react-ions/pull/415))
+
+- RadioGroup: add description option, remove label position and required field layout ([#414](https://github.com/GetAmbassador/react-ions/pull/414))
+
 ## 1.0.27
 ###### _May 9, 2017_
 
@@ -9,7 +16,7 @@
 
 - Tabs: Add titlePrefix prop, and associated examples and tests ([#410](https://github.com/GetAmbassador/react-ions/pull/410))
 
-- Modal: Allow elements to be rendered without an <h1 /> wrapper ([#409](https://github.com/GetAmbassador/react-ions/pull/409))
+- Modal: Allow elements to be rendered without an h1 wrapper ([#409](https://github.com/GetAmbassador/react-ions/pull/409))
 
 ## 1.0.26
 ###### _May 4, 2017_
