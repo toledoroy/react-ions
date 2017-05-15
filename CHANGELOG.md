@@ -16,7 +16,7 @@
 
 - Tabs: Add titlePrefix prop, and associated examples and tests ([#410](https://github.com/GetAmbassador/react-ions/pull/410))
 
-- Modal: Allow elements to be rendered without an <h1 /> wrapper ([#409](https://github.com/GetAmbassador/react-ions/pull/409))
+- Modal: Allow elements to be rendered without an h1 wrapper ([#409](https://github.com/GetAmbassador/react-ions/pull/409))
 
 ## 1.0.26
 ###### _May 4, 2017_
