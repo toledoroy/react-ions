@@ -15,6 +15,9 @@ describe('DatePicker', () => {
     wrapper = shallow(<DatePicker value={oldDate} />)
     expect(wrapper.find('.datepicker-component')).to.have.length(1)
     expect(wrapper.children()).to.have.length(3)
+    expect(wrapper.childAt(0).props().placeholder).to.equal('Month')
+    expect(wrapper.childAt(1).props().placeholder).to.equal('Day')
+    expect(wrapper.childAt(2).props().placeholder).to.equal('Year')
   })
 
   it('should have current date by default', () => {
