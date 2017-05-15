@@ -337,6 +337,7 @@ class DatePicker extends React.Component {
           displayProp='display'
           value={this.state.month.value.toString()}
           changeCallback={this.handleChangeMonth}
+          placeholder='Month'
         />
         <SelectField
           options={this.state.day.options}
@@ -344,6 +345,7 @@ class DatePicker extends React.Component {
           displayProp='value'
           value={this.state.day.value.toString()}
           changeCallback={this.handleChangeDay}
+          placeholder='Day'
         />
         <SelectField
           options={this.state.year.options}
@@ -351,6 +353,7 @@ class DatePicker extends React.Component {
           displayProp='value'
           value={this.state.year.value.toString()}
           changeCallback={this.handleChangeYear}
+          placeholder='Year'
         />
       </div>
     )
