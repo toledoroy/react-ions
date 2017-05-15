@@ -74,10 +74,6 @@ class Checkbox extends React.Component {
       newState.value = nextProps.value
     }
 
-    if (nextProps.description !== this.props.description) {
-      newState.description = nextProps.description
-    }
-
     if (nextProps.iconName !== this.state.iconName) {
       newState.iconName = nextProps.iconName
     }

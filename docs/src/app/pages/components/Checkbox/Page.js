@@ -10,8 +10,6 @@ import ExampleCheckboxDisabled from './ExampleCheckboxDisabled'
 import exampleCheckboxDisabledCode from '!raw!./ExampleCheckboxDisabled'
 import ExampleCheckboxError from './ExampleCheckboxError'
 import exampleCheckboxErrorCode from '!raw!./ExampleCheckboxError'
-import ExampleCheckboxLeft from './ExampleCheckboxLeft'
-import exampleCheckboxLeftCode from '!raw!./ExampleCheckboxLeft'
 import ExampleCheckboxLocked from './ExampleCheckboxLocked'
 import exampleCheckboxLockedCode from '!raw!./ExampleCheckboxLocked'
 import ExampleCheckboxCallback from './ExampleCheckboxCallback'
@@ -29,7 +27,6 @@ const description = {
   checkboxChecked: 'This is the checked `checkbox component`.',
   checkboxDisabled: 'This is the disabled `checkbox component`.',
   checkboxError: 'This is the `checkbox component` with an error.',
-  checkboxLeft: 'This is a `checkbox component` with the label on the left side.',
   checkboxLocked: 'This is the `checkbox component` when locked. It can only be changed by receiving props.',
   checkboxCallback: 'This is the `checkbox component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
   checkboxToggle: 'This is the `checkbox component` that you can toggle from the outside by changing its checked property.',
@@ -70,12 +67,6 @@ const CheckboxPage = () => (
           description={description.checkboxError}
           markup={exampleCheckboxErrorCode}>
           <ExampleCheckboxError />
-        </CodeExample>
-        <CodeExample
-          title='Checkbox Left Label'
-          description={description.checkboxLeft}
-          markup={exampleCheckboxLeftCode}>
-          <ExampleCheckboxLeft />
         </CodeExample>
         <CodeExample
           title='Checkbox with callback function'
