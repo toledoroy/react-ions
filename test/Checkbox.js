@@ -15,7 +15,6 @@ describe('Checkbox', () => {
 
     expect(wrapper.hasClass('checkbox-component')).to.equal(true)
     expect(wrapper.childAt(1).childAt(0).hasClass('checkbox-input')).to.equal(true)
-    expect(wrapper.childAt(1).childAt(1).hasClass('label-right')).to.equal(true)
   })
 
   it('should be disabled', () => {
@@ -83,14 +82,6 @@ describe('Checkbox', () => {
     expect(wrapper.hasClass('checkbox-error')).to.equal(true)
   })
 
-  it('should have the label on the left side', () => {
-    wrapper = shallow(<Checkbox value={false} label='Test label' labelPosition='left'></Checkbox>)
-
-    expect(wrapper.hasClass('checkbox-component'))
-    expect(wrapper.childAt(1).childAt(0).hasClass('label-left')).to.equal(true)
-    expect(wrapper.childAt(1).childAt(1).hasClass('checkbox-input')).to.equal(true)
-  })
-
   it('should call changeCallback function', () => {
     const spy = sinon.spy()
 
@@ -144,5 +135,11 @@ describe('Checkbox', () => {
     wrapper.setProps({ iconName: 'icon-minus-2' })
 
     expect(wrapper.state().iconName).to.equal('icon-minus-2')
+  })
+
+  it('should return a description', () => {
+    wrapper = shallow(<Checkbox label='Test label' description='This is a test'></Checkbox>)
+
+    expect(wrapper.childAt(1).childAt(1).childAt(0).childAt(1).text()).to.equal('This is a test')
   })
 })
