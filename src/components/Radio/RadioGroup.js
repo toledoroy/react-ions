@@ -67,13 +67,6 @@ class RadioGroup extends React.Component {
     }
   }
 
-  shouldComponentUpdate = (nextProps, nextState) => {
-    if (nextState.value !== this.state.value) return true
-    if (nextProps.disabled !== this.props.disabled) return true
-
-    return false
-  }
-
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value !== undefined && nextProps.value !== this.state.value) {
       this.setState({value: nextProps.value}, () => {
