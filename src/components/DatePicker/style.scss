@@ -1,7 +1,17 @@
+@import '../../styles/common/colors';
 @import '../../styles/common/screen';
 
 .datepicker-component {
-  > div {
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: $navy-text;
+    font-family: proxima_nova;
+    font-weight: 200;
+  }
+
+  .datepicker > div {
     &:first-of-type {
       width: 70px;
       > div {
@@ -50,7 +60,7 @@
     }
   }
 
-  > div {
+  .datepicker > div {
     &:first-of-type {
       > div {
         @media #{$media-small-minus} {
