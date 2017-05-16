@@ -55,7 +55,11 @@ class SelectField extends React.Component {
     /**
      * Icon to be displayed on the left
      */
-    icon: React.PropTypes.string
+    icon: React.PropTypes.string,
+    /**
+     * Text shown above the select field.
+     */
+    label: React.PropTypes.string
   }
 
   state = {
@@ -164,7 +168,7 @@ class SelectField extends React.Component {
     const activeClass = this.state.isOpen ? style['active'] : ''
     const hasIconClass = !!this.getDisplayIcon() ? style['has-icon'] : ''
     const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, hasIconClass, this.props.optClass)
-    const { valueProp, hideProp } = this.props
+    const { valueProp, hideProp, label } = this.props
 
     let options = this.props.options.map((option, index) =>
       <li key={index} onClick={this.selectOption.bind(null, option, true)} className={hideProp && option[hideProp] && style['hidden']}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
@@ -182,6 +186,7 @@ class SelectField extends React.Component {
     return (
       <div className={selectFieldClass}>
         <input type='hidden' name='selectfield-value' value={value} />
+        { label && <label>{label}</label> }
         <div className={style['selectfield-value']} onClick={this.toggleSelectField}>
           {this.getDisplayIcon()}
           <span className={style['display-text']}>{this.getDisplayText()}</span>

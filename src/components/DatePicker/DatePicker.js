@@ -74,7 +74,11 @@ class DatePicker extends React.Component {
     /**
      * If true, will display the inputs inline on smaller screens (default 100% width)
      */
-    inlineSmallScreen: React.PropTypes.bool
+    inlineSmallScreen: React.PropTypes.bool,
+    /**
+     * Text shown above the date picker.
+     */
+    label: React.PropTypes.string
   }
 
   _initDate = (date, format) => {
@@ -326,35 +330,39 @@ class DatePicker extends React.Component {
   }
 
   render() {
-    const inlineSmallScreen = this.props.inlineSmallScreen ? style['inline-small-screen'] : null
-    const componentClass = optclass(style, ['datepicker-component', inlineSmallScreen], this.props.optClass)
+    const { inlineSmallScreen, label, optClass } = this.props
+    const inlineSmallScreenClass = inlineSmallScreen ? style['inline-small-screen'] : null
+    const componentClass = optclass(style, ['datepicker-component', inlineSmallScreenClass], optClass)
 
     return (
       <div className={componentClass}>
-        <SelectField
-          options={this.state.month.options}
-          valueProp='value'
-          displayProp='display'
-          value={this.state.month.value.toString()}
-          changeCallback={this.handleChangeMonth}
-          placeholder='Month'
-        />
-        <SelectField
-          options={this.state.day.options}
-          valueProp='value'
-          displayProp='value'
-          value={this.state.day.value.toString()}
-          changeCallback={this.handleChangeDay}
-          placeholder='Day'
-        />
-        <SelectField
-          options={this.state.year.options}
-          valueProp='value'
-          displayProp='value'
-          value={this.state.year.value.toString()}
-          changeCallback={this.handleChangeYear}
-          placeholder='Year'
-        />
+        { label && <label>{label}</label> }
+        <div className={style['datepicker']}>
+          <SelectField
+            options={this.state.month.options}
+            valueProp='value'
+            displayProp='display'
+            value={this.state.month.value.toString()}
+            changeCallback={this.handleChangeMonth}
+            placeholder='Month'
+          />
+          <SelectField
+            options={this.state.day.options}
+            valueProp='value'
+            displayProp='value'
+            value={this.state.day.value.toString()}
+            changeCallback={this.handleChangeDay}
+            placeholder='Day'
+          />
+          <SelectField
+            options={this.state.year.options}
+            valueProp='value'
+            displayProp='value'
+            value={this.state.year.value.toString()}
+            changeCallback={this.handleChangeYear}
+            placeholder='Year'
+          />
+        </div>
       </div>
     )
   }

@@ -5,6 +5,15 @@
 .typeahead-component {
   position: relative;
 
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: $navy-text;
+    font-family: proxima_nova;
+    font-weight: 200;
+  }
+
   .typeahead-list {
     background-color: $white;
     color: $primary-4;

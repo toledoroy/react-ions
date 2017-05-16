@@ -254,4 +254,11 @@ describe('SelectField', () => {
     expect(wrapper.childAt(2).childAt(0).props().className).to.not.equal('hidden')
     expect(wrapper.childAt(2).childAt(1).props().className).to.equal('hidden')
   })
+
+  it('should render a label', () => {
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' label='Select Field Label' />)
+
+    expect(wrapper.childAt(1).type()).to.equal('label')
+    expect(wrapper.childAt(1).text()).to.equal('Select Field Label')
+  })
 })

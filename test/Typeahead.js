@@ -25,6 +25,12 @@ describe('Typeahead', () => {
     expect(wrapper.childAt(0).props().placeholder).to.equal('test')
   })
 
+  it('should have a label', () => {
+    wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' label='Typeahead Label' />)
+    expect(wrapper.childAt(0).type()).to.equal('label')
+    expect(wrapper.childAt(0).text()).to.equal('Typeahead Label')
+  })
+
   it('should be disabled', () => {
     wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' disabled={true} />)
     expect(wrapper.childAt(0).props().disabled).to.be.true

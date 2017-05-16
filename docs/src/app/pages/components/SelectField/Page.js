@@ -20,6 +20,8 @@ import ExampleSelectFieldOptionIcons from './ExampleSelectFieldOptionIcons'
 import exampleSelectFieldOptionIconsCode from '!raw!./ExampleSelectFieldOptionIcons'
 import ExampleSelectFieldHideProp from './ExampleSelectFieldHideProp'
 import exampleSelectFieldHidePropCode from '!raw!./ExampleSelectFieldHideProp'
+import ExampleSelectFieldLabel from './ExampleSelectFieldLabel'
+import exampleSelectFieldLabelCode from '!raw!./ExampleSelectFieldLabel'
 import styles from 'private/css/content'
 
 const description = {
@@ -31,7 +33,8 @@ const description = {
   selectFieldCallback: 'This is the `select field component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
   selectFieldIcon: 'This is the `select field component` with an icon on the left.',
   selectFieldOptionIcons: 'This is the `select field component` with an icon for each option.',
-  selectFieldHideOptions: 'This is the `select field component` with the hidden option that is selected.'
+  selectFieldHideOptions: 'This is the `select field component` with the hidden option that is selected.',
+  selectFieldLabel: 'This is the `select field component` with a label.'
 }
 
 const SelectFieldPage = () => (
@@ -91,6 +94,12 @@ const SelectFieldPage = () => (
           description={description.selectFieldHideOptions}
           markup={exampleSelectFieldHidePropCode}>
           <ExampleSelectFieldHideProp />
+        </CodeExample>
+        <CodeExample
+          title='Select Field with a Label'
+          description={description.selectFieldLabel}
+          markup={exampleSelectFieldLabelCode}>
+          <ExampleSelectFieldLabel />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>

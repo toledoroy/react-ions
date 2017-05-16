@@ -14,10 +14,13 @@ describe('DatePicker', () => {
   it('should shallow render itself', () => {
     wrapper = shallow(<DatePicker value={oldDate} />)
     expect(wrapper.find('.datepicker-component')).to.have.length(1)
-    expect(wrapper.children()).to.have.length(3)
-    expect(wrapper.childAt(0).props().placeholder).to.equal('Month')
-    expect(wrapper.childAt(1).props().placeholder).to.equal('Day')
-    expect(wrapper.childAt(2).props().placeholder).to.equal('Year')
+    expect(wrapper.find('.datepicker')).to.have.length(1)
+
+    const datepicker = wrapper.find('.datepicker').at(0)
+    expect(datepicker.children()).to.have.length(3)
+    expect(datepicker.childAt(0).props().placeholder).to.equal('Month')
+    expect(datepicker.childAt(1).props().placeholder).to.equal('Day')
+    expect(datepicker.childAt(2).props().placeholder).to.equal('Year')
   })
 
   it('should have current date by default', () => {
@@ -25,8 +28,10 @@ describe('DatePicker', () => {
     DateHelper.__set__('_getMonth', function() { return '10' })
     DateHelper.__set__('_getYear', function() { return '2012' })
     wrapper = shallow(<DatePicker dateHelper={DateHelper} />)
+
     expect(wrapper.find('.datepicker-component')).to.have.length(1)
-    expect(wrapper.children()).to.have.length(3)
+    expect(wrapper.find('.datepicker')).to.have.length(1)
+    expect(wrapper.childAt(0).children()).to.have.length(3)
     expect(wrapper.state('value')).to.equal('2012-11-20')
   })
 
@@ -34,6 +39,12 @@ describe('DatePicker', () => {
     wrapper = shallow(<DatePicker optClass="test-class" />)
     expect(wrapper.find('.datepicker-component')).to.have.length(1)
     expect(wrapper.hasClass('test-class')).to.be.true
+  })
+
+  it('should have a label', () => {
+    wrapper = shallow(<DatePicker label='Date Label' />)
+    expect(wrapper.childAt(0).type()).to.equal('label')
+    expect(wrapper.childAt(0).text()).to.equal('Date Label')
   })
 
   it('should update the state when the value property changes', () => {
@@ -53,11 +64,12 @@ describe('DatePicker', () => {
       result = event
     }
     wrapper = mount(<DatePicker value={oldDate} changeCallback={callback} />)
+    const datepicker = wrapper.find('.datepicker').at(0)
 
     // open <ul>
-    wrapper.childAt(0).childAt(2).simulate('click')
+    datepicker.childAt(0).childAt(2).simulate('click')
     // click <li>
-    wrapper.childAt(0).childAt(2).childAt(0).simulate('click')
+    datepicker.childAt(0).childAt(2).childAt(0).simulate('click')
 
     const firstMonth = '2017-01-02'
     expect(result.target.value).to.equal(firstMonth)
@@ -70,11 +82,12 @@ describe('DatePicker', () => {
       result = event
     }
     wrapper = mount(<DatePicker value={oldDate} changeCallback={callback} />)
+    const datepicker = wrapper.find('.datepicker').at(0)
 
     // open <ul>
-    wrapper.childAt(1).childAt(2).simulate('click')
+    datepicker.childAt(1).childAt(2).simulate('click')
     // click <li>
-    wrapper.childAt(1).childAt(2).childAt(0).simulate('click')
+    datepicker.childAt(1).childAt(2).childAt(0).simulate('click')
 
     const firstDay = '2017-07-01'
     expect(result.target.value).to.equal(firstDay)
@@ -87,11 +100,12 @@ describe('DatePicker', () => {
       result = event
     }
     wrapper = mount(<DatePicker value={oldDate} changeCallback={callback} />)
+    const datepicker = wrapper.find('.datepicker').at(0)
 
     // open <ul>
-    wrapper.childAt(2).childAt(2).simulate('click')
+    datepicker.childAt(2).childAt(2).simulate('click')
     // click <li>
-    wrapper.childAt(2).childAt(2).childAt(0).simulate('click')
+    datepicker.childAt(2).childAt(2).childAt(0).simulate('click')
 
     let firstDate = ''
     const daySelected = moment.utc(oldDate, defaultFormat).date()
@@ -134,11 +148,12 @@ describe('DatePicker', () => {
     const date = moment.utc().month(11).date(31).format(defaultFormat)
 
     wrapper = mount(<DatePicker value={date} min={minCurrent} max={maxCalc} changeCallback={callback} />)
+    const datepicker = wrapper.find('.datepicker').at(0)
 
     // set last year
-    wrapper.childAt(2).childAt(2).simulate('click')
+    datepicker.childAt(2).childAt(2).simulate('click')
     // click <li>
-    wrapper.childAt(2).childAt(2).childAt(1).simulate('click')
+    datepicker.childAt(2).childAt(2).childAt(1).simulate('click')
 
     const firstYear = moment.utc().add(1, 'year').format('YYYY')+'-06-20'
     expect(result.target.value).to.equal(firstYear)
@@ -155,11 +170,12 @@ describe('DatePicker', () => {
     const date = moment.utc().month(0).date(1).format(defaultFormat)
 
     wrapper = mount(<DatePicker value={date} min={minCalc} max={maxCurrent} changeCallback={callback} />)
+    const datepicker = wrapper.find('.datepicker').at(0)
 
     // set first year
-    wrapper.childAt(2).childAt(2).simulate('click')
+    datepicker.childAt(2).childAt(2).simulate('click')
     // click <li>
-    wrapper.childAt(2).childAt(2).childAt(0).simulate('click')
+    datepicker.childAt(2).childAt(2).childAt(0).simulate('click')
 
     const firstYear = moment.utc().subtract(1, 'year').format('YYYY')+'-06-20'
     expect(result.target.value).to.equal(firstYear)
@@ -177,12 +193,13 @@ describe('DatePicker', () => {
     const minCurrent = { month: 'current', day: 'current', year: 'current'}
 
     wrapper = mount(<DatePicker value={date} min={minCurrent} format={format} changeCallback={callback} />)
+    const datepicker = wrapper.find('.datepicker').at(0)
     expect(wrapper.state('value')).to.equal(date)
 
     // open <ul>
-    wrapper.childAt(2).childAt(2).simulate('click')
+    datepicker.childAt(2).childAt(2).simulate('click')
     // click <li>
-    wrapper.childAt(2).childAt(2).childAt(1).simulate('click')
+    datepicker.childAt(2).childAt(2).childAt(1).simulate('click')
 
     const newDate = moment.utc().add(1, 'year').format(format)
     expect(result.target.value).to.equal(newDate)

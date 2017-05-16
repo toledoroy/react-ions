@@ -10,6 +10,8 @@ import ExampleDatePickerSelected from './ExampleDatePickerSelected'
 import exampleDatePickerSelectedCode from '!raw!./ExampleDatePickerSelected'
 import ExampleDatePickerCallback from './ExampleDatePickerCallback'
 import exampleDatePickerCallbackCode from '!raw!./ExampleDatePickerCallback'
+import ExampleDatePickerLabel from './ExampleDatePickerLabel'
+import exampleDatePickerLabelCode from '!raw!./ExampleDatePickerLabel'
 import PropsList from 'private/modules/PropsList'
 import docs from '!!docgen!react-ions/lib/DatePicker/DatePicker'
 import styles from 'private/css/content'
@@ -33,7 +35,7 @@ const DatePickerPage = () => (
         </CodeExample>
         <CodeExample
           title='Date Picker with Selected Date'
-          description='This is the `DatePicker component` with Selected Date.'
+          description='This is the `DatePicker component` with a selected date.'
           markup={exampleDatePickerSelectedCode}>
           <ExampleDatePickerSelected />
         </CodeExample>
@@ -45,9 +47,15 @@ const DatePickerPage = () => (
         </CodeExample>
         <CodeExample
           title='Example Date Picker with Callback'
-          description='This is the `DatePicker component`with Callback.'
+          description='This is the `DatePicker component` with a callback.'
           markup={exampleDatePickerCallbackCode}>
           <ExampleDatePickerCallback />
+        </CodeExample>
+        <CodeExample
+          title='Example Date Picker with a Label'
+          description='This is the `DatePicker component` with a label.'
+          markup={exampleDatePickerLabelCode}>
+          <ExampleDatePickerLabel />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
