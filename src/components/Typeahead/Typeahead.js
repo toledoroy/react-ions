@@ -83,7 +83,11 @@ export class Typeahead extends React.Component {
     /**
      * Search debounce time.
      */
-    searchDebounceTime: React.PropTypes.number
+    searchDebounceTime: React.PropTypes.number,
+    /**
+     * Text shown above the typeahead.
+     */
+    label: React.PropTypes.string
   }
 
   state = {
@@ -233,6 +237,8 @@ export class Typeahead extends React.Component {
       width: 3
     }
 
+    const { placeholder, disabled, loading, label } = this.props
+
     const options = this.state.results.map((option, index) =>
       <li
         key={index}
@@ -242,14 +248,15 @@ export class Typeahead extends React.Component {
 
     return (
       <div className={typeaheadClass}>
-        <Input ref={(c) => this._inputField = c} changeCallback={this.onChange} value={this.state.searchStr} placeholder={this.props.placeholder} disabled={this.props.disabled} />
+        { label && <label>{label}</label> }
+        <Input ref={(c) => this._inputField = c} changeCallback={this.onChange} value={this.state.searchStr} placeholder={placeholder} disabled={disabled} />
 
-        { this.state.searchStr !== '' && !this.props.loading && !this.props.disabled
+        { this.state.searchStr !== '' && !loading && !disabled
           ? <Icon name='icon-delete-1-1' onClick={this.clearSearch} className={style['reset-button']}>Reset</Icon>
           : null
         }
 
-        { this.props.loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
+        { loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
 
         { this.state.isActive ?
           <ul className={style['typeahead-list']}>

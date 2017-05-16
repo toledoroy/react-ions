@@ -14,6 +14,8 @@ import ExampleTypeaheadCustomSearch from './ExampleTypeaheadCustomSearch'
 import exampleTypeaheadCustomSearchCode from '!raw!./ExampleTypeaheadCustomSearch'
 import ExampleTypeaheadDebounce from './ExampleTypeaheadDebounce'
 import exampleTypeaheadDebounceCode from '!raw!./ExampleTypeaheadDebounce'
+import ExampleTypeaheadLabel from './ExampleTypeaheadLabel'
+import exampleTypeaheadLabelCode from '!raw!./ExampleTypeaheadLabel'
 import styles from 'private/css/content'
 
 const description = {
@@ -22,7 +24,8 @@ const description = {
   typeaheadDefaultValue: 'This is the `typeahead component` with a default value.',
   typeaheadCallback: 'This is the `typeahead component` with a callback.',
   typeaheadCustomSearch: 'This is the `typeahead component` with custom search.',
-  typeaheadDebounce: 'This is the `typeahead component` with search debounce.'
+  typeaheadDebounce: 'This is the `typeahead component` with search debounce.',
+  typeaheadLabel: 'This is the `typeahead component` with a label.'
 }
 
 const TypeaheadPage = () => (
@@ -64,6 +67,12 @@ const TypeaheadPage = () => (
           description={description.typeaheadDebounce}
           markup={exampleTypeaheadDebounceCode}>
           <ExampleTypeaheadDebounce />
+        </CodeExample>
+        <CodeExample
+          title='Typeahead with a label'
+          description={description.typeaheadLabel}
+          markup={exampleTypeaheadLabelCode}>
+          <ExampleTypeaheadLabel />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
