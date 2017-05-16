@@ -1,6 +1,6 @@
 ## HEAD
 
-##1.0.29
+## 1.0.29
 ###### _May 16, 2017_
 
 - SelectField, DatePicker, Typeahead: add label prop ([#419](https://github.com/GetAmbassador/react-ions/pull/419))
@@ -9,7 +9,7 @@
 
 - DatePicker: Use month, day, and year placeholders ([#417](https://github.com/GetAmbassador/react-ions/pull/417))
 
-##1.0.28
+## 1.0.28
 ###### _May 15, 2017_
 
 - Checkbox: implement description layout ([#415](https://github.com/GetAmbassador/react-ions/pull/415))
