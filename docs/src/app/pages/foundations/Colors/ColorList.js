@@ -28,6 +28,9 @@ const colorList = {
       sass: '$primary-4',
       hex: '#243140'
     }, {
+      sass: '$primary-4_5',
+      hex: '#233040'
+    }, {
       sass: '$primary-5',
       hex: '#2D3E50'
     }, {
