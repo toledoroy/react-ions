@@ -47,6 +47,10 @@
         margin-left: 0;
       }
 
+      &:hover {
+        color: rgba($primary-4_5, 1);
+      }
+
       @media #{$media-tiny} {
         margin: 0;
         width: 100%;
