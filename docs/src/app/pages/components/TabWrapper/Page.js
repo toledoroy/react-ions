@@ -8,43 +8,25 @@ import ExampleTabWrapperDefault from './ExampleTabWrapperDefault'
 import exampleTabWrapperDefaultCode from '!raw!./ExampleTabWrapperDefault'
 import ExampleTabWrapperSecondary from './ExampleTabWrapperSecondary'
 import exampleTabWrapperSecondaryCode from '!raw!./ExampleTabWrapperSecondary'
-import ExampleTabWrapperDisabled from './ExampleTabWrapperDisabled'
-import exampleTabWrapperDisabledCode from '!raw!./ExampleTabWrapperDisabled'
 import ExampleTabWrapperTitlePrefix from './ExampleTabWrapperTitlePrefix'
 import exampleTabWrapperTitlePrefixCode from '!raw!./ExampleTabWrapperTitlePrefix'
-
-const description = {
-  tabWrapperDefault: 'This is the `tab wrapper component` as it appears by default.',
-  tabWrapperSecondary: 'This is the secondary style for the `tab wrapper component`.',
-  tabWrapperDisabled: 'This is the `tab wrapper component` with a disabled tab.',
-  tabWrapperTitlePrefix: 'This is the `tab wrapper component` with `titlePrefix`'
-};
 
 const TabWrapperPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
         <CodeExample
-          title='Default Tab Wrapper'
-          description={description.tabWrapperDefault}
+          title='Default Tabs'
           markup={exampleTabWrapperDefaultCode}>
           <ExampleTabWrapperDefault />
         </CodeExample>
         <CodeExample
-          title='Secondary Tab Wrapper'
-          description={description.tabWrapperSecondary}
+          title='Secondary tab style'
           markup={exampleTabWrapperSecondaryCode}>
           <ExampleTabWrapperSecondary />
         </CodeExample>
         <CodeExample
-          title='Disabled Tab'
-          description={description.tabWrapperDisabled}
-          markup={exampleTabWrapperDisabledCode}>
-          <ExampleTabWrapperDisabled />
-        </CodeExample>
-        <CodeExample
           title='Prefixed Tabs'
-          description={description.tabWrapperTitlePrefix}
           markup={exampleTabWrapperTitlePrefixCode}>
           <ExampleTabWrapperTitlePrefix />
         </CodeExample>

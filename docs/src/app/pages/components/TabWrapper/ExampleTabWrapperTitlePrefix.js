@@ -1,6 +1,5 @@
 import React from 'react'
 import { TabWrapper, Tab } from 'react-ions/lib/TabWrapper'
-import ProgressBar from 'react-ions/lib/ProgressBar'
 import Badge from 'react-ions/lib/Badge'
 import classNames from 'classnames/bind'
 import style from './style.scss'
@@ -8,47 +7,17 @@ import style from './style.scss'
 class ExampleTabWrapperTitlePrefix extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      selected: '1st'
-    }
-  }
-
-  selectCallback = index => {
-    let selectedTab
-
-    switch (index) {
-      case 0:
-        selectedTab = '1st'
-        break
-      case 1:
-        selectedTab = '2nd'
-        break
-      case 2:
-        selectedTab = '3rd'
-    }
-
-    this.setState({ selected: selectedTab })
   }
 
   render() {
     const cx = classNames.bind(style)
     const iconGreenClasses = cx(style['tab-prefix'], style['icon-green'])
+
     return (
       <div>
-        <p>The {this.state.selected} tab is selected.</p>
         <TabWrapper onSelect={this.selectCallback} optClass="secondary">
-          <Tab
-            title="All Recent Activity"
-            count={1723}
-            optTabContentClass={style['tab-content-secondary']}>
+          <Tab title="All Recent Activity" count={1723} optTabContentClass={style['tab-content-secondary']}>
             <p>This tab contains another component.</p>
-            <ProgressBar
-              label="Progress"
-              showPercentage={true}
-              value={40}
-              denominator={50}
-              className="success"
-            />
           </Tab>
           <Tab
             titlePrefix={<Badge optClass={style['tab-prefix']} theme='sky' text='5' />}
