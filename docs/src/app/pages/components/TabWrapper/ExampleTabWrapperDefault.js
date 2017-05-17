@@ -38,13 +38,13 @@ class ExampleTabWrapperDefault extends React.Component {
         </div>
         <TabWrapper onSelect={this.selectCallback} initialSelectedIndex={this.state.selectedTabIndex}>
           <Tab title='All Recent Activity' count={1723} optTabContentClass={style['tab-content']}>
-            <p>Tab content.</p>
+            <p>Tab 1 content.</p>
           </Tab>
           <Tab title='Custom Bookmark' count={50} optTabContentClass={style['tab-content']}>
-            <p>Tab content.</p>
+            <p>Tab 2 content.</p>
           </Tab>
           <Tab title='Disabled' optTabContentClass={style['tab-content']} disabled={true}>
-            <p>Tab content.</p>
+            <p>Tab 3 content.</p>
           </Tab>
         </TabWrapper>
       </div>

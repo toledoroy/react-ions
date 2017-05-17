@@ -12,13 +12,13 @@ class ExampleTabWrapperSecondary extends React.Component {
       <div>
         <TabWrapper onSelect={this.selectCallback} optClass="secondary">
           <Tab title="All Recent Activity" optTabContentClass={style['tab-content-secondary']}>
-            <p>Tab content.</p>
+            <p>Tab 1 content.</p>
           </Tab>
           <Tab title="Custom Bookmark" optTabContentClass={style['tab-content-secondary']}>
-            <p>Tab content.</p>
+            <p>Tab 2 content.</p>
           </Tab>
           <Tab title="Hello World" optTabContentClass={style['tab-content-secondary']}>
-            <p>Tab content.</p>
+            <p>Tab 3 content.</p>
           </Tab>
         </TabWrapper>
       </div>

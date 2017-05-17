@@ -17,20 +17,20 @@ class ExampleTabWrapperTitlePrefix extends React.Component {
       <div>
         <TabWrapper onSelect={this.selectCallback} optClass="secondary">
           <Tab title="All Recent Activity" count={1723} optTabContentClass={style['tab-content-secondary']}>
-            <p>Tab content.</p>
+            <p>Tab 1 content.</p>
           </Tab>
           <Tab
             titlePrefix={<Badge optClass={style['tab-prefix']} theme='sky' text='5' />}
             title="Custom Bookmark"
             count={50}
             optTabContentClass={style['tab-content-secondary']}>
-            <p>Tab content.</p>
+            <p>Tab 2 content.</p>
           </Tab>
           <Tab
           titlePrefix={<Badge optClass={iconGreenClasses} theme='border' icon='icon-check-1-1' />}
             title="Hello World"
             optTabContentClass={style['tab-content-secondary']}>
-            <p>Tab content.</p>
+            <p>Tab 3 content.</p>
           </Tab>
         </TabWrapper>
       </div>
