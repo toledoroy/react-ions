@@ -8,8 +8,7 @@ class TabTemplate extends React.Component {
   static propTypes = {
     children: React.PropTypes.node,
     active: React.PropTypes.bool,
-    class: React.PropTypes.string,
-    ariaHidden: React.PropTypes.bool
+    class: React.PropTypes.string
   }
 
   render() {
@@ -27,7 +26,7 @@ class TabTemplate extends React.Component {
     }
 
     return (
-      <div style={styles} className={this.props.class} aria-hidden={this.props.ariaHidden}>
+      <div style={styles} className={this.props.class} aria-hidden={this.props.active}>
         {this.props.children}
       </div>
     )

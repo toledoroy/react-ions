@@ -27,11 +27,7 @@ class TabWrapper extends React.Component {
     optClass: React.PropTypes.oneOfType([
       React.PropTypes.string,
       React.PropTypes.array
-    ]),
-    /**
-     * Indicates the current "visibility" of the tab panel.
-     */
-    ariaHidden: React.PropTypes.bool
+    ])
   }
 
   state = {
@@ -89,14 +85,12 @@ class TabWrapper extends React.Component {
         React.createElement(TabTemplate, {
           key: index,
           active: this.isActive(index),
-          ariaHidden: this.isActive(index),
           class: tab.props.optTabContentClass
         }, tab.props.children) : undefined)
 
       return React.cloneElement(tab, {
         key: index,
         active: this.isActive(index),
-        ariaSelected: this.isActive(index),
         tabIndex: index,
         onClick: this.handleClick
       })

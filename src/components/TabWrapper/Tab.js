@@ -38,11 +38,7 @@ class Tab extends React.Component {
     /**
      * Optional title prefix renders in front of the title.
      */
-    titlePrefix: React.PropTypes.node,
-    /**
-     * Indicates the current "selected" state of various widgets.
-     */
-    ariaSelected: React.PropTypes.bool
+    titlePrefix: React.PropTypes.node
   };
 
   formatCount = () => {
@@ -63,7 +59,7 @@ class Tab extends React.Component {
     const tabClasses = cx(style.tab, this.props.optClass, tabActiveClass, tabDisabledClass);
 
     return (
-      <div className={tabClasses} onClick={this.handleClick} aria-selected={this.props.ariaSelected}>
+      <div className={tabClasses} onClick={this.handleClick} aria-selected={this.props.active}>
         {this.props.titlePrefix}
         {this.props.title} {this.props.count
           ? <span className={style.count}>({this.formatCount()})</span>
