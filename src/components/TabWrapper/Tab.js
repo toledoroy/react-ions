@@ -47,7 +47,7 @@ class Tab extends React.Component {
 
   formatCount = () => {
     // Add thousands separator ('.')
-    return this.props.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return this.props.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   handleClick = (event) => {
