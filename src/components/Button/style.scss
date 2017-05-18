@@ -61,7 +61,7 @@
 
   &.secondary {
     @include button-context($white, $primary-4);
-    border: 1px solid $neutral-3;
+    border: 2px solid $neutral-3;
   }
 
   &.plain {
