@@ -3,7 +3,7 @@
 ## 1.0.30
 ###### _May 18, 2017_
 
-- Tabs: contemporaize look/feel ([#421](https://github.com/GetAmbassador/react-ions/pull/421))
+- Tabs: contemporize look/feel ([#421](https://github.com/GetAmbassador/react-ions/pull/421))
 
 ## 1.0.29
 ###### _May 16, 2017_
