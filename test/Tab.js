@@ -30,7 +30,7 @@ describe('Tab', () => {
     expect(wrapper.hasClass('tab')).to.equal(true);
     expect(wrapper.hasClass('active')).to.equal(false);
     expect(wrapper.find('span')).to.have.length(1);
-    expect(wrapper.text().trim()).to.equal('Test Tab (1.234)');
+    expect(wrapper.text().trim()).to.equal('Test Tab (1,234)');
   });
 
   it('should trigger a callback when clicked if the callback is provided', () => {

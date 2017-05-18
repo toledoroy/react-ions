@@ -62,7 +62,7 @@
 
   .component {
     @include clearfix;
-    padding: 20px 0;
+    padding: 20px 0 0;
 
     code {
       display: block;
@@ -119,6 +119,8 @@
   }
 
   .description {
+    margin-top: 20px;
+
     > a {
       color: $primary-1;
     }

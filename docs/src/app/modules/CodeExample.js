@@ -33,11 +33,11 @@ class CodeExample extends React.Component {
     expand: false
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate = (nextProps, nextState) => {
     return shallowCompare(this, nextProps, nextState)
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.highlightCode()
   }
 
@@ -45,13 +45,19 @@ class CodeExample extends React.Component {
     this.setState({expand: !this.state.expand})
   }
 
-  createDescription() {
+  createDescription = () => {
     return {
       __html: marked(this.props.description)
     }
   }
 
-  highlightCode() {
+  getDescriptionNode = () => {
+    return this.props.description
+             ? <div className={style.description} dangerouslySetInnerHTML={this.createDescription()} />
+             : null
+  }
+
+  highlightCode = () => {
     var ref = this.refs.example
     var nodes = ref.querySelectorAll('pre code')
     if (nodes.length > 0) {
@@ -61,7 +67,7 @@ class CodeExample extends React.Component {
     }
   }
 
-  generateRawMarkup() {
+  generateRawMarkup = () => {
     const text = `\`\`\`js
     ${this.props.markup}
     \`\`\``
@@ -94,7 +100,7 @@ class CodeExample extends React.Component {
         <div className={componentClass}>
           {this.props.children}
         </div>
-        <div className={style.description} dangerouslySetInnerHTML={this.createDescription()} />
+        {this.getDescriptionNode()}
       </div>
     )
   }
