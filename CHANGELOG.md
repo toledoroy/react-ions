@@ -1,5 +1,10 @@
 ## HEAD
 
+## 1.0.31
+###### _May 18, 2017_
+
+- Tabs: Update TabWrapper optClass prop to accept an array or string ([#423](https://github.com/GetAmbassador/react-ions/pull/423))
+
 ## 1.0.30
 ###### _May 18, 2017_
 
