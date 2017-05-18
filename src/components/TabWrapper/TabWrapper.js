@@ -24,10 +24,7 @@ class TabWrapper extends React.Component {
     /**
      * Optional styles to add to the tab wrapper component. Use 'secondary' to apply secondary tab wrapper styles.
      */
-    optClass: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.array
-    ])
+    optClass: React.PropTypes.string
   }
 
   state = {

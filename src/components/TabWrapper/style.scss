@@ -2,10 +2,15 @@
 @import '../../styles/common/screen';
 
 .tab-wrapper {
+  position: relative;
+  z-index: 1;
 
   .tabs-list {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: -1px;
+    position: relative;
+    z-index: 1;
   }
 
   .tab-panels {
@@ -15,9 +20,9 @@
   }
 
   &.secondary {
-
     .tabs-list {
       box-shadow: inset 0 -1px 0 0 $neutral-1;
+      margin-bottom: 0;
     }
 
     .tab {
@@ -33,6 +38,8 @@
         color: $primary-4;
         background-color: $white;
         border-bottom: 2px solid $primary-1;
+        box-shadow: none;
+        padding-bottom: 13px;
       }
 
       + .tab {
@@ -91,10 +98,7 @@
   &.active {
     color: $navy-text;
     background-color: $neutral-2;
-    border-width: 1px 1px 0;
-    border-style: solid solid none;
-    border-color: $neutral-2 $neutral-2 transparent;
-    padding-bottom: 13px;
+    border-bottom: 1px solid $neutral-2;
 
     > span {
       color: $neutral-4;

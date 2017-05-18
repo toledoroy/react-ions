@@ -1,12 +1,14 @@
+@import '~react-ions/styles/common/colors.scss';
+
 .tab-content {
   padding: 16px;
-  background-color: #F7F7F9;
-  border: 1px solid #F7F7F9;
+  background-color: $neutral-2;
+  border: 1px solid $neutral-3;
 }
 
 .tab-content-secondary {
   padding: 16px 0;
-  background-color: #FFFFFF;
+  background-color: $white;
 }
 
 .update {
@@ -28,6 +30,6 @@
 
 .icon-green {
   svg {
-    fill: #26B894;
+    fill: $success;
   }
 }
