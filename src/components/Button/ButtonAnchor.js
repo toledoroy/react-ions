@@ -13,7 +13,7 @@ const ButtonAnchor = (props) => {
   if (props.internal) {
     buttonAnchor = <Link to={props.path} className={btnAnchorClasses} size={props.size} disabled={props.disabled} className={btnAnchorClasses}>{props.children}</Link>
   } else {
-    buttonAnchor = <a href={props.path} className={btnAnchorClasses}>{props.children}</a>
+    buttonAnchor = <a href={props.path} className={btnAnchorClasses} target={props.target}>{props.children}</a>
   }
   return buttonAnchor
 }

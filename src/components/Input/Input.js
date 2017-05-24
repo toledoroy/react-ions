@@ -63,7 +63,11 @@ class Input extends React.Component {
     /**
      * A callback function to be called when the input is blurred.
      */
-    blurCallback: React.PropTypes.func
+    blurCallback: React.PropTypes.func,
+    /**
+     * A callback function to be called when the input is clicked.
+     */
+    onClick: React.PropTypes.func
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -126,8 +130,10 @@ class Input extends React.Component {
           value={this.state.value}
           onFocus={this.handleFocus}
           onChange={this.handleChange}
+          onClick={this.props.onClick}
           onBlur={this.handleBlur}
-          disabled={this.props.disabled}>
+          disabled={this.props.disabled}
+          placeholder={this.props.placeholder}>
         </input>
       </div>
     )

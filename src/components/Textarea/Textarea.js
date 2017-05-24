@@ -100,7 +100,9 @@ class Textarea extends React.Component {
           value={this.state.value}
           onFocus={this.handleFocus}
           onChange={this.handleChange}
-          onBlur={this.handleBlur}>
+          onBlur={this.handleBlur}
+          disabled={this.props.disabled}
+          placeholder={this.props.placeholder}>
         </textarea>
       </div>
     )
