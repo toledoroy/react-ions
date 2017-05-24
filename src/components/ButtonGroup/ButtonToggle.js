@@ -58,6 +58,9 @@ class ButtonToggle extends React.Component {
       label,
       optClass,
       type,
+      value,
+      checked,
+      disabled,
       ...other
     } = this.props
 
@@ -68,7 +71,7 @@ class ButtonToggle extends React.Component {
 
     return (
       <div className={buttonToggleClass}>
-        <input type="radio" onChange={this.handleChange} {...other}></input>
+        <input type="radio" onChange={this.handleChange} value={value} checked={checked} disabled={disabled}></input>
         <Button optClass={optClass} {...other}>{label}</Button>
       </div>
     )

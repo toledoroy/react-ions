@@ -127,7 +127,7 @@ class Input extends React.Component {
           onFocus={this.handleFocus}
           onChange={this.handleChange}
           onBlur={this.handleBlur}
-          {...other}>
+          disabled={this.props.disabled}>
         </input>
       </div>
     )
