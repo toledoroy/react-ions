@@ -37,7 +37,7 @@
 
 .breadcrumb {
   @include vertical-align('inline');
-  height: 65px;
+  height: 50px;
   padding: 0;
   white-space: nowrap;
   box-sizing: border-box;
@@ -47,19 +47,20 @@
   .primary {
     display: inline-block;
     font-weight: 200;
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .secondary {
     color: $base-text;
-    font-size: 14px;
+    font-weight: 200;
+    font-size: 15px;
     font-style: normal;
     position: relative;
   }
 
   .icon-arrow-68 {
     margin: 0 6px;
-    min-width: 14px;
+    min-width: 10px;
   }
 
   @media #{$media-small-minus} {

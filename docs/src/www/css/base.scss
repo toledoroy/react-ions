@@ -4,7 +4,7 @@ $ga-font-folder: '../../../../src/assets/fonts';
 @import '../../../../src/styles/common/functions';
 
 body {
-  background-color: $neutral-1;
+  background-color: $neutral-2;
   color: $base-text;
   font-family: proxima_nova;
   font-size: 14px;
@@ -23,8 +23,8 @@ body {
 }
 
 .breadcrumbs {
-  background-color: $neutral-1;
-  height: 65px;
+  background-color: $white;
+  height: 50px;
   left: 205px;
   padding-right: 15px;
   position: fixed;
@@ -34,7 +34,6 @@ body {
   z-index: z('breadcrumb');
 
   @media #{$media-small-minus} {
-    height: 50px;
     left: 0;
     padding-left: 50px;
   }

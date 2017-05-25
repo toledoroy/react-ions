@@ -55,7 +55,7 @@ class Base extends React.Component {
           <div className={!this.state.sidebarCollapsed ? contentClass : contentClassSidebarActive}>
             { currentBasePage ?
             <div className={!this.state.breadcrumbActive ? breadcrumbClass : breadcrumbActive}>
-              <Breadcrumb routes={this.props.routes} gradientColor='#ECF0F0' padding={15} />
+              <Breadcrumb routes={this.props.routes} gradientColor='#FFFFFF' padding={16} />
             </div>
             : null
             }

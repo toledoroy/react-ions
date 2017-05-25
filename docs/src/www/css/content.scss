@@ -3,10 +3,10 @@
 @import '../../../../src/styles/common/screen';
 
 .content {
-  padding: 30px;
+  padding: 24px;
 
   @media #{$media-small-minus} {
-    padding: 15px;
+    padding: 16px;
   }
 }
 
@@ -25,8 +25,8 @@
 .box {
   background-color: $primary-1;
   color: $white;
-  margin-bottom: 10px;
-  padding: 10px;
+  margin-bottom: 8px;
+  padding: 8px;
   flex: 1;
 
   .box {
