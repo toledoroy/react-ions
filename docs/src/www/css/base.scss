@@ -23,7 +23,8 @@ body {
 }
 
 .breadcrumbs {
-  background-color: $white;
+  background-color: rgba($white, 0.9);
+  box-shadow: 0 1px 0 0 rgba(222, 224, 227, 0.5), 0 1px 5px 0 $neutral-3;
   height: 50px;
   left: 205px;
   padding-right: 15px;
@@ -37,10 +38,6 @@ body {
     left: 0;
     padding-left: 50px;
   }
-}
-
-.breadcrumb-active {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 a {

@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
-import throttle from 'lodash/throttle'
 import svg4everybody from 'svg4everybody'
 import style from 'private/css/base'
 import Sidebar from './Sidebar'
@@ -11,28 +10,18 @@ import Breadcrumb from 'react-ions/lib/Breadcrumb'
 class Base extends React.Component {
   constructor(props) {
     super(props)
-
-    this.throttle = throttle(this.handleScroll, 200)
   }
 
   state = {
-    breadcrumbActive: false,
     sidebarCollapsed: false
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.throttle)
     svg4everybody()
   }
 
   componentWillReceiveProps() {
     this.setState({sidebarCollapsed: false})
-  }
-
-  handleScroll = (event) => {
-    let target = event.target || event.srcElement
-    let scrollTop = target.body.scrollTop || target.documentElement.scrollTop
-    this.setState({ breadcrumbActive: scrollTop > 30 })
   }
 
   handleSidebarClick = () => {
@@ -44,7 +33,6 @@ class Base extends React.Component {
     const breadcrumbClass = cx(style.breadcrumbs)
     const breadcrumbActive = cx(style.breadcrumbs, style['breadcrumb-active'])
     const contentClass = cx(style['content-wrap'])
-    const contentClassSidebarActive = cx(style['content-wrap'], style['sidebar-active'])
 
     let currentBasePage = this.props.routes[1].path ? this.props.routes[1].path : null
 
@@ -52,9 +40,9 @@ class Base extends React.Component {
       <div className={style['container-fluid']}>
         <div className={style.row}>
           <Sidebar collapsed={!this.state.sidebarCollapsed} onSidebarClick={this.handleSidebarClick} />
-          <div className={!this.state.sidebarCollapsed ? contentClass : contentClassSidebarActive}>
+          <div className={contentClass}>
             { currentBasePage ?
-            <div className={!this.state.breadcrumbActive ? breadcrumbClass : breadcrumbActive}>
+            <div className={breadcrumbClass}>
               <Breadcrumb routes={this.props.routes} gradientColor='#FFFFFF' padding={16} />
             </div>
             : null
