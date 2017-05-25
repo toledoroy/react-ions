@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 
@@ -14,31 +15,31 @@ class Tab extends React.Component {
     /**
      * Whether the tab is active. Set by the tab wrapper component.
      */
-    active: React.PropTypes.bool,
+    active: PropTypes.bool,
     /**
      * Whether the tab is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * The tab count.
      */
-    count: React.PropTypes.number,
+    count: PropTypes.number,
     /**
      * Optional styles to add to the tab header.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * Optional styles to add to the tab content.
      */
-    optTabContentClass: React.PropTypes.string,
+    optTabContentClass: PropTypes.string,
     /**
      * The tab title.
      */
-    title: React.PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     /**
      * Optional title prefix renders in front of the title.
      */
-    titlePrefix: React.PropTypes.node
+    titlePrefix: PropTypes.node
   }
 
   formatCount = () => {

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 import Overlay from './Overlay'
@@ -23,34 +24,34 @@ class Modal extends React.Component {
      * Action buttons to display below the Modal content (`children`).
      * This property accepts either a React element, or an array of React elements.
      */
-    actions: React.PropTypes.node,
+    actions: PropTypes.node,
     /**
      * Controls whether the Modal is opened or not.
      */
-    open: React.PropTypes.bool.isRequired,
+    open: PropTypes.bool.isRequired,
     /**
      * When set to true it will force the user to use one of the actions in the `Modal`.
      * Clicking outside the `Modal` will not trigger the `onRequestClose` in that case.
      */
-    closeOnAction: React.PropTypes.bool,
+    closeOnAction: PropTypes.bool,
     /**
      * Fired when the `Modal` is requested to be closed by a click outside the `Modal` or on the buttons.
      *
      * @param {bool} buttonClicked Determines whether a button click triggered this request.
      */
-    onRequestClose: React.PropTypes.func,
+    onRequestClose: PropTypes.func,
     /**
      * The title to display on the `Modal`. Could be number, string, element or an array containing these types.
      */
-    title: React.PropTypes.node,
+    title: PropTypes.node,
     /**
      * Optional styles to add to the modal.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * The size of the modal. The default is 'md' (medium).
      */
-    size: React.PropTypes.oneOf(['sm', 'md', 'lg'])
+    size: PropTypes.oneOf(['sm', 'md', 'lg'])
   }
 
   handleKeyUp = (event) => {

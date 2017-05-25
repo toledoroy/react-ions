@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import Quill from 'quill'
 import shallowCompare from 'react-addons-shallow-compare'
@@ -33,31 +34,31 @@ class TextEditor extends React.Component {
     /**
      * Whether the text editor is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * Value of the text editor (HTML).
      */
-    value: React.PropTypes.string,
+    value: PropTypes.string,
     /**
      * Optional placeholder text.
      */
-    placeholder: React.PropTypes.string,
+    placeholder: PropTypes.string,
     /**
      * Name of the text editor.
      */
-    name: React.PropTypes.string,
+    name: PropTypes.string,
     /**
      * Optional styles to add to the text editor.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * A callback function to be called when the text editor changes.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * Merge tags to display in the toolbar.
      */
-    mergeTags: React.PropTypes.array
+    mergeTags: PropTypes.array
   }
 
   registerEventHandlers = () => {

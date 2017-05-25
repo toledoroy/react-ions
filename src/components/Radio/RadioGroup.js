@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import Radio from './Radio'
 import style from './style.scss'
@@ -21,31 +22,31 @@ class RadioGroup extends React.Component {
     /**
      * Text shown above the radio group.
      */
-    label: React.PropTypes.string,
+    label: PropTypes.string,
     /**
      * The name that will be applied to all radio buttons inside it.
      */
-    name: React.PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     /**
      * Whether the radio group is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * A list of options for the radio group.
      */
-    options: React.PropTypes.array,
+    options: PropTypes.array,
     /**
      * Which option is checked.
      */
-    value: React.PropTypes.string,
+    value: PropTypes.string,
     /**
      * A callback function to be called when an option is changed.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * An optional string that appears below the label
      */
-    description: React.PropTypes.string
+    description: PropTypes.string
   }
 
   componentWillMount = () => {

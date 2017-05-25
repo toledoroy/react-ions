@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 
@@ -20,23 +21,23 @@ class Toggle extends React.Component {
     /**
      * Value of the input.
      */
-    value: React.PropTypes.bool,
+    value: PropTypes.bool,
     /**
      * Text displayed with the toggle.
      */
-    label: React.PropTypes.string,
+    label: PropTypes.string,
     /**
      * Whether the toggle is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * Optional styles to add to the toggle.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * A callback function to be called when the toggle changes.
      */
-    changeCallback: React.PropTypes.func
+    changeCallback: PropTypes.func
   };
 
   handleChange = () => {

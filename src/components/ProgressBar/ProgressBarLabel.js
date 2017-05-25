@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import style from './style.scss'
 
 const ProgressBarLabel = (props) => {
@@ -10,9 +11,9 @@ const ProgressBarLabel = (props) => {
 }
 
 ProgressBarLabel.propTypes = {
-  text: React.PropTypes.string,
-  percentage: React.PropTypes.number,
-  showPercentage: React.PropTypes.bool
+  text: PropTypes.string,
+  percentage: PropTypes.number,
+  showPercentage: PropTypes.bool
 }
 
 export default ProgressBarLabel

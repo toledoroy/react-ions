@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import shallowCompare from 'react-addons-shallow-compare'
 import MergeTags from './MergeTags'
 import style from './style.scss'
@@ -16,15 +17,15 @@ class Toolbar extends React.Component {
     /**
      * The text editor.
      */
-    textEditor: React.PropTypes.object,
+    textEditor: PropTypes.object,
     /**
      * Merge tags to display in the toolbar.
      */
-    mergeTags: React.PropTypes.array,
+    mergeTags: PropTypes.array,
     /**
      * A callback to be called when the component mounts.
      */
-    onMount: React.PropTypes.func
+    onMount: PropTypes.func
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {

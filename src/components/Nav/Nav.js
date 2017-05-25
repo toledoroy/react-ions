@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Node from './Node'
 import style from './style.scss'
 import classNames from 'classnames/bind'
@@ -24,11 +25,11 @@ Nav.propTypes = {
   /**
    * List of navigation items (see code sample)
    */
-  data: React.PropTypes.array.isRequired,
+  data: PropTypes.array.isRequired,
   /**
    * An optional class name to pass along to the nav component.
    */
-  optClass: React.PropTypes.string
+  optClass: PropTypes.string
 }
 
 export default Nav

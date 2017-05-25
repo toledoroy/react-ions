@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Dropzone from 'react-dropzone'
 import Icon from '../Icon'
 import classNames from 'classnames/bind'
@@ -28,38 +29,38 @@ class FileUpload extends React.Component {
     /**
      * Whether the FileUpload is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * Text shown above the FileUpload.
      */
-    label: React.PropTypes.string,
+    label: PropTypes.string,
     /**
      * Value of the FileUpload (can be path string or an array of file objects).
      */
-    value: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.string
+    value: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
     ]),
     /**
      * Name of the FileUpload.
      */
-    name: React.PropTypes.string,
+    name: PropTypes.string,
     /**
      * Whether to show the preview under the FileUpload.
      */
-    showPreview: React.PropTypes.bool,
+    showPreview: PropTypes.bool,
     /**
      * The preview size (maximum width and height).
      */
-    previewSize: React.PropTypes.number,
+    previewSize: PropTypes.number,
     /**
      * Optional styles to add to the FileUpload.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * A callback function to be called when the FileUpload changes.
      */
-    changeCallback: React.PropTypes.func
+    changeCallback: PropTypes.func
   }
 
   _normalizeValue = (value) => {

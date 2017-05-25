@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 import RenderToLayer from '../internal/RenderToLayer'
@@ -23,35 +24,35 @@ class Tooltip extends React.Component {
     /**
      * The content to display inside the `Tooltip`. Could be number, string, element or an array containing these types.
      */
-    content: React.PropTypes.node,
+    content: PropTypes.node,
     /**
      * Optional styles to add to the tooltip.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * The placement of the tooltip.
      */
-    tooltipPlacement: React.PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
+    tooltipPlacement: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
     /**
      * Whether to insert the tooltip element after the trigger element or append it to the document body.
      */
-    appendToBody: React.PropTypes.bool,
+    appendToBody: PropTypes.bool,
     /**
      * Whether to show the tooltip element by default.
      */
-    show: React.PropTypes.bool,
+    show: PropTypes.bool,
     /**
      * Callback to call when mouseover is called.
      */
-    mouseOverCallback: React.PropTypes.func,
+    mouseOverCallback: PropTypes.func,
     /**
      * Callback to call when mouseout is called.
      */
-    mouseOutCallback: React.PropTypes.func,
+    mouseOutCallback: PropTypes.func,
     /**
      * Class name for trigger element.
      */
-    className: React.PropTypes.string
+    className: PropTypes.string
   }
 
   componentDidMount = () => {

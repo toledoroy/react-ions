@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import enhanceWithClickOutside from 'react-click-outside'
 import fuzzy from 'fuzzy'
@@ -28,66 +29,66 @@ export class Typeahead extends React.Component {
     /**
      * Name of the typeahead.
      */
-    name: React.PropTypes.string,
+    name: PropTypes.string,
     /**
      * A string to display as the placeholder text.
      */
-    placeholder: React.PropTypes.string,
+    placeholder: PropTypes.string,
     /**
      * An array of objects which will be used as the options for the select field.
      */
-    options: React.PropTypes.array.isRequired,
+    options: PropTypes.array.isRequired,
     /**
      * Value of the typeahead.
      */
-    value: React.PropTypes.oneOfType([
-      React.PropTypes.number,
-      React.PropTypes.string
+    value: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string
     ]),
     /**
      * Which field in the option object will be used as the value of the select field.
      */
-    valueProp: React.PropTypes.string.isRequired,
+    valueProp: PropTypes.string.isRequired,
     /**
      * Which field in the option object will be used as the display of the select field.
      */
-    displayProp: React.PropTypes.string.isRequired,
+    displayProp: PropTypes.string.isRequired,
     /**
      * Whether the select field is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * Optional styles to add to the select field.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * A callback function to be called when an option is selected.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * A callback for updating options when typeahead search value is changed.
      */
-    searchCallback: React.PropTypes.func,
+    searchCallback: PropTypes.func,
     /**
      * A loading state to be set to true when asynchronous searching is in progress.
      */
-    loading: React.PropTypes.bool,
+    loading: PropTypes.bool,
     /**
      * A function to filter options.
      */
-    optionsFilterPredicate: React.PropTypes.func,
+    optionsFilterPredicate: PropTypes.func,
     /**
      * Clear search string after selection.
      */
-    resetAfterSelection: React.PropTypes.bool,
+    resetAfterSelection: PropTypes.bool,
     /**
      * Search debounce time.
      */
-    searchDebounceTime: React.PropTypes.number,
+    searchDebounceTime: PropTypes.number,
     /**
      * Text shown above the typeahead.
      */
-    label: React.PropTypes.string
+    label: PropTypes.string
   }
 
   state = {

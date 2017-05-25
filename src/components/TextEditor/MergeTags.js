@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import shallowCompare from 'react-addons-shallow-compare'
 import Dropdown from '../Dropdown'
 import style from './style.scss'
@@ -16,11 +17,11 @@ class MergeTags extends React.Component {
     /**
      * The text editor.
      */
-    textEditor: React.PropTypes.object,
+    textEditor: PropTypes.object,
     /**
      * Merge tags to display.
      */
-    mergeTags: React.PropTypes.array.isRequired
+    mergeTags: PropTypes.array.isRequired
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {

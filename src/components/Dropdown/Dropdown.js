@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 import enhanceWithClickOutside from 'react-click-outside'
 import Button from '../Button/Button'
 import style from './style.scss'
@@ -19,27 +20,27 @@ export class Dropdown extends React.Component {
     /**
      * A callback function to be called when dropdown isOpen state changes.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * Whether the dropdown is visible.
      */
-    isOpened: React.PropTypes.bool,
+    isOpened: PropTypes.bool,
     /**
      * Optional styles to add to the button.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * An element to pass as a target (number, string, node).
      */
-    trigger: React.PropTypes.oneOfType([
-      React.PropTypes.number,
-      React.PropTypes.string,
-      React.PropTypes.node
+    trigger: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string,
+      PropTypes.node
     ]),
     /**
      * Optional array of items used in a dropdown list
      */
-     listItems: React.PropTypes.array
+     listItems: PropTypes.array
   }
 
   state = {

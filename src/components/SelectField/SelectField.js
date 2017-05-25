@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 import Icon from '../Icon'
@@ -19,47 +20,47 @@ class SelectField extends React.Component {
     /**
      * A string to display as the placeholder text.
      */
-    placeholder: React.PropTypes.string,
+    placeholder: PropTypes.string,
     /**
      * An array of objects which will be used as the options for the select field.
      */
-    options: React.PropTypes.array.isRequired,
+    options: PropTypes.array.isRequired,
     /**
      * The value of the option to be selected.
      */
-    value: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /**
      * Which field in the option object will be used as the value of the select field.
      */
-    valueProp: React.PropTypes.string.isRequired,
+    valueProp: PropTypes.string.isRequired,
     /**
      * Which field in the option object will be used as the display of the select field.
      */
-    displayProp: React.PropTypes.string.isRequired,
+    displayProp: PropTypes.string.isRequired,
     /**
      * Which field in the option object will be used to determine whether the option should be hidden.
      */
-    hideProp: React.PropTypes.string,
+    hideProp: PropTypes.string,
     /**
      * Whether the select field is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * Optional styles to add to the select field.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * A callback function to be called when an option is selected.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * Icon to be displayed on the left
      */
-    icon: React.PropTypes.string,
+    icon: PropTypes.string,
     /**
      * Text shown above the select field.
      */
-    label: React.PropTypes.string
+    label: PropTypes.string
   }
 
   state = {

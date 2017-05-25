@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import SortableItemPreview from './SortableItemPreview'
 import { DragLayer } from 'react-dnd'
 import style from './style.scss'
@@ -27,17 +28,17 @@ class CustomDragLayer extends React.Component {
   }
 
   static propTypes = {
-    item: React.PropTypes.object,
-    itemType: React.PropTypes.string,
-    initialOffset: React.PropTypes.shape({
-      x: React.PropTypes.number.isRequired,
-      y: React.PropTypes.number.isRequired
+    item: PropTypes.object,
+    itemType: PropTypes.string,
+    initialOffset: PropTypes.shape({
+      x: PropTypes.number.isRequired,
+      y: PropTypes.number.isRequired
     }),
-    currentOffset: React.PropTypes.shape({
-      x: React.PropTypes.number.isRequired,
-      y: React.PropTypes.number.isRequired
+    currentOffset: PropTypes.shape({
+      x: PropTypes.number.isRequired,
+      y: PropTypes.number.isRequired
     }),
-    isDragging: React.PropTypes.bool.isRequired
+    isDragging: PropTypes.bool.isRequired
   }
 
   renderItem = (type, item, count) => {

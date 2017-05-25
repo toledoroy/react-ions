@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Clipboard from 'clipboard'
 import style from './style.scss'
 import classNames from 'classnames/bind'
@@ -27,75 +28,75 @@ class InlineEdit extends React.Component {
     /**
      * Name of the input.
      */
-    name: React.PropTypes.string,
+    name: PropTypes.string,
     /**
      * A callback function to be called when save is clicked.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * Value of the input.
      */
-    value: React.PropTypes.oneOfType([
-      React.PropTypes.number,
-      React.PropTypes.string,
-      React.PropTypes.array
+    value: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string,
+      PropTypes.array
     ]),
     /**
      * Boolean used to show/hide the input vs formatted display.
      */
-    isEditing: React.PropTypes.bool,
+    isEditing: PropTypes.bool,
     /**
      * Optional styles to add to the inline-edit.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * Optional placeholder string for empty submission.
      */
-    placeholder: React.PropTypes.string,
+    placeholder: PropTypes.string,
     /**
      * Whether the inline-edit is readonly.
      */
-    readonly: React.PropTypes.bool,
+    readonly: PropTypes.bool,
     /**
      * Boolean used to show/hide the loader.
      */
-    loading: React.PropTypes.bool,
+    loading: PropTypes.bool,
     /**
      * Error to display under the field.
      */
-    error: React.PropTypes.string,
+    error: PropTypes.string,
     /**
      * Boolean used to display the copy to clipboard icon.
      */
-    copyToClipboard: React.PropTypes.bool,
+    copyToClipboard: PropTypes.bool,
     /**
      * A label to display next to the component.
      */
-    label: React.PropTypes.string,
+    label: PropTypes.string,
     /**
      * An icon to display next to the component.
      */
-    icon: React.PropTypes.string,
+    icon: PropTypes.string,
     /**
      * Text to display inside the tooltip.
      */
-    tooltipText: React.PropTypes.string,
+    tooltipText: PropTypes.string,
     /**
      * The placement of the tooltip.
      */
-    tooltipPlacement: React.PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
+    tooltipPlacement: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
     /**
      * An optional class to add to the tooltip.
      */
-    tooltipClass: React.PropTypes.string,
+    tooltipClass: PropTypes.string,
     /**
      * Type of the field.
      */
-    type: React.PropTypes.oneOf(['text', 'select']),
+    type: PropTypes.oneOf(['text', 'select']),
     /**
      * Options for the dropdown menu (required if type is 'select').
      */
-    selectOptions: React.PropTypes.array
+    selectOptions: PropTypes.array
   }
 
   state = {

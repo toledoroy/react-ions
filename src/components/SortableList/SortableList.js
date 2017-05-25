@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import update from 'react/lib/update'
 import SortableItem from './SortableItem'
 import { DragDropContext } from 'react-dnd'
@@ -15,27 +16,27 @@ export class SortableList extends React.Component {
     /**
      * Items to display in the list.
      */
-    items: React.PropTypes.array.isRequired,
+    items: PropTypes.array.isRequired,
     /**
      * Name of the SortableList.
      */
-    name: React.PropTypes.string,
+    name: PropTypes.string,
     /**
      * A callback function to be called when the order of the items changes or when an item is toggled.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * A callback function to be called when dragging starts.
      */
-    onDragStart: React.PropTypes.func,
+    onDragStart: PropTypes.func,
     /**
      * A callback function to be called when dragging stops.
      */
-    onDragStop: React.PropTypes.func,
+    onDragStop: PropTypes.func,
     /**
      * Optional styles to add to the SortableList component.
      */
-    optClass: React.PropTypes.string
+    optClass: PropTypes.string
   }
 
   state = {
