@@ -42,7 +42,7 @@ const Radio = (props) => {
 
   return (
     <div className={radioClass}>
-      <input type="radio" onChange={handleChange} value={props.value} name={props.name} disabled={props.disabled}></input>
+      <input type="radio" onChange={handleChange} value={props.value} name={props.name} disabled={props.disabled} checked={props.checked}></input>
       <div className={labelWrapperClass}>
         <div className={style['radio-input']}></div>
         {getLabel()}
