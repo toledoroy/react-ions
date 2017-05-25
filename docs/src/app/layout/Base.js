@@ -31,7 +31,6 @@ class Base extends React.Component {
   render() {
     const cx = classNames.bind(style)
     const breadcrumbClass = cx(style.breadcrumbs)
-    const breadcrumbActive = cx(style.breadcrumbs, style['breadcrumb-active'])
     const contentClass = cx(style['content-wrap'])
 
     let currentBasePage = this.props.routes[1].path ? this.props.routes[1].path : null
