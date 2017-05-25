@@ -68,7 +68,19 @@ class Input extends React.Component {
     /**
      * A callback function to be called when the input is clicked.
      */
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    /**
+     * A callback function to be called when the onkeyup event is fired.
+     */
+    onKeyUp: PropTypes.func,
+    /**
+     * A callback function to be called when the onkeypress event is fired.
+     */
+    onKeyPress: PropTypes.func,
+    /**
+     * A callback function to be called when the onkeydown event is fired.
+     */
+    onKeyDown: PropTypes.func,
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -134,7 +146,10 @@ class Input extends React.Component {
           onClick={this.props.onClick}
           onBlur={this.handleBlur}
           disabled={this.props.disabled}
-          placeholder={this.props.placeholder}>
+          placeholder={this.props.placeholder}
+          onKeyUp={this.props.onKeyUp}
+          onKeyPress={this.props.onKeyPress}
+          onKeyDown={this.props.onKeyDown}>
         </input>
       </div>
     )
