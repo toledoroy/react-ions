@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import TestBackend from 'react-dnd-test-backend'
 import { DragDropContext } from 'react-dnd'
-import TestUtils from 'react-dom/test-utils'
+import TestUtils from 'react-addons-test-utils'
 import SortableItem from '../src/components/SortableList/SortableItem'
 import SortableListWrapped, { SortableList } from '../src/components/SortableList/SortableList'
 
