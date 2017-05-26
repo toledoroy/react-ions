@@ -1,5 +1,5 @@
 import React from 'react'
-import TestUtils from 'react-dom/test-utils'
+import TestUtils from 'react-addons-test-utils'
 import { shallow, mount } from 'enzyme'
 import WrappedDropdown, { Dropdown } from '../src/components/Dropdown'
 import Immutable from 'immutable'

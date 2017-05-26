@@ -48,7 +48,7 @@ Button.propTypes = {
     PropTypes.string
   ]),
   /**
-   * Where there is an onClick action
+   * A function to be called onClick
    */
   onClick: PropTypes.func
 }
