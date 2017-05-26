@@ -47,8 +47,8 @@ Button.propTypes = {
     React.PropTypes.string
   ]),
   /**
-   * Where there is an onClick action
-   */
+  * A function to be called onClick
+  */
   onClick: React.PropTypes.func
 }
 

@@ -253,7 +253,7 @@ describe('Tooltip', () => {
   })
 
   it('should have a class on the trigger element', () => {
-    wrapper = shallow(<Tooltip content="Testing the top tooltip" className='test-class'>Test text</Tooltip>)
+    wrapper = shallow(<Tooltip content="Testing the top tooltip" optClass='test-class'>Test text</Tooltip>)
 
     expect(wrapper.hasClass('test-class')).to.be.true
   })
