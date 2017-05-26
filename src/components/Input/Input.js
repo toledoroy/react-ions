@@ -63,7 +63,24 @@ class Input extends React.Component {
     /**
      * A callback function to be called when the input is blurred.
      */
-    blurCallback: React.PropTypes.func
+    blurCallback: React.PropTypes.func,
+    /**
+     * A callback function to be called when the input is clicked.
+     */
+    onClick: React.PropTypes.func,
+    /**
+     * A callback function to be called when the onkeyup event is fired.
+     */
+    onKeyUp: React.PropTypes.func,
+    /**
+     * A callback function to be called when the onkeypress event is fired.
+     */
+    onKeyPress: React.PropTypes.func,
+    /**
+     * A callback function to be called when the onkeydown event is fired.
+     */
+    onKeyDown: React.PropTypes.func,
+
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -126,8 +143,13 @@ class Input extends React.Component {
           value={this.state.value}
           onFocus={this.handleFocus}
           onChange={this.handleChange}
+          onClick={this.props.onClick}
           onBlur={this.handleBlur}
-          {...other}>
+          disabled={this.props.disabled}
+          placeholder={this.props.placeholder}
+          onKeyUp={this.props.onKeyUp}
+          onKeyPress={this.props.onKeyPress}
+          onKeyDown={this.props.onKeyDown}>
         </input>
       </div>
     )

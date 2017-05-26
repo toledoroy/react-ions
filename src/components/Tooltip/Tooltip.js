@@ -41,13 +41,13 @@ class Tooltip extends React.Component {
      */
     show: React.PropTypes.bool,
     /**
-     * Callback to call when mouseover is called
+     * Callback to call when mouseover is called.
      */
     mouseOverCallback: React.PropTypes.func,
     /**
-     * Callback to call when mouseout is called
+     * Callback to call when mouseout is called.
      */
-    mouseOutCallback: React.PropTypes.func
+    mouseOutCallback: React.PropTypes.func,
   }
 
   componentDidMount = () => {
@@ -150,7 +150,7 @@ class Tooltip extends React.Component {
     const {content, optClass, tooltipPlacement, appendToBody, show, ...other} = this.props
 
     return (
-      <span onMouseOver={this.showTooltip} onMouseOut={this.hideTooltip} ref={(c) => this._triggerElement = c} {...other}>
+      <span className={this.props.optClass} onMouseOver={this.showTooltip} onMouseOut={this.hideTooltip} ref={(c) => this._triggerElement = c} >
         {this.props.children}
         {this.props.appendToBody ? <RenderToLayer render={this.renderTooltip} open={true} /> : this.renderTooltip()}
       </span>
