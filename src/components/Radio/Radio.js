@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 
@@ -41,7 +42,7 @@ const Radio = (props) => {
 
   return (
     <div className={radioClass}>
-      <input type="radio" onChange={handleChange} value={props.value} name={props.name} disabled={props.disabled}></input>
+      <input type="radio" onChange={handleChange} value={props.value} name={props.name} disabled={props.disabled} checked={props.checked}></input>
       <div className={labelWrapperClass}>
         <div className={style['radio-input']}></div>
         {getLabel()}
@@ -59,35 +60,35 @@ Radio.propTypes = {
   /**
    * True if the option is checked.
    */
-  checked: React.PropTypes.bool,
+  checked: PropTypes.bool,
   /**
    * Whether the option is disabled.
    */
-  disabled: React.PropTypes.bool,
+  disabled: PropTypes.bool,
   /**
    * Text shown next to the radio input element.
    */
-  label: React.PropTypes.string,
+  label: PropTypes.string,
   /**
    * Value of the option.
    */
-  value: React.PropTypes.string,
+  value: PropTypes.string,
   /**
    * Optional styles to add to the radio component.
    */
-  optClass: React.PropTypes.string,
+  optClass: PropTypes.string,
   /**
    * Name specified in the RadioGroup component.
    */
-  name: React.PropTypes.string,
+  name: PropTypes.string,
   /**
    * A callback function (from RadioGroup) to be called when the option is changed.
    */
-  changeCallback: React.PropTypes.func,
+  changeCallback: PropTypes.func,
   /**
    * An optional string that appears below the label
    */
-  description: React.PropTypes.string
+  description: PropTypes.string
 }
 
 export default Radio

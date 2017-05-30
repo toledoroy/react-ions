@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 import Icon from '../Icon'
@@ -23,35 +24,35 @@ class Checkbox extends React.Component {
     /**
      * Whether the checkbox is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * Value of the input. Sets whether the component is checked or not.
      */
-    value: React.PropTypes.bool,
+    value: PropTypes.bool,
     /**
      * Text displayed with the checkbox.
      */
-    label: React.PropTypes.string,
+    label: PropTypes.string,
     /**
      * Optional styles to add to the checkbox.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * A callback function to be called when the checkbox changes.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * Icon to be used in the checkbox.
      */
-    iconName: React.PropTypes.string,
+    iconName: PropTypes.string,
     /**
      * Whether the checkbox is locked from change outside of receiving props.
      */
-    locked: React.PropTypes.bool,
+    locked: PropTypes.bool,
     /**
      * Optional description that appears below the label.
      */
-    description: React.PropTypes.string
+    description: PropTypes.string
   }
 
   handleChange = (event) => {

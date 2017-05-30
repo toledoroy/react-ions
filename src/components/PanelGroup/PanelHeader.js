@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import optclass from '../internal/OptClass'
 import Icon from '../Icon'
 import style from './style.scss'
@@ -12,29 +13,29 @@ class PanelHeader extends React.Component {
     /**
      * A title to be passed into the header
      */
-    title: React.PropTypes.string,
+    title: PropTypes.string,
     /**
      * An icon to be passed to the left of the header
      */
-    contextIcon: React.PropTypes.string,
+    contextIcon: PropTypes.string,
     /**
      * The size of the context icon
      */
-    contextIconSize: React.PropTypes.string,
+    contextIconSize: PropTypes.string,
     /**
      * A node that can be passed to the left of the header
      */
-    contextNode: React.PropTypes.node,
+    contextNode: PropTypes.node,
     /**
      * An object of properties that define an icon: name, size, fill
      */
-    toggleIcon: React.PropTypes.object,
+    toggleIcon: PropTypes.object,
     /**
      * Optional CSS class(es) to be used for local styles (string or array of strings)
      */
-    optClass: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.string
+    optClass: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
     ])
   }
 

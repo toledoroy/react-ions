@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 
@@ -24,63 +25,62 @@ class Input extends React.Component {
     /**
      * Whether the input is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * Text shown above the input.
      */
-    label: React.PropTypes.string,
+    label: PropTypes.string,
     /**
      * Value of the input.
      */
-    value: React.PropTypes.oneOfType([
-      React.PropTypes.number,
-      React.PropTypes.string
+    value: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string
     ]),
     /**
      * Type of the value.
      */
-    valueType: React.PropTypes.oneOf(['string', 'number']),
+    valueType: PropTypes.oneOf(['string', 'number']),
     /**
      * Optional placeholder text.
      */
-    placeholder: React.PropTypes.string,
+    placeholder: PropTypes.string,
     /**
      * Name of the input.
      */
-    name: React.PropTypes.string,
+    name: PropTypes.string,
     /**
      * Optional styles to add to the input.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * A callback function to be called when the input changes.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * A callback function to be called when the input is focused.
      */
-    focusCallback: React.PropTypes.func,
+    focusCallback: PropTypes.func,
     /**
      * A callback function to be called when the input is blurred.
      */
-    blurCallback: React.PropTypes.func,
+    blurCallback: PropTypes.func,
     /**
      * A callback function to be called when the input is clicked.
      */
-    onClick: React.PropTypes.func,
+    onClick: PropTypes.func,
     /**
      * A callback function to be called when the onkeyup event is fired.
      */
-    onKeyUp: React.PropTypes.func,
+    onKeyUp: PropTypes.func,
     /**
      * A callback function to be called when the onkeypress event is fired.
      */
-    onKeyPress: React.PropTypes.func,
+    onKeyPress: PropTypes.func,
     /**
      * A callback function to be called when the onkeydown event is fired.
      */
-    onKeyDown: React.PropTypes.func,
-
+    onKeyDown: PropTypes.func,
   }
 
   componentWillReceiveProps = (nextProps) => {

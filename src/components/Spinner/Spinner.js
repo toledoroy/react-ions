@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 
@@ -15,28 +16,28 @@ class Spinner extends React.Component {
     /**
      * Delay before showing spinner (in milliseconds)
      */
-    delay: React.PropTypes.number,
+    delay: PropTypes.number,
     /**
      * Whether the spinner is displayed
      */
-    loading: React.PropTypes.bool,
+    loading: PropTypes.bool,
     /**
      * CSS positioning options for the loader. By default, the spinner will be positioned
      * in the center of any element with relative positioning.
      */
-    position: React.PropTypes.oneOf(['fixed', 'inline']),
+    position: PropTypes.oneOf(['fixed', 'inline']),
     /**
      * The type of loader you want to display.
      */
-    type: React.PropTypes.oneOf(['spinner-dots', 'spinner-bounce']).isRequired,
+    type: PropTypes.oneOf(['spinner-dots', 'spinner-bounce']).isRequired,
     /**
      * The hex code of the loader color.
      */
-    color: React.PropTypes.string,
+    color: PropTypes.string,
     /**
      * Optional styles to add to the spinner.
      */
-    optClass: React.PropTypes.string
+    optClass: PropTypes.string
   }
 
   componentWillMount = () => {

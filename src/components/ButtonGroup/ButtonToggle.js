@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 import Button from '../Button/Button'
@@ -20,31 +21,31 @@ class ButtonToggle extends React.Component {
     /**
      * True if the option is checked.
      */
-    checked: React.PropTypes.bool,
+    checked: PropTypes.bool,
     /**
      * Whether the option is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * Text shown inside the button toggle element.
      */
-    label: React.PropTypes.string,
+    label: PropTypes.string,
     /**
      * Value of the option.
      */
-    value: React.PropTypes.string,
+    value: PropTypes.string,
     /**
      * Optional styles to add to the button toggle component.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * Name specified in the ButtonGroup component.
      */
-    name: React.PropTypes.string,
+    name: PropTypes.string,
     /**
      * A callback function (from ButtonGroup) to be called when the option is changed.
      */
-    changeCallback: React.PropTypes.func
+    changeCallback: PropTypes.func
   }
 
   handleChange = (event) => {

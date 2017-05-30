@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Immutable from 'immutable'
 import InlineStylePrefixer from '../internal/InlineStylePrefixer'
 import Icon from '../Icon'
@@ -13,16 +14,16 @@ class Breadcrumb extends React.Component {
     /**
      * The array of routes to generate the Breadcrumbs.
      */
-    routes: React.PropTypes.array.isRequired,
+    routes: PropTypes.array.isRequired,
     /**
      * Optional padding to add to the left and right side of the breadcrumb
     */
-    padding: React.PropTypes.number,
+    padding: PropTypes.number,
     /**
      * Optional background color for overflow gradient on small screens
      * Defaults to white
     */
-    gradientColor: React.PropTypes.string
+    gradientColor: PropTypes.string
   }
 
   state = {

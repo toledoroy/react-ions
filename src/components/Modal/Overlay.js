@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import InlineStylePrefixer from '../internal/InlineStylePrefixer'
 
 const Overlay = (props) => {
@@ -45,7 +46,7 @@ const Overlay = (props) => {
 }
 
 Overlay.propTypes = {
-  show: React.PropTypes.bool.isRequired
+  show: PropTypes.bool.isRequired
 }
 
 Overlay.defaultProps = {

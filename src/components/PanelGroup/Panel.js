@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import optclass from '../internal/OptClass'
 import style from './style.scss'
 
@@ -11,13 +12,13 @@ class Panel extends React.Component {
     /**
      * Whether the panel is active. Set by the panelGroup component.
      */
-    active: React.PropTypes.bool,
+    active: PropTypes.bool,
     /**
      * Optional CSS class(es) to be used for local styles (string or array of strings)
      */
-    optClass: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.string
+    optClass: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
     ])
   }
 

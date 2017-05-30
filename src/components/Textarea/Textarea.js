@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 
@@ -23,35 +24,35 @@ class Textarea extends React.Component {
     /**
      * Whether the textarea is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * Text shown above the textarea.
      */
-    label: React.PropTypes.string,
+    label: PropTypes.string,
     /**
      * Value of the textarea.
      */
-    value: React.PropTypes.string,
+    value: PropTypes.string,
     /**
      * Optional placeholder text.
      */
-    placeholder: React.PropTypes.string,
+    placeholder: PropTypes.string,
     /**
      * Optional styles to add to the textarea.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * A callback function to be called when the textarea changes.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * A callback function to be called when the textarea is focused.
      */
-    focusCallback: React.PropTypes.func,
+    focusCallback: PropTypes.func,
     /**
      * A callback function to be called when the textarea is blurred.
      */
-    blurCallback: React.PropTypes.func
+    blurCallback: PropTypes.func
   };
 
   componentWillReceiveProps = (nextProps) => {

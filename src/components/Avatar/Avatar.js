@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 
@@ -17,31 +18,31 @@ class Avatar extends React.Component {
     /**
      * Optional source of the image to load.
      */
-    src: React.PropTypes.string,
+    src: PropTypes.string,
     /**
      * Optional letters to display in lieu of an image.
      */
-    letters: React.PropTypes.string,
+    letters: PropTypes.string,
     /**
      * Optional background for the letters.
      */
-    letterBackgroundColor: React.PropTypes.string,
+    letterBackgroundColor: PropTypes.string,
     /**
      * Optional alt text for the image
      */
-    alt: React.PropTypes.string,
+    alt: PropTypes.string,
     /**
      * Optional size to constrain the image (only supports square images)
      */
-    size: React.PropTypes.string,
+    size: PropTypes.string,
     /**
      * Optional CSS class to pass to the badge.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * Option to turn the opacity fade off (defaults to true)
      */
-    fadeIn: React.PropTypes.bool
+    fadeIn: PropTypes.bool
   }
 
   static defaultProps = {

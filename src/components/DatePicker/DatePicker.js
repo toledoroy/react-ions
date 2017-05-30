@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import moment from 'moment'
 import SelectField from '../SelectField/SelectField'
 import style from './style.scss'
@@ -47,38 +48,38 @@ class DatePicker extends React.Component {
     /**
      * Max date - object with month, day, year.
      */
-    max: React.PropTypes.object,
+    max: PropTypes.object,
     /**
      * Min date - object with month, day, year.
      */
-    min: React.PropTypes.object,
+    min: PropTypes.object,
     /**
      * Date string.
      */
-    value: React.PropTypes.string,
+    value: PropTypes.string,
     /**
      * Date format - any valid Moment.js format string.
      */
-    format: React.PropTypes.string,
+    format: PropTypes.string,
     /**
      * A callback function to be called when the value changes.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * Optional CSS class(es) to be used for local styles (string or array of strings)
      */
-    optClass: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.string
+    optClass: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
     ]),
     /**
      * If true, will display the inputs inline on smaller screens (default 100% width)
      */
-    inlineSmallScreen: React.PropTypes.bool,
+    inlineSmallScreen: PropTypes.bool,
     /**
      * Text shown above the date picker.
      */
-    label: React.PropTypes.string
+    label: PropTypes.string
   }
 
   _initDate = (date, format) => {

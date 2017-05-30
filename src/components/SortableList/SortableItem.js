@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { findDOMNode } from 'react-dom'
 import { DragSource, DropTarget } from 'react-dnd'
 import { getEmptyImage } from 'react-dnd-html5-backend'
@@ -80,47 +81,47 @@ class SortableItem extends React.Component {
     /**
      * Binds to react-dnd connectDragSource method.
      */
-    connectDragSource: React.PropTypes.func,
+    connectDragSource: PropTypes.func,
     /**
      * Binds to react-dnd connectDropTarget method.
      */
-    connectDropTarget: React.PropTypes.func,
+    connectDropTarget: PropTypes.func,
     /**
      * Binds to react-dnd connectDragPreview method.
      */
-    connectDragPreview: React.PropTypes.func,
+    connectDragPreview: PropTypes.func,
     /**
      * Index of the item in the list.
      */
-    index: React.PropTypes.number,
+    index: PropTypes.number,
     /**
      * Whether the item is being dragged.
      */
-    isDragging: React.PropTypes.bool,
+    isDragging: PropTypes.bool,
     /**
      * The value of the item.
      */
-    value: React.PropTypes.any,
+    value: PropTypes.any,
     /**
      * The text to display inside the item.
      */
-    text: React.PropTypes.string,
+    text: PropTypes.string,
     /**
      * Whether the item is active.
      */
-    active: React.PropTypes.bool,
+    active: PropTypes.bool,
     /**
      * A callback that gets triggered when the item is moved.
      */
-    moveSortableItem: React.PropTypes.func,
+    moveSortableItem: PropTypes.func,
     /**
      * A callback that gets triggered when the item is toggled.
      */
-    toggleSortableItem: React.PropTypes.func,
+    toggleSortableItem: PropTypes.func,
     /**
      * The total number of items in the list.
      */
-    count: React.PropTypes.number
+    count: PropTypes.number
   }
 
   static defaultProps = {

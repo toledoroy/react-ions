@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class TabTemplate extends React.Component {
   constructor(props) {
@@ -6,9 +7,9 @@ class TabTemplate extends React.Component {
   }
 
   static propTypes = {
-    children: React.PropTypes.node,
-    active: React.PropTypes.bool,
-    class: React.PropTypes.string
+    children: PropTypes.node,
+    active: PropTypes.bool,
+    class: PropTypes.string
   }
 
   render() {

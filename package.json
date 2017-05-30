@@ -46,6 +46,7 @@
     "marked": "~0.3.5",
     "moment": "~2.13.0",
     "precss": "~1.4.0",
+    "prop-types": "~15.5.10",
     "quill": "~1.0.4",
     "react-addons-shallow-compare": "15.0.1",
     "react-click-outside": "~2.1.0",
