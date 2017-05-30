@@ -1,7 +1,7 @@
 import React from 'react'
-import RadioGroup from 'react-ions/lib/Radio/RadioGroup'
-import Radio from 'react-ions/lib/Radio/Radio'
-import Input from 'react-ions/lib/Input'
+import RadioGroup from 'react-ions/lib/components/Radio/RadioGroup'
+import Radio from 'react-ions/lib/components/Radio/Radio'
+import Input from 'react-ions/lib/components/Input'
 import style from './style.scss'
 
 const radioOptions = [

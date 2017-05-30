@@ -13,7 +13,7 @@ import exampleDatePickerCallbackCode from '!raw!./ExampleDatePickerCallback'
 import ExampleDatePickerLabel from './ExampleDatePickerLabel'
 import exampleDatePickerLabelCode from '!raw!./ExampleDatePickerLabel'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-ions/lib/DatePicker/DatePicker'
+import docs from '!!docgen!react-ions/lib/components/DatePicker/DatePicker'
 import styles from 'private/css/content'
 
 

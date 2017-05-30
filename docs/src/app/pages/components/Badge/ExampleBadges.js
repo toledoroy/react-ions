@@ -1,5 +1,5 @@
 import React from 'react'
-import Badge from 'react-ions/lib/Badge'
+import Badge from 'react-ions/lib/components/Badge'
 
 const ExampleBadges = () => (
   <div>

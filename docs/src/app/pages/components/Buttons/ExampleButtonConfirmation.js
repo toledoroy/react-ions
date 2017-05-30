@@ -1,6 +1,6 @@
 import React from 'react'
-import ButtonConfirmation from 'react-ions/lib/Button/ButtonConfirmation'
-import Icon from 'react-ions/lib/Icon'
+import ButtonConfirmation from 'react-ions/lib/components/Button/ButtonConfirmation'
+import Icon from 'react-ions/lib/components/Icon'
 import style from './style.scss'
 
 const ExampleButtonConfirmation = () => (

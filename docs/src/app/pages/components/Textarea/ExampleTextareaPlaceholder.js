@@ -1,5 +1,5 @@
 import React from 'react'
-import Textarea from 'react-ions/lib/Textarea'
+import Textarea from 'react-ions/lib/components/Textarea'
 
 const ExampleTextareaPlaceholder = () => (
   <Textarea value='' placeholder='Placeholder text.' />

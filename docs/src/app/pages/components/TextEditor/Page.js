@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-ions/lib/TextEditor/TextEditor'
+import docs from '!!docgen!react-ions/lib/components/TextEditor/TextEditor'
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleTextEditorDefault from './ExampleTextEditorDefault'

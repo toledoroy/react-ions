@@ -1,5 +1,5 @@
 import React from 'react'
-import {TabWrapper, Tab} from 'react-ions/lib/TabWrapper'
+import {TabWrapper, Tab} from 'react-ions/lib/components/TabWrapper'
 import style from './style.scss'
 
 class ExampleTabWrapperSecondary extends React.Component {
