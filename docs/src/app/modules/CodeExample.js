@@ -7,6 +7,7 @@ import style from 'private/css/code-example'
 import marked from 'marked'
 import shallowCompare from 'react-addons-shallow-compare'
 import classNames from 'classnames/bind'
+import PropTypes from 'prop-types'
 
 class CodeExample extends React.Component {
   constructor(props) {
@@ -24,9 +25,9 @@ class CodeExample extends React.Component {
   }
 
   static propTypes = {
-    markup: React.PropTypes.string.isRequired,
-    description: React.PropTypes.string,
-    title: React.PropTypes.string,
+    markup: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    title: PropTypes.string,
   }
 
   state = {
