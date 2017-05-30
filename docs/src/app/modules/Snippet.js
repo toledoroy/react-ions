@@ -3,6 +3,7 @@ import ReactDOM from 'react'
 import hljs from 'highlight.js'
 import style from 'private/css/snippet'
 import marked from 'marked'
+import PropTypes from 'prop-types'
 
 class CodeExample extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class CodeExample extends React.Component {
   }
 
   static propTypes = {
-    markup: React.PropTypes.string.isRequired
+    markup: PropTypes.string.isRequired
   }
 
   componentDidMount() {
