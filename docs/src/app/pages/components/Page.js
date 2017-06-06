@@ -21,7 +21,7 @@ const ComponentsPage = () => (
 
       <div className={styles.block}>
         <h3>Prerequisites</h3>
-        <p>React&#123;ions&#125; currently requires <b>React 15.1.0</b> (support for 15.2+ coming soon).</p>
+        <p>React&#123;ions&#125; currently requires <b>React 15.1+</b></p>
         <p>We use <a href="https://github.com/css-modules/css-modules">CSS Modules</a> by default to import stylesheets written in SASS. In case you want to import the components already bundled with CSS, your module bundler should be able to require these SASS modules.</p>
         <p>To allow your app to render SCSS and import CSS into JavaScript, you'll need the following: <i>node-sass sass-loader & style-loader</i></p>
       </div>
