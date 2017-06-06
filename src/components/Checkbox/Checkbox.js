@@ -105,6 +105,8 @@ class Checkbox extends React.Component {
       changeCallback,
       value,
       disabled,
+      name,
+      label,
       ...other
     } = this.props
 
@@ -116,7 +118,7 @@ class Checkbox extends React.Component {
 
     return (
       <div className={checkboxClass}>
-        <input type="checkbox" checked={this.state.value} onChange={this.handleChange} value={value} disabled={disabled}></input>
+        <input type="checkbox" checked={this.state.value} onChange={this.handleChange} value={value} disabled={disabled} name={name} label={label}></input>
         <div className={labelWrapperClass}>
           <div className={style['checkbox-input']}>
             <Icon name={this.state.iconName} fill={inputFillColor} />
