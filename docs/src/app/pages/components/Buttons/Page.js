@@ -96,7 +96,7 @@ const ButtonsPage = () => (
           <ExampleButtonConfirmationCallback />
         </CodeExample>
         <CodeExample
-          title='Button with Confirmation loader'
+          title='Button with Confirmation & loader'
           description={description.buttonConfirmationCallback}
           markup={exampleButtonConfirmationLoaderCode}>
           <ExampleButtonConfirmationLoader />
