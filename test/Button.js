@@ -230,13 +230,13 @@ describe('Button', () => {
 
     wrapper = shallow(
       <ButtonConfirmation
-        size={size} //	custom		The size of button.
-        disabled={disabled} //	custom		Whether the button is disabled.
-        loading={loading} //	custom		Whether the loading spinner is displayed.
-        collapse={collapse} //	custom		Whether to display only an icon on small screens
-        optClass={optClass} //	custom		Optional CSS class(es) to be used for local styles (string or array of strings)
+        size={size}
+        disabled={disabled}
+        loading={loading}
+        collapse={collapse}
+        optClass={optClass}
         onClick={onClick}
-        prompt={prompt}> //	custom		A function to be called onClick
+        prompt={prompt}>
         Delete</ButtonConfirmation>)
     const inst = wrapper.instance()
 
