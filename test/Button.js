@@ -213,4 +213,40 @@ describe('Button', () => {
     wrapper = shallow(<Button collapse={true}>Test</Button>)
     expect(wrapper.props().className).to.equal('btn collapse')
   })
+
+  it('updates when certain props are changed', () => {
+    const size = 'large'
+    const disabled = false
+    const loading = false
+    const collapse = false
+    const optClass = 'test-class'
+    const onClick = sinon.spy
+    const prompt = 'Test prompt'
+
+    const confirmationOverlayOpen = false
+    const confirmationOverlayOffset = 0
+    const hasBeenOpened = false
+    const wide = false
+
+    wrapper = shallow(
+      <ButtonConfirmation
+        size={size}
+        disabled={disabled}
+        loading={loading}
+        collapse={collapse}
+        optClass={optClass}
+        onClick={onClick}
+        prompt={prompt}>
+        Delete</ButtonConfirmation>)
+    const inst = wrapper.instance()
+
+    // console.log({size, disabled, loading, collapse, optClass, onClick}, { confirmationOverlayOpen: false, confirmationOverlayOffset: 0, hasBeenOpened: false, wide: false })
+    expect(inst.shouldComponentUpdate({size, disabled, loading, collapse, optClass, onClick, prompt}, { confirmationOverlayOpen, confirmationOverlayOffset, hasBeenOpened, wide })).to.be.false
+    expect(inst.shouldComponentUpdate({size, disabled, loading: true, collapse, optClass, onClick, prompt}, { confirmationOverlayOpen, confirmationOverlayOffset, hasBeenOpened, wide })).to.be.true
+    expect(inst.shouldComponentUpdate({size, disabled, loading, collapse, optClass, onClick, prompt: 'New prompt'}, { confirmationOverlayOpen, confirmationOverlayOffset, hasBeenOpened, wide })).to.be.true
+    expect(inst.shouldComponentUpdate({size, disabled, loading, collapse, optClass, onClick, prompt}, { confirmationOverlayOpen: true, confirmationOverlayOffset, hasBeenOpened, wide })).to.be.true
+    expect(inst.shouldComponentUpdate({size, disabled, loading, collapse, optClass, onClick, prompt}, { confirmationOverlayOpen, confirmationOverlayOffset, hasBeenOpened, wide, triggerWidth: 10 })).to.be.true
+    expect(inst.shouldComponentUpdate({size, disabled, loading, collapse, optClass, onClick, prompt}, { confirmationOverlayOpen, confirmationOverlayOffset, hasBeenOpened, wide, overlayWidth: 50 })).to.be.true
+    expect(inst.shouldComponentUpdate({size, disabled, loading, collapse, optClass, onClick, prompt}, { confirmationOverlayOpen, confirmationOverlayOffset, hasBeenOpened, wide: true })).to.be.true
+  })
 })
