@@ -11,7 +11,7 @@ const ComponentsPage = () => (
     <div className={styles.content}>
       <div className={styles.block}>
         <h2>Installation, Prerequisites and Basic Usage</h2>
-        <p>React&#123;ions&#125; is a suite of <a href="http://facebook.github.io/react/">React</a> components that implement <a href="http://getambassador.com">Ambassador's</a> Design and UX pastterns. They are designed to be re-usable and composable across large-scale web applications. They are powered by <a href="https://github.com/css-modules/css-modules">CSS Modules</a> and integrate with your <a href="http://webpack.github.io/">webpack</a> workflow, or any other module bundler.</p>
+        <p>React&#123;ions&#125; is a suite of <a href="http://facebook.github.io/react/">React</a> components that implement <a href="http://getambassador.com">Ambassador's</a> Design and UX patterns. They are designed to be re-usable and composable across large-scale web applications. They are powered by <a href="https://github.com/css-modules/css-modules">CSS Modules</a> and integrate with your <a href="http://webpack.github.io/">webpack</a> workflow, or any other module bundler.</p>
       </div>
 
       <div className={styles.block}>
@@ -21,7 +21,7 @@ const ComponentsPage = () => (
 
       <div className={styles.block}>
         <h3>Prerequisites</h3>
-        <p>React&#123;ions&#125; currently requires <b>React 15.1.0</b> (support for 15.2+ coming soon).</p>
+        <p>React&#123;ions&#125; currently requires <b>React 15.1+</b></p>
         <p>We use <a href="https://github.com/css-modules/css-modules">CSS Modules</a> by default to import stylesheets written in SASS. In case you want to import the components already bundled with CSS, your module bundler should be able to require these SASS modules.</p>
         <p>To allow your app to render SCSS and import CSS into JavaScript, you'll need the following: <i>node-sass sass-loader & style-loader</i></p>
       </div>

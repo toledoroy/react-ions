@@ -148,6 +148,7 @@ export class ButtonConfirmation extends Component {
     if (nextState.overlayWidth !== this.state.overlayWidth) return true
     if (nextState.confirmationOverlayOpen !== this.state.confirmationOverlayOpen) return true
     if (nextProps.prompt !== this.props.prompt) return true
+    if (nextProps.loading != this.props.loading) return true
 
     return false
   }

@@ -13,7 +13,7 @@ Ambassador's React{ions} is available as an [npm package](https://npmjs.com/reac
 
 ## Prerequisites
 
-React{ions} currently requires React 15.1.0 (support for 15.2+ coming soon).
+React{ions} currently requires React 15.1+.
 
 We use CSS Modules by default to import stylesheets written in SASS. In case you want to import the components already bundled with CSS, your module bundler should be able to require these SASS modules.
 

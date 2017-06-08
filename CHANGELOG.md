@@ -1,5 +1,23 @@
 ## HEAD
 
+## 1.1.0
+###### _June 6, 2017_
+
+- Updated react-* dependencies
+([#432](https://github.com/GetAmbassador/react-ions/pull/432))
+
+- Updated react peerDependencies & devDependencies
+([#429](https://github.com/GetAmbassador/react-ions/pull/429))
+([#431](https://github.com/GetAmbassador/react-ions/pull/431))
+
+
+- Installed prop-types and change all props from `React.PropTypes` to `PropTypes`
+([#428](https://github.com/GetAmbassador/react-ions/pull/428))
+
+- Removed spread operators and explicitly added props with PropTypes to avoid unknown prop warning 
+([#426](https://github.com/GetAmbassador/react-ions/pull/426))
+([#427](https://github.com/GetAmbassador/react-ions/pull/427))
+
 ## 1.0.31
 ###### _May 18, 2017_
 
