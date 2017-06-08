@@ -50,7 +50,7 @@
     "quill": "~1.0.4",
     "react-addons-shallow-compare": "15.0.1",
     "react-click-outside": "~2.3.1",
-    "react-color": "github:getambassador/react-color#1.3.1",
+    "react-color": "~2.12.0",
     "react-dnd": "~2.4.0",
     "react-dnd-html5-backend": "~2.4.1",
     "react-dropzone": "~3.13.2",
