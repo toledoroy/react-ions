@@ -1,5 +1,17 @@
 ## HEAD
 
+## 1.1.1
+###### _June 8, 2017__
+
+- Use published version of react-color and remove className from Tooltips
+([#436](https://github.com/GetAmbassador/react-ions/pull/436))
+
+- Added check for loading to sCU for ButtonConfirmation
+([#435](https://github.com/GetAmbassador/react-ions/pull/435))
+
+- Updated component paths in examples so users can copy and paste them directly
+([#430](https://github.com/GetAmbassador/react-ions/pull/430))
+
 ## 1.1.0
 ###### _June 6, 2017_
 
