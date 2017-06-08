@@ -151,7 +151,7 @@ class Tooltip extends React.Component {
     const {content, optClass, tooltipPlacement, appendToBody, show, ...other} = this.props
 
     return (
-      <span className={this.props.optClass} onMouseOver={this.showTooltip} onMouseOut={this.hideTooltip} ref={(c) => this._triggerElement = c} >
+      <span onMouseOver={this.showTooltip} onMouseOut={this.hideTooltip} ref={(c) => this._triggerElement = c} >
         {this.props.children}
         {this.props.appendToBody ? <RenderToLayer render={this.renderTooltip} open={true} /> : this.renderTooltip()}
       </span>

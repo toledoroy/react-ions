@@ -120,7 +120,7 @@ class ColorPicker extends React.Component {
         </div>
         { this.state.displayColorPicker ?
           <div className={style['sketch-container']} ref={(c) => this._sketchContainer = c}>
-            <SketchPicker color={ this.state.color } onChange={this.handlePickerChange} />
+            <SketchPicker color={ this.state.color } onChange={this.handlePickerChange} presetColors={[]} />
           </div>
           : null
         }
