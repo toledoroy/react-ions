@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-ions/lib/Toggle/Toggle'
+import docs from '!!docgen!react-ions/lib/components/Toggle/Toggle'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleToggleDefault from './ExampleToggleDefault'
 import exampleToggleDefaultCode from '!raw!./ExampleToggleDefault'

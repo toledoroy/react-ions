@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-ions/lib/SortableList/SortableList'
+import docs from '!!docgen!react-ions/lib/components/SortableList/SortableList'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleSortableListDefault from './ExampleSortableListDefault'
 import exampleSortableListDefaultCode from '!raw!./ExampleSortableListDefault'

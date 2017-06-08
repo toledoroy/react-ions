@@ -1,5 +1,5 @@
 import React from 'react'
-import Checkbox from 'react-ions/lib/Checkbox'
+import Checkbox from 'react-ions/lib/components/Checkbox'
 
 const ExampleCheckboxDefault = () => (
   <Checkbox label='Default checkbox' value={false} />

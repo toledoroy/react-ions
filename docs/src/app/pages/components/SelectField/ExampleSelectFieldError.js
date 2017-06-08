@@ -1,5 +1,5 @@
 import React from 'react'
-import SelectField from 'react-ions/lib/SelectField/SelectField'
+import SelectField from 'react-ions/lib/components/SelectField/SelectField'
 
 const options = [
   {value: '0', display: 'test 1'},

@@ -1,5 +1,5 @@
 import React from 'react'
-import FileUpload from 'react-ions/lib/FileUpload'
+import FileUpload from 'react-ions/lib/components/FileUpload'
 
 const ExampleFileUploadCustomPreview = () => (
   <FileUpload label="File upload with custom preview size" showPreview={true} previewSize={100} />

@@ -1,7 +1,7 @@
 import React from 'react'
-import FileUpload from 'react-ions/lib/FileUpload'
-import Button from 'react-ions/lib/Button'
-import Input from 'react-ions/lib/Input'
+import FileUpload from 'react-ions/lib/components/FileUpload'
+import Button from 'react-ions/lib/components/Button'
+import Input from 'react-ions/lib/components/Input'
 import style from './style'
 
 class ExampleFileUploadCallback extends React.Component {

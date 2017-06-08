@@ -1,7 +1,7 @@
 import React from 'react'
-import MultiSelect from 'react-ions/lib/MultiSelect/MultiSelect'
-import SelectField from 'react-ions/lib/SelectField/SelectField'
-import Button from 'react-ions/lib/Button'
+import MultiSelect from 'react-ions/lib/components/MultiSelect/MultiSelect'
+import SelectField from 'react-ions/lib/components/SelectField/SelectField'
+import Button from 'react-ions/lib/components/Button'
 import style from './style.scss'
 
 class ExampleMultiSelectField extends React.Component {
