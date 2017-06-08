@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from 'react-ions/lib/Button'
-import Spinner from 'react-ions/lib/Spinner'
+import Button from 'react-ions/lib/components/Button'
+import Spinner from 'react-ions/lib/components/Spinner'
 
 class ExampleSpinnerDelay extends React.Component {
   constructor(props) {

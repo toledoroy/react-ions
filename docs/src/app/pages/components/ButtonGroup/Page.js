@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-ions/lib/ButtonGroup/ButtonGroup'
+import docs from '!!docgen!react-ions/lib/components/ButtonGroup/ButtonGroup'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleButtonGroupDefault from './ExampleButtonGroupDefault'
 import exampleButtonGroupDefaultCode from '!raw!./ExampleButtonGroupDefault'

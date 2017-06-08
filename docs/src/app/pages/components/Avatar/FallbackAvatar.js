@@ -1,6 +1,6 @@
 import React from 'react'
-import Avatar from 'react-ions/lib/Avatar'
-import Button from 'react-ions/lib/Button'
+import Avatar from 'react-ions/lib/components/Avatar'
+import Button from 'react-ions/lib/components/Button'
 import style from './style.scss'
 
 class ExampleAvatar extends React.Component {

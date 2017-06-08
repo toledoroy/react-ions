@@ -13,7 +13,7 @@ const config = {
   resolve: {
     extensions: ['', '.js', '.md', '.txt', '.scss', '.css'],
     alias: {
-      'react-ions/lib': path.resolve(__dirname, '../src/components'),
+      'react-ions/lib': path.resolve(__dirname, '../src'),
       'react-ions/styles': path.resolve(__dirname, '../src/styles'),
       'global/fonts': path.resolve(__dirname, '../src/assets/fonts'),
       'global/icons': path.resolve(__dirname, '../src/assets/icons'),

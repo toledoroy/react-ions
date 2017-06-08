@@ -1,7 +1,7 @@
 import React from 'react'
-import MultiSelect from 'react-ions/lib/MultiSelect/MultiSelect'
-import Typeahead from 'react-ions/lib/Typeahead/Typeahead'
-import Button from 'react-ions/lib/Button'
+import MultiSelect from 'react-ions/lib/components/MultiSelect/MultiSelect'
+import Typeahead from 'react-ions/lib/components/Typeahead/Typeahead'
+import Button from 'react-ions/lib/components/Button'
 import style from './style.scss'
 
 class ExampleMultiTypeahead extends React.Component {

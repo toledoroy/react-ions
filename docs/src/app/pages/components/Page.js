@@ -1,6 +1,6 @@
 import React from 'react'
 import Snippet from '../../modules/Snippet'
-import { Alert } from 'react-ions/lib/Alerts'
+import { Alert } from 'react-ions/lib/components/Alerts'
 import buttonExampleSnippet from '!raw!./Buttons/ExampleButtonDefault'
 import inputExampleSnippet from '!raw!./Input/ExampleInputOptClass'
 import snippetStyles from 'private/css/snippet'

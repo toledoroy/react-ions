@@ -1,7 +1,7 @@
 import React from 'react'
-import {PanelGroup, Panel, PanelHeader, PanelContent} from 'react-ions/lib/PanelGroup'
-import ProgressBar from 'react-ions/lib/ProgressBar'
-import Button from 'react-ions/lib/Button'
+import {PanelGroup, Panel, PanelHeader, PanelContent} from 'react-ions/lib/components/PanelGroup'
+import ProgressBar from 'react-ions/lib/components/ProgressBar'
+import Button from 'react-ions/lib/components/Button'
 import style from './style.scss'
 
 class ExamplePanelGroupAccordion extends React.Component {

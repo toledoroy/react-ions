@@ -2,8 +2,8 @@ import React from 'react'
 import classNames from 'classnames/bind'
 import baseStyles from 'private/css/content'
 import localStyles from './styles'
-import ButtonAnchor from 'react-ions/lib/Button/ButtonAnchor'
-import Icon from 'react-ions/lib/Icon'
+import ButtonAnchor from 'react-ions/lib/components/Button/ButtonAnchor'
+import Icon from 'react-ions/lib/components/Icon'
 
 const HomePage = () => {
   const cx = classNames.bind(baseStyles);

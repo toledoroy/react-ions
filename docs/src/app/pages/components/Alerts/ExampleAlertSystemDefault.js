@@ -1,7 +1,7 @@
 import React from 'react'
-import { AlertSystem } from 'react-ions/lib/Alerts'
-import Button from 'react-ions/lib/Button'
-import Input from 'react-ions/lib/Input'
+import { AlertSystem } from 'react-ions/lib/components/Alerts'
+import Button from 'react-ions/lib/components/Button'
+import Input from 'react-ions/lib/components/Input'
 import style from './style.scss'
 
 class ExampleAlertSystemDefault extends React.Component {

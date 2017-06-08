@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from 'react-ions/lib/Icon'
+import Icon from 'react-ions/lib/components/Icon'
 import baseStyle from 'private/css/content'
 import localStyle from './styles'
 import list from './IconList'

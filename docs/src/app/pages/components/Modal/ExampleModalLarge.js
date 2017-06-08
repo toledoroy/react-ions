@@ -1,6 +1,6 @@
 import React from 'react'
-import Modal from 'react-ions/lib/Modal'
-import Button from 'react-ions/lib/Button'
+import Modal from 'react-ions/lib/components/Modal'
+import Button from 'react-ions/lib/components/Button'
 
 class ExampleModalLarge extends React.Component {
   constructor(props) {

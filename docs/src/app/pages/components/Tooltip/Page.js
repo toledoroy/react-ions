@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-ions/lib/Tooltip/Tooltip'
+import docs from '!!docgen!react-ions/lib/components/Tooltip/Tooltip'
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleTooltipDefault from './ExampleTooltipDefault'
