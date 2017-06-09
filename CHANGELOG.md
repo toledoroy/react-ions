@@ -1,5 +1,11 @@
 ## HEAD
 
+## 1.1.2
+###### _June 9, 2017__
+
+- Added type to Button props
+([#438](https://github.com/GetAmbassador/react-ions/pull/438))
+
 ## 1.1.1
 ###### _June 8, 2017__
 
