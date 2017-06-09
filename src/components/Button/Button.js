@@ -16,11 +16,15 @@ const Button = (props) => {
   }
 
   return (
-    <button type='button' className={btnClasses} disabled={props.disabled || props.loading} onClick={props.onClick}>
+    <button type={props.type} className={btnClasses} disabled={props.disabled || props.loading} onClick={props.onClick}>
       { props.loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
       <em>{props.children}</em>
     </button>
   )
+}
+
+Button.defaultProps = {
+  type: 'button'
 }
 
 Button.propTypes = {
@@ -50,7 +54,11 @@ Button.propTypes = {
   /**
    * A function to be called onClick
    */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  /**
+   * The type of button.
+   */
+  type: PropTypes.string
 }
 
 export default Button
