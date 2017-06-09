@@ -8,6 +8,7 @@ const Button = (props) => {
   const collapseClass = props.collapse ? 'collapse' : null
   const loaderClasses = props.loading ? 'loading' : null
   const btnClasses = optclass(style, [style.btn, props.size, loaderClasses, collapseClass], props.optClass)
+  const typeAttribute = props.type ? props.type : 'button'
   const spinnerOptions = {
     lines: 10,
     length: 4,
@@ -16,7 +17,7 @@ const Button = (props) => {
   }
 
   return (
-    <button type='button' className={btnClasses} disabled={props.disabled || props.loading} onClick={props.onClick}>
+    <button type={typeAttribute} className={btnClasses} disabled={props.disabled || props.loading} onClick={props.onClick}>
       { props.loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
       <em>{props.children}</em>
     </button>
@@ -50,7 +51,11 @@ Button.propTypes = {
   /**
    * A function to be called onClick
    */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  /**
+   * The type of button.
+   */
+  type: PropTypes.string
 }
 
 export default Button
