@@ -110,4 +110,18 @@
       }
     }
   }
+
+  &.checkbox-native {
+    // Overrides to allow for Checkbox block to use
+    // native checkbox, as opposed to the "stylized" checkbox
+    // as used throughout the app
+    > div [class^='checkbox-input'] {
+      display: none;
+    }
+
+    > input {
+      display: block;
+      opacity: 1;
+    }
+  }
 }
