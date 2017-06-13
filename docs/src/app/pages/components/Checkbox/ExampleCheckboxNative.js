@@ -8,17 +8,21 @@ class ExampleCheckboxNative extends React.Component {
   }
 
   state = {
-    checked: true
+    defaultChecked: true,
+    descriptionChecked: false
   }
 
   handleChange = (event) => {
-    this.setState({ checked: event.target.checked })
+    this.setState({
+      [event.target.name]: event.target.checked
+    })
   }
 
   render() {
     return(
       <div>
-        <Checkbox label="Default checkbox" description='this is a description' forLabelAttr='testing' allowNative={true} value={this.state.checked} changeCallback={this.handleChange} />
+        <Checkbox label="Default checkbox" name="defaultChecked" forLabelAttr='testing' allowNative={true} value={this.state.defaultChecked} changeCallback={this.handleChange} /><br />
+        <Checkbox label="Checkbox with description" name="descriptionChecked" description='This is a description' forLabelAttr='testing-2' allowNative={true} value={this.state.descriptionChecked} changeCallback={this.handleChange} />
       </div>
     )
   }

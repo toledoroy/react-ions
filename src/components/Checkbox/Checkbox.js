@@ -123,7 +123,8 @@ class Checkbox extends React.Component {
     const cx = classNames.bind(style)
     const disabledClass = this.props.disabled ? style['checkbox-disabled'] : ''
     const allowNativeClass = this.props.allowNative ? style['checkbox-native'] : null
-    const checkboxClass = cx(style['checkbox-component'], allowNativeClass, optClass, disabledClass)
+    const descriptionClass = this.props.description ? style['has-description'] : null
+    const checkboxClass = cx(style['checkbox-component'], allowNativeClass, descriptionClass, disabledClass, optClass)
     const inputFillColor = this.props.disabled ? '#9198A0' : '#3C97D3'
     const labelWrapperClass = this.props.description ? style['label-group'] : null
 
