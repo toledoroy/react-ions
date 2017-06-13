@@ -20,6 +20,8 @@ import ExampleCheckboxCustomIcon from './ExampleCheckboxCustomIcon'
 import exampleCheckboxCustomIconCode from '!raw!./ExampleCheckboxCustomIcon'
 import ExampleCheckboxDescription from './ExampleCheckboxDescription'
 import exampleCheckboxDescriptionCode from '!raw!./ExampleCheckboxDescription'
+import ExampleCheckboxNative from './ExampleCheckboxNative'
+import exampleCheckboxNativeCode from '!raw!./ExampleCheckboxNative'
 import styles from 'private/css/content'
 
 const description = {
@@ -31,7 +33,8 @@ const description = {
   checkboxCallback: 'This is the `checkbox component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
   checkboxToggle: 'This is the `checkbox component` that you can toggle from the outside by changing its checked property.',
   checkboxCustomIcon: 'This is the `checkbox component` with a custom icon.',
-  checkboxDescription: 'This is the `checkbox component` with a description.'
+  checkboxDescription: 'This is the `checkbox component` with a description.',
+  checkboxNative: 'This is the native `checkbox component`.'
 }
 
 const CheckboxPage = () => (
@@ -91,6 +94,12 @@ const CheckboxPage = () => (
           description={description.checkboxDescription}
           markup={exampleCheckboxDescriptionCode}>
           <ExampleCheckboxDescription />
+        </CodeExample>
+        <CodeExample
+          title='Native Checkbox'
+          description={description.nativeCheckbox}
+          markup={exampleCheckboxNativeCode}>
+          <ExampleCheckboxNative />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>

@@ -8,7 +8,6 @@
   width: 100%;
 
   > input {
-    cursor: pointer;
     height: 100%;
     left: 0;
     margin: 0;
@@ -108,6 +107,43 @@
         }
 
       }
+    }
+  }
+
+  &.checkbox-native {
+    align-items: baseline;
+    display: flex;
+    overflow: visible;
+
+    // Overrides to allow for Checkbox block to use
+    // native checkbox, as opposed to the "stylized" checkbox
+    // as used throughout the app
+    > div [class^='checkbox-input'] {
+      display: none;
+    }
+
+    .label-wrapper {
+      width: 100%;
+    }
+
+    > div label {
+      cursor: pointer;
+      margin-left: 8px;
+      margin-top: 0;
+      position: relative;
+      top: -2px;
+      width: 100%;
+    }
+
+    > input {
+      opacity: 1;
+      height: auto;
+      position: static;
+      width: auto;
+    }
+
+    &.has-description > input {
+      top: -14px;
     }
   }
 }
