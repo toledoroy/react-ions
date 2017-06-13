@@ -147,7 +147,7 @@ describe('Checkbox', () => {
   it('should return a native checkbox', () => {
     wrapper = shallow(<Checkbox label='Test label' allowNative={true} forLabelAttr='testing'></Checkbox>)
 
-    expect(wrapper.hasClass('checkbox-component checkbox-native'))
+    expect(wrapper.hasClass('checkbox-component checkbox-native')).to.be.true
     expect(wrapper.childAt(0).props().id).to.equal('testing')
     expect(wrapper.childAt(1).childAt(1).props().htmlFor).to.equal('testing')
   })
