@@ -240,7 +240,6 @@ describe('Button', () => {
         Delete</ButtonConfirmation>)
     const inst = wrapper.instance()
 
-    // console.log({size, disabled, loading, collapse, optClass, onClick}, { confirmationOverlayOpen: false, confirmationOverlayOffset: 0, hasBeenOpened: false, wide: false })
     expect(inst.shouldComponentUpdate({size, disabled, loading, collapse, optClass, onClick, prompt}, { confirmationOverlayOpen, confirmationOverlayOffset, hasBeenOpened, wide })).to.be.false
     expect(inst.shouldComponentUpdate({size, disabled, loading: true, collapse, optClass, onClick, prompt}, { confirmationOverlayOpen, confirmationOverlayOffset, hasBeenOpened, wide })).to.be.true
     expect(inst.shouldComponentUpdate({size, disabled, loading, collapse, optClass, onClick, prompt: 'New prompt'}, { confirmationOverlayOpen, confirmationOverlayOffset, hasBeenOpened, wide })).to.be.true
