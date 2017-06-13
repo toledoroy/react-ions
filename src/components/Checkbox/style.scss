@@ -8,6 +8,7 @@
   width: 100%;
 
   > input {
+    cursor: pointer;
     height: 100%;
     left: 0;
     margin: 0;
@@ -19,13 +20,13 @@
     z-index: 2;
   }
 
-    > input:checked + div .checkbox-input {
-      svg {
-        display: block;
-        width: 12px;
-        height: 12px;
-      }
+  > input:checked + div .checkbox-input {
+    svg {
+      display: block;
+      width: 12px;
+      height: 12px;
     }
+  }
 
   > div {
     align-items: center;
