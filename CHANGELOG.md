@@ -1,5 +1,10 @@
 ## HEAD
 
+## 1.1.3
+###### _June 13, 2017__
+
+- Removing duplicate prop from ButtonAnchor ([#440](https://github.com/GetAmbassador/react-ions/pull/440))
+
 ## 1.1.2
 ###### _June 9, 2017__
 
@@ -32,7 +37,7 @@
 - Installed prop-types and change all props from `React.PropTypes` to `PropTypes`
 ([#428](https://github.com/GetAmbassador/react-ions/pull/428))
 
-- Removed spread operators and explicitly added props with PropTypes to avoid unknown prop warning 
+- Removed spread operators and explicitly added props with PropTypes to avoid unknown prop warning
 ([#426](https://github.com/GetAmbassador/react-ions/pull/426))
 ([#427](https://github.com/GetAmbassador/react-ions/pull/427))
 
