@@ -1,5 +1,11 @@
 ## HEAD
 
+## 1.1.4
+###### _June 13, 2017__
+
+- Checkbox: adding back cursor CSS to input ([#443](https://github.com/GetAmbassador/react-ions/pull/443))
+- Checkbox: 'native' checkbox implementation ([#442](https://github.com/GetAmbassador/react-ions/pull/442))
+
 ## 1.1.3
 ###### _June 13, 2017__
 
