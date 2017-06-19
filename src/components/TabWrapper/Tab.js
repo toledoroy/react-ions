@@ -39,7 +39,11 @@ class Tab extends React.Component {
     /**
      * Optional title prefix renders in front of the title.
      */
-    titlePrefix: PropTypes.node
+    titlePrefix: PropTypes.node,
+    /**
+    * Optional title suffix renders after the title
+    */
+    titleSuffix: PropTypes.node
   }
 
   formatCount = () => {
@@ -65,6 +69,7 @@ class Tab extends React.Component {
         {this.props.title} {this.props.count
           ? <span className={style.count}>({this.formatCount()})</span>
           : null}
+        {this.props.titleSuffix}
       </div>
     )
   }

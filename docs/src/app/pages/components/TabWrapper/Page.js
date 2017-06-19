@@ -26,7 +26,7 @@ const TabWrapperPage = () => (
           <ExampleTabWrapperSecondary />
         </CodeExample>
         <CodeExample
-          title='Prefixed Tabs'
+          title='Prefixed and Suffixed Tabs'
           markup={exampleTabWrapperTitlePrefixCode}>
           <ExampleTabWrapperTitlePrefix />
         </CodeExample>
