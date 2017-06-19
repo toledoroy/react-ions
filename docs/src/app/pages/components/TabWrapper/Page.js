@@ -10,10 +10,6 @@ import ExampleTabWrapperSecondary from './ExampleTabWrapperSecondary'
 import exampleTabWrapperSecondaryCode from '!raw!./ExampleTabWrapperSecondary'
 import ExampleTabWrapperTitlePrefix from './ExampleTabWrapperTitlePrefix'
 import exampleTabWrapperTitlePrefixCode from '!raw!./ExampleTabWrapperTitlePrefix'
-import ExampleTabWrapperTitleSuffix from './ExampleTabWrapperTitleSuffix'
-import exampleTabWrapperTitleSuffixCode from '!raw!./ExampleTabWrapperTitleSuffix'
-import ExampleTabWrapperTitlePrefixSuffix from './ExampleTabWrapperTitlePrefixSuffix'
-import exampleTabWrapperTitlePrefixSuffixCode from '!raw!./ExampleTabWrapperTitlePrefixSuffix'
 
 const TabWrapperPage = () => (
   <div>
@@ -30,19 +26,9 @@ const TabWrapperPage = () => (
           <ExampleTabWrapperSecondary />
         </CodeExample>
         <CodeExample
-          title='Prefixed Tabs'
+          title='Prefixed and Suffixed Tabs'
           markup={exampleTabWrapperTitlePrefixCode}>
           <ExampleTabWrapperTitlePrefix />
-        </CodeExample>
-        <CodeExample
-          title='Suffixed Tabs'
-          markup={exampleTabWrapperTitleSuffixCode}>
-          <ExampleTabWrapperTitleSuffix />
-        </CodeExample>
-        <CodeExample
-          title='Both Prefixed and Suffixed Tabs'
-          markup={exampleTabWrapperTitlePrefixSuffixCode}>
-          <ExampleTabWrapperTitlePrefixSuffix />
         </CodeExample>
         <div className={styles.block}>
           <h3>Tab Wrapper Props</h3>

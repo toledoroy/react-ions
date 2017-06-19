@@ -11,7 +11,7 @@ class ExampleTabWrapperTitlePrefix extends React.Component {
 
   render() {
     const cx = classNames.bind(style)
-    const iconGreenClasses = cx(style['tab-prefix'], style['icon-green'])
+    const iconGreenClasses = cx(style['tab-suffix'], style['icon-green'])
 
     return (
       <div>
@@ -27,8 +27,15 @@ class ExampleTabWrapperTitlePrefix extends React.Component {
             <p>Tab 2 content.</p>
           </Tab>
           <Tab
-          titlePrefix={<Badge optClass={iconGreenClasses} theme='border' icon='icon-check-1-1' />}
+            titleSuffix={<Badge optClass={iconGreenClasses} theme='border' icon='icon-check-1-1' />}
             title="Hello World"
+            optTabContentClass={style['tab-content-secondary']}>
+            <p>Tab 3 content.</p>
+          </Tab>
+          <Tab
+            title="Both Prefix and Suffix"
+            titlePrefix={<Badge optClass={style['tab-prefix']} theme='sky' text='5' />}
+            titleSuffix={<Badge optClass={iconGreenClasses} theme='border' icon='icon-check-1-1' />}
             optTabContentClass={style['tab-content-secondary']}>
             <p>Tab 3 content.</p>
           </Tab>
