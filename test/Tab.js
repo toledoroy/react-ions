@@ -65,4 +65,10 @@ describe('Tab', () => {
 
     expect(wrapper.find(Badge).length).to.equal(1)
   });
+
+  it('should render a badge suffix and prefix node', () => {
+    wrapper = shallow(<Tab titlePrefix={<Badge />} titleSuffix={<Badge />} title="Test Tab With Prefix and Suffix" />)
+
+    expect(wrapper.find(Badge).length).to.equal(2)
+  });
 });
