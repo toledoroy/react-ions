@@ -88,7 +88,11 @@ export class Typeahead extends React.Component {
     /**
      * Text shown above the typeahead.
      */
-    label: PropTypes.string
+    label: PropTypes.string,
+    /**
+     * When set to true, the component (input) will accept a custom value
+     */
+    allowCustomValue: PropTypes.bool
   }
 
   state = {
@@ -250,12 +254,15 @@ export class Typeahead extends React.Component {
     return (
       <div className={typeaheadClass}>
         { label && <label>{label}</label> }
-        <Input ref={(c) => this._inputField = c} changeCallback={this.onChange} value={this.state.searchStr} placeholder={placeholder} disabled={disabled} />
 
-        { this.state.searchStr !== '' && !loading && !disabled
-          ? <Icon name='icon-delete-1-1' onClick={this.clearSearch} className={style['reset-button']}>Reset</Icon>
-          : null
-        }
+        <div className={style['input-wrapper']}>
+          <Input ref={(c) => this._inputField = c} changeCallback={this.onChange} value={this.state.searchStr} placeholder={placeholder} disabled={disabled} />
+
+          { this.state.searchStr !== '' && !loading && !disabled
+            ? <Icon name='icon-delete-1-1' onClick={this.clearSearch} className={style['reset-button']}>Reset</Icon>
+            : null
+          }
+        </div>
 
         { loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
 
