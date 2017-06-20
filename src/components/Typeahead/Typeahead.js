@@ -178,6 +178,16 @@ export class Typeahead extends React.Component {
     }
 
     this.setState({searchStr: event.target.value})
+
+    if (this.props.allowCustomValue) {
+      this.props.changeCallback({
+        target: {
+          name: this.props.name,
+          value: event.target.value
+        }
+      })
+    }
+
     if (typeof this.props.searchCallback === 'function') {
       this.props.searchCallback(event.target.value).then((options) => {
         this.updateResults(event, options)
