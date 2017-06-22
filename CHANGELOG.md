@@ -1,5 +1,20 @@
 ## HEAD
 
+## 1.1.5
+###### _June 22, 2017_
+
+- SelectField: adding fill (100%) option ([#451](https://github.com/GetAmbassador/react-ions/pull/451))
+
+- Input: adding fill (100%) option ([#450](https://github.com/GetAmbassador/react-ions/pull/450))
+
+- Button: adding fill (100%) option ([#449](https://github.com/GetAmbassador/react-ions/pull/449))
+
+- Modal: Add box-shadow ([#448](https://github.com/GetAmbassador/react-ions/pull/448))
+
+- Typeahead: allow arbitrary values ([#447](https://github.com/GetAmbassador/react-ions/pull/447))
+
+- Tabs: add tab suffix option ([#446](https://github.com/GetAmbassador/react-ions/pull/446))
+
 ## 1.1.4
 ###### _June 13, 2017__
 
