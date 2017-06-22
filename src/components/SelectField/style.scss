@@ -91,14 +91,12 @@
       &.hidden {
         display: none;
       }
-
     }
 
     @media #{$media-small-minus} {
       left: 0;
       min-width: 100%;
     }
-
   }
 
   &.selectfield-disabled {
@@ -138,6 +136,10 @@
     padding-left: 35px;
   }
 
+  &.fill {
+    width: 100%;
+  }
+  
   @media #{$media-small-minus} {
     min-width: 100%;
   }
