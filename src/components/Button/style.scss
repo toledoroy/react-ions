@@ -32,6 +32,10 @@
     opacity: 0;
   }
 
+  &.fill {
+    width: 100%;
+  }
+  
   // Button size(s)
   &.lg  {
     padding: 11px 8px;
