@@ -30,6 +30,10 @@
     &:disabled {
       cursor: not-allowed;
     }
+    
+    &.fill {
+      width: 100%;
+    }
   }
 
   &.input-error {
