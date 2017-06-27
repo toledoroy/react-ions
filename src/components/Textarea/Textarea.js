@@ -8,7 +8,7 @@ import style from './style.scss'
  */
 class Textarea extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -21,6 +21,10 @@ class Textarea extends React.Component {
   }
 
   static propTypes = {
+    /**
+     * Name of the textarea.
+     */
+    name: PropTypes.string,
     /**
      * Whether the textarea is disabled.
      */
@@ -53,32 +57,38 @@ class Textarea extends React.Component {
      * A callback function to be called when the textarea is blurred.
      */
     blurCallback: PropTypes.func
-  };
+  }
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value !== this.props.value) {
-      this.setState({ value: nextProps.value });
+      this.setState({ value: nextProps.value })
     }
   }
 
   handleChange = (event) => {
-    event.persist();
-    this.setState({value: event.target.value}, function() {
+    event.persist()
+
+    this.setState({value: event.target.value}, () => {
       if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(event);
+        this.props.changeCallback({
+          target: {
+            name: this.props.name,
+            value: event.target.value
+          }
+        })
       }
-    });
+    })
   }
 
   handleFocus = (event) => {
     if (typeof this.props.focusCallback === 'function') {
-      this.props.focusCallback(event);
+      this.props.focusCallback(event)
     }
   }
 
   handleBlur = (event) => {
     if (typeof this.props.blurCallback === 'function') {
-      this.props.blurCallback(event);
+      this.props.blurCallback(event)
     }
   }
 
@@ -88,15 +98,15 @@ class Textarea extends React.Component {
       value,
       optClass,
       ...other
-    } = this.props;
+    } = this.props
 
-    const cx = classNames.bind(style);
-    var disabledClass = this.props.disabled ? style['textarea-disabled'] : '';
-    var textareaClass = cx(style['textarea-component'], this.props.optClass, disabledClass);
+    const cx = classNames.bind(style)
+    var disabledClass = this.props.disabled ? style['textarea-disabled'] : ''
+    var textareaClass = cx(style['textarea-component'], this.props.optClass, disabledClass)
 
     return (
       <div className={textareaClass}>
-        {this.props.label ? <label>{this.props.label}</label> : null}
+        { label ? <label>{label}</label> : null }
         <textarea
           value={this.state.value}
           onFocus={this.handleFocus}
