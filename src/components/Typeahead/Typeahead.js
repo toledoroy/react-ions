@@ -113,6 +113,7 @@ export class Typeahead extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
+    console.log(nextProps)
     if (nextProps.value && nextProps.value !== this.state.value && this.getIndex(nextProps.value, nextProps.options) > -1) {
       this.setState({ value: nextProps.value }, () => {
         this.selectItem(nextProps.value, nextProps.options)
@@ -121,6 +122,13 @@ export class Typeahead extends React.Component {
     else if (nextProps.value === '' && nextProps.value !== this.state.value) {
       this.clearSearch()
     }
+  }
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+    if (nextProps.value !== this.props.value) return true
+    if (nextProps.value !== this.state.value) return true
+
+    return false
   }
 
   selectOption = (option) => {
