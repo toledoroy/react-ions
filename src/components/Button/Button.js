@@ -16,7 +16,7 @@ const Button = (props) => {
   }
 
   return (
-    <button type={props.type} className={btnClasses} disabled={props.disabled || props.loading} onClick={props.onClick}>
+    <button type={props.type} style={props.style} className={btnClasses} disabled={props.disabled || props.loading} onClick={props.onClick}>
       { props.loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
       <em>{props.children}</em>
     </button>
@@ -58,7 +58,11 @@ Button.propTypes = {
   /**
    * The type of button.
    */
-  type: PropTypes.string
+  type: PropTypes.string,
+  /**
+   * A string to allow for inline styles
+   */
+  style: PropTypes.string
 }
 
 export default Button
