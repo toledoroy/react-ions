@@ -1,5 +1,10 @@
 ## HEAD
 
+## 1.1.7
+###### _June 28, 2017_
+
+- Typeahead: Removing sCU ([#457](https://github.com/GetAmbassador/react-ions/pull/457))
+
 ## 1.1.6
 ###### _June 28, 2017_
 
