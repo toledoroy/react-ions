@@ -121,7 +121,7 @@ export class Typeahead extends React.Component {
     // When the value is an empty string and the current state value is not an empty string
     // Or when the value is an empty string and the search string exists
     // This ensures that 'custom' values are cleared
-    else if ((nextProps.value === '' && nextProps.value !== this.state.value) || (nextProps.value === '' && this.state.searchStr !== '')) {
+    else if ((nextProps.value === '' && nextProps.value !== this.state.value) || (this.props.allowCustomValue && nextProps.value === '' && this.state.searchStr !== '')) {
       this.clearSearch()
     }
   }
