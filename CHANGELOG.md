@@ -1,5 +1,14 @@
 ## HEAD
 
+## 1.1.6
+###### _June 28, 2017_
+
+- Typeahead: ajusting sCU and adding fix for cWRP for clearing custom values ([#455](https://github.com/GetAmbassador/react-ions/pull/455))
+
+- Textarea: adding name prop and adjusting return value ([#454](https://github.com/GetAmbassador/react-ions/pull/454))
+
+- Button: adding style prop option for inlining styles ([#453](https://github.com/GetAmbassador/react-ions/pull/453))
+
 ## 1.1.5
 ###### _June 22, 2017_
 
