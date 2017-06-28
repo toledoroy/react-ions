@@ -240,11 +240,11 @@ class ExampleFormGroup extends React.Component {
         <legend><span>Click a radio button to set a child value</span></legend>
         <RadioGroup name='radioWithChildren'>
           <Radio name='child_option_1' label='Option 1' />
-          <Input name='child_input_1' optClass={this.getRadioChildClass('child_option_1')} ref={(i) => { if (i !== null) { i.focus() }}} />
+          <Input name='child_input_1' optClass={this.getRadioChildClass('child_option_1')} />
           <Radio name='child_option_2' label='Option 2' />
-          <Input name='child_input_2' optClass={this.getRadioChildClass('child_option_2')} ref={(i) => { if (i !== null) { i.focus() }}} />
+          <Input name='child_input_2' optClass={this.getRadioChildClass('child_option_2')} />
           <Radio name='child_option_3' label='Option 3' />
-          <Input name='child_input_3' optClass={this.getRadioChildClass('child_option_3')} ref={(i) => { if (i !== null) { i.focus() }}} />
+          <Input name='child_input_3' optClass={this.getRadioChildClass('child_option_3')} />
         </RadioGroup>
 
         <SelectField
