@@ -157,4 +157,14 @@ describe('Typeahead', () => {
     inputField.simulate('change', {target: {value: 'a random string'}})
     expect(changeCallback.calledWithExactly({ target: { name: 'typeahead', value: 'a random string' } })).to.be.true
   })
+
+  it('should update according to sCU logic', () => {
+    const changeCallback = sinon.spy()
+    wrapper = mount(<Typeahead name='typeahead' options={options} valueProp='value' displayProp='display' allowCustomValue={true} changeCallback={changeCallback} />)
+
+    let inputField = wrapper.find('input')
+    inputField.simulate('change', {target: {value: 'a random string'}})
+
+    expect(wrapper.instance().shouldComponentUpdate({ value: 'test' })).to.be.true
+  })
 })

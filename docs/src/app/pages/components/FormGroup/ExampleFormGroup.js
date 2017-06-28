@@ -231,13 +231,14 @@ class ExampleFormGroup extends React.Component {
         <Input valueType='string' name='amount_string' label='Amount As String' optClass={formStyle.field} />
         <Textarea name='message' label='Message' optClass={formStyle.field} />
 
+        <legend><span>What happens after a promoter submits a score?</span></legend>
         <RadioGroup
           name='radio'
-          label='What happens after a promoter submits a score?'
           options={fields.radio}
           optClass={formStyle.field} />
 
-        <RadioGroup name='radioWithChildren' label='Click a radio button to set a child value'>
+        <legend><span>Click a radio button to set a child value</span></legend>
+        <RadioGroup name='radioWithChildren'>
           <Radio name='child_option_1' label='Option 1' />
           <Input name='child_input_1' optClass={this.getRadioChildClass('child_option_1')} ref={(i) => { if (i !== null) { i.focus() }}} />
           <Radio name='child_option_2' label='Option 2' />
@@ -260,6 +261,7 @@ class ExampleFormGroup extends React.Component {
           placeholder='Countries starting with the letter A'
           name='country_typeahead'
           options={options}
+          allowCustomValue={true}
           valueProp='countryCode'
           displayProp='countryName'
           value={this.state.schema.country_typeahead.value}
