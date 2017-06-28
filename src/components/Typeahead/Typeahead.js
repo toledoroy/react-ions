@@ -118,9 +118,19 @@ export class Typeahead extends React.Component {
         this.selectItem(nextProps.value, nextProps.options)
       })
     }
-    else if (nextProps.value === '' && nextProps.value !== this.state.value) {
+    // When the value is an empty string and the current state value is not an empty string
+    // Or when the value is an empty string and the search string exists
+    // This ensures that 'custom' values are cleared
+    else if ((nextProps.value === '' && nextProps.value !== this.state.value) || (nextProps.value === '' && this.state.searchStr !== '')) {
       this.clearSearch()
     }
+  }
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+    if (nextProps.value !== this.props.value) return true
+    if (nextProps.value !== this.state.value) return true
+
+    return false
   }
 
   selectOption = (option) => {

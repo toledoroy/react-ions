@@ -157,4 +157,20 @@ describe('Typeahead', () => {
     inputField.simulate('change', {target: {value: 'a random string'}})
     expect(changeCallback.calledWithExactly({ target: { name: 'typeahead', value: 'a random string' } })).to.be.true
   })
+
+  it('should update according to sCU and cWRP logic', () => {
+    const changeCallback = sinon.spy()
+    const clearSearchCallback = sinon.spy()
+    wrapper = shallow(<Typeahead name='typeahead' options={options} value='' valueProp='value' displayProp='display' allowCustomValue={true} changeCallback={changeCallback} />)
+
+    expect(wrapper.instance().shouldComponentUpdate({ value: '' })).to.be.false
+    expect(wrapper.instance().shouldComponentUpdate({ value: 'test' })).to.be.true
+
+    wrapper.setState({
+      value: 'set intentionally'
+    })
+
+    wrapper.instance().componentWillReceiveProps({ value: '' })
+    expect(wrapper.state().value).to.equal('')
+  })
 })
