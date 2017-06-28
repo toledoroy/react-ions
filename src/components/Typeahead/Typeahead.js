@@ -126,13 +126,6 @@ export class Typeahead extends React.Component {
     }
   }
 
-  shouldComponentUpdate = (nextProps, nextState) => {
-    if (nextProps.value !== this.props.value) return true
-    if (nextProps.value !== this.state.value) return true
-
-    return false
-  }
-
   selectOption = (option) => {
     let normalizedOption = option.original ? option.original : option
 
