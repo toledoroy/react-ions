@@ -162,7 +162,7 @@ class Tooltip extends React.Component {
   getStyles = () => {
     if (!this.state.showing) return
 
-    if (!this.props.show || (this.props.show && this.props.tooltipPlacement !== 'top')) {
+    if (!this.props.show || this.props.tooltipPlacement !== 'top') {
       return `top: ${this._tooltipPlacement.top + window.pageYOffset}px; left: ${this._tooltipPlacement.left + window.pageXOffset}px;`
     }
     else if (this.props.show && this.props.tooltipPlacement === 'top') {
