@@ -55,7 +55,12 @@ class Tooltip extends React.Component {
   }
 
   componentDidMount = () => {
-    this.props.show && this.showTip()
+    if (this.props.show) {
+      setTimeout(() => {
+        this.showTip()
+      }, 1000)
+    }
+
     this.renderTipWrapper()
   }
 
@@ -159,17 +164,6 @@ class Tooltip extends React.Component {
     return this._tooltipPlacement.translate + 'px'
   }
 
-  getStyles = () => {
-    if (!this.state.showing) return
-
-    if (!this.props.show || this.props.tooltipPlacement !== 'top') {
-      return `top: ${this._tooltipPlacement.top + window.pageYOffset}px; left: ${this._tooltipPlacement.left + window.pageXOffset}px;`
-    }
-    else if (this.props.show && this.props.tooltipPlacement === 'top') {
-      return `top: inherit; left: inherit; transform: translateX(-50%) translateX(-${this.getTranslate()}) translateY(-100%) translateY(-6px);`
-    }
-  }
-
   getComputedStyle = (propVal) => {
     // getComputedStyle allows us to access a node's CSS values
     return window.getComputedStyle(this._tipElement, null).getPropertyValue(propVal)
@@ -213,7 +207,7 @@ class Tooltip extends React.Component {
 
     const tipShowingClass = this.state.showing ? style['tip-showing'] : null
     const tipClass = optclass(style, ['tip-wrapper', 'is-visible', this.props.optClass, tipShowingClass, this.props.tooltipPlacement])
-    const styles = this.getStyles().trim()
+    const styles = this.state.showing && `top: ${this._tooltipPlacement.top + window.pageYOffset}px; left: ${this._tooltipPlacement.left + window.pageXOffset}px;`
 
     tipNode.setAttribute('style', styles)
     tipNode.className = tipClass
