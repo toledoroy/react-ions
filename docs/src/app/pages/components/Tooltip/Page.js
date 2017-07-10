@@ -5,35 +5,26 @@ import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleTooltipDefault from './ExampleTooltipDefault'
 import exampleTooltipDefaultCode from '!raw!./ExampleTooltipDefault'
-import ExampleTooltipBody from './ExampleTooltipBody'
-import exampleTooltipBodyCode from '!raw!./ExampleTooltipBody'
 import ExampleTooltipVisible from './ExampleTooltipVisible'
 import exampleTooltipVisibleCode from '!raw!./ExampleTooltipVisible'
 
 const description = {
-  tooltipDefault: 'This is the `tooltip component` as it appears by default.',
-  tooltipBody: 'This is the `tooltip component` that gets appended to the document body.',
-  tooltipVisible: 'This is the `tooltip component` that has visibility by default.'
-};
+  tooltipDefault: 'This is the default `tooltip component`.',
+  tooltipVisible: 'This is the `tooltip component` that is visible by default.'
+}
 
 const TooltipPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
         <CodeExample
-          title='Default Tooltip'
+          title='Default tooltip'
           description={description.tooltipDefault}
           markup={exampleTooltipDefaultCode}>
           <ExampleTooltipDefault />
         </CodeExample>
         <CodeExample
-          title='Tooltip Appended To Body'
-          description={description.tooltipBody}
-          markup={exampleTooltipBodyCode}>
-          <ExampleTooltipBody />
-        </CodeExample>
-        <CodeExample
-          title='Tooltip Visible by default'
+          title='Tooltip visible by default'
           description={description.tooltipVisible}
           markup={exampleTooltipVisibleCode}>
           <ExampleTooltipVisible />

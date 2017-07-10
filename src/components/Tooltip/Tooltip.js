@@ -2,22 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import style from './style.scss'
-import RenderToLayer from '../internal/RenderToLayer'
+import optclass from '../internal/OptClass'
 
-/**
- * The Tooltip component.
- */
 class Tooltip extends React.Component {
   constructor(props) {
     super(props)
-  }
-
-  state = {
-    showing: false
-  }
-
-  static defaultProps = {
-    tooltipPlacement: 'top'
   }
 
   static propTypes = {
@@ -34,13 +23,18 @@ class Tooltip extends React.Component {
      */
     tooltipPlacement: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
     /**
-     * Whether to insert the tooltip element after the trigger element or append it to the document body.
-     */
-    appendToBody: PropTypes.bool,
-    /**
      * Whether to show the tooltip element by default.
      */
     show: PropTypes.bool,
+    /**
+     * ID to use for referencing the tooltip (default: tip-wrapper)
+     */
+    tipWrapper: PropTypes.string,
+    /**
+     * When set to true, the tooltip will only appear if the tip wrapper
+     * is ellipsized
+     */
+    detectEllipsis: PropTypes.bool,
     /**
      * Callback to call when mouseover is called.
      */
@@ -51,65 +45,113 @@ class Tooltip extends React.Component {
     mouseOutCallback: PropTypes.func
   }
 
+  static defaultProps = {
+    tooltipPlacement: 'top',
+    tipWrapper: 'tip-wrapper'
+  }
+
+  state = {
+    showing: false
+  }
+
   componentDidMount = () => {
-    if (this.props.show) {
-      setTimeout(() => {
-        this.props.show ? this.showTooltip() : null
-      }, 1000)
-    }
+    this.props.show && this.showTip()
+    this.renderTipWrapper()
+  }
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+    if (nextProps.show !== this.props.show) return true
+    if (nextProps.tooltipPlacement !== this.props.tooltipPlacement) return true
+    if (nextState.showing !== this.state.showing) return true
+    if (nextProps.content !== this.props.content) return true
+
+    return false
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if(typeof nextProps.show !== 'undefined') {
+    if (typeof nextProps.show !== 'undefined') {
       this.setState({ showing: nextProps.show })
     }
   }
 
-  showTooltip = () => {
-    this.tooltipPlacement()
-    this.setState({ showing: true })
-
+  componentWillUnmount = () => {
+    this.hideTip()
   }
 
-  hideTooltip = () => {
-    if (!this.props.show) {
-      this.setState({ showing: false })
+  renderTipWrapper = () => {
+    // Look for an existing reference
+    let tipNode = this.nodeReference()
+
+    // If none exists
+    if (!tipNode) {
+      // Create the wrapper node
+      tipNode = document.createElement('div')
+
+      // Add the CSS hook
+      tipNode.setAttribute('class', style['tip-wrapper'])
+
+      // Set the DOM reference
+      tipNode.setAttribute('id', this.props.tipWrapper)
+
+      document.getElementById('app').appendChild(tipNode)
     }
   }
 
-  handleTooltipEnter = () => {
-    if (this.props.mouseOverCallback) {
-      this.props.mouseOverCallback()
-    }
-  }
-
-  handleTooltipOut = () => {
-    if (this.props.mouseOutCallback) {
-      this.props.mouseOutCallback()
-    }
+  getTipElementBoundingRect = () => {
+    return this._tipElement.getBoundingClientRect()
   }
 
   tooltipPlacement = () => {
-    var triggerRect = this._triggerElement.getBoundingClientRect()
+    let tipRect = this.getTipElementBoundingRect()
+
     this._tooltipPlacement = {}
-    this._tooltipPlacement.translate = triggerRect.width / 2
+    this._tooltipPlacement.translate = tipRect.width / 2
 
     switch (this.props.tooltipPlacement) {
       case 'bottom':
-        this._tooltipPlacement.left = triggerRect.left + (triggerRect.right - triggerRect.left) / 2
-        this._tooltipPlacement.top = triggerRect.bottom
+        this._tooltipPlacement.left = tipRect.left + ((tipRect.right - tipRect.left) / 2)
+        this._tooltipPlacement.top = tipRect.bottom
         break
       case 'right':
-        this._tooltipPlacement.left = triggerRect.right
-        this._tooltipPlacement.top = triggerRect.top + (triggerRect.bottom - triggerRect.top) / 2
+        this._tooltipPlacement.left = tipRect.right
+        this._tooltipPlacement.top = tipRect.top + ((tipRect.bottom - tipRect.top) / 2)
         break
       case 'left':
-        this._tooltipPlacement.left = triggerRect.left
-        this._tooltipPlacement.top = triggerRect.top + (triggerRect.bottom - triggerRect.top) / 2
+        this._tooltipPlacement.left = tipRect.left
+        this._tooltipPlacement.top = tipRect.top + ((tipRect.bottom - tipRect.top) / 2)
         break
       default:
-        this._tooltipPlacement.left = triggerRect.left + (triggerRect.right - triggerRect.left) / 2
-        this._tooltipPlacement.top = triggerRect.top
+        this._tooltipPlacement.left = tipRect.left + ((tipRect.right - tipRect.left) / 2)
+        this._tooltipPlacement.top = tipRect.top
+    }
+  }
+
+  showTip = () => {
+    if (!this.props.detectEllipsis || this.isEllipsisActive()) {
+      // We set the placement each time the user hovers over a tooltip-bound element
+      this.tooltipPlacement()
+
+      this.setState({ showing: true }, () => {
+        this.renderTooltip()
+      })
+    }
+  }
+
+  hideTip = () => {
+    // If props.show, continue to display the tip
+    if (this.props.show) {
+      this.setState({ showing: true })
+    }
+    else {
+      // Get the node
+      let tipNode = this.nodeReference()
+
+      // Re-assign the wrapper style
+      // because we blow away the classnames
+      tipNode.setAttribute('class', style['tip-wrapper'])
+
+      // Set the position to it's original (off screen)
+      tipNode.setAttribute('style', 'top: -300px; left: -300px;')
     }
   }
 
@@ -118,42 +160,79 @@ class Tooltip extends React.Component {
   }
 
   getStyles = () => {
-    var style = {}
+    if (!this.state.showing) return
 
-    if (this.state.showing && !this.props.show || this.state.showing && this.props.show && this.props.tooltipPlacement !== 'top') {
-      style.top = this._tooltipPlacement.top + window.pageYOffset
-      style.left = this._tooltipPlacement.left + window.pageXOffset
-      style.opacity = 0.9
-    } else if (this.state.showing && this.props.show && this.props.tooltipPlacement === 'top') {
-      style.top = 'inherit'
-      style.left = 'inherit'
-      style.opacity = 0.9
-      style.transform = `translateX(-50%) translateX(-${this.getTranslate()}) translateY(-100%) translateY(-6px)`
+    if (!this.props.show || (this.props.show && this.props.tooltipPlacement !== 'top')) {
+      return `top: ${this._tooltipPlacement.top + window.pageYOffset}px; left: ${this._tooltipPlacement.left + window.pageXOffset}px;`
     }
+    else if (this.props.show && this.props.tooltipPlacement === 'top') {
+      return `top: inherit; left: inherit; transform: translateX(-50%) translateX(-${this.getTranslate()}) translateY(-100%) translateY(-6px);`
+    }
+  }
 
-    return style
+  getComputedStyle = (propVal) => {
+    // getComputedStyle allows us to access a node's CSS values
+    return window.getComputedStyle(this._tipElement, null).getPropertyValue(propVal)
+  }
+
+  isEllipsisActive = () => {
+    let clone = this._tipElement.cloneNode(true)
+
+    // Returns the CSS values for properties
+    // that affect the element's width
+    const cloneFontSize = this.getComputedStyle('font-size')
+    const cloneFontWeight = this.getComputedStyle('font-weight')
+    const cloneTextTransform = this.getComputedStyle('text-transform')
+
+    // Inline the values, with visibility: hidden
+    clone.setAttribute('style', `display: inline; width: auto; visibility: hidden; font-size: ${cloneFontSize}; font-weight: ${cloneFontWeight}; text-transform: ${cloneTextTransform}`)
+
+    // Append the node so we can read the DOM attributes
+    document.body.appendChild(clone)
+
+    // Detect whether the hidden node width is wider than the reference element
+    let isEllipsized = clone.offsetWidth > this._tipElement.offsetWidth
+
+    // Remove the clone
+    document.body.removeChild(clone)
+
+    return isEllipsized
+  }
+
+  /**
+   * Helper function to return the tooltip wrapper
+   * Note: a future implmementation might allow for a node to
+   * be passed in here, to allow for a custom tooltip wrapper
+   */
+  nodeReference = () => {
+    return document.getElementById(this.props.tipWrapper)
   }
 
   renderTooltip = () => {
-    const cx = classNames.bind(style)
-    const tooltipShowingClass = this.state.showing ? style['tooltip-showing'] : ''
-    const tooltipClass = cx(style['tooltip-component'], this.props.optClass, tooltipShowingClass, style[this.props.tooltipPlacement])
-    const styles = this.getStyles()
+    let tipNode = this.nodeReference()
 
-    return (
-      <span className={tooltipClass} style={styles} onMouseEnter={this.handleTooltipEnter} onMouseOut={this.handleTooltipOut}>
-        {this.props.content}
-      </span>
-    )
+    const tipShowingClass = this.state.showing ? style['tip-showing'] : null
+    const tipClass = optclass(style, ['tip-wrapper', 'is-visible', this.props.optClass, tipShowingClass, this.props.tooltipPlacement])
+    const styles = this.getStyles().trim()
+
+    tipNode.setAttribute('style', styles)
+    tipNode.className = tipClass
+    tipNode.textContent = this.props.content
+    console.log(tipNode)
+  }
+
+  handleTooltipEnter = () => {
+    this.props.mouseOverCallback && this.props.mouseOverCallback()
+  }
+
+  handleTooltipOut = () => {
+    this.props.mouseOutCallback && this.props.mouseOutCallback()
   }
 
   render = () => {
-    const {content, optClass, tooltipPlacement, appendToBody, show, ...other} = this.props
-
     return (
-      <span onMouseOver={this.showTooltip} onMouseOut={this.hideTooltip} ref={(c) => this._triggerElement = c} >
+      <span onMouseOver={this.showTip} onMouseOut={this.hideTip} ref={(c) => this._tipElement = c} >
         {this.props.children}
-        {this.props.appendToBody ? <RenderToLayer render={this.renderTooltip} open={true} /> : this.renderTooltip()}
       </span>
     )
   }
