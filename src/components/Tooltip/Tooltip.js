@@ -74,8 +74,15 @@ class Tooltip extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (typeof nextProps.show !== 'undefined') {
-      this.setState({ showing: nextProps.show })
+    if (nextProps.show) {
+      this.setState({ showing: true }, () => {
+        this.showTip()
+      })
+    }
+    else {
+      this.setState({ showing: false }, () => {
+        this.hideTip()
+      })
     }
   }
 
@@ -185,7 +192,7 @@ class Tooltip extends React.Component {
     document.body.appendChild(clone)
 
     // Detect whether the hidden node width is wider than the reference element
-    let isEllipsized = clone.offsetWidth > this._tipElement.offsetWidth
+    const isEllipsized = clone.offsetWidth > this._tipElement.offsetWidth
 
     // Remove the clone
     document.body.removeChild(clone)
@@ -212,7 +219,6 @@ class Tooltip extends React.Component {
     tipNode.setAttribute('style', styles)
     tipNode.className = tipClass
     tipNode.textContent = this.props.content
-    console.log(tipNode)
   }
 
   handleTooltipEnter = () => {
