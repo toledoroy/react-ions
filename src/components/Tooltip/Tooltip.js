@@ -179,7 +179,7 @@ class Tooltip extends React.Component {
   }
 
   isEllipsisActive = () => {
-    let clone = this._tipElement.cloneNode(true)
+    let clone = this._tipElement.cloneNode()
 
     // Returns the CSS values for properties
     // that affect the element's width
@@ -189,6 +189,7 @@ class Tooltip extends React.Component {
 
     // Inline the values, with visibility: hidden
     clone.setAttribute('style', `display: inline; width: auto; visibility: hidden; font-size: ${cloneFontSize}; font-weight: ${cloneFontWeight}; text-transform: ${cloneTextTransform}`)
+    clone.textContent = this._tipElement.textContent
 
     // Append the node so we can read the DOM attributes
     document.body.appendChild(clone)

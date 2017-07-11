@@ -14,8 +14,8 @@ class ExampleTooltipEllipsis extends React.Component {
   render = () => {
     return (
       <div>
-        <Tooltip content={this.state.text} tooltipPlacement='right' detectEllipsis={true}> 
-          <div className={style['truncate-text']}>{this.state.text}</div>
+        <Tooltip content={this.state.text} tooltipPlacement='right' detectEllipsis={true}>
+          <span className={style['truncate-text']}>{this.state.text}</span>
         </Tooltip>
       </div>
     )
