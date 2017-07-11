@@ -16,7 +16,7 @@ class ExampleTooltipVisible extends React.Component {
   }
 
   render = () => {
-    return(
+    return (
       <div>
         <p>Umami four dollar toast craft beer polaroid <Tooltip tipWrapper="tooltip-visible-by-default" content='Visible tooltip' show={this.state.showing}>
           <a href='#'>visible</a></Tooltip> tooltip.

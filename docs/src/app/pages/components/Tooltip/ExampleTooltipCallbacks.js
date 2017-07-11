@@ -1,22 +1,32 @@
 import React from 'react'
 import Tooltip from 'react-ions/lib/components/Tooltip'
+import style from './style'
 
 class ExampleTooltipCallbacks extends React.Component {
   constructor(props) {
     super(props)
   }
 
-  handleVisibility = () => {
-    this.setState({ showing: !this.state.showing })
+  state = {
+    status: 'You are not hovering'
+  }
+
+  handleMouseOver = () => {
+    this.setState({ status: 'You are hovering'})
+  }
+
+  handleMouseOut = () => {
+    this.setState({ status: 'You are not hovering'})
   }
 
   render = () => {
-    return(
-      <p>Umami four dollar toast craft beer polaroid
-        <Tooltip content='Tooltip with callbacks' />
-          <a href='#'>tooltip link</a>
+    return (
+      <div>
+        <Tooltip content='Tooltip with callbacks' tooltipPlacement='right' mouseOverCallback={this.handleMouseOver} mouseOutCallback={this.handleMouseOut}> 
+          hover here
         </Tooltip>
-      </p>
+        <code className={style['callback-status']}>{this.state.status}</code>
+      </div>
     )
   }
 }

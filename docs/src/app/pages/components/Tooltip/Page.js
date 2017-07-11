@@ -7,10 +7,13 @@ import ExampleTooltipDefault from './ExampleTooltipDefault'
 import exampleTooltipDefaultCode from '!raw!./ExampleTooltipDefault'
 import ExampleTooltipVisible from './ExampleTooltipVisible'
 import exampleTooltipVisibleCode from '!raw!./ExampleTooltipVisible'
+import ExampleTooltipCallbacks from './ExampleTooltipCallbacks'
+import ExampleTooltipCallbacksCode from '!raw!./ExampleTooltipCallbacks'
 
 const description = {
   tooltipDefault: 'This is the default `tooltip component`.',
-  tooltipVisible: 'This is the `tooltip component` that is visible by default.'
+  tooltipVisible: 'This is the `tooltip component` that is visible by default.',
+  tooltipCallbacks: 'This is the `tooltip component` with callbacks.'
 }
 
 const TooltipPage = () => (
@@ -28,6 +31,12 @@ const TooltipPage = () => (
           description={description.tooltipVisible}
           markup={exampleTooltipVisibleCode}>
           <ExampleTooltipVisible />
+        </CodeExample>
+        <CodeExample
+          title='Tooltip with onMouseOver and onMouseOut callbacks'
+          description={description.tooltipCallbacks}
+          markup={ExampleTooltipCallbacksCode}>
+          <ExampleTooltipCallbacks />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>

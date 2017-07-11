@@ -74,12 +74,14 @@ class Tooltip extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.show) {
+    // If not currently showing and should show
+    if (!this.state.showing && nextProps.show) {
       this.setState({ showing: true }, () => {
         this.showTip()
       })
     }
-    else {
+    // If currently showing and should not show
+    else if (this.state.showing && !nextProps.show) {
       this.setState({ showing: false }, () => {
         this.hideTip()
       })
@@ -221,17 +223,19 @@ class Tooltip extends React.Component {
     tipNode.textContent = this.props.content
   }
 
-  handleTooltipEnter = () => {
+  handleMouseOver = () => {
+    this.showTip()
     this.props.mouseOverCallback && this.props.mouseOverCallback()
   }
 
-  handleTooltipOut = () => {
+  handleMouseOut = () => {
+    this.hideTip()
     this.props.mouseOutCallback && this.props.mouseOutCallback()
   }
 
   render = () => {
     return (
-      <span onMouseOver={this.showTip} onMouseOut={this.hideTip} ref={(c) => this._tipElement = c} >
+      <span onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} ref={(c) => this._tipElement = c} >
         {this.props.children}
       </span>
     )
