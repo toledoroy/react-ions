@@ -1,5 +1,6 @@
 @import '../../styles/common/colors';
-@import '../../styles/common/_config';
+@import '../../styles/common/functions';
+@import '../../styles/common/mixins';
 
 .tip-wrapper {
   border-radius: 3px;
@@ -14,10 +15,8 @@
   text-align: center;
   top: -300px;
   transition: opacity 400ms cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  word-break: break-word;
-  word-break: break-all;
-  white-space: pre-wrap;
-  z-index: 2;
+  @include word-wrap;
+  z-index: z('tooltip');
 
   &.is-visible {
     opacity: 0.9;
@@ -79,4 +78,3 @@
     }
   }
 }
-
