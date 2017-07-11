@@ -4,3 +4,10 @@
   @include monospace;
   display: block;
 }
+
+.truncate-text {
+  width: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

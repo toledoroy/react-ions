@@ -9,11 +9,14 @@ import ExampleTooltipVisible from './ExampleTooltipVisible'
 import exampleTooltipVisibleCode from '!raw!./ExampleTooltipVisible'
 import ExampleTooltipCallbacks from './ExampleTooltipCallbacks'
 import ExampleTooltipCallbacksCode from '!raw!./ExampleTooltipCallbacks'
+import ExampleTooltipEllipsis from './ExampleTooltipEllipsis'
+import ExampleTooltipEllipsisCode from '!raw!./ExampleTooltipEllipsis'
 
 const description = {
   tooltipDefault: 'This is the default `tooltip component`.',
   tooltipVisible: 'This is the `tooltip component` that is visible by default.',
-  tooltipCallbacks: 'This is the `tooltip component` with callbacks.'
+  tooltipCallbacks: 'This is the `tooltip component` with callbacks.',
+  tooltipEllipsis: 'This is the `tooltip component` which only shows with ellipsis.'
 }
 
 const TooltipPage = () => (
@@ -37,6 +40,12 @@ const TooltipPage = () => (
           description={description.tooltipCallbacks}
           markup={ExampleTooltipCallbacksCode}>
           <ExampleTooltipCallbacks />
+        </CodeExample>
+        <CodeExample
+          title='Tooltip which only shows with ellipsis'
+          description={description.tooltipEllipsis}
+          markup={ExampleTooltipEllipsisCode}>
+          <ExampleTooltipEllipsis />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
