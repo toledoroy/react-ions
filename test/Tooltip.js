@@ -40,7 +40,7 @@ describe('Tooltip', () => {
     expect(tip.getAttribute('id')).to.equal('tip-wrapper')
     expect(willUnmount.callCount).to.equal(0)
 
-    wrapper.detach()
+    wrapper.unmount()
   })
 
   it.skip('should display the tooltip when the show prop is passed', (done) => {
@@ -57,7 +57,7 @@ describe('Tooltip', () => {
       done()
     }, 1500)
 
-    wrapper.detach()
+    wrapper.unmount()
   })
 
   it.skip('should render with an alternate tip wrapper and an optClass', (done) => {
@@ -76,7 +76,7 @@ describe('Tooltip', () => {
       done()
     }, 1500)
 
-    wrapper.detach()
+    wrapper.unmount()
   })
 
   it.skip('should render with a different tip placement', (done) => {
@@ -93,7 +93,7 @@ describe('Tooltip', () => {
       done()
     }, 1500)
 
-    wrapper.detach()
+    wrapper.unmount()
   })
 
   it('should return a node', () => {
@@ -102,7 +102,7 @@ describe('Tooltip', () => {
 
     expect(wrapper.instance().nodeReference().getAttribute('id')).to.equal('tip-wrapper')
 
-    wrapper.detach()
+    wrapper.unmount()
   })
 
   it('should return a node with a custom ID', () => {
@@ -111,7 +111,7 @@ describe('Tooltip', () => {
 
     expect(wrapper.instance().nodeReference().getAttribute('id')).to.equal('test-wrapper')
 
-    wrapper.detach()
+    wrapper.unmount()
   })
 
   it('should set the tooltip placement', () => {
@@ -145,7 +145,7 @@ describe('Tooltip', () => {
     expect(inst._tooltipPlacement.top).to.equal(25)
     expect(inst._tooltipPlacement.translate).to.equal(50)
 
-    wrapper.detach()
+    wrapper.unmount()
     stub.restore()
   })
 
@@ -157,7 +157,7 @@ describe('Tooltip', () => {
 
     expect(tip.getAttribute('id')).to.equal('tip-wrapper')
 
-    wrapper.detach()
+    wrapper.unmount()
   })
 
   it('should determine whether the node has an ellipsis', () => {
@@ -166,7 +166,7 @@ describe('Tooltip', () => {
 
     expect(wrapper.instance().isEllipsisActive()).to.be.false
 
-    wrapper.detach()
+    wrapper.unmount()
   })
 
   it('should return a computed style value', () => {
@@ -179,7 +179,7 @@ describe('Tooltip', () => {
 
     expect(wrapper.instance().getComputedStyle('font-size')).to.equal(fontSize)
 
-    wrapper.detach()
+    wrapper.unmount()
   })
 
   it('should call tooltip placement and set state when showTip is called', () => {
