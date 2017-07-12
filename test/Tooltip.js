@@ -32,6 +32,12 @@ describe('Tooltip', () => {
     return shallowWrapper
   }
 
+  afterEach(() => {
+    if(wrapper) {
+      wrapper.unmount()
+    }
+  })
+
   it('should shallow render itself with default options (top placement)', () => {
     wrapper = mountRender()
     tip = appDiv.childNodes[1]
@@ -39,8 +45,6 @@ describe('Tooltip', () => {
     expect(tip.getAttribute('class')).to.equal('tip-wrapper')
     expect(tip.getAttribute('id')).to.equal('tip-wrapper')
     expect(willUnmount.callCount).to.equal(0)
-
-    wrapper.unmount()
   })
 
   it.skip('should display the tooltip when the show prop is passed', (done) => {
@@ -56,8 +60,6 @@ describe('Tooltip', () => {
       expect(tip.textContent).to.equal('Testing the top tooltip')
       done()
     }, 1500)
-
-    wrapper.unmount()
   })
 
   it.skip('should render with an alternate tip wrapper and an optClass', (done) => {
@@ -75,8 +77,6 @@ describe('Tooltip', () => {
       expect(tip.getAttribute('class')).to.equal('random-wrapper is-visible opt-class top')
       done()
     }, 1500)
-
-    wrapper.unmount()
   })
 
   it.skip('should render with a different tip placement', (done) => {
@@ -92,8 +92,6 @@ describe('Tooltip', () => {
       expect(tip.getAttribute('class')).to.equal('tip-wrapper is-visible right')
       done()
     }, 1500)
-
-    wrapper.unmount()
   })
 
   it('should return a node', () => {
@@ -101,8 +99,6 @@ describe('Tooltip', () => {
     tip = appDiv.childNodes[1]
 
     expect(wrapper.instance().nodeReference().getAttribute('id')).to.equal('tip-wrapper')
-
-    wrapper.unmount()
   })
 
   it('should return a node with a custom ID', () => {
@@ -110,8 +106,6 @@ describe('Tooltip', () => {
     tip = appDiv.childNodes[1]
 
     expect(wrapper.instance().nodeReference().getAttribute('id')).to.equal('test-wrapper')
-
-    wrapper.unmount()
   })
 
   it('should set the tooltip placement', () => {
@@ -145,7 +139,6 @@ describe('Tooltip', () => {
     expect(inst._tooltipPlacement.top).to.equal(25)
     expect(inst._tooltipPlacement.translate).to.equal(50)
 
-    wrapper.unmount()
     stub.restore()
   })
 
@@ -156,8 +149,6 @@ describe('Tooltip', () => {
     wrapper.instance().renderTipWrapper()
 
     expect(tip.getAttribute('id')).to.equal('tip-wrapper')
-
-    wrapper.unmount()
   })
 
   it('should determine whether the node has an ellipsis', () => {
@@ -165,8 +156,6 @@ describe('Tooltip', () => {
     tip = appDiv.childNodes[1]
 
     expect(wrapper.instance().isEllipsisActive()).to.be.false
-
-    wrapper.unmount()
   })
 
   it('should return a computed style value', () => {
@@ -178,8 +167,6 @@ describe('Tooltip', () => {
     const fontSize = global.getComputedStyle(tip, null).getPropertyValue('font-size')
 
     expect(wrapper.instance().getComputedStyle('font-size')).to.equal(fontSize)
-
-    wrapper.unmount()
   })
 
   it('should call tooltip placement and set state when showTip is called', () => {
