@@ -152,21 +152,15 @@ class Tooltip extends React.Component {
   }
 
   hideTip = () => {
-    // If props.show, continue to display the tip
-    if (this.props.show) {
-      this.setState({ showing: true })
-    }
-    else {
-      // Get the node
-      let tipNode = this.nodeReference()
+    // Get the node
+    let tipNode = this.nodeReference()
 
-      // Re-assign the wrapper style
-      // because we blow away the classnames
-      tipNode.setAttribute('class', style['tip-wrapper'])
+    // Re-assign the wrapper style
+    // because we blow away the classnames
+    tipNode.setAttribute('class', style['tip-wrapper'])
 
-      // Set the position to it's original (off screen)
-      tipNode.setAttribute('style', 'top: -300px; left: -300px;')
-    }
+    // Set the position to it's original (off screen)
+    tipNode.setAttribute('style', 'top: -300px; left: -300px;')
   }
 
   getTranslate = () => {
@@ -213,8 +207,7 @@ class Tooltip extends React.Component {
   }
 
   renderTooltip = () => {
-    let tipNode = this.nodeReference()
-
+    const tipNode = this.nodeReference()
     const tipShowingClass = this.state.showing ? style['tip-showing'] : null
     const tipClass = optclass(style, ['tip-wrapper', 'is-visible', this.props.optClass, tipShowingClass, this.props.tooltipPlacement])
     const styles = this.state.showing && `top: ${this._tooltipPlacement.top + window.pageYOffset}px; left: ${this._tooltipPlacement.left + window.pageXOffset}px;`
@@ -230,7 +223,7 @@ class Tooltip extends React.Component {
   }
 
   handleMouseOut = () => {
-    this.hideTip()
+    if (!this.props.show) this.hideTip()
     this.props.mouseOutCallback && this.props.mouseOutCallback()
   }
 
