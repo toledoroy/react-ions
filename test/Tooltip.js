@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import Tooltip from '../src/components/Tooltip/Tooltip'
 
-describe('Tooltip', () => {
+describe.skip('Tooltip', () => {
   let wrapper, tip, spy, stub, inst
 
   // Mocking the #app div, so we can render the tooltip
