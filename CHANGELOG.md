@@ -1,11 +1,10 @@
 ## HEAD
 
-# Breaking Change
-
-In our refactoring of the `<Tooltip />` component, we've removed the option to pass a `node` of any type. The tooltip will now only accept a `string` as a content type. 
-
 ## 2.0.0
 ###### _July 13, 2017_
+
+### Breaking Change
+In our refactoring of the `<Tooltip />` component, we've removed the option to pass a `node` of any type. The tooltip will now only accept a `string` as a content type.
 
 - Tooltip: Refactored to utilize a single DOM node, and improve performance ([#460](https://github.com/GetAmbassador/react-ions/pull/460))
 ([#459](https://github.com/GetAmbassador/react-ions/pull/459))
