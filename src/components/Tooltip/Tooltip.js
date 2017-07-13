@@ -11,9 +11,9 @@ class Tooltip extends React.Component {
 
   static propTypes = {
     /**
-     * The content to display inside the `Tooltip`. Could be number, string, element or an array containing these types.
+     * The content to display inside the `Tooltip`.
      */
-    content: PropTypes.node,
+    content: PropTypes.string,
     /**
      * Optional styles to add to the tooltip.
      */
