@@ -1,5 +1,10 @@
 ## HEAD
 
+## 2.0.1
+###### _July 14, 2017_
+
+- Re-release to ensure content prop is `string`.
+
 ## 2.0.0
 ###### _July 13, 2017_
 
