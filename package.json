@@ -8,8 +8,8 @@
     "url": "https://github.com/GetAmbassador/react-conventions.git"
   },
   "engines": {
-    "node": "4.4.2",
-    "npm": "3.8.6"
+    "node": "4.8.4",
+    "npm": "3.10.10"
   },
   "keywords": [
     "react",
