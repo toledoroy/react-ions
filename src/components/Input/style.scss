@@ -21,9 +21,12 @@
     width: 100%;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 
+    &:hover {
+      border-color: rgba($neutral-4, .7);
+    }
+
     &:focus {
-      border-color: $primary-1;
-      box-shadow: 0 0 2px $primary-1;
+      border-color: $neutral-4;
       outline: 0;
     }
 
