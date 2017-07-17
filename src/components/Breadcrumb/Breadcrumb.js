@@ -95,6 +95,7 @@ class Breadcrumb extends React.Component {
 
   render() {
     const breadcrumbClasses = optclass(style, ['breadcrumbs-outer'], this.props.optClass)
+
     const gradientColor = {
       color: this.props.gradientColor || 'white'
     }
