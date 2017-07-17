@@ -17,7 +17,7 @@
 
   .selectfield-value {
     background-color: $white;
-    border: 1px solid $neutral-3;
+    border: 2px solid $neutral-3;
     border-radius: 3px;
     color: $primary-4;
     cursor: pointer;
@@ -139,7 +139,7 @@
   &.fill {
     width: 100%;
   }
-  
+
   @media #{$media-small-minus} {
     min-width: 100%;
   }
