@@ -111,6 +111,7 @@
 
   &.selectfield-disabled {
     cursor: not-allowed;
+
     > div {
       > svg {
         fill: $neutral-4;
@@ -120,6 +121,7 @@
       color: $neutral-4;
       cursor: not-allowed;
     }
+
     > ul {
       display: none;
     }
@@ -133,7 +135,7 @@
 
   &.active:not(.selectfield-disabled) {
     .selectfield-value {
-      border-color: $neutral-4;
+      border-color: rgba($neutral-4, .6);
 
       > svg:last-of-type {
         transform: rotate(180deg);
