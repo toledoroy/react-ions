@@ -46,10 +46,6 @@
   &.input-error {
     input {
       border: 2px solid $danger;
-
-      &:focus {
-        box-shadow: 0 0 2px $danger;
-      }
     }
   }
 }
