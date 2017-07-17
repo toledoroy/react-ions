@@ -30,7 +30,7 @@
     }
 
     &:focus {
-      border-color: $neutral-4;
+      border-color: rgba($neutral-4, .6);
       outline: 0;
     }
   }
