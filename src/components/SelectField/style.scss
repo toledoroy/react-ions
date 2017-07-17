@@ -17,7 +17,7 @@
 
   .selectfield-value {
     background-color: $white;
-    border: 1px solid $neutral-3;
+    border: 2px solid $neutral-3;
     border-radius: 3px;
     color: $primary-4;
     cursor: pointer;
@@ -25,6 +25,7 @@
     position: relative;
     padding: 10px 29px 10px 10px;
     user-select: none;
+    transition: border-color ease-in-out .15s;
 
     > svg:last-of-type {
       position: absolute;
@@ -38,6 +39,15 @@
       position: absolute;
       top: 50%;
       transform: translate(0, -50%);
+    }
+
+    &:hover {
+      border-color: rgba($neutral-4, .4);
+    }
+
+    &:focus {
+      border-color: rgba($neutral-4, .6);
+      outline: 0;
     }
   }
 
@@ -64,13 +74,13 @@
     z-index: 3;
 
     li {
+      @include vertical-align('block');
       color: $primary-4;
       cursor: pointer;
       display: block;
       padding: 10px;
       text-decoration: none;
       min-height: 18px;
-      @include vertical-align('block');
 
       svg {
         margin-right: 10px;
@@ -101,6 +111,7 @@
 
   &.selectfield-disabled {
     cursor: not-allowed;
+
     > div {
       > svg {
         fill: $neutral-4;
@@ -110,6 +121,7 @@
       color: $neutral-4;
       cursor: not-allowed;
     }
+
     > ul {
       display: none;
     }
@@ -123,6 +135,8 @@
 
   &.active:not(.selectfield-disabled) {
     .selectfield-value {
+      border-color: rgba($neutral-4, .6);
+
       > svg:last-of-type {
         transform: rotate(180deg);
       }
@@ -139,7 +153,7 @@
   &.fill {
     width: 100%;
   }
-  
+
   @media #{$media-small-minus} {
     min-width: 100%;
   }
