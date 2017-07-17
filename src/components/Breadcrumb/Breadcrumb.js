@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Immutable from 'immutable'
 import InlineStylePrefixer from '../internal/InlineStylePrefixer'
+import optclass from '../internal/OptClass'
 import Icon from '../Icon'
 import style from './style.scss'
 
@@ -23,7 +24,11 @@ class Breadcrumb extends React.Component {
      * Optional background color for overflow gradient on small screens
      * Defaults to white
     */
-    gradientColor: PropTypes.string
+    gradientColor: PropTypes.string,
+    /**
+     * Optional CSS class to be used for local styles
+     */
+    optClass: PropTypes.string
   }
 
   state = {
@@ -89,12 +94,13 @@ class Breadcrumb extends React.Component {
   }
 
   render() {
+    const breadcrumbClasses = optclass(style, ['breadcrumbs-outer'], this.props.optClass)
     const gradientColor = {
       color: this.props.gradientColor || 'white'
     }
 
     return (
-      <div className={style['breadcrumbs-outer']}>
+      <div className={breadcrumbClasses}>
         <div className={style['overflow-gradient']} style={this.getGradientStyles()} />
         <div className={style['breadcrumbs-container']} style={this.getContainerStyles()}>
           <div className={style.breadcrumb}>{this.getTags()}</div>
