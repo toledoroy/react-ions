@@ -25,6 +25,7 @@
     position: relative;
     padding: 10px 29px 10px 10px;
     user-select: none;
+    transition: border-color ease-in-out .15s;
 
     > svg:last-of-type {
       position: absolute;
@@ -38,6 +39,15 @@
       position: absolute;
       top: 50%;
       transform: translate(0, -50%);
+    }
+
+    &:hover {
+      border-color: rgba($neutral-4, .7);
+    }
+
+    &:focus {
+      border-color: $neutral-4;
+      outline: 0;
     }
   }
 
@@ -123,6 +133,8 @@
 
   &.active:not(.selectfield-disabled) {
     .selectfield-value {
+      border-color: $neutral-4;
+
       > svg:last-of-type {
         transform: rotate(180deg);
       }
