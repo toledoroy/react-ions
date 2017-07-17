@@ -74,13 +74,13 @@
     z-index: 3;
 
     li {
+      @include vertical-align('block');
       color: $primary-4;
       cursor: pointer;
       display: block;
       padding: 10px;
       text-decoration: none;
       min-height: 18px;
-      @include vertical-align('block');
 
       svg {
         margin-right: 10px;
