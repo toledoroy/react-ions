@@ -32,6 +32,10 @@
 
     &:disabled {
       cursor: not-allowed;
+
+      &:hover {
+        border: solid 2px $neutral-3;
+      }
     }
 
     &.fill {
