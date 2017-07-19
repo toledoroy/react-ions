@@ -11,6 +11,15 @@
     font-weight: 200;
   }
 
+  .prefix {
+    position: absolute;
+    margin: 12px 0 0 15px;
+  }
+
+  &.prefix input {
+    padding-left: 30px;
+  }
+
   input {
     color: $primary-4;
     border: solid 2px $neutral-3;

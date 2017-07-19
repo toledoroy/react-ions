@@ -50,9 +50,21 @@ class Input extends React.Component {
      */
     name: PropTypes.string,
     /**
-     * Optional styles to add to the input.
+     * Name of the input.
+     */
+    prefix: PropTypes.string,
+    /**
+     * Optional prefix to add to the input.
+     */
+    suffix: PropTypes.string,
+    /**
+     * Optional suffix to add to the input.
      */
     optClass: PropTypes.string,
+    /**
+     * Name of the input.
+     */
+    name: PropTypes.string,
     /**
      * A callback function to be called when the input changes.
      */
@@ -91,11 +103,10 @@ class Input extends React.Component {
 
   handleChange = (event) => {
     event.persist()
+    const value = (this.props.valueType === 'number' && event.target.value !== '' && !isNaN(event.target.value))
+                  ? parseFloat(event.target.value) : event.target.value
 
-    const value = this.props.valueType === 'number' && event.target.value !== '' && !isNaN(event.target.value)
-      ? parseFloat(event.target.value) : event.target.value
-
-    this.setState({value: event.target.value}, = () => {
+    this.setState({value: event.target.value}, () => {
       this.props.changeCallback && this.props.changeCallback({ target: { name: this.props.name, value } })
     })
   }
@@ -115,19 +126,22 @@ class Input extends React.Component {
   render() {
     const {
       prefix,
+      suffix,
       label,
       value,
-      optClass,
-      ...other
+      optClass
     } = this.props
 
     const cx = classNames.bind(style)
-    var disabledClass = this.props.disabled ? style['input-disabled'] : ''
-    var inputClass = cx(style['input-component'], this.props.optClass, disabledClass)
+    const disabledClass = this.props.disabled ? style['input-disabled'] : null
+    const prefixClass = prefix ? style['prefix'] : null
+    const inputClass = cx(style['input-component'], optClass, disabledClass, prefixClass)
 
     return (
       <div className={inputClass}>
         { label ? <label>{label}</label> : null }
+
+        { prefix ? <div className={prefixClass}>{prefix}</div> : null }
 
         <input
           ref={(c) => this._input = c}

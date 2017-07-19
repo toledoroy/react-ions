@@ -17,7 +17,8 @@ import ExampleInputPopulated from './ExampleInputPopulated'
 import exampleInputPopulatedCode from '!raw!./ExampleInputPopulated'
 import ExampleInputNumber from './ExampleInputNumber'
 import exampleInputNumberCode from '!raw!./ExampleInputNumber'
-
+import ExampleInputPrefix from './ExampleInputPrefix'
+import exampleInputPrefixCode from '!raw!./ExampleInputPrefix'
 
 const description = {
   inputDefault: 'This is the `input component` as it appears by default.',
@@ -25,7 +26,8 @@ const description = {
   inputDisabled: 'This is the disabled `input component`.',
   inputError: 'This is the `input component` with error.',
   inputCallback: 'This is the `input component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
-  inputNumber: 'This is the `input component` with different types.'
+  inputNumber: 'This is the `input component` with different types.',
+  inputPrefix: 'This is the `input component` with a prefix.'
 }
 
 const InputPage = () => (
@@ -73,6 +75,12 @@ const InputPage = () => (
           description={description.inputNumber}
           markup={exampleInputNumberCode}>
           <ExampleInputNumber />
+        </CodeExample>
+        <CodeExample
+          title='Input with prefix'
+          description={description.inputPrefix}
+          markup={exampleInputPrefixCode}>
+          <ExampleInputPrefix />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
