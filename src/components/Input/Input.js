@@ -104,8 +104,6 @@ class Input extends React.Component {
       inputStyles.paddingRight = this._suffix.getBoundingClientRect().width + 24
     }
 
-    console.log(inputStyles)
-
     this.setState({ inputStyles })
   }
 
