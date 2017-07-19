@@ -95,28 +95,17 @@ class Input extends React.Component {
     const value = this.props.valueType === 'number' && event.target.value !== '' && !isNaN(event.target.value)
       ? parseFloat(event.target.value) : event.target.value
 
-    this.setState({value: event.target.value}, function() {
-      if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback({
-          target: {
-            name: this.props.name,
-            value: value
-          }
-        })
-      }
+    this.setState({value: event.target.value}, = () => {
+      this.props.changeCallback && this.props.changeCallback({ target: { name: this.props.name, value } })
     })
   }
 
   handleFocus = (event) => {
-    if (typeof this.props.focusCallback === 'function') {
-      this.props.focusCallback(event)
-    }
+    this.props.focusCallback && this.props.focusCallback(event)
   }
 
   handleBlur = (event) => {
-    if (typeof this.props.blurCallback === 'function') {
-      this.props.blurCallback(event)
-    }
+    this.props.blurCallback && this.props.blurCallback(event)
   }
 
   focus = () => {
@@ -125,6 +114,7 @@ class Input extends React.Component {
 
   render() {
     const {
+      prefix,
       label,
       value,
       optClass,
@@ -138,6 +128,7 @@ class Input extends React.Component {
     return (
       <div className={inputClass}>
         { label ? <label>{label}</label> : null }
+
         <input
           ref={(c) => this._input = c}
           value={this.state.value}
