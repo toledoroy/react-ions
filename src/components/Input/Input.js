@@ -98,9 +98,11 @@ class Input extends React.Component {
   componentDidMount = () => {
     let inputStyles = {}
     if (this.props.prefix) {
+      // Add 24 to accomodate for left and right padding of prefix (16+8)
       inputStyles.paddingLeft = this._prefix.getBoundingClientRect().width + 24
     }
     if (this.props.suffix) {
+      // Add 24 to accomodate for left and right padding of prefix (8+16)
       inputStyles.paddingRight = this._suffix.getBoundingClientRect().width + 24
     }
 
