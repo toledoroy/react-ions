@@ -135,13 +135,14 @@ class Input extends React.Component {
     const cx = classNames.bind(style)
     const disabledClass = this.props.disabled ? style['input-disabled'] : null
     const prefixClass = prefix ? style['prefix'] : null
-    const inputClass = cx(style['input-component'], optClass, disabledClass, prefixClass)
+    const suffixClass = suffix ? style['suffix'] : null
+    const inputClass = cx(style['input-component'], optClass, disabledClass, prefixClass, suffixClass)
 
     return (
       <div className={inputClass}>
-        { label ? <label>{label}</label> : null }
+        {label && <label>{label}</label>}
 
-        { prefix ? <div className={prefixClass}>{prefix}</div> : null }
+        {prefix && <div className={prefixClass}>{prefix}</div>}
 
         <input
           ref={(c) => this._input = c}
@@ -156,6 +157,8 @@ class Input extends React.Component {
           onKeyPress={this.props.onKeyPress}
           onKeyDown={this.props.onKeyDown}>
         </input>
+
+        {suffix && <div className={suffixClass}>{suffix}</div>}
       </div>
     )
   }

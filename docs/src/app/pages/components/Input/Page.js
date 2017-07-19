@@ -19,6 +19,8 @@ import ExampleInputNumber from './ExampleInputNumber'
 import exampleInputNumberCode from '!raw!./ExampleInputNumber'
 import ExampleInputPrefix from './ExampleInputPrefix'
 import exampleInputPrefixCode from '!raw!./ExampleInputPrefix'
+import ExampleInputSuffix from './ExampleInputSuffix'
+import exampleInputSuffixCode from '!raw!./ExampleInputSuffix'
 
 const description = {
   inputDefault: 'This is the `input component` as it appears by default.',
@@ -27,7 +29,8 @@ const description = {
   inputError: 'This is the `input component` with error.',
   inputCallback: 'This is the `input component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
   inputNumber: 'This is the `input component` with different types.',
-  inputPrefix: 'This is the `input component` with a prefix.'
+  inputPrefix: 'This is the `input component` with a prefix.',
+  inputSuffix: 'This is the `input component` with a suffix.'
 }
 
 const InputPage = () => (
@@ -81,6 +84,12 @@ const InputPage = () => (
           description={description.inputPrefix}
           markup={exampleInputPrefixCode}>
           <ExampleInputPrefix />
+        </CodeExample>
+        <CodeExample
+          title='Input with suffix'
+          description={description.inputSuffix}
+          markup={exampleInputSuffixCode}>
+          <ExampleInputSuffix />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
