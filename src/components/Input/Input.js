@@ -95,6 +95,20 @@ class Input extends React.Component {
     onKeyDown: PropTypes.func,
   }
 
+  componentDidMount = () => {
+    let inputStyles = {}
+    if (this.props.prefix) {
+      inputStyles.paddingLeft = this._prefix.getBoundingClientRect().width + 24
+    }
+    if (this.props.suffix) {
+      inputStyles.paddingRight = this._suffix.getBoundingClientRect().width + 24
+    }
+
+    console.log(inputStyles)
+
+    this.setState({ inputStyles })
+  }
+
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value !== this.props.value) {
       this.setState({ value: nextProps.value })
@@ -123,15 +137,8 @@ class Input extends React.Component {
     this._input.focus()
   }
 
-  render() {
-    const {
-      prefix,
-      suffix,
-      label,
-      value,
-      optClass
-    } = this.props
-
+  render = () => {
+    const {prefix, suffix, label, value, optClass} = this.props
     const cx = classNames.bind(style)
     const disabledClass = this.props.disabled ? style['input-disabled'] : null
     const prefixClass = prefix ? style['prefix'] : null
@@ -142,7 +149,7 @@ class Input extends React.Component {
       <div className={inputClass}>
         {label && <label>{label}</label>}
 
-        {prefix && <div className={prefixClass}>{prefix}</div>}
+        {prefix && <div ref={(c) => this._prefix = c} className={prefixClass}>{prefix}</div>}
 
         <input
           ref={(c) => this._input = c}
@@ -153,12 +160,13 @@ class Input extends React.Component {
           onBlur={this.handleBlur}
           disabled={this.props.disabled}
           placeholder={this.props.placeholder}
+          style={this.state.inputStyles}
           onKeyUp={this.props.onKeyUp}
           onKeyPress={this.props.onKeyPress}
           onKeyDown={this.props.onKeyDown}>
         </input>
 
-        {suffix && <div className={suffixClass}>{suffix}</div>}
+        {suffix && <div ref={(c) => this._suffix = c} className={suffixClass}>{suffix}</div>}
       </div>
     )
   }
