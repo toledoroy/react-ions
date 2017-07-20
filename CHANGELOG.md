@@ -1,5 +1,14 @@
 ## HEAD
 
+## 2.0.2
+###### _July 20, 2017_
+
+- Input: Add prefix and suffix props ([#466](https://github.com/GetAmbassador/react-ions/pull/466),
+[#466](https://github.com/GetAmbassador/react-ions/pull/466))
+
+- Updating borders of various components ([#464](https://github.com/GetAmbassador/react-ions/pull/464),
+[#464](https://github.com/GetAmbassador/react-ions/pull/464))
+
 ## 2.0.1
 ###### _July 14, 2017_
 
