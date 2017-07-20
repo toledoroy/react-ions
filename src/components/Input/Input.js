@@ -50,9 +50,21 @@ class Input extends React.Component {
      */
     name: PropTypes.string,
     /**
-     * Optional styles to add to the input.
+     * Name of the input.
+     */
+    prefix: PropTypes.string,
+    /**
+     * Optional prefix to add to the input.
+     */
+    suffix: PropTypes.string,
+    /**
+     * Optional suffix to add to the input.
      */
     optClass: PropTypes.string,
+    /**
+     * Name of the input.
+     */
+    name: PropTypes.string,
     /**
      * A callback function to be called when the input changes.
      */
@@ -83,6 +95,21 @@ class Input extends React.Component {
     onKeyDown: PropTypes.func,
   }
 
+  componentDidMount = () => {
+    const inputStyles = {}
+
+    if (this.props.prefix) {
+      // Add 24 to accommodate for left and right padding of prefix (16+8)
+      inputStyles.paddingLeft = this._prefix.getBoundingClientRect().width + 24
+    }
+    if (this.props.suffix) {
+      // Add 24 to accommodate for left and right padding of prefix (8+16)
+      inputStyles.paddingRight = this._suffix.getBoundingClientRect().width + 24
+    }
+
+    this.setState({ inputStyles })
+  }
+
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value !== this.props.value) {
       this.setState({ value: nextProps.value })
@@ -91,53 +118,40 @@ class Input extends React.Component {
 
   handleChange = (event) => {
     event.persist()
+    const value = (this.props.valueType === 'number' && event.target.value !== '' && !isNaN(event.target.value))
+                  ? parseFloat(event.target.value) : event.target.value
 
-    const value = this.props.valueType === 'number' && event.target.value !== '' && !isNaN(event.target.value)
-      ? parseFloat(event.target.value) : event.target.value
-
-    this.setState({value: event.target.value}, function() {
-      if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback({
-          target: {
-            name: this.props.name,
-            value: value
-          }
-        })
-      }
+    this.setState({value: event.target.value}, () => {
+      this.props.changeCallback && this.props.changeCallback({ target: { name: this.props.name, value } })
     })
   }
 
   handleFocus = (event) => {
-    if (typeof this.props.focusCallback === 'function') {
-      this.props.focusCallback(event)
-    }
+    this.props.focusCallback && this.props.focusCallback(event)
   }
 
   handleBlur = (event) => {
-    if (typeof this.props.blurCallback === 'function') {
-      this.props.blurCallback(event)
-    }
+    this.props.blurCallback && this.props.blurCallback(event)
   }
 
   focus = () => {
     this._input.focus()
   }
 
-  render() {
-    const {
-      label,
-      value,
-      optClass,
-      ...other
-    } = this.props
-
+  render = () => {
+    const {prefix, suffix, label, value, optClass} = this.props
     const cx = classNames.bind(style)
-    var disabledClass = this.props.disabled ? style['input-disabled'] : ''
-    var inputClass = cx(style['input-component'], this.props.optClass, disabledClass)
+    const disabledClass = this.props.disabled ? style['input-disabled'] : null
+    const prefixClass = prefix ? style['prefix'] : null
+    const suffixClass = suffix ? style['suffix'] : null
+    const inputClass = cx(style['input-component'], optClass, disabledClass, prefixClass, suffixClass)
 
     return (
       <div className={inputClass}>
-        { label ? <label>{label}</label> : null }
+        {label && <label>{label}</label>}
+
+        {prefix && <div ref={(c) => this._prefix = c} className={prefixClass}>{prefix}</div>}
+
         <input
           ref={(c) => this._input = c}
           value={this.state.value}
@@ -147,10 +161,13 @@ class Input extends React.Component {
           onBlur={this.handleBlur}
           disabled={this.props.disabled}
           placeholder={this.props.placeholder}
+          style={this.state.inputStyles}
           onKeyUp={this.props.onKeyUp}
           onKeyPress={this.props.onKeyPress}
           onKeyDown={this.props.onKeyDown}>
         </input>
+
+        {suffix && <div ref={(c) => this._suffix = c} className={suffixClass}>{suffix}</div>}
       </div>
     )
   }

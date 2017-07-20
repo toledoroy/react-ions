@@ -10,9 +10,17 @@ describe('Input', () => {
     expect(wrapper.find('input')).to.have.length(1)
     expect(wrapper.find('label')).to.have.length(1)
     expect(wrapper.find('label').text()).to.equal('Default input')
+    expect(wrapper.find('div')).to.have.length(1)
     expect(wrapper.hasClass('input-component')).to.equal(true)
     expect(wrapper.childAt(1).props().placeholder).to.equal('Placeholder text')
     expect(wrapper.childAt(1).props().value).to.equal('Initial value.')
+  })
+
+  it('should shallow render a prefix and suffix', () => {
+    wrapper = shallow(<Input prefix='$' suffix='days' />)
+    expect(wrapper.find('div')).to.have.length(3)
+    expect(wrapper.childAt(0).props().className).to.equal('prefix')
+    expect(wrapper.childAt(2).props().className).to.equal('suffix')
   })
 
   it('should be disabled', () => {

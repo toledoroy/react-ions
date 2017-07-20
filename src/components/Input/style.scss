@@ -2,6 +2,8 @@
 @import '../../styles/common/screen';
 
 .input-component {
+  position: relative;
+
   label {
     display: block;
     margin-bottom: 10px;
@@ -9,6 +11,19 @@
     color: $navy-text;
     font-family: proxima_nova;
     font-weight: 200;
+  }
+
+  .prefix, .suffix {
+    position: absolute;
+    top: 12px;
+  }
+
+  .prefix {
+    left: 16px;
+  }
+
+  .suffix {
+    right: 16px;
   }
 
   input {
