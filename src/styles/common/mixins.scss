@@ -23,7 +23,7 @@
   white-space: pre;
 }
 
-@mixin button-context($bg-color: inherit, $color: inherit, $fadeOnHover: true) {
+@mixin button-context($bg-color: inherit, $color: inherit) {
   background-color: $bg-color;
   color: $color;
 
@@ -36,27 +36,11 @@
     background-color: $color !important;
   }
 
-  @if $fadeOnHover {
-    transition-property: background-color, color, opacity;
-    transition-duration: .15s;
-    transition-timing-function: ease-in-out;
-
-    &:hover {
-      background-color: darken($bg-color, 15%);
-      opacity: .9;
-    }
-  }
-
   // Disabled
   &:disabled,
   &.disabled {
     cursor: not-allowed;
     opacity: .65;
-
-    &:hover {
-      background-color: $bg-color;
-      color: $color;
-    }
   }
 
 }

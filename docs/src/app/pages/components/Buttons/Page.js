@@ -40,6 +40,18 @@ const description = {
 const ButtonsPage = () => (
   <div>
     <div className={styles.content}>
+      <div className={styles['lead-content']}>
+        <h2>CSS API</h2>
+        <p>Use the pt-button class to access button styles. You should implement buttons using the button or a tags rather than div for the purposes of HTML accessibility and semantics.</p>
+
+        <ul>
+          <li>Make sure to include type="button" on button tags (use type="submit" when used in a form) and role="button" on a tags for accessibility.</li>
+          <li>Add the attribute tabindex="0" to make a tags focusable. button elements are focusable by default.</li>
+          <li>For buttons implemented with a tags, add tabindex="-1" to disabled buttons to prevent the user from focusing them by pressing tab on the keyboard.</li>
+          <li>Note that a tags do not respond to the :disabled attribute; use .pt-disabled instead.</li>
+        </ul>
+      </div>
+
       <div className={styles.block}>
         <CodeExample
           title='Default Button'
