@@ -21,7 +21,8 @@ class CodeExample extends React.Component {
   }
 
   static propTypes = {
-    markup: PropTypes.string.isRequired
+    markup: PropTypes.string.isRequired,
+    inline: PropTypes.bool
   }
 
   componentDidMount() {
@@ -49,10 +50,12 @@ ${this.props.markup}
   }
 
   render() {
+    const snippetWrapperClasses = this.props.inline ? style['snippet-inline'] : style['snippet']
+
     return (
-      <div className={style['snippet']}>
-        <div ref='example' className={style.hljs} dangerouslySetInnerHTML={this.generateRawMarkup()} />
-      </div>
+      <span className={snippetWrapperClasses}>
+        <span ref='example' className={style.hljs} dangerouslySetInnerHTML={this.generateRawMarkup()} />
+      </span>
     )
   }
 }

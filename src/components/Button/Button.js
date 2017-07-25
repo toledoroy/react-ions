@@ -16,7 +16,7 @@ const Button = (props) => {
   }
 
   return (
-    <button type={props.type} style={props.style} className={btnClasses} disabled={props.disabled || props.loading} onClick={props.onClick}>
+    <button type={props.type} style={props.style} className={btnClasses} disabled={props.disabled} onClick={props.onClick}>
       { props.loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
       <em>{props.children}</em>
     </button>
@@ -29,9 +29,9 @@ Button.defaultProps = {
 
 Button.propTypes = {
   /**
-   * The size of button.
+   * The size of button (default or large).
    */
-  size: PropTypes.string,
+  size: PropTypes.oneOf(['large']),
   /**
    * Whether the button is disabled.
    */
@@ -41,7 +41,7 @@ Button.propTypes = {
    */
   loading: PropTypes.bool,
   /**
-   * Whether to display only an icon on small screens
+   * Removes text on small screens if an icon is included.
    */
   collapse: PropTypes.bool,
   /**

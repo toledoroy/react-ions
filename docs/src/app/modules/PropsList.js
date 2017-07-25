@@ -34,7 +34,7 @@ class PropsList extends React.Component {
     });
 
     return (
-      <div className={style.wrapper}>
+      <div className={style['props-wrapper']}>
         <table className={style.table}>
           <thead>
             <tr>

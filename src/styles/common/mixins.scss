@@ -35,14 +35,6 @@
   > div > div > div > div {
     background-color: $color !important;
   }
-
-  // Disabled
-  &:disabled,
-  &.disabled {
-    cursor: not-allowed;
-    opacity: .65;
-  }
-
 }
 
 // https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/

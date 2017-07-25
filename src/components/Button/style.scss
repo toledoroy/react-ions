@@ -39,9 +39,17 @@
     font-style: normal;
   }
 
-  &.loading > em,
-  &.loading + svg {
-    opacity: 0;
+  &.loading {
+    cursor: not-allowed;
+    opacity: .65;
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    > em, + svg {
+      opacity: 0;
+    }
   }
 
   &.fill {
@@ -51,48 +59,46 @@
   }
 
   // Button size(s)
-  &.lg  {
-    padding: 11px 8px;
+  &.lg,
+  &.large  {
+    padding: 12px 16px;
     position: relative;
   }
 
   // Button types
-  &.success {
+  &.success,
+  &.positive {
     @include button-context($green, $white);
   }
 
-  &.danger {
+  &.attention {
+    @include button-context($warning, $white);
+  }
+
+  &.danger,
+  &.alert,
+  &.danger-alt {
     @include button-context($danger, $white);
   }
 
-  &.danger-alt {
-    @include button-context(transparent, $danger);
-  }
-
-  &.flat {
-    @include button-context($neutral-2, $neutral-4);
-  }
-
-  &.info {
-    @include button-context($neutral-4, $white);
-  }
-
+  &.grey,
+  &.flat,
+  &.plain
+  &.plain-light,
+  &.info,
   &.secondary {
-    @include button-context($neutral-2, #233040);
-    border: 1px solid $neutral-3;
-  }
-
-  &.plain {
-    @include button-context(transparent, $primary-4);
-    font-weight: normal;
-  }
-
-  &.plain-light {
-    @include button-context(transparent, lighten($primary-4, 40%));
+    @include button-context($neutral-2, $neutral-4);
   }
 
   &.inverted {
     @include button-context($white, $primary-1);
+  }
+
+  &:disabled,
+  &.disabled {
+    @include button-context($neutral-3, #233040);
+    cursor: not-allowed;
+    opacity: .65;
   }
 
   // To handle inline icons

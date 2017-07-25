@@ -1,13 +1,13 @@
 @import '../../../../src/styles/common/colors';
 @import '../../../../src/styles/common/mixins';
 
-.wrapper {
+.props-wrapper {
   overflow-x: auto;
 }
 
 .table {
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 15px;
   width: 100%;
   min-width: 400px;
   color: $primary-3;

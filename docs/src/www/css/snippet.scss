@@ -25,4 +25,11 @@
   display: inline;
   padding: 3px 5px;
   word-break: inherit;
+
+  [class^='hljs'] {
+    display: inline-block !important;
+    font-size: 14px;
+    overflow-x: initial;
+    padding: 0;
+  }
 }
