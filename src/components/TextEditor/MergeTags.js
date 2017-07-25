@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import shallowCompare from 'react-addons-shallow-compare'
 import Dropdown from '../Dropdown'
 import style from './style.scss'
@@ -16,11 +17,11 @@ class MergeTags extends React.Component {
     /**
      * The text editor.
      */
-    textEditor: React.PropTypes.object,
+    textEditor: PropTypes.object,
     /**
      * Merge tags to display.
      */
-    mergeTags: React.PropTypes.array.isRequired
+    mergeTags: PropTypes.array.isRequired
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
@@ -43,7 +44,7 @@ class MergeTags extends React.Component {
   }
 
   render = () => {
-    const mergeTagsTrigger = <span className='ql-picker-label'>Merge Tags <svg viewbox='0 0 18 18'> <polygon className='ql-stroke' points='7 11 9 13 11 11 7 11'></polygon> <polygon className='ql-stroke' points='7 7 9 5 11 7 7 7'></polygon> </svg></span>
+    const mergeTagsTrigger = <span className='ql-picker-label'>Merge Tags <svg viewBox='0 0 18 18'> <polygon className='ql-stroke' points='7 11 9 13 11 11 7 11'></polygon> <polygon className='ql-stroke' points='7 7 9 5 11 7 7 7'></polygon> </svg></span>
     const mergeTags = this.props.mergeTags.map((option) => {
       return { name: option.name, callback: this.insertTag.bind(this, option.tag) }
     })

@@ -1,5 +1,4 @@
-import React from 'react';
-import colorLuminance from '../src/components/internal/ColorLuminance';
+import colorLuminance from '../src/components/internal/ColorLuminance'
 
 describe('ColorLuminance', () => {
   it('should calculate a new color', () => {
@@ -31,4 +30,4 @@ describe('ColorLuminance', () => {
     let newColor = colorLuminance(null, -0.20)
     expect(newColor).to.be.false
   })
-});
+})

@@ -1,11 +1,11 @@
 import React from 'react'
-import Checkbox from 'react-conventions/lib/Checkbox'
-import Button from 'react-conventions/lib/Button'
+import Checkbox from 'react-ions/lib/components/Checkbox'
+import Button from 'react-ions/lib/components/Button'
 import style from './style.scss'
 
 class ExampleCheckboxToggle extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -13,11 +13,11 @@ class ExampleCheckboxToggle extends React.Component {
   }
 
   toggleCheckbox = () => {
-    this.setState({ checked: !this.state.checked });
+    this.setState({ checked: !this.state.checked })
   }
 
   handleChange = (event) => {
-    this.setState({ checked: event.target.checked });
+    this.setState({ checked: event.target.checked })
   }
 
   render() {

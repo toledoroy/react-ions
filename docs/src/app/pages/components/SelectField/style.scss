@@ -1,4 +1,4 @@
-@import '~react-conventions/styles/common/mixins';
+@import '~react-ions/styles/common/mixins';
 
 .callback-status {
   @include monospace;
@@ -7,8 +7,10 @@
 
 .update {
   display: flex;
-  margin-bottom: 15px;
+  flex-wrap: wrap;
+
   button {
+    margin-bottom: 15px;
     margin-right: 15px;
   }
 }

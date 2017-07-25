@@ -1,14 +1,5 @@
-.custom-background {
-  background-color: yellow;
-}
+@import '~react-ions/styles/common/mixins';
 
-.custom-color {
-  color: black;
-}
-
-.custom-color-hover {
-  &:hover {
-    color: red;
-    background-color: black;
-  }
+.custom-confirmation-wrapper {
+  display: inline-flex;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/InlineEdit/InlineEdit'
+import docs from '!!docgen!react-ions/lib/components/InlineEdit/InlineEdit'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleInlineEditDefault from './ExampleInlineEditDefault'
 import exampleInlineEditDefaultCode from '!raw!./ExampleInlineEditDefault'
@@ -22,6 +22,8 @@ import ExampleInlineEditTooltip from './ExampleInlineEditTooltip'
 import exampleInlineEditTooltipCode from '!raw!./ExampleInlineEditTooltip'
 import ExampleInlineEditEmpty from './ExampleInlineEditEmpty'
 import exampleInlineEditEmptyCode from '!raw!./ExampleInlineEditEmpty'
+import ExampleInlineEditSelect from './ExampleInlineEditSelect'
+import exampleInlineEditSelectCode from '!raw!./ExampleInlineEditSelect'
 import styles from 'private/css/content'
 
 const description = {
@@ -34,7 +36,8 @@ const description = {
   inlineEditError: 'This is the **inline edit component** with an error.',
   inlineEditCopy: 'This is the **inline edit component** with a copy to clipboard icon.',
   inlineEditTooltip: 'This is the **inline edit component** with a tooltip.',
-  inlineEditEmpty: 'This is the empty (value is null) **inline edit component**.'
+  inlineEditEmpty: 'This is the empty (value is null) **inline edit component**.',
+  inlineEditSelect: 'This is the select **inline edit component**.'
 };
 
 const InlineEditPage = () => (
@@ -100,6 +103,12 @@ const InlineEditPage = () => (
           description={description.inlineEditEmpty}
           markup={exampleInlineEditEmptyCode}>
           <ExampleInlineEditEmpty />
+        </CodeExample>
+        <CodeExample
+          title='Select Inline Edit'
+          description={description.inlineEditSelect}
+          markup={exampleInlineEditSelectCode}>
+          <ExampleInlineEditSelect />
         </CodeExample>
       </div>
       <div className={styles.block}>

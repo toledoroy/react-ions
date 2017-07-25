@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/Typeahead/Typeahead'
+import docs from '!!docgen!react-ions/lib/components/Typeahead/Typeahead'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleTypeaheadDefault from './ExampleTypeaheadDefault'
 import exampleTypeaheadDefaultCode from '!raw!./ExampleTypeaheadDefault'
@@ -14,6 +14,10 @@ import ExampleTypeaheadCustomSearch from './ExampleTypeaheadCustomSearch'
 import exampleTypeaheadCustomSearchCode from '!raw!./ExampleTypeaheadCustomSearch'
 import ExampleTypeaheadDebounce from './ExampleTypeaheadDebounce'
 import exampleTypeaheadDebounceCode from '!raw!./ExampleTypeaheadDebounce'
+import ExampleTypeaheadLabel from './ExampleTypeaheadLabel'
+import exampleTypeaheadLabelCode from '!raw!./ExampleTypeaheadLabel'
+import ExampleTypeaheadCustomValue from './ExampleTypeaheadCustomValue'
+import exampleTypeaheadCustomValueCode from '!raw!./ExampleTypeaheadCustomValue'
 import styles from 'private/css/content'
 
 const description = {
@@ -22,7 +26,9 @@ const description = {
   typeaheadDefaultValue: 'This is the `typeahead component` with a default value.',
   typeaheadCallback: 'This is the `typeahead component` with a callback.',
   typeaheadCustomSearch: 'This is the `typeahead component` with custom search.',
-  typeaheadDebounce: 'This is the `typeahead component` with search debounce.'
+  typeaheadDebounce: 'This is the `typeahead component` with search debounce.',
+  typeaheadLabel: 'This is the `typeahead component` with a label.',
+  typeaheadCustomValue: 'This is the `typeahead component` that allows for a custom value to be added.'
 }
 
 const TypeaheadPage = () => (
@@ -64,6 +70,18 @@ const TypeaheadPage = () => (
           description={description.typeaheadDebounce}
           markup={exampleTypeaheadDebounceCode}>
           <ExampleTypeaheadDebounce />
+        </CodeExample>
+        <CodeExample
+          title='Typeahead with a label'
+          description={description.typeaheadLabel}
+          markup={exampleTypeaheadLabelCode}>
+          <ExampleTypeaheadLabel />
+        </CodeExample>
+        <CodeExample
+          title='Typeahead that allows a custom value'
+          description={description.typeaheadCustomValue}
+          markup={exampleTypeaheadCustomValueCode}>
+          <ExampleTypeaheadCustomValue />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>

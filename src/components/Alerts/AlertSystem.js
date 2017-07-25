@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 import Alert from './Alert'
@@ -16,15 +17,15 @@ class AlertSystem extends React.Component {
     /**
      * The alerts to display.
      */
-    alerts: React.PropTypes.array.isRequired,
+    alerts: PropTypes.array.isRequired,
     /**
      * Optional styles to add to the alert system component.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * Whether or not to slide the alerts in from the right
      */
-    slideIn: React.PropTypes.bool
+    slideIn: PropTypes.bool
   }
 
   getAlerts = () => {

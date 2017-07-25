@@ -2,8 +2,9 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import TestBackend from 'react-dnd-test-backend'
 import { DragDropContext } from 'react-dnd'
-import TestUtils from 'react-addons-test-utils'
-import { SortableList, SortableItem } from '../src/components/SortableList'
+import TestUtils from 'react-dom/test-utils'
+import SortableItem from '../src/components/SortableList/SortableItem'
+import SortableListWrapped, { SortableList } from '../src/components/SortableList/SortableList'
 
 let Component = React.Component
 
@@ -43,7 +44,7 @@ describe('SortableList', () => {
   }
 
   it('should render itself', () => {
-    wrapper = mount(<SortableList items={items} />)
+    wrapper = mount(<SortableListWrapped items={items} />)
 
     expect(wrapper.find('SortableList')).to.have.length(1)
     expect(wrapper.find('SortableItem')).to.have.length(4)
@@ -59,7 +60,7 @@ describe('SortableList', () => {
   })
 
   it('should update state when an item is toggled', () => {
-    wrapper = mount(<SortableList items={items} />)
+    wrapper = mount(<SortableListWrapped items={items} />)
 
     expect(wrapper.childAt(0).childAt(0).props().active).to.be.false
     expect(wrapper.childAt(0).childAt(1).props().active).to.be.true
@@ -86,7 +87,7 @@ describe('SortableList', () => {
     const changeCallback = function(event) {
       sortableItems = event.target.value
     }
-    wrapper = mount(<SortableList items={items} changeCallback={changeCallback} />)
+    wrapper = mount(<SortableListWrapped items={items} changeCallback={changeCallback} />)
 
     expect(sortableItems[0].active).to.be.false
     expect(sortableItems[1].active).to.be.true
@@ -109,7 +110,7 @@ describe('SortableList', () => {
   })
 
   it('should update the state when props change', () => {
-    wrapper = mount(<SortableList items={items} />)
+    wrapper = mount(<SortableListWrapped items={items} />)
 
     expect(wrapper.find('SortableItem')).to.have.length(4)
 
@@ -121,7 +122,7 @@ describe('SortableList', () => {
 
   it('should remove event listener when the component is unmounted', () => {
     const spy = sinon.spy(window, 'removeEventListener')
-    wrapper = mount(<SortableList items={items} />)
+    wrapper = mount(<SortableListWrapped items={items} />)
 
     wrapper.unmount()
 
@@ -139,12 +140,10 @@ describe('SortableList', () => {
     expect(sortableItems[2].value).to.equal('web')
     expect(sortableItems[3].value).to.equal('sms')
 
-    const SortableListContext = wrapInTestContext(SortableList)
-    const root = TestUtils.renderIntoDocument(<SortableList items={items} changeCallback={changeCallback} />)
+    const root = TestUtils.renderIntoDocument(<SortableListWrapped items={items} changeCallback={changeCallback} />)
 
     // Obtain a reference to the backend
     const backend = root.getManager().getBackend()
-    const registry = root.getManager().getRegistry()
 
     // Find the drag source ID and use it to simulate the dragging operation
     const allItems = TestUtils.scryRenderedComponentsWithType(root, SortableItem)
@@ -162,5 +161,30 @@ describe('SortableList', () => {
     expect(sortableItems[1].value).to.equal('email')
     expect(sortableItems[2].value).to.equal('web')
     expect(sortableItems[3].value).to.equal('sms')
+  })
+
+  it('should set state and trigger callback when dragging starts', () => {
+    const onDragStartSpy = sinon.spy()
+    wrapper = shallow(<SortableList items={items} onDragStart={onDragStartSpy} />)
+
+    expect(wrapper.state().dragging).to.be.false
+
+    wrapper.instance().onDragStart()
+
+    expect(wrapper.state().dragging).to.be.true
+    expect(onDragStartSpy.called).to.be.true
+  })
+
+  it('should set state and trigger callback when dragging stops', () => {
+    const onDragStopSpy = sinon.spy()
+    wrapper = shallow(<SortableList items={items} onDragStop={onDragStopSpy} />)
+
+    wrapper.setState({ dragging: true })
+    expect(wrapper.state().dragging).to.be.true
+
+    wrapper.instance().onDragStop()
+
+    expect(wrapper.state().dragging).to.be.false
+    expect(onDragStopSpy.called).to.be.true
   })
 })

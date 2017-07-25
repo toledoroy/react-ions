@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 import Icon from '../Icon'
@@ -20,26 +21,26 @@ Badge.propTypes = {
   /**
    * Background color of the badge.
    */
-  theme: React.PropTypes.string,
+  theme: PropTypes.string,
   /**
    * Icon value to display in the badge.
    */
-  icon: React.PropTypes.string,
+  icon: PropTypes.string,
   /**
    * Text value to display in the badge (number or string).
    */
-  text: React.PropTypes.oneOfType([
-    React.PropTypes.number,
-    React.PropTypes.string
+  text: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
   ]),
   /**
    * The size of the badge.
    */
-  size: React.PropTypes.string,
+  size: PropTypes.string,
   /**
    * Optional CSS class to pass to the badge.
    */
-  optClass: React.PropTypes.string
+  optClass: PropTypes.string
 }
 
 export default Badge

@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames';
 import style from 'private/css/sidebar'
 import Header from './Header'
-import Nav from 'react-conventions/lib/Nav'
+import Nav from 'react-ions/lib/components/Nav'
 import NavData from 'private/config/NavData'
 import SidebarToggle from './SidebarToggle'
 

@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 
 class RenderToLayer extends React.Component {
   static propTypes = {
-    open: React.PropTypes.bool.isRequired,
-    render: React.PropTypes.func.isRequired
+    open: PropTypes.bool.isRequired,
+    render: PropTypes.func.isRequired
   };
 
   componentDidMount() {

@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react'
 import hljs from 'highlight.js'
-import Button from 'react-conventions/lib/Button'
-import Icon from 'react-conventions/lib/Icon'
+import Button from 'react-ions/lib/components/Button'
+import Icon from 'react-ions/lib/components/Icon'
 import style from 'private/css/code-example'
 import marked from 'marked'
 import shallowCompare from 'react-addons-shallow-compare'
 import classNames from 'classnames/bind'
+import PropTypes from 'prop-types'
 
 class CodeExample extends React.Component {
   constructor(props) {
@@ -24,20 +25,20 @@ class CodeExample extends React.Component {
   }
 
   static propTypes = {
-    markup: React.PropTypes.string.isRequired,
-    description: React.PropTypes.string,
-    title: React.PropTypes.string,
+    markup: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    title: PropTypes.string,
   }
 
   state = {
     expand: false
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate = (nextProps, nextState) => {
     return shallowCompare(this, nextProps, nextState)
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.highlightCode()
   }
 
@@ -45,13 +46,19 @@ class CodeExample extends React.Component {
     this.setState({expand: !this.state.expand})
   }
 
-  createDescription() {
+  createDescription = () => {
     return {
       __html: marked(this.props.description)
     }
   }
 
-  highlightCode() {
+  getDescriptionNode = () => {
+    return this.props.description
+             ? <div className={style.description} dangerouslySetInnerHTML={this.createDescription()} />
+             : null
+  }
+
+  highlightCode = () => {
     var ref = this.refs.example
     var nodes = ref.querySelectorAll('pre code')
     if (nodes.length > 0) {
@@ -61,9 +68,9 @@ class CodeExample extends React.Component {
     }
   }
 
-  generateRawMarkup() {
+  generateRawMarkup = () => {
     const text = `\`\`\`js
-${this.props.markup}
+    ${this.props.markup}
     \`\`\``
 
     return {
@@ -94,7 +101,7 @@ ${this.props.markup}
         <div className={componentClass}>
           {this.props.children}
         </div>
-        <div className={style.description} dangerouslySetInnerHTML={this.createDescription()} />
+        {this.getDescriptionNode()}
       </div>
     )
   }

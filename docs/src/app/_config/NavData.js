@@ -22,9 +22,6 @@ const nav = [
     action: '/components',
     nav: [
       {
-        name: 'Activity Feed',
-        action: '/components/activity-feed'
-      }, {
         name: 'Alerts',
         action: '/components/alerts'
       }, {
@@ -119,12 +116,6 @@ const nav = [
         action: '/components/typeahead'
       }
     ]
-  }, {
-    name: 'Patterns',
-    action: '/patterns'
-  }, {
-    name: 'Resources',
-    action: '/resources'
   }
 ]
 

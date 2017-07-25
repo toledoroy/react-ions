@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import ProgressBarLabel from './ProgressBarLabel'
 import style from './style.scss'
@@ -31,23 +32,23 @@ ProgressBar.propTypes = {
   /**
    * The value of progress.
    */
-  value: React.PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
   /**
    * The max value of progress.
    */
-  denominator: React.PropTypes.number.isRequired,
+  denominator: PropTypes.number.isRequired,
   /**
    * Text shown above the progress bar.
    */
-  label: React.PropTypes.string,
+  label: PropTypes.string,
   /**
    * Show or hide the percentage with the progress bar.
    */
-  showPercentage: React.PropTypes.bool,
+  showPercentage: PropTypes.bool,
   /**
    * Optional styles to add to the progress bar component.
    */
-  optClass: React.PropTypes.string
+  optClass: PropTypes.string
 };
 
 export default ProgressBar

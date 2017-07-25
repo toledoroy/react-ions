@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/Textarea/Textarea'
+import docs from '!!docgen!react-ions/lib/components/Textarea/Textarea'
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleTextareaDefault from './ExampleTextareaDefault'

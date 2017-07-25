@@ -7,7 +7,7 @@ import exampleColorPickerSelectedCode from '!raw!./ExampleColorPickerSelected'
 import ExampleColorPickerCallback from './ExampleColorPickerCallback'
 import exampleColorPickerCallbackCode from '!raw!./ExampleColorPickerCallback'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/ColorPicker/ColorPicker'
+import docs from '!!docgen!react-ions/lib/components/ColorPicker/ColorPicker'
 import styles from 'private/css/content'
 
 const description = {

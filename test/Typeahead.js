@@ -5,7 +5,7 @@ import Input from '../src/components/Input/Input'
 import { Typeahead } from '../src/components/Typeahead/Typeahead'
 
 describe('Typeahead', () => {
-  let wrapper, typeahead
+  let wrapper
 
   const options = [
     {value: 'AT', display: 'Austria'},
@@ -22,12 +22,19 @@ describe('Typeahead', () => {
 
   it('should have placeholder text', () => {
     wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' placeholder='test' />)
-    expect(wrapper.childAt(0).props().placeholder).to.equal('test')
+    expect(wrapper.childAt(0).childAt(0).props().placeholder).to.equal('test')
+  })
+
+  it('should have a label', () => {
+    wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' label='Typeahead Label' />)
+
+    expect(wrapper.childAt(0).type()).to.equal('label')
+    expect(wrapper.childAt(0).text()).to.equal('Typeahead Label')
   })
 
   it('should be disabled', () => {
     wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' disabled={true} />)
-    expect(wrapper.childAt(0).props().disabled).to.be.true
+    expect(wrapper.childAt(0).childAt(0).props().disabled).to.be.true
   })
 
   it('should have an extra class', () => {
@@ -38,7 +45,8 @@ describe('Typeahead', () => {
   it('should display a list when the user types a letter', () => {
     wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' />)
     wrapper.find('input').simulate('change', {target: {value: 'a'}})
-    expect(wrapper.childAt(2).find('li')).to.have.length(2)
+
+    expect(wrapper.childAt(1).find('li')).to.have.length(2)
   })
 
   it('should display a loader', () => {
@@ -74,7 +82,7 @@ describe('Typeahead', () => {
 
   it('should update when props are set', () => {
     wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' value={10} optClass='test-class' />)
-    expect(wrapper.childAt(0).props().value).to.equal('Number')
+    expect(wrapper.childAt(0).childAt(0).props().value).to.equal('Number')
   })
 
   it('should not clear search string after selection', () => {
@@ -85,7 +93,7 @@ describe('Typeahead', () => {
     inputField.simulate('change', {target: {value: 'a'}})
     expect(inputField.node.value).to.equal('a')
 
-    wrapper.childAt(2).find('ul').childAt(0).simulate('click')
+    wrapper.childAt(1).childAt(0).simulate('click')
     expect(inputField.node.value).to.equal(options[0].display)
   })
 
@@ -97,7 +105,7 @@ describe('Typeahead', () => {
     inputField.simulate('change', {target: {value: 'a'}})
     expect(inputField.node.value).to.equal('a')
 
-    wrapper.childAt(2).find('ul').childAt(0).simulate('click')
+    wrapper.childAt(0).childAt(1).childAt(0).simulate('click')
     expect(inputField.node.value).to.equal('')
   })
 
@@ -109,7 +117,7 @@ describe('Typeahead', () => {
     inputField.simulate('change', {target: {value: 'a'}})
     expect(inputField.node.value).to.equal('a')
 
-    wrapper.childAt(1).simulate('click')
+    wrapper.childAt(1).childAt(0).simulate('click')
     expect(inputField.node.value).to.equal('')
   })
 
@@ -141,4 +149,12 @@ describe('Typeahead', () => {
     expect(wrapper.state().selected).to.equal('')
   })
 
+  it('should allow a custom value', () => {
+    const changeCallback = sinon.spy()
+    wrapper = mount(<Typeahead name='typeahead' options={options} valueProp='value' displayProp='display' allowCustomValue={true} changeCallback={changeCallback} />)
+
+    let inputField = wrapper.find('input')
+    inputField.simulate('change', {target: {value: 'a random string'}})
+    expect(changeCallback.calledWithExactly({ target: { name: 'typeahead', value: 'a random string' } })).to.be.true
+  })
 })

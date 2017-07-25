@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import optclass from '../internal/OptClass'
 import Icon from '../Icon'
 import Input from '../Input'
@@ -14,17 +15,17 @@ class InputList extends React.Component {
     /**
      * The values of the options to be selected.
      */
-    value: React.PropTypes.array,
+    value: PropTypes.array,
     /**
      * A callback function to be called when an option is selected.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * Optional CSS class(es) to be used for local styles (string or array of strings)
      */
-    optClass: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.string
+    optClass: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
     ])
   }
 

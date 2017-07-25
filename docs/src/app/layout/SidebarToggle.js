@@ -1,6 +1,5 @@
 import React from 'react'
 import classNames from 'classnames';
-import { Link } from 'react-router'
 import style from 'private/css/sidebar-toggle'
 
 const SidebarToggle = (props) => {

@@ -268,4 +268,77 @@ describe('InlineEdit', () => {
     expect(event.preventDefault.called).to.be.false
     expect(cancelStub.calledThrice).to.be.false
   })
+
+  it('should render a select field', () => {
+    const options = [
+      { label: 'Item 1', value: 'item_1' },
+      { label: 'Item 2', value: 'item_2' },
+      { label: 'Item 3', value: 'item_3' },
+      { label: 'Item 4', value: 'item_4' }
+    ]
+
+    const wrapper = shallow(<InlineEdit name='test' value='item_3' type='select' options={options} />)
+
+    expect(wrapper.find('SelectField')).to.have.length(1)
+    expect(wrapper.find('SelectField').at(0).props().value).to.equal('item_3')
+    expect(wrapper.find('SelectField').at(0).props().options).to.deep.equal(options)
+  })
+
+  it('should update the state when an item is selected', () => {
+    const options = [
+      { label: 'Item 1', value: 'item_1' },
+      { label: 'Item 2', value: 'item_2' },
+      { label: 'Item 3', value: 'item_3' },
+      { label: 'Item 4', value: 'item_4' }
+    ]
+
+    const wrapper = shallow(<InlineEdit name='test' value='item_3' type='select' options={options} />)
+
+    expect(wrapper.state().value).to.equal('item_3')
+
+    wrapper.instance().handleSave({ target: { value: 'item_1' } })
+
+    expect(wrapper.state().value).to.equal('item_1')
+  })
+
+  it('should trigger the change callback when an item is selected', () => {
+    const changeCallback = sinon.spy()
+    const options = [
+      { label: 'Item 1', value: 'item_1' },
+      { label: 'Item 2', value: 'item_2' },
+      { label: 'Item 3', value: 'item_3' },
+      { label: 'Item 4', value: 'item_4' }
+    ]
+
+    const wrapper = shallow(<InlineEdit name='test' value='item_3' type='select' options={options} changeCallback={changeCallback} />)
+
+    expect(wrapper.state().value).to.equal('item_3')
+
+    wrapper.instance().handleSave({ target: { value: 'item_1' } })
+
+    expect(wrapper.state().value).to.equal('item_1')
+    expect(changeCallback.calledWithExactly({ target: { name: 'test', value: 'item_1' } })).to.be.true
+
+    wrapper.instance().handleSave({ target: { value: 'item_1' } })
+    expect(changeCallback.calledTwice).to.be.false
+  })
+
+  it('should set classes on the select field', () => {
+    const options = [
+      { label: 'Item 1', value: 'item_1' },
+      { label: 'Item 2', value: 'item_2' },
+      { label: 'Item 3', value: 'item_3' },
+      { label: 'Item 4', value: 'item_4' }
+    ]
+
+    let wrapper = shallow(<InlineEdit name='test' value='item_3' type='select' options={options} />)
+    let field = wrapper.instance().getSelect()
+
+    expect(field.props.optClass).to.equal('inline-edit-select')
+
+    wrapper = shallow(<InlineEdit name='test' value='item_3' type='select' options={options} loading={true} />)
+    field = wrapper.instance().getSelect()
+
+    expect(field.props.optClass).to.equal('inline-edit-select loading')
+  })
 })

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 
@@ -24,46 +25,89 @@ class Input extends React.Component {
     /**
      * Whether the input is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * Text shown above the input.
      */
-    label: React.PropTypes.string,
+    label: PropTypes.string,
     /**
      * Value of the input.
      */
-    value: React.PropTypes.oneOfType([
-      React.PropTypes.number,
-      React.PropTypes.string
+    value: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string
     ]),
     /**
      * Type of the value.
      */
-    valueType: React.PropTypes.oneOf(['string', 'number']),
+    valueType: PropTypes.oneOf(['string', 'number']),
     /**
      * Optional placeholder text.
      */
-    placeholder: React.PropTypes.string,
+    placeholder: PropTypes.string,
     /**
      * Name of the input.
      */
-    name: React.PropTypes.string,
+    name: PropTypes.string,
     /**
-     * Optional styles to add to the input.
+     * Name of the input.
      */
-    optClass: React.PropTypes.string,
+    prefix: PropTypes.string,
+    /**
+     * Optional prefix to add to the input.
+     */
+    suffix: PropTypes.string,
+    /**
+     * Optional suffix to add to the input.
+     */
+    optClass: PropTypes.string,
+    /**
+     * Name of the input.
+     */
+    name: PropTypes.string,
     /**
      * A callback function to be called when the input changes.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * A callback function to be called when the input is focused.
      */
-    focusCallback: React.PropTypes.func,
+    focusCallback: PropTypes.func,
     /**
      * A callback function to be called when the input is blurred.
      */
-    blurCallback: React.PropTypes.func
+    blurCallback: PropTypes.func,
+    /**
+     * A callback function to be called when the input is clicked.
+     */
+    onClick: PropTypes.func,
+    /**
+     * A callback function to be called when the onkeyup event is fired.
+     */
+    onKeyUp: PropTypes.func,
+    /**
+     * A callback function to be called when the onkeypress event is fired.
+     */
+    onKeyPress: PropTypes.func,
+    /**
+     * A callback function to be called when the onkeydown event is fired.
+     */
+    onKeyDown: PropTypes.func,
+  }
+
+  componentDidMount = () => {
+    const inputStyles = {}
+
+    if (this.props.prefix) {
+      // Add 24 to accommodate for left and right padding of prefix (16+8)
+      inputStyles.paddingLeft = this._prefix.getBoundingClientRect().width + 24
+    }
+    if (this.props.suffix) {
+      // Add 24 to accommodate for left and right padding of prefix (8+16)
+      inputStyles.paddingRight = this._suffix.getBoundingClientRect().width + 24
+    }
+
+    this.setState({ inputStyles })
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -74,61 +118,58 @@ class Input extends React.Component {
 
   handleChange = (event) => {
     event.persist()
+    const value = (this.props.valueType === 'number' && event.target.value !== '' && !isNaN(event.target.value))
+                  ? parseFloat(event.target.value) : event.target.value
 
-    const value = this.props.valueType === 'number' && event.target.value !== '' && !isNaN(event.target.value)
-      ? parseFloat(event.target.value) : event.target.value
-
-    this.setState({value: event.target.value}, function() {
-      if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback({
-          target: {
-            name: this.props.name,
-            value: value
-          }
-        })
-      }
+    this.setState({value: event.target.value}, () => {
+      this.props.changeCallback && this.props.changeCallback({ target: { name: this.props.name, value } })
     })
   }
 
   handleFocus = (event) => {
-    if (typeof this.props.focusCallback === 'function') {
-      this.props.focusCallback(event)
-    }
+    this.props.focusCallback && this.props.focusCallback(event)
   }
 
   handleBlur = (event) => {
-    if (typeof this.props.blurCallback === 'function') {
-      this.props.blurCallback(event)
-    }
+    this.props.blurCallback && this.props.blurCallback(event)
   }
 
   focus = () => {
     this._input.focus()
   }
 
-  render() {
-    const {
-      label,
-      value,
-      optClass,
-      ...other
-    } = this.props
-
+  render = () => {
+    const {prefix, suffix, label, value, optClass} = this.props
     const cx = classNames.bind(style)
-    var disabledClass = this.props.disabled ? style['input-disabled'] : ''
-    var inputClass = cx(style['input-component'], this.props.optClass, disabledClass)
+    const disabledClass = this.props.disabled ? style['input-disabled'] : null
+    const prefixClass = prefix ? style['prefix'] : null
+    const suffixClass = suffix ? style['suffix'] : null
+    const inputClass = cx(style['input-component'], optClass, disabledClass, prefixClass, suffixClass)
+    const inputContainerClass = style['input-container']
 
     return (
       <div className={inputClass}>
-        { label ? <label>{label}</label> : null }
-        <input
-          ref={(c) => this._input = c}
-          value={this.state.value}
-          onFocus={this.handleFocus}
-          onChange={this.handleChange}
-          onBlur={this.handleBlur}
-          {...other}>
-        </input>
+        {label && <label>{label}</label>}
+        <div className={inputContainerClass}>
+          {prefix && <div ref={(c) => this._prefix = c} className={prefixClass}>{prefix}</div>}
+
+          <input
+            ref={(c) => this._input = c}
+            value={this.state.value}
+            onFocus={this.handleFocus}
+            onChange={this.handleChange}
+            onClick={this.props.onClick}
+            onBlur={this.handleBlur}
+            disabled={this.props.disabled}
+            placeholder={this.props.placeholder}
+            style={this.state.inputStyles}
+            onKeyUp={this.props.onKeyUp}
+            onKeyPress={this.props.onKeyPress}
+            onKeyDown={this.props.onKeyDown}>
+          </input>
+
+          {suffix && <div ref={(c) => this._suffix = c} className={suffixClass}>{suffix}</div>}
+        </div>
       </div>
     )
   }

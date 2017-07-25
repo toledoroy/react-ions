@@ -1,5 +1,5 @@
 import React from 'react'
-import DatePicker from 'react-conventions/lib/DatePicker'
+import DatePicker from 'react-ions/lib/components/DatePicker'
 
 const ExampleDatePickerDefault = () => (
   <div>

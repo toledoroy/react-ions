@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import style from 'private/css/header'
 import logo from 'private/images/ambassador-logo.svg'
 
-const Header = (props) => {
+const Header = () => {
   return (
     <header>
       <Link to="/" className={style['logo-wrap']}>

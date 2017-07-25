@@ -1,6 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import Tab from '../src/components/TabWrapper/Tab'
+import Badge from '../src/components/Badge'
 
 describe('Tab', () => {
   let wrapper;
@@ -29,7 +30,7 @@ describe('Tab', () => {
     expect(wrapper.hasClass('tab')).to.equal(true);
     expect(wrapper.hasClass('active')).to.equal(false);
     expect(wrapper.find('span')).to.have.length(1);
-    expect(wrapper.text().trim()).to.equal('Test Tab (1.234)');
+    expect(wrapper.text().trim()).to.equal('Test Tab (1,234)');
   });
 
   it('should trigger a callback when clicked if the callback is provided', () => {
@@ -51,5 +52,23 @@ describe('Tab', () => {
     wrapper.simulate('click');
 
     expect(callbackTriggered).to.be.false;
+  });
+
+  it('should render a badge prefix node', () => {
+    wrapper = shallow(<Tab titlePrefix={<Badge />} title="Test Tab With Prefix" />)
+
+    expect(wrapper.find(Badge).length).to.equal(1)
+  });
+
+  it('should render a badge suffix node', () => {
+    wrapper = shallow(<Tab titleSuffix={<Badge />} title="Test Tab With Suffix" />)
+
+    expect(wrapper.find(Badge).length).to.equal(1)
+  });
+
+  it('should render a badge suffix and prefix node', () => {
+    wrapper = shallow(<Tab titlePrefix={<Badge />} titleSuffix={<Badge />} title="Test Tab With Prefix and Suffix" />)
+
+    expect(wrapper.find(Badge).length).to.equal(2)
   });
 });

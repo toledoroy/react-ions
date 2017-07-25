@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
 import Immutable from 'immutable'
 import style from './style.scss'
@@ -16,30 +17,30 @@ class FormGroup extends React.Component {
      * A configuration object of name/value pairs
      * that correspond to the form fields names.
      */
-    schema: React.PropTypes.object,
+    schema: PropTypes.object,
     /**
      * A callback function to be called when a form value changes.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * A callback function to be called when the form is submitted.
      */
-    submitCallback: React.PropTypes.func,
+    submitCallback: PropTypes.func,
     /**
      * Optional CSS class(es) to be used for local styles (string or array of strings)
      */
-    optClass: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.string
+    optClass: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
     ]),
     /**
      * Option to turn off form wrapper (for nested components)
      */
-    nested: React.PropTypes.bool,
+    nested: PropTypes.bool,
     /**
      * Option to turn off debounce when something in the form group changes
      */
-    debounceTime: React.PropTypes.number
+    debounceTime: PropTypes.number
   }
 
   static defaultProps = {

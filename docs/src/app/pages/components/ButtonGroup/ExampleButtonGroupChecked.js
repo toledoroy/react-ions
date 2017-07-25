@@ -1,6 +1,6 @@
 import React from 'react'
-import ButtonGroup from 'react-conventions/lib/ButtonGroup/ButtonGroup'
-import Button from 'react-conventions/lib/Button'
+import ButtonGroup from 'react-ions/lib/components/ButtonGroup/ButtonGroup'
+import Button from 'react-ions/lib/components/Button'
 import style from './style'
 
 class ExampleRadioChecked extends React.Component {
@@ -38,7 +38,6 @@ class ExampleRadioChecked extends React.Component {
           <Button onClick={this.handleChange.bind(this, 2)}>Select 3rd option</Button>
         </div>
         <ButtonGroup
-          label="Checked button group label"
           name="checked-button-group"
           options={options}
           valueProp='customValue'

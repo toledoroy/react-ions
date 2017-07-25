@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from './styles.scss'
 
 const Font = (props) => {
@@ -15,10 +16,10 @@ const Font = (props) => {
 }
 
 Font.propTypes = {
-  fontFamily: React.PropTypes.string.isRequired,
-  fontWeight: React.PropTypes.string.isRequired,
-  fontStyle: React.PropTypes.string.isRequired,
-  weight: React.PropTypes.string.isRequired
+  fontFamily: PropTypes.string.isRequired,
+  fontWeight: PropTypes.string.isRequired,
+  fontStyle: PropTypes.string.isRequired,
+  weight: PropTypes.string.isRequired
 }
 
 export default Font

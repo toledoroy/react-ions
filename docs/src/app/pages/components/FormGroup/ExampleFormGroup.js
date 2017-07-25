@@ -1,16 +1,16 @@
 import React from 'react'
-import FormGroup from 'react-conventions/lib/FormGroup'
-import Input from 'react-conventions/lib/Input'
-import Textarea from 'react-conventions/lib/Textarea'
-import Checkbox from 'react-conventions/lib/Checkbox'
-import RadioGroup from 'react-conventions/lib/Radio/RadioGroup'
-import Radio from 'react-conventions/lib/Radio/Radio'
-import SelectField from 'react-conventions/lib/SelectField'
-import Button from 'react-conventions/lib/Button'
-import Toggle from 'react-conventions/lib/Toggle'
-import FileUpload from 'react-conventions/lib/FileUpload'
-import Typeahead from 'react-conventions/lib/Typeahead/Typeahead'
-import formStyle from 'react-conventions/lib/FormGroup/style'
+import FormGroup from 'react-ions/lib/components/FormGroup'
+import Input from 'react-ions/lib/components/Input'
+import Textarea from 'react-ions/lib/components/Textarea'
+import Checkbox from 'react-ions/lib/components/Checkbox'
+import RadioGroup from 'react-ions/lib/components/Radio/RadioGroup'
+import Radio from 'react-ions/lib/components/Radio/Radio'
+import SelectField from 'react-ions/lib/components/SelectField'
+import Button from 'react-ions/lib/components/Button'
+import Toggle from 'react-ions/lib/components/Toggle'
+import FileUpload from 'react-ions/lib/components/FileUpload'
+import Typeahead from 'react-ions/lib/components/Typeahead/Typeahead'
+import formStyle from 'react-ions/lib/components/FormGroup/style'
 import style from './style.scss'
 import options from '../Typeahead/CountryList'
 
@@ -231,19 +231,20 @@ class ExampleFormGroup extends React.Component {
         <Input valueType='string' name='amount_string' label='Amount As String' optClass={formStyle.field} />
         <Textarea name='message' label='Message' optClass={formStyle.field} />
 
+        <legend><span>What happens after a promoter submits a score?</span></legend>
         <RadioGroup
           name='radio'
-          label='What happens after a promoter submits a score?'
           options={fields.radio}
           optClass={formStyle.field} />
 
-        <RadioGroup name='radioWithChildren' label='Click a radio button to set a child value'>
+        <legend><span>Click a radio button to set a child value</span></legend>
+        <RadioGroup name='radioWithChildren'>
           <Radio name='child_option_1' label='Option 1' />
-          <Input name='child_input_1' optClass={this.getRadioChildClass('child_option_1')} ref={(i) => { if (i !== null) { i.focus() }}} />
+          <Input name='child_input_1' optClass={this.getRadioChildClass('child_option_1')} />
           <Radio name='child_option_2' label='Option 2' />
-          <Input name='child_input_2' optClass={this.getRadioChildClass('child_option_2')} ref={(i) => { if (i !== null) { i.focus() }}} />
+          <Input name='child_input_2' optClass={this.getRadioChildClass('child_option_2')} />
           <Radio name='child_option_3' label='Option 3' />
-          <Input name='child_input_3' optClass={this.getRadioChildClass('child_option_3')} ref={(i) => { if (i !== null) { i.focus() }}} />
+          <Input name='child_input_3' optClass={this.getRadioChildClass('child_option_3')} />
         </RadioGroup>
 
         <SelectField
@@ -260,6 +261,7 @@ class ExampleFormGroup extends React.Component {
           placeholder='Countries starting with the letter A'
           name='country_typeahead'
           options={options}
+          allowCustomValue={true}
           valueProp='countryCode'
           displayProp='countryName'
           value={this.state.schema.country_typeahead.value}

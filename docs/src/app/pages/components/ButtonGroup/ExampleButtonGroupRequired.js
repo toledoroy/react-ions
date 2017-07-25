@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonGroup from 'react-conventions/lib/ButtonGroup/ButtonGroup'
+import ButtonGroup from 'react-ions/lib/components/ButtonGroup/ButtonGroup'
 
 const options = [
   {
@@ -16,7 +16,6 @@ const options = [
 
 const ExampleButtonGroupRequired = () => (
   <ButtonGroup
-    label="Required button group label"
     name="required-button-group"
     options={options}
     required={true}>

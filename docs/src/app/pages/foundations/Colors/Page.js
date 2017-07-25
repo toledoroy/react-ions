@@ -4,22 +4,22 @@ import baseStyles from 'private/css/content'
 import list from './ColorList'
 import localStyles from './styles.scss'
 
-const ColorsPage = (props) => {
+const ColorsPage = () => {
   let neutralColorList = list.neutralColors.map((color, index) =>
     <div key={index} className={localStyles['color-wrapper']}>
       <Color hex={color.hex} sass={color.sass} />
     </div>
-  );
+  )
   let primaryColorList = list.primaryColors.map((color, index) =>
     <div key={index} className={localStyles['color-wrapper']}>
       <Color hex={color.hex} sass={color.sass} />
     </div>
-  );
+  )
   let secondaryColorList = list.secondaryColors.map((color, index) =>
     <div key={index} className={localStyles['color-wrapper']}>
       <Color hex={color.hex} sass={color.sass} />
     </div>
-  );
+  )
 
   return (
     <div>

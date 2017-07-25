@@ -1,6 +1,6 @@
 import React from 'react'
-import RadioGroup from 'react-conventions/lib/Radio/RadioGroup'
-import Button from 'react-conventions/lib/Button'
+import RadioGroup from 'react-ions/lib/components/Radio/RadioGroup'
+import Button from 'react-ions/lib/components/Button'
 import style from './style.scss'
 
 const options = [
@@ -39,7 +39,6 @@ class ExampleRadioChecked extends React.Component {
           <Button onClick={this.updateSelected.bind(this, '')}>Uncheck</Button>
         </div>
         <RadioGroup
-          label="Checked radio label"
           name="checked-radio-group"
           options={options}
           value={this.state.selected}>

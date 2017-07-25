@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 import Icon from '../Icon'
@@ -19,39 +20,47 @@ class SelectField extends React.Component {
     /**
      * A string to display as the placeholder text.
      */
-    placeholder: React.PropTypes.string,
+    placeholder: PropTypes.string,
     /**
      * An array of objects which will be used as the options for the select field.
      */
-    options: React.PropTypes.array.isRequired,
+    options: PropTypes.array.isRequired,
     /**
      * The value of the option to be selected.
      */
-    value: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /**
      * Which field in the option object will be used as the value of the select field.
      */
-    valueProp: React.PropTypes.string.isRequired,
+    valueProp: PropTypes.string.isRequired,
     /**
      * Which field in the option object will be used as the display of the select field.
      */
-    displayProp: React.PropTypes.string.isRequired,
+    displayProp: PropTypes.string.isRequired,
+    /**
+     * Which field in the option object will be used to determine whether the option should be hidden.
+     */
+    hideProp: PropTypes.string,
     /**
      * Whether the select field is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * Optional styles to add to the select field.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * A callback function to be called when an option is selected.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * Icon to be displayed on the left
      */
-    icon: React.PropTypes.string
+    icon: PropTypes.string,
+    /**
+     * Text shown above the select field.
+     */
+    label: PropTypes.string
   }
 
   state = {
@@ -160,11 +169,10 @@ class SelectField extends React.Component {
     const activeClass = this.state.isOpen ? style['active'] : ''
     const hasIconClass = !!this.getDisplayIcon() ? style['has-icon'] : ''
     const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, hasIconClass, this.props.optClass)
-    const valueProp = this.props.valueProp
-    const selectedValues = this.state.value
+    const { valueProp, hideProp, label } = this.props
 
     let options = this.props.options.map((option, index) =>
-      <li key={index} onClick={this.selectOption.bind(null, option, true)}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
+      <li key={index} onClick={this.selectOption.bind(null, option, true)} className={hideProp && option[hideProp] && style['hidden']}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
     )
 
     if (options.length === 0) {
@@ -173,12 +181,13 @@ class SelectField extends React.Component {
 
     let value = ''
     if (this.state.selected) {
-      value = this.state.selected[this.props.valueProp]
+      value = this.state.selected[valueProp]
     }
 
     return (
       <div className={selectFieldClass}>
         <input type='hidden' name='selectfield-value' value={value} />
+        { label && <label>{label}</label> }
         <div className={style['selectfield-value']} onClick={this.toggleSelectField}>
           {this.getDisplayIcon()}
           <span className={style['display-text']}>{this.getDisplayText()}</span>

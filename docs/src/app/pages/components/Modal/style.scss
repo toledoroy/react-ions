@@ -1,16 +1,3 @@
-.example-modal-form {
-  label {
-    font-weight: 500;
-    margin-bottom: 5px;
-    display: block;
-  }
-  .select {
-    display: block;
-  }
-
-  .form fieldset {
-    > div + div {
-      margin-top: 10px;
-    }
-  }
+.modal-select-field-example {
+  width: 100%;
 }

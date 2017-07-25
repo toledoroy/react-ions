@@ -47,7 +47,6 @@ describe('Textarea', () => {
   it('should run the changeCallback on change', () => {
     const spy = sinon.spy();
     wrapper = mount(<Textarea value='test' changeCallback={spy} />);
-    expect(typeof wrapper.childAt(0).props().changeCallback).to.equal('function');
     wrapper.childAt(0).simulate('change');
     expect(spy.calledOnce).to.be.true;
   });
@@ -55,7 +54,6 @@ describe('Textarea', () => {
   it('should run the blurCallback on blur', () => {
     const spy = sinon.spy();
     wrapper = mount(<Textarea value='test' blurCallback={spy} />);
-    expect(typeof wrapper.childAt(0).props().blurCallback).to.equal('function');
     wrapper.childAt(0).simulate('blur');
     expect(spy.calledOnce).to.be.true;
   });
@@ -93,7 +91,6 @@ describe('Textarea', () => {
   it('should run the focusCallback on focus', () => {
     const spy = sinon.spy();
     wrapper = mount(<Textarea value='test' focusCallback={spy} />);
-    expect(typeof wrapper.childAt(0).props().focusCallback).to.equal('function');
     wrapper.childAt(0).simulate('focus');
     expect(spy.calledOnce).to.be.true;
   });

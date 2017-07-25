@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import ButtonToggle from './ButtonToggle'
 import style from './style.scss'
@@ -26,43 +27,43 @@ class ButtonGroup extends React.Component {
     /**
      * Text shown above the button group.
      */
-    label: React.PropTypes.string,
+    label: PropTypes.string,
     /**
      * The name that will be applied to all radio buttons inside it.
      */
-    name: React.PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     /**
      * Whether the button group is required.
      */
-    required: React.PropTypes.bool,
+    required: PropTypes.bool,
     /**
      * Whether the button group is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * A list of options for the button group.
      */
-    options: React.PropTypes.array.isRequired,
+    options: PropTypes.array.isRequired,
     /**
      * The property to be used as the display property
      */
-    displayProp: React.PropTypes.string,
+    displayProp: PropTypes.string,
     /**
      * The property to be used as the value property
      */
-    valueProp: React.PropTypes.string,
+    valueProp: PropTypes.string,
     /**
      * Which option is checked by default.
      */
-    defaultOption: React.PropTypes.number,
+    defaultOption: PropTypes.number,
     /**
      * A callback function to be called when an option is changed.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * The style for the buttons in the group.
      */
-    buttonStyle: React.PropTypes.string
+    buttonStyle: PropTypes.string
   }
 
   componentWillMount = () => {

@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const precss = require('precss');
 const autoprefixer = require('autoprefixer');
 const StatsPlugin = require('stats-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -14,8 +13,8 @@ const config = {
   resolve: {
     extensions: ['', '.js', '.md', '.txt', '.scss', '.css'],
     alias: {
-      'react-conventions/lib': path.resolve(__dirname, '../src/components'),
-      'react-conventions/styles': path.resolve(__dirname, '../src/styles'),
+      'react-ions/lib': path.resolve(__dirname, '../src'),
+      'react-ions/styles': path.resolve(__dirname, '../src/styles'),
       'global/fonts': path.resolve(__dirname, '../src/assets/fonts'),
       'global/icons': path.resolve(__dirname, '../src/assets/icons'),
       'private/css': path.resolve(__dirname, 'src/www/css'),
@@ -34,7 +33,7 @@ const config = {
     new CleanWebpackPlugin(['dist'], {
       root: path.join(__dirname, '/')
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src/app/index.html'),
       inject: 'body',

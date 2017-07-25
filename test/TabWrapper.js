@@ -9,8 +9,8 @@ describe('TabWrapper', () => {
   it('should shallow render itself', () => {
     wrapper = shallow(<TabWrapper><Tab title="Test Tab">Test tab content</Tab><Tab title="Test Tab With Count" count={42}>Test tab with count content</Tab></TabWrapper>);
     expect(wrapper.hasClass('tab-wrapper')).to.equal(true);
-    expect(wrapper.childAt(0).hasClass('tab-headers')).to.equal(true);
-    expect(wrapper.childAt(1).hasClass('tab-content')).to.equal(true);
+    expect(wrapper.childAt(0).hasClass('tabs-list')).to.equal(true);
+    expect(wrapper.childAt(1).hasClass('tab-panels')).to.equal(true);
 
     expect(wrapper.childAt(0).children()).to.have.length(2);
     expect(wrapper.childAt(1).children()).to.have.length(2);
@@ -133,5 +133,18 @@ describe('TabWrapper', () => {
 
     expect(wrapper.childAt(0).childAt(0).props().active).to.be.true;
     expect(wrapper.childAt(0).childAt(1).props().active).to.be.false;
+  });
+
+  it('should have a disabled tab', () => {
+    wrapper = mount(<TabWrapper><Tab title="Test Tab">Test tab content</Tab><Tab title="Test Tab With Count" disabled={true}>Test disabled tab content</Tab></TabWrapper>);
+
+    expect(wrapper.childAt(0).childAt(0).props().active).to.be.true;
+    expect(wrapper.childAt(0).childAt(1).props().active).to.be.false;
+
+    wrapper.childAt(0).childAt(1).simulate('click');
+
+    expect(wrapper.childAt(0).childAt(0).props().active).to.be.true;
+    expect(wrapper.childAt(0).childAt(1).props().active).to.be.false;
+    expect(wrapper.childAt(0).childAt(1).props().disabled).to.be.true;
   });
 });

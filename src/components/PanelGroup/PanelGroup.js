@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import optclass from '../internal/OptClass'
 import style from './style.scss'
 
@@ -11,28 +12,29 @@ class PanelGroup extends React.Component {
     /**
      * The panel(s) to be open by default
      */
-    activePanels: React.PropTypes.array,
+    activePanels: PropTypes.array,
     /**
      * Whether the panelGroup should allow only one panel to be open at a time
      * Note: if accordion is set to true, the activePanels array will respect
      * only the first item.
      */
-    accordion: React.PropTypes.bool,
+    accordion: PropTypes.bool,
     /**
      * Optional CSS class(es) to be used for local styles (string or array of strings)
      */
-    optClass: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.string
+    optClass: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
     ]),
     /**
      * A callback that gets triggered when a panel is toggled (when a panel header gets clicked)
      */
-    onPanelToggle: React.PropTypes.func
+    onPanelToggle: PropTypes.func
   }
 
   static defaultProps = {
-    activePanels: []
+    activePanels: [],
+    name: 'PanelGroup'
   }
 
   state = {
@@ -126,7 +128,8 @@ class PanelGroup extends React.Component {
         key: index,
         panelIndex: index,
         active: this.state.panels[index].active,
-        onPanelClick: this.handlePanelClick
+        onPanelClick: this.handlePanelClick,
+        name: this.props.name
       })
     })
 

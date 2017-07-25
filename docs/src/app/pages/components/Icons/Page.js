@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/Icon/Icon'
+import docs from '!!docgen!react-ions/lib/components/Icon/Icon'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleIconDefault from './ExampleIconDefault'
 import exampleIconDefaultCode from '!raw!./ExampleIconDefault'

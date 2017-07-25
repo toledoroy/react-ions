@@ -17,7 +17,7 @@
 
   .selectfield-value {
     background-color: $white;
-    border: 1px solid $neutral-3;
+    border: 2px solid $neutral-3;
     border-radius: 3px;
     color: $primary-4;
     cursor: pointer;
@@ -25,6 +25,7 @@
     position: relative;
     padding: 10px 29px 10px 10px;
     user-select: none;
+    transition: border-color ease-in-out .15s;
 
     > svg:last-of-type {
       position: absolute;
@@ -40,6 +41,14 @@
       transform: translate(0, -50%);
     }
 
+    &:hover {
+      border-color: rgba($neutral-4, .4);
+    }
+
+    &:focus {
+      border-color: rgba($neutral-4, .6);
+      outline: 0;
+    }
   }
 
   .display-text {
@@ -55,22 +64,23 @@
     box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     display: none;
+    left: 0;
     margin: 3px 0 30px;
     overflow: auto;
     padding: 0;
     position: absolute;
     width: 100%;
-    max-height: 247px;
+    max-height: 152px;
     z-index: 3;
 
     li {
+      @include vertical-align('block');
       color: $primary-4;
       cursor: pointer;
       display: block;
       padding: 10px;
       text-decoration: none;
       min-height: 18px;
-      @include vertical-align('block');
 
       svg {
         margin-right: 10px;
@@ -88,17 +98,20 @@
         cursor: default;
       }
 
+      &.hidden {
+        display: none;
+      }
     }
 
     @media #{$media-small-minus} {
       left: 0;
       min-width: 100%;
     }
-
   }
 
   &.selectfield-disabled {
     cursor: not-allowed;
+
     > div {
       > svg {
         fill: $neutral-4;
@@ -108,6 +121,7 @@
       color: $neutral-4;
       cursor: not-allowed;
     }
+
     > ul {
       display: none;
     }
@@ -121,6 +135,8 @@
 
   &.active:not(.selectfield-disabled) {
     .selectfield-value {
+      border-color: rgba($neutral-4, .6);
+
       > svg:last-of-type {
         transform: rotate(180deg);
       }
@@ -132,6 +148,10 @@
 
   &.has-icon .selectfield-value {
     padding-left: 35px;
+  }
+
+  &.fill {
+    width: 100%;
   }
 
   @media #{$media-small-minus} {

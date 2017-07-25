@@ -2,41 +2,14 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { SortableItem } from '../src/components/SortableList'
 import TestBackend from 'react-dnd-test-backend'
-import TestUtils from 'react-addons-test-utils'
+import TestUtils from 'react-dom/test-utils'
 import { DragDropContext } from 'react-dnd'
 
 describe('SortableItem', () => {
   let wrapper
 
-  const items = [
-    {
-      index: 0,
-      text: 'Email',
-      value: 'email',
-      active: false
-    },
-    {
-      index: 1,
-      text: 'Push Notification',
-      value: 'push_notification',
-      active: true
-    },
-    {
-      index: 2,
-      text: 'Web',
-      value: 'web',
-      active: false
-    },
-    {
-      index: 3,
-      text: 'SMS',
-      value: 'sms',
-      active: false
-    }
-  ]
-
-  const moveSortableItem = (dragIndex, hoverIndex) => {}
-  const toggleSortableItem = (index) => {}
+  const moveSortableItem = (dragIndex) => {}
+  const toggleSortableItem = () => {}
   const onDragStart = () => {}
   const onDragStop = () => {}
 

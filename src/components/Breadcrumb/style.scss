@@ -3,13 +3,42 @@
 @import '../../styles/common/screen';
 @import '../../styles/common/functions';
 
-.breadcrumbs-container {
+.breadcrumbs-outer {
   position: relative;
+  min-width: 0; // https://css-tricks.com/flexbox-truncated-text/
+
+  .overflow-gradient {
+    display: none;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+    right: 0;
+    top: 0;
+    width: 24px;
+    z-index: 2;
+
+    @media #{$media-small-minus} {
+      display: block;
+    }
+  }
 }
+
+.breadcrumbs-container {
+  display: block;
+
+  @media #{$media-small-minus} {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+}
+
 .breadcrumb {
   @include vertical-align('inline');
   height: 65px;
-  padding: 0 15px;
+  padding: 0;
   white-space: nowrap;
   box-sizing: border-box;
   width: 100%;
@@ -24,8 +53,8 @@
   .secondary {
     color: $base-text;
     font-size: 14px;
+    font-style: normal;
     position: relative;
-    top: 1px;
   }
 
   .icon-arrow-68 {
@@ -36,34 +65,17 @@
   @media #{$media-small-minus} {
     height: 50px;
   }
-}
 
-.ellipsis {
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: 200;
-  color: $primary-1;
-}
+  em {
+    align-items: center;
+    display: flex;
 
-.breadcrumbs-dropdown {
-  position: absolute;
-  left: 0;
-  right: 0;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  overflow: hidden;
-  color: $navy-text;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
-  > li {
-    padding: 15px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: $white;
-    cursor: pointer;
-    &:hover {
-      color: $white;
-      background-color: $primary-1;
+    &:last-child {
+      padding-right: 8px;
+
+      @media #{$media-small-minus} {
+        padding-right: 24px;
+      }
     }
   }
 }

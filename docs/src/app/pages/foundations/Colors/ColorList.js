@@ -50,6 +50,6 @@ const colorList = {
       hex: '#62CAF3'
     }
   ]
-};
+}
 
 export default colorList
