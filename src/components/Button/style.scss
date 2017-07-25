@@ -37,6 +37,7 @@
     align-items: center;
     display: flex;
     font-style: normal;
+    justify-content: center;
   }
 
   &.loading {
@@ -54,7 +55,6 @@
 
   &.fill {
     box-sizing: border-box;
-    justify-content: center;
     width: 100%;
   }
 
@@ -79,26 +79,25 @@
     @include button-context(transparent, $danger);
   }
 
-  &.flat {
-    @include button-context($neutral-2, $neutral-4);
-  }
-
   &.info {
     @include button-context($neutral-4, $white);
   }
 
+  &.flat,
   &.secondary {
-    @include button-context($white, $primary-4);
-    border: 1px solid $neutral-3;
+    @include button-context($neutral-2, $neutral-4);
   }
 
-  &.plain {
-    @include button-context(transparent, $primary-4);
-    font-weight: normal;
-  }
-
+  &.plain,
   &.plain-light {
-    @include button-context(transparent, lighten($primary-4, 40%));
+    @include button-context(transparent, $primary-4);
+    border: 0;
+
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: none;
+    }
   }
 
   &.inverted {
