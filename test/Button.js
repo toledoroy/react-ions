@@ -21,7 +21,6 @@ describe('Button', () => {
     expect(wrapper.children().length).to.be.equal(2)
     expect(wrapper.childAt(0).html()).to.be.equal('<div class="loader"></div>')
     expect(wrapper.childAt(1).html()).to.be.equal('<em>Test</em>')
-    expect(wrapper.is('[disabled]')).to.be.equal(true)
 
     wrapper.setProps({loading: false})
 
