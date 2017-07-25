@@ -3,7 +3,7 @@ import Button from 'react-ions/lib/components/Button'
 
 const ExampleButtonDefault = () => (
   <div>
-    <div className='row' style={{'margin-bottom': '2rem'}}>
+    <div className='row' style={{'marginBottom': '2rem'}}>
       <div className='col-xs-12 col-sm-6 col-lg-2'>
         <div>
           <Button optClass='positive'>Positive</Button>
@@ -30,7 +30,7 @@ const ExampleButtonDefault = () => (
         </div>
       </div>
     </div>
-    <div className='row' style={{'margin-bottom': '2rem'}}>
+    <div className='row' style={{'marginBottom': '2rem'}}>
       <div className='col-xs-12 col-sm-6 col-lg-4'>
         <div>
           <Button optClass='large'>Large</Button>
@@ -47,11 +47,10 @@ const ExampleButtonDefault = () => (
         </div>
       </div>
     </div>
-    <div className='row' style={{'margin-bottom': '2rem'}}>
+    <div className='row' style={{'marginBottom': '2rem'}}>
       <div className='col-xs-12'>
         <div style={{'width': '100%'}}>
-          <p style={{'margin-bottom': '.5em'}}>fill</p>
-          <Button optClass='fill grey'>Button</Button>
+          <Button optClass='fill grey'>Fill</Button>
         </div>
       </div>
     </div>
