@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import SortableItem from './SortableItem'
 import Badge from '../Badge'
 import Toggle from '../Toggle'
@@ -11,8 +12,8 @@ class SortableItemPreview extends React.Component {
   }
 
   static propTypes = {
-    item: React.PropTypes.object.isRequired,
-    count: React.PropTypes.number.isRequired
+    item: PropTypes.object.isRequired,
+    count: PropTypes.number.isRequired
   }
 
   render = () => {

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Input from '../Input/Input'
 import colorLuminance from '../internal/ColorLuminance'
 import { SketchPicker } from 'react-color'
@@ -32,15 +33,15 @@ class ColorPicker extends React.Component {
     /**
      * Hex color value.
      */
-    value: React.PropTypes.string,
+    value: PropTypes.string,
     /**
      * A callback function to be called when the color changes.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * An optional CSS class to be used for local styles
      */
-    optClass: React.PropTypes.string
+    optClass: PropTypes.string
   }
 
   componentWillMount = () => {
@@ -119,7 +120,7 @@ class ColorPicker extends React.Component {
         </div>
         { this.state.displayColorPicker ?
           <div className={style['sketch-container']} ref={(c) => this._sketchContainer = c}>
-            <SketchPicker color={ this.state.color } onChange={this.handlePickerChange} />
+            <SketchPicker color={ this.state.color } onChange={this.handlePickerChange} presetColors={[]} />
           </div>
           : null
         }

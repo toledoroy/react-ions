@@ -6,7 +6,7 @@ import Icon from '../src/components/Icon/Icon'
 import TagList from '../src/components/internal/TagList'
 
 describe('InputList', () => {
-  let wrapper, input, inst, value
+  let wrapper, inst, value
 
   beforeEach(() => {
     value = [
@@ -29,6 +29,11 @@ describe('InputList', () => {
     expect(wrapper.find(Input)).to.have.length(1)
     expect(wrapper.find(Icon)).to.have.length(1)
     expect(wrapper.find(TagList)).to.have.length(1)
+  })
+
+  it('should return falsy for cWRP if same props.value is passed', () => {
+    wrapper = shallow(<InputList optClass='test' value={value} placeholder='Type something and hit enter' />)
+    expect(!!wrapper.instance().componentWillReceiveProps({ value })).to.be.false
   })
 
   it('should build state from props', () => {
@@ -83,13 +88,6 @@ describe('InputList', () => {
 
   it('should remove an item', () => {
     const spy = sinon.spy()
-    const initialState = {
-      value: [
-        {display: 'Test 1', value: 'Test 1'},
-        {display: 'Test 2', value: 'Test 2'},
-        {display: 'Something', value: 'Something'}
-      ]
-    }
     const updatedState = ['Test 1', 'Test 2']
 
     wrapper = shallow(<InputList value={value} changeCallback={spy} />)

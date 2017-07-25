@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 
@@ -20,40 +21,40 @@ class Toggle extends React.Component {
     /**
      * Value of the input.
      */
-    value: React.PropTypes.bool,
+    value: PropTypes.bool,
     /**
      * Text displayed with the toggle.
      */
-    label: React.PropTypes.string,
+    label: PropTypes.string,
     /**
      * Whether the toggle is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * Optional styles to add to the toggle.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * A callback function to be called when the toggle changes.
      */
-    changeCallback: React.PropTypes.func
-  };
+    changeCallback: PropTypes.func
+  }
 
   handleChange = () => {
     if (this.props.disabled) {
       return
     }
 
-    this.setState({ value: !this.state.value }, function() {
+    this.setState({ value: !this.state.value }, () => {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {
             name: 'toggle',
             value: this.state.value
           }
-        });
+        })
       }
-    });
+    })
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -63,7 +64,7 @@ class Toggle extends React.Component {
   }
 
   render() {
-    const cx = classNames.bind(style);
+    const cx = classNames.bind(style)
     const onClass = this.state.value ? style.on : ''
     const outerClasses = cx(style.outer, onClass)
     const innerClasses = cx(style.inner, onClass)

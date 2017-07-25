@@ -1,5 +1,5 @@
 import React from 'react'
-import FileUpload from 'react-conventions/lib/FileUpload'
+import FileUpload from 'react-ions/lib/components/FileUpload'
 
 const ExampleFileUploadDefault = () => (
   <FileUpload label="Default file upload" />

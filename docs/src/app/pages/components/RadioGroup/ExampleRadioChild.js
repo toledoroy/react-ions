@@ -1,7 +1,7 @@
 import React from 'react'
-import RadioGroup from 'react-conventions/lib/Radio/RadioGroup'
-import Radio from 'react-conventions/lib/Radio/Radio'
-import Input from 'react-conventions/lib/Input'
+import RadioGroup from 'react-ions/lib/components/Radio/RadioGroup'
+import Radio from 'react-ions/lib/components/Radio/Radio'
+import Input from 'react-ions/lib/components/Input'
 import style from './style.scss'
 
 class ExampleRadioChild extends React.Component {
@@ -38,7 +38,7 @@ class ExampleRadioChild extends React.Component {
   render() {
     return (
       <div>
-        <RadioGroup name='child-radio-group' label='Child radio label' changeCallback={this.handleChange}>
+        <RadioGroup name='child-radio-group' changeCallback={this.handleChange}>
           <Radio value='option1' label='Option 1' />
           <Input name='child-input-1' changeCallback={this.handleChange} optClass={this.getClass('option1')} ref={(i) => { if (i !== null) { i.focus() }}} />
           <Radio value='option2' label='Option 2' />

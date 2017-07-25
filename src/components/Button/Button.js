@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Loader from 'react-loader'
 import style from './style.scss'
 import optclass from '../internal/OptClass'
@@ -15,37 +16,53 @@ const Button = (props) => {
   }
 
   return (
-    <button type='button' className={btnClasses} disabled={props.disabled || props.loading} {...props}>
+    <button type={props.type} style={props.style} className={btnClasses} disabled={props.disabled || props.loading} onClick={props.onClick}>
       { props.loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
       <em>{props.children}</em>
     </button>
   )
 }
 
+Button.defaultProps = {
+  type: 'button'
+}
+
 Button.propTypes = {
   /**
    * The size of button.
    */
-  size: React.PropTypes.string,
+  size: PropTypes.string,
   /**
    * Whether the button is disabled.
    */
-  disabled: React.PropTypes.bool,
+  disabled: PropTypes.bool,
   /**
    * Whether the loading spinner is displayed.
    */
-  loading: React.PropTypes.bool,
+  loading: PropTypes.bool,
   /**
    * Whether to display only an icon on small screens
    */
-  collapse: React.PropTypes.bool,
+  collapse: PropTypes.bool,
   /**
    * Optional CSS class(es) to be used for local styles (string or array of strings)
    */
-  optClass: React.PropTypes.oneOfType([
-    React.PropTypes.array,
-    React.PropTypes.string
-  ])
+  optClass: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string
+  ]),
+  /**
+   * A function to be called onClick
+   */
+  onClick: PropTypes.func,
+  /**
+   * The type of button.
+   */
+  type: PropTypes.string,
+  /**
+   * A string to allow for inline styles
+   */
+  style: PropTypes.string
 }
 
 export default Button

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList';
-import docs from '!!docgen!react-conventions/lib/Nav/Nav';
+import docs from '!!docgen!react-ions/lib/components/Nav/Nav';
 import CodeExample from 'private/modules/CodeExample'
 import ExampleNavDefault from './ExampleNavDefault'
 import exampleNavDefaultCode from '!raw!./ExampleNavDefault'
@@ -10,7 +10,7 @@ const description = {
   navDefault: 'This is the `nav component`.'
 };
 
-const NavPage = (props) => {
+const NavPage = () => {
   return (
     <div>
       <div className={style.content}>

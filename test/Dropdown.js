@@ -1,5 +1,5 @@
 import React from 'react'
-import TestUtils from 'react-addons-test-utils'
+import TestUtils from 'react-dom/test-utils'
 import { shallow, mount } from 'enzyme'
 import WrappedDropdown, { Dropdown } from '../src/components/Dropdown'
 import Immutable from 'immutable'
@@ -125,5 +125,30 @@ describe('Dropdown', () => {
     expect(wrapper.state().isOpened).to.be.false
     expect(wrapper.state().confirmationOverlayOpen).to.be.false
     expect(wrapper.state().clickedItem).to.be.null
+  })
+
+  it('should set state to nextProps receiving a list that differs from current state', () => {
+    const listItemsInit = [
+      {name: 'test1'},
+      {name: 'test2'},
+      {name: 'test3', callbackConfirmation: true}
+    ]
+
+    const listItems = [
+      {name: 'test1'},
+      {name: 'test2'},
+      {name: 'test3'},
+      {name: 'test4'},
+      {name: 'test5'}
+    ]
+
+    const nextProps = {
+      listItems
+    }
+
+    wrapper = shallow(<Dropdown listItems={listItemsInit} isOpened={true}>This is a test.</Dropdown>)
+    wrapper.instance().componentWillReceiveProps(nextProps)
+
+    expect(wrapper.state().listItems).to.deep.equal(Immutable.fromJS(listItems))
   })
 })

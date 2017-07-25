@@ -1,5 +1,5 @@
 import React from 'react'
-import TextEditor from 'react-conventions/lib/TextEditor'
+import TextEditor from 'react-ions/lib/components/TextEditor'
 
 class ExampleTextEditorPopulated extends React.Component {
   constructor(props) {

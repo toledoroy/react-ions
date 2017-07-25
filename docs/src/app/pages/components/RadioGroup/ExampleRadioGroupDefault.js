@@ -1,5 +1,5 @@
 import React from 'react'
-import RadioGroup from 'react-conventions/lib/Radio/RadioGroup'
+import RadioGroup from 'react-ions/lib/components/Radio/RadioGroup'
 
 const options = [
   {
@@ -16,7 +16,6 @@ const options = [
 
 const ExampleRadioDefault = () => (
   <RadioGroup
-    label="Default radio label"
     name="default-radio-group"
     options={options}>
   </RadioGroup>

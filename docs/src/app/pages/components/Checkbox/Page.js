@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/Checkbox/Checkbox'
+import docs from '!!docgen!react-ions/lib/components/Checkbox/Checkbox'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleCheckboxDefault from './ExampleCheckboxDefault'
 import exampleCheckboxDefaultCode from '!raw!./ExampleCheckboxDefault'
@@ -10,12 +10,18 @@ import ExampleCheckboxDisabled from './ExampleCheckboxDisabled'
 import exampleCheckboxDisabledCode from '!raw!./ExampleCheckboxDisabled'
 import ExampleCheckboxError from './ExampleCheckboxError'
 import exampleCheckboxErrorCode from '!raw!./ExampleCheckboxError'
-import ExampleCheckboxLeft from './ExampleCheckboxLeft'
-import exampleCheckboxLeftCode from '!raw!./ExampleCheckboxLeft'
+import ExampleCheckboxLocked from './ExampleCheckboxLocked'
+import exampleCheckboxLockedCode from '!raw!./ExampleCheckboxLocked'
 import ExampleCheckboxCallback from './ExampleCheckboxCallback'
 import exampleCheckboxCallbackCode from '!raw!./ExampleCheckboxCallback'
 import ExampleCheckboxToggle from './ExampleCheckboxToggle'
 import exampleCheckboxToggleCode from '!raw!./ExampleCheckboxToggle'
+import ExampleCheckboxCustomIcon from './ExampleCheckboxCustomIcon'
+import exampleCheckboxCustomIconCode from '!raw!./ExampleCheckboxCustomIcon'
+import ExampleCheckboxDescription from './ExampleCheckboxDescription'
+import exampleCheckboxDescriptionCode from '!raw!./ExampleCheckboxDescription'
+import ExampleCheckboxNative from './ExampleCheckboxNative'
+import exampleCheckboxNativeCode from '!raw!./ExampleCheckboxNative'
 import styles from 'private/css/content'
 
 const description = {
@@ -23,10 +29,13 @@ const description = {
   checkboxChecked: 'This is the checked `checkbox component`.',
   checkboxDisabled: 'This is the disabled `checkbox component`.',
   checkboxError: 'This is the `checkbox component` with an error.',
-  checkboxLeft: 'This is a `checkbox component` with the label on the left side.',
+  checkboxLocked: 'This is the `checkbox component` when locked. It can only be changed by receiving props.',
   checkboxCallback: 'This is the `checkbox component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
-  checkboxToggle: 'This is the `checkbox component` that you can toggle from the outside by changing its checked property.'
-};
+  checkboxToggle: 'This is the `checkbox component` that you can toggle from the outside by changing its checked property.',
+  checkboxCustomIcon: 'This is the `checkbox component` with a custom icon.',
+  checkboxDescription: 'This is the `checkbox component` with a description.',
+  checkboxNative: 'This is the native `checkbox component`.'
+}
 
 const CheckboxPage = () => (
   <div>
@@ -51,16 +60,16 @@ const CheckboxPage = () => (
           <ExampleCheckboxDisabled />
         </CodeExample>
         <CodeExample
+          title='Locked Checkbox'
+          description={description.checkboxLocked}
+          markup={exampleCheckboxLockedCode}>
+          <ExampleCheckboxLocked />
+        </CodeExample>
+        <CodeExample
           title='Error Checkbox'
           description={description.checkboxError}
           markup={exampleCheckboxErrorCode}>
           <ExampleCheckboxError />
-        </CodeExample>
-        <CodeExample
-          title='Checkbox Left Label'
-          description={description.checkboxLeft}
-          markup={exampleCheckboxLeftCode}>
-          <ExampleCheckboxLeft />
         </CodeExample>
         <CodeExample
           title='Checkbox with callback function'
@@ -74,6 +83,24 @@ const CheckboxPage = () => (
           markup={exampleCheckboxToggleCode}>
           <ExampleCheckboxToggle />
         </CodeExample>
+        <CodeExample
+          title='Checkbox with a custom icon'
+          description={description.checkboxCustomIcon}
+          markup={exampleCheckboxCustomIconCode}>
+          <ExampleCheckboxCustomIcon />
+        </CodeExample>
+        <CodeExample
+          title='Checkbox with a description'
+          description={description.checkboxDescription}
+          markup={exampleCheckboxDescriptionCode}>
+          <ExampleCheckboxDescription />
+        </CodeExample>
+        <CodeExample
+          title='Native Checkbox'
+          description={description.nativeCheckbox}
+          markup={exampleCheckboxNativeCode}>
+          <ExampleCheckboxNative />
+        </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
           <PropsList list={docs[0].props} />
@@ -81,6 +108,6 @@ const CheckboxPage = () => (
       </div>
     </div>
   </div>
-);
+)
 
 export default CheckboxPage

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Icon from '../Icon'
 import style from './style.scss'
 
@@ -15,15 +16,15 @@ class TagList extends React.Component {
     /**
      * Tags to display.
      */
-    tags: React.PropTypes.array.isRequired,
+    tags: PropTypes.array.isRequired,
     /**
      * Which field in the tag will be displayed.
      */
-    displayProp: React.PropTypes.string.isRequired,
+    displayProp: PropTypes.string.isRequired,
     /**
      * A callback function to be called when a tag is removed.
      */
-    onRemove: React.PropTypes.func.isRequired
+    onRemove: PropTypes.func.isRequired
   }
 
   removeTag = (index) => {

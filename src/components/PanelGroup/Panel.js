@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import optclass from '../internal/OptClass'
 import style from './style.scss'
 
@@ -11,18 +12,23 @@ class Panel extends React.Component {
     /**
      * Whether the panel is active. Set by the panelGroup component.
      */
-    active: React.PropTypes.bool,
+    active: PropTypes.bool,
     /**
      * Optional CSS class(es) to be used for local styles (string or array of strings)
      */
-    optClass: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.string
+    optClass: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
     ])
   }
 
   getHeader = () => {
-    return this.props.children[0]
+    if (this.props.name === 'PanelGroup') {
+      return React.cloneElement(this.props.children[0], {
+        active: this.props.active,
+        onPanelClick: this.handlePanelClick
+      })
+    }
   }
 
   handlePanelClick = () => {
@@ -35,15 +41,19 @@ class Panel extends React.Component {
     const panelActiveClass = (this.props.active) ? style['panel-active'] : null
     const panelClasses = optclass(style, ['panel', panelActiveClass], this.props.optClass)
 
-    const header = React.cloneElement(this.getHeader(), {
-      active: this.props.active,
-      onPanelClick: this.handlePanelClick
-    })
+    const header = this.getHeader()
 
     return (
       <div className={panelClasses}>
-        {header}
-        {this.props.children[1]}
+        {this.getHeader()
+          ? <span>
+              {header}
+              {this.props.children[1]}
+            </span>
+          : <span>
+              {this.props.children}
+            </span>
+          }
       </div>
     )
   }

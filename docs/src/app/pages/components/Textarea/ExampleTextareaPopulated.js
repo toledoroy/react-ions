@@ -1,6 +1,6 @@
 import React from 'react'
-import Textarea from 'react-conventions/lib/Textarea'
-import Button from 'react-conventions/lib/Button'
+import Textarea from 'react-ions/lib/components/Textarea'
+import Button from 'react-ions/lib/components/Button'
 import style from './style.scss'
 
 class ExampleTextareaPopulated extends React.Component {

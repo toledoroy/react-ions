@@ -1,5 +1,5 @@
 import React from 'react'
-import RadioGroup from 'react-conventions/lib/Radio/RadioGroup'
+import RadioGroup from 'react-ions/lib/components/Radio/RadioGroup'
 
 class ExampleRadioCallback extends React.Component {
   constructor(props) {
@@ -31,7 +31,6 @@ class ExampleRadioCallback extends React.Component {
     return(
       <div>
         <RadioGroup
-          label="Callback radio label"
           name="callback-radio-group"
           options={options}
           changeCallback={this.handleChange}>

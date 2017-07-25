@@ -1,6 +1,6 @@
 import React from 'react'
-import Dropdown from 'react-conventions/lib/Dropdown'
-import Button from 'react-conventions/lib/Button'
+import Dropdown from 'react-ions/lib/components/Dropdown'
+import Button from 'react-ions/lib/components/Button'
 import styles from './styles'
 
 class ExampleDropdownConfirmation extends React.Component {

@@ -1,33 +1,51 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 
 const Radio = (props) => {
   const {
     label,
-    labelPosition,
     optClass,
+    description,
     ...other
-  } = props;
+  } = props
 
-  const cx = classNames.bind(style);
-  const disabledClass = props.disabled ? style['radio-disabled'] : '';
-  const radioClass = cx(style['radio-component'], optClass, disabledClass);
+  const cx = classNames.bind(style)
+  const disabledClass = props.disabled ? style['radio-disabled'] : null
+  const radioClass = cx(style['radio-component'], optClass, disabledClass)
+  const labelWrapperClass = props.description ? style['label-group'] : null
 
-  const handleChange = function(event) {
-    event.persist();
+  const handleChange = (event) => {
+    event.persist()
     if (typeof props.changeCallback === 'function') {
-      props.changeCallback(event, props.value);
+      props.changeCallback(event, props.value)
     }
+  }
+
+  const getLabel = () => {
+    if (props.label && props.description) {
+      return <div className={style['label-wrapper']}>
+        <label>
+          <span className={style['label-title']}>{label}</span>
+          <span className={style['label-description']}>{description}</span>
+        </label>
+      </div>
+    }
+
+    if (props.label) {
+      return <label>{label}</label>
+    }
+
+    return null
   }
 
   return (
     <div className={radioClass}>
-      <input type="radio" onChange={handleChange} {...other}></input>
-      <div>
-        { label && labelPosition === 'left' ? <label className={style['label-left']}>{label}</label> : null }
+      <input type="radio" onChange={handleChange} value={props.value} name={props.name} disabled={props.disabled} checked={props.checked}></input>
+      <div className={labelWrapperClass}>
         <div className={style['radio-input']}></div>
-        { label && labelPosition === 'right' ? <label className={style['label-right']}>{label}</label> : null }
+        {getLabel()}
       </div>
     </div>
   )
@@ -35,43 +53,42 @@ const Radio = (props) => {
 
 Radio.defaultProps = {
   checked: false,
-  disabled: false,
-  labelPosition: 'right'
+  disabled: false
 }
 
 Radio.propTypes = {
   /**
    * True if the option is checked.
    */
-  checked: React.PropTypes.bool,
+  checked: PropTypes.bool,
   /**
    * Whether the option is disabled.
    */
-  disabled: React.PropTypes.bool,
+  disabled: PropTypes.bool,
   /**
    * Text shown next to the radio input element.
    */
-  label: React.PropTypes.string,
-  /**
-   * The position of the label.
-   */
-  labelPosition: React.PropTypes.oneOf(['left', 'right']),
+  label: PropTypes.string,
   /**
    * Value of the option.
    */
-  value: React.PropTypes.string,
+  value: PropTypes.string,
   /**
    * Optional styles to add to the radio component.
    */
-  optClass: React.PropTypes.string,
+  optClass: PropTypes.string,
   /**
    * Name specified in the RadioGroup component.
    */
-  name: React.PropTypes.string,
+  name: PropTypes.string,
   /**
    * A callback function (from RadioGroup) to be called when the option is changed.
    */
-  changeCallback: React.PropTypes.func
+  changeCallback: PropTypes.func,
+  /**
+   * An optional string that appears below the label
+   */
+  description: PropTypes.string
 }
 
 export default Radio

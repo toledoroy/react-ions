@@ -196,4 +196,14 @@ describe('Modal', () => {
     expect(document.body.getElementsByClassName('modal-component')[0].children[0].children[0].style.left).to.be.equal('-100%')
     expect(document.body.getElementsByClassName('modal-component')[0].children[0].children[0].style.opacity).to.be.equal('0')
   })
+
+  it('should render with a custom title element', () => {
+    wrapper = mount(
+      <Modal title={<h1 className="title-test-class">Test title</h1>}>
+        Test modal content
+      </Modal>
+    )
+    expect(document.body.getElementsByClassName('title-test-class')).to.have.length(1)
+  })
+
 })

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import optclass from '../internal/OptClass'
 import TagList from '../internal/TagList'
 import style from './style.scss'
@@ -16,37 +17,37 @@ class MultiSelect extends React.Component {
     /**
      * A string to display as the placeholder text.
      */
-    placeholder: React.PropTypes.string,
+    placeholder: PropTypes.string,
     /**
      * An array of objects which will be used as the options for the MultiSelect component.
      */
-    options: React.PropTypes.array.isRequired,
+    options: PropTypes.array.isRequired,
     /**
      * The values of the options to be selected.
      */
-    value: React.PropTypes.array,
+    value: PropTypes.array,
     /**
      * Which field in the option object will be used as the value of the MultiSelect component.
      */
-    valueProp: React.PropTypes.string.isRequired,
+    valueProp: PropTypes.string.isRequired,
     /**
      * Which field in the option object will be used as the display of the MultiSelect component.
      */
-    displayProp: React.PropTypes.string.isRequired,
+    displayProp: PropTypes.string.isRequired,
     /**
      * Whether the MultiSelect component is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * A callback function to be called when an option is selected.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * Optional CSS class(es) to be used for local styles (string or array of strings)
      */
-    optClass: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.string
+    optClass: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
     ])
   }
 

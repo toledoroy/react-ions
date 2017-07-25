@@ -1,5 +1,5 @@
 import React from 'react'
-import Toggle from 'react-conventions/lib/Toggle'
+import Toggle from 'react-ions/lib/components/Toggle'
 import style from './style'
 
 class ExampleToggleCallback extends React.Component {

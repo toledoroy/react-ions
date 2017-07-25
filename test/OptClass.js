@@ -1,4 +1,3 @@
-import React from 'react'
 import optclass from '../src/components/internal/OptClass'
 
 describe('OptClass', () => {

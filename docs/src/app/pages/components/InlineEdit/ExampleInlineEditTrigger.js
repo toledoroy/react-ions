@@ -1,6 +1,6 @@
 import React from 'react'
-import InlineEdit from 'react-conventions/lib/InlineEdit'
-import Button from 'react-conventions/lib/Button'
+import InlineEdit from 'react-ions/lib/components/InlineEdit'
+import Button from 'react-ions/lib/components/Button'
 import styles from './styles'
 
 class ExampleInlineEditTrigger extends React.Component {

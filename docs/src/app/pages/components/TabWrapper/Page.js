@@ -1,34 +1,34 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import tabWrapperDocs from '!!docgen!react-conventions/lib/TabWrapper/TabWrapper'
-import tabDocs from '!!docgen!react-conventions/lib/TabWrapper/Tab'
+import tabWrapperDocs from '!!docgen!react-ions/lib/components/TabWrapper/TabWrapper'
+import tabDocs from '!!docgen!react-ions/lib/components/TabWrapper/Tab'
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleTabWrapperDefault from './ExampleTabWrapperDefault'
 import exampleTabWrapperDefaultCode from '!raw!./ExampleTabWrapperDefault'
 import ExampleTabWrapperSecondary from './ExampleTabWrapperSecondary'
 import exampleTabWrapperSecondaryCode from '!raw!./ExampleTabWrapperSecondary'
-
-const description = {
-  tabWrapperDefault: 'This is the `tab wrapper component` as it appears by default.',
-  tabWrapperSecondary: 'This is the secondary style for the `tab wrapper component`.'
-};
+import ExampleTabWrapperTitlePrefix from './ExampleTabWrapperTitlePrefix'
+import exampleTabWrapperTitlePrefixCode from '!raw!./ExampleTabWrapperTitlePrefix'
 
 const TabWrapperPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
         <CodeExample
-          title='Default Tab Wrapper'
-          description={description.tabWrapperDefault}
+          title='Default Tabs'
           markup={exampleTabWrapperDefaultCode}>
           <ExampleTabWrapperDefault />
         </CodeExample>
         <CodeExample
-          title='Secondary Tab Wrapper'
-          description={description.tabWrapperSecondary}
+          title='Secondary tab style'
           markup={exampleTabWrapperSecondaryCode}>
           <ExampleTabWrapperSecondary />
+        </CodeExample>
+        <CodeExample
+          title='Prefixed and Suffixed Tabs'
+          markup={exampleTabWrapperTitlePrefixCode}>
+          <ExampleTabWrapperTitlePrefix />
         </CodeExample>
         <div className={styles.block}>
           <h3>Tab Wrapper Props</h3>

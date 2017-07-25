@@ -1,6 +1,6 @@
 import React from 'react'
-import MultiSelect from 'react-conventions/lib/MultiSelect/MultiSelect'
-import Typeahead from 'react-conventions/lib/Typeahead/Typeahead'
+import MultiSelect from 'react-ions/lib/components/MultiSelect/MultiSelect'
+import Typeahead from 'react-ions/lib/components/Typeahead/Typeahead'
 import style from './style.scss'
 import options from '../Typeahead/CountryList'
 

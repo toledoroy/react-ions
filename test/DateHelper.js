@@ -1,4 +1,3 @@
-import React from 'react'
 import DateHelper from '../src/components/DatePicker/DateHelper'
 import moment from 'moment'
 

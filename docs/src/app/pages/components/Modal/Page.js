@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-conventions/lib/Modal/Modal'
+import docs from '!!docgen!react-ions/lib/components/Modal/Modal'
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleModalDefault from './ExampleModalDefault'
@@ -11,22 +11,21 @@ import ExampleModalSmall from './ExampleModalSmall'
 import exampleModalSmallCode from '!raw!./ExampleModalSmall'
 import ExampleModalLarge from './ExampleModalLarge'
 import exampleModalLargeCode from '!raw!./ExampleModalLarge'
-import ExampleModalForm from './ExampleModalForm'
-import exampleModalFormCode from '!raw!./ExampleModalForm'
+import ExampleModalCustomTitle from './ExampleModalCustomTitle'
+import exampleModalCustomTitleCode from '!raw!./ExampleModalCustomTitle'
 
 const description = {
   modalDefault: 'This is the `modal component` as it appears by default.',
   modalActions: 'This is the `modal component` with actions.',
   modalSmall: 'This is the small `modal component`.',
   modalLarge: 'This is the large `modal component`.',
-  modalForm: 'This is a `modal component` with a form.'
+  modalCustomTitle: 'This is the `modal component` with a custom title element.',
 };
 
 const ModalPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
-        <h3>Examples</h3>
         <CodeExample
           title='Default Modal'
           description={description.modalDefault}
@@ -52,10 +51,10 @@ const ModalPage = () => (
           <ExampleModalLarge />
         </CodeExample>
         <CodeExample
-          title='Form Modal'
-          description={description.modalForm}
-          markup={exampleModalFormCode}>
-          <ExampleModalForm />
+          title='Modal With Custom Title'
+          description={description.modalCustomTitle}
+          markup={exampleModalCustomTitleCode}>
+          <ExampleModalCustomTitle />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>

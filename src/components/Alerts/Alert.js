@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 import Icon from '../Icon'
@@ -22,23 +23,23 @@ class Alert extends React.Component {
     /**
      * The alert type.
      */
-    type: React.PropTypes.oneOf(['success', 'warning', 'info', 'danger']),
+    type: PropTypes.oneOf(['success', 'warning', 'info', 'danger']),
     /**
      * Optional styles to add to the alert component.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * Whether the alert can be closed.
      */
-    closable: React.PropTypes.bool,
+    closable: PropTypes.bool,
     /**
      * How long before the alert disappears.
      */
-    timeout: React.PropTypes.number,
+    timeout: PropTypes.number,
     /**
      * A callback to be triggered when the close icon is clicked or when the timeout expires.
      */
-    onClose: React.PropTypes.func
+    onClose: PropTypes.func
 
   }
 

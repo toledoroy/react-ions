@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router'
 import style from './style.scss'
 import classNames from 'classnames/bind'
@@ -11,9 +12,9 @@ const ButtonAnchor = (props) => {
   let buttonAnchor
 
   if (props.internal) {
-    buttonAnchor = <Link to={props.path} className={btnAnchorClasses} {...props}>{props.children}</Link>
+    buttonAnchor = <Link to={props.path} className={btnAnchorClasses} size={props.size} disabled={props.disabled}>{props.children}</Link>
   } else {
-    buttonAnchor = <a href={props.path} className={btnAnchorClasses} {...props}>{props.children}</a>
+    buttonAnchor = <a href={props.path} className={btnAnchorClasses} target={props.target}>{props.children}</a>
   }
   return buttonAnchor
 }
@@ -22,27 +23,27 @@ ButtonAnchor.propTypes = {
   /**
    * Optional styles to add to the button.
    */
-  optClass: React.PropTypes.string,
+  optClass: PropTypes.string,
   /**
    * The size of button.
    */
-  size: React.PropTypes.string,
+  size: PropTypes.string,
   /**
    * Whether the button is disabled.
    */
-  disabled: React.PropTypes.bool,
+  disabled: PropTypes.bool,
   /**
    * A path to pass to the anchor tag.
    */
-  path: React.PropTypes.string,
+  path: PropTypes.string,
   /**
    * Whether the link it to an internal page, or external (default)
    */
-  internal: React.PropTypes.bool,
+  internal: PropTypes.bool,
   /**
    * Whether to display only an icon on small screens
    */
-  collapse: React.PropTypes.bool
+  collapse: PropTypes.bool
 }
 
 export default ButtonAnchor

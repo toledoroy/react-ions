@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from './styles.scss'
 
 const Color = (props) => {
@@ -15,8 +16,8 @@ const Color = (props) => {
 }
 
 Color.propTypes = {
-  hex: React.PropTypes.string.isRequired,
-  sass: React.PropTypes.string.isRequired
+  hex: PropTypes.string.isRequired,
+  sass: PropTypes.string.isRequired
 }
 
 export default Color

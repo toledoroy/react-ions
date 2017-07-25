@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonGroup from 'react-conventions/lib/ButtonGroup/ButtonGroup'
+import ButtonGroup from 'react-ions/lib/components/ButtonGroup/ButtonGroup'
 
 const options = [
   {
@@ -22,7 +22,6 @@ const options = [
 
 const ExampleRadioDefault = () => (
   <ButtonGroup
-    label="Default button group label"
     name="default-button-group"
     options={options}>
   </ButtonGroup>

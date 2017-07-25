@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 import Icon from '../Icon'
@@ -10,88 +11,131 @@ class Checkbox extends React.Component {
 
   static defaultProps = {
     disabled: false,
-    labelPosition: 'right'
+    iconName: 'icon-check-1-1',
+    locked: false
   }
 
   state = {
-    value: this.props.value
+    value: this.props.value,
+    iconName: this.props.iconName
   }
 
   static propTypes = {
     /**
+     * Displays a native checkbox, instead of the custom implementation.
+     */
+    allowNative: PropTypes.bool,
+    /**
      * Whether the checkbox is disabled.
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      * Value of the input. Sets whether the component is checked or not.
      */
-    value: React.PropTypes.bool,
+    value: PropTypes.bool,
+    /**
+     * Unique string to be passed ot the label 'for' attrbute and the native checkbox 'id',
+     * to allow using label to check/uncheck
+     */
+    forLabelAttr: PropTypes.string,
     /**
      * Text displayed with the checkbox.
      */
-    label: React.PropTypes.string,
-    /**
-     * Whether the label should appear on the right or left.
-     */
-    labelPosition: React.PropTypes.string,
+    label: PropTypes.string,
     /**
      * Optional styles to add to the checkbox.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * A callback function to be called when the checkbox changes.
      */
-    changeCallback: React.PropTypes.func
+    changeCallback: PropTypes.func,
+    /**
+     * Icon to be used in the checkbox.
+     */
+    iconName: PropTypes.string,
+    /**
+     * Whether the checkbox is locked from change outside of receiving props.
+     */
+    locked: PropTypes.bool,
+    /**
+     * Optional description that appears below the label.
+     */
+    description: PropTypes.string
   }
 
   handleChange = (event) => {
     event.persist()
-    this.setState({ value: event.target.checked }, () => {
-      if (typeof this.props.changeCallback === 'function') {
-        this.props.changeCallback(event)
-      }
-    })
-  }
 
-  componentWillMount = () => {
-    if (this.props.value) {
-      this.setState({ value: this.props.value })
+    // Allow user to interact with locked checkboxes only if the value is false (unchecked)
+    if (!this.props.locked || !this.props.value) {
+      this.setState({ value: event.target.checked }, () => {
+        if (typeof this.props.changeCallback === 'function') {
+          this.props.changeCallback(event)
+        }
+      })
     }
   }
 
   componentWillReceiveProps = (nextProps) => {
+    let newState = {}
+
     if (nextProps.value !== this.props.value) {
-      this.setState({ value: nextProps.value })
+      newState.value = nextProps.value
     }
+
+    if (nextProps.iconName !== this.state.iconName) {
+      newState.iconName = nextProps.iconName
+    }
+
+    this.setState(newState)
+  }
+
+  getLabel = () => {
+    if (this.props.label && this.props.description) {
+      return <div className={style['label-wrapper']}>
+        <label htmlFor={this.props.forLabelAttr}>
+          <span className={style['label-title']}>{this.props.label}</span>
+          <span className={style['label-description']}>{this.props.description}</span>
+        </label>
+      </div>
+    }
+
+    if (this.props.label) {
+      return <label htmlFor={this.props.forLabelAttr}>{this.props.label}</label>
+    }
+
+    return null
   }
 
   render() {
     const {
-      label,
-      labelPosition,
       optClass,
       changeCallback,
+      value,
+      disabled,
+      name,
+      label,
+      forLabelAttr,
       ...other
     } = this.props
 
     const cx = classNames.bind(style)
     const disabledClass = this.props.disabled ? style['checkbox-disabled'] : ''
-    const checkboxClass = cx(style['checkbox-component'], optClass, disabledClass)
+    const allowNativeClass = this.props.allowNative ? style['checkbox-native'] : null
+    const descriptionClass = this.props.description ? style['has-description'] : null
+    const checkboxClass = cx(style['checkbox-component'], allowNativeClass, descriptionClass, disabledClass, optClass)
     const inputFillColor = this.props.disabled ? '#9198A0' : '#3C97D3'
+    const labelWrapperClass = this.props.description ? style['label-group'] : null
 
     return (
       <div className={checkboxClass}>
-        <input type="checkbox"
-          checked={this.state.value}
-          onChange={this.handleChange}
-          {...other}>
-        </input>
-        <div>
-          { label && labelPosition === 'left' ? <label className={style['label-left']}>{label}</label> : null }
+        <input type='checkbox' id={this.props.forLabelAttr} checked={this.state.value} onChange={this.handleChange} value={value} disabled={disabled} name={name} label={label}></input>
+        <div className={labelWrapperClass}>
           <div className={style['checkbox-input']}>
-            <Icon name='icon-check-1-1' fill={inputFillColor} />
+            <Icon name={this.state.iconName} fill={inputFillColor} />
           </div>
-          { label && labelPosition === 'right' ? <label className={style['label-right']}>{label}</label> : null }
+          {this.getLabel()}
         </div>
       </div>
     )

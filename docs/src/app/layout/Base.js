@@ -6,7 +6,7 @@ import svg4everybody from 'svg4everybody'
 import style from 'private/css/base'
 import Sidebar from './Sidebar'
 import Main from './Main'
-import Breadcrumb from 'react-conventions/lib/Breadcrumb'
+import Breadcrumb from 'react-ions/lib/components/Breadcrumb'
 
 class Base extends React.Component {
   constructor(props) {
@@ -55,7 +55,7 @@ class Base extends React.Component {
           <div className={!this.state.sidebarCollapsed ? contentClass : contentClassSidebarActive}>
             { currentBasePage ?
             <div className={!this.state.breadcrumbActive ? breadcrumbClass : breadcrumbActive}>
-              <Breadcrumb routes={this.props.routes} />
+              <Breadcrumb routes={this.props.routes} gradientColor='#ECF0F0' padding={15} />
             </div>
             : null
             }

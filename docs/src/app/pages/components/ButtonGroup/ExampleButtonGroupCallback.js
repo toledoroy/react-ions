@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonGroup from 'react-conventions/lib/ButtonGroup/ButtonGroup'
+import ButtonGroup from 'react-ions/lib/components/ButtonGroup/ButtonGroup'
 import style from './style'
 
 class ExampleButtonGroupCallback extends React.Component {
@@ -32,7 +32,6 @@ class ExampleButtonGroupCallback extends React.Component {
     return(
       <div>
         <ButtonGroup
-          label="Callback button group label"
           name="callback-button-group"
           options={options}
           changeCallback={this.handleChange}>

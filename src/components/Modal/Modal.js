@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 import Overlay from './Overlay'
@@ -23,34 +24,34 @@ class Modal extends React.Component {
      * Action buttons to display below the Modal content (`children`).
      * This property accepts either a React element, or an array of React elements.
      */
-    actions: React.PropTypes.node,
+    actions: PropTypes.node,
     /**
      * Controls whether the Modal is opened or not.
      */
-    open: React.PropTypes.bool.isRequired,
+    open: PropTypes.bool.isRequired,
     /**
      * When set to true it will force the user to use one of the actions in the `Modal`.
      * Clicking outside the `Modal` will not trigger the `onRequestClose` in that case.
      */
-    closeOnAction: React.PropTypes.bool,
+    closeOnAction: PropTypes.bool,
     /**
      * Fired when the `Modal` is requested to be closed by a click outside the `Modal` or on the buttons.
      *
      * @param {bool} buttonClicked Determines whether a button click triggered this request.
      */
-    onRequestClose: React.PropTypes.func,
+    onRequestClose: PropTypes.func,
     /**
      * The title to display on the `Modal`. Could be number, string, element or an array containing these types.
      */
-    title: React.PropTypes.node,
+    title: PropTypes.node,
     /**
      * Optional styles to add to the modal.
      */
-    optClass: React.PropTypes.string,
+    optClass: PropTypes.string,
     /**
      * The size of the modal. The default is 'md' (medium).
      */
-    size: React.PropTypes.oneOf(['sm', 'md', 'lg'])
+    size: PropTypes.oneOf(['sm', 'md', 'lg'])
   }
 
   handleKeyUp = (event) => {
@@ -96,6 +97,8 @@ class Modal extends React.Component {
     const modalSizeClass = this.props.size ? style['modal-' + this.props.size] : ''
     const modalClass = cx(style['modal-component'], this.props.optClass, modalOpenClass)
     const modalContentClass = cx(style['modal-content'], modalSizeClass)
+    const modalTitleIsElement = !(typeof this.props.title === 'string')
+    const modalTitle = modalTitleIsElement ?  this.props.title : <h1>{this.props.title}</h1>
 
     const actionsContainer = React.Children.count(this.props.actions) > 0 && (
       <div className={style['modal-actions']}>
@@ -114,10 +117,21 @@ class Modal extends React.Component {
           />
           <div className={modalContentClass}>
             <div className={style['modal-header']}>
-              {!this.props.closeOnAction ? <div className={style['modal-close']}>
-                <Icon name='icon-delete-1' width='12' height='12' onClick={this.handleCloseClick} />
-              </div> : null}
-              {this.props.title ? <h1>{this.props.title}</h1> : null}
+              {
+                //render close button if closeOnAction is false and modalTitle is not an element
+                !this.props.closeOnAction && !modalTitleIsElement
+                  ? <div className={style['modal-close']}>
+                      <Icon
+                        name="icon-delete-1"
+                        width="12"
+                        height="12"
+                        onClick={this.handleCloseClick}
+                      />
+                    </div>
+                  : null
+              }
+
+              {modalTitle}
             </div>
             <div className={style['modal-body']}>
               {this.props.children}

@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonGroup from 'react-conventions/lib/ButtonGroup/ButtonGroup'
+import ButtonGroup from 'react-ions/lib/components/ButtonGroup/ButtonGroup'
 
 const options = [
   {
@@ -18,7 +18,6 @@ const disabled = true
 
   const ExampleButtonGroupDisabled = () => (
   <ButtonGroup
-    label="Disabled button group label"
     name="disabled-button-group"
     options={options}
     disabled={disabled}>

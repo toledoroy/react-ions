@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import moment from 'moment'
 import SelectField from '../SelectField/SelectField'
 import style from './style.scss'
@@ -47,34 +48,38 @@ class DatePicker extends React.Component {
     /**
      * Max date - object with month, day, year.
      */
-    max: React.PropTypes.object,
+    max: PropTypes.object,
     /**
      * Min date - object with month, day, year.
      */
-    min: React.PropTypes.object,
+    min: PropTypes.object,
     /**
      * Date string.
      */
-    value: React.PropTypes.string,
+    value: PropTypes.string,
     /**
      * Date format - any valid Moment.js format string.
      */
-    format: React.PropTypes.string,
+    format: PropTypes.string,
     /**
      * A callback function to be called when the value changes.
      */
-    changeCallback: React.PropTypes.func,
+    changeCallback: PropTypes.func,
     /**
      * Optional CSS class(es) to be used for local styles (string or array of strings)
      */
-    optClass: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.string
+    optClass: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
     ]),
     /**
      * If true, will display the inputs inline on smaller screens (default 100% width)
      */
-    inlineSmallScreen: React.PropTypes.bool
+    inlineSmallScreen: PropTypes.bool,
+    /**
+     * Text shown above the date picker.
+     */
+    label: PropTypes.string
   }
 
   _initDate = (date, format) => {
@@ -326,32 +331,39 @@ class DatePicker extends React.Component {
   }
 
   render() {
-    const inlineSmallScreen = this.props.inlineSmallScreen ? style['inline-small-screen'] : null
-    const componentClass = optclass(style, ['datepicker-component', inlineSmallScreen], this.props.optClass)
+    const { inlineSmallScreen, label, optClass } = this.props
+    const inlineSmallScreenClass = inlineSmallScreen ? style['inline-small-screen'] : null
+    const componentClass = optclass(style, ['datepicker-component', inlineSmallScreenClass], optClass)
 
     return (
       <div className={componentClass}>
-        <SelectField
-          options={this.state.month.options}
-          valueProp='value'
-          displayProp='display'
-          value={this.state.month.value.toString()}
-          changeCallback={this.handleChangeMonth}
-        />
-        <SelectField
-          options={this.state.day.options}
-          valueProp='value'
-          displayProp='value'
-          value={this.state.day.value.toString()}
-          changeCallback={this.handleChangeDay}
-        />
-        <SelectField
-          options={this.state.year.options}
-          valueProp='value'
-          displayProp='value'
-          value={this.state.year.value.toString()}
-          changeCallback={this.handleChangeYear}
-        />
+        { label && <label>{label}</label> }
+        <div className={style['datepicker']}>
+          <SelectField
+            options={this.state.month.options}
+            valueProp='value'
+            displayProp='display'
+            value={this.state.month.value.toString()}
+            changeCallback={this.handleChangeMonth}
+            placeholder='Month'
+          />
+          <SelectField
+            options={this.state.day.options}
+            valueProp='value'
+            displayProp='value'
+            value={this.state.day.value.toString()}
+            changeCallback={this.handleChangeDay}
+            placeholder='Day'
+          />
+          <SelectField
+            options={this.state.year.options}
+            valueProp='value'
+            displayProp='value'
+            value={this.state.year.value.toString()}
+            changeCallback={this.handleChangeYear}
+            placeholder='Year'
+          />
+        </div>
       </div>
     )
   }
