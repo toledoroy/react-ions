@@ -145,29 +145,31 @@ class Input extends React.Component {
     const prefixClass = prefix ? style['prefix'] : null
     const suffixClass = suffix ? style['suffix'] : null
     const inputClass = cx(style['input-component'], optClass, disabledClass, prefixClass, suffixClass)
+    const inputContainerClass = style['input-container']
 
     return (
       <div className={inputClass}>
         {label && <label>{label}</label>}
+        <div className={inputContainerClass}>
+          {prefix && <div ref={(c) => this._prefix = c} className={prefixClass}>{prefix}</div>}
 
-        {prefix && <div ref={(c) => this._prefix = c} className={prefixClass}>{prefix}</div>}
+          <input
+            ref={(c) => this._input = c}
+            value={this.state.value}
+            onFocus={this.handleFocus}
+            onChange={this.handleChange}
+            onClick={this.props.onClick}
+            onBlur={this.handleBlur}
+            disabled={this.props.disabled}
+            placeholder={this.props.placeholder}
+            style={this.state.inputStyles}
+            onKeyUp={this.props.onKeyUp}
+            onKeyPress={this.props.onKeyPress}
+            onKeyDown={this.props.onKeyDown}>
+          </input>
 
-        <input
-          ref={(c) => this._input = c}
-          value={this.state.value}
-          onFocus={this.handleFocus}
-          onChange={this.handleChange}
-          onClick={this.props.onClick}
-          onBlur={this.handleBlur}
-          disabled={this.props.disabled}
-          placeholder={this.props.placeholder}
-          style={this.state.inputStyles}
-          onKeyUp={this.props.onKeyUp}
-          onKeyPress={this.props.onKeyPress}
-          onKeyDown={this.props.onKeyDown}>
-        </input>
-
-        {suffix && <div ref={(c) => this._suffix = c} className={suffixClass}>{suffix}</div>}
+          {suffix && <div ref={(c) => this._suffix = c} className={suffixClass}>{suffix}</div>}
+        </div>
       </div>
     )
   }

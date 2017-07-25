@@ -11,6 +11,8 @@ import ExampleInputDisabled from './ExampleInputDisabled'
 import exampleInputDisabledCode from '!raw!./ExampleInputDisabled'
 import ExampleInputError from './ExampleInputError'
 import exampleInputErrorCode from '!raw!./ExampleInputError'
+import ExampleInputLabel from './ExampleInputLabel'
+import exampleInputLabel from '!raw!./ExampleInputLabel'
 import ExampleInputCallback from './ExampleInputCallback'
 import exampleInputCallbackCode from '!raw!./ExampleInputCallback'
 import ExampleInputPopulated from './ExampleInputPopulated'
@@ -27,6 +29,7 @@ const description = {
   inputPlaceholder: 'This is the `input component` with placeholder text.',
   inputDisabled: 'This is the disabled `input component`.',
   inputError: 'This is the `input component` with error.',
+  inputWithLabel: 'This is the `input component` with a label.',
   inputCallback: 'This is the `input component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
   inputNumber: 'This is the `input component` with different types.',
   inputPrefix: 'This is the `input component` with a prefix.',
@@ -60,6 +63,12 @@ const InputPage = () => (
           description={description.inputError}
           markup={exampleInputErrorCode}>
           <ExampleInputError />
+        </CodeExample>
+        <CodeExample
+          title='Input with Label'
+          description={description.inputWithLabel}
+          markup={exampleInputLabel}>
+          <ExampleInputLabel />
         </CodeExample>
         <CodeExample
           title='Input with callback function(s)'
