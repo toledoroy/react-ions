@@ -31,7 +31,7 @@ Button.propTypes = {
   /**
    * The size of button (default or large).
    */
-  size: PropTypes.oneOf(['large']),
+  size: PropTypes.oneOf(['large', 'lg']),
   /**
    * Whether the button is disabled.
    */
