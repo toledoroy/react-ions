@@ -5,31 +5,51 @@
 .btn {
   @include vertical-align('inline');
   @include button-context($primary-1, $white);
-  border: 1px solid transparent;
+  border: 1px solid rgba(37, 50, 64, 0.2);
   border-radius: 3px;
   cursor: pointer;
+  outline: none;
   font-size: 14px;
   font-weight: 200;
-  line-height: 1em;
+  line-height: 1.1;
   margin-right: 12px;
-  padding: 8px;
+  padding: 8px 16px;
   text-decoration: none;
   transform: translateY(0);
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
 
+  &:hover,
+  &:focus {
+    box-shadow: 0 2px 8px 0 rgba($primary-3, 0.2);
+  }
+
+  &:active {
+    box-shadow: inset 0 2px 4px 0 rgba($primary-3, 0.1), 0 2px 8px 0 rgba($primary-3, 0.1);
+  }
+
   svg {
     fill: $white;
   }
 
   em {
+    align-items: center;
+    display: flex;
     font-style: normal;
   }
 
-  &.loading > em,
-  &.loading + svg {
-    opacity: 0;
+  &.loading {
+    cursor: not-allowed;
+    opacity: .65;
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    > em, + svg {
+      opacity: 0;
+    }
   }
 
   &.fill {
@@ -38,15 +58,17 @@
     width: 100%;
   }
 
-  // Button size(s)
   &.lg  {
-    padding: 11px 8px;
-    position: relative;
+    padding: 12px 16px;
   }
 
   // Button types
   &.success {
     @include button-context($green, $white);
+  }
+
+  &.attention {
+    @include button-context($warning, $white);
   }
 
   &.danger {
@@ -83,28 +105,21 @@
     @include button-context($white, $primary-1);
   }
 
-  em > span {
-    float: left;
+  &:disabled,
+  &.disabled {
+    @include button-context($neutral-3, #233040);
+    cursor: not-allowed;
+    opacity: .65;
+
+    &:hover {
+      box-shadow: none;
+    }
   }
 
   // To handle inline icons
   svg + span,
   span + svg {
     margin-left: 6px;
-  }
-
-  span + svg {
-    float: right;
-  }
-
-  // for Firefox
-  svg,
-  svg ~ span {
-    float: left;
-  }
-
-  svg + svg {
-    float: none;
   }
 
   @media #{$media-small-minus} {
