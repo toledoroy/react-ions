@@ -60,7 +60,11 @@ class SelectField extends React.Component {
     /**
      * Text shown above the select field.
      */
-    label: PropTypes.string
+    label: PropTypes.string,
+    /**
+     * An optional style object to render inline CSS.
+     */
+    style: PropTypes.object
   }
 
   state = {
@@ -185,7 +189,7 @@ class SelectField extends React.Component {
     }
 
     return (
-      <div className={selectFieldClass}>
+      <div className={selectFieldClass} style={this.props.style}>
         <input type='hidden' name='selectfield-value' value={value} />
         { label && <label>{label}</label> }
         <div className={style['selectfield-value']} onClick={this.toggleSelectField}>
