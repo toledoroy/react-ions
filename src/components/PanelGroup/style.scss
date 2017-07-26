@@ -16,11 +16,13 @@
       font-weight: 200;
       padding: 12px 15px;
       position: relative;
-      user-select: none;
+      /* TODO: reintroduce this style if/when https://bugs.chromium.org/p/chromium/issues/detail?id=749165 is resolved
+      user-select: none; */
 
       .title-group {
         @include vertical-align('block');
-        user-select: none;
+        /* TODO: reintroduce this style if/when https://bugs.chromium.org/p/chromium/issues/detail?id=749165 is resolved
+        user-select: none; */
 
         h4 {
           color: $neutral-4;
