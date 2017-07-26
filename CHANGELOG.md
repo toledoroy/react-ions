@@ -1,5 +1,18 @@
 ## HEAD
 
+## 2.0.3
+###### _July 26, 2017_
+
+SelectField: Adding style prop for inline style. [#474](https://github.com/GetAmbassador/react-ions/pull/474))
+
+PanelGroup: Remove user-select: none until Chrome bug is resolved. [#473](https://github.com/GetAmbassador/react-ions/pull/473))
+
+ColorPicker: Implement padding now that there's a child node. [#472](https://github.com/GetAmbassador/react-ions/pull/472))
+
+Input: Changed structure of Input to fix style issue when a label is present. [#469](https://github.com/GetAmbassador/react-ions/pull/469))
+
+DatePicker: addressing date picker border width issues. [#468](https://github.com/GetAmbassador/react-ions/pull/468))
+
 ## 2.0.2
 ###### _July 20, 2017_
 
