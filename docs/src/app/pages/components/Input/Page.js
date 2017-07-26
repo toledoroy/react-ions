@@ -11,21 +11,29 @@ import ExampleInputDisabled from './ExampleInputDisabled'
 import exampleInputDisabledCode from '!raw!./ExampleInputDisabled'
 import ExampleInputError from './ExampleInputError'
 import exampleInputErrorCode from '!raw!./ExampleInputError'
+import ExampleInputLabel from './ExampleInputLabel'
+import exampleInputLabel from '!raw!./ExampleInputLabel'
 import ExampleInputCallback from './ExampleInputCallback'
 import exampleInputCallbackCode from '!raw!./ExampleInputCallback'
 import ExampleInputPopulated from './ExampleInputPopulated'
 import exampleInputPopulatedCode from '!raw!./ExampleInputPopulated'
 import ExampleInputNumber from './ExampleInputNumber'
 import exampleInputNumberCode from '!raw!./ExampleInputNumber'
-
+import ExampleInputPrefix from './ExampleInputPrefix'
+import exampleInputPrefixCode from '!raw!./ExampleInputPrefix'
+import ExampleInputSuffix from './ExampleInputSuffix'
+import exampleInputSuffixCode from '!raw!./ExampleInputSuffix'
 
 const description = {
   inputDefault: 'This is the `input component` as it appears by default.',
   inputPlaceholder: 'This is the `input component` with placeholder text.',
   inputDisabled: 'This is the disabled `input component`.',
   inputError: 'This is the `input component` with error.',
+  inputWithLabel: 'This is the `input component` with a label.',
   inputCallback: 'This is the `input component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
-  inputNumber: 'This is the `input component` with different types.'
+  inputNumber: 'This is the `input component` with different types.',
+  inputPrefix: 'This is the `input component` with a prefix.',
+  inputSuffix: 'This is the `input component` with a suffix.'
 }
 
 const InputPage = () => (
@@ -57,6 +65,12 @@ const InputPage = () => (
           <ExampleInputError />
         </CodeExample>
         <CodeExample
+          title='Input with Label'
+          description={description.inputWithLabel}
+          markup={exampleInputLabel}>
+          <ExampleInputLabel />
+        </CodeExample>
+        <CodeExample
           title='Input with callback function(s)'
           description={description.inputCallback}
           markup={exampleInputCallbackCode}>
@@ -73,6 +87,18 @@ const InputPage = () => (
           description={description.inputNumber}
           markup={exampleInputNumberCode}>
           <ExampleInputNumber />
+        </CodeExample>
+        <CodeExample
+          title='Input with prefix'
+          description={description.inputPrefix}
+          markup={exampleInputPrefixCode}>
+          <ExampleInputPrefix />
+        </CodeExample>
+        <CodeExample
+          title='Input with suffix'
+          description={description.inputSuffix}
+          markup={exampleInputSuffixCode}>
+          <ExampleInputSuffix />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
