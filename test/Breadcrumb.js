@@ -89,4 +89,10 @@ describe('Breadcrumb', () => {
 
     expect(wrapper.instance().shouldComponentUpdate(null, updatedRoutes)).to.be.true
   })
+
+  it('can take an optclass', () => {
+    wrapper = shallow(<Breadcrumb routes={routes} optClass='test' />)
+
+    expect(wrapper.hasClass('breadcrumbs-outer test')).to.be.true
+  })
 })
