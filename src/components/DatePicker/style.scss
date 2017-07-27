@@ -51,9 +51,10 @@
       }
     }
   }
-}
 
-.datepicker-component.inline-small-screen {
+  // this allows the 'selected' border
+  // to display all the way around the field
+  // when active
   [class^='selectfield-component'] {
     &[class*='active'] {
       [class^='selectfield-value'] {
@@ -61,7 +62,9 @@
       }
     }
   }
+}
 
+.datepicker-component.inline-small-screen {
   @media #{$media-small-minus} {
     min-width: auto;
   }
