@@ -80,11 +80,14 @@ class FormGroup extends React.Component {
       val = event.target.checked
     }
 
-    this.setState(prevState => ({
-      fields: prevState.fields
-        .setIn([event.target.name, 'value'], val)
-        .setIn([event.target.name, 'option'], option)
-    }), () => {
+    this.setState(prevState => {
+      let fields = prevState.fields.setIn([event.target.name, 'value'], val)
+
+      if (option) {
+        fields = fields.setIn([event.target.name, 'option'], option)
+      }
+      return { fields }
+    }, () => {
       if (this.props.changeCallback) {
         this.props.changeCallback(this.state.fields.toJS())
       }
