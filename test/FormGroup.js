@@ -5,6 +5,7 @@ import Button from '../src/components/Button'
 import Input from '../src/components/Input'
 import Textarea from '../src/components/Textarea'
 import Toggle from '../src/components/Toggle'
+import SelectField from '../src/components/SelectField'
 
 describe('FormGroup', () => {
   let formGroup, wrapper
@@ -198,6 +199,36 @@ describe('FormGroup', () => {
     button.simulate('submit')
 
     expect(submitCallback.calledOnce).to.be.true
+  })
+
+  it('should set full option object when available', () => {
+    const options = [
+      {countryCode: 'AF', countryName: 'Afghanistan'},
+      {countryCode: 'AL', countryName: 'Albania'}
+    ]
+
+    const changeCallback = sinon.spy()
+
+    const schema = {
+      'country': {
+        'value':'AF'
+      }
+    }
+
+    wrapper = shallow(<FormGroup changeCallback={changeCallback} schema={schema}><SelectField name='country' label='Country' options={options} valueProp='value' displayProp='display' /></FormGroup>)
+
+    const event = {
+      target: {
+        name: 'country',
+        value: 'AL',
+        option: options[1]
+      }
+    }
+    wrapper.instance().handleChange(event)
+
+    expect(changeCallback.calledOnce).to.be.true
+    expect(wrapper.state().fields.getIn(['country', 'value'])).to.equal('AL')
+    expect(wrapper.state().fields.getIn(['country', 'option'])).to.equal(options[1])
   })
 
 })
