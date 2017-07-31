@@ -215,7 +215,7 @@ describe('FormGroup', () => {
       }
     }
 
-    wrapper = mount(<FormGroup changeCallback={changeCallback} schema={schema}><SelectField name='country' label='Country' options={options} valueProp='value' displayProp='display' /></FormGroup>)
+    wrapper = shallow(<FormGroup changeCallback={changeCallback} schema={schema}><SelectField name='country' label='Country' options={options} valueProp='value' displayProp='display' /></FormGroup>)
 
     const event = {
       target: {
