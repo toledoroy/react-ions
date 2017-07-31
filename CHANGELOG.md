@@ -1,5 +1,12 @@
 ## HEAD
 
+## 2.0.4
+###### _July 31, 2017_
+
+- FormGroup: pass full option object when available. [#477](https://github.com/GetAmbassador/react-ions/pull/477)
+
+- DatePicker: Address z-index so that entire border is visible on inline select fields. [#476](https://github.com/GetAmbassador/react-ions/pull/476)
+
 ## 2.0.3
 ###### _July 26, 2017_
 
