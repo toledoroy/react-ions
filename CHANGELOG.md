@@ -1,5 +1,10 @@
 ## HEAD
 
+## 2.0.4
+###### _July 31, 2017_
+
+- FormGroup: pass full option object when available. [#477](https://github.com/GetAmbassador/react-ions/pull/477)
+
 ## 2.0.3
 ###### _July 26, 2017_
 
