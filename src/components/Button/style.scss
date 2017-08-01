@@ -53,6 +53,10 @@
     @include button-context($danger, $white);
   }
 
+  &.warning {
+    @include button-context($warning, $white);
+  }
+
   &.danger-alt {
     @include button-context(transparent, $danger);
   }
