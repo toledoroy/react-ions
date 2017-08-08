@@ -1,5 +1,10 @@
 ## HEAD
 
+## 2.0.5
+###### _August 8, 2017_
+
+- ButtonGroup: include name prop on radio so the value can be reconciled in FormGroup. [#481](https://github.com/GetAmbassador/react-ions/pull/481)
+
 ## 2.0.4
 ###### _July 31, 2017_
 
