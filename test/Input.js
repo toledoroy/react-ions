@@ -128,4 +128,9 @@ describe('Input', () => {
     expect(spy.calledOnce).to.be.true
     expect(spy.getCall(0).args[0].target.value).to.equal(19.89)
   })
+
+  it('should render an inline style tag', () => {
+    wrapper = shallow(<Input width='100' />)
+    expect(wrapper.childAt(0).props().style).to.deep.equal({width: '100px'})
+  })
 })
