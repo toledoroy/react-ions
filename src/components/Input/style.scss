@@ -17,6 +17,7 @@
     position: relative;
 
     .prefix, .suffix {
+      color: $primary-4;
       position: absolute;
       top: 12px;
     }
