@@ -94,7 +94,7 @@ class Input extends React.Component {
      */
     onKeyDown: PropTypes.func,
     /**
-     * A helper will render inline style='width: <value>px'
+     * A helper will render inline style='width: <value>'
      */
     width: PropTypes.string
   }
@@ -146,7 +146,7 @@ class Input extends React.Component {
     const {prefix, suffix, label, value, optClass} = this.props
     const cx = classNames.bind(style)
     const disabledClass = this.props.disabled ? style['input-disabled'] : null
-    const widthStyle = this.props.width ? { width: this.props.width + 'px' } : null
+    const widthStyle = this.props.width ? { width: this.props.width } : null
     const prefixClass = prefix ? style['prefix'] : null
     const suffixClass = suffix ? style['suffix'] : null
     const inputClass = cx(style['input-component'], optClass, disabledClass, prefixClass, suffixClass)
