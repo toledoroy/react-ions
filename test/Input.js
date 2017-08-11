@@ -130,7 +130,7 @@ describe('Input', () => {
   })
 
   it('should render an inline style tag', () => {
-    wrapper = shallow(<Input width='100' />)
+    wrapper = shallow(<Input width='100px' />)
     expect(wrapper.childAt(0).props().style).to.deep.equal({width: '100px'})
   })
 })
