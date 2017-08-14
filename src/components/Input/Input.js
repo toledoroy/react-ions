@@ -93,6 +93,10 @@ class Input extends React.Component {
      * A callback function to be called when the onkeydown event is fired.
      */
     onKeyDown: PropTypes.func,
+    /**
+     * A helper will render inline style='width: <value>'
+     */
+    width: PropTypes.string
   }
 
   componentDidMount = () => {
@@ -142,6 +146,7 @@ class Input extends React.Component {
     const {prefix, suffix, label, value, optClass} = this.props
     const cx = classNames.bind(style)
     const disabledClass = this.props.disabled ? style['input-disabled'] : null
+    const widthStyle = this.props.width ? { width: this.props.width } : null
     const prefixClass = prefix ? style['prefix'] : null
     const suffixClass = suffix ? style['suffix'] : null
     const inputClass = cx(style['input-component'], optClass, disabledClass, prefixClass, suffixClass)
@@ -150,7 +155,7 @@ class Input extends React.Component {
     return (
       <div className={inputClass}>
         {label && <label>{label}</label>}
-        <div className={inputContainerClass}>
+        <div className={inputContainerClass} style={widthStyle}>
           {prefix && <div ref={(c) => this._prefix = c} className={prefixClass}>{prefix}</div>}
 
           <input
