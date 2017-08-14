@@ -1,0 +1,37 @@
+@import '../../styles/common/colors';
+
+.header-wrapper {
+  align-items: center;
+  min-height: 76px;
+  border-radius: 3px 3px 0 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: $primary-1;
+  box-sizing: border-box;
+  padding: 24px;
+
+  [class^='modal-close'] {
+    top: -4px;
+    position: relative;
+  }
+
+  .header-content {
+    > h1 {
+      color: $white;
+      font-size: 22px;
+      margin: 0 !important;
+    }
+
+    p {
+      color: $white;
+      margin: 10px 0 0;
+    }
+  }
+
+  .modal-close {
+    svg {
+      cursor: pointer;
+    }
+  }
+}

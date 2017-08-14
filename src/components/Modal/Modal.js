@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import style from './style.scss'
+import themesStyles from './Themes/themes.scss'
 import Overlay from './Overlay'
 import RenderToLayer from '../internal/RenderToLayer'
 import Icon from '../Icon'
@@ -51,7 +52,11 @@ class Modal extends React.Component {
     /**
      * The size of the modal. The default is 'md' (medium).
      */
-    size: PropTypes.oneOf(['sm', 'md', 'lg'])
+    size: PropTypes.oneOf(['sm', 'md', 'lg']),
+    /**
+     * Optional theme to apply.
+     */
+    theme: PropTypes.string
   }
 
   handleKeyUp = (event) => {
@@ -93,9 +98,10 @@ class Modal extends React.Component {
 
   renderModal = () => {
     const cx = classNames.bind(style)
+    const theme = themesStyles[this.props.theme]
     const modalOpenClass = this.props.open ? style['modal-open'] : ''
     const modalSizeClass = this.props.size ? style['modal-' + this.props.size] : ''
-    const modalClass = cx(style['modal-component'], this.props.optClass, modalOpenClass)
+    const modalClass = cx(style['modal-component'], this.props.optClass, modalOpenClass, theme)
     const modalContentClass = cx(style['modal-content'], modalSizeClass)
     const modalTitleIsElement = !(typeof this.props.title === 'string')
     const modalTitle = modalTitleIsElement ?  this.props.title : <h1>{this.props.title}</h1>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import Modal from '../src/components/Modal/Modal'
+import Header from '../src/components/Modal/Header'
 
 describe('Modal', () => {
   let wrapper
@@ -149,6 +150,12 @@ describe('Modal', () => {
     wrapper = mount(<Modal title="Test title" open={modalOpen} optClass="extra-class">Test modal content</Modal>)
 
     expect(document.body.getElementsByClassName('extra-class')).to.have.length(1)
+  })
+
+  it('should set the theme', () => {
+    wrapper = mount(<Modal title="Modal Title" open={modalOpen} theme="color-splash">Test modal content</Modal>)
+
+    expect(document.body.getElementsByClassName('color-splash')).to.have.length(1)
   })
 
   it('should have actions in the footer', () => {
