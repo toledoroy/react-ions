@@ -8,6 +8,7 @@ const Radio = (props) => {
     label,
     optClass,
     description,
+    width,
     ...other
   } = props
 
@@ -41,7 +42,7 @@ const Radio = (props) => {
   }
 
   return (
-    <div className={radioClass}>
+    <div className={radioClass} style={{minWidth: props.width}}>
       <input type="radio" onChange={handleChange} value={props.value} name={props.name} disabled={props.disabled} checked={props.checked}></input>
       <div className={labelWrapperClass}>
         <div className={style['radio-input']}></div>
@@ -88,7 +89,11 @@ Radio.propTypes = {
   /**
    * An optional string that appears below the label
    */
-  description: PropTypes.string
+  description: PropTypes.string,
+  /**
+   * An optional string that inlines a style tag with `width='<STRING>'`
+   */
+  width: PropTypes.string
 }
 
 export default Radio
