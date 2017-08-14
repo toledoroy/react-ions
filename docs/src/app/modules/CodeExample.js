@@ -69,9 +69,12 @@ class CodeExample extends React.Component {
   }
 
   generateRawMarkup = () => {
-    const text = `\`\`\`js
-    ${this.props.markup}
-    \`\`\``
+    // Looks ugly but needs to be formatted this way to avoid a tab on the first line
+    const text = (
+      `\`\`\`js
+${this.props.markup}
+      \`\`\``
+    )
 
     return {
       __html: marked(text)
