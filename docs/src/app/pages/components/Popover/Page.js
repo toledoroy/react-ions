@@ -7,7 +7,7 @@ import ExamplePopover from './ExamplePopover'
 import examplePopoverCode from '!raw!./ExamplePopover'
 
 const description = {
-  popoverDefault: 'This is the default `popover` component.'
+  popoverDefault: 'This is the `popover component` as it appears by default.'
 }
 
 const PopoverPage = () => (

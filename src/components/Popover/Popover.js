@@ -14,10 +14,25 @@ export class Popover extends React.Component {
   }
 
   static propTypes = {
+    /**
+     * Whether to show the popover.
+     */
     showing: PropTypes.bool,
+    /**
+     * The default position of the popover.
+     */
     defaultPosition: PropTypes.oneOf(['top', 'bottom']),
+    /**
+     * The content to display inside the popover.
+     */
     content: PropTypes.node,
+    /**
+     * Optional styles to add to the checkbox.
+     */
     optClass: PropTypes.string,
+    /**
+     * The method to be triggered on close.
+     */
     onRequestClose: PropTypes.func
   }
 

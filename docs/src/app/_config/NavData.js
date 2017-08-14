@@ -43,6 +43,9 @@ const nav = [
         name: 'Checkbox',
         action: '/components/checkbox'
       }, {
+        name: 'Chip',
+        action: '/components/chip'
+      }, {
         name: 'Color Picker',
         action: '/components/color-picker'
       }, {
