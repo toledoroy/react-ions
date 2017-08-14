@@ -82,6 +82,9 @@ const nav = [
         name: 'Panel Group',
         action: '/components/panel-group'
       }, {
+        name: 'Popover',
+        action: '/components/popover'
+      }, {
         name: 'Progress Bar',
         action: '/components/progress-bar'
       }, {

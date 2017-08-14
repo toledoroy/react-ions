@@ -31,6 +31,7 @@ import InputListPage from './pages/components/InputList/Page'
 import InlineEditPage from './pages/components/InlineEdit/Page'
 import MultiSelectPage from './pages/components/MultiSelect/Page'
 import TooltipPage from './pages/components/Tooltip/Page'
+import PopoverPage from './pages/components/Popover/Page'
 import ProgressBarPage from './pages/components/ProgressBar/Page'
 import PanelGroupPage from './pages/components/PanelGroup/Page'
 import SelectFieldPage from './pages/components/SelectField/Page'
@@ -74,8 +75,9 @@ const Routes = (
       <Route path='modal' title='Modal' component={ModalPage} />
       <Route path='multi-select' title='Multi Select' component={MultiSelectPage} />
       <Route path='nav' title='Nav' component={NavPage} />
-      <Route path='progress-bar' title='Progress Bar' component={ProgressBarPage} />
       <Route path='panel-group' title='Panel Group' component={PanelGroupPage} />
+      <Route path='popover' title='Popover' component={PopoverPage} />
+      <Route path='progress-bar' title='Progress Bar' component={ProgressBarPage} />
       <Route path='select-field' title='Select Field' component={SelectFieldPage} />
       <Route path='sortable-list' title='Sortable List' component={SortableListPage} />
       <Route path='spinner' title='Spinner' component={SpinnerPage} />
@@ -92,4 +94,4 @@ const Routes = (
   </Route>
 )
 
-export default Routes;
+export default Routes
