@@ -3,7 +3,7 @@
 .chip-wrapper {
   background-color: $neutral-4;
   border-radius: 2px;
-  color: $white;
+  color: $primary-4;
   display: inline-flex;
   font-size: 12px;
   font-weight: normal;
@@ -19,7 +19,6 @@
   }
 
   &.smaller {
-    color: $primary-4;
     font-size: 10px;
     font-weight: 200;
     padding: 5px 8px 3px;

@@ -2,7 +2,7 @@ import React from 'react'
 import Chip from 'react-ions/lib/components/Chip'
 
 const ExampleChipSmaller = () => (
-  <Chip text='Default' size='smaller' color='success' />
+  <Chip text='High Contrast' size='smaller' color='neutral-1' />
 )
 
 export default ExampleChipSmaller
