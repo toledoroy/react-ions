@@ -63,4 +63,9 @@ describe('Radio', () => {
     wrapper = shallow(<Radio value='test' label='Test label' description='Test description'></Radio>)
     expect(wrapper.childAt(1).childAt(1).childAt(0).childAt(1).hasClass('label-description')).to.be.true
   })
+
+  it('should return a min width attribute', () => {
+    wrapper = shallow(<Radio value='test' width='20px'></Radio>)
+    expect(wrapper.props().style).to.deep.equal({minWidth: '20px'})
+  })
 })
