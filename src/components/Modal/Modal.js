@@ -56,7 +56,7 @@ class Modal extends React.Component {
     /**
      * Optional theme to apply.
      */
-    theme: PropTypes.string
+    theme: PropTypes.oneOf(['color-splash'])
   }
 
   handleKeyUp = (event) => {
