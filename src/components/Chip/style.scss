@@ -52,4 +52,8 @@
     background-color: $success;
     color: $white;
   }
+
+  &.is-actionable {
+    cursor: pointer;
+  }
 }
