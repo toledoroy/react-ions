@@ -4,12 +4,11 @@ import optclass from '../internal/OptClass'
 import style from './style.scss'
 
 const Chip = (props) => {
-  const actionable = props.onClick ? 'actionable' : null
-  const chipClasses = optclass(style, ['chip-wrapper', props.color, props.size, props.optClass, actionable])
+  const chipClasses = optclass(style, ['chip-wrapper', props.color, props.size, props.optClass])
 
   return (
     <span className={chipClasses}>
-      <span onClick={props.onClick}>{props.text}</span>
+      <span>{props.text}</span>
     </span>
   )
 }
@@ -26,10 +25,6 @@ Chip.propTypes = {
     'primary-darker',
     'success'
   ]),
-  /**
-   * Optional click callback.
-   */
-  onClick: PropTypes.func,
   /**
    * Optional styles to add to the chip.
    */
