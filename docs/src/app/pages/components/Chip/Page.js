@@ -16,7 +16,7 @@ const description = {
   chipDefault: 'This is the `chip component` as it appears by default.',
   chipLarger: 'This is the larger `chip component`.',
   chipSmaller: 'This is the smaller `chip component`.',
-  chipSmaller: 'This is `chip component` with a click callback.'
+  chipClickCallback: 'This is the `chip component` with a click callback.'
 }
 
 const ChipPage = () => (
