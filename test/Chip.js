@@ -3,12 +3,9 @@ import { shallow } from 'enzyme'
 import Chip from '../src/components/Chip'
 
 describe('Chip', () => {
-
   const shallowRender = (propOverrides) => {
     return shallow(
-      <Chip
-        {...propOverrides}
-      />
+      <Chip {...propOverrides} />
     )
   }
 
@@ -30,5 +27,10 @@ describe('Chip', () => {
   it('should render with a size class', () => {
     const wrapper = shallowRender({size: 'smaller'})
     expect(wrapper.hasClass('chip-wrapper primary smaller')).to.be.true
+  })
+
+  it('should render with an actionable class', () => {
+    const wrapper = shallowRender({onClick: () => { }})
+    expect(wrapper.hasClass('chip-wrapper primary actionable')).to.be.true
   })
 })
