@@ -31,6 +31,6 @@ describe('Chip', () => {
 
   it('should render with an actionable class', () => {
     const wrapper = shallowRender({clickCallback: () => { }})
-    expect(wrapper.hasClass('chip-wrapper primary actionable')).to.be.true
+    expect(wrapper.hasClass('chip-wrapper primary is-actionable')).to.be.true
   })
 })

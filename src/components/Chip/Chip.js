@@ -4,8 +4,8 @@ import optclass from '../internal/OptClass'
 import style from './style.scss'
 
 const Chip = (props) => {
-  const actionable = props.clickCallback ? 'actionable' : null
-  const chipClasses = optclass(style, ['chip-wrapper', props.color, props.size, props.optClass, actionable])
+  const isActionable = props.clickCallback ? 'is-actionable' : null
+  const chipClasses = optclass(style, ['chip-wrapper', props.color, props.size, props.optClass, isActionable])
 
   return (
     <span className={chipClasses}>
