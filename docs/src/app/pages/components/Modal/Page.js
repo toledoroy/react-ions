@@ -13,6 +13,8 @@ import ExampleModalLarge from './ExampleModalLarge'
 import exampleModalLargeCode from '!raw!./ExampleModalLarge'
 import ExampleModalCustomTitle from './ExampleModalCustomTitle'
 import exampleModalCustomTitleCode from '!raw!./ExampleModalCustomTitle'
+import ExampleModalColorSplash from './ExampleModalColorSplash'
+import exampleModalColorSplashCode from '!raw!./ExampleModalColorSplash'
 
 const description = {
   modalDefault: 'This is the `modal component` as it appears by default.',
@@ -20,6 +22,7 @@ const description = {
   modalSmall: 'This is the small `modal component`.',
   modalLarge: 'This is the large `modal component`.',
   modalCustomTitle: 'This is the `modal component` with a custom title element.',
+  modalColorSplash: 'This is the `modal component` with the color splash theme.'
 };
 
 const ModalPage = () => (
@@ -55,6 +58,12 @@ const ModalPage = () => (
           description={description.modalCustomTitle}
           markup={exampleModalCustomTitleCode}>
           <ExampleModalCustomTitle />
+        </CodeExample>
+        <CodeExample
+          title='Modal With Color Splash Theme'
+          description={description.modalColorSplash}
+          markup={exampleModalColorSplashCode}>
+          <ExampleModalColorSplash />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>

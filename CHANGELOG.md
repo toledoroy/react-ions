@@ -1,5 +1,21 @@
 ## HEAD
 
+## 2.0.6
+###### _August 16, 2017_
+
+- Chip: adding callback option [#487](https://github.com/GetAmbassador/react-ions/pull/487)
+
+- (NEW Components) Introducting: Color splash modal, Popover & Chip [#486](https://github.com/GetAmbassador/react-ions/pull/486)
+
+- Radio: adding an inline style option for width [#485](https://github.com/GetAmbassador/react-ions/pull/485)
+
+- Input: adding an inline style option for width [#483](https://github.com/GetAmbassador/react-ions/pull/483)
+
+## 2.0.5
+###### _August 8, 2017_
+
+- ButtonGroup: include name prop on radio so the value can be reconciled in FormGroup. [#481](https://github.com/GetAmbassador/react-ions/pull/481)
+
 ## 2.0.4
 ###### _July 31, 2017_
 

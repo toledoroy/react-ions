@@ -43,6 +43,9 @@ const nav = [
         name: 'Checkbox',
         action: '/components/checkbox'
       }, {
+        name: 'Chip',
+        action: '/components/chip'
+      }, {
         name: 'Color Picker',
         action: '/components/color-picker'
       }, {
@@ -81,6 +84,9 @@ const nav = [
       }, {
         name: 'Panel Group',
         action: '/components/panel-group'
+      }, {
+        name: 'Popover',
+        action: '/components/popover'
       }, {
         name: 'Progress Bar',
         action: '/components/progress-bar'
