@@ -1,5 +1,12 @@
 ## HEAD
 
+## 2.0.7
+###### _August 17, 2017_
+
+- Modal: removing a header export [#489](https://github.com/GetAmbassador/react-ions/pull/489)
+
+- Button: adding a new color option: 'warning' [#480](https://github.com/GetAmbassador/react-ions/pull/480)
+
 ## 2.0.6
 ###### _August 16, 2017_
 
