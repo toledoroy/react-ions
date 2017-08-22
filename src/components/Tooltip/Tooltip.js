@@ -74,17 +74,13 @@ class Tooltip extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    // If not currently showing and should show
-    if (!this.state.showing && nextProps.show) {
-      this.setState({ showing: true }, () => {
-        this.showTip()
-      })
+    // If not currently showing and should show or already showing but the content changed
+    if (nextProps.show && (!this.state.showing || (nextProps.content !== this.props.content))) {
+      this.showTip()
     }
     // If currently showing and should not show
     else if (this.state.showing && !nextProps.show) {
-      this.setState({ showing: false }, () => {
-        this.hideTip()
-      })
+      this.hideTip()
     }
   }
 
@@ -152,6 +148,8 @@ class Tooltip extends React.Component {
   }
 
   hideTip = () => {
+    this.setState({ showing: false })
+
     // Get the node
     let tipNode = this.nodeReference()
 

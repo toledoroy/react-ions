@@ -222,18 +222,43 @@ describe.skip('Tooltip', () => {
     }, { showing: false })).to.be.false
   })
 
-  it('should set state when component receives props', () => {
+  it('should show the tooltip if it is hidden and needs to be shown', () => {
     wrapper = shallowRender()
     inst = wrapper.instance()
+    const showTipStub = sinon.stub(inst, 'showTip')
 
     inst.componentWillReceiveProps({ show: true })
-    expect(wrapper.state().showing).to.be.true
+    expect(showTipStub.called).to.be.true
+  })
 
-    wrapper.setState({
-      showing: false
-    })
+  it('should show the tooltip if it needs to be shown and the content changed', () => {
+    wrapper = shallowRender()
+    inst = wrapper.instance()
+    const showTipStub = sinon.stub(inst, 'showTip')
 
-    inst.componentWillReceiveProps({ show: undefined })
-    expect(wrapper.state().showing).to.be.false
+    wrapper.setState({ showing: true })
+
+    inst.componentWillReceiveProps({ show: true, content: 'test' })
+    expect(showTipStub.called).to.be.true
+  })
+
+  it('should not show the tooltip if the content changed but it needs to be hidden', () => {
+    wrapper = shallowRender()
+    inst = wrapper.instance()
+    const showTipStub = sinon.stub(inst, 'showTip')
+
+    inst.componentWillReceiveProps({ show: false, content: 'test' })
+    expect(showTipStub.called).to.be.false
+  })
+
+  it('should hide the tooltip if it is visible and needs to be hidden', () => {
+    wrapper = shallowRender()
+    inst = wrapper.instance()
+    const hideTipStub = sinon.stub(inst, 'hideTip')
+
+    wrapper.setState({ showing: true })
+
+    inst.componentWillReceiveProps({ show: false })
+    expect(hideTipStub.called).to.be.true
   })
 })
