@@ -176,7 +176,7 @@ describe('Input', () => {
     expect(spy.calledOnce).to.be.true
   })
 
-  it.only('should not render inline styles when suffix or prefix don\'t change', () => {
+  it('should not render inline styles when suffix or prefix don\'t change', () => {
     wrapper = shallow(<Input width='100px' prefix='$' />)
 
     const spy = sinon.spy(wrapper.instance(), 'handleInlineStyles')
