@@ -133,4 +133,46 @@ describe('Input', () => {
     wrapper = shallow(<Input width='100px' />)
     expect(wrapper.childAt(0).props().style).to.deep.equal({width: '100px'})
   })
+
+  it('should handle inline styles for prefix', () => {
+    wrapper = shallow(<Input width='100px' prefix='$' />)
+
+    wrapper.instance()._prefix = {
+      getBoundingClientRect: () => {
+        return {
+          width: 40
+        }
+      }
+    }
+
+    wrapper.instance().handleInlineStyles()
+    expect(wrapper.state().inputStyles).to.deep.equal({paddingLeft: 64})
+  })
+
+  it('should handle inline styles for suffix', () => {
+    wrapper = shallow(<Input width='100px' suffix='$' />)
+
+    wrapper.instance()._suffix = {
+      getBoundingClientRect: () => {
+        return {
+          width: 40
+        }
+      }
+    }
+
+    wrapper.instance().handleInlineStyles()
+    expect(wrapper.state().inputStyles).to.deep.equal({paddingRight: 64})
+  })
+
+  it('should handle inline styles when component updates', () => {
+    wrapper = shallow(<Input width='100px' />)
+
+    const spy = sinon.spy(wrapper.instance(), 'handleInlineStyles')
+
+    wrapper.instance().componentDidUpdate({
+      prefix: '$'
+    })
+
+    expect(spy.calledOnce).to.be.true
+  })
 })

@@ -100,6 +100,22 @@ class Input extends React.Component {
   }
 
   componentDidMount = () => {
+    this.handleInlineStyles()
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.value !== this.props.value) {
+      this.setState({ value: nextProps.value })
+    }
+  }
+
+  componentDidUpdate = (prevProps) => {
+    if (prevProps.suffix !== this.props.suffix || prevProps.prefix !== this.props.prefix) {
+      this.handleInlineStyles()
+    }
+  }
+
+  handleInlineStyles = () => {
     const inputStyles = {}
 
     if (this.props.prefix) {
@@ -112,12 +128,6 @@ class Input extends React.Component {
     }
 
     this.setState({ inputStyles })
-  }
-
-  componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value !== this.props.value) {
-      this.setState({ value: nextProps.value })
-    }
   }
 
   handleChange = (event) => {
