@@ -1,5 +1,12 @@
 ## HEAD
 
+## 2.0.8
+###### _August 22, 2017_
+
+- Input: Implementing cDU to handle inline styles [#492](https://github.com/GetAmbassador/react-ions/pull/492)
+
+- Tooltip: Re-render when the content prop changes [#491](https://github.com/GetAmbassador/react-ions/pull/491)
+
 ## 2.0.7
 ###### _August 17, 2017_
 
