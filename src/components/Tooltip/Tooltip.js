@@ -75,7 +75,7 @@ class Tooltip extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     // If not currently showing and should show or already showing but the content changed
-    if (!this.state.showing && nextProps.show || nextProps.show && nextProps.content !== this.props.content) {
+    if (nextProps.show && (!this.state.showing || (nextProps.content !== this.props.content))) {
       this.showTip()
     }
     // If currently showing and should not show
