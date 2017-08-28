@@ -1,5 +1,9 @@
 ## HEAD
 
+## 2.0.9
+###### _August 28, 2017_
+- Added .modal-tab-content class and styles [#494](https://github.com/GetAmbassador/react-ions/pull/494)
+
 ## 2.0.8
 ###### _August 22, 2017_
 

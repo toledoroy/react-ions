@@ -92,6 +92,16 @@
         display: none;
       }
     }
+    
+    .modal-tab-content {
+      background-color: $white;
+      border-radius: 3px;
+      padding: 24px;
+
+      label {
+        font-size: 15px;
+      }
+    }
 
     .header-wrapper {
       background-color: $primary-1;
