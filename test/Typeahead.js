@@ -157,4 +157,13 @@ describe('Typeahead', () => {
     inputField.simulate('change', {target: {value: 'a random string'}})
     expect(changeCallback.calledWithExactly({ target: { name: 'typeahead', value: 'a random string' } })).to.be.true
   })
+
+  it('should set state when the value changes and a custom value is allowed', () => {
+    const changeCallback = sinon.spy()
+    wrapper = shallow(<Typeahead name='typeahead' options={options} valueProp='value' displayProp='display' allowCustomValue={true} changeCallback={changeCallback} />)
+    const inst = wrapper.instance()
+
+    inst.componentWillReceiveProps({ value: 'a random string', options })
+    expect(wrapper.state().value).to.equal('a random string')
+  })
 })
