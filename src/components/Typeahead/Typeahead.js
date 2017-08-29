@@ -113,15 +113,22 @@ export class Typeahead extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value && nextProps.value !== this.state.value && this.getIndex(nextProps.value, nextProps.options) > -1) {
+    const valueIsEmpty = nextProps.value === ''
+    const valueChanged = nextProps.value !== this.state.value
+    const allowCustomValue = this.props.allowCustomValue
+    const searchStringIsEmpty = this.state.searchStr !== ''
+    const optionExists = this.getIndex(nextProps.value, nextProps.options) > -1
+
+    if (nextProps.value && valueChanged && (optionExists || allowCustomValue)) {
       this.setState({ value: nextProps.value }, () => {
-        this.selectItem(nextProps.value, nextProps.options)
+        // If the option exists select it
+        optionExists && this.selectItem(nextProps.value, nextProps.options)
       })
     }
     // When the value is an empty string and the current state value is not an empty string
     // Or when the value is an empty string and the search string exists
     // This ensures that 'custom' values are cleared
-    else if ((nextProps.value === '' && nextProps.value !== this.state.value) || (this.props.allowCustomValue && nextProps.value === '' && this.state.searchStr !== '')) {
+    else if ((valueIsEmpty && valueChanged) || (allowCustomValue && valueIsEmpty && searchStringIsEmpty)) {
       this.clearSearch()
     }
   }
