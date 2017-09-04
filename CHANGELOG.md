@@ -1,5 +1,9 @@
 ## HEAD
 
+## 2.0.10
+###### _September 4, 2017_
+- Update Typeahead value in state when allowCustomValue is set to true [#495](https://github.com/GetAmbassador/react-ions/pull/495)
+
 ## 2.0.9
 ###### _August 28, 2017_
 - Added .modal-tab-content class and styles [#494](https://github.com/GetAmbassador/react-ions/pull/494)
