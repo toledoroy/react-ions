@@ -19,7 +19,11 @@ class Toggle extends React.Component {
 
   static propTypes = {
     /**
-     * Value of the input.
+     * Name of the toggle.
+     */
+    name: PropTypes.string,
+    /**
+     * Value of the toggle.
      */
     value: PropTypes.bool,
     /**
@@ -46,10 +50,10 @@ class Toggle extends React.Component {
     }
 
     this.setState({ value: !this.state.value }, () => {
-      if (typeof this.props.changeCallback === 'function') {
+      if (this.props.changeCallback) {
         this.props.changeCallback({
           target: {
-            name: 'toggle',
+            name: this.props.name,
             value: this.state.value
           }
         })
@@ -63,7 +67,7 @@ class Toggle extends React.Component {
     }
   }
 
-  render() {
+  render = () => {
     const cx = classNames.bind(style)
     const onClass = this.state.value ? style.on : ''
     const outerClasses = cx(style.outer, onClass)
