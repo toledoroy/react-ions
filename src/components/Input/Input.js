@@ -62,10 +62,6 @@ class Input extends React.Component {
      */
     optClass: PropTypes.string,
     /**
-     * Name of the input.
-     */
-    name: PropTypes.string,
-    /**
      * A callback function to be called when the input changes.
      */
     changeCallback: PropTypes.func,
