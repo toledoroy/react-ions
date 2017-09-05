@@ -4,7 +4,7 @@ import style from './style'
 
 class ExampleToggleCallback extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -12,13 +12,14 @@ class ExampleToggleCallback extends React.Component {
   }
 
   handleChange = (event) => {
-    this.setState({status: 'Value is ' + event.target.value});
+    console.log('Name: ' + event.target.name, 'Value: ' + event.target.value)
+    this.setState({status: 'Value is ' + event.target.value})
   }
 
   render() {
     return(
       <div>
-        <Toggle label='Would you like to set this?' value={false} changeCallback={this.handleChange} />
+        <Toggle label='Would you like to set this?' value={false} changeCallback={this.handleChange} name='toggle_name' />
         <code className={style['callback-status']}>{this.state.status}</code>
       </div>
     )
