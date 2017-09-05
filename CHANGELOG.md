@@ -1,5 +1,9 @@
 ## HEAD
 
+## 2.0.11
+###### _September 5, 2017_
+- Input: removing duplicate name prop [#500](https://github.com/GetAmbassador/react-ions/pull/500)
+
 ## 2.0.10
 ###### _September 4, 2017_
 - Update Typeahead value in state when allowCustomValue is set to true [#495](https://github.com/GetAmbassador/react-ions/pull/495)
