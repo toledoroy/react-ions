@@ -1,5 +1,9 @@
 ## HEAD
 
+## 2.0.12
+###### _September 5, 2017_
+- Resolving version conflict
+
 ## 2.0.11
 ###### _September 5, 2017_
 - Input: removing duplicate name prop [#500](https://github.com/GetAmbassador/react-ions/pull/500)
