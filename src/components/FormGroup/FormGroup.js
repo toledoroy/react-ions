@@ -47,7 +47,7 @@ class FormGroup extends React.Component {
     debounceTime: 0
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps = (nextProps) => {
     const nextPropsSchema = Immutable.fromJS(nextProps.schema)
     const thisPropsSchema = Immutable.fromJS(this.props.schema)
 
@@ -94,8 +94,10 @@ class FormGroup extends React.Component {
     })
   }
 
-  getElements(children) {
+  getElements = (children) => {
     return React.Children.map(children, child => {
+      if (!child) return child
+
       let childProps = {}
       if (child.props) {
         const name = child.props.name
@@ -112,6 +114,7 @@ class FormGroup extends React.Component {
         childProps.children = this.getElements(child.props.children)
         return React.cloneElement(child, childProps)
       }
+
       return child
     })
   }
@@ -127,7 +130,8 @@ class FormGroup extends React.Component {
                         {elements}
                       </fieldset>
                     </form>
-    } else {
+    }
+    else {
       const fieldsetClass = optclass(style, 'fieldset', this.props.optClass)
       formWrapper = <fieldset className={fieldsetClass}>
                       {elements}
@@ -136,7 +140,7 @@ class FormGroup extends React.Component {
     return formWrapper
   }
 
-  render() {
+  render = () => {
     return (
       this.renderForm()
     )

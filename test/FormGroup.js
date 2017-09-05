@@ -37,6 +37,7 @@ describe('FormGroup', () => {
         <Input name='subject' label='Subject line' type='text' />
         <Textarea name='message' label='Message' />
         <Toggle name='toggle' label='Toggle' />
+        {null}
       </FormGroup>)
     expect(formGroup.childAt(0).type()).to.equal('fieldset')
     expect(formGroup.childAt(0).hasClass('fieldset')).to.equal(true)

@@ -62,6 +62,7 @@ class ExampleFormGroup extends React.Component {
   }
 
   state = {
+    showTextarea: true,
     schema: {
       'subject': {
         'value': 'This is my subject'
@@ -218,18 +219,29 @@ class ExampleFormGroup extends React.Component {
     return sibling !== this.state.schema.radioWithChildren.value ? formStyle['is-hidden'] : style['radio-child']
   }
 
+  toggleTextarea = () => {
+    this.setState({ showTextarea: !this.state.showTextarea })
+  }
+
   render() {
     return (
       <FormGroup
         changeCallback={this.handleChange}
         submitCallback={this.handleSubmit}
         debounceTime={250}
-        schema={this.state.schema}>
+        schema={this.state.schema}
+      >
+        <fieldset>
+          <Button optClass='success' onClick={this.toggleTextarea}>{ this.state.showTextarea ? 'Hide' : 'Show' } message field</Button>
+        </fieldset>
 
         <Input name='subject' label='Subject line' type='text' optClass={formStyle.field} />
         <Input valueType='number' name='amount_number' label='Amount As Number' optClass={formStyle.field} />
         <Input valueType='string' name='amount_string' label='Amount As String' optClass={formStyle.field} />
-        <Textarea name='message' label='Message' optClass={formStyle.field} />
+        {
+          this.state.showTextarea &&
+          <Textarea name='message' label='Message' optClass={formStyle.field} />
+        }
 
         <legend><span>What happens after a promoter submits a score?</span></legend>
         <RadioGroup
