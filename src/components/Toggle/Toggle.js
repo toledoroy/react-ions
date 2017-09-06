@@ -78,7 +78,10 @@ class Toggle extends React.Component {
 
     return (
       <div className={toggleClass} onClick={this.handleChange}>
-        { this.props.label ? <label className={style['label-left']}>{this.props.label}</label> : null }
+        {
+          this.props.label &&
+          <label className={style['label-left']}>{this.props.label}</label>
+        }
         <div className={toggleWrapper}>
           <div className={outerClasses} />
           <div className={innerClasses} />
