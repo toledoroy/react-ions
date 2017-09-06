@@ -44,7 +44,7 @@
   &.toggle-disabled {
     cursor: not-allowed;
 
-    div:first-child {
+    .outer {
       background: $neutral-4;
     }
   }
