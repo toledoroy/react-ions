@@ -1,5 +1,10 @@
 ## HEAD
 
+## 2.0.13
+###### _September 6, 2017_
+- Toggle: Allow the toggle to not have a label when disabled [#504](https://github.com/GetAmbassador/react-ions/pull/504)
+- CHANGELOG: Adding a couple of PR's [#503](https://github.com/GetAmbassador/react-ions/pull/503)
+
 ## 2.0.12
 ###### _September 5, 2017_
 - Resolving version conflict
