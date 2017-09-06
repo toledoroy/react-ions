@@ -7,6 +7,8 @@
 ## 2.0.11
 ###### _September 5, 2017_
 - Input: removing duplicate name prop [#500](https://github.com/GetAmbassador/react-ions/pull/500)
+- Allow FormGroup to work with null elements [#499](https://github.com/GetAmbassador/react-ions/pull/499)
+- Add the name prop to the Toggle component so it can be used in the FormGroup [#498](https://github.com/GetAmbassador/react-ions/pull/498)
 
 ## 2.0.10
 ###### _September 4, 2017_
