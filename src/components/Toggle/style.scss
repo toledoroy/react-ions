@@ -2,6 +2,9 @@
 
 .toggle-component {
   cursor: pointer;
+  display: inline-block;
+  margin: 0 -8px;
+  padding: 0 8px;
 
   .toggle-wrapper {
     display: inline-block;
