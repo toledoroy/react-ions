@@ -43,7 +43,7 @@ describe('Button', () => {
 
   it('hides text when collapse prop is passed', () => {
     wrapper = shallow(<Button collapse={true}>Test</Button>)
-    expect(wrapper.props().className).to.equal('btn collapse')
+    expect(wrapper.props().className).to.contain('btn collapse')
   })
 
   it('should have an extra class', () => {
@@ -211,7 +211,7 @@ describe('Button', () => {
 
   it('hides text when collapse prop is passed', () => {
     wrapper = shallow(<Button collapse={true}>Test</Button>)
-    expect(wrapper.props().className).to.equal('btn collapse')
+    expect(wrapper.props().className).to.contain('btn collapse')
   })
 
   it('updates when certain props are changed', () => {

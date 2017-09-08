@@ -7,7 +7,8 @@ import optclass from '../internal/OptClass'
 const Button = (props) => {
   const collapseClass = props.collapse ? 'collapse' : null
   const loaderClasses = props.loading ? 'loading' : null
-  const btnClasses = optclass(style, [style.btn, props.size, loaderClasses, collapseClass], props.optClass)
+  const btnClasses = optclass(style, [style.btn, props.size, loaderClasses, collapseClass], props.optClass, props.className)
+
   const spinnerOptions = {
     lines: 10,
     length: 4,
@@ -62,7 +63,11 @@ Button.propTypes = {
   /**
    * A string to allow for inline styles
    */
-  style: PropTypes.string
+  style: PropTypes.string,
+  /**
+   * A class name to be used for local styles or integrations (required to support styled-components)
+   **/
+  className: PropTypes.string
 }
 
 export default Button
