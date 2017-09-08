@@ -187,4 +187,22 @@ describe('Input', () => {
 
     expect(spy.calledOnce).to.be.false
   })
+
+  it('should handle null values', () => {
+    const changeCallbackSpy = sinon.spy()
+    wrapper = shallow(<Input name='input_field' value={null} changeCallback={changeCallbackSpy} />)
+    const inst = wrapper.instance()
+
+    expect(inst._nullEmptyString).to.be.true
+
+    wrapper.setProps({ value: 'a' })
+    inst.handleChange({ persist: sinon.spy(), target: { value: '' } })
+    expect(wrapper.state().value).to.equal('')
+    expect(changeCallbackSpy.calledWithExactly({ target: { name: 'input_field', value: null } })).to.be.true
+
+    wrapper.setState({ value: 'a' })
+    expect(wrapper.state().value).to.equal('a')
+    wrapper.setProps({ value: null })
+    expect(wrapper.state().value).to.equal('')
+  })
 })
