@@ -90,11 +90,11 @@ class Input extends React.Component {
      */
     onKeyDown: PropTypes.func,
     /**
-     * A helper will render inline style='width: <value>'
+     * A helper will render inline style='width: <value>'.
      */
     width: PropTypes.string,
     /**
-     * A fallback value for when the value is null
+     * A fallback value for when the value is null.
      */
     nullValue: PropTypes.string
   }
