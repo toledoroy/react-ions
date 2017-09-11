@@ -31,11 +31,6 @@
     fill: $color;
   }
 
-  // Set Loader color
-  > div > div > div > div {
-    background-color: $color !important;
-  }
-
   @if $fadeOnHover {
     transition-property: background-color, color, opacity;
     transition-duration: .15s;
