@@ -3,3 +3,17 @@
 .custom-confirmation-wrapper {
   display: inline-flex;
 }
+
+.custom-background {
+  background: cornflowerblue;
+}
+
+.custom-color {
+  color: cornsilk;
+}
+
+.custom-color-hover {
+  &:hover {
+    background: darkcyan;
+  }
+}
