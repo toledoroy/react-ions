@@ -10,6 +10,8 @@ class Input extends React.Component {
   constructor(props) {
     super(props)
 
+    // A flag to equate null and an empty string so there are
+    // no false positives when checking for diffs
     this._nullEmptyString = false
   }
 
