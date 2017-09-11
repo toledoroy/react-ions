@@ -21,10 +21,13 @@ const OptClass = (context, internal, optClass, className) => {
 
 export const mapOptClass = (optClass, styles) => {
   if (!optClass) return styles.default
-  if (typeof optClass === 'string') return styles[optClass]
-  let renderedStyles = {}
+  const definedStyles = Object.keys(styles)
 
-  Object.keys(styles)
+  if (definedStyles.includes(optClass)) return styles[optClass]
+
+  let renderedStyles = styles.default
+
+  definedStyles
     .filter(a => optClass.includes(a))
     .reverse()
     .map(item => {

@@ -45,13 +45,13 @@ const Button = (props) => {
       color: colors.white
     }
   })
-
+  
   const spinnerOptions = {
     lines: 10,
     length: 4,
     width: 3,
     radius: 5,
-    ...styles
+    color: props.loaderColor || styles.color
   }
 
   return (
@@ -105,7 +105,11 @@ Button.propTypes = {
   /**
    * A class name to be used for local styles or integrations (required to support styled-components)
    **/
-  className: PropTypes.string
+  className: PropTypes.string,
+  /**
+   * A valid css color to set the color of the loader (if applicable).
+   **/
+  loaderColor: PropTypes.string
 }
 
 export default Button
