@@ -9,10 +9,6 @@ import style from './style.scss'
 class Input extends React.Component {
   constructor(props) {
     super(props)
-
-    // A flag to equate null and an empty string so there are
-    // no false positives when checking for diffs
-    this._nullEmptyString = false
   }
 
   state = {
@@ -96,13 +92,16 @@ class Input extends React.Component {
     /**
      * A helper will render inline style='width: <value>'
      */
-    width: PropTypes.string
+    width: PropTypes.string,
+    /**
+     * A fallback value for when the value is null
+     */
+    nullValue: PropTypes.string
   }
 
   componentWillMount = () => {
-    if (this.props.value === null) {
-      this._nullEmptyString = true
-      this.setState({ value: '' })
+    if (this.props.value === null && typeof this.props.nullValue !== 'undefined') {
+      this.setState({ value: this.props.nullValue })
     }
   }
 
@@ -112,7 +111,7 @@ class Input extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value !== this.props.value) {
-      this.setState({ value: nextProps.value === null ? '' : nextProps.value })
+      this.setState({ value: (nextProps.value === null && typeof nextProps.nullValue !== 'undefined') ? nextProps.nullValue : nextProps.value })
     }
   }
 
@@ -143,9 +142,6 @@ class Input extends React.Component {
                   ? parseFloat(event.target.value) : event.target.value
 
     this.setState({value: event.target.value}, () => {
-      if (this._nullEmptyString && value === '') {
-        value = null
-      }
       this.props.changeCallback && this.props.changeCallback({ target: { name: this.props.name, value } })
     })
   }
