@@ -11,10 +11,6 @@ class Input extends React.Component {
     super(props)
   }
 
-  state = {
-    value: this.props.value
-  }
-
   static defaultProps = {
     disabled: false,
     value: '',
@@ -99,10 +95,12 @@ class Input extends React.Component {
     nullValue: PropTypes.string
   }
 
+  _getValue = (props) => {
+    return (props.value === null && typeof props.nullValue !== 'undefined') ? props.nullValue : props.value
+  }
+
   componentWillMount = () => {
-    if (this.props.value === null && typeof this.props.nullValue !== 'undefined') {
-      this.setState({ value: this.props.nullValue })
-    }
+    this.setState({ value: this._getValue(this.props) })
   }
 
   componentDidMount = () => {
@@ -111,7 +109,7 @@ class Input extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value !== this.props.value) {
-      this.setState({ value: (nextProps.value === null && typeof nextProps.nullValue !== 'undefined') ? nextProps.nullValue : nextProps.value })
+      this.setState({ value: this._getValue(nextProps) })
     }
   }
 
@@ -138,7 +136,7 @@ class Input extends React.Component {
 
   handleChange = (event) => {
     event.persist()
-    let value = (this.props.valueType === 'number' && event.target.value !== '' && !isNaN(event.target.value))
+    const value = (this.props.valueType === 'number' && event.target.value !== '' && !isNaN(event.target.value))
                   ? parseFloat(event.target.value) : event.target.value
 
     this.setState({value: event.target.value}, () => {
