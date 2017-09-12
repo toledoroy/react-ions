@@ -11,10 +11,6 @@ class Input extends React.Component {
     super(props)
   }
 
-  state = {
-    value: this.props.value
-  }
-
   static defaultProps = {
     disabled: false,
     value: '',
@@ -90,9 +86,21 @@ class Input extends React.Component {
      */
     onKeyDown: PropTypes.func,
     /**
-     * A helper will render inline style='width: <value>'
+     * A helper will render inline style='width: <value>'.
      */
-    width: PropTypes.string
+    width: PropTypes.string,
+    /**
+     * A fallback value for when the value is null.
+     */
+    nullValue: PropTypes.string
+  }
+
+  _getValue = (props) => {
+    return (props.value === null && typeof props.nullValue !== 'undefined') ? props.nullValue : props.value
+  }
+
+  componentWillMount = () => {
+    this.setState({ value: this._getValue(this.props) })
   }
 
   componentDidMount = () => {
@@ -101,7 +109,7 @@ class Input extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value !== this.props.value) {
-      this.setState({ value: nextProps.value })
+      this.setState({ value: this._getValue(nextProps) })
     }
   }
 
