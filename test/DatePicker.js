@@ -482,6 +482,13 @@ describe('DatePicker', () => {
         expect(minMonth).to.equal(1)
         expect(minDay).to.equal(1)
       })
+
+      it('should disable', () => {
+        wrapper = shallow(<DatePicker value={oldDate} disabled={true} />)
+        expect(wrapper.childAt(0).childAt(0).props().disabled).to.be.true
+        expect(wrapper.childAt(0).childAt(1).props().disabled).to.be.true
+        expect(wrapper.childAt(0).childAt(2).props().disabled).to.be.true
+      })
     })
   })
 })
