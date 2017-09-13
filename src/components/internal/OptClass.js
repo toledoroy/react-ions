@@ -31,7 +31,6 @@ export const mapOptClass = (optClass, styles) => {
     .filter(a => optClass.includes(a))
     .reverse()
     .map(item => {
-      console.log(item)
       renderedStyles = { ...renderedStyles, ...styles[item] }
     })
 
