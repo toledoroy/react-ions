@@ -79,7 +79,11 @@ class DatePicker extends React.Component {
     /**
      * Text shown above the date picker.
      */
-    label: PropTypes.string
+    label: PropTypes.string,
+    /**
+     * Whether the select field is disabled.
+     */
+    disabled: PropTypes.bool    
   }
 
   _initDate = (date, format) => {
@@ -340,28 +344,31 @@ class DatePicker extends React.Component {
         { label && <label>{label}</label> }
         <div className={style['datepicker']}>
           <SelectField
-            options={this.state.month.options}
-            valueProp='value'
-            displayProp='display'
-            value={this.state.month.value.toString()}
             changeCallback={this.handleChangeMonth}
+            disabled={this.props.disabled}
+            displayProp='display'
+            options={this.state.month.options}
             placeholder='Month'
+            valueProp='value'
+            value={this.state.month.value.toString()}
           />
           <SelectField
-            options={this.state.day.options}
-            valueProp='value'
-            displayProp='value'
-            value={this.state.day.value.toString()}
             changeCallback={this.handleChangeDay}
+            disabled={this.props.disabled}
+            displayProp='value'
+            options={this.state.day.options}
             placeholder='Day'
+            valueProp='value'
+            value={this.state.day.value.toString()}
           />
           <SelectField
-            options={this.state.year.options}
-            valueProp='value'
-            displayProp='value'
-            value={this.state.year.value.toString()}
             changeCallback={this.handleChangeYear}
+            disabled={this.props.disabled}
+            displayProp='value'
+            options={this.state.year.options}
             placeholder='Year'
+            valueProp='value'
+            value={this.state.year.value.toString()}
           />
         </div>
       </div>
