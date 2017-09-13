@@ -12,6 +12,8 @@ import ExampleDatePickerCallback from './ExampleDatePickerCallback'
 import exampleDatePickerCallbackCode from '!raw!./ExampleDatePickerCallback'
 import ExampleDatePickerLabel from './ExampleDatePickerLabel'
 import exampleDatePickerLabelCode from '!raw!./ExampleDatePickerLabel'
+import ExampleDatePickerDisabled from './ExampleDatePickerDisabled'
+import exampleDatePickerDisabledCode from '!raw!./ExampleDatePickerDisabled'
 import PropsList from 'private/modules/PropsList'
 import docs from '!!docgen!react-ions/lib/components/DatePicker/DatePicker'
 import styles from 'private/css/content'
@@ -56,6 +58,12 @@ const DatePickerPage = () => (
           description='This is the `DatePicker component` with a label.'
           markup={exampleDatePickerLabelCode}>
           <ExampleDatePickerLabel />
+        </CodeExample>
+        <CodeExample
+          title='Example Disabled Date'
+          description='This is the `DatePicker component` disabled.'
+          markup={exampleDatePickerDisabledCode}>
+          <ExampleDatePickerDisabled />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>

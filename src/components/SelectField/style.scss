@@ -125,6 +125,10 @@
     > ul {
       display: none;
     }
+
+    &:hover .selectfield-value {
+      border-color: $neutral-3;
+    }
   }
 
   &.selectfield-error {
