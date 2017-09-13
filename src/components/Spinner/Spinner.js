@@ -37,7 +37,11 @@ class Spinner extends React.Component {
     /**
      * Optional styles to add to the spinner.
      */
-    optClass: PropTypes.string
+    optClass: PropTypes.string,
+    /**
+     * A class name to be used for local styles or integrations (required to support styled-components)
+     */
+    className: PropTypes.string
   }
 
   componentWillMount = () => {
@@ -88,7 +92,7 @@ class Spinner extends React.Component {
     const loadingClass = this.state.loading ? style['loading'] : null
     const isHiddenClass = !this.state.loading ? style['is-hidden'] : null
     const spinnerPosition = this.props.position ? style[this.props.position] : style['absolute']
-    const spinnerWrap = cx(style['spinner-wrap'], loadingClass, spinnerPosition, this.props.optClass, isHiddenClass)
+    const spinnerWrap = cx(style['spinner-wrap'], loadingClass, spinnerPosition, this.props.optClass, isHiddenClass, this.props.className)
     const spinnerClass = cx(style[this.props.type])
 
     return (
