@@ -15,7 +15,8 @@ class ExampleButtonLoaders extends React.Component {
       flat: false,
       info: false,
       plain: false,
-      plainLight: false
+      plainLight: false,
+      palevioletred: false
     };
   }
 
@@ -44,6 +45,7 @@ class ExampleButtonLoaders extends React.Component {
         <Button loading={this.state.info} onClick={this.handleClick.bind(this, 'info')} optClass='info'>Info</Button>
         <Button loading={this.state.plain} onClick={this.handleClick.bind(this, 'plain')} optClass='plain'>Plain</Button>
         <Button loading={this.state['plainLight']} onClick={this.handleClick.bind(this, 'plainLight')} optClass='plain-light'>Plain Light</Button>
+        <Button loading={this.state.palevioletred} loaderColor='palevioletred' onClick={this.handleClick.bind(this, 'palevioletred')} optClass='plain-light'>Palevioletred Loader</Button>
       </div>
     );
   }

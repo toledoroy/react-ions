@@ -12,11 +12,29 @@ const OptClass = (context, internal, optClass, className) => {
     arr.push(optClass)
   }
 
-  if(className !== undefined) {
+  if (className !== undefined) {
     arr.push(className)
   }
 
   return cx(arr)
+}
+
+export const mapOptClass = (optClass, styles) => {
+  if (!optClass) return styles.default
+  const definedStyles = Object.keys(styles)
+
+  if (definedStyles.includes(optClass)) return styles[optClass]
+
+  let renderedStyles = styles.default
+
+  definedStyles
+    .filter(a => optClass.includes(a))
+    .reverse()
+    .map(item => {
+      renderedStyles = { ...renderedStyles, ...styles[item] }
+    })
+
+  return renderedStyles
 }
 
 export default OptClass

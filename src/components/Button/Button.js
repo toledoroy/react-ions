@@ -2,18 +2,56 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Loader from 'react-loader'
 import style from './style.scss'
-import optclass from '../internal/OptClass'
+import optclass, { mapOptClass } from '../internal/OptClass'
+import colors from '../internal/colors'
 
 const Button = (props) => {
   const collapseClass = props.collapse ? 'collapse' : null
   const loaderClasses = props.loading ? 'loading' : null
   const btnClasses = optclass(style, [style.btn, props.size, loaderClasses, collapseClass], props.optClass, props.className)
 
+  const styles = mapOptClass(props.optClass, {
+    secondary: {
+      color: colors.primary4
+    },
+    warning: {
+      color: colors.white
+    },
+    inverted: {
+      color: colors.primary1
+    },
+    danger: {
+      color: colors.white
+    },
+    'danger-alt': {
+      color: colors.danger
+    },
+    success: {
+      color: colors.white
+    },
+    flat: {
+      color: colors.neutral4
+    },
+    info: {
+      color: colors.white
+    },
+    plain: {
+      color: colors.primary4
+    },
+    'plain-light': {
+      color: '#7b96b5'
+    },
+    default: {
+      color: colors.white
+    }
+  })
+  
   const spinnerOptions = {
     lines: 10,
     length: 4,
     width: 3,
-    radius: 5
+    radius: 5,
+    color: props.loaderColor || styles.color
   }
 
   return (
@@ -67,7 +105,11 @@ Button.propTypes = {
   /**
    * A class name to be used for local styles or integrations (required to support styled-components)
    **/
-  className: PropTypes.string
+  className: PropTypes.string,
+  /**
+   * A valid css color to set the color of the loader (if applicable).
+   **/
+  loaderColor: PropTypes.string
 }
 
 export default Button
