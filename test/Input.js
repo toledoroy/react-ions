@@ -187,4 +187,18 @@ describe('Input', () => {
 
     expect(spy.calledOnce).to.be.false
   })
+
+  it('should handle null values', () => {
+    const changeCallbackSpy = sinon.spy()
+    wrapper = shallow(<Input name='input_field' value={null} changeCallback={changeCallbackSpy} nullValue='' />)
+    const inst = wrapper.instance()
+
+    expect(wrapper.state().value).to.equal('')
+
+    wrapper.setProps({ value: 'a' })
+    expect(wrapper.state().value).to.equal('a')
+
+    wrapper.setProps({ value: null })
+    expect(wrapper.state().value).to.equal('')
+  })
 })
