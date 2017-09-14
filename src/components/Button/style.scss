@@ -89,11 +89,13 @@
 
   &.plain {
     @include button-context(transparent, $primary-4);
+    border: 0;
     font-weight: normal;
   }
 
   &.plain-light {
     @include button-context(transparent, lighten($primary-4, 40%));
+    border: 0;
   }
 
   &.inverted {
