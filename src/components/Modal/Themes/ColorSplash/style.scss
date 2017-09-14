@@ -78,9 +78,11 @@
         > span:last-child {
           display: inline-block;
           margin-left: 12px;
+
           > button:last-child {
             margin-left: 0;
-            padding: 0;
+            padding: 0 8px;
+
             > * {
               padding: 8px;
             }
@@ -92,7 +94,7 @@
         display: none;
       }
     }
-    
+
     .modal-tab-content {
       background-color: $white;
       border-radius: 3px;

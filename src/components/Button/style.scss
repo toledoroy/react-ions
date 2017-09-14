@@ -72,6 +72,7 @@
 
   &.danger-alt {
     @include button-context(transparent, $danger);
+    border: 1px solid rgba($danger, 0.6);
   }
 
   &.flat {
@@ -89,7 +90,7 @@
 
   &.plain {
     @include button-context(transparent, $primary-4);
-    border: 0;
+    border: 1px solid transparent;
     font-weight: normal;
 
     &:hover,
@@ -100,7 +101,7 @@
 
   &.plain-light {
     @include button-context(transparent, lighten($primary-4, 40%));
-    border: 0;
+    border: 1px solid transparent;
 
     &:hover,
     &:focus {
@@ -109,7 +110,8 @@
   }
 
   &.inverted {
-    @include button-context($white, $primary-1);
+    @include button-context(transparent, $primary-1);
+    border: 1px solid rgba($primary-1, 0.6);
   }
 
   em > span {
