@@ -45,12 +45,15 @@
   // Disabled
   &:disabled,
   &.disabled {
+    border: 1px solid rgba(145, 152, 160, 0.1);
+    background-color: $neutral-3;
+    color: $primary-4;
     cursor: not-allowed;
     opacity: .65;
 
     &:hover {
-      background-color: $bg-color;
-      color: $color;
+      box-shadow: none;
+      color: $primary-4;
     }
   }
 

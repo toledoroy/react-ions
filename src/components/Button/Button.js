@@ -45,7 +45,7 @@ const Button = (props) => {
       color: colors.white
     }
   })
-  
+
   const spinnerOptions = {
     lines: 10,
     length: 4,

@@ -60,16 +60,16 @@
       }
       &.active {
         button {
-          padding-right: 9px;
-          padding-left: 9px;
+          padding-right: 17px;
+          padding-left: 17px;
         }
         &:first-child button {
-          padding-right: 9px;
-          padding-left: 8px;
+          padding-right: 17px;
+          padding-left: 16px;
         }
         &:last-child button {
-          padding-right: 8px;
-          padding-left: 9px;
+          padding-right: 16px;
+          padding-left: 17px;
         }
       }
     }
