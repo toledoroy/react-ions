@@ -51,7 +51,7 @@ const Button = (props) => {
     length: 4,
     width: 3,
     radius: 5,
-    color: props.loaderColor || colors.primary4
+    color: props.loaderColor || styles.color
   }
 
   return (
