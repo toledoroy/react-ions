@@ -41,7 +41,12 @@ class DatePicker extends React.Component {
   static defaultProps = {
     min: { month: '-0', day: '-0', year: '-10' },
     max: { month: '+0', day: '+0', year: '+10' },
-    format: 'YYYY-MM-DD'
+    format: 'YYYY-MM-DD',
+    placeholder: {
+      month: 'Month',
+      day: 'Day',
+      year: 'Year'
+    }
   }
 
   static propTypes = {
@@ -83,7 +88,11 @@ class DatePicker extends React.Component {
     /**
      * Whether the select field is disabled.
      */
-    disabled: PropTypes.bool    
+    disabled: PropTypes.bool,
+    /**
+     * An object of key/val pairs to set custom placeholders on each field eg: { month: 'M', day: 'D', year: 'Y' }
+     */
+    placeholder: PropTypes.object
   }
 
   _initDate = (date, format) => {
@@ -348,7 +357,7 @@ class DatePicker extends React.Component {
             disabled={this.props.disabled}
             displayProp='display'
             options={this.state.month.options}
-            placeholder='Month'
+            placeholder={this.props.placeholder.month}
             valueProp='value'
             value={this.state.month.value.toString()}
           />
@@ -357,7 +366,7 @@ class DatePicker extends React.Component {
             disabled={this.props.disabled}
             displayProp='value'
             options={this.state.day.options}
-            placeholder='Day'
+            placeholder={this.props.placeholder.day}
             valueProp='value'
             value={this.state.day.value.toString()}
           />
@@ -366,7 +375,7 @@ class DatePicker extends React.Component {
             disabled={this.props.disabled}
             displayProp='value'
             options={this.state.year.options}
-            placeholder='Year'
+            placeholder={this.props.placeholder.year}
             valueProp='value'
             value={this.state.year.value.toString()}
           />
