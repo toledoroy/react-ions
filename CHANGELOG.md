@@ -2,8 +2,8 @@
 
 ## 2.0.15
 ###### _September 15, 2017_
-- Datepicker: adding placeholder prop
-- Textarea: adjusting line height [#514](https://github.com/GetAmbassador/react-ions/pull/514)
+- Datepicker: adding placeholder prop,
+  Textarea: adjusting line height [#514](https://github.com/GetAmbassador/react-ions/pull/514)
 
 ## 2.0.14
 ###### _September 13, 2017_
