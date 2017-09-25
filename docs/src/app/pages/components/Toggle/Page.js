@@ -60,7 +60,7 @@ const TogglePage = () => (
           <ExampleToggleCallback />
         </CodeExample>
         <CodeExample
-          title='Toggle with Default Text and Custom Text'
+          title='Toggle with Text'
           description={description.toggleCustomText}
           markup={exampleToggleCustomText}>
           <ExampleToggleCustomText />
