@@ -1,5 +1,9 @@
 ## HEAD
 
+## 2.0.16
+###### _September 25, 2017_
+- ButtonAnchor: allowing for internal links to be disabled [#516](https://github.com/GetAmbassador/react-ions/pull/516)
+
 ## 2.0.15
 ###### _September 15, 2017_
 - Datepicker: adding placeholder prop;
