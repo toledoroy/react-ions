@@ -10,7 +10,9 @@ class Toggle extends React.Component {
 
   static defaultProps = {
     disabled: false,
-    value: false
+    value: false,
+    text: ['Yes', 'No'],
+    hasText: false
   }
 
   state = {
@@ -41,7 +43,15 @@ class Toggle extends React.Component {
     /**
      * A callback function to be called when the toggle changes.
      */
-    changeCallback: PropTypes.func
+    changeCallback: PropTypes.func,
+    /**
+    * Optional customized text inside the toggle, first value is text for True and second value is for False
+    */
+    text: PropTypes.array,
+    /**
+    * Boolean used to signify if text is used on the toggle
+    */
+    hasText: PropTypes.bool
   }
 
   handleChange = () => {
@@ -67,23 +77,66 @@ class Toggle extends React.Component {
     }
   }
 
+  findToggleSize = (hasText, text) => {
+    if (hasText && (text[0] !== 'Yes' && text[1] !== 'No')) {
+      const value = this.calculateCustomTextAdjust(text)
+      return { width: 44 + value + 'px'}
+    } else {
+      return {width: '50px'}
+    }
+  }
+
+  calculateCustomTextAdjust = (text) => {
+    let value = 0
+    text.map(t => {
+      value = t.length > value ? t.length : value
+    })
+    return (value * 4)
+  }
+
+  toggleText = (hasText, text, isOn) => {
+    if (hasText && isOn) {
+      return text[1]
+    }
+    else if (hasText && !isOn) {
+      return text[0]
+    }
+    else {
+      return ''
+    }
+  }
+
+  customText = (text) => {
+    if (text[0] === 'Yes' && text[1] === 'No') {
+      return false
+    }
+    else {
+      return true
+    }
+  }
   render = () => {
     const cx = classNames.bind(style)
     const onClass = this.state.value ? style.on : ''
+    const isCustomText = !!this.customText(this.props.text)
+    const toggleSize = this.findToggleSize(this.props.hasText, this.props.text)
     const outerClasses = cx(style.outer, onClass)
     const innerClasses = cx(style.inner, onClass)
+    const textClasses = cx(style.text, onClass)
+    const hasText = this.props.hasText ? style['has-text'] : ''
     const disabledClass = this.props.disabled ? style['toggle-disabled'] : ''
-    const toggleWrapper = cx(style['toggle-wrapper'])
+    const toggleWrapper = cx(style['toggle-wrapper'], hasText)
     const toggleClass = cx(style['toggle-component'], disabledClass, this.props.optClass)
+    const toggleText = this.toggleText(this.props.hasText, this.props.text, onClass)
 
     return (
       <div className={toggleClass} onClick={this.handleChange}>
         {
           this.props.label &&
-          <label className={style['label-left']}>{this.props.label}</label>
+          <label>{this.props.label}</label>
         }
-        <div className={toggleWrapper}>
+        <div className={toggleWrapper} style={toggleSize}>
           <div className={outerClasses} />
+          <span className={textClasses}>{toggleText}</span>
           <div className={innerClasses} />
         </div>
       </div>

@@ -8,12 +8,12 @@
 
   .toggle-wrapper {
     display: inline-block;
-    height: 15px;
+    height: 20px;
     position: relative;
-    width: 26px;
+    width: 50px;
 
     .outer {
-      background: $primary-4;
+      background: $neutral-4;
       border-radius: 100px;
       bottom: 0;
       left: 0;
@@ -28,18 +28,39 @@
     }
 
     .inner {
-      background: $neutral-1;
+      background: $white;
       border-radius: 50%;
-      height: 13px;
+      height: 16px;
       position: absolute;
-      right: 12px;
+      right: 31px;
       top: 1px;
       transition: background 0.15s ease-in, right 0.15s ease-out;
-      width: 13px;
+      width: 16px;
+      box-shadow: 1px 0 2px 0 rgba(45,62,80,0.1);
+      border: 1px solid $neutral-4;
+
+      &.custom {
+        right: 73%;
+      }
 
       &.on {
         background: $white;
         right: 1px;
+        border: 1px solid $success;
+      }
+    }
+
+    .text {
+      position: relative;
+      color: $white;
+      font-size: 12px;
+      z-index: 1;
+      left: 24px;
+      font-weight: 500;
+      top: 2px;
+
+      &.on {
+        left: 8px;
       }
     }
   }
@@ -48,13 +69,21 @@
     cursor: not-allowed;
 
     .outer {
-      background: $neutral-4;
+      background: $neutral-3;
+    }
+
+    .inner {
+      border: 1px solid $neutral-3;
     }
   }
 
   &.toggle-red {
     .outer.on {
       background: $danger;
+    }
+
+    .inner.on {
+      border: 1px solid $danger;
     }
   }
 
@@ -66,7 +95,11 @@
     user-select: none;
 
     & + .toggle-wrapper {
-      top: 3px;
+      top: 5px;
+    }
+
+    & + .toggle-wrapper.has-text {
+      top: -2px;
     }
   }
 }

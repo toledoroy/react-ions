@@ -4,3 +4,8 @@
   @include monospace;
   display: block;
 }
+
+.custom-text-block {
+  display: flex;
+  flex-direction: column;
+}
