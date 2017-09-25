@@ -22,7 +22,7 @@ const description = {
   toggleDisabled: 'This is the disabled `toggle component`.',
   toggleOptClass: 'This is the `toggle component` with an optional class.',
   toggleCallback: 'This is the `toggle component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
-  toggleCustomText: 'This is the `toggle component` with the text.'
+  toggleCustomText: 'This is the `toggle component` with text.'
 };
 
 const TogglePage = () => (
