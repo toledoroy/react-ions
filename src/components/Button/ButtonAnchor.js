@@ -11,10 +11,16 @@ const ButtonAnchor = (props) => {
 
   let buttonAnchor
 
+  const handleClick = (e) => {
+    if (props.disabled) {
+      e.preventDefault()
+    }
+  }
+
   if (props.internal) {
-    buttonAnchor = <Link to={props.path} className={btnAnchorClasses} size={props.size} disabled={props.disabled}>{props.children}</Link>
+    buttonAnchor = <Link to={props.path} className={btnAnchorClasses} size={props.size} disabled={props.disabled} onClick={handleClick}>{props.children}</Link>
   } else {
-    buttonAnchor = <a href={props.path} className={btnAnchorClasses} target={props.target}>{props.children}</a>
+    buttonAnchor = <a href={props.path} className={btnAnchorClasses} target={props.target} disabled={props.disabled} onClick={handleClick}>{props.children}</a>
   }
   return buttonAnchor
 }
