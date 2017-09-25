@@ -9,9 +9,6 @@ const ExampleToggleCustomText = () => (
     <div>
       <Toggle label='Toggle with Label' hasText={true}/>
     </div>
-    <div>
-      <Toggle label='Toggle with Label and Custom Text' text={['Negative', 'Affirmative']} hasText={true}/>
-    </div>
   </div>
 )
 

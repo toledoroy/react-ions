@@ -34,10 +34,16 @@ describe('Toggle', () => {
     expect(wrapper.childAt(1).childAt(1).hasClass('on')).to.be.true
   })
 
-  it('should have an extra class', () => {
+  it('should have an extra class for optClass', () => {
     wrapper = shallow(<Toggle optClass='toggle-red' />)
 
     expect(wrapper.hasClass('toggle-red')).to.be.true
+  })
+
+  it('should have an extra class for text', () => {
+    wrapper = shallow(<Toggle hasText={true} />)
+
+    expect(wrapper.hasClass('has-text')).to.be.true
   })
 
   it('should call changeCallback function', () => {
