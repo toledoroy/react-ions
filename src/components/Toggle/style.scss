@@ -12,6 +12,13 @@
     position: relative;
     width: 50px;
 
+  &.no-text {
+    width: 40px;
+
+    .inner {
+      right: 21px;
+    }
+  }
     .outer {
       background: $neutral-4;
       border-radius: 100px;

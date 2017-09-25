@@ -91,9 +91,9 @@ class Toggle extends React.Component {
     const outerClasses = cx(style.outer, onClass)
     const innerClasses = cx(style.inner, onClass)
     const textClasses = cx(style.text, onClass)
-    const hasText = this.props.hasText ? style['has-text'] : ''
+    const hasTextClass = this.props.hasText ? style['has-text'] : style['no-text']
     const disabledClass = this.props.disabled ? style['toggle-disabled'] : ''
-    const toggleWrapper = cx(style['toggle-wrapper'], hasText)
+    const toggleWrapper = cx(style['toggle-wrapper'], hasTextClass)
     const toggleClass = cx(style['toggle-component'], disabledClass, this.props.optClass)
     const toggleText = this.toggleText(this.props.hasText, this.state.text, onClass)
 
