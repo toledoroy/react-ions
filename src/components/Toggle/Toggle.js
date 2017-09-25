@@ -105,7 +105,10 @@ class Toggle extends React.Component {
         }
         <div className={toggleWrapper}>
           <div className={outerClasses} />
-          <span className={textClasses}>{toggleText}</span>
+           {this.props.hasText
+             ? <span className={textClasses}>{toggleText}</span>
+             : null
+           }
           <div className={innerClasses} />
         </div>
       </div>

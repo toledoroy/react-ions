@@ -41,9 +41,9 @@ describe('Toggle', () => {
   })
 
   it('should have an extra class for text', () => {
-    wrapper = shallow(<Toggle hasText={true} />)
+    wrapper = shallow(<Toggle value={false} hasText={true} />)
 
-    expect(wrapper.hasClass('has-text')).to.be.true
+    expect(wrapper.find('span')).to.have.length(1)
   })
 
   it('should call changeCallback function', () => {
