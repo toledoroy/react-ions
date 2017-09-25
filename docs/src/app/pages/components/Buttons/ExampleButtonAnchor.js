@@ -10,6 +10,7 @@ const ExampleButtonAnchor = () => (
       <Icon name='icon-power-1' height='14' width='14'></Icon>
     </ButtonAnchor>
     <ButtonAnchor path='/components/progress-bar' internal={true} optClass='plain'>Internal</ButtonAnchor>
+    <ButtonAnchor disabled path='/components/progress-bar' internal={true} optClass='secondary'>Disabled</ButtonAnchor>
   </div>
 )
 

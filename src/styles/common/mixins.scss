@@ -43,6 +43,7 @@
   }
 
   // Disabled
+  &[disabled],
   &:disabled,
   &.disabled {
     cursor: not-allowed;
