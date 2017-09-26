@@ -48,8 +48,10 @@ describe('Toggle', () => {
 
     const inst = wrapper.instance()
     expect(wrapper.state().value).to.be.false
-    inst.handleChange()
-    expect(wrapper.state().value).to.be.true
+
+    wrapper = shallow(<Toggle value={true} hasText={true} />)
+    expect(wrapper.find('span')).to.have.length(1)
+    expect(wrapper.find('span').text()).to.equal('Yes')
   })
 
   it('should call changeCallback function', () => {
