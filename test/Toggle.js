@@ -34,10 +34,24 @@ describe('Toggle', () => {
     expect(wrapper.childAt(1).childAt(1).hasClass('on')).to.be.true
   })
 
-  it('should have an extra class', () => {
+  it('should have an extra class for optClass', () => {
     wrapper = shallow(<Toggle optClass='toggle-red' />)
 
     expect(wrapper.hasClass('toggle-red')).to.be.true
+  })
+
+  it('should have an extra class for text', () => {
+    wrapper = shallow(<Toggle value={false} hasText={true} />)
+
+    expect(wrapper.find('span')).to.have.length(1)
+    expect(wrapper.find('span').text()).to.equal('No')
+
+    const inst = wrapper.instance()
+    expect(wrapper.state().value).to.be.false
+
+    wrapper = shallow(<Toggle value={true} hasText={true} />)
+    expect(wrapper.find('span')).to.have.length(1)
+    expect(wrapper.find('span').text()).to.equal('Yes')
   })
 
   it('should call changeCallback function', () => {

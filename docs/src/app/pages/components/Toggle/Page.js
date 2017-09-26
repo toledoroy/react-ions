@@ -12,6 +12,8 @@ import ExampleToggleOptClass from './ExampleToggleOptClass'
 import exampleToggleOptClassCode from '!raw!./ExampleToggleOptClass'
 import ExampleToggleCallback from './ExampleToggleCallback'
 import exampleToggleCallbackCode from '!raw!./ExampleToggleCallback'
+import ExampleToggleCustomText from './ExampleToggleCustomText'
+import exampleToggleCustomText from '!raw!./ExampleToggleCustomText'
 import styles from 'private/css/content'
 
 const description = {
@@ -19,7 +21,8 @@ const description = {
   toggleOn: 'This is the `toggle component` with initial state set to True.',
   toggleDisabled: 'This is the disabled `toggle component`.',
   toggleOptClass: 'This is the `toggle component` with an optional class.',
-  toggleCallback: 'This is the `toggle component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.'
+  toggleCallback: 'This is the `toggle component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
+  toggleCustomText: 'This is the `toggle component` with text.'
 };
 
 const TogglePage = () => (
@@ -55,6 +58,12 @@ const TogglePage = () => (
           description={description.toggleCallback}
           markup={exampleToggleCallbackCode}>
           <ExampleToggleCallback />
+        </CodeExample>
+        <CodeExample
+          title='Toggle with Text'
+          description={description.toggleCustomText}
+          markup={exampleToggleCustomText}>
+          <ExampleToggleCustomText />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
