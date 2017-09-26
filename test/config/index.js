@@ -1,7 +1,7 @@
 //require all test .js files
-const testsContext = require.context('../', false, /\.js/)
+// const testsContext = require.context('../', false, /\.js/)
 //NOTE: in the interest of speed, to test an individual component, use something like this:
-// const testsContext = require.context('../', false, /\Input.js/);
+const testsContext = require.context('../', false, /\Toggle.js/);
 
 testsContext.keys().forEach(testsContext)
 
