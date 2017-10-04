@@ -55,7 +55,7 @@ const Button = (props) => {
   }
 
   return (
-    <button type={props.type} style={props.style} className={btnClasses} disabled={props.disabled || props.loading} onClick={props.onClick}>
+    <button type={props.type} style={props.style} className={btnClasses} disabled={props.disabled || props.loading} onClick={props.onClick} onMouseEnter={props.onMouseEnter} onMouseLeave={props.onMouseLeave}>
       { props.loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
       <em>{props.children}</em>
     </button>
@@ -94,6 +94,14 @@ Button.propTypes = {
    * A function to be called onClick
    */
   onClick: PropTypes.func,
+  /**
+   * A function to be called onMouseEnter
+   */
+  onMouseEnter: PropTypes.func,
+  /**
+   * A function to be called onMouseLeave
+   */
+  onMouseLeave: PropTypes.func,
   /**
    * The type of button.
    */
