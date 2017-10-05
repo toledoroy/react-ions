@@ -116,9 +116,9 @@
       > svg {
         fill: $neutral-4;
       }
-      background-color: $neutral-3;
+
+      background-color: rgba($neutral-3, .6);
       border-color: $neutral-3;
-      color: $neutral-4;
       cursor: not-allowed;
     }
 

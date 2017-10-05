@@ -50,6 +50,7 @@
       }
 
       &:disabled {
+        background-color: rgba($neutral-3, .6);
         cursor: not-allowed;
 
         &:hover {
