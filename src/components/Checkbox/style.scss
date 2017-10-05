@@ -20,8 +20,11 @@
     z-index: 2;
   }
 
-  > input:focus + div .checkbox-input {
-    border-color: rgba($neutral-4, .6);
+  &:not(.checkbox-error) {
+    > input:focus + div .checkbox-input,
+    > input:active + div .checkbox-input {
+      border-color: rgba($neutral-4, .6);
+    }
   }
 
   > input:checked + div .checkbox-input {
