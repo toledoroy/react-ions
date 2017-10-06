@@ -20,6 +20,13 @@
     z-index: 2;
   }
 
+  &:not(.checkbox-error) {
+    > input:focus + div .checkbox-input,
+    > input:active + div .checkbox-input {
+      border-color: rgba($neutral-4, .6);
+    }
+  }
+
   > input:checked + div .checkbox-input {
     svg {
       display: block;
@@ -42,11 +49,12 @@
       align-items: center;
       background-color: $white;
       border: solid 2px $neutral-3;
-      border-radius: 10%;
+      border-radius: 3px;
       display: flex;
       flex-shrink: 0;
       height: 14px;
       justify-content: center;
+      transition: border-color ease-in-out .15s;      
       width: 14px;
 
       svg {
@@ -145,6 +153,12 @@
 
     &.has-description > input {
       top: -14px;
+    }
+  }
+
+  &:hover {
+    .checkbox-input {
+      border-color: rgba($neutral-4, .4);
     }
   }
 }
