@@ -113,13 +113,13 @@
     cursor: not-allowed;
 
     > div {
+      background-color: rgba($neutral-3, .6);
+      border-color: $neutral-3;
+      cursor: not-allowed;
+
       > svg {
         fill: $neutral-4;
       }
-      background-color: $neutral-3;
-      border-color: $neutral-3;
-      color: $neutral-4;
-      cursor: not-allowed;
     }
 
     > ul {

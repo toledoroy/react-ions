@@ -48,8 +48,14 @@
 
   &.textarea-disabled {
     cursor: not-allowed;
+
     textarea {
+      background-color: rgba($neutral-3, .6);
       cursor: not-allowed;
+
+      &:hover {
+        border: solid 2px $neutral-3;
+      }  
     }
   }
 
