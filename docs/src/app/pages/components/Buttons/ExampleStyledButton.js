@@ -4,9 +4,11 @@ import styled from 'styled-components'
 
 const StyledButton = styled(Button)`
   background-color: palevioletred;
+  border-width: 2px;
   color: papayawhip;
   &:hover {
     background-color: papayawhip;
+    border-color: #C79647;
     color: palevioletred;
   }
 `

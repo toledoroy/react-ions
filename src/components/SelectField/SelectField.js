@@ -101,6 +101,8 @@ class SelectField extends React.Component {
   }
 
   toggleSelectField = () => {
+    if (this.props.disabled) return
+    
     this.setState({isOpen: !this.state.isOpen}, () => {
       if (this.state.isOpen) {
         document.addEventListener('click', this.toggleSelectField)

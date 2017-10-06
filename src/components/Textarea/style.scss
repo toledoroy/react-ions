@@ -17,6 +17,7 @@
     border-radius: 3px;
     box-sizing: border-box;
     font-size: 14px;
+    line-height: 1.6;
     padding: 10px;
     width: 100%;
     transition: border-color ease-in-out .15s;
@@ -47,8 +48,14 @@
 
   &.textarea-disabled {
     cursor: not-allowed;
+
     textarea {
+      background-color: rgba($neutral-3, .6);
       cursor: not-allowed;
+
+      &:hover {
+        border: solid 2px $neutral-3;
+      }  
     }
   }
 

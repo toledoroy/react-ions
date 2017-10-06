@@ -10,11 +10,13 @@ class Toggle extends React.Component {
 
   static defaultProps = {
     disabled: false,
-    value: false
+    value: false,
+    hasText: false
   }
 
   state = {
-    value: this.props.value
+    value: this.props.value,
+    text: ['Yes', 'No']
   }
 
   static propTypes = {
@@ -41,7 +43,11 @@ class Toggle extends React.Component {
     /**
      * A callback function to be called when the toggle changes.
      */
-    changeCallback: PropTypes.func
+    changeCallback: PropTypes.func,
+    /**
+    * Boolean used to signify if text is used on the toggle
+    */
+    hasText: PropTypes.bool
   }
 
   handleChange = () => {
@@ -67,23 +73,42 @@ class Toggle extends React.Component {
     }
   }
 
+  toggleText = (hasText, text, isOn) => {
+    if (hasText && isOn) {
+      return text[0]
+    }
+    else if (hasText && !isOn) {
+      return text[1]
+    }
+    else {
+      return ''
+    }
+  }
+
   render = () => {
     const cx = classNames.bind(style)
     const onClass = this.state.value ? style.on : ''
     const outerClasses = cx(style.outer, onClass)
     const innerClasses = cx(style.inner, onClass)
+    const textClasses = cx(style.text, onClass)
+    const hasTextClass = this.props.hasText ? style['has-text'] : style['no-text']
     const disabledClass = this.props.disabled ? style['toggle-disabled'] : ''
-    const toggleWrapper = cx(style['toggle-wrapper'])
+    const toggleWrapper = cx(style['toggle-wrapper'], hasTextClass)
     const toggleClass = cx(style['toggle-component'], disabledClass, this.props.optClass)
+    const toggleText = this.toggleText(this.props.hasText, this.state.text, onClass)
 
     return (
       <div className={toggleClass} onClick={this.handleChange}>
         {
           this.props.label &&
-          <label className={style['label-left']}>{this.props.label}</label>
+          <label>{this.props.label}</label>
         }
         <div className={toggleWrapper}>
           <div className={outerClasses} />
+           {this.props.hasText
+             ? <span className={textClasses}>{toggleText}</span>
+             : null
+           }
           <div className={innerClasses} />
         </div>
       </div>
