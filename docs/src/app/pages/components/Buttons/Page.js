@@ -25,6 +25,8 @@ import ExampleButtonConfirmationLoader from './ExampleButtonConfirmationLoader'
 import exampleButtonConfirmationLoaderCode from '!raw!./ExampleButtonConfirmationLoader'
 import ExampleStyledButton from './ExampleStyledButton'
 import exampleStyledButtonCode from '!raw!./ExampleStyledButton'
+import ExampleButtonMouseEvent from './ExampleButtonMouseEvent'
+import exampleButtonMouseEventCode from '!raw!./ExampleButtonMouseEvent'
 
 const description = {
   buttonDefault: 'This is the `button component` as it appears by default.',
@@ -37,7 +39,8 @@ const description = {
   buttonConfirmation: 'The `<ButtonConfirmation />` component generates an overlay to confirm an action.',
   buttonConfirmationCallback: 'This is `<ButtonConfirmation />` component showing the callback in action.',
   buttonConfirmationLoader: 'This is `<ButtonConfirmation />` component with a loader.',
-  styledButton: 'This is a `<Button />` that has been styled using `styled-components` < 💅 >'
+  styledButton: 'This is a `<Button />` that has been styled using `styled-components` < 💅 >',
+  buttonMouseEvent: 'This is a `<Button />` that has a couple of mouse events.'
 };
 
 const ButtonsPage = () => (
@@ -109,6 +112,12 @@ const ButtonsPage = () => (
           description={description.styledButton}
           markup={exampleStyledButtonCode}>
           <ExampleStyledButton />
+        </CodeExample>
+        <CodeExample
+          title='Button with mouse events'
+          description={description.buttonMouseEvent}
+          markup={exampleButtonMouseEventCode}>
+          <ExampleButtonMouseEvent />
         </CodeExample>
       </div>
       <div className={styles.block}>
