@@ -1,5 +1,18 @@
 ## HEAD
 
+## 2.0.17
+###### _October 6, 2017_
+
+- Input, Textarea, SelectField: adding background tint to disabled input [#522](https://github.com/GetAmbassador/react-ions/pull/522)
+
+- Checkbox: Implement focus border transition [#521](https://github.com/GetAmbassador/react-ions/pull/521)
+
+- Button: event handlers for mouseOver, mouseLeave, mouseDown, mouseOut [#520](https://github.com/GetAmbassador/react-ions/pull/520)
+
+- Toggle: updates to toggle style, with optional yes/no text [#519](https://github.com/GetAmbassador/react-ions/pull/519)
+
+- Removing Codacy Badge [#518](https://github.com/GetAmbassador/react-ions/pull/518)
+
 ## 2.0.16
 ###### _September 25, 2017_
 - ButtonAnchor: allowing for internal links to be disabled [#516](https://github.com/GetAmbassador/react-ions/pull/516)
