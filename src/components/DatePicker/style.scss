@@ -70,6 +70,9 @@
   }
 
   .datepicker > div {
+    @media #{$media-small-minus} {
+      min-width: auto;
+    }
     &:first-of-type {
       > div {
         @media #{$media-small-minus} {
