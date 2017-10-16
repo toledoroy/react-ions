@@ -11,6 +11,10 @@ class Tooltip extends React.Component {
 
   static propTypes = {
     /**
+     * The ID of the app wrapper.
+     */
+    appWrapper: PropTypes.string,
+    /**
      * The content to display inside the `Tooltip`.
      */
     content: PropTypes.string,
@@ -46,6 +50,7 @@ class Tooltip extends React.Component {
   }
 
   static defaultProps = {
+    appWrapper: 'app',
     tooltipPlacement: 'top',
     tipWrapper: 'tip-wrapper'
   }
@@ -103,7 +108,7 @@ class Tooltip extends React.Component {
       // Set the DOM reference
       tipNode.setAttribute('id', this.props.tipWrapper)
 
-      document.getElementById('app').appendChild(tipNode)
+      document.getElementById(this.props.appWrapper).appendChild(tipNode)
     }
   }
 
