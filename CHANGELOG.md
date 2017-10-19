@@ -1,5 +1,12 @@
 ## HEAD
 
+## 2.0.18
+###### _October 19, 2017_
+
+- Datepicker: fix inline select element width on small screens [#525](https://github.com/GetAmbassador/react-ions/pull/525)
+
+- Tooltip: allow the app ID to be passed in [#524](https://github.com/GetAmbassador/react-ions/pull/524)
+
 ## 2.0.17
 ###### _October 6, 2017_
 
