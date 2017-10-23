@@ -227,7 +227,9 @@ const iconList = [
   "icon-wrench",
   "icon-window-edit",
   "icon-hourglass-1",
-  "icon-calendar-alert"
+  "icon-calendar-alert",
+  "icon-yahoo-y",
+  "icon-google"
 ];
 
 export default iconList;
