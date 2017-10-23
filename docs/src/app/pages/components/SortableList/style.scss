@@ -12,3 +12,17 @@
     overflow: visible !important;
   }
 }
+
+.item-with-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  [class*='badge'] {
+    padding: 6px 8px;
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    height: 24px;
+    box-sizing: border-box;
+  }
+}

@@ -105,7 +105,10 @@ class SortableItem extends React.Component {
     /**
      * The text to display inside the item.
      */
-    text: PropTypes.string,
+    text: PropTypes.oneOfType([
+      PropTypes.node,
+      PropTypes.string
+    ]),
     /**
      * Whether the item is active.
      */
@@ -121,7 +124,11 @@ class SortableItem extends React.Component {
     /**
      * The total number of items in the list.
      */
-    count: PropTypes.number
+    count: PropTypes.number,
+    /**
+     * Whether the order number is hidden.
+     */
+    hideOrderNumber: PropTypes.bool
   }
 
   static defaultProps = {
@@ -154,14 +161,17 @@ class SortableItem extends React.Component {
 
   render = () => {
     const cx = classNames.bind(style)
-    const { text, index, active, isDragging, connectDragSource, connectDropTarget, canDrop } = this.props
+    const { text, index, active, isDragging, connectDragSource, connectDropTarget, canDrop, hideOrderNumber } = this.props
     const opacity = isDragging ? 0 : 1
     const badgeOpacity = this.state.count > 1 ? 1 - ((0.6 / (this.state.count - 1)) * index) : 1
     const sortableItemClasses = cx(style['sortable-item'], canDrop ? 'dragging' : '', !active ? 'inactive' : '')
 
     return connectDropTarget(
       <div style={{ opacity }} className={sortableItemClasses}>
-        <div style={{ opacity: badgeOpacity }}><Badge text={index + 1} theme='sky' optClass={style['sortable-item-badge']} /></div>
+        {
+          !hideOrderNumber &&
+          <div style={{ opacity: badgeOpacity }}><Badge text={index + 1} theme='sky' optClass={style['sortable-item-badge']} /></div>
+        }
         <span>{text}</span>
         <div className={style.actions}>
           <Toggle value={active} optClass={style.toggle} changeCallback={this.toggleSortableItem} />

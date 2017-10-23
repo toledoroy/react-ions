@@ -38,12 +38,13 @@ class CustomDragLayer extends React.Component {
       x: PropTypes.number.isRequired,
       y: PropTypes.number.isRequired
     }),
-    isDragging: PropTypes.bool.isRequired
+    isDragging: PropTypes.bool.isRequired,
+    hideOrderNumber: PropTypes.bool
   }
 
-  renderItem = (type, item, count) => {
+  renderItem = (type, item, count, hideOrderNumber) => {
     return (
-      <SortableItemPreview item={item} count={count} />
+      <SortableItemPreview item={item} count={count} hideOrderNumber={hideOrderNumber} />
     )
   }
 
@@ -57,7 +58,7 @@ class CustomDragLayer extends React.Component {
     return (
       <div className={style['drag-layer']}>
         <div style={getItemStyles(this.props)}>
-          {this.renderItem(itemType, item, this.props.count)}
+          {this.renderItem(itemType, item, this.props.count, this.props.hideOrderNumber)}
         </div>
       </div>
     )
