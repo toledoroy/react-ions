@@ -1,6 +1,6 @@
 import React from 'react'
 import {SortableList, SortableItem} from 'react-ions/lib/components/SortableList'
-import Badge from 'react-ions/lib/components/Badge'
+import Chip from 'react-ions/lib/components/Chip'
 import style from './style.scss'
 
 class ExampleSortableListNodes extends React.Component {
@@ -12,19 +12,19 @@ class ExampleSortableListNodes extends React.Component {
     items: [
       {
         value: 'email',
-        text: <div className={style['item-with-badge']}><span>Email</span><Badge text='Email badge' theme='success' /></div>,
+        text: <div className={style['item-with-badge']}><span>Email</span><Chip text='Email badge' size='smaller' color='success' /></div>,
         active: true
       }, {
         value: 'push_notification',
-        text: <div className={style['item-with-badge']}><span>Push Notification</span><Badge text='Push badge' theme='primary' /></div>,
+        text: <div className={style['item-with-badge']}><span>Push Notification</span><Chip text='Push badge' size='smaller' color='success' /></div>,
         active: false
       }, {
         value: 'web',
-        text: <div className={style['item-with-badge']}><span>Web</span><Badge text='Web badge' theme='danger' /></div>,
+        text: <div className={style['item-with-badge']}><span>Web</span><Chip text='Web badge' size='smaller' color='success' /></div>,
         active: false
       }, {
         value: 'sms',
-        text: <div className={style['item-with-badge']}><span>SMS</span><Badge text='SMS badge' theme='warning' /></div>,
+        text: <div className={style['item-with-badge']}><span>SMS</span><Chip text='SMS badge' size='smaller' color='success' /></div>,
         active: false
       }
     ],
