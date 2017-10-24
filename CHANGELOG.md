@@ -1,5 +1,12 @@
 ## HEAD
 
+## 2.0.19
+###### _October 24, 2017_
+
+- Sortable List: update sortable list UI [#528](https://github.com/GetAmbassador/react-ions/pull/528)
+
+- Icons: Google and Yahoo [#527](https://github.com/GetAmbassador/react-ions/pull/527)
+
 ## 2.0.18
 ###### _October 19, 2017_
 
