@@ -70,4 +70,9 @@ describe('SortableItemPreview', () => {
     expect(wrapper.childAt(0).text()).to.be.equal('4')
   })
 
+  it('should not render the order numbers', () => {
+    wrapper = mount(<SortableItemPreview item={items[0]} count={4} hideOrderNumber={true} />)
+
+    expect(wrapper.find('Badge')).to.have.length(0)
+  })
 })

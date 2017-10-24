@@ -26,6 +26,10 @@ export class SortableList extends React.Component {
      */
     changeCallback: PropTypes.func,
     /**
+     * Whether the order numbers are hidden.
+     */
+    hideOrderNumbers: PropTypes.bool,
+    /**
      * A callback function to be called when dragging starts.
      */
     onDragStart: PropTypes.func,
@@ -125,13 +129,15 @@ export class SortableList extends React.Component {
 
   render = () => {
     const { items } = this.state
+    const { hideOrderNumbers } = this.props
 
     return (
       <div className={style['sortable-list-container']} ref={(c) => this._sortableList = c}>
         <div className={style['sortable-list']}>
           {items.map((item, i) => {
             return (
-              <SortableItem key={item.value}
+              <SortableItem
+                key={item.value}
                 index={i}
                 value={item.value}
                 text={item.text}
@@ -141,11 +147,20 @@ export class SortableList extends React.Component {
                 getDimensions={this.handleResize}
                 onDragStart={this.onDragStart}
                 onDragStop={this.onDragStop}
-                count={items.length} />
+                count={items.length}
+                hideOrderNumber={hideOrderNumbers}
+              />
             )
           })}
         </div>
-        { this.state.dragging ? <CustomDragLayer dimensions={{ width: this.state.width, top: this.state.top }} count={this.state.items.length} /> : null }
+        {
+          this.state.dragging &&
+          <CustomDragLayer
+            dimensions={{ width: this.state.width, top: this.state.top }}
+            count={this.state.items.length}
+            hideOrderNumber={hideOrderNumbers}
+          />
+        }
       </div>
     )
   }

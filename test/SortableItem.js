@@ -97,4 +97,11 @@ describe('SortableItem', () => {
 
     expect(draggingStopped).to.be.true
   })
+
+  it('should not render the order numbers', () => {
+    const SortableItemContext = wrapInTestContext(SortableItem)
+    wrapper = mount(<SortableItemContext key={0} index={0} value="test-1" text="Test 1" moveSortableItem={sinon.spy()} toggleSortableItem={sinon.spy()} onDragStart={sinon.spy()} onDragStop={sinon.spy()} count={1} hideOrderNumber={true} />)
+
+    expect(wrapper.find('Badge')).to.have.length(0)
+  })
 })
