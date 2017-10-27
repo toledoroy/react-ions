@@ -14,12 +14,14 @@
   }
 
   .input-container {
+    align-items: center;
+    display: flex;
     position: relative;
 
     .prefix, .suffix {
       color: $primary-4;
+      line-height: 0;
       position: absolute;
-      top: 12px;
     }
 
     .prefix {
