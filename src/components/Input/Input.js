@@ -167,7 +167,7 @@ class Input extends React.Component {
   }
 
   render = () => {
-    const {prefix, suffix, label, value, optClass, className, width, disabled} = this.props
+    const {prefix, suffix, label, optClass, className, width, disabled} = this.props
     const cx = classNames.bind(style)
     const disabledClass = disabled ? style['input-disabled'] : null
     const widthStyle = width ? { width: width } : null
