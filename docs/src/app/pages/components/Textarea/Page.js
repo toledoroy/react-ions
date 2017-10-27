@@ -17,6 +17,8 @@ import ExampleTextareaCallback from './ExampleTextareaCallback'
 import exampleTextareaCallbackCode from '!raw!./ExampleTextareaCallback'
 import ExampleTextareaPopulated from './ExampleTextareaPopulated'
 import exampleTextareaPopulatedCode from '!raw!./ExampleTextareaPopulated'
+import ExampleTextareaStyled from './ExampleTextareaStyled'
+import exampleTextareaStyledCode from '!raw!./ExampleTextareaStyled'
 
 const description = {
   textareaDefault: 'This is the `textarea component` as it appears by default.',
@@ -25,7 +27,8 @@ const description = {
   textareaDisabled: 'This is the disabled `textarea component`.',
   textareaError: 'This is the `textarea component` with error.',
   textareaCallback: 'This is the `textarea component` with a callback function. __Note__: _the `style import` and `code` tag is for display purposes only._',
-  textareaPopulated: 'This is the `textarea component` that already has some content.'
+  textareaPopulated: 'This is the `textarea component` that already has some content.',
+  textareaStyled: 'This is a styled `textarea component`.'
 };
 
 const TextareaPage = () => (
@@ -73,6 +76,12 @@ const TextareaPage = () => (
           description={description.textareaPopulated}
           markup={exampleTextareaPopulatedCode}>
           <ExampleTextareaPopulated />
+        </CodeExample>
+        <CodeExample
+          title='Styled options'
+          description={description.textareaStyled}
+          markup={exampleTextareaStyledCode}>
+          <ExampleTextareaStyled />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
