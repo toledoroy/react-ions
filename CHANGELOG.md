@@ -3,12 +3,13 @@
 ## 2.0.20
 ###### _October 30, 2017_
 
-- Input: Enhancement to allow for a node prefix/suffix, Textarea: added className prop to allow for Styled elements [#530](https://github.com/GetAmbassador/react-ions/pull/530)
+- Input: Enhancement to allow for a node prefix/suffix;
+- Textarea, Input: added className prop to allow for Styled elements [#530](https://github.com/GetAmbassador/react-ions/pull/530)
 
 ## 2.0.19
 ###### _October 24, 2017_
 
-- Sortable List: update sortable list UI
+- Sortable List: update sortable list UI [#528](https://github.com/GetAmbassador/react-ions/pull/528)
 
 - Icons: Google and Yahoo [#527](https://github.com/GetAmbassador/react-ions/pull/527)
 
