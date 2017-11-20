@@ -55,7 +55,12 @@ const Button = (props) => {
   }
 
   return (
-    <button type={props.type} style={props.style} className={btnClasses} disabled={props.disabled || props.loading}
+    <button 
+    type={props.type} 
+    style={props.style} 
+    className={btnClasses} 
+    disabled={props.disabled || props.loading}
+    aria-disabled={props.disabled || props.loading}
     onClick={props.onClick}
     onMouseEnter={props.onMouseEnter}
     onMouseLeave={props.onMouseLeave}
@@ -82,6 +87,7 @@ Button.propTypes = {
    * Whether the button is disabled.
    */
   disabled: PropTypes.bool,
+  'aria-disabled': PropTypes.bool,
   /**
    * Whether the loading spinner is displayed.
    */
