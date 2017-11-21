@@ -27,6 +27,10 @@ class Input extends React.Component {
      */
     disabled: PropTypes.bool,
     /**
+     * Disallow the user from editing the input.
+     */
+    readonly: PropTypes.bool,
+    /**
      * Text shown above the input.
      */
     label: PropTypes.string,
@@ -167,7 +171,7 @@ class Input extends React.Component {
   }
 
   render = () => {
-    const {prefix, suffix, label, optClass, className, width, disabled} = this.props
+    const {prefix, suffix, label, optClass, className, width, disabled, readonly} = this.props
     const cx = classNames.bind(style)
     const disabledClass = disabled ? style['input-disabled'] : null
     const widthStyle = width ? { width: width } : null
@@ -190,6 +194,7 @@ class Input extends React.Component {
             onClick={this.props.onClick}
             onBlur={this.handleBlur}
             disabled={this.props.disabled}
+            readonly={this.props.readonly}
             placeholder={this.props.placeholder}
             style={this.state.inputStyles}
             onKeyUp={this.props.onKeyUp}
