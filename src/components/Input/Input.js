@@ -27,6 +27,10 @@ class Input extends React.Component {
      */
     disabled: PropTypes.bool,
     /**
+     * Disallow the user from editing the input.
+     */
+    readOnly: PropTypes.bool,
+    /**
      * Text shown above the input.
      */
     label: PropTypes.string,
@@ -190,6 +194,7 @@ class Input extends React.Component {
             onClick={this.props.onClick}
             onBlur={this.handleBlur}
             disabled={this.props.disabled}
+            readOnly={this.props.readOnly}
             placeholder={this.props.placeholder}
             style={this.state.inputStyles}
             onKeyUp={this.props.onKeyUp}
