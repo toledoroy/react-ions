@@ -194,7 +194,7 @@ class Input extends React.Component {
             onClick={this.props.onClick}
             onBlur={this.handleBlur}
             disabled={this.props.disabled}
-            readonly={this.props.readonly}
+            readOnly={this.props.readonly}
             placeholder={this.props.placeholder}
             style={this.state.inputStyles}
             onKeyUp={this.props.onKeyUp}
