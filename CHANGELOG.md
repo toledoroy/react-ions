@@ -1,5 +1,11 @@
 ## HEAD
 
+## 2.0.21
+###### _November 21, 2017_
+
+- Input: disallow the user from editing w/out disabling [#533](https://github.com/GetAmbassador/react-ions/pull/533)
+- Button: addition of the aria-disabled prop [#532](https://github.com/GetAmbassador/react-ions/pull/532)
+
 ## 2.0.20
 ###### _October 30, 2017_
 
