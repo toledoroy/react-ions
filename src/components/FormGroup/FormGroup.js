@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
-import Immutable from 'immutable'
+import Immutable, { List, Map } from 'immutable'
 import style from './style.scss'
 import optclass from '../internal/OptClass'
 
@@ -47,6 +47,12 @@ class FormGroup extends React.Component {
     debounceTime: 0
   }
 
+  state = {
+    fieldErrors: Map()
+  }
+
+  _formValidation = List()
+
   componentWillReceiveProps = (nextProps) => {
     const nextPropsSchema = Immutable.fromJS(nextProps.schema)
     const thisPropsSchema = Immutable.fromJS(this.props.schema)
@@ -69,11 +75,27 @@ class FormGroup extends React.Component {
     // get validation for each one
     // construct the return object
 
-    return Immutable.fromJS({
-      isValid: false, // return value from schema > validator
-      errors: {
-        subject: 'This field is required' // return value from schema > errorMessage
-      }
+    // Loop through validated fields
+    const errors = this._formValidation.reduce(response, fieldValidation => {
+
+      // Get the currently set value
+      const fieldValue = this.state.fields.get(fieldValidation.name)
+
+      // Get the first error where not valid (false if valid)
+      const fieldError = fieldValidation.validators.reduceRight(valid, v => v.validator(fieldValue) ? v.errorMessage : false, false)
+
+      // Do nothing if valid
+      if(!fieldError) return
+
+      // Otherwise set the error message
+      return response.set(fieldValidation.name, fieldError)
+    }, Map())
+
+    if(errors.size === 0) return Map({ isValid: false })
+
+    return Map({
+      isValid: true,
+      errors
     })
   }
 
@@ -117,6 +139,7 @@ class FormGroup extends React.Component {
   }
 
   getElements = (children) => {
+    this._formValidation = List()
     return React.Children.map(children, child => {
       if (!child) return child
 
@@ -127,6 +150,13 @@ class FormGroup extends React.Component {
         const value = this.state.fields.getIn([name, 'value'])
         const valueIsImmutable = Immutable.Iterable.isIterable(value)
         const valueProp = valueIsImmutable ? value.toJS() : value
+
+        if(child.props.validation) {
+          this._formValidation.push(Map({
+            name,
+            validators: child.props.validation,
+          }))
+        }
 
         if (this.state.fields.has(name) && React.isValidElement(child)) {
           childProps = {
