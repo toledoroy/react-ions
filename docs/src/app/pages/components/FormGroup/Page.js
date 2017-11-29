@@ -4,6 +4,8 @@ import docs from '!!docgen!react-ions/lib/components/FormGroup/FormGroup'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleFormGroup from './ExampleFormGroup'
 import exampleFormGroupCode from '!raw!./ExampleFormGroup'
+import ExampleFormValidation from './ExampleFormValidation'
+import exampleFormValidationCode from '!raw!./ExampleFormValidation'
 import ExampleFormGroupInline from './ExampleFormGroupInline'
 import exampleFormGroupInlineCode from '!raw!./ExampleFormGroupInline'
 import ExampleFormGroupNested from './ExampleFormGroupNested'
@@ -12,6 +14,7 @@ import styles from 'private/css/content'
 
 const description = {
   formGroup: 'This is an example `form group` component with stacked elements',
+  formValidation: 'This is an example `form group` with some sweet validation',
   formGroupInline: 'This is an example `form group` component with inline elements',
   formGroupNested: 'This is an example of nested form groups'
 };
@@ -21,6 +24,12 @@ const FormGroupPage = () => (
     <div className={styles.content}>
       <div className={styles.block}>
         <CodeExample
+          title='Form Validation'
+          description={description.formValidation}
+          markup={exampleFormValidationCode}>
+          <ExampleFormValidation />
+        </CodeExample>
+        {/* <CodeExample
           title='Form Group'
           description={description.formGroup}
           markup={exampleFormGroupCode}>
@@ -37,7 +46,7 @@ const FormGroupPage = () => (
           description={description.formGroupNested}
           markup={exampleFormGroupNestedCode}>
           <ExampleFormGroupNested />
-        </CodeExample>
+        </CodeExample> */}
       </div>
       <div className={styles.block}>
         <h3>Props</h3>
