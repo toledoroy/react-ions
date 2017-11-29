@@ -64,31 +64,9 @@ class FormGroup extends React.Component {
     })
   }
 
-  _handleValidation = () => {
-    // loop through this.state.fields
-    // get validation for each one
-    // construct the return object
-
-    return Immutable.fromJS({
-      isValid: false, // return value from schema > validator
-      errors: {
-        subject: 'This field is required' // return value from schema > errorMessage
-      }
-    })
-  }
-
   handleSubmit = (event) => {
     event.preventDefault()
-
-    const validationResponse = this._handleValidation()
-
-    if (!validationResponse.get('isValid')) {
-      this.setState({
-        fieldErrors: validationResponse.get('errors')
-      })
-    }
-
-    if (validationResponse.get('isValid') && typeof this.props.submitCallback === 'function') {
+    if (typeof this.props.submitCallback === 'function') {
       this.props.submitCallback(event, this.state.fields.toJS())
     }
   }
@@ -123,16 +101,13 @@ class FormGroup extends React.Component {
       let childProps = {}
       if (child.props) {
         const name = child.props.name
-
         const value = this.state.fields.getIn([name, 'value'])
         const valueIsImmutable = Immutable.Iterable.isIterable(value)
-        const valueProp = valueIsImmutable ? value.toJS() : value
-
+        const valueProp =  valueIsImmutable ? value.toJS() : value
         if (this.state.fields.has(name) && React.isValidElement(child)) {
           childProps = {
             changeCallback: this.props.debounceTime ? this.debounce : this.handleChange,
-            value: valueProp,
-            errorMessage: this.state.fieldErrors.get('name')
+            value: valueProp
           }
         }
 
