@@ -76,22 +76,22 @@ class FormGroup extends React.Component {
     // construct the return object
 
     // Loop through validated fields
-    const errors = this._formValidation.reduce(response, fieldValidation => {
+    const errors = this._formValidation.reduce((response, fieldValidation) => {
 
       // Get the currently set value
-      const fieldValue = this.state.fields.get(fieldValidation.name)
+      const fieldValue = this.state.fields.get(fieldValidation.get('name'))
 
       // Get the first error where not valid (false if valid)
-      const fieldError = fieldValidation.validators.reduceRight(valid, v => v.validator(fieldValue) ? v.errorMessage : false, false)
+      const fieldError = fieldValidation.validators.reduceRight(valid, v => v.get('validator')(fieldValue) ? v.get('errorMessage') : false, false)
 
       // Do nothing if valid
-      if(!fieldError) return
+      if (!fieldError) return
 
       // Otherwise set the error message
-      return response.set(fieldValidation.name, fieldError)
+      return response.set(fieldValidation.get('name'), fieldError)
     }, Map())
 
-    if(errors.size === 0) return Map({ isValid: false })
+    if (errors.size === 0) return Map({ isValid: false, errors })
 
     return Map({
       isValid: true,
@@ -147,6 +147,7 @@ class FormGroup extends React.Component {
       if (child.props) {
         const name = child.props.name
 
+        const errorMessage = this.state.fieldErrors.get(name)
         const value = this.state.fields.getIn([name, 'value'])
         const valueIsImmutable = Immutable.Iterable.isIterable(value)
         const valueProp = valueIsImmutable ? value.toJS() : value
@@ -154,7 +155,7 @@ class FormGroup extends React.Component {
         if(child.props.validation) {
           this._formValidation.push(Map({
             name,
-            validators: child.props.validation,
+            validators: Immutable.fromJS(child.props.validation),
           }))
         }
 
@@ -162,7 +163,7 @@ class FormGroup extends React.Component {
           childProps = {
             changeCallback: this.props.debounceTime ? this.debounce : this.handleChange,
             value: valueProp,
-            errorMessage: this.state.fieldErrors.get('name')
+            errorMessage
           }
         }
 
