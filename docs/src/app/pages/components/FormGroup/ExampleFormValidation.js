@@ -1,4 +1,5 @@
 import React from 'react'
+import Immutable from 'immutable'
 import { ValidatedField, FormGroup } from 'react-ions/lib/components/FormGroup'
 import Input from 'react-ions/lib/components/Input'
 import Textarea from 'react-ions/lib/components/Textarea'
@@ -7,8 +8,10 @@ import formStyle from 'react-ions/lib/components/FormGroup/style'
 import style from './style.scss'
 import { log } from 'util';
 
-const validationMethods = {
-  empty: _str => !!_str,
+const validate = {
+  empty: _str => {
+    return !!_str
+  },
   email: _email => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     return !!_email && re.test(_email.trim())
@@ -23,29 +26,24 @@ const ValidatedInput = ValidatedField(Input)
 const ValidatedTextarea = ValidatedField(Textarea)
 
 const schema = {
-  subject: {
-    value: 'This is a subject',
-    validation: [
-      {
-        validator: validationMethods.empty,
-        errorMessage: 'This field is required'
-      }
-    ]
+  email: {
+    value: ''
   },
   message: {
-    value: 'This is a message',
-    validation: [
-      {
-        validator: validationMethods.empty,
-        errorMessage: 'This field is required'
-      }
-    ]
+    value: ''
   }
 }
 
 class ExampleFormValidation extends React.Component {
   constructor(props) {
     super(props)
+  }
+
+  state = {
+    errors: {
+      email: null,
+      message: null
+    }
   }
 
   handleChange = (fields) => {
@@ -57,32 +55,52 @@ class ExampleFormValidation extends React.Component {
     alert(JSON.stringify(fields, 2, null))
   }
 
+  handleErrors = (errors) => {
+    this.setState({
+      errors: {
+        email: errors.get('email'),
+        message: errors.get('message')
+      }
+    })
+    console.log(errors.toJS())
+  }
+
   render() {
     return (
       <FormGroup
         changeCallback={this.handleChange}
         submitCallback={this.handleSubmit}
+        errorCallback={this.handleErrors}
         debounceTime={250}
         schema={schema}
       >
-
         <ValidatedInput 
-          name='subject'
-          label='Subject'
+          name='email'
+          label='Email'
           type='text'
-          validation=''
-          message=''
+          placeholder='sugerman@6am.com'
+          validation={[
+            {
+              validator: validate.email,
+              errorMessage: 'Please enter a valid email address.'
+            }
+          ]}
+          error={this.state.errors.email}
           optClass={formStyle.field}
         />
         <ValidatedTextarea 
           name='message'
           label='Message'
           type='text'
-          validation=''
-          message=''
+          validation={[
+            {
+              validator: validate.empty,
+              errorMessage: 'This textfield is required.'
+            }
+          ]}
+          error={this.state.errors.message}
           optClass={formStyle.field}
         />
-
         <Button type='submit'>Submit</Button>
       </FormGroup>
     )

@@ -1,15 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
-import Immutable from 'immutable'
+import { is, Iterable, fromJS, List, Map } from 'immutable'
 import style from './style.scss'
 import optclass from '../internal/OptClass'
+import { log } from 'util';
 
 class FormGroup extends React.Component {
   constructor(props) {
     super(props)
 
     this.debounce = debounce(this.handleChange, this.props.debounceTime)
+    this._formValidation = null
   }
 
   static propTypes = {
@@ -47,25 +49,65 @@ class FormGroup extends React.Component {
     debounceTime: 0
   }
 
-  componentWillReceiveProps = (nextProps) => {
-    const nextPropsSchema = Immutable.fromJS(nextProps.schema)
-    const thisPropsSchema = Immutable.fromJS(this.props.schema)
+  state = {
+    fieldErrors: Map()
+  }
 
-    if(!Immutable.is(nextPropsSchema, thisPropsSchema)) {
+  componentWillReceiveProps = (nextProps) => {
+    const nextPropsSchema = fromJS(nextProps.schema)
+    const thisPropsSchema = fromJS(this.props.schema)
+
+    if(!is(nextPropsSchema, thisPropsSchema)) {
       this.setState({
-        fields: Immutable.fromJS(nextProps.schema)
+        fields: fromJS(nextProps.schema)
       })
     }
   }
 
   componentWillMount = () => {
     this.setState({
-      fields: Immutable.fromJS(this.props.schema)
+      fields: fromJS(this.props.schema)
     })
+  }
+
+  _handleValidation = () => {
+    // Loop through validated fields
+    const errors = this._formValidation.reduce((field, fieldValidation) => {
+
+      // Get the currently set value
+      const fieldValue = this.state.fields.get(fieldValidation.getIn(['name', 'value']))
+
+      // Just a helper that returns a string, if truthy
+      const fieldIsInvalid = (f) => {
+        return f.get('validator')(fieldValue) ? f.get('errorMessage') : false
+      }
+
+      // Get the first error where not valid (false if valid)
+      const fieldError = fieldValidation.get('validators').reduceRight((v, f) => fieldIsInvalid(f))
+      
+      // Do nothing if valid
+      if (!fieldError) {
+        return false
+      }
+
+      // Otherwise set the error message
+      if (field) {
+        return field.set(fieldValidation.get('name'), fieldError.get('errorMessage'))
+      }
+    }, Map())
+
+    return errors
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
+    
+    const invalidFields = this._handleValidation()
+
+    if (invalidFields && invalidFields.size && typeof this.props.errorCallback === 'function') {
+      return this.props.errorCallback(invalidFields)
+    }
+  
     if (typeof this.props.submitCallback === 'function') {
       this.props.submitCallback(event, this.state.fields.toJS())
     }
@@ -95,23 +137,38 @@ class FormGroup extends React.Component {
   }
 
   getElements = (children) => {
+    // Resetting validation each time this is run
+    let validationList = List()
+    
     return React.Children.map(children, child => {
       if (!child) return child
 
       let childProps = {}
       if (child.props) {
         const name = child.props.name
+
+        const errorMessage = this.state.fieldErrors.get(name)
         const value = this.state.fields.getIn([name, 'value'])
-        const valueIsImmutable = Immutable.Iterable.isIterable(value)
-        const valueProp =  valueIsImmutable ? value.toJS() : value
+        const valueIsImmutable = Iterable.isIterable(value)
+        const valueProp = valueIsImmutable ? value.toJS() : value
+
+        if (child.props.validation) {
+          validationList = validationList.push(Map({
+            name,
+            validators: fromJS(child.props.validation),
+          }))
+        }
+
         if (this.state.fields.has(name) && React.isValidElement(child)) {
           childProps = {
             changeCallback: this.props.debounceTime ? this.debounce : this.handleChange,
-            value: valueProp
+            value: valueProp,
+            errorMessage
           }
         }
-
         childProps.children = this.getElements(child.props.children)
+
+        this._formValidation = validationList
         return React.cloneElement(child, childProps)
       }
 

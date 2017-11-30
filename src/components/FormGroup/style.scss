@@ -148,3 +148,15 @@ fieldset.row {
 .is-hidden {
   display: none !important;
 }
+
+[class*='input-component'] + [class^='has-error__message'],
+[class*='textarea-component'] + [class^='has-error__message'] {
+  position: relative;
+  top: -8px;
+}
+
+.has-error__message {
+  color: $danger;
+  display: block;
+  margin-top: 4px;
+}

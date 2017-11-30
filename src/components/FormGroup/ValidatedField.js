@@ -1,20 +1,26 @@
 import React from 'react'
-import { object, string } from 'prop-types'
+import { array, object, string } from 'prop-types'
+import style from './style.scss'
 
 const ValidatedField = WrappedComponent => {
   return class extends React.Component {
     static propTypes = {
-      /**
-       */
-      validation: object,
-      /**
-       */
-      message: string
+      validation: array,
+      error: string
     }
 
     render = () => {
+      const wrapperErrorClass = this.props.error ? 'has-error' : null
+
       return (
-        <WrappedComponent {...this.props} />
+        <div>
+          <WrappedComponent {...this.props} className={wrapperErrorClass} />
+          {this.props.error &&
+            <span className={style['has-error__message']}>
+              {this.props.error}
+            </span>
+          }
+        </div>
       )
     }
   }
