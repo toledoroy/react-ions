@@ -1,5 +1,8 @@
 ## HEAD
 
+## 2.0.22
+- FormGroup: added validation option for input and textarea [#536](https://github.com/GetAmbassador/react-ions/pull/536)
+
 ## 2.0.21
 ###### _November 21, 2017_
 
