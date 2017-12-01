@@ -72,42 +72,36 @@ class FormGroup extends React.Component {
 
   _handleValidation = () => {
     // Loop through validated fields
-    const errors = this._formValidation.reduce((field, fieldValidation) => {
+    return this._formValidation.reduce((errors, fieldValidation) => {
 
       // Get the currently set value
-      const fieldValue = this.state.fields.get(fieldValidation.getIn(['name', 'value']))
+      const fieldValue = this.state.fields.getIn([fieldValidation.get('name'), 'value'])
 
-      // Just a helper that returns a string, if truthy
-      const fieldIsInvalid = (f) => {
-        return f.get('validator')(fieldValue) ? f.get('errorMessage') : false
+      // Helper that runs validaiton function and returns error message or false
+      const getFieldError = (f) => {
+        return !f.get('validator')(fieldValue) ? f.get('errorMessage') : ''
       }
 
       // Get the first error where not valid (false if valid)
-      const fieldError = fieldValidation.get('validators').reduceRight((v, f) => fieldIsInvalid(f))
-      
-      // Do nothing if valid
-      if (!fieldError) {
-        return false
-      }
+      const fieldError = fieldValidation.get('validators').reduceRight((v, f) => getFieldError(f), '')
 
-      // Otherwise set the error message
-      if (field) {
-        return field.set(fieldValidation.get('name'), fieldError.get('errorMessage'))
-      }
+      // If there is an error append to errors
+      if (fieldError) return errors.set(fieldValidation.get('name'), fieldError)
+
+      // If no error, don't add the field to errors
+      return errors
     }, Map())
-
-    return errors
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
-    
+
     const invalidFields = this._handleValidation()
 
     if (invalidFields && invalidFields.size && typeof this.props.errorCallback === 'function') {
       return this.props.errorCallback(invalidFields)
     }
-  
+
     if (typeof this.props.submitCallback === 'function') {
       this.props.submitCallback(event, this.state.fields.toJS())
     }
@@ -139,7 +133,7 @@ class FormGroup extends React.Component {
   getElements = (children) => {
     // Resetting validation each time this is run
     let validationList = List()
-    
+
     return React.Children.map(children, child => {
       if (!child) return child
 
