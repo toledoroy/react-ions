@@ -9,15 +9,15 @@ import formStyle from 'react-ions/lib/components/FormGroup/style'
 import style from './style.scss'
 
 const validate = {
-  isNotEmpty: _str => {
-    return !!_str && _str !== 0
+  isNotEmpty: str => {
+    return !!str || str === 0
   },
-  isDefined: _val => {
-    return _val !== undefined
+  isDefined: val => {
+    return val !== undefined
   },
-  isValidEmail: _email => {
+  isValidEmail: email => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    return !!_email && re.test(_email.trim())
+    return !!email && re.test(email.trim())
   }
 }
 
