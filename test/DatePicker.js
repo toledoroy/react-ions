@@ -94,6 +94,7 @@ describe('DatePicker', () => {
     expect(wrapper.state('value')).to.equal(firstDay)
   })
 
+  // TODO: Fix this test https://trello.com/c/kmhQM4no/379-reactions-fix-datepicker-tests
   it.skip('should run the changeCallback on changing a year', () => {
     let result = ''
     const callback = (event) => {
