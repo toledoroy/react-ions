@@ -5,7 +5,6 @@ import style from './style.scss'
 const ValidatedField = WrappedComponent => {
   return class extends React.Component {
     static propTypes = {
-      validation: array,
       error: string
     }
 

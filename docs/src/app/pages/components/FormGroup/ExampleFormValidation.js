@@ -6,19 +6,20 @@ import Textarea from 'react-ions/lib/components/Textarea'
 import Button from 'react-ions/lib/components/Button'
 import formStyle from 'react-ions/lib/components/FormGroup/style'
 import style from './style.scss'
-import { log } from 'util';
 
 const validate = {
-  empty: _str => {
-    return !!_str
+  // all helpers should return true when valid
+  isNotEmpty: _str => {
+    // handles null, undefined and empty string
+    // 0 is often a valid input values, so we include it here
+    return !!_str && _str !== 0
   },
-  email: _email => {
+  isDefined: _val => {
+    return _val !== undefined
+  },
+  isValidEmail: _email => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     return !!_email && re.test(_email.trim())
-  },
-  urlWithProtocol: _url => {
-    const re = /^(https?|s?ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i
-    return !!_url && re.test(_url.trim())
   }
 }
 
@@ -39,13 +40,6 @@ class ExampleFormValidation extends React.Component {
     super(props)
   }
 
-  state = {
-    errors: {
-      email: null,
-      message: null
-    }
-  }
-
   handleChange = (fields) => {
     this.setState({schema: fields})
   }
@@ -56,12 +50,6 @@ class ExampleFormValidation extends React.Component {
   }
 
   handleErrors = (errors) => {
-    this.setState({
-      errors: {
-        email: errors.get('email'),
-        message: errors.get('message')
-      }
-    })
     console.log(errors.toJS())
   }
 
@@ -81,11 +69,14 @@ class ExampleFormValidation extends React.Component {
           placeholder='sugerman@6am.com'
           validation={[
             {
-              validator: validate.email,
+              validator: validate.isNotEmpty,
+              errorMessage: 'The email field is required.'
+            },
+            {
+              validator: validate.isValidEmail,
               errorMessage: 'Please enter a valid email address.'
             }
           ]}
-          error={this.state.errors.email}
           optClass={formStyle.field}
         />
         <ValidatedTextarea 
@@ -94,11 +85,10 @@ class ExampleFormValidation extends React.Component {
           type='text'
           validation={[
             {
-              validator: validate.empty,
+              validator: validate.isNotEmpty,
               errorMessage: 'This textfield is required.'
             }
           ]}
-          error={this.state.errors.message}
           optClass={formStyle.field}
         />
         <Button type='submit'>Submit</Button>

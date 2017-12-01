@@ -22,22 +22,24 @@
 }
 
 .field {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 .fieldset > fieldset {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 fieldset.row {
   margin-bottom: 0;
   padding-right: 20px;
   position: relative;
+
   .field {
     float: left;
     display: block;
-    margin: 0 15px 15px 0;
+    margin: 0 16px 16px 0;
     min-width: auto;
+
     @media #{$media-small-minus} {
       margin: 0;
       min-width: 100%;
@@ -46,16 +48,20 @@ fieldset.row {
 
   @media #{$media-small-minus} {
     padding-right: 0;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
+
     [class^='button-group'] {
-      margin-bottom: 15px;
+      margin-bottom: 16px;
     }
+
     .remove-item {
       right: 12px;
       top: 64px;
     }
+
     .fields {
       padding-right: 40px;
+
       [class*='datepicker-component-'] {
         > div + div {
           margin: -1px 0 0;
@@ -159,4 +165,5 @@ fieldset.row {
   color: $danger;
   display: block;
   margin-top: 4px;
+  margin-bottom: 8px;
 }

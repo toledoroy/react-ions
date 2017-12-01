@@ -4,7 +4,6 @@ import debounce from 'lodash/debounce'
 import { is, Iterable, fromJS, List, Map } from 'immutable'
 import style from './style.scss'
 import optclass from '../internal/OptClass'
-import { log } from 'util';
 
 class FormGroup extends React.Component {
   constructor(props) {
@@ -78,12 +77,12 @@ class FormGroup extends React.Component {
       const fieldValue = this.state.fields.getIn([fieldValidation.get('name'), 'value'])
 
       // Helper that runs validaiton function and returns error message or false
-      const getFieldError = (f) => {
-        return !f.get('validator')(fieldValue) ? f.get('errorMessage') : ''
+      const getFieldError = (v, f) => {
+        return !f.get('validator')(fieldValue) ? f.get('errorMessage') : v
       }
 
       // Get the first error where not valid (false if valid)
-      const fieldError = fieldValidation.get('validators').reduceRight((v, f) => getFieldError(f), '')
+      const fieldError = fieldValidation.get('validators').reduceRight((v, f) => getFieldError(v, f), '')
 
       // If there is an error append to errors
       if (fieldError) return errors.set(fieldValidation.get('name'), fieldError)
@@ -96,10 +95,13 @@ class FormGroup extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    const invalidFields = this._handleValidation()
+    const fieldErrors = this._handleValidation()
 
-    if (invalidFields && invalidFields.size && typeof this.props.errorCallback === 'function') {
-      return this.props.errorCallback(invalidFields)
+    // Required to send error prop to ValidatedField component
+    this.setState({ fieldErrors })
+
+    if (fieldErrors && fieldErrors.size && typeof this.props.errorCallback === 'function') {
+      return this.props.errorCallback(fieldErrors)
     }
 
     if (typeof this.props.submitCallback === 'function') {
@@ -141,7 +143,7 @@ class FormGroup extends React.Component {
       if (child.props) {
         const name = child.props.name
 
-        const errorMessage = this.state.fieldErrors.get(name)
+        const error = this.state.fieldErrors.get(name)
         const value = this.state.fields.getIn([name, 'value'])
         const valueIsImmutable = Iterable.isIterable(value)
         const valueProp = valueIsImmutable ? value.toJS() : value
@@ -157,7 +159,7 @@ class FormGroup extends React.Component {
           childProps = {
             changeCallback: this.props.debounceTime ? this.debounce : this.handleChange,
             value: valueProp,
-            errorMessage
+            error
           }
         }
         childProps.children = this.getElements(child.props.children)
