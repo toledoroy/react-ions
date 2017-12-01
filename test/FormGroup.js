@@ -1,6 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import FormGroup from '../src/components/FormGroup'
+import { Map } from 'immutable'
+import { ValidatedField, FormGroup } from '../src/components/FormGroup'
 import Button from '../src/components/Button'
 import Input from '../src/components/Input'
 import Textarea from '../src/components/Textarea'
@@ -10,11 +11,14 @@ import SelectField from '../src/components/SelectField'
 describe('FormGroup', () => {
   let formGroup, wrapper
 
+  const ValidatedInput = ValidatedField(Input)
+
   it('should shallow render itself', () => {
     formGroup = shallow(<FormGroup />)
     expect(formGroup.find('form')).to.have.length(1)
     expect(formGroup.hasClass('form-group')).to.equal(true)
     expect(typeof formGroup.props().onSubmit).to.equal('function')
+    expect(formGroup.state().fieldErrors).to.equal(Map())
   })
 
   it('should render with an optional CSS class', () => {
@@ -232,4 +236,120 @@ describe('FormGroup', () => {
     expect(wrapper.state().fields.getIn(['country', 'option'])).to.equal(options[1])
   })
 
+  it('should not return a validation error', () => {
+    const schema = {
+      message: {
+        value: ''
+      }
+    }
+
+    formGroup = shallow(<FormGroup schema={schema}>
+      <ValidatedInput 
+        name='message'
+        label='Message'
+        type='text'
+        validation={[
+          {
+            validator: () => true,
+            errorMessage: 'The message field is required.'
+          }
+        ]}
+      />
+    </FormGroup>)
+
+    expect(formGroup.instance()._handleValidation()).to.equal(Map())
+  })
+
+  it('should return a validation error', () => {
+    const schema = {
+      message: {
+        value: ''
+      }
+    }
+    
+    const errorMessage = 'The message field is required.'
+
+    formGroup = shallow(<FormGroup schema={schema}>
+      <ValidatedInput 
+        name='message'
+        label='Message'
+        type='text'
+        validation={[
+          {
+            validator: () => false,
+            errorMessage: errorMessage
+          }
+        ]}
+      />
+    </FormGroup>)
+
+    expect(formGroup.instance()._handleValidation().size).to.equal(1)
+    expect(formGroup.instance()._handleValidation().get('message')).to.equal(errorMessage)
+  })
+
+  it('should return a the last validation error, when multiple', () => {
+    const schema = {
+      message: {
+        value: ''
+      }
+    }
+    
+    const errorMessageSecond = 'The message field is required.'
+    const errorMessageFirst = 'The error will be returned first.'
+    
+    formGroup = shallow(<FormGroup schema={schema}>
+      <ValidatedInput 
+        name='message'
+        label='Message'
+        type='text'
+        validation={[
+          {
+            validator: () => true,
+            errorMessage: errorMessageSecond
+          },
+          {
+            validator: () => false,
+            errorMessage: errorMessageFirst
+          }
+        ]}
+      />
+    </FormGroup>)
+
+    expect(formGroup.instance()._handleValidation().size).to.equal(1)
+    expect(formGroup.instance()._handleValidation().get('message')).to.equal(errorMessageFirst)
+  })
+
+  it('should handle field errors when the form is submitted', () => {
+    const errorCallbackSpy = sinon.stub()
+    const schema = {
+      message: {
+        value: ''
+      }
+    }
+    
+    const errorMessage = 'The field cannot be left empty.'
+    
+    const event = {
+      preventDefault: () => {}
+    }
+
+    formGroup = shallow(<FormGroup schema={schema} errorCallback={errorCallbackSpy}>
+      <ValidatedInput 
+        name='message'
+        label='Message'
+        type='text'
+        validation={[
+          {
+            validator: () => false,
+            errorMessage: errorMessage
+          }
+        ]}
+      />
+    </FormGroup>)
+
+    formGroup.instance().handleSubmit(event)
+
+    expect(formGroup.state().fieldErrors.toJS()).to.deep.equal({ message: 'The field cannot be left empty.'})
+    expect(errorCallbackSpy.calledOnce).to.be.true
+  })
 })
