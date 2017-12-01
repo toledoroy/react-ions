@@ -4,7 +4,6 @@ import Dropzone from 'react-dropzone'
 import Icon from '../Icon'
 import classNames from 'classnames/bind'
 import style from './style.scss'
-import { log } from 'util';
 
 /**
  * The FileUpload component.

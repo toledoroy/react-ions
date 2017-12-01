@@ -8,10 +8,7 @@ import formStyle from 'react-ions/lib/components/FormGroup/style'
 import style from './style.scss'
 
 const validate = {
-  // all helpers should return true when valid
   isNotEmpty: _str => {
-    // handles null, undefined and empty string
-    // 0 is often a valid input values, so we include it here
     return !!_str && _str !== 0
   },
   isDefined: _val => {
