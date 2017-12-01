@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import Immutable, { Map } from 'immutable'
+import { Map } from 'immutable'
 import { ValidatedField, FormGroup } from '../src/components/FormGroup'
 import Button from '../src/components/Button'
 import Input from '../src/components/Input'
