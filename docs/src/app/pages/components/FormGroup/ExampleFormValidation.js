@@ -1,6 +1,7 @@
 import React from 'react'
 import Immutable from 'immutable'
-import { ValidatedField, FormGroup } from 'react-ions/lib/components/FormGroup'
+import FormGroup from 'react-ions/lib/components/FormGroup'
+import ValidatedField from 'react-ions/lib/components/FormGroup/ValidatedField'
 import Input from 'react-ions/lib/components/Input'
 import Textarea from 'react-ions/lib/components/Textarea'
 import Button from 'react-ions/lib/components/Button'
