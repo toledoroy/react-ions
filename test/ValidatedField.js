@@ -7,7 +7,7 @@ describe('ValidatedField', () => {
   let wrapper
 
   const ValidatedInput = ValidatedField(Input)
-  
+
   it('should shallow render itself', () => {
     wrapper = shallow(<ValidatedInput error='Error here.' />)
 

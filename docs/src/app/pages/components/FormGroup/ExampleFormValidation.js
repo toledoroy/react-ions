@@ -1,7 +1,7 @@
 import React from 'react'
 import Immutable from 'immutable'
 import FormGroup from 'react-ions/lib/components/FormGroup'
-import ValidatedField from 'react-ions/lib/components/FormGroup/ValidatedField'
+import { ValidatedField } from 'react-ions/lib/components/FormGroup'
 import Input from 'react-ions/lib/components/Input'
 import Textarea from 'react-ions/lib/components/Textarea'
 import Button from 'react-ions/lib/components/Button'
@@ -60,7 +60,7 @@ class ExampleFormValidation extends React.Component {
         debounceTime={250}
         schema={schema}
       >
-        <ValidatedInput 
+        <ValidatedInput
           name='email'
           label='Email'
           type='text'
@@ -77,7 +77,7 @@ class ExampleFormValidation extends React.Component {
           ]}
           optClass={formStyle.field}
         />
-        <ValidatedTextarea 
+        <ValidatedTextarea
           name='message'
           label='Message'
           type='text'
