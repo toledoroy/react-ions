@@ -57,7 +57,6 @@ class ExampleFormValidation extends React.Component {
         changeCallback={this.handleChange}
         submitCallback={this.handleSubmit}
         errorCallback={this.handleErrors}
-        debounceTime={250}
         schema={schema}
       >
         <ValidatedInput
