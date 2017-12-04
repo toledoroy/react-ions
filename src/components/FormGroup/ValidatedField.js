@@ -9,7 +9,7 @@ const ValidatedField = WrappedComponent => {
     }
 
     render = () => {
-      const wrapperErrorClass = this.props.error ? 'has-error' : null
+      const wrapperErrorClass = this.props.error ? style['has-error'] : null
 
       return (
         <div>
