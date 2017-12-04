@@ -75,7 +75,7 @@ class FormGroup extends React.Component {
   // Errors can be passed in via props if external validation is used or
   // errors can be captured from state if internal validation is used
   _mapFieldErrors = () => {
-    return Map(this.props.fieldErrors).merge(this.state.fieldErrors)
+    return Map(this.state.fieldErrors).merge(this.props.fieldErrors)
   }
 
   handleSubmit = (event) => {

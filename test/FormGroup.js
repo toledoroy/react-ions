@@ -19,7 +19,7 @@ describe('FormGroup', () => {
     expect(formGroup.find('form')).to.have.length(1)
     expect(formGroup.hasClass('form-group')).to.equal(true)
     expect(typeof formGroup.props().onSubmit).to.equal('function')
-    expect(formGroup.state().fieldErrors).to.equal(Map())
+    expect(formGroup.state().fieldErrors).to.deep.equal({})
   })
 
   it('should render with an optional CSS class', () => {
@@ -237,89 +237,6 @@ describe('FormGroup', () => {
     expect(wrapper.state().fields.getIn(['country', 'option'])).to.equal(options[1])
   })
 
-  it('should not return a validation error', () => {
-    const schema = {
-      message: {
-        value: ''
-      }
-    }
-
-    formGroup = shallow(<FormGroup schema={schema}>
-      <ValidatedInput 
-        name='message'
-        label='Message'
-        type='text'
-        validation={[
-          {
-            validator: () => true,
-            message: 'The message field is required.'
-          }
-        ]}
-      />
-    </FormGroup>)
-
-    expect(formGroup.instance()._handleValidation()).to.equal(Map())
-  })
-
-  it('should return a validation error', () => {
-    const schema = {
-      message: {
-        value: ''
-      }
-    }
-    
-    const message = 'The message field is required.'
-
-    formGroup = shallow(<FormGroup schema={schema}>
-      <ValidatedInput 
-        name='message'
-        label='Message'
-        type='text'
-        validation={[
-          {
-            validator: () => false,
-            message: message
-          }
-        ]}
-      />
-    </FormGroup>)
-
-    expect(formGroup.instance()._handleValidation().size).to.equal(1)
-    expect(formGroup.instance()._handleValidation().get('message')).to.equal(message)
-  })
-
-  it('should return a the last validation error, when multiple', () => {
-    const schema = {
-      message: {
-        value: ''
-      }
-    }
-    
-    const messageSecond = 'The message field is required.'
-    const messageFirst = 'The error will be returned first.'
-    
-    formGroup = shallow(<FormGroup schema={schema}>
-      <ValidatedInput 
-        name='message'
-        label='Message'
-        type='text'
-        validation={[
-          {
-            validator: () => true,
-            message: messageSecond
-          },
-          {
-            validator: () => false,
-            message: messageFirst
-          }
-        ]}
-      />
-    </FormGroup>)
-
-    expect(formGroup.instance()._handleValidation().size).to.equal(1)
-    expect(formGroup.instance()._handleValidation().get('message')).to.equal(errorMessageFirst)
-  })
-
   it('should handle field errors when the form is submitted', () => {
     const errorCallbackSpy = sinon.stub()
     const schema = {
@@ -342,7 +259,7 @@ describe('FormGroup', () => {
         validation={[
           {
             validator: () => false,
-            message: message
+            message: errorMessage
           }
         ]}
       />
@@ -354,7 +271,7 @@ describe('FormGroup', () => {
     expect(errorCallbackSpy.calledOnce).to.be.true
   })
 
-  it.skip('should validate from props -> errorFields when passed', () => {
+  it('should validate from props -> errorFields when passed', () => {
     const schema = {
       message: {
         value: ''
@@ -365,8 +282,6 @@ describe('FormGroup', () => {
       preventDefault: () => {}
     }
     
-    const message = 'The message field is required.'
-
     const fieldErrors = Map({
       message: 'apples'
     })
@@ -388,6 +303,6 @@ describe('FormGroup', () => {
     formGroup.instance().handleSubmit(event)
 
     expect(Immutable.is(formGroup.instance()._mapFieldErrors(), fieldErrors)).to.be.true
-    expect(formGroup.state().fieldErrors.toJS()).to.deep.equal({ message: 'apples'})    
+    expect(formGroup.state().fieldErrors.toJS()).to.deep.equal({ message: 'oranges'})    
   })
 })

@@ -28,6 +28,11 @@ module.exports = function(config) {
     },
 
     webpack: { // kind of a copy of your webpack config
+      resolve: {
+        alias: {
+          'react-ions/utilities': path.resolve(__dirname, '../../src/utilities')
+        }
+      },
       module: {
         preLoaders: [
           {
