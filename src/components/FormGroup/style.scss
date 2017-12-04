@@ -161,6 +161,11 @@ fieldset.row {
   top: -8px;
 }
 
+.has-error input,
+.has-error textarea {
+  border: 2px solid $danger !important;
+}
+
 .has-error__message {
   color: $danger;
   display: block;
