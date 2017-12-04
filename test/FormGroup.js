@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { Map } from 'immutable'
+import Immutable, { Map } from 'immutable'
 import FormGroup from '../src/components/FormGroup'
 import ValidatedField from '../src/components/FormGroup/ValidatedField'
 import Button from '../src/components/Button'
@@ -352,5 +352,29 @@ describe('FormGroup', () => {
 
     expect(formGroup.state().fieldErrors.toJS()).to.deep.equal({ message: 'The field cannot be left empty.'})
     expect(errorCallbackSpy.calledOnce).to.be.true
+  })
+
+  it.only('should validate from props -> errorFields when passed', () => {
+    const schema = {
+      message: {
+        value: ''
+      }
+    }
+    
+    const errorMessage = 'The message field is required.'
+
+    const fieldErrors = Map({
+      message: 'this is the message'
+    })
+
+    formGroup = shallow(<FormGroup schema={schema} fieldErrors={fieldErrors}>
+      <ValidatedInput 
+        name='message'
+        label='Message'
+        type='text'
+      />
+    </FormGroup>)
+
+    expect(Immutable.is(formGroup.instance()._mapFieldErrorsFrom(), fieldErrors)).to.be.true
   })
 })

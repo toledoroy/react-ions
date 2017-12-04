@@ -69,6 +69,9 @@ class FormGroup extends React.Component {
     })
   }
 
+  // This gives us some flexibility, in that errors can be passed in from props
+  _mapFieldErrorsFrom = () => this.props.fieldErrors ? this.props.fieldErrors : this.state.fieldErrors
+
   _handleValidation = () => {
     // Loop through validated fields
     return this._formValidation.reduce((errors, fieldValidation) => {
@@ -143,7 +146,7 @@ class FormGroup extends React.Component {
       if (child.props) {
         const name = child.props.name
 
-        const error = this.state.fieldErrors.get(name)
+        const error = this._mapFieldErrorsFrom().get(name)
         const value = this.state.fields.getIn([name, 'value'])
         const valueIsImmutable = Iterable.isIterable(value)
         const valueProp = valueIsImmutable ? value.toJS() : value
