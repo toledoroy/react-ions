@@ -38,7 +38,7 @@ export const validate = (formValidation = Map(), fields = Map()) => {
     }
 
     // Get the first error where not valid (false if valid)
-    const fieldError = fieldValidation.get('validators').reduceRight((v, f) => getFieldError(v, f), '')
+    const fieldError = fieldValidation.get('validators').reduceRight(getFieldError, '')
 
     // If there is an error append to errors
     if (fieldError) return errors.set(key, fieldError)
