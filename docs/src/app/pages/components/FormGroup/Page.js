@@ -50,7 +50,7 @@ const FormGroupPage = () => (
       </div>
       <div className={styles.block}>
         <h3>Props</h3>
-        {/* <PropsList list={docs[0].props} /> */}
+        <PropsList list={docs[0].props} />
       </div>
     </div>
   </div>

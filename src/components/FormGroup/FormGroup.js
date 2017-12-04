@@ -43,7 +43,12 @@ class FormGroup extends React.Component {
     /**
      * Option to turn off debounce when something in the form group changes
      */
-    debounceTime: PropTypes.number
+    debounceTime: PropTypes.number,
+    /**
+     * A key value pair eg: { 'message': 'this is an error message' }, were the
+     * key repesents the `name` of the given field to validate
+     */
+    fieldErrors: PropTypes.object
   }
 
   static defaultProps = {
