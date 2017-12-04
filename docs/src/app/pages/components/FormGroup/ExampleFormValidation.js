@@ -67,11 +67,11 @@ class ExampleFormValidation extends React.Component {
           validation={[
             {
               validator: validate.isNotEmpty,
-              errorMessage: 'The email field is required.'
+              message: 'The email field is required.'
             },
             {
               validator: validate.isValidEmail,
-              errorMessage: 'Please enter a valid email address.'
+              message: 'Please enter a valid email address.'
             }
           ]}
           optClass={formStyle.field}
@@ -83,7 +83,7 @@ class ExampleFormValidation extends React.Component {
           validation={[
             {
               validator: validate.isNotEmpty,
-              errorMessage: 'This textfield is required.'
+              message: 'This textfield is required.'
             }
           ]}
           optClass={formStyle.field}
