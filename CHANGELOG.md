@@ -1,5 +1,12 @@
 ## HEAD
 
+## 2.0.23
+- FormGroup: move validation logic to public utility [#540](https://github.com/GetAmbassador/react-ions/pull/540)
+
+- FormGroup: implemenent error prop validation [#539](https://github.com/GetAmbassador/react-ions/pull/539)
+
+- FormGroup: remove exports from FormGroup index [#538](https://github.com/GetAmbassador/react-ions/pull/538)
+
 ## 2.0.22
 - FormGroup: added validation option for input and textarea [#536](https://github.com/GetAmbassador/react-ions/pull/536)
 
