@@ -33,15 +33,18 @@ const schema = {
   }
 }
 
+const defaultState = {
+  fieldErrors: {},
+  loading: false,
+  submitted: false
+}
+
 class ExampleFormValidation extends React.Component {
   constructor(props) {
     super(props)
   }
 
-  state = {
-    fieldErrors: {},
-    loading: false
-  }
+  state = defaultState
 
   handleChange = (fields) => {
     this.setState({schema: fields})
@@ -49,19 +52,28 @@ class ExampleFormValidation extends React.Component {
 
   handleSubmit = (event, fields) => {
     event.preventDefault()
+
     this.setState({
       fieldErrors: {},
       loading: true
     })
-    setTimeout(() => {
-      this.setState({
-        fieldErrors: {
-          email: 'This email address has already been used.'
-        },
-        loading: false
-      })
-    }, 1000)
-    console.log('Payload:', JSON.stringify(fields, 2, null))
+
+    if (!this.state.submitted) {
+      setTimeout(() => {
+        this.setState({
+          fieldErrors: {
+            email: 'This email address has already been used.'
+          },
+          loading: false,
+          submitted: true
+        })
+      }, 1000)
+    }
+
+    else {
+      this.setState(defaultState)
+      console.log('Payload:', JSON.stringify(fields, 2, null))
+    }
   }
 
   handleErrors = (errors) => {
