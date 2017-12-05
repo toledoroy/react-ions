@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
+import { validate } from '../../utilities/validation'
+import { formSchemaToKeyVal } from '../../utilities/form'
 import { is, Iterable, fromJS, List, Map } from 'immutable'
 import style from './style.scss'
 import optclass from '../internal/OptClass'
@@ -41,15 +43,21 @@ class FormGroup extends React.Component {
     /**
      * Option to turn off debounce when something in the form group changes
      */
-    debounceTime: PropTypes.number
+    debounceTime: PropTypes.number,
+    /**
+     * A key value pair eg: { 'message': 'this is an error message' }, were the
+     * key repesents the `name` of the given field to validate
+     */
+    fieldErrors: PropTypes.object
   }
 
   static defaultProps = {
-    debounceTime: 0
+    debounceTime: 0,
+    fieldErrors: Map()
   }
 
   state = {
-    fieldErrors: Map()
+    fieldErrors: {}
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -69,33 +77,14 @@ class FormGroup extends React.Component {
     })
   }
 
-  _handleValidation = () => {
-    // Loop through validated fields
-    return this._formValidation.reduce((errors, fieldValidation) => {
-
-      // Get the currently set value
-      const fieldValue = this.state.fields.getIn([fieldValidation.get('name'), 'value'])
-
-      // Helper that runs validaiton function and returns error message or false
-      const getFieldError = (v, f) => {
-        return !f.get('validator')(fieldValue) ? f.get('errorMessage') : v
-      }
-
-      // Get the first error where not valid (false if valid)
-      const fieldError = fieldValidation.get('validators').reduceRight((v, f) => getFieldError(v, f), '')
-
-      // If there is an error append to errors
-      if (fieldError) return errors.set(fieldValidation.get('name'), fieldError)
-
-      // If no error, don't add the field to errors
-      return errors
-    }, Map())
-  }
+  // Errors can be passed in via props if external validation is used or
+  // errors can be captured from state if internal validation is used
+  _mapFieldErrors = () => Map(this.state.fieldErrors).merge(this.props.fieldErrors)
 
   handleSubmit = (event) => {
     event.preventDefault()
 
-    const fieldErrors = this._handleValidation()
+    const fieldErrors = validate(this._formValidation, formSchemaToKeyVal(this.state.fields))
 
     // Required to send error prop to ValidatedField component
     this.setState({ fieldErrors })
@@ -134,8 +123,9 @@ class FormGroup extends React.Component {
 
   getElements = (children) => {
     // Resetting validation each time this is run
-    let validationList = List()
-
+    let validationMap = Map()
+    const fieldErrors = this._mapFieldErrors()
+    
     return React.Children.map(children, child => {
       if (!child) return child
 
@@ -143,14 +133,13 @@ class FormGroup extends React.Component {
       if (child.props) {
         const name = child.props.name
 
-        const error = this.state.fieldErrors.get(name)
+        const error = fieldErrors.get(name)
         const value = this.state.fields.getIn([name, 'value'])
         const valueIsImmutable = Iterable.isIterable(value)
         const valueProp = valueIsImmutable ? value.toJS() : value
 
         if (child.props.validation) {
-          validationList = validationList.push(Map({
-            name,
+          validationMap = validationMap.set(name, Map({
             validators: fromJS(child.props.validation),
           }))
         }
@@ -162,9 +151,10 @@ class FormGroup extends React.Component {
             error
           }
         }
+
         childProps.children = this.getElements(child.props.children)
 
-        this._formValidation = validationList
+        this._formValidation = validationMap
         return React.cloneElement(child, childProps)
       }
 

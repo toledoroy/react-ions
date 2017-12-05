@@ -33,10 +33,18 @@ const schema = {
   }
 }
 
+const defaultState = {
+  fieldErrors: {},
+  loading: false,
+  submitted: false
+}
+
 class ExampleFormValidation extends React.Component {
   constructor(props) {
     super(props)
   }
+
+  state = defaultState
 
   handleChange = (fields) => {
     this.setState({schema: fields})
@@ -44,7 +52,28 @@ class ExampleFormValidation extends React.Component {
 
   handleSubmit = (event, fields) => {
     event.preventDefault()
-    alert(JSON.stringify(fields, 2, null))
+
+    this.setState({
+      fieldErrors: {},
+      loading: true
+    })
+
+    if (!this.state.submitted) {
+      setTimeout(() => {
+        this.setState({
+          fieldErrors: {
+            email: 'This is a mock backend error message.'
+          },
+          loading: false,
+          submitted: true
+        })
+      }, 1000)
+    }
+
+    else {
+      this.setState(defaultState)
+      console.log('Payload:', JSON.stringify(fields, 2, null))
+    }
   }
 
   handleErrors = (errors) => {
@@ -58,6 +87,7 @@ class ExampleFormValidation extends React.Component {
         submitCallback={this.handleSubmit}
         errorCallback={this.handleErrors}
         schema={schema}
+        fieldErrors={this.state.fieldErrors}
       >
         <ValidatedInput
           name='email'
@@ -67,11 +97,11 @@ class ExampleFormValidation extends React.Component {
           validation={[
             {
               validator: validate.isNotEmpty,
-              errorMessage: 'The email field is required.'
+              message: 'The email field is required.'
             },
             {
               validator: validate.isValidEmail,
-              errorMessage: 'Please enter a valid email address.'
+              message: 'Please enter a valid email address.'
             }
           ]}
           optClass={formStyle.field}
@@ -83,12 +113,12 @@ class ExampleFormValidation extends React.Component {
           validation={[
             {
               validator: validate.isNotEmpty,
-              errorMessage: 'This textfield is required.'
+              message: 'This textfield is required.'
             }
           ]}
           optClass={formStyle.field}
         />
-        <Button type='submit'>Submit</Button>
+        <Button type='submit' loading={this.state.loading}>Submit</Button>
       </FormGroup>
     )
   }
