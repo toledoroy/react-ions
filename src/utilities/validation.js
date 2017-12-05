@@ -34,6 +34,7 @@ export const validate = (formValidation = Map(), fields = Map()) => {
     const getFieldError = (v, f) => {
       const validator = f.get('validator')
       const message = f.get('message')
+
       return !validator(fieldValue) ? message : v
     }
 

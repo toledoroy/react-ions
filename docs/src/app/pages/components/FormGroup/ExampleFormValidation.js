@@ -96,11 +96,12 @@ class ExampleFormValidation extends React.Component {
           placeholder='sugerman@6am.com'
           validation={[
             {
-              validator: validate.isValidEmail,
-              message: 'Please enter a valid email address.'
-            }, {
               validator: validate.isNotEmpty,
               message: 'The email field is required.'
+            },
+            {
+              validator: validate.isValidEmail,
+              message: 'Please enter a valid email address.'
             }
           ]}
           optClass={formStyle.field}
