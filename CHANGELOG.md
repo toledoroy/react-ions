@@ -1,6 +1,6 @@
 ## HEAD
 
-## 2.0.22
+## 2.0.23
 - FormGroup: move validation logic to public utility [#540](https://github.com/GetAmbassador/react-ions/pull/540)
 
 - FormGroup: implemenent error prop validation [#539](https://github.com/GetAmbassador/react-ions/pull/539)
