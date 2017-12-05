@@ -16,7 +16,7 @@ const description = {
   formGroup: 'This is an example `form group` component with stacked elements',
   formGroupInline: 'This is an example `form group` component with inline elements',
   formGroupNested: 'This is an example of nested form groups',
-  formValidation: 'This is an example `form group` with some sweet validation'
+  formValidation: 'This is an example `form group` both internal and "external eg: props-based" validation.'
 };
 
 const FormGroupPage = () => (

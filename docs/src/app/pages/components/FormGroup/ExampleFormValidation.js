@@ -38,13 +38,30 @@ class ExampleFormValidation extends React.Component {
     super(props)
   }
 
+  state = {
+    fieldErrors: {},
+    loading: false
+  }
+
   handleChange = (fields) => {
     this.setState({schema: fields})
   }
 
   handleSubmit = (event, fields) => {
     event.preventDefault()
-    alert(JSON.stringify(fields, 2, null))
+    this.setState({
+      fieldErrors: {},
+      loading: true
+    })
+    setTimeout(() => {
+      this.setState({
+        fieldErrors: {
+          email: 'This email address has already been used.'
+        },
+        loading: false
+      })
+    }, 1000)
+    console.log('Payload:', JSON.stringify(fields, 2, null))
   }
 
   handleErrors = (errors) => {
@@ -58,6 +75,7 @@ class ExampleFormValidation extends React.Component {
         submitCallback={this.handleSubmit}
         errorCallback={this.handleErrors}
         schema={schema}
+        fieldErrors={this.state.fieldErrors}
       >
         <ValidatedInput
           name='email'
@@ -68,10 +86,6 @@ class ExampleFormValidation extends React.Component {
             {
               validator: validate.isNotEmpty,
               message: 'The email field is required.'
-            },
-            {
-              validator: validate.isValidEmail,
-              message: 'Please enter a valid email address.'
             }
           ]}
           optClass={formStyle.field}
@@ -88,7 +102,7 @@ class ExampleFormValidation extends React.Component {
           ]}
           optClass={formStyle.field}
         />
-        <Button type='submit'>Submit</Button>
+        <Button type='submit' loading={this.state.loading}>Submit</Button>
       </FormGroup>
     )
   }
