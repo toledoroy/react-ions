@@ -1,4 +1,4 @@
-import { Map, List } from 'immutable'
+import { Map } from 'immutable'
 
 // The validate utility checks the provided values against the provided validation.
 // The utility receives two arguments in the following format:
