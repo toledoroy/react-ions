@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
-import { validate } from 'react-ions/utilities/validation'
-import { formSchemaToKeyVal } from 'react-ions/utilities/form'
+import { validate } from '../../utilities/validation'
+import { formSchemaToKeyVal } from '../../utilities/form'
 import { is, Iterable, fromJS, List, Map } from 'immutable'
 import style from './style.scss'
 import optclass from '../internal/OptClass'
@@ -124,7 +124,8 @@ class FormGroup extends React.Component {
   getElements = (children) => {
     // Resetting validation each time this is run
     let validationMap = Map()
-
+    const fieldErrors = this._mapFieldErrors()
+    
     return React.Children.map(children, child => {
       if (!child) return child
 
@@ -132,7 +133,7 @@ class FormGroup extends React.Component {
       if (child.props) {
         const name = child.props.name
 
-        const error = this._mapFieldErrors().get(name)
+        const error = fieldErrors.get(name)
         const value = this.state.fields.getIn([name, 'value'])
         const valueIsImmutable = Iterable.isIterable(value)
         const valueProp = valueIsImmutable ? value.toJS() : value
