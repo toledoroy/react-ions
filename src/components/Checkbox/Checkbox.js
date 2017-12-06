@@ -108,7 +108,7 @@ class Checkbox extends React.Component {
     return null
   }
 
-  render() {
+  render = () => {
     const {
       optClass,
       changeCallback,
