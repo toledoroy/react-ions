@@ -34,14 +34,14 @@ class Checkbox extends React.Component {
      */
     value: PropTypes.bool,
     /**
-     * Unique string to be passed ot the label 'for' attrbute and the native checkbox 'id',
+     * Unique string to be passed to the label 'for' attrbute and the native checkbox 'id',
      * to allow using label to check/uncheck
      */
     forLabelAttr: PropTypes.string,
     /**
-     * Text displayed with the checkbox.
+     * Node displayed with the checkbox (can be a string).
      */
-    label: PropTypes.string,
+    label: PropTypes.node,
     /**
      * Optional styles to add to the checkbox.
      */
