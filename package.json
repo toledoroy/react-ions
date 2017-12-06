@@ -44,7 +44,7 @@
     "inline-style-prefixer": "^3.0.1",
     "lodash": "~4.13.1",
     "marked": "~0.3.5",
-    "moment": "~2.13.0",
+    "moment": "~2.19.3",
     "precss": "~1.4.0",
     "prop-types": "~15.5.10",
     "quill": "~1.0.4",
