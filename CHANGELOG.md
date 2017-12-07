@@ -1,6 +1,11 @@
 ## HEAD
 
+## 2.0.24
+###### _December 7, 2017_
+- Checkbox: Add custom HTML label [#543](https://github.com/GetAmbassador/react-ions/pull/543)
+
 ## 2.0.23
+###### _December 5, 2017_
 - FormGroup: move validation logic to public utility [#540](https://github.com/GetAmbassador/react-ions/pull/540)
 
 - FormGroup: implemenent error prop validation [#539](https://github.com/GetAmbassador/react-ions/pull/539)
