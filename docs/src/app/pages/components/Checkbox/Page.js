@@ -18,6 +18,8 @@ import ExampleCheckboxToggle from './ExampleCheckboxToggle'
 import exampleCheckboxToggleCode from '!raw!./ExampleCheckboxToggle'
 import ExampleCheckboxCustomIcon from './ExampleCheckboxCustomIcon'
 import exampleCheckboxCustomIconCode from '!raw!./ExampleCheckboxCustomIcon'
+import ExampleCheckboxCustomLabel from './ExampleCheckboxCustomLabel'
+import exampleCheckboxCustomLabelCode from '!raw!./ExampleCheckboxCustomLabel'
 import ExampleCheckboxDescription from './ExampleCheckboxDescription'
 import exampleCheckboxDescriptionCode from '!raw!./ExampleCheckboxDescription'
 import ExampleCheckboxNative from './ExampleCheckboxNative'
@@ -33,6 +35,7 @@ const description = {
   checkboxCallback: 'This is the `checkbox component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
   checkboxToggle: 'This is the `checkbox component` that you can toggle from the outside by changing its checked property.',
   checkboxCustomIcon: 'This is the `checkbox component` with a custom icon.',
+  checkboxCustomLabel: 'This is the `checkbox component` with a node as the label.',
   checkboxDescription: 'This is the `checkbox component` with a description.',
   checkboxNative: 'This is the native `checkbox component`.'
 }
@@ -88,6 +91,12 @@ const CheckboxPage = () => (
           description={description.checkboxCustomIcon}
           markup={exampleCheckboxCustomIconCode}>
           <ExampleCheckboxCustomIcon />
+        </CodeExample>
+        <CodeExample
+          title='Checkbox with a custom label'
+          description={description.checkboxCustomLabel}
+          markup={exampleCheckboxCustomLabelCode}>
+          <ExampleCheckboxCustomLabel />
         </CodeExample>
         <CodeExample
           title='Checkbox with a description'
