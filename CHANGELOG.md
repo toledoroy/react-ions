@@ -1,5 +1,9 @@
 ## HEAD
 
+## 2.0.25
+###### _December 7, 2017_
+- Dependencies: Update momentjs in dependencies [#542](https://github.com/GetAmbassador/react-ions/pull/542)
+
 ## 2.0.24
 ###### _December 7, 2017_
 - Checkbox: Add custom HTML label [#543](https://github.com/GetAmbassador/react-ions/pull/543)
