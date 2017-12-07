@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
-import Immutable from 'immutable'
+import { validate } from '../../utilities/validation'
+import { formSchemaToKeyVal } from '../../utilities/form'
+import { is, Iterable, fromJS, List, Map } from 'immutable'
 import style from './style.scss'
 import optclass from '../internal/OptClass'
 
@@ -10,6 +12,7 @@ class FormGroup extends React.Component {
     super(props)
 
     this.debounce = debounce(this.handleChange, this.props.debounceTime)
+    this._formValidation = null
   }
 
   static propTypes = {
@@ -40,32 +43,56 @@ class FormGroup extends React.Component {
     /**
      * Option to turn off debounce when something in the form group changes
      */
-    debounceTime: PropTypes.number
+    debounceTime: PropTypes.number,
+    /**
+     * A key value pair eg: { 'message': 'this is an error message' }, were the
+     * key repesents the `name` of the given field to validate
+     */
+    fieldErrors: PropTypes.object
   }
 
   static defaultProps = {
-    debounceTime: 0
+    debounceTime: 0,
+    fieldErrors: Map()
+  }
+
+  state = {
+    fieldErrors: {}
   }
 
   componentWillReceiveProps = (nextProps) => {
-    const nextPropsSchema = Immutable.fromJS(nextProps.schema)
-    const thisPropsSchema = Immutable.fromJS(this.props.schema)
+    const nextPropsSchema = fromJS(nextProps.schema)
+    const thisPropsSchema = fromJS(this.props.schema)
 
-    if(!Immutable.is(nextPropsSchema, thisPropsSchema)) {
+    if(!is(nextPropsSchema, thisPropsSchema)) {
       this.setState({
-        fields: Immutable.fromJS(nextProps.schema)
+        fields: fromJS(nextProps.schema)
       })
     }
   }
 
   componentWillMount = () => {
     this.setState({
-      fields: Immutable.fromJS(this.props.schema)
+      fields: fromJS(this.props.schema)
     })
   }
 
+  // Errors can be passed in via props if external validation is used or
+  // errors can be captured from state if internal validation is used
+  _mapFieldErrors = () => Map(this.state.fieldErrors).merge(this.props.fieldErrors)
+
   handleSubmit = (event) => {
     event.preventDefault()
+
+    const fieldErrors = validate(this._formValidation, formSchemaToKeyVal(this.state.fields))
+
+    // Required to send error prop to ValidatedField component
+    this.setState({ fieldErrors })
+
+    if (fieldErrors && fieldErrors.size && typeof this.props.errorCallback === 'function') {
+      return this.props.errorCallback(fieldErrors)
+    }
+
     if (typeof this.props.submitCallback === 'function') {
       this.props.submitCallback(event, this.state.fields.toJS())
     }
@@ -95,23 +122,39 @@ class FormGroup extends React.Component {
   }
 
   getElements = (children) => {
+    // Resetting validation each time this is run
+    let validationMap = Map()
+    const fieldErrors = this._mapFieldErrors()
+    
     return React.Children.map(children, child => {
       if (!child) return child
 
       let childProps = {}
       if (child.props) {
         const name = child.props.name
+
+        const error = fieldErrors.get(name)
         const value = this.state.fields.getIn([name, 'value'])
-        const valueIsImmutable = Immutable.Iterable.isIterable(value)
-        const valueProp =  valueIsImmutable ? value.toJS() : value
+        const valueIsImmutable = Iterable.isIterable(value)
+        const valueProp = valueIsImmutable ? value.toJS() : value
+
+        if (child.props.validation) {
+          validationMap = validationMap.set(name, Map({
+            validators: fromJS(child.props.validation),
+          }))
+        }
+
         if (this.state.fields.has(name) && React.isValidElement(child)) {
           childProps = {
             changeCallback: this.props.debounceTime ? this.debounce : this.handleChange,
-            value: valueProp
+            value: valueProp,
+            error
           }
         }
 
         childProps.children = this.getElements(child.props.children)
+
+        this._formValidation = validationMap
         return React.cloneElement(child, childProps)
       }
 

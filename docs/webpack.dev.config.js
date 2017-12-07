@@ -14,6 +14,7 @@ const config = {
     alias: {
       'react-ions/lib': path.resolve(__dirname, '../src'),
       'react-ions/styles': path.resolve(__dirname, '../src/styles'),
+      'react-ions/utilities': path.resolve(__dirname, '../src/utilities'),
       'global/fonts': path.resolve(__dirname, '../src/assets/fonts'),
       'global/icons': path.resolve(__dirname, '../src/assets/icons'),
       'private/css': path.resolve(__dirname, 'src/www/css'),
@@ -59,12 +60,6 @@ const config = {
       exclude: [
         path.resolve(__dirname, '../src/styles/global/')
       ]
-      // TODO: figure out how to fix this
-      // include: [
-      //   path.resolve(__dirname, '../app'),
-      //   path.resolve(__dirname, '../src/components'),
-      //   path.resolve(__dirname, '../src/styles'),
-      // ]
     }, {
       test: /\.(css|scss)$/,
       loaders: [

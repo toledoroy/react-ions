@@ -1,10 +1,17 @@
-//require all test .js files
-const testsContext = require.context('../', false, /\.js/)
-//NOTE: in the interest of speed, to test an individual component, use something like this:
+// require all test .js files
+// TODO: reorganize test files so that we don't need multiple context entries here
+const componentTestContext = require.context('../', false, /\.js/)
+const utilityTestContext = require.context('../utilities', false, /\.js/)
+
+// NOTE: in the interest of speed, to test an individual component, use something like this:
 // const testsContext = require.context('../', false, /\Input.js/);
 
-testsContext.keys().forEach(testsContext)
+componentTestContext.keys().forEach(componentTestContext)
+utilityTestContext.keys().forEach(utilityTestContext)
 
-// require all src/components .js files
+// require all source files for code coverage
 const componentsContext = require.context('../../src/components/', true, /\.js/)
+const utilitiesContext = require.context('../../src/utilities/', true, /\.js/)
+
+utilitiesContext.keys().forEach(utilitiesContext)
 componentsContext.keys().forEach(componentsContext)
