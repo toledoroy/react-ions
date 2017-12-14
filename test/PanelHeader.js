@@ -19,7 +19,7 @@ describe('PanelHeader', () => {
     expect(titleGroup.childAt(1).text()).to.equal('Rating')
     expect(toggleIconWrap.hasClass('toggle-icon')).to.equal(true)
     expect(toggleIconWrap.childAt(0).type()).to.equal(Icon)
-    expect(toggleIconWrap.childAt(0).props().name).to.equal('icon-arrow-66')
+    expect(toggleIconWrap.childAt(0).props().name).to.equal('chevron-top')
   })
 
   it('should render with no title or icon', () => {
