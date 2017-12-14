@@ -29,25 +29,25 @@ class ExamplePanelGroupAccordion extends React.Component {
         <p>The panel with the following index is currently active: {this.state.panels.join() || '(none)'}</p>
         <PanelGroup activePanels={this.state.panels} accordion={true} onPanelToggle={this.panelToggle} optClass='default'>
           <Panel>
-            <PanelHeader title='Rating' />
+            <PanelHeader title='Rating' contextIcon='check' contextIconSize='14' />
             <PanelContent optClass={style['rating-specific']}>
               <p className={style.paragraph}>{this.state.content.lorum1}</p>
             </PanelContent>
           </Panel>
           <Panel>
-            <PanelHeader title='Channel' />
+            <PanelHeader title='Channel' contextIcon='check' contextIconSize='14' />
             <PanelContent>
               <p className={style.paragraph}>{this.state.content.lorum2}</p>
             </PanelContent>
           </Panel>
           <Panel>
-            <PanelHeader title='Date' />
+            <PanelHeader title='Date' contextIcon='check' contextIconSize='14' />
             <PanelContent>
               <p className={style.paragraph}>{this.state.content.lorum3}</p>
             </PanelContent>
           </Panel>
           <Panel>
-            <PanelHeader title='Location' />
+            <PanelHeader title='Location' contextIcon='check' contextIconSize='14' />
             <PanelContent>
               <p className={style.paragraph}>{this.state.content.lorum4}</p>
             </PanelContent>
