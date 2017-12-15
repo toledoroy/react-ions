@@ -21,15 +21,15 @@ Icon.defaultProps = {
 
 Icon.propTypes = {
   /**
-   * The name of the button (see Iconography).
+   * The name of the icon.
    */
   name: PropTypes.string.isRequired,
   /**
-   * The width of the button.
+   * The width of the icon.
    */
   width: PropTypes.string,
   /**
-   * The height of the button.
+   * The height of the icon.
    */
   height: PropTypes.string,
   /**
