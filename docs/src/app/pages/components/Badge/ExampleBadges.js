@@ -4,13 +4,12 @@ import Badge from 'react-ions/lib/components/Badge'
 const ExampleBadges = () => (
   <div>
     <Badge text='1' theme='fog' />
-    <Badge icon='icon-link-1' theme='success' />
-    <Badge text='3' theme='danger' />
-    <Badge text='4' theme='warning' />
-    <Badge text='5' theme='sky' />
-    <Badge text='6' theme='navy' />
-    <Badge text='7' theme='border' />
-    <Badge icon='icon-link-1' text='Word' theme='success' />
+    <Badge text='2' theme='danger' />
+    <Badge text='3' theme='warning' />
+    <Badge text='4' theme='sky' />
+    <Badge text='5' theme='navy' />
+    <Badge text='6' theme='border' />
+    <Badge text='7' theme='success' />
   </div>
 )
 

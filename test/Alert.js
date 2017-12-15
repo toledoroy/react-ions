@@ -10,7 +10,7 @@ describe('Alert', () => {
 
     expect(wrapper.hasClass('alert')).to.be.true
     expect(wrapper.hasClass('success')).to.be.true
-    expect(wrapper.find('[name="icon-check-circle-2-1"]')).to.have.length(1)
+    expect(wrapper.find('[name="check"]')).to.have.length(1)
   })
 
   it('should display a success alert', () => {
@@ -18,7 +18,7 @@ describe('Alert', () => {
 
     expect(wrapper.hasClass('alert')).to.be.true
     expect(wrapper.hasClass('success')).to.be.true
-    expect(wrapper.find('[name="icon-check-circle-2-1"]')).to.have.length(1)
+    expect(wrapper.find('[name="check"]')).to.have.length(1)
   })
 
   it('should display a warning alert', () => {
@@ -26,7 +26,7 @@ describe('Alert', () => {
 
     expect(wrapper.hasClass('alert')).to.be.true
     expect(wrapper.hasClass('warning')).to.be.true
-    expect(wrapper.find('[name="icon-alert-1"]')).to.have.length(1)
+    expect(wrapper.find('[name="warning"]')).to.have.length(1)
   })
 
   it('should display an info alert', () => {
@@ -34,7 +34,7 @@ describe('Alert', () => {
 
     expect(wrapper.hasClass('alert')).to.be.true
     expect(wrapper.hasClass('info')).to.be.true
-    expect(wrapper.find('[name="icon-information"]')).to.have.length(1)
+    expect(wrapper.find('[name="info"]')).to.have.length(1)
   })
 
   it('should display a danger alert', () => {
@@ -42,7 +42,7 @@ describe('Alert', () => {
 
     expect(wrapper.hasClass('alert')).to.be.true
     expect(wrapper.hasClass('danger')).to.be.true
-    expect(wrapper.find('[name="icon-delete-3"]')).to.have.length(1)
+    expect(wrapper.find('[name="x"]')).to.have.length(1)
   })
 
 })

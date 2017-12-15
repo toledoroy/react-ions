@@ -6,7 +6,6 @@ const data = [
   {
     name: 'Item 1',
     action: '/components/nav',
-    icon: 'icon-hammer-2',
     nav: [
       {
         name: 'Internal Link',
