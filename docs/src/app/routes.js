@@ -23,7 +23,6 @@ import IconographyPage from './pages/foundations/Iconography/Page'
 import IconsPage from './pages/components/Icons/Page'
 import FileUploadPage from './pages/components/FileUpload/Page'
 import FormGroupPage from './pages/components/FormGroup/Page'
-import LayoutPage from './pages/foundations/Layout/Page'
 import NavPage from './pages/components/Nav/Page'
 import RadioGroupPage from './pages/components/RadioGroup/Page'
 import InputPage from './pages/components/Input/Page'
@@ -42,7 +41,6 @@ import TabsPage from './pages/components/TabWrapper/Page'
 import TogglePage from './pages/components/Toggle/Page'
 import TextareaPage from './pages/components/Textarea/Page'
 import TextEditorPage from './pages/components/TextEditor/Page'
-import TypographyPage from './pages/foundations/Typography/Page'
 import TypeaheadPage from './pages/components/Typeahead/Page'
 
 const Routes = (
@@ -51,9 +49,7 @@ const Routes = (
     <Redirect from='foundations' to='/foundations/colors' />
     <Route path='foundations' title='Foundations'>
       <Route path='colors' title='Colors' component={ColorsPage} />
-      <Route path='typography' title='Typography' component={TypographyPage} />
       <Route path='iconography' title='Iconography' component={IconographyPage} />
-      <Route path='layout' title='Layout' component={LayoutPage} />
     </Route>
     <Route path='components' title='Components'>
       <IndexRoute component={ComponentsPage} />

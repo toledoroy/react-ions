@@ -1,10 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import svg from '../../assets/icons/icons.svg'
+import svg from 'open-iconic/sprite/open-iconic.min.svg'
 
 const Icon = (props) => {
+  const {
+    name, width, height, fill, className, onClick
+  } = props
+
   return (
-    <svg role='img' {...props}>
+    <svg role='img' name={name} width={width} height={height} fill={fill} className={className} onClick={onClick} viewBox='0 0 8 8'>
       <use xlinkHref={svg+'#'+props.name} />
     </svg>
   )
@@ -35,7 +39,11 @@ Icon.propTypes = {
   /**
    * The CSS class of the icon.
    */
-  className: PropTypes.string
+  className: PropTypes.string,
+  /**
+   * A function to be called on click
+   */
+  onClick: PropTypes.func
 }
 
 export default Icon

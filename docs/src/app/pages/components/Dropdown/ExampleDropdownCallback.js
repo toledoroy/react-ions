@@ -30,7 +30,7 @@ class ExampleDropdownCallback extends React.Component {
       <div>
         <Dropdown trigger={<u>dropdown here</u>} isOpened={this.state.isOpened} changeCallback={this.handleChange}>
           <div className={styles.wrapper}>
-            <Badge icon='icon-check-1-1' theme='success' /><span>Dropdown content here.</span>
+            <Badge icon='check' theme='success' /><span>Dropdown content here.</span>
           </div>
         </Dropdown>
         <div className={styles['external-controls']}>
