@@ -6,6 +6,8 @@ import inputExampleSnippet from '!raw!./Input/ExampleInputOptClass'
 import snippetStyles from 'private/css/snippet'
 import styles from 'private/css/content'
 
+const fontCss = 'font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+
 const ComponentsPage = () => (
   <div>
     <div className={styles.content}>
@@ -43,6 +45,13 @@ const ComponentsPage = () => (
         <p>Each React&#123;ion&#125; component exposes an <code className={snippetStyles['snippet-inline']}>optClass</code> prop, to enable style overrides.</p>
         <Snippet markup={inputExampleSnippet} />
         <p>You can now override <code className={snippetStyles['snippet-inline']}>Input</code> styles with the <code className={snippetStyles['snippet-inline']}>.input-overrides</code> class.</p>
+      </div>
+
+      <div className={styles.block}>
+        <h2>Fonts</h2>
+        <p>This site and our components are designed to use <b>Promima Nova</b>, which we own under license.</p> 
+        <p>If you do not own <b>Proxima Nova</b>, the font-family will render the following:</p>
+        <Snippet markup={fontCss} />
       </div>
     </div>
   </div>
