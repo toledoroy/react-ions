@@ -1,5 +1,23 @@
 ## HEAD
 
+## 3.0.0
+###### _December 19, 2017_
+
+### Breaking changes
+- In order to be in compliance with MIT licensing:
+  * We've removed our licensed version of the *Proxima Nova* font. Though, the font will be available when in development (on port :3000), if you use our components in a production environment, the font will use a system fallback. For more details: http://reactions.getambassador.com/components.
+  * We've removed our licensed (Streamline) icon set, and have replaced it with Open Iconic. For more details: http://reactions.getambassador.com/foundations/iconography.
+
+- Iconography: changed Iconic to exact version in package.json [#553](https://github.com/GetAmbassador/react-ions/pull/553)
+
+- Typography: load remote font CSS file, revert some doc-specific font overrides [#551](https://github.com/GetAmbassador/react-ions/pull/551)
+
+- Fonts: remove Proxima Nova font [#548](https://github.com/GetAmbassador/react-ions/pull/548)
+
+- Icons: swap out SVG sprite, update components to use new icons [#547](https://github.com/GetAmbassador/react-ions/pull/547)
+
+- Marked: update package dependency [#546](https://github.com/GetAmbassador/react-ions/pull/546)
+
 ## 2.0.25
 ###### _December 7, 2017_
 - Dependencies: Update momentjs in dependencies [#542](https://github.com/GetAmbassador/react-ions/pull/542)
