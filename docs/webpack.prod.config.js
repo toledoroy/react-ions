@@ -17,7 +17,6 @@ const config = {
       'react-ions/styles': path.resolve(__dirname, '../src/styles'),
       'react-ions/utilities': path.resolve(__dirname, '../src/utilities'),
       'global/fonts': path.resolve(__dirname, '../src/assets/fonts'),
-      'global/icons': path.resolve(__dirname, '../src/assets/icons'),
       'private/css': path.resolve(__dirname, 'src/www/css'),
       'private/base': path.resolve(__dirname, 'src/www/css/base'),
       'private/images': path.resolve(__dirname, 'src/www/images'),

@@ -8,18 +8,18 @@ describe('PanelHeader', () => {
   let panel, panelHeader, titleGroup, toggleIconWrap, contextNodeWrap
 
   it('should shallow render itself', () => {
-    panelHeader = shallow(<PanelHeader title='Rating' contextIcon='icon-star-1' />)
+    panelHeader = shallow(<PanelHeader title='Rating' contextIcon='check' />)
     titleGroup = panelHeader.childAt(0).childAt(0)
     toggleIconWrap = panelHeader.childAt(0).childAt(1)
 
     expect(panelHeader.hasClass('panel-header')).to.equal(true)
     expect(titleGroup.hasClass('title-group')).to.equal(true)
-    expect(titleGroup.childAt(0).childAt(0).props().name).to.equal('icon-star-1')
+    expect(titleGroup.childAt(0).childAt(0).props().name).to.equal('check')
     expect(titleGroup.childAt(1).type()).to.equal('h4')
     expect(titleGroup.childAt(1).text()).to.equal('Rating')
     expect(toggleIconWrap.hasClass('toggle-icon')).to.equal(true)
     expect(toggleIconWrap.childAt(0).type()).to.equal(Icon)
-    expect(toggleIconWrap.childAt(0).props().name).to.equal('icon-arrow-66')
+    expect(toggleIconWrap.childAt(0).props().name).to.equal('chevron-top')
   })
 
   it('should render with no title or icon', () => {
@@ -29,10 +29,10 @@ describe('PanelHeader', () => {
   })
 
   it('should render title with a context node and a custom toggle icon', () => {
-    panelHeader = shallow(<PanelHeader contextNode={<Badge text='1' />} toggleIcon={{name: 'icon-arrow-37', size: '24'}} />)
+    panelHeader = shallow(<PanelHeader contextNode={<Badge text='1' />} toggleIcon={{name: 'check', size: '24'}} />)
     toggleIconWrap = panelHeader.childAt(0).childAt(1)
     contextNodeWrap = panelHeader.childAt(0).childAt(0).childAt(0)
-    expect(toggleIconWrap.childAt(0).props().name).to.equal('icon-arrow-37')
+    expect(toggleIconWrap.childAt(0).props().name).to.equal('check')
     expect(toggleIconWrap.childAt(0).props().height).to.equal('24')
     expect(toggleIconWrap.childAt(0).props().width).to.equal('24')
     expect(contextNodeWrap.hasClass('context-node')).to.equal(true)

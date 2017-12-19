@@ -122,19 +122,19 @@ describe('Checkbox', () => {
   })
 
   it('should have a custom icon', () => {
-    wrapper = shallow(<Checkbox label='Test label' iconName='icon-minus-2'></Checkbox>)
+    wrapper = shallow(<Checkbox label='Test label' iconName='plus'></Checkbox>)
 
-    expect(wrapper.find(Icon).props().name).to.equal('icon-minus-2')
+    expect(wrapper.find(Icon).props().name).to.equal('plus')
   })
 
   it('should update the state when the iconName prop changes', () => {
     wrapper = shallow(<Checkbox label='Test label'></Checkbox>)
 
-    expect(wrapper.state().iconName).to.equal('icon-check-1-1')
+    expect(wrapper.state().iconName).to.equal('check')
 
-    wrapper.setProps({ iconName: 'icon-minus-2' })
+    wrapper.setProps({ iconName: 'plus' })
 
-    expect(wrapper.state().iconName).to.equal('icon-minus-2')
+    expect(wrapper.state().iconName).to.equal('plus')
   })
 
   it('should return a description', () => {
