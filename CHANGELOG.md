@@ -1,5 +1,9 @@
 ## HEAD
 
+## 3.0.1
+###### _December 19, 2017_
+- README: quick update
+
 ## 3.0.0
 ###### _December 19, 2017_
 
