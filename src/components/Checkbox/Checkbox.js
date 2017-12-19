@@ -11,7 +11,7 @@ class Checkbox extends React.Component {
 
   static defaultProps = {
     disabled: false,
-    iconName: 'icon-check-1-1',
+    iconName: 'check',
     locked: false
   }
 

@@ -123,7 +123,7 @@ class FileUpload extends React.Component {
     return this.state.files.map((file, index) =>
       <div key={index} className={style.image}>
         <img style={imgStyle} src={file.preview} />
-        <Icon name='icon-delete-1' height='16' width='16' fill='#233040' onClick={this.handleRemove.bind(this, index)} />
+        <Icon name='x' height='16' width='16' fill='#233040' onClick={this.handleRemove.bind(this, index)} />
       </div>
     )
   }

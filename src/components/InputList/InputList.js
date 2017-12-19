@@ -125,7 +125,7 @@ class InputList extends React.Component {
           onKeyPress={this.handleKeyPress}
           ref={(c) => this._input = c}
         />
-        <Icon name='icon-add-1-1' className={style['input-list-add-item']} width='14' height='14' fill='#9198A0' onClick={this.handleClick} />
+        <Icon name='plus' className={style['input-list-add-item']} width='14' height='14' fill='#9198A0' onClick={this.handleClick} />
         <TagList tags={this.state.options} displayProp='display' onRemove={this.onRemove} />
       </div>
     )

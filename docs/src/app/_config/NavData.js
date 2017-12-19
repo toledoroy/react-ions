@@ -7,14 +7,8 @@ const nav = [
         name: 'Colors',
         action: '/foundations/colors'
       }, {
-        name: 'Typography',
-        action: '/foundations/typography'
-      }, {
         name: 'Iconography',
         action: '/foundations/iconography'
-      }, {
-        name: 'Layout',
-        action: '/foundations/layout'
       }
     ]
   }, {

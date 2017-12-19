@@ -6,7 +6,7 @@ const callback = (event) => {
 }
 
 const ExampleFileUploadCallback = () => (
-  <FileUpload label="File upload with callback" showPreview={true} changeCallback={callback} />
+  <FileUpload showPreview={true} changeCallback={callback} />
 )
 
 export default ExampleFileUploadCallback

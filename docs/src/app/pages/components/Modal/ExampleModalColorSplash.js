@@ -21,14 +21,12 @@ class ExampleModalColorSplash extends React.Component {
   }
 
   render() {
-    const closeIcon = <Icon name="icon-delete-1" width="15" height="15" onClick={this.handleClose} />
-
     return (
       <div>
         <Button onClick={this.handleOpen}>Open Modal</Button>
         <Modal
           title={
-            <Header closeIcon={closeIcon}>
+            <Header handleClose={this.handleClose}>
               <h1>Modal Title</h1>
             </Header>
           }
