@@ -5,8 +5,8 @@
 
 ### Breaking changes
 - In order to be in compliance with MIT licensing:
-  * We've removed our licenced version of the *Proxima Nova* font. Though, the font will be available when in development (on port :3000), if you use our components in a production environment, the font will use a system fallback. For more details: http://react-ions.getambassador.com/components.
-  * We've removed our licenced (Streamline) icon set, and have replaced it with Open Iconic. For more details: http://react-ions.getambassador.com/foundations/iconography.
+  * We've removed our licenced version of the *Proxima Nova* font. Though, the font will be available when in development (on port :3000), if you use our components in a production environment, the font will use a system fallback. For more details: http://reactions.getambassador.com/components.
+  * We've removed our licenced (Streamline) icon set, and have replaced it with Open Iconic. For more details: http://reactions.getambassador.com/foundations/iconography.
 
 - Iconography: changed Iconic to exact version in package.json [#553](https://github.com/GetAmbassador/react-ions/pull/553)
 
