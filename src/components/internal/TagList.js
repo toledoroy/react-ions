@@ -33,7 +33,7 @@ class TagList extends React.Component {
 
   renderTags = () => {
     return this.props.tags.map((tag, index) =>
-      <li key={index}><span className={style['text']}>{tag[this.props.displayProp]}</span><Icon name='x' onClick={this.removeTag.bind(this, index)} width='12' height='12'/></li>
+      <li key={index}><span className={style['text']}>{tag[this.props.displayProp]}</span><Icon name='delete-1-1' onClick={this.removeTag.bind(this, index)} width='12' height='12'/></li>
     )
   }
 

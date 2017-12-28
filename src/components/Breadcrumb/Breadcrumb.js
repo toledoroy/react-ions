@@ -68,7 +68,7 @@ class Breadcrumb extends React.Component {
 
   breadcrumbNode = (title) => {
     return <em>
-       <Icon name='chevron-right' className={style['chevron-right']} width='14' height='14' color='#879098' />
+       <Icon name='arrow-68' className={style['arrow-68']} width='14' height='14' color='#879098' />
        <span className={style.secondary}>{title}</span>
      </em>
   }

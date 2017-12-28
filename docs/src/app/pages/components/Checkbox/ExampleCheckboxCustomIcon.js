@@ -10,12 +10,12 @@ class ExampleCheckboxToggle extends React.Component {
   }
 
   state = {
-    iconName: 'plus',
+    iconName: 'check-circle-2-1',
     checked: true
   }
 
   toggleIcon = () => {
-    const iconName = this.state.iconName === 'plus' ? 'check' : 'plus'
+    const iconName = this.state.iconName === 'check-circle-2-1' ? 'check-2-1' : 'check-circle-2-1'
     this.setState({ iconName: iconName })
   }
 
@@ -28,7 +28,7 @@ class ExampleCheckboxToggle extends React.Component {
       <div>
         <Button onClick={this.toggleIcon} optClass={style.toggle}>
           <span>Use</span>
-          {this.state.iconName === 'plus' ? <Icon name='check' fill='#3C97D3' height='14' width='14' /> : <Icon name='plus' fill='#3C97D3' height='14' width='14' /> }
+          {this.state.iconName === 'check-circle-2-1' ? <Icon name='check-2-1' fill='#3C97D3' height='14' width='14' /> : <Icon name='check-circle-2-1' fill='#3C97D3' height='14' width='14' /> }
         </Button>
         <Checkbox label="Default checkbox" value={this.state.checked} changeCallback={this.handleChange} iconName={this.state.iconName} />
       </div>

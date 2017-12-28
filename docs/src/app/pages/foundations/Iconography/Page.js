@@ -19,7 +19,7 @@ const IconographyPage = () => {
       <div className={baseStyle.content}>
         <div className={baseStyle.block}>
           <h3>Iconography</h3>
-          <p>Our open source library uses <a href="https://useiconic.com/open#icons" target="_blank">Open Iconic</a>.</p> <p>Below is a short list of icons that we use for our component UI. You can, however, use any of the icons listed <a href="https://useiconic.com/open#icons" target="_blank">here</a>.</p>
+          <p>Our open source library uses <a href="http://google.github.io/material-design-icons/" target="_blank">Material Design Icons</a>.</p> <p>Below is a short list of icons that we use for our component UI. A comprehensive list is available <a href="http://google.github.io/material-design-icons/" target="_blank">here</a>.</p>
           <div className={localStyle['icon-list']}>
             {iconsList}
           </div>
