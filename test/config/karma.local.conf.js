@@ -30,7 +30,8 @@ module.exports = function(config) {
     webpack: { // kind of a copy of your webpack config
       resolve: {
         alias: {
-          'react-ions/utilities': path.resolve(__dirname, '../../src/utilities')
+          'react-ions/utilities': path.resolve(__dirname, '../../src/utilities'),
+          'react-ions/sprite': path.resolve(__dirname, '../../lib/assets/icons/symbol')
         }
       },
       module: {
