@@ -2,7 +2,7 @@ import React from 'react'
 import Icon from 'react-ions/lib/components/Icon'
 
 const ExampleIconDefault = () => (
-  <Icon name='check' />
+  <Icon name='icon-check-2-1' />
 )
 
 export default ExampleIconDefault

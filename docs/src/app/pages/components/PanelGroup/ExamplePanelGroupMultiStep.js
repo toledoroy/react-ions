@@ -14,31 +14,31 @@ const ExamplePanelGroupMultiStep = () => (
   <div>
     <PanelGroup accordion={true} optClass='multi-step'>
       <Panel>
-        <PanelHeader title='What will your survey look like for each channel?' contextNode={<Badge text='1' />} toggleIcon={{name: 'arrow-66', size: '20'}} />
+        <PanelHeader title='What will your survey look like for each channel?' contextNode={<Badge text='1' />} toggleIcon={{name: 'icon-caret', size: '20'}} />
         <PanelContent optClass={style['rating-specific']}>
           <p className={style.paragraph}>{content.lorum1}</p>
         </PanelContent>
       </Panel>
       <Panel>
-        <PanelHeader title='What happens after a user submits their response?' contextNode={<Badge text='2' />} toggleIcon={{name: 'arrow-66', size: '20'}} />
+        <PanelHeader title='What happens after a user submits their response?' contextNode={<Badge text='2' />} toggleIcon={{name: 'icon-caret', size: '20'}} />
         <PanelContent>
           <p className={style.paragraph}>{content.lorum2}</p>
         </PanelContent>
       </Panel>
       <Panel>
-        <PanelHeader title='Who should we send this survey to?' contextNode={<Badge text='3' />} toggleIcon={{name: 'arrow-66', size: '20'}} />
+        <PanelHeader title='Who should we send this survey to?' contextNode={<Badge text='3' />} toggleIcon={{name: 'icon-caret', size: '20'}} />
         <PanelContent>
           <p className={style.paragraph}>{content.lorum3}</p>
         </PanelContent>
       </Panel>
       <Panel>
-        <PanelHeader title='Who should we not send this survey to?' contextNode={<Badge text='4' />} toggleIcon={{name: 'arrow-66', size: '20'}} />
+        <PanelHeader title='Who should we not send this survey to?' contextNode={<Badge text='4' />} toggleIcon={{name: 'icon-caret', size: '20'}} />
         <PanelContent>
           <p className={style.paragraph}>{content.lorum4}</p>
         </PanelContent>
       </Panel>
       <Panel>
-        <PanelHeader title='Where should we send survey notifications?' contextNode={<Badge text='5' />} toggleIcon={{name: 'arrow-66', size: '20'}} />
+        <PanelHeader title='Where should we send survey notifications?' contextNode={<Badge text='5' />} toggleIcon={{name: 'icon-caret', size: '20'}} />
         <PanelContent>
           <p className={style.paragraph}>{content.lorum1}</p>
         </PanelContent>
