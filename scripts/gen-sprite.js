@@ -6,20 +6,20 @@ var cwd = path.join(__dirname, '/../node_modules', 'material-design-icons');
 var dest = path.normalize(path.join(__dirname, '/../lib/assets/icons'));
 
 var iconList = [
-  'content/svg/production/ic_add_24px.svg#add-1-1',
-  'alert/svg/production/ic_error_outline_24px.svg#alert-1',
-  'navigation/svg/production/ic_expand_less_24px.svg#arrow-66',
-  'navigation/svg/production/ic_chevron_left_24px.svg#arrow-67',
-  'navigation/svg/production/ic_chevron_right_24px.svg#arrow-68',
-  'navigation/svg/production/ic_check_24px.svg#check-2-1',
-  'navigation/svg/production/ic_check_24px.svg#check-circle-2-1',
-  'content/svg/production/ic_content_paste_24px.svg#clipboard-1',
-  'navigation/svg/production/ic_close_24px.svg#delete-1',
-  'navigation/svg/production/ic_close_24px.svg#delete-1-1',
-  'navigation/svg/production/ic_cancel_24px.svg#delete-3',
-  'navigation/svg/production/ic_arrow_drop_down_24px.svg#caret',
-  'navigation/svg/production/ic_check_24px.svg#check-1-1',
-  'action/svg/production/ic_info_outline_24px.svg#information'
+  'content/svg/production/ic_add_24px.svg#icon-add-1-1',
+  'alert/svg/production/ic_error_outline_24px.svg#icon-alert-1',
+  'navigation/svg/production/ic_expand_less_24px.svg#icon-arrow-66',
+  'navigation/svg/production/ic_chevron_left_24px.svg#icon-arrow-67',
+  'navigation/svg/production/ic_chevron_right_24px.svg#icon-arrow-68',
+  'navigation/svg/production/ic_check_24px.svg#icon-check-2-1',
+  'content/svg/production/ic_clear_24px.svg#icon-check-circle-2-1',
+  'content/svg/production/ic_content_paste_24px.svg#icon-clipboard-1',
+  'navigation/svg/production/ic_close_24px.svg#icon-delete-1',
+  'navigation/svg/production/ic_close_24px.svg#icon-delete-1-1',
+  'navigation/svg/production/ic_cancel_24px.svg#icon-delete-3',
+  'navigation/svg/production/ic_arrow_drop_down_24px.svg#icon-caret',
+  'navigation/svg/production/ic_check_24px.svg#icon-check-1-1',
+  'action/svg/production/ic_info_outline_24px.svg#icon-information'
 ]
 
 var spriter = new SVGSpriter({

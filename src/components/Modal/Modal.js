@@ -128,7 +128,7 @@ class Modal extends React.Component {
                 !this.props.closeOnAction && !modalTitleIsElement
                   ? <div className={style['modal-close']}>
                       <Icon
-                        name="delete-1-1"
+                        name="icon-delete-1-1"
                         width="12"
                         height="12"
                         onClick={this.handleCloseClick}
