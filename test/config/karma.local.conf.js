@@ -31,7 +31,7 @@ module.exports = function(config) {
       resolve: {
         alias: {
           'react-ions/utilities': path.resolve(__dirname, '../../src/utilities'),
-          'react-ions/lib': path.resolve(__dirname, '../../lib/')
+          'react-ions/lib': path.resolve(__dirname, '../lib/')
         }
       },
       module: {
