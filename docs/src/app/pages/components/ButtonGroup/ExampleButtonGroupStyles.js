@@ -1,7 +1,7 @@
 import React from 'react'
-import ButtonGroup from 'react-ions/lib/components/ButtonGroup/ButtonGroup'
-import Button from 'react-ions/lib/components/Button'
-import Input from 'react-ions/lib/components/Input'
+import ButtonGroup from 'react-ions/src/components/ButtonGroup/ButtonGroup'
+import Button from 'react-ions/src/components/Button'
+import Input from 'react-ions/src/components/Input'
 import style from './style'
 
 class ExampleButtonGroupStyles extends React.Component {

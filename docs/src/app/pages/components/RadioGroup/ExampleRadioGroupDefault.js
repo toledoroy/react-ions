@@ -1,5 +1,5 @@
 import React from 'react'
-import RadioGroup from 'react-ions/lib/components/Radio/RadioGroup'
+import RadioGroup from 'react-ions/src/components/Radio/RadioGroup'
 
 const options = [
   {

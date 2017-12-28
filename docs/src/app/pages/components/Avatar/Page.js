@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList';
-import docs from '!!docgen!react-ions/lib/components/Avatar/Avatar';
+import docs from '!!docgen!react-ions/src/components/Avatar/Avatar';
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleAvatar from './ExampleAvatar'

@@ -1,11 +1,11 @@
 import React from 'react'
 import Immutable from 'immutable'
-import FormGroup from 'react-ions/lib/components/FormGroup'
-import ValidatedField from 'react-ions/lib/components/FormGroup/ValidatedField'
-import Input from 'react-ions/lib/components/Input'
-import Textarea from 'react-ions/lib/components/Textarea'
-import Button from 'react-ions/lib/components/Button'
-import formStyle from 'react-ions/lib/components/FormGroup/style'
+import FormGroup from 'react-ions/src/components/FormGroup'
+import ValidatedField from 'react-ions/src/components/FormGroup/ValidatedField'
+import Input from 'react-ions/src/components/Input'
+import Textarea from 'react-ions/src/components/Textarea'
+import Button from 'react-ions/src/components/Button'
+import formStyle from 'react-ions/src/components/FormGroup/style'
 import style from './style.scss'
 
 const validate = {

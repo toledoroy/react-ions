@@ -1,6 +1,6 @@
 import React from 'react'
-import { TabWrapper, Tab } from 'react-ions/lib/components/TabWrapper'
-import Badge from 'react-ions/lib/components/Badge'
+import { TabWrapper, Tab } from 'react-ions/src/components/TabWrapper'
+import Badge from 'react-ions/src/components/Badge'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 

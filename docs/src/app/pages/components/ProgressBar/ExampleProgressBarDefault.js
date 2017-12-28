@@ -1,5 +1,5 @@
 import React from 'react'
-import ProgressBar from 'react-ions/lib/components/ProgressBar'
+import ProgressBar from 'react-ions/src/components/ProgressBar'
 
 const ExampleProgressBarDefault = () => (
   <ProgressBar />

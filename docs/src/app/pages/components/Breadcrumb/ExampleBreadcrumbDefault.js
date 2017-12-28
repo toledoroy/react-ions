@@ -1,5 +1,5 @@
 import React from 'react'
-import Breadcrumb from 'react-ions/lib/components/Breadcrumb'
+import Breadcrumb from 'react-ions/src/components/Breadcrumb'
 
 const routes = [
   {

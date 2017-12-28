@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from 'react-ions/lib/components/Button/Button'
-import Typeahead from 'react-ions/lib/components/Typeahead/Typeahead'
+import Button from 'react-ions/src/components/Button/Button'
+import Typeahead from 'react-ions/src/components/Typeahead/Typeahead'
 import options from './CountryList'
 import style from './style.scss'
 

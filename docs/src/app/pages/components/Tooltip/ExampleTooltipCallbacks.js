@@ -1,5 +1,5 @@
 import React from 'react'
-import Tooltip from 'react-ions/lib/components/Tooltip'
+import Tooltip from 'react-ions/src/components/Tooltip'
 import style from './style'
 
 class ExampleTooltipCallbacks extends React.Component {

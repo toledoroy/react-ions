@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-ions/lib/components/Popover/Popover'
+import docs from '!!docgen!react-ions/src/components/Popover/Popover'
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExamplePopover from './ExamplePopover'

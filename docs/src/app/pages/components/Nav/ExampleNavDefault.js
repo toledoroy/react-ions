@@ -1,5 +1,5 @@
 import React from 'react'
-import Nav from 'react-ions/lib/components/Nav'
+import Nav from 'react-ions/src/components/Nav'
 import style from './style'
 
 const data = [

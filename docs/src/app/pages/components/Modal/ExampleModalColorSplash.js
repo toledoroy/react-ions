@@ -1,8 +1,8 @@
 import React from 'react'
-import Modal from 'react-ions/lib/components/Modal'
-import Header from 'react-ions/lib/components/Modal/Header'
-import Button from 'react-ions/lib/components/Button'
-import Icon from 'react-ions/lib/components/Icon'
+import Modal from 'react-ions/src/components/Modal'
+import Header from 'react-ions/src/components/Modal/Header'
+import Button from 'react-ions/src/components/Button'
+import Icon from 'react-ions/src/components/Icon'
 
 class ExampleModalColorSplash extends React.Component {
   constructor(props) {

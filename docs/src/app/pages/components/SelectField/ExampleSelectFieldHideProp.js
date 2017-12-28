@@ -1,5 +1,5 @@
 import React from 'react'
-import SelectField from 'react-ions/lib/components/SelectField/SelectField'
+import SelectField from 'react-ions/src/components/SelectField/SelectField'
 
 class ExampleSelectFieldHideProp extends React.Component {
   constructor(props) {

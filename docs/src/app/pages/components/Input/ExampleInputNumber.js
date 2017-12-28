@@ -1,5 +1,5 @@
 import React from 'react'
-import Input from 'react-ions/lib/components/Input'
+import Input from 'react-ions/src/components/Input'
 
 class ExampleInputNumber extends React.Component {
   constructor(props) {

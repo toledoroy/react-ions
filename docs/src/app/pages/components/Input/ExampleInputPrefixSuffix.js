@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import Input from 'react-ions/lib/components/Input'
-import Icon from 'react-ions/lib/components/Icon'
+import Input from 'react-ions/src/components/Input'
+import Icon from 'react-ions/src/components/Icon'
 
 const StyledInput = styled(Input)`
   input {

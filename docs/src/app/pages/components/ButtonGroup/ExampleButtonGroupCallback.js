@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonGroup from 'react-ions/lib/components/ButtonGroup/ButtonGroup'
+import ButtonGroup from 'react-ions/src/components/ButtonGroup/ButtonGroup'
 import style from './style'
 
 class ExampleButtonGroupCallback extends React.Component {

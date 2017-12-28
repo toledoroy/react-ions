@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonAnchor from 'react-ions/lib/components/Button/ButtonAnchor'
+import ButtonAnchor from 'react-ions/src/components/Button/ButtonAnchor'
 
 const ExampleButtonAnchor = () => (
   <div>

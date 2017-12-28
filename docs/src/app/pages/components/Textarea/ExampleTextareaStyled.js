@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Textarea from 'react-ions/lib/components/Textarea'
+import Textarea from 'react-ions/src/components/Textarea'
 
 const StyledTextarea = styled(Textarea)`
 textarea {

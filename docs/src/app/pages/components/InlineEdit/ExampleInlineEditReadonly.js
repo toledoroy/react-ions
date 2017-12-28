@@ -1,5 +1,5 @@
 import React from 'react'
-import InlineEdit from 'react-ions/lib/components/InlineEdit'
+import InlineEdit from 'react-ions/src/components/InlineEdit'
 import styles from './styles'
 
 class ExampleInlineEditReadonly extends React.Component {

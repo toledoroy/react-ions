@@ -1,6 +1,6 @@
 import React from 'react'
-import {SortableList, SortableItem} from 'react-ions/lib/components/SortableList'
-import Button from 'react-ions/lib/components/Button'
+import {SortableList, SortableItem} from 'react-ions/src/components/SortableList'
+import Button from 'react-ions/src/components/Button'
 import style from './style.scss'
 
 class ExampleSortableListDefault extends React.Component {

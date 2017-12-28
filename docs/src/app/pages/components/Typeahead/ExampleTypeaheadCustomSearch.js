@@ -1,5 +1,5 @@
 import React from 'react'
-import Typeahead from 'react-ions/lib/components/Typeahead/Typeahead'
+import Typeahead from 'react-ions/src/components/Typeahead/Typeahead'
 import options from './CountryList'
 
 class ExampleTypeaheadDefaultValue extends React.Component {

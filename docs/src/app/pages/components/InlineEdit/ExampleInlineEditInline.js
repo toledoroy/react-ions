@@ -1,6 +1,6 @@
 import React from 'react'
-import InlineEdit from 'react-ions/lib/components/InlineEdit'
-import Icon from 'react-ions/lib/components/Icon'
+import InlineEdit from 'react-ions/src/components/InlineEdit'
+import Icon from 'react-ions/src/components/Icon'
 import style from './styles'
 
 class ExampleInlineEditInline extends React.Component {

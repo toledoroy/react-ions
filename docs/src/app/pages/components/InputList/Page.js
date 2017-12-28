@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-ions/lib/components/InputList/InputList'
+import docs from '!!docgen!react-ions/src/components/InputList/InputList'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleInputList from './ExampleInputList'
 import exampleInputListCode from '!raw!./ExampleInputList'

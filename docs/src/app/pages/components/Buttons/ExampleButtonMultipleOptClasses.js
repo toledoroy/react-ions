@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from 'react-ions/lib/components/Button'
+import Button from 'react-ions/src/components/Button'
 import style from './style.scss'
 
 class ExampleButtonMultipleOptClasses extends React.Component {

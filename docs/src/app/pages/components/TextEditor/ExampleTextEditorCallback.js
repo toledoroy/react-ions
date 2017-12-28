@@ -1,5 +1,5 @@
 import React from 'react'
-import TextEditor from 'react-ions/lib/components/TextEditor'
+import TextEditor from 'react-ions/src/components/TextEditor'
 
 const changeCallback = (event) => {
   console.log(event.target.value)

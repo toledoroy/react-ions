@@ -1,7 +1,7 @@
 import React from 'react'
-import Dropdown from 'react-ions/lib/components/Dropdown'
-import Button from 'react-ions/lib/components/Button'
-import Badge from 'react-ions/lib/components/Badge'
+import Dropdown from 'react-ions/src/components/Dropdown'
+import Button from 'react-ions/src/components/Button'
+import Badge from 'react-ions/src/components/Badge'
 import styles from './styles'
 
 class ExampleDropdownCallback extends React.Component {
