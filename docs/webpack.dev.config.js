@@ -12,10 +12,10 @@ const config = {
   resolve: {
     extensions: ['', '.js', '.md', '.txt', '.scss', '.css'],
     alias: {
-      'react-ions/src': path.resolve(__dirname, '../src'),
+      'react-ions/lib': path.resolve(__dirname, '../src'),
       'react-ions/styles': path.resolve(__dirname, '../src/styles'),
       'react-ions/utilities': path.resolve(__dirname, '../src/utilities'),
-      'react-ions/src': path.resolve(__dirname, '../lib/'),
+      'react-ions/sprite': path.resolve(__dirname, '../lib/assets/icons/symbol'),
       'global/fonts': path.resolve(__dirname, '../src/assets/fonts'),
       'private/css': path.resolve(__dirname, 'src/www/css'),
       'private/base': path.resolve(__dirname, 'src/www/css/base'),

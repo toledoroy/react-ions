@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert } from 'react-ions/src/components/Alerts'
+import { Alert } from 'react-ions/lib/components/Alerts'
 
 const ExampleAlertDefault = () => (
   <div>

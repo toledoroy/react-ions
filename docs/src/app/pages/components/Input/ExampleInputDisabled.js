@@ -1,6 +1,6 @@
 import React from 'react'
-import Input from 'react-ions/src/components/Input'
-import Button from 'react-ions/src/components/Button'
+import Input from 'react-ions/lib/components/Input'
+import Button from 'react-ions/lib/components/Button'
 import style from './style.scss'
 
 class ExampleInputDisabled extends React.Component {

@@ -1,5 +1,5 @@
 import React from 'react'
-import Tooltip from 'react-ions/src/components/Tooltip'
+import Tooltip from 'react-ions/lib/components/Tooltip'
 
 const ExampleTooltipDefault = () => (
   <p>Umami four dollar toast craft beer polaroid 

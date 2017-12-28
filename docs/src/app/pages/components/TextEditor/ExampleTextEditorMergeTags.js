@@ -1,5 +1,5 @@
 import React from 'react'
-import TextEditor from 'react-ions/src/components/TextEditor'
+import TextEditor from 'react-ions/lib/components/TextEditor'
 
 const mergeTags = [
   { name: 'Tag 1', tag: '{tag_1}' },

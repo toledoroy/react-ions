@@ -1,6 +1,6 @@
 import React from 'react'
-import {PanelSlider, Panel, PanelContent} from 'react-ions/src/components/PanelGroup'
-import Button from 'react-ions/src/components/Button'
+import {PanelSlider, Panel, PanelContent} from 'react-ions/lib/components/PanelGroup'
+import Button from 'react-ions/lib/components/Button'
 import style from './style.scss'
 
 class ExamplePanelSlider extends React.Component {

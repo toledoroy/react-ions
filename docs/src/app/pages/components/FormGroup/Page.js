@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-ions/src/components/FormGroup/FormGroup'
+import docs from '!!docgen!react-ions/lib/components/FormGroup/FormGroup'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleFormGroup from './ExampleFormGroup'
 import exampleFormGroupCode from '!raw!./ExampleFormGroup'

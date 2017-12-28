@@ -1,6 +1,6 @@
 import React from 'react'
-import DatePicker from 'react-ions/src/components/DatePicker'
-import Button from 'react-ions/src/components/Button'
+import DatePicker from 'react-ions/lib/components/DatePicker'
+import Button from 'react-ions/lib/components/Button'
 import style from './style.scss'
 
 const oldDate = '2017-07-07'

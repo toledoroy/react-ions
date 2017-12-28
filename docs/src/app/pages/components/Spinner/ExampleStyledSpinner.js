@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Spinner from 'react-ions/src/components/Spinner'
+import Spinner from 'react-ions/lib/components/Spinner'
 
 const StyledSpinner = styled(Spinner)`
   [class^="bounce"][class^="bounce"] {

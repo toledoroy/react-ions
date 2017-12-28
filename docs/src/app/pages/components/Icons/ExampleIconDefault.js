@@ -1,8 +1,8 @@
 import React from 'react'
-import Icon from 'react-ions/src/components/Icon'
+import Icon from 'react-ions/lib/components/Icon'
 
 const ExampleIconDefault = () => (
-  <Icon name='icon-delete-1-1' />
+  <Icon name='check' />
 )
 
 export default ExampleIconDefault

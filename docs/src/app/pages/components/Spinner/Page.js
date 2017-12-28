@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-ions/src/components/Spinner/Spinner'
+import docs from '!!docgen!react-ions/lib/components/Spinner/Spinner'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleSpinnerDefault from './ExampleSpinnerDefault'
 import exampleSpinnerDefaultCode from '!raw!./ExampleSpinnerDefault'

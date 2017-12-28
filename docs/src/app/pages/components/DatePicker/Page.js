@@ -15,7 +15,7 @@ import exampleDatePickerLabelCode from '!raw!./ExampleDatePickerLabel'
 import ExampleDatePickerDisabled from './ExampleDatePickerDisabled'
 import exampleDatePickerDisabledCode from '!raw!./ExampleDatePickerDisabled'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-ions/src/components/DatePicker/DatePicker'
+import docs from '!!docgen!react-ions/lib/components/DatePicker/DatePicker'
 import styles from 'private/css/content'
 
 

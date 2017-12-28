@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from 'react-ions/src/components/Button'
-import Spinner from 'react-ions/src/components/Spinner'
+import Button from 'react-ions/lib/components/Button'
+import Spinner from 'react-ions/lib/components/Spinner'
 
 class ExampleSpinnerBounce extends React.Component {
   constructor(props) {

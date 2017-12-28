@@ -1,7 +1,7 @@
 import React from 'react'
-import Modal from 'react-ions/src/components/Modal'
-import Button from 'react-ions/src/components/Button'
-import SelectField from 'react-ions/src/components/SelectField/SelectField'
+import Modal from 'react-ions/lib/components/Modal'
+import Button from 'react-ions/lib/components/Button'
+import SelectField from 'react-ions/lib/components/SelectField/SelectField'
 import style from './style.scss'
 
 class ExampleModalSmall extends React.Component {

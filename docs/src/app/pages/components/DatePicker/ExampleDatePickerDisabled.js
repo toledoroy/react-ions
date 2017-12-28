@@ -1,5 +1,5 @@
 import React from 'react'
-import DatePicker from 'react-ions/src/components/DatePicker'
+import DatePicker from 'react-ions/lib/components/DatePicker'
 
 const ExampleDatePickerDisabled = () => (
   <div>

@@ -1,6 +1,6 @@
 import React from 'react'
-import RadioGroup from 'react-ions/src/components/Radio/RadioGroup'
-import Button from 'react-ions/src/components/Button'
+import RadioGroup from 'react-ions/lib/components/Radio/RadioGroup'
+import Button from 'react-ions/lib/components/Button'
 import style from './style.scss'
 
 const options = [

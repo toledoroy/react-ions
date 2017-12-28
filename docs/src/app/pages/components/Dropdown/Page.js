@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList';
-import docs from '!!docgen!react-ions/src/components/Dropdown/Dropdown';
+import docs from '!!docgen!react-ions/lib/components/Dropdown/Dropdown';
 import CodeExample from 'private/modules/CodeExample'
 import ExampleDropdownButton from './ExampleDropdownButton'
 import exampleDropdownButtonCode from '!raw!./ExampleDropdownButton'

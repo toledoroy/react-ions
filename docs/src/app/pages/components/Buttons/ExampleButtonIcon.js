@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from 'react-ions/src/components/Button'
-import Icon from 'react-ions/src/components/Icon'
+import Button from 'react-ions/lib/components/Button'
+import Icon from 'react-ions/lib/components/Icon'
 
 const ExampleButtonIcon = () => (
   <div>

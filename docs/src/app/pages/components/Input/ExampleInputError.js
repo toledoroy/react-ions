@@ -1,5 +1,5 @@
 import React from 'react'
-import Input from 'react-ions/src/components/Input'
+import Input from 'react-ions/lib/components/Input'
 
 const ExampleInputDefault = () => (
   <Input label='Input with error' value='' optClass='input-error' />

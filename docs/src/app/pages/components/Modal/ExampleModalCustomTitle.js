@@ -1,6 +1,6 @@
 import React from 'react'
-import Modal from 'react-ions/src/components/Modal'
-import Button from 'react-ions/src/components/Button'
+import Modal from 'react-ions/lib/components/Modal'
+import Button from 'react-ions/lib/components/Button'
 
 class ExampleModalCustomTitle extends React.Component {
   constructor(props) {

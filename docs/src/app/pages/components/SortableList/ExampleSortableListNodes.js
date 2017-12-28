@@ -1,6 +1,6 @@
 import React from 'react'
-import {SortableList, SortableItem} from 'react-ions/src/components/SortableList'
-import Chip from 'react-ions/src/components/Chip'
+import {SortableList, SortableItem} from 'react-ions/lib/components/SortableList'
+import Chip from 'react-ions/lib/components/Chip'
 import style from './style.scss'
 
 class ExampleSortableListNodes extends React.Component {

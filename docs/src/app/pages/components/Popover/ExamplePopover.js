@@ -1,6 +1,6 @@
 import React from 'react'
-import Popover from 'react-ions/src/components/Popover'
-import Button from 'react-ions/src/components/Button'
+import Popover from 'react-ions/lib/components/Popover'
+import Button from 'react-ions/lib/components/Button'
 import localStyle from './style.scss'
 
 class ExamplePopover extends React.Component {

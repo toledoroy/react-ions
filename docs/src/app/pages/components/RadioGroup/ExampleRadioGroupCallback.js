@@ -1,5 +1,5 @@
 import React from 'react'
-import RadioGroup from 'react-ions/src/components/Radio/RadioGroup'
+import RadioGroup from 'react-ions/lib/components/Radio/RadioGroup'
 
 class ExampleRadioCallback extends React.Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React from 'react'
-import Dropdown from 'react-ions/src/components/Dropdown'
-import Button from 'react-ions/src/components/Button'
+import Dropdown from 'react-ions/lib/components/Dropdown'
+import Button from 'react-ions/lib/components/Button'
 import styles from './styles'
 
 class ExampleDropdownList extends React.Component {

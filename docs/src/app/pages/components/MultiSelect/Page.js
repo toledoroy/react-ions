@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-ions/src/components/MultiSelect/MultiSelect'
+import docs from '!!docgen!react-ions/lib/components/MultiSelect/MultiSelect'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleMultiSelectField from './ExampleMultiSelectField'
 import exampleMultiSelectFieldCode from '!raw!./ExampleMultiSelectField'

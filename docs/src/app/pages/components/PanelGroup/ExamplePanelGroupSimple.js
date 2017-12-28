@@ -1,6 +1,6 @@
 import React from 'react'
-import {PanelGroup, Panel, PanelHeader, PanelContent} from 'react-ions/src/components/PanelGroup'
-import RadioGroup from 'react-ions/src/components/Radio/RadioGroup'
+import {PanelGroup, Panel, PanelHeader, PanelContent} from 'react-ions/lib/components/PanelGroup'
+import RadioGroup from 'react-ions/lib/components/Radio/RadioGroup'
 
 const options = [
   {
@@ -22,7 +22,7 @@ const ExamplePanelGroupSimple = () => (
   <div>
     <PanelGroup accordion={true} optClass='simple'>
       <Panel>
-        <PanelHeader title='Promoter' contextIcon='icon-arrow-68' contextIconSize='12' />
+        <PanelHeader title='Promoter' contextIcon='arrow-66' contextIconSize='12' />
         <PanelContent>
           <h3>What happens after a promoter submits their score?</h3>
           <RadioGroup
@@ -32,7 +32,7 @@ const ExamplePanelGroupSimple = () => (
         </PanelContent>
       </Panel>
       <Panel>
-      <PanelHeader title='Passive' contextIcon='icon-arrow-68' contextIconSize='12' />
+      <PanelHeader title='Passive' contextIcon='arrow-66' contextIconSize='12' />
         <PanelContent>
           <h3>What happens after a promoter submits their score?</h3>
           <RadioGroup
@@ -42,7 +42,7 @@ const ExamplePanelGroupSimple = () => (
         </PanelContent>
       </Panel>
       <Panel>
-      <PanelHeader title='Detractor' contextIcon='icon-arrow-68' contextIconSize='12' />
+      <PanelHeader title='Detractor' contextIcon='arrow-66' contextIconSize='12' />
         <PanelContent>
         <h3>What happens after a promoter submits their score?</h3>
         <RadioGroup

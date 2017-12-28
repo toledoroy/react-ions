@@ -1,7 +1,7 @@
 import React from 'react'
-import {SortableList, SortableItem} from 'react-ions/src/components/SortableList'
-import Modal from 'react-ions/src/components/Modal'
-import Button from 'react-ions/src/components/Button'
+import {SortableList, SortableItem} from 'react-ions/lib/components/SortableList'
+import Modal from 'react-ions/lib/components/Modal'
+import Button from 'react-ions/lib/components/Button'
 import style from './style.scss'
 
 class ExampleSortableListModal extends React.Component {

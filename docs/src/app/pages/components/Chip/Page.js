@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-ions/src/components/Chip/Chip'
+import docs from '!!docgen!react-ions/lib/components/Chip/Chip'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleChipDefault from './ExampleChipDefault'
 import exampleChipDefaultCode from '!raw!./ExampleChipDefault'

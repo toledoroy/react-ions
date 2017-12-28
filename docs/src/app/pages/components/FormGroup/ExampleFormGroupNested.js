@@ -1,8 +1,8 @@
 import React from 'react'
-import FormGroup from 'react-ions/src/components/FormGroup'
-import Input from 'react-ions/src/components/Input'
-import Textarea from 'react-ions/src/components/Textarea'
-import style from 'react-ions/src/components/FormGroup/style'
+import FormGroup from 'react-ions/lib/components/FormGroup'
+import Input from 'react-ions/lib/components/Input'
+import Textarea from 'react-ions/lib/components/Textarea'
+import style from 'react-ions/lib/components/FormGroup/style'
 
 class ExampleFormGroup extends React.Component {
   constructor(props) {

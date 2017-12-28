@@ -1,5 +1,5 @@
 import React from 'react'
-import InputList from 'react-ions/src/components/InputList/InputList'
+import InputList from 'react-ions/lib/components/InputList/InputList'
 import style from './style.scss'
 
 class ExampleInputList extends React.Component {

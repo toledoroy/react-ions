@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonConfirmation from 'react-ions/src/components/Button/ButtonConfirmation'
+import ButtonConfirmation from 'react-ions/lib/components/Button/ButtonConfirmation'
 import style from './style'
 
 class ExampleButtonConfirmationLoader extends React.Component {
