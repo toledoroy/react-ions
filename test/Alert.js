@@ -42,7 +42,7 @@ describe('Alert', () => {
 
     expect(wrapper.hasClass('alert')).to.be.true
     expect(wrapper.hasClass('danger')).to.be.true
-    expect(wrapper.find('[name="icon-delete-3"]')).to.have.length(1)
+    expect(wrapper.find('[name="icon-highlight-off"]')).to.have.length(1)
   })
 
 })
