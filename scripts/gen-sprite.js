@@ -17,7 +17,7 @@ var iconList = [
   materialDesignIconsPath + '/content/svg/production/ic_content_paste_24px.svg#icon-clipboard-1',
   materialDesignIconsPath + '/navigation/svg/production/ic_close_24px.svg#icon-delete-1',
   materialDesignIconsPath + '/navigation/svg/production/ic_close_24px.svg#icon-delete-1-1',
-  materialDesignIconsPath + '/navigation/svg/production/ic_cancel_24px.svg#icon-delete-3',
+  materialDesignIconsPath + '/action/svg/production/ic_highlight_off_24px.svg#icon-delete-3',
   materialDesignIconsPath + '/navigation/svg/production/ic_check_24px.svg#icon-check-1-1',
   materialDesignIconsPath + '/action/svg/production/ic_info_outline_24px.svg#icon-information',
   materialDesignIconsPath + '/communication/svg/production/ic_mail_outline_24px.svg#icon-mail-1',
