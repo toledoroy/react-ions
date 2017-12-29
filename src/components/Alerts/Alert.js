@@ -75,7 +75,7 @@ class Alert extends React.Component {
       success: 'icon-check-2-1',
       warning: 'icon-alert-1',
       info: 'icon-information',
-      danger: 'icon-delete-3'
+      danger: 'icon-highlight-off'
     }
 
     return (
