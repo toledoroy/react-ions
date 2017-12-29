@@ -13,7 +13,7 @@ var iconList = [
   materialDesignIconsPath + '/navigation/svg/production/ic_chevron_left_24px.svg#icon-arrow-67',
   materialDesignIconsPath + '/navigation/svg/production/ic_chevron_right_24px.svg#icon-arrow-68',
   materialDesignIconsPath + '/navigation/svg/production/ic_check_24px.svg#icon-check-2-1',
-  materialDesignIconsPath + '/content/svg/production/ic_check_24px.svg#icon-check-circle-2-1',
+  materialDesignIconsPath + '/navigation/svg/production/ic_check_24px.svg#icon-check-circle-2-1',
   materialDesignIconsPath + '/content/svg/production/ic_content_paste_24px.svg#icon-clipboard-1',
   materialDesignIconsPath + '/navigation/svg/production/ic_close_24px.svg#icon-delete-1',
   materialDesignIconsPath + '/navigation/svg/production/ic_close_24px.svg#icon-delete-1-1',

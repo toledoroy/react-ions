@@ -4,7 +4,7 @@ import Icon from '../Icon'
 import style from './header-styles.scss'
 
 const Header = props => {
-  const closeIcon = props.closeIcon || (<Icon name="icon-delete-1-1" width="15" height="15" onClick={props.handleClose} />)
+  const closeIcon = props.closeIcon || (<Icon name="icon-delete-1" width="15" height="15" onClick={props.handleClose} />)
 
   return (
     <div className={style['header-wrapper']}>
