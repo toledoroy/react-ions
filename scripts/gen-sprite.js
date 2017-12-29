@@ -26,7 +26,6 @@ var iconList = [
 ]
 var spriter = new SVGSpriter({
   dest: dest,
-  log: 'debug',
   shape: {
     id: {
       generator: function(name) {
