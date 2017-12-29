@@ -197,7 +197,7 @@ class SelectField extends React.Component {
         <div className={style['selectfield-value']} onClick={this.toggleSelectField}>
           {this.getDisplayIcon()}
           <span className={style['display-text']}>{this.getDisplayText()}</span>
-          <Icon name='caret-bottom' width='10' height='10' />
+          <Icon name='icon-caret' width='10' height='10' />
         </div>
         <ul>
           {options}
