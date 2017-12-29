@@ -27,8 +27,6 @@ var iconList = [
 	customIconsPath + '/icon-caret-bottom.svg#icon-caret'
 ]
 
-console.log()
-
 var spriter = new SVGSpriter({
 	dest: dest,
 	log: 'debug',
