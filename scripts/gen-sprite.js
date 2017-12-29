@@ -2,26 +2,31 @@ var SVGSpriter = require('svg-sprite');
 var path = require('path');
 var mkdirp = require('mkdirp');
 var fs = require('fs');
-var cwd = path.join(__dirname, '/../node_modules', 'material-design-icons');
+var cwd = path.join(__dirname, '/../');
 var dest = path.normalize(path.join(__dirname, '/../lib/assets/icons'));
 
+var materialDesignIconsPath = path.join('node_modules', 'material-design-icons');
+var customIconsPath = path.normalize('src/assets/icons/svg');
+
 var iconList = [
-  'content/svg/production/ic_add_24px.svg#icon-add-1-1',
-  'alert/svg/production/ic_error_outline_24px.svg#icon-alert-1',
-  'navigation/svg/production/ic_expand_less_24px.svg#icon-arrow-66',
-  'navigation/svg/production/ic_chevron_left_24px.svg#icon-arrow-67',
-  'navigation/svg/production/ic_chevron_right_24px.svg#icon-arrow-68',
-  'navigation/svg/production/ic_check_24px.svg#icon-check-2-1',
-  'content/svg/production/ic_clear_24px.svg#icon-check-circle-2-1',
-  'content/svg/production/ic_content_paste_24px.svg#icon-clipboard-1',
-  'navigation/svg/production/ic_close_24px.svg#icon-delete-1',
-  'navigation/svg/production/ic_close_24px.svg#icon-delete-1-1',
-  'navigation/svg/production/ic_cancel_24px.svg#icon-delete-3',
-  'navigation/svg/production/ic_arrow_drop_down_24px.svg#icon-caret',
-  'navigation/svg/production/ic_check_24px.svg#icon-check-1-1',
-	'action/svg/production/ic_info_outline_24px.svg#icon-information',
-	'communication/svg/production/ic_mail_outline_24px.svg#icon-mail-1'
+  materialDesignIconsPath + '/content/svg/production/ic_add_24px.svg#icon-add-1-1',
+  materialDesignIconsPath + '/alert/svg/production/ic_error_outline_24px.svg#icon-alert-1',
+  materialDesignIconsPath + '/navigation/svg/production/ic_expand_less_24px.svg#icon-arrow-66',
+  materialDesignIconsPath + '/navigation/svg/production/ic_chevron_left_24px.svg#icon-arrow-67',
+  materialDesignIconsPath + '/navigation/svg/production/ic_chevron_right_24px.svg#icon-arrow-68',
+  materialDesignIconsPath + '/navigation/svg/production/ic_check_24px.svg#icon-check-2-1',
+  materialDesignIconsPath + '/content/svg/production/ic_clear_24px.svg#icon-check-circle-2-1',
+  materialDesignIconsPath + '/content/svg/production/ic_content_paste_24px.svg#icon-clipboard-1',
+  materialDesignIconsPath + '/navigation/svg/production/ic_close_24px.svg#icon-delete-1',
+  materialDesignIconsPath + '/navigation/svg/production/ic_close_24px.svg#icon-delete-1-1',
+  materialDesignIconsPath + '/navigation/svg/production/ic_cancel_24px.svg#icon-delete-3',
+  materialDesignIconsPath + '/navigation/svg/production/ic_check_24px.svg#icon-check-1-1',
+	materialDesignIconsPath + '/action/svg/production/ic_info_outline_24px.svg#icon-information',
+	materialDesignIconsPath + '/communication/svg/production/ic_mail_outline_24px.svg#icon-mail-1',
+	customIconsPath + '/icon-caret-bottom.svg#icon-caret'
 ]
+
+console.log(iconList)
 
 var spriter = new SVGSpriter({
 	dest: dest,
