@@ -19,7 +19,6 @@ import CheckboxPage from './pages/components/Checkbox/Page'
 import ChipPage from './pages/components/Chip/Page'
 import DropdownPage from './pages/components/Dropdown/Page'
 import HomePage from './pages/Home/Page'
-import IconographyPage from './pages/foundations/Iconography/Page'
 import IconsPage from './pages/components/Icons/Page'
 import FileUploadPage from './pages/components/FileUpload/Page'
 import FormGroupPage from './pages/components/FormGroup/Page'
@@ -49,7 +48,6 @@ const Routes = (
     <Redirect from='foundations' to='/foundations/colors' />
     <Route path='foundations' title='Foundations'>
       <Route path='colors' title='Colors' component={ColorsPage} />
-      <Route path='iconography' title='Iconography' component={IconographyPage} />
     </Route>
     <Route path='components' title='Components'>
       <IndexRoute component={ComponentsPage} />

@@ -19,7 +19,8 @@ var iconList = [
   'navigation/svg/production/ic_cancel_24px.svg#icon-delete-3',
   'navigation/svg/production/ic_arrow_drop_down_24px.svg#icon-caret',
   'navigation/svg/production/ic_check_24px.svg#icon-check-1-1',
-  'action/svg/production/ic_info_outline_24px.svg#icon-information'
+	'action/svg/production/ic_info_outline_24px.svg#icon-information',
+	'communication/svg/production/ic_mail_outline_24px.svg#icon-mail-1'
 ]
 
 var spriter = new SVGSpriter({
