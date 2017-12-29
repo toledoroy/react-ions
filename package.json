@@ -106,7 +106,7 @@
     "karma-sourcemap-loader": "~0.3.7",
     "karma-threshold-reporter": "~0.1.15",
     "karma-webpack": "~1.7.0",
-    "material-design-icons": "^3.0.1",
+    "material-design-icons": "3.0.1",
     "mocha": "~2.3.3",
     "mocha-jsdom": "~1.0.0",
     "node-sass": "~3.4.2",
