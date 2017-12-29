@@ -21,7 +21,6 @@ var iconList = [
   materialDesignIconsPath + '/navigation/svg/production/ic_check_24px.svg#icon-check-1-1',
   materialDesignIconsPath + '/action/svg/production/ic_info_outline_24px.svg#icon-information',
   materialDesignIconsPath + '/communication/svg/production/ic_mail_outline_24px.svg#icon-mail-1',
-  materialDesignIconsPath + '/action/svg/production/ic_highlight_off_24px.svg#icon-highlight-off',
   customIconsPath + '/icon-caret-bottom.svg#icon-caret'
 ]
 var spriter = new SVGSpriter({

@@ -27,7 +27,7 @@
   "scripts": {
     "test": "export NODE_ENV=test && node ./scripts/gen-sprite.js && node_modules/karma/bin/karma start test/config/karma.local.conf.js",
     "start": "node ./scripts/gen-sprite.js && node docs/server && node ./scripts/gen-export.js",
-    "build:server": "npm run clean && export NODE_ENV=production && webpack --config ./docs/webpack.prod.config.js --profile --colors",
+    "build:server": "npm run clean && export NODE_ENV=production && node ./scripts/gen-sprite.js && webpack --config ./docs/webpack.prod.config.js --profile --colors",
     "build:release": "npm run clean && export NODE_ENV=production && babel ./src --out-dir ./lib --copy-files && node ./scripts/gen-export.js && node ./scripts/gen-sprite.js",
     "clean": "rimraf dist lib",
     "lint": "eslint . --ext .js --ext .jsx",
