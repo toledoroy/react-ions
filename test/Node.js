@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import { Link } from 'react-router'
 import Node from '../src/components/Nav/Node'
 import Icon from '../src/components/Icon/Icon'

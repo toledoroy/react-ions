@@ -1,6 +1,5 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
-import { AlertSystem } from '../src/components/Alerts'
+import { AlertSystem, Alert } from '../src/components/Alerts'
 
 describe('AlertSystem', () => {
   let wrapper
@@ -52,21 +51,21 @@ describe('AlertSystem', () => {
     ]
     wrapper = mount(<AlertSystem alerts={alerts}/>)
 
-    expect(wrapper.children()).to.have.length(1)
+    expect(wrapper.find(Alert)).to.have.length(1)
     expect(wrapper.childAt(0).hasClass('close-icon')).to.equal(false)
 
     wrapper.childAt(0).childAt(0).simulate('click')
 
-    expect(wrapper.children()).to.have.length(0)
+    expect(wrapper.find(alert)).to.have.length(0)
   })
 
   it('should run onClose callback when the close icon is clicked', () => {
     const closeClickCallback = sinon.spy()
     let alerts = [
-      { type: 'success', content: 'Test success', onClose: closeClickCallback }
+      { key:'test', type: 'success', content: 'Test success', onClose: closeClickCallback }
     ]
-    wrapper = mount(<AlertSystem alerts={alerts}/>)
-    wrapper.childAt(0).childAt(0).simulate('click')
+    wrapper = shallow(<AlertSystem alerts={alerts}/>)
+    wrapper.instance().removeAlert({ key:'test', type: 'success', content: 'Test success', onClose: closeClickCallback })
 
     expect(closeClickCallback.calledOnce).to.be.true
   })
@@ -77,11 +76,12 @@ describe('AlertSystem', () => {
     ]
     wrapper = mount(<AlertSystem alerts={alerts}/>)
 
-    expect(wrapper.children()).to.have.length(1)
+    expect(wrapper.find(Alert)).to.have.length(1)
     expect(wrapper.childAt(0).hasClass('close-icon')).to.equal(false)
 
     setTimeout(function() {
-      expect(wrapper.children()).to.have.length(0)
+      wrapper.update()
+      expect(wrapper.find(Alert)).to.have.length(0)
       done()
     }, 1500)
   })
@@ -105,13 +105,13 @@ describe('AlertSystem', () => {
     ]
     wrapper = mount(<AlertSystem alerts={alerts}/>)
 
-    expect(wrapper.children()).to.have.length(1)
+    expect(wrapper.find(Alert)).to.have.length(1)
     expect(wrapper.childAt(0).hasClass('close-icon')).to.equal(false)
 
     wrapper.childAt(0).simulate('mouseOver')
 
     setTimeout(function() {
-      expect(wrapper.children()).to.have.length(1)
+      expect(wrapper.find(Alert)).to.have.length(1)
       done()
     }, 1500)
   })
@@ -122,7 +122,7 @@ describe('AlertSystem', () => {
     ]
     wrapper = mount(<AlertSystem alerts={alerts}/>)
 
-    expect(wrapper.children()).to.have.length(1)
+    expect(wrapper.find(Alert)).to.have.length(1)
     expect(wrapper.childAt(0).hasClass('close-icon')).to.equal(false)
 
     wrapper.childAt(0).simulate('mouseOver')
@@ -132,7 +132,8 @@ describe('AlertSystem', () => {
     }, 200)
 
     setTimeout(function() {
-      expect(wrapper.children()).to.have.length(0)
+      wrapper.update()
+      expect(wrapper.find(Alert)).to.have.length(0)
       done()
     }, 1500)
   })

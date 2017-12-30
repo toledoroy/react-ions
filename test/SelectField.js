@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { shallow, mount } from 'enzyme'
 import SelectField from '../src/components/SelectField/SelectField'
 import Icon from '../src/components/Icon/Icon'
 

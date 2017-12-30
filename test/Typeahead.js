@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import Loader from 'react-loader'
 import Input from '../src/components/Input/Input'
 import { Typeahead } from '../src/components/Typeahead/Typeahead'

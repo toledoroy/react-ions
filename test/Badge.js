@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import Badge from '../src/components/Badge';
 import Icon from '../src/components/Icon';
 

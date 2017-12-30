@@ -173,7 +173,7 @@ export class ButtonConfirmation extends Component {
           <span className={style['confirmation-text']}>{this.props.prompt}</span>
           <div className={style['button-wrapper']}>
             <Button onClick={this.handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>
-            <Button onClick={this.handleConfirmation.bind(this, true)} optClass={buttonClass} >Yes</Button>
+            <Button onClick={this.handleConfirmation.bind(this, true)} optClass={buttonClass}>Yes</Button>
           </div>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import Tooltip from '../src/components/Tooltip/Tooltip'
 
 describe.skip('Tooltip', () => {

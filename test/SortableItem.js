@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import { SortableItem } from '../src/components/SortableList'
 import TestBackend from 'react-dnd-test-backend'
 import TestUtils from 'react-dom/test-utils'

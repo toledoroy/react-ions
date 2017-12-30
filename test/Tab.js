@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import Tab from '../src/components/TabWrapper/Tab'
 import Badge from '../src/components/Badge'
 

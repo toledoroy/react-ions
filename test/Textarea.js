@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
 import Textarea from '../src/components/Textarea/Textarea';
 
 describe('Textarea', () => {

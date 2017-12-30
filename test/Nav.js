@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import Nav from '../src/components/Nav/Nav'
 import Node from '../src/components/Nav/Node'
 

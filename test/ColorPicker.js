@@ -1,9 +1,8 @@
 import React from 'react'
-import { mount } from 'enzyme'
 import ColorPicker from '../src/components/ColorPicker/ColorPicker'
 import { SketchPicker } from 'react-color'
 
-describe('ColorPicker', () => {
+describe.only('ColorPicker', () => {
   const oldColor = '#3C97D3'
   const newColor = '#E54C3B'
   let wrapper, inputField, previewColorDiv

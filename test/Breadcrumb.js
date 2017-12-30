@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Immutable from 'immutable'
-import { shallow } from 'enzyme'
 import Breadcrumb from '../src/components/Breadcrumb/Breadcrumb'
 import Icon from '../src/components/Icon/Icon'
 
