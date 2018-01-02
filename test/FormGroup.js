@@ -1,6 +1,8 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
+import Immutable, { Map } from 'immutable'
 import FormGroup from '../src/components/FormGroup'
+import ValidatedField from '../src/components/FormGroup/ValidatedField'
 import Button from '../src/components/Button'
 import Input from '../src/components/Input'
 import Textarea from '../src/components/Textarea'
@@ -10,11 +12,14 @@ import SelectField from '../src/components/SelectField'
 describe('FormGroup', () => {
   let formGroup, wrapper
 
+  const ValidatedInput = ValidatedField(Input)
+
   it('should shallow render itself', () => {
     formGroup = shallow(<FormGroup />)
     expect(formGroup.find('form')).to.have.length(1)
     expect(formGroup.hasClass('form-group')).to.equal(true)
     expect(typeof formGroup.props().onSubmit).to.equal('function')
+    expect(formGroup.state().fieldErrors).to.deep.equal({})
   })
 
   it('should render with an optional CSS class', () => {
@@ -232,4 +237,72 @@ describe('FormGroup', () => {
     expect(wrapper.state().fields.getIn(['country', 'option'])).to.equal(options[1])
   })
 
+  it('should handle field errors when the form is submitted', () => {
+    const errorCallbackSpy = sinon.stub()
+    const schema = {
+      message: {
+        value: ''
+      }
+    }
+    
+    const errorMessage = 'The field cannot be left empty.'
+    
+    const event = {
+      preventDefault: () => {}
+    }
+
+    formGroup = shallow(<FormGroup schema={schema} errorCallback={errorCallbackSpy}>
+      <ValidatedInput 
+        name='message'
+        label='Message'
+        type='text'
+        validation={[
+          {
+            validator: () => false,
+            message: errorMessage
+          }
+        ]}
+      />
+    </FormGroup>)
+
+    formGroup.instance().handleSubmit(event)
+
+    expect(formGroup.state().fieldErrors.toJS()).to.deep.equal({ message: 'The field cannot be left empty.'})
+    expect(errorCallbackSpy.calledOnce).to.be.true
+  })
+
+  it('should validate from props -> errorFields when passed', () => {
+    const schema = {
+      message: {
+        value: ''
+      }
+    }
+
+    const event = {
+      preventDefault: () => {}
+    }
+    
+    const fieldErrors = Map({
+      message: 'apples'
+    })
+
+    formGroup = shallow(<FormGroup schema={schema} fieldErrors={fieldErrors}>
+      <ValidatedInput 
+        name='message'
+        label='Message'
+        type='text'
+        validation={[
+          {
+            validator: () => false,
+            message: 'oranges'
+          }
+        ]}
+      />
+    </FormGroup>)
+
+    formGroup.instance().handleSubmit(event)
+
+    expect(Immutable.is(formGroup.instance()._mapFieldErrors(), fieldErrors)).to.be.true
+    expect(formGroup.state().fieldErrors.toJS()).to.deep.equal({ message: 'oranges'})    
+  })
 })

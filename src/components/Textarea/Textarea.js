@@ -22,6 +22,10 @@ class Textarea extends React.Component {
 
   static propTypes = {
     /**
+     * A class name to be used for local styles or integrations (required to support styled-components)
+     */
+    className: PropTypes.string,
+    /**
      * Name of the textarea.
      */
     name: PropTypes.string,
@@ -93,16 +97,11 @@ class Textarea extends React.Component {
   }
 
   render() {
-    const {
-      label,
-      value,
-      optClass,
-      ...other
-    } = this.props
+    const { disabled, label, value, optClass, className } = this.props
 
     const cx = classNames.bind(style)
-    var disabledClass = this.props.disabled ? style['textarea-disabled'] : ''
-    var textareaClass = cx(style['textarea-component'], this.props.optClass, disabledClass)
+    var disabledClass = disabled ? style['textarea-disabled'] : ''
+    var textareaClass = cx(style['textarea-component'], optClass, className, disabledClass)
 
     return (
       <div className={textareaClass}>

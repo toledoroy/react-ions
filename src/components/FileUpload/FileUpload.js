@@ -123,7 +123,7 @@ class FileUpload extends React.Component {
     return this.state.files.map((file, index) =>
       <div key={index} className={style.image}>
         <img style={imgStyle} src={file.preview} />
-        <Icon name='icon-delete-1' height='16' width='16' fill='#233040' onClick={this.handleRemove.bind(this, index)} />
+        <Icon name='x' height='16' width='16' fill='#233040' onClick={this.handleRemove.bind(this, index)} />
       </div>
     )
   }
@@ -135,8 +135,7 @@ class FileUpload extends React.Component {
       optClass,
       showPreview,
       previewSize,
-      changeCallback,
-      ...other
+      changeCallback
     } = this.props
 
     const cx = classNames.bind(style)
@@ -146,7 +145,7 @@ class FileUpload extends React.Component {
     return (
       <div className={fileUploadClass}>
         { label ? <label>{label}</label> : null }
-        <Dropzone onDrop={this.handleUpload} className={style.dropzone} activeClassName={style.active} disableClick={this.props.disabled} multiple={false} {...other}>
+        <Dropzone onDrop={this.handleUpload} className={style.dropzone} activeClassName={style.active} disableClick={this.props.disabled} multiple={false} disabled={this.props.disabled}>
           <div>Drag and drop here to upload files or click to browse</div>
         </Dropzone>
         { this.state.files[0] ? <div className={style.filename}><span>Filename:</span> {this.state.files[0].name}</div> : null }

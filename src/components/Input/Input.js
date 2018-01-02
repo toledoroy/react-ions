@@ -19,9 +19,17 @@ class Input extends React.Component {
 
   static propTypes = {
     /**
+     * A class name to be used for local styles or integrations (required to support styled-components)
+     */
+    className: PropTypes.string,
+    /**
      * Whether the input is disabled.
      */
     disabled: PropTypes.bool,
+    /**
+     * Disallow the user from editing the input.
+     */
+    readOnly: PropTypes.bool,
     /**
      * Text shown above the input.
      */
@@ -48,11 +56,17 @@ class Input extends React.Component {
     /**
      * Name of the input.
      */
-    prefix: PropTypes.string,
+    prefix: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node
+    ]),
     /**
      * Optional prefix to add to the input.
      */
-    suffix: PropTypes.string,
+    suffix: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node
+    ]),
     /**
      * Optional suffix to add to the input.
      */
@@ -157,13 +171,13 @@ class Input extends React.Component {
   }
 
   render = () => {
-    const {prefix, suffix, label, value, optClass} = this.props
+    const {prefix, suffix, label, optClass, className, width, disabled} = this.props
     const cx = classNames.bind(style)
-    const disabledClass = this.props.disabled ? style['input-disabled'] : null
-    const widthStyle = this.props.width ? { width: this.props.width } : null
+    const disabledClass = disabled ? style['input-disabled'] : null
+    const widthStyle = width ? { width: width } : null
     const prefixClass = prefix ? style['prefix'] : null
     const suffixClass = suffix ? style['suffix'] : null
-    const inputClass = cx(style['input-component'], optClass, disabledClass, prefixClass, suffixClass)
+    const inputClass = cx(style['input-component'], className, optClass, disabledClass, prefixClass, suffixClass)
     const inputContainerClass = style['input-container']
 
     return (
@@ -180,6 +194,7 @@ class Input extends React.Component {
             onClick={this.props.onClick}
             onBlur={this.handleBlur}
             disabled={this.props.disabled}
+            readOnly={this.props.readOnly}
             placeholder={this.props.placeholder}
             style={this.state.inputStyles}
             onKeyUp={this.props.onKeyUp}

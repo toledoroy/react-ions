@@ -7,7 +7,6 @@
     margin-bottom: 10px;
     font-size: 16px;
     color: $navy-text;
-    font-family: proxima_nova;
     font-weight: 200;
   }
 
@@ -70,6 +69,9 @@
   }
 
   .datepicker > div {
+    @media #{$media-small-minus} {
+      min-width: auto;
+    }
     &:first-of-type {
       > div {
         @media #{$media-small-minus} {

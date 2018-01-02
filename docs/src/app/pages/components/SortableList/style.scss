@@ -12,3 +12,9 @@
     overflow: visible !important;
   }
 }
+
+.item-with-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

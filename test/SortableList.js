@@ -4,6 +4,7 @@ import TestBackend from 'react-dnd-test-backend'
 import { DragDropContext } from 'react-dnd'
 import TestUtils from 'react-dom/test-utils'
 import SortableItem from '../src/components/SortableList/SortableItem'
+import CustomDragLayer from '../src/components/SortableList/CustomDragLayer'
 import SortableListWrapped, { SortableList } from '../src/components/SortableList/SortableList'
 
 let Component = React.Component
@@ -186,5 +187,14 @@ describe('SortableList', () => {
 
     expect(wrapper.state().dragging).to.be.false
     expect(onDragStopSpy.called).to.be.true
+  })
+
+  it('should pass on the hideOrderNumbers prop as hideOrderNumber', () => {
+    wrapper = shallow(<SortableList items={items} hideOrderNumbers={true} />)
+
+    expect(wrapper.find(SortableItem).at(0).prop('hideOrderNumber')).to.be.true
+
+    wrapper.setState({ dragging: true })
+    expect(wrapper.find(CustomDragLayer).prop('hideOrderNumber')).to.be.true
   })
 })

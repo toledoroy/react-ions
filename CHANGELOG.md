@@ -1,5 +1,85 @@
 ## HEAD
 
+## 3.0.1
+###### _December 19, 2017_
+- README: quick update
+
+## 3.0.0
+###### _December 19, 2017_
+
+### Breaking changes
+- In order to be in compliance with MIT licensing:
+  * We've removed our licensed version of the *Proxima Nova* font. Though, the font will be available when in development (on port :3000), if you use our components in a production environment, the font will use a system fallback. For more details: http://reactions.getambassador.com/components.
+  * We've removed our licensed (Streamline) icon set, and have replaced it with Open Iconic. For more details: http://reactions.getambassador.com/foundations/iconography.
+
+- Iconography: changed Iconic to exact version in package.json [#553](https://github.com/GetAmbassador/react-ions/pull/553)
+
+- Typography: load remote font CSS file, revert some doc-specific font overrides [#551](https://github.com/GetAmbassador/react-ions/pull/551)
+
+- Fonts: remove Proxima Nova font [#548](https://github.com/GetAmbassador/react-ions/pull/548)
+
+- Icons: swap out SVG sprite, update components to use new icons [#547](https://github.com/GetAmbassador/react-ions/pull/547)
+
+- Marked: update package dependency [#546](https://github.com/GetAmbassador/react-ions/pull/546)
+
+## 2.0.25
+###### _December 7, 2017_
+- Dependencies: Update momentjs in dependencies [#542](https://github.com/GetAmbassador/react-ions/pull/542)
+
+## 2.0.24
+###### _December 7, 2017_
+- Checkbox: Add custom HTML label [#543](https://github.com/GetAmbassador/react-ions/pull/543)
+
+## 2.0.23
+###### _December 5, 2017_
+- FormGroup: move validation logic to public utility [#540](https://github.com/GetAmbassador/react-ions/pull/540)
+
+- FormGroup: implemenent error prop validation [#539](https://github.com/GetAmbassador/react-ions/pull/539)
+
+- FormGroup: remove exports from FormGroup index [#538](https://github.com/GetAmbassador/react-ions/pull/538)
+
+## 2.0.22
+- FormGroup: added validation option for input and textarea [#536](https://github.com/GetAmbassador/react-ions/pull/536)
+
+## 2.0.21
+###### _November 21, 2017_
+
+- Input: disallow the user from editing w/out disabling [#533](https://github.com/GetAmbassador/react-ions/pull/533)
+- Button: addition of the aria-disabled prop [#532](https://github.com/GetAmbassador/react-ions/pull/532)
+
+## 2.0.20
+###### _October 30, 2017_
+
+- Input: Enhancement to allow for a node prefix/suffix;
+- Textarea, Input: added className prop to allow for Styled elements [#530](https://github.com/GetAmbassador/react-ions/pull/530)
+
+## 2.0.19
+###### _October 24, 2017_
+
+- Sortable List: update sortable list UI [#528](https://github.com/GetAmbassador/react-ions/pull/528)
+
+- Icons: Google and Yahoo [#527](https://github.com/GetAmbassador/react-ions/pull/527)
+
+## 2.0.18
+###### _October 19, 2017_
+
+- Datepicker: fix inline select element width on small screens [#525](https://github.com/GetAmbassador/react-ions/pull/525)
+
+- Tooltip: allow the app ID to be passed in [#524](https://github.com/GetAmbassador/react-ions/pull/524)
+
+## 2.0.17
+###### _October 6, 2017_
+
+- Input, Textarea, SelectField: adding background tint to disabled input [#522](https://github.com/GetAmbassador/react-ions/pull/522)
+
+- Checkbox: Implement focus border transition [#521](https://github.com/GetAmbassador/react-ions/pull/521)
+
+- Button: event handlers for mouseOver, mouseLeave, mouseDown, mouseOut [#520](https://github.com/GetAmbassador/react-ions/pull/520)
+
+- Toggle: updates to toggle style, with optional yes/no text [#519](https://github.com/GetAmbassador/react-ions/pull/519)
+
+- Removing Codacy Badge [#518](https://github.com/GetAmbassador/react-ions/pull/518)
+
 ## 2.0.16
 ###### _September 25, 2017_
 - ButtonAnchor: allowing for internal links to be disabled [#516](https://github.com/GetAmbassador/react-ions/pull/516)

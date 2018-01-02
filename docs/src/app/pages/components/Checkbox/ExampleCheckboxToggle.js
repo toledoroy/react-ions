@@ -24,7 +24,7 @@ class ExampleCheckboxToggle extends React.Component {
     return(
       <div>
         <Button onClick={this.toggleCheckbox} optClass={style.toggle}>{this.state.checked ? 'Uncheck' : 'Check' } Checkbox</Button>
-        <Checkbox label="Default checkbox" value={this.state.checked} changeCallback={this.handleChange} />
+        <Checkbox label='Default checkbox' value={this.state.checked} changeCallback={this.handleChange} />
       </div>
     )
   }

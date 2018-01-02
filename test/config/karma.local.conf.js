@@ -12,7 +12,7 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      'config/index.js': ['webpack'],
+      'config/index.js': ['webpack']
     },
 
     coverageReporter: {
@@ -27,7 +27,13 @@ module.exports = function(config) {
       lines: 90
     },
 
-    webpack: { //kind of a copy of your webpack config
+    webpack: { // kind of a copy of your webpack config
+      resolve: {
+        alias: {
+          'react-ions/utilities': path.resolve(__dirname, '../../src/utilities'),
+          'react-ions/sprite': path.resolve(__dirname, '../../lib/assets/icons/symbol')
+        }
+      },
       module: {
         preLoaders: [
           {
@@ -50,7 +56,7 @@ module.exports = function(config) {
           },
           {
             test: /\.json$/,
-            loader: 'json',
+            loader: 'json'
           },
           {
             test: /\.(css|scss)$/,

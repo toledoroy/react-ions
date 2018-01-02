@@ -17,7 +17,7 @@ describe('PanelGroup', () => {
   })
 
   it('should render with one panel active', () => {
-    panelGroup = shallow(<PanelGroup activePanels={[0]}><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>)
+    panelGroup = shallow(<PanelGroup activePanels={[0]}><Panel><PanelHeader title='Rating' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>)
     panel = panelGroup.childAt(0)
     expect(panel.props().panelIndex).to.equal(0)
     expect(panel.props().active).to.equal(true)
@@ -25,14 +25,14 @@ describe('PanelGroup', () => {
   })
 
   it('should render with two panels active', () => {
-    panelGroup = shallow(<PanelGroup activePanels={[0, 1]}><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>)
+    panelGroup = shallow(<PanelGroup activePanels={[0, 1]}><Panel><PanelHeader title='Rating' /><PanelContent>Test Content</PanelContent></Panel><Panel><PanelHeader title='Rating' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>)
     panel = panelGroup.childAt(1)
     expect(panel.props().panelIndex).to.equal(1)
     expect(panel.props().active).to.equal(true)
   })
 
   it('should render with no active panels', () => {
-    panelGroup = shallow(<PanelGroup><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>)
+    panelGroup = shallow(<PanelGroup><Panel><PanelHeader title='Rating' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>)
     panel = panelGroup.childAt(0)
     expect(panel.props().active).to.equal(false)
   })
@@ -40,7 +40,7 @@ describe('PanelGroup', () => {
   it('should trigger a panel toggle callback when a panel header is clicked', () => {
     const onPanelToggleStub = sinon.stub()
 
-    panelGroup = shallow(<PanelGroup onPanelToggle={onPanelToggleStub}><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>)
+    panelGroup = shallow(<PanelGroup onPanelToggle={onPanelToggleStub}><Panel><PanelHeader title='Rating' /><PanelContent>Test Content</PanelContent></Panel><Panel><PanelHeader title='Rating' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>)
     panelGroup.instance().onPanelToggle()
 
     expect(onPanelToggleStub.calledOnce).to.be.true
@@ -48,7 +48,7 @@ describe('PanelGroup', () => {
   })
 
   it('should return a PanelHeader', () => {
-    panelGroup = shallow(<PanelGroup activePanels={[0]}><Panel><PanelHeader title='Rating' contextIcon='icon-star-1' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>)
+    panelGroup = shallow(<PanelGroup activePanels={[0]}><Panel><PanelHeader title='Rating' /><PanelContent>Test Content</PanelContent></Panel></PanelGroup>)
     expect(panelGroup.find(PanelHeader)).to.be.length(1)
   })
 })
