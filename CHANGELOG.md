@@ -1,5 +1,9 @@
 ## HEAD
 
+## 3.1.1
+###### _January 2, 2018_
+Icon UI - adjusting a few minor example UI items [#561](https://github.com/GetAmbassador/react-ions/pull/561)
+
 ## 3.1.0
 ###### _January 2, 2018_
 - Update LICENSE [#559](https://github.com/GetAmbassador/react-ions/pull/559)
