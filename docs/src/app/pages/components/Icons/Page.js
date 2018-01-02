@@ -9,7 +9,7 @@ import exampleIconCustomCode from '!raw!./ExampleIconCustom'
 import styles from 'private/css/content'
 
 const description = {
-  iconDefault: 'This is the `icon component` with only a `name` property, which is required. See our [full list of icons](/foundations/iconography).',
+  iconDefault: 'This is the `icon component` with only a `name` property, which is required.',
   iconCustom: 'This is the `icon component` customized with additional `width`, `height`, `fill`, and `className` properties.'
 };
 
