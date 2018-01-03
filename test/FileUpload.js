@@ -2,7 +2,7 @@ import React from 'react'
 import FileUpload from '../src/components/FileUpload/FileUpload'
 import Icon from '../src/components/Icon/Icon'
 
-describe.only('FileUpload', () => {
+describe('FileUpload', () => {
   let wrapper
 
   it('should shallow render itself', () => {
