@@ -1,8 +1,8 @@
 import React from 'react'
-import ColorPicker from '../src/components/ColorPicker/ColorPicker'
+import { ColorPicker } from '../src/components/ColorPicker/ColorPicker'
 import { SketchPicker } from 'react-color'
 
-describe.only('ColorPicker', () => {
+describe('ColorPicker', () => {
   const oldColor = '#3C97D3'
   const newColor = '#E54C3B'
   let wrapper, inputField, previewColorDiv
@@ -20,54 +20,51 @@ describe.only('ColorPicker', () => {
 
   it('should have empty default color', () => {
     wrapper = mount(<ColorPicker />)
-    expect(wrapper.childAt(0).props().value).to.equal('')
+    expect(wrapper.state('color')).to.equal('')
   })
 
   it('should open/close when clicked', () => {
-    wrapper = mount(<ColorPicker value={oldColor} />);
-
-    inputField = wrapper.find('input')
+    wrapper = shallow(<ColorPicker value={oldColor} />)
+    const handleClick = wrapper.instance().handleClick
 
     expect(wrapper.find(SketchPicker)).to.have.length(0)
-    inputField.simulate('click');
+    handleClick()
+    wrapper.update()
     expect(wrapper.find(SketchPicker)).to.have.length(1)
-    inputField.simulate('click');
+    handleClick()
+    wrapper.update()
     expect(wrapper.find(SketchPicker)).to.have.length(0)
   })
 
   it('should update the state when the value property changes', () => {
-    wrapper = mount(<ColorPicker value={oldColor} />)
+    wrapper = shallow(<ColorPicker value={oldColor} />)
 
-    expect(wrapper.childAt(0).props().value).to.equal(oldColor)
+    expect(wrapper.state('color')).to.equal(oldColor)
 
     wrapper.setProps({ value: newColor })
-    wrapper.update()
 
-    expect(wrapper.childAt(0).props().value).to.equal(newColor)
+    expect(wrapper.state('color')).to.equal(newColor)
   })
 
   it('should update the state when input value changes', () => {
-    wrapper = mount(<ColorPicker value={oldColor} />)
+    wrapper = shallow(<ColorPicker value={oldColor} />)
+    const handleInputChange = wrapper.instance().handleInputChange
 
-    inputField = wrapper.find('input')
-    expect(inputField.node.value).to.equal(oldColor)
+    expect(wrapper.state('color')).to.equal(oldColor)
+    handleInputChange({ target: { value: newColor } })
 
-    inputField.node.value = newColor
-    inputField.simulate('change')
-
-    expect(inputField.node.value).to.equal(newColor)
+    expect(wrapper.state('color')).to.equal(newColor)
   })
 
   it('should update the state when the new color is missing the #', () => {
-    wrapper = mount(<ColorPicker value={oldColor} />)
+    wrapper = shallow(<ColorPicker value={oldColor} />)
+    const handleInputChange = wrapper.instance().handleInputChange
 
-    inputField = wrapper.find('input')
-    expect(inputField.node.value).to.equal(oldColor)
+    expect(wrapper.state('color')).to.equal(oldColor)
 
-    inputField.node.value = 'E54C3B'
-    inputField.simulate('change')
+    handleInputChange({ target: { value: 'E54C3B' } })
 
-    expect(inputField.node.value).to.equal(newColor)
+    expect(wrapper.state('color')).to.equal(newColor)
   })
 
   it('should run the changeCallback on change', () => {
@@ -90,32 +87,19 @@ describe.only('ColorPicker', () => {
   })
 
   it('should update the state when new color is selected in the picker', () => {
-    wrapper = mount(<ColorPicker />)
+    wrapper = shallow(<ColorPicker changeCallback={() => {}} />)
+    const handlePickerChange = wrapper.instance().handlePickerChange
+    handlePickerChange({ hex: newColor })
 
-    inputField = wrapper.find('input')
-    inputField.simulate('click')
-
-    expect(inputField.node.value).to.equal('')
-
-    const picker = wrapper.find('div.sketch-container')
-    picker.childAt(0).childAt(0).childAt(0).childAt(0).simulate('touchstart', {pageX: 0, pageY: 0})
-
-    expect(inputField.node.value).to.not.equal('')
+    expect(wrapper.state('color')).to.equal(newColor)
   })
 
   it('should run the changeCallback when new color is selected in the picker', () => {
-    let parentColor = ''
-    const callback = function(color) {
-      parentColor = color
-    }
-    wrapper = mount(<ColorPicker changeCallback={callback} />)
-    wrapper.find('input').simulate('click')
+    const callback = sinon.spy()
+    wrapper = shallow(<ColorPicker changeCallback={callback} />)
+    const handlePickerChange = wrapper.instance().handlePickerChange
+    handlePickerChange({ hex: newColor })
 
-    expect(parentColor).to.equal('')
-
-    const picker = wrapper.find('div.sketch-container')
-    picker.childAt(0).childAt(0).childAt(0).childAt(0).simulate('touchstart', {pageX: 0, pageY: 0})
-
-    expect(parentColor).to.not.equal('')
+    expect(callback.calledOnce).to.be.true
   })
 })
