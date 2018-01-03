@@ -19,7 +19,7 @@ describe('Dropdown', () => {
 
   it('should open when clicked', () => {
     wrapper = mount(<WrappedDropdown trigger='Test'>This is a test.</WrappedDropdown>)
-    trigger = wrapper.childAt(0)
+    trigger = wrapper.find('.trigger').at(0)
     expect(trigger.hasClass('trigger')).to.equal(true)
     expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true)
     trigger.simulate('click')
@@ -62,7 +62,7 @@ describe('Dropdown', () => {
   it('should call changeCallback function', () => {
     const spy = sinon.spy()
     wrapper = mount(<WrappedDropdown optClass='test' trigger='Test' changeCallback={spy}>This is a test.</WrappedDropdown>)
-    trigger = wrapper.childAt(0)
+    trigger = wrapper.find('.trigger').at(0)
 
     trigger.simulate('click')
 
@@ -78,9 +78,9 @@ describe('Dropdown', () => {
     ]
 
     wrapper = mount(<WrappedDropdown optClass='test' listItems={listItems}>This is a test.</WrappedDropdown>)
-    expect(wrapper.childAt(1).childAt(0).hasClass('list-wrapper')).to.equal(true)
-    expect(wrapper.childAt(1).find('ul').length).to.equal(1)
-    expect(wrapper.childAt(1).childAt(0).find('li').length).to.equal(3)
+    expect(wrapper.find('.list-wrapper')).to.have.length(1)
+    expect(wrapper.find('ul')).to.have.length(1)
+    expect(wrapper.find('li')).to.have.length(3)
   })
 
   it('should display a confirmation overlay when an item is clicked', () => {
