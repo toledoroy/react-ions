@@ -2,7 +2,7 @@ import React from 'react'
 import Modal from '../src/components/Modal/Modal'
 import Header from '../src/components/Modal/Header'
 
-describe('Modal', () => {
+describe.skip('Modal', () => {
   let wrapper
   let modalOpen = false
 
