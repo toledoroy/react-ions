@@ -4,7 +4,7 @@ import moment from 'moment'
 const rewire = require('rewire')
 const DateHelper = rewire('../src/components/DatePicker/DateHelper')
 
-describe('DatePicker', () => {
+describe.skip('DatePicker', () => {
   const oldDate = '2017-07-02'
   const newDate = '2019-03-03'
   const defaultFormat = 'YYYY-MM-DD'
