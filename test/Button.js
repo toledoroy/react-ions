@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow, mount, render } from 'enzyme'
 import { Link } from 'react-router'
 import Button from '../src/components/Button/Button'
 import ButtonAnchor from '../src/components/Button/ButtonAnchor'

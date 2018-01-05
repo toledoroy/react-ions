@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import InputList from '../src/components/InputList/InputList'
 import Input from '../src/components/Input/Input'
 import Icon from '../src/components/Icon/Icon'

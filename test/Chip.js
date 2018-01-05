@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import Chip from '../src/components/Chip'
 
 describe('Chip', () => {

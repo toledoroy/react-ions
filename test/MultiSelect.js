@@ -1,5 +1,4 @@
 import React from 'react'
-import { mount } from 'enzyme'
 import MultiSelect from '../src/components/MultiSelect/MultiSelect'
 import SelectField from '../src/components/SelectField/SelectField'
 import Typeahead from '../src/components/Typeahead/Typeahead'

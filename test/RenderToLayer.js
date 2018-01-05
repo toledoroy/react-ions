@@ -1,5 +1,4 @@
 import React from 'react'
-import { mount } from 'enzyme'
 import RenderToLayer from '../src/components/internal/RenderToLayer'
 
 describe('RenderToLayer', () => {

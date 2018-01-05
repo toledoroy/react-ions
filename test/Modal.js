@@ -1,5 +1,4 @@
 import React from 'react'
-import { mount } from 'enzyme'
 import Modal from '../src/components/Modal/Modal'
 import Header from '../src/components/Modal/Header'
 

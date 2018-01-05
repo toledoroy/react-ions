@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import {Panel, PanelHeader, PanelContent} from '../src/components/PanelGroup'
 import Icon from '../src/components/Icon'
 import Badge from '../src/components/Badge'

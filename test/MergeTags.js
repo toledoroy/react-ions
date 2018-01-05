@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import MergeTags from '../src/components/TextEditor/MergeTags'
 
 describe('MergeTags', () => {
