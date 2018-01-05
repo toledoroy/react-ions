@@ -1,5 +1,6 @@
 import React from 'react'
 import DatePicker from '../src/components/DatePicker/DatePicker'
+import SelectField from '../src/components/SelectField/SelectField'
 import moment from 'moment'
 const rewire = require('rewire')
 const DateHelper = rewire('../src/components/DatePicker/DateHelper')
@@ -74,9 +75,9 @@ describe('DatePicker', () => {
     const datepicker = wrapper.find('.datepicker').at(0)
 
     // open <ul>
-    datepicker.childAt(0).childAt(2).simulate('click')
+    datepicker.find(SelectField).at(0).simulate('click')
     // click <li>
-    datepicker.childAt(0).childAt(2).childAt(0).simulate('click')
+    datepicker.find(SelectField).at(0).find('li').at(0).simulate('click')
 
     const firstMonth = '2017-01-02'
     expect(result.target.value).to.equal(firstMonth)
@@ -92,9 +93,9 @@ describe('DatePicker', () => {
     const datepicker = wrapper.find('.datepicker').at(0)
 
     // open <ul>
-    datepicker.childAt(1).childAt(2).simulate('click')
+    datepicker.find(SelectField).at(1).simulate('click')
     // click <li>
-    datepicker.childAt(1).childAt(2).childAt(0).simulate('click')
+    datepicker.find(SelectField).at(1).find('li').at(0).simulate('click')
 
     const firstDay = '2017-07-01'
     expect(result.target.value).to.equal(firstDay)
@@ -135,11 +136,12 @@ describe('DatePicker', () => {
 
   it('should not result in an error if changeCallback is not defined', () => {
     wrapper = mount(<DatePicker value={oldDate} />)
+    const datepicker = wrapper.find('.datepicker').at(0)
 
     // open <ul>
-    wrapper.childAt(0).childAt(2).simulate('click')
+    datepicker.find(SelectField).at(1).simulate('click')
     // click <li>
-    wrapper.childAt(0).childAt(2).childAt(0).simulate('click')
+    datepicker.find(SelectField).at(1).find('li').at(0).simulate('click')
 
     expect(consoleErrorSpy.called).to.be.false
   })
@@ -156,10 +158,10 @@ describe('DatePicker', () => {
     wrapper = mount(<DatePicker value={date} min={minCurrent} max={maxCalc} changeCallback={callback} />)
     const datepicker = wrapper.find('.datepicker').at(0)
 
-    // set last year
-    datepicker.childAt(2).childAt(2).simulate('click')
-    // click <li>
-    datepicker.childAt(2).childAt(2).childAt(1).simulate('click')
+    // open <ul>
+    datepicker.find(SelectField).at(2).simulate('click')
+    // select last year
+    datepicker.find(SelectField).at(2).find('li').at(1).simulate('click')
 
     const firstYear = moment.utc().add(1, 'year').format('YYYY')+'-06-20'
     expect(result.target.value).to.equal(firstYear)
@@ -178,10 +180,10 @@ describe('DatePicker', () => {
     wrapper = mount(<DatePicker value={date} min={minCalc} max={maxCurrent} changeCallback={callback} />)
     const datepicker = wrapper.find('.datepicker').at(0)
 
-    // set first year
-    datepicker.childAt(2).childAt(2).simulate('click')
-    // click <li>
-    datepicker.childAt(2).childAt(2).childAt(0).simulate('click')
+    // open <ul>
+    datepicker.find(SelectField).at(2).simulate('click')
+    // select first year
+    datepicker.find(SelectField).at(2).find('li').at(0).simulate('click')
 
     const firstYear = moment.utc().subtract(1, 'year').format('YYYY')+'-06-20'
     expect(result.target.value).to.equal(firstYear)
@@ -203,9 +205,9 @@ describe('DatePicker', () => {
     expect(wrapper.state('value')).to.equal(date)
 
     // open <ul>
-    datepicker.childAt(2).childAt(2).simulate('click')
-    // click <li>
-    datepicker.childAt(2).childAt(2).childAt(1).simulate('click')
+    datepicker.find(SelectField).at(2).simulate('click')
+    // select last year
+    datepicker.find(SelectField).at(2).find('li').at(1).simulate('click')
 
     const newDate = moment.utc().add(1, 'year').format(format)
     expect(result.target.value).to.equal(newDate)
