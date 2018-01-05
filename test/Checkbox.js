@@ -129,7 +129,7 @@ describe('Checkbox', () => {
   it('should update the state when the iconName prop changes', () => {
     wrapper = shallow(<Checkbox label='Test label'></Checkbox>)
 
-    expect(wrapper.state().iconName).to.equal('check')
+    expect(wrapper.state().iconName).to.equal('icon-check-1-1')
 
     wrapper.setProps({ iconName: 'plus' })
 
