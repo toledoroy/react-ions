@@ -4,11 +4,19 @@ import moment from 'moment'
 const rewire = require('rewire')
 const DateHelper = rewire('../src/components/DatePicker/DateHelper')
 
-describe.skip('DatePicker', () => {
+describe('DatePicker', () => {
   const oldDate = '2017-07-02'
   const newDate = '2019-03-03'
   const defaultFormat = 'YYYY-MM-DD'
-  let wrapper
+  let wrapper, consoleErrorSpy
+
+  beforeEach(() => {
+    consoleErrorSpy = sinon.spy(console, 'error')
+  })
+
+  afterEach(() => {
+    consoleErrorSpy.restore()
+  })
 
   it('should shallow render itself', () => {
     wrapper = shallow(<DatePicker value={oldDate} />)
@@ -126,7 +134,6 @@ describe.skip('DatePicker', () => {
   })
 
   it('should not result in an error if changeCallback is not defined', () => {
-    const spy = sinon.spy(console, 'error')
     wrapper = mount(<DatePicker value={oldDate} />)
 
     // open <ul>
@@ -134,8 +141,7 @@ describe.skip('DatePicker', () => {
     // click <li>
     wrapper.childAt(0).childAt(2).childAt(0).simulate('click')
 
-    expect(spy.called).to.be.false
-    spy.restore()
+    expect(consoleErrorSpy.called).to.be.false
   })
 
   it('should change to max month & day if selected are greater than max value on selecting last year', () => {
