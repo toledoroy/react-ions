@@ -1,5 +1,4 @@
 import React from 'react'
-import { mount } from 'enzyme'
 import ColorPicker from '../src/components/ColorPicker/ColorPicker'
 import { SketchPicker } from 'react-color'
 

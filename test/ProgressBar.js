@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import ProgressBar from '../src/components/ProgressBar/ProgressBar';
 import ProgressBarLabel from '../src/components/ProgressBar/ProgressBarLabel';
 

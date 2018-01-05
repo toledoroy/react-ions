@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import {PanelSlider, PanelHeader, Panel, PanelContent} from '../src/components/PanelGroup'
 
 describe('PanelSlider', () => {

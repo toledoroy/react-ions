@@ -1,6 +1,5 @@
 import React from 'react'
 import TestUtils from 'react-dom/test-utils'
-import { shallow } from 'enzyme'
 import Toggle from '../src/components/Toggle/Toggle'
 
 describe('Toggle', () => {

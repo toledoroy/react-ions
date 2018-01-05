@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import TextEditor from '../src/components/TextEditor/TextEditor'
 
 describe('TextEditor', () => {

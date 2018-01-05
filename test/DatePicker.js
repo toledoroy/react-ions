@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import DatePicker from '../src/components/DatePicker/DatePicker'
 import moment from 'moment'
 const rewire = require('rewire')

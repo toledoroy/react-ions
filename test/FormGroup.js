@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import Immutable, { Map } from 'immutable'
 import FormGroup from '../src/components/FormGroup'
 import ValidatedField from '../src/components/FormGroup/ValidatedField'
@@ -244,15 +243,15 @@ describe('FormGroup', () => {
         value: ''
       }
     }
-    
+
     const errorMessage = 'The field cannot be left empty.'
-    
+
     const event = {
       preventDefault: () => {}
     }
 
     formGroup = shallow(<FormGroup schema={schema} errorCallback={errorCallbackSpy}>
-      <ValidatedInput 
+      <ValidatedInput
         name='message'
         label='Message'
         type='text'
@@ -281,13 +280,13 @@ describe('FormGroup', () => {
     const event = {
       preventDefault: () => {}
     }
-    
+
     const fieldErrors = Map({
       message: 'apples'
     })
 
     formGroup = shallow(<FormGroup schema={schema} fieldErrors={fieldErrors}>
-      <ValidatedInput 
+      <ValidatedInput
         name='message'
         label='Message'
         type='text'
@@ -303,6 +302,6 @@ describe('FormGroup', () => {
     formGroup.instance().handleSubmit(event)
 
     expect(Immutable.is(formGroup.instance()._mapFieldErrors(), fieldErrors)).to.be.true
-    expect(formGroup.state().fieldErrors.toJS()).to.deep.equal({ message: 'oranges'})    
+    expect(formGroup.state().fieldErrors.toJS()).to.deep.equal({ message: 'oranges'})
   })
 })

@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import { SortableItemPreview } from '../src/components/SortableList'
 
 describe('SortableItemPreview', () => {
