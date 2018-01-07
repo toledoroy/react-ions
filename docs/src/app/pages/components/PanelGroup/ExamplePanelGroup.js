@@ -29,25 +29,25 @@ class ExamplePanelGroup extends React.Component {
         <p>Panels with the following indices are currently active: {this.state.panels.join() || '(none)'}</p>
         <PanelGroup activePanels={this.state.panels} onPanelToggle={this.panelToggle} optClass={'default'}>
           <Panel>
-            <PanelHeader title='Rating' contextIcon='icon-check-1-1' contextIconSize='14' />
+            <PanelHeader title='Rating' contextIcon='md-check' contextIconSize='14' />
             <PanelContent optClass={style['rating-specific']}>
               <p className={style.paragraph}>{this.state.content.lorum1}</p>
             </PanelContent>
           </Panel>
           <Panel>
-            <PanelHeader title='Channel' contextIcon='icon-check-1-1' contextIconSize='14' />
+            <PanelHeader title='Channel' contextIcon='md-check' contextIconSize='14' />
             <PanelContent>
               <p className={style.paragraph}>{this.state.content.lorum2}</p>
             </PanelContent>
           </Panel>
           <Panel>
-            <PanelHeader title='Date' contextIcon='icon-check-1-1' contextIconSize='14' />
+            <PanelHeader title='Date' contextIcon='md-check' contextIconSize='14' />
             <PanelContent>
               <p className={style.paragraph}>{this.state.content.lorum3}</p>
             </PanelContent>
           </Panel>
           <Panel>
-            <PanelHeader title='Location' contextIcon='icon-check-1-1' contextIconSize='14' />
+            <PanelHeader title='Location' contextIcon='md-check' contextIconSize='14' />
             <PanelContent>
               <p className={style.paragraph}>{this.state.content.lorum4}</p>
             </PanelContent>

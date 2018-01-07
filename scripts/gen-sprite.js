@@ -4,25 +4,9 @@ var mkdirp = require('mkdirp');
 var fs = require('fs');
 var cwd = path.join(__dirname, '/../');
 var dest = path.normalize(path.join(__dirname, '/../lib/assets/icons'));
-var materialDesignIconsPath = path.join('node_modules', 'material-design-icons');
-var customIconsPath = path.normalize('src/assets/icons/svg');
-var iconList = [
-  materialDesignIconsPath + '/content/svg/production/ic_add_24px.svg#icon-add-1-1',
-  materialDesignIconsPath + '/alert/svg/production/ic_error_outline_24px.svg#icon-alert-1',
-  materialDesignIconsPath + '/navigation/svg/production/ic_expand_less_24px.svg#icon-arrow-66',
-  materialDesignIconsPath + '/navigation/svg/production/ic_chevron_left_24px.svg#icon-arrow-67',
-  materialDesignIconsPath + '/navigation/svg/production/ic_chevron_right_24px.svg#icon-arrow-68',
-  materialDesignIconsPath + '/navigation/svg/production/ic_check_24px.svg#icon-check-2-1',
-  materialDesignIconsPath + '/navigation/svg/production/ic_check_24px.svg#icon-check-circle-2-1',
-  materialDesignIconsPath + '/content/svg/production/ic_content_paste_24px.svg#icon-clipboard-1',
-  materialDesignIconsPath + '/navigation/svg/production/ic_close_24px.svg#icon-delete-1',
-  materialDesignIconsPath + '/navigation/svg/production/ic_close_24px.svg#icon-delete-1-1',
-  materialDesignIconsPath + '/action/svg/production/ic_highlight_off_24px.svg#icon-delete-3',
-  materialDesignIconsPath + '/navigation/svg/production/ic_check_24px.svg#icon-check-1-1',
-  materialDesignIconsPath + '/action/svg/production/ic_info_outline_24px.svg#icon-information',
-  materialDesignIconsPath + '/communication/svg/production/ic_mail_outline_24px.svg#icon-mail-1',
-  customIconsPath + '/icon-caret-bottom.svg#icon-caret'
-]
+var list = require('../src/assets/icons/master-list');
+var normalizeIconList = require('./normalize-icon-list');
+
 var spriter = new SVGSpriter({
   dest: dest,
   shape: {
@@ -33,6 +17,7 @@ var spriter = new SVGSpriter({
     }
   }
 });
+
 /**
  * Add a bunch of SVG files
  *
@@ -48,13 +33,18 @@ function addFixtureFiles(spriter, iconList) {
   })
   return spriter;
 }
-addFixtureFiles(spriter, iconList).compile({
+addFixtureFiles(spriter, normalizeIconList(list)).compile({
   symbol: {
     sprite: 'sprite.svg'
   }
 }, function(error, result) {
-  for (var type in result.symbol) {
-    mkdirp.sync(path.dirname(result.symbol[type].path));
-    fs.writeFileSync(result.symbol[type].path, result.symbol[type].contents);
+  if (error) {
+    console.log(error);
+  } else {
+    for (var type in result.symbol) {
+      mkdirp.sync(path.dirname(result.symbol[type].path));
+      fs.writeFileSync(result.symbol[type].path, result.symbol[type].contents);
+    }
+    console.log('Sprite file generated.');
   }
 })

@@ -5,12 +5,12 @@ import Icon from 'react-ions/lib/components/Icon'
 const ExampleButtonIcon = () => (
   <div>
     <Button collapse={true}>
-      <Icon name='icon-add-1-1' height='14' width='14' fill='#fff'></Icon>
+      <Icon name='md-add' height='14' width='14' fill='#fff'></Icon>
       <span>Icon Before</span>
     </Button>
     <Button collapse={true}>
       <span>Icon After</span>
-      <Icon name='icon-information' height='14' width='14' fill='#fff'></Icon>
+      <Icon name='md-info' height='14' width='14' fill='#fff'></Icon>
     </Button>
   </div>
 )

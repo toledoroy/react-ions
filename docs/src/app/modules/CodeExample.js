@@ -93,8 +93,8 @@ ${this.props.markup}
           <h3>{this.props.title}</h3>
           <Button onClick={this.handleToggle} optClass={codeExampleBtnClass}>
             <div className={style['button-icon-wrap']}>
-              <Icon name='icon-arrow-67' width='12' height='12' fill='white' />
-              <Icon name='icon-arrow-68' width='12' height='12' fill='white' />
+              <Icon name='md-chevron-left' width='12' height='12' fill='white' />
+              <Icon name='md-chevron-right' width='12' height='12' fill='white' />
             </div>
           </Button>
         </header>
