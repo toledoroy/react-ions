@@ -279,7 +279,7 @@ export class Typeahead extends React.Component {
           <Input ref={(c) => this._inputField = c} changeCallback={this.onChange} value={this.state.searchStr} placeholder={placeholder} disabled={disabled} />
 
           { this.state.searchStr !== '' && !loading && !disabled
-            ? <Icon name='md-remove' onClick={this.clearSearch} className={style['reset-button']}>Reset</Icon>
+            ? <Icon name='md-close' onClick={this.clearSearch} className={style['reset-button']}>Reset</Icon>
             : null
           }
         </div>

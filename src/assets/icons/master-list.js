@@ -4,6 +4,7 @@ var mbsyPath = path.normalize('src/assets/icons/svg');
 
 var list = {
   material: [
+    materialPath + '/action/svg/production/ic_assignment_24px.svg#md-assignment',
     materialPath + '/action/svg/production/ic_assessment_24px.svg#md-assessment',
     materialPath + '/action/svg/production/ic_check_circle_24px.svg#md-check-circle',
     materialPath + '/action/svg/production/ic_compare_arrows_24px.svg#md-compare',
@@ -54,6 +55,7 @@ var list = {
     materialPath + '/navigation/svg/production/ic_arrow_drop_up_24px.svg#md-arrow-drop-up',
     materialPath + '/navigation/svg/production/ic_arrow_forward_24px.svg#md-arrow-forward',
     materialPath + '/navigation/svg/production/ic_check_24px.svg#md-check',
+    materialPath + '/navigation/svg/production/ic_close_24px.svg#md-close',
     materialPath + '/navigation/svg/production/ic_chevron_left_24px.svg#md-chevron-left',
     materialPath + '/navigation/svg/production/ic_chevron_right_24px.svg#md-chevron-right',
     materialPath + '/social/svg/production/ic_notifications_none_24px.svg#md-notifications',
