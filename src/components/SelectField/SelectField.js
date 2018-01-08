@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import enhanceWithClickOutside from 'react-click-outside'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 import Icon from '../Icon'
 
-class SelectField extends React.Component {
+export class SelectField extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -83,10 +84,6 @@ class SelectField extends React.Component {
     }
   }
 
-  componentWillUnmount = () => {
-    document.removeEventListener('click', this.toggleSelectField)
-  }
-
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.value === this.state.value) {
       return
@@ -100,21 +97,18 @@ class SelectField extends React.Component {
     }
   }
 
+  handleClickOutside = () => {
+    if (this.state.isOpen) this.toggleSelectField()
+  }
+
   toggleSelectField = () => {
     if (this.props.disabled) return
-    
-    this.setState({isOpen: !this.state.isOpen}, () => {
-      if (this.state.isOpen) {
-        document.addEventListener('click', this.toggleSelectField)
-      }
-      else {
-        document.removeEventListener('click', this.toggleSelectField)
-      }
-    })
+
+    this.setState({isOpen: !this.state.isOpen})
   }
 
   selectOption = (option, triggerCallback) => {
-    this.setState({selected: option, value: option[this.props.valueProp]}, () => {
+    this.setState({ selected: option, value: option[this.props.valueProp], isOpen: false }, () => {
       if (triggerCallback && typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {
@@ -207,4 +201,4 @@ class SelectField extends React.Component {
   }
 }
 
-export default SelectField
+export default enhanceWithClickOutside(SelectField)
