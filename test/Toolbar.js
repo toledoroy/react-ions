@@ -20,7 +20,7 @@ describe('Toolbar', () => {
   const onMount = sinon.spy()
 
   it('should shallow render itself', () => {
-    wrapper = shallow(<Toolbar textEditor={textEditor} />)
+    wrapper = shallow(<Toolbar textEditor={textEditor} onMount={onMount} />)
 
     const toolGroups = wrapper.children()
 
@@ -47,7 +47,7 @@ describe('Toolbar', () => {
   })
 
   it('should have merge tags', () => {
-    wrapper = mount(<Toolbar textEditor={textEditor} mergeTags={mergeTags} onMount={onMount} />)
+    wrapper = shallow(<Toolbar textEditor={textEditor} mergeTags={mergeTags} onMount={onMount} />)
 
     const toolGroups = wrapper.children()
 
