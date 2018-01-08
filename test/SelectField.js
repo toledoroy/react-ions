@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { SelectField } from '../src/components/SelectField/SelectField'
 import Icon from '../src/components/Icon/Icon'
 
-describe.only('SelectField', () => {
+describe('SelectField', () => {
   let wrapper
   const options = [
     {value: '0', display: 'test 1', someOtherProp: true},

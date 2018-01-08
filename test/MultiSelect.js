@@ -3,7 +3,7 @@ import MultiSelect from '../src/components/MultiSelect/MultiSelect'
 import SelectField from '../src/components/SelectField/SelectField'
 import Typeahead from '../src/components/Typeahead/Typeahead'
 
-describe.skip('MultiSelect', () => {
+describe('MultiSelect', () => {
   let wrapper
 
   const options = [
