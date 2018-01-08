@@ -34,7 +34,7 @@ describe('Alert', () => {
 
     expect(wrapper.hasClass('alert')).to.be.true
     expect(wrapper.hasClass('info')).to.be.true
-    expect(wrapper.find('[name="md-info"]')).to.have.length(1)
+    expect(wrapper.find('[name="md-info-outline"]')).to.have.length(1)
   })
 
   it('should display a danger alert', () => {
