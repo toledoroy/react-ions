@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import SelectField from '../src/components/SelectField/SelectField'
+import { SelectField } from '../src/components/SelectField/SelectField'
 import Icon from '../src/components/Icon/Icon'
 
-describe('SelectField', () => {
+describe.only('SelectField', () => {
   let wrapper
   const options = [
     {value: '0', display: 'test 1', someOtherProp: true},
@@ -19,16 +19,6 @@ describe('SelectField', () => {
     {id: '0', display: 'test 1', someOtherProp: true},
     {id: '1', display: 'test 2', someOtherProp: false}
   ]
-
-  function eventFire(el, etype){
-    if (el.fireEvent) {
-      el.fireEvent('on' + etype)
-    } else {
-      var evObj = document.createEvent('Events')
-      evObj.initEvent(etype, true, false)
-      el.dispatchEvent(evObj)
-    }
-  }
 
   it('should shallow render itself', () => {
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' />)
@@ -171,53 +161,6 @@ describe('SelectField', () => {
     spy.restore()
   })
 
-  it('should close the list if open when document is clicked', () => {
-    const div = document.createElement('div')
-    document.body.appendChild(div)
-    const component = ReactDOM.render(<SelectField options={options} valueProp='value' displayProp='display' />, div)
-    const containerDiv = ReactDOM.findDOMNode(div)
-
-    // Trigger a click on the dropdown value
-    eventFire(document.body.getElementsByClassName('selectfield-value')[0], 'click')
-
-    expect(document.body.getElementsByClassName('active')).to.have.length(1)
-
-    // Trigger a click on the body element
-    eventFire(document.body, 'click')
-
-    expect(document.body.getElementsByClassName('active')).to.have.length(0)
-  })
-
-  it('should not react to document click if list is not open', () => {
-    const div = document.createElement('div')
-    document.body.appendChild(div)
-    const component = ReactDOM.render(<SelectField options={options} valueProp='value' displayProp='display' />, div)
-    const containerDiv = ReactDOM.findDOMNode(div)
-
-    expect(document.body.getElementsByClassName('active')).to.have.length(0)
-
-    // Trigger a click on the body element
-    eventFire(document.body, 'click')
-
-    expect(document.body.getElementsByClassName('active')).to.have.length(0)
-  })
-
-  it('should not react to document click if component unmounts', () => {
-    const div = document.createElement('div')
-    document.body.appendChild(div)
-    const component = ReactDOM.render(<SelectField options={options} valueProp='value' displayProp='display' />, div)
-    const containerDiv = ReactDOM.findDOMNode(div)
-
-    expect(document.body.getElementsByClassName('active')).to.have.length(0)
-
-    component.componentWillUnmount()
-
-    // Trigger a click on the body element
-    eventFire(document.body, 'click')
-
-    expect(document.body.getElementsByClassName('active')).to.have.length(0)
-  })
-
   it('should update the state when the value property changes', () => {
     wrapper = shallow(<SelectField options={optionsAltValueProp} valueProp='id' displayProp='display' value={'0'} />)
 
@@ -259,5 +202,35 @@ describe('SelectField', () => {
 
     expect(wrapper.childAt(1).type()).to.equal('label')
     expect(wrapper.childAt(1).text()).to.equal('Select Field Label')
+  })
+
+  describe('handleClickOutside', () => {
+    let handleClickOutside, toggleSelectField
+
+    beforeEach(() => {
+      wrapper = shallow(
+        <SelectField
+          options={options}
+          valueProp='value'
+          displayProp='display'
+          label='Select Field Label'
+        />)
+      handleClickOutside = wrapper.instance().handleClickOutside
+      toggleSelectField = sinon.spy(wrapper.instance(), 'toggleSelectField')
+    })
+
+    it('should call its toggleSelectField method when isOpen', () => {
+      wrapper.setState({ isOpen: true })
+      wrapper.update()
+      handleClickOutside()
+      expect(toggleSelectField.calledOnce).to.be.true
+    })
+
+    it('should not call its toggleSelectField method when not isOpen', () => {
+      wrapper.setState({ isOpen: false })
+      wrapper.update()
+      handleClickOutside()
+      expect(toggleSelectField.calledOnce).to.be.false
+    })
   })
 })
