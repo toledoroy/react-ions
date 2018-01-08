@@ -2,7 +2,7 @@ import React from 'react'
 import { SortableItemPreview } from '../src/components/SortableList'
 import Badge from '../src/components/Badge'
 
-describe.only('SortableItemPreview', () => {
+describe('SortableItemPreview', () => {
   let wrapper
 
   const items = [
