@@ -46,40 +46,29 @@ describe('SortableList', () => {
   it('should render itself', () => {
     wrapper = mount(<SortableListWrapped items={items} />)
 
-    expect(wrapper.find('SortableList')).to.have.length(1)
-    expect(wrapper.find('SortableItem')).to.have.length(4)
+    expect(wrapper.find(SortableList)).to.have.length(1)
+    expect(wrapper.find(SortableItem)).to.have.length(4)
 
-    expect(wrapper.childAt(0).childAt(0).props().value).to.be.equal('email')
-    expect(wrapper.childAt(0).childAt(0).props().text).to.be.equal('Email')
-    expect(wrapper.childAt(0).childAt(1).props().value).to.be.equal('push_notification')
-    expect(wrapper.childAt(0).childAt(1).props().text).to.be.equal('Push Notification')
-    expect(wrapper.childAt(0).childAt(2).props().value).to.be.equal('web')
-    expect(wrapper.childAt(0).childAt(2).props().text).to.be.equal('Web')
-    expect(wrapper.childAt(0).childAt(3).props().value).to.be.equal('sms')
-    expect(wrapper.childAt(0).childAt(3).props().text).to.be.equal('SMS')
+    expect(wrapper.find(SortableItem).at(0).prop('value')).to.equal('email')
+    expect(wrapper.find(SortableItem).at(0).prop('text')).to.equal('Email')
+    expect(wrapper.find(SortableItem).at(1).prop('value')).to.equal('push_notification')
+    expect(wrapper.find(SortableItem).at(1).prop('text')).to.equal('Push Notification')
+    expect(wrapper.find(SortableItem).at(2).prop('value')).to.equal('web')
+    expect(wrapper.find(SortableItem).at(2).prop('text')).to.equal('Web')
+    expect(wrapper.find(SortableItem).at(3).prop('value')).to.equal('sms')
+    expect(wrapper.find(SortableItem).at(3).prop('text')).to.equal('SMS')
   })
 
   it('should update state when an item is toggled', () => {
     wrapper = mount(<SortableListWrapped items={items} />)
 
-    expect(wrapper.childAt(0).childAt(0).props().active).to.be.false
-    expect(wrapper.childAt(0).childAt(1).props().active).to.be.true
-    expect(wrapper.childAt(0).childAt(2).props().active).to.be.false
-    expect(wrapper.childAt(0).childAt(3).props().active).to.be.false
+    expect(wrapper.find(SortableItem).at(0).prop('active')).to.be.false
 
-    wrapper.childAt(0).childAt(0).childAt(2).childAt(0).simulate('click')
+    wrapper.isntance().toggleSortableItem(0)
+    expect(wrapper.find(SortableItem).at(0).prop('active')).to.be.true
 
-    expect(wrapper.childAt(0).childAt(0).props().active).to.be.true
-    expect(wrapper.childAt(0).childAt(1).props().active).to.be.true
-    expect(wrapper.childAt(0).childAt(2).props().active).to.be.false
-    expect(wrapper.childAt(0).childAt(3).props().active).to.be.false
-
-    wrapper.childAt(0).childAt(0).childAt(2).childAt(0).simulate('click')
-
-    expect(wrapper.childAt(0).childAt(0).props().active).to.be.false
-    expect(wrapper.childAt(0).childAt(1).props().active).to.be.true
-    expect(wrapper.childAt(0).childAt(2).props().active).to.be.false
-    expect(wrapper.childAt(0).childAt(3).props().active).to.be.false
+    wrapper.isntance().toggleSortableItem(0)
+    expect(wrapper.find(SortableItem).at(0).prop('active')).to.be.false
   })
 
   it('should trigger a callback when an item is toggled', () => {
