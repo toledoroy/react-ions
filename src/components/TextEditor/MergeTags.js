@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import shallowCompare from 'react-addons-shallow-compare'
 import Dropdown from '../Dropdown'
 import style from './style.scss'
 import '../../styles/global/quill.scss'
@@ -8,7 +7,7 @@ import '../../styles/global/quill.scss'
 /**
  * The MergeTags component.
  */
-class MergeTags extends React.Component {
+class MergeTags extends PureComponent {
   constructor(props) {
     super(props)
   }
@@ -22,10 +21,6 @@ class MergeTags extends React.Component {
      * Merge tags to display.
      */
     mergeTags: PropTypes.array.isRequired
-  }
-
-  shouldComponentUpdate = (nextProps, nextState) => {
-    return shallowCompare(this, nextProps, nextState)
   }
 
   insertTag = (tag) => {

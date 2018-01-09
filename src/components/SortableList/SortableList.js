@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import update from 'react/lib/update'
+import update from 'immutability-helper'
 import SortableItem from './SortableItem'
 import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
@@ -51,7 +51,7 @@ export class SortableList extends React.Component {
   }
 
   handleResize = () => {
-    if(this._sortableList) {  
+    if(this._sortableList) {
       this.setState({
         width: this._sortableList.getBoundingClientRect().width,
         top: this._sortableList.getBoundingClientRect().top

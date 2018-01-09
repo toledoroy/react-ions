@@ -1,15 +1,14 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import ReactDOM from 'react'
 import hljs from 'highlight.js'
 import Button from 'react-ions/lib/components/Button'
 import Icon from 'react-ions/lib/components/Icon'
 import style from 'private/css/code-example'
 import marked from 'marked'
-import shallowCompare from 'react-addons-shallow-compare'
 import classNames from 'classnames/bind'
 import PropTypes from 'prop-types'
 
-class CodeExample extends React.Component {
+class CodeExample extends PureComponent {
   constructor(props) {
     super(props)
 
@@ -32,10 +31,6 @@ class CodeExample extends React.Component {
 
   state = {
     expand: false
-  }
-
-  shouldComponentUpdate = (nextProps, nextState) => {
-    return shallowCompare(this, nextProps, nextState)
   }
 
   componentDidMount = () => {
