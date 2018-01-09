@@ -61,41 +61,46 @@ describe('SortableList', () => {
 
   it('should update state when an item is toggled', () => {
     wrapper = mount(<SortableListWrapped items={items} />)
-
+    const list = wrapper.find(SortableList)
     expect(wrapper.find(SortableItem).at(0).prop('active')).to.be.false
 
-    wrapper.isntance().toggleSortableItem(0)
+    list.instance().toggleSortableItem(0)
+    wrapper.update()
     expect(wrapper.find(SortableItem).at(0).prop('active')).to.be.true
 
-    wrapper.isntance().toggleSortableItem(0)
+    list.instance().toggleSortableItem(0)
+    wrapper.update()
     expect(wrapper.find(SortableItem).at(0).prop('active')).to.be.false
   })
 
   it('should trigger a callback when an item is toggled', () => {
     let sortableItems = items
-    const changeCallback = function(event) {
-      sortableItems = event.target.value
-    }
-    wrapper = mount(<SortableListWrapped items={items} changeCallback={changeCallback} />)
+    const changeCallback = sinon.spy()
+    wrapper = mount(<SortableListWrapped items={items} changeCallback={changeCallback} name='test'/>)
 
-    expect(sortableItems[0].active).to.be.false
-    expect(sortableItems[1].active).to.be.true
-    expect(sortableItems[2].active).to.be.false
-    expect(sortableItems[3].active).to.be.false
-
-    wrapper.childAt(0).childAt(0).childAt(2).childAt(0).simulate('click')
-
-    expect(sortableItems[0].active).to.be.true
-    expect(sortableItems[1].active).to.be.true
-    expect(sortableItems[2].active).to.be.false
-    expect(sortableItems[3].active).to.be.false
-
-    wrapper.childAt(0).childAt(0).childAt(2).childAt(0).simulate('click')
-
-    expect(sortableItems[0].active).to.be.false
-    expect(sortableItems[1].active).to.be.true
-    expect(sortableItems[2].active).to.be.false
-    expect(sortableItems[3].active).to.be.false
+    wrapper.find(SortableList).instance().toggleSortableItem(0)
+    expect(changeCallback.calledWithExactly({
+      target: {
+        name: 'test',
+        value: [{
+          value: 'email',
+          text: 'Email',
+          active: true
+        }, {
+          value: 'push_notification',
+          text: 'Push Notification',
+          active: true
+        }, {
+          value: 'web',
+          text: 'Web',
+          active: false
+        }, {
+          value: 'sms',
+          text: 'SMS',
+          active: false
+        }]
+      }
+    })).to.be.true
   })
 
   it('should update the state when props change', () => {
@@ -156,11 +161,11 @@ describe('SortableList', () => {
     const onDragStartSpy = sinon.spy()
     wrapper = shallow(<SortableList items={items} onDragStart={onDragStartSpy} />)
 
-    expect(wrapper.state().dragging).to.be.false
+    expect(wrapper.state('dragging')).to.be.false
 
     wrapper.instance().onDragStart()
 
-    expect(wrapper.state().dragging).to.be.true
+    expect(wrapper.state('dragging')).to.be.true
     expect(onDragStartSpy.called).to.be.true
   })
 
@@ -169,11 +174,11 @@ describe('SortableList', () => {
     wrapper = shallow(<SortableList items={items} onDragStop={onDragStopSpy} />)
 
     wrapper.setState({ dragging: true })
-    expect(wrapper.state().dragging).to.be.true
+    expect(wrapper.state('dragging')).to.be.true
 
     wrapper.instance().onDragStop()
 
-    expect(wrapper.state().dragging).to.be.false
+    expect(wrapper.state('dragging')).to.be.false
     expect(onDragStopSpy.called).to.be.true
   })
 
