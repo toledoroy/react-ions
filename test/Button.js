@@ -76,14 +76,6 @@ describe('ButtonConfirmation', () => {
     expect(wrapper.childAt(0).children()).to.have.length(2)
   })
 
-  it.skip('displays confirmation button with prompt', () => {
-    // Do we really need to test copy here?
-    wrapper = mount(<ButtonConfirmation prompt={'Are you a robot?'}>Robot?</ButtonConfirmation>)
-
-    expect(wrapper.childAt(0).props().children.prompt).to.equal('Are you a robot?')
-    expect(wrapper.childAt(0).props().children.children).to.equal('Robot?')
-  })
-
   it('handles opening and closing on the confirmation button', () => {
     wrapper = mount(<ButtonConfirmation hasBeenOpened={true}>Delete</ButtonConfirmation>)
 
