@@ -62,7 +62,7 @@ describe('AlertSystem', () => {
   it('should run onClose callback when the close icon is clicked', () => {
     const closeClickCallback = sinon.spy()
     let alerts = [
-      { key:'test', type: 'success', content: 'Test success', onClose: closeClickCallback }
+      { key: 'test', type: 'success', content: 'Test success', onClose: closeClickCallback }
     ]
     wrapper = shallow(<AlertSystem alerts={alerts}/>)
     wrapper.instance().removeAlert({ key:'test', type: 'success', content: 'Test success', onClose: closeClickCallback })
@@ -152,7 +152,7 @@ describe('AlertSystem', () => {
     let alerts = [
       { type: 'success', content: 'Test success' }
     ]
-    wrapper = shallow(<AlertSystem alerts={alerts} optClass="test-class"/>)
+    wrapper = shallow(<AlertSystem alerts={alerts} optClass='test-class'/>)
 
     expect(wrapper.hasClass('test-class')).to.be.true
   })
