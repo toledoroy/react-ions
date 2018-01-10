@@ -22,16 +22,16 @@ describe('Checkbox', () => {
     expect(wrapper.hasClass('checkbox-disabled')).to.equal(true)
 
     wrapper = mount(<Checkbox value={false} label='Test label' disabled></Checkbox>)
-    expect(wrapper.find('input').node.hasAttribute('disabled')).to.equal(true)
-    expect(wrapper.find(Icon).props().fill).to.equal('#9198A0')
+    expect(wrapper.find('input').prop('disabled')).to.equal(true)
+    expect(wrapper.find(Icon).prop('fill')).to.equal('#9198A0')
   })
 
   it('should be checked', () => {
     const checked = true
     wrapper = mount(<Checkbox value={checked} label='Test label'></Checkbox>)
 
-    expect(wrapper.childAt(0).props().value).to.equal(checked)
-    expect(wrapper.find(Icon).props().fill).to.equal('#3C97D3')
+    expect(wrapper.find('input').prop('value')).to.equal(checked)
+    expect(wrapper.find(Icon).prop('fill')).to.equal('#3C97D3')
   })
 
   it('should be locked when value is true', () => {
@@ -85,20 +85,20 @@ describe('Checkbox', () => {
     const spy = sinon.spy()
 
     wrapper = mount(<Checkbox value={false} label='Test label' changeCallback={spy}/>)
-    wrapper.childAt(0).simulate('change')
+    wrapper.instance().handleChange({ persist: () => {}, target: { checked: false } })
 
     expect(spy.calledOnce).to.be.true
   })
 
   it('should update checked value via callback', () => {
-    let checked = false
-    const callback = function(event) {
-      checked = event.target.checked
-    }
-    wrapper = mount(<Checkbox value={checked} label='Test label' changeCallback={callback}/>)
+    const callback = sinon.spy()
 
-    wrapper.childAt(0).simulate('change', {target: { checked: true }})
-    expect(checked).to.equal(true)
+    wrapper = shallow(<Checkbox value={false} label='Test label' changeCallback={callback}/>)
+    wrapper.instance().handleChange({ persist: () => {}, target: { checked: true } })
+    wrapper.update()
+
+    expect(callback.calledOnce).to.be.true
+    expect(wrapper.state('value')).to.be.true
   })
 
   it('should not result in an error if the change callback is not defined', () => {

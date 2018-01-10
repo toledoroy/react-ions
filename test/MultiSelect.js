@@ -1,6 +1,8 @@
 import React from 'react'
 import MultiSelect from '../src/components/MultiSelect/MultiSelect'
 import SelectField from '../src/components/SelectField/SelectField'
+import TagList from '../src/components/internal/TagList'
+import Icon from '../src/components/Icon/Icon'
 import Typeahead from '../src/components/Typeahead/Typeahead'
 
 describe('MultiSelect', () => {
@@ -14,13 +16,13 @@ describe('MultiSelect', () => {
   ]
 
   it('should render itself with a SelectField', () => {
-    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display'><SelectField options={options} valueProp='value' displayProp='display' /></MultiSelect>)
+    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display'><SelectField valueProp='value' displayProp='display' /></MultiSelect>)
 
     expect(wrapper.find(SelectField)).to.have.length(1)
   })
 
   it('should contain a SelectField and have values selected', () => {
-    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']}><SelectField options={options} valueProp='value' displayProp='display' /></MultiSelect>)
+    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']}><SelectField valueProp='value' displayProp='display' /></MultiSelect>)
 
     expect(wrapper.state().value).to.have.length(2)
     expect(wrapper.state().value[0]).to.equal('0')
@@ -38,13 +40,13 @@ describe('MultiSelect', () => {
   })
 
   it('should contain a SelectField and have a placeholder', () => {
-    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' placeholder="This is a placeholder"><SelectField options={options} valueProp='value' displayProp='display' /></MultiSelect>)
+    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' placeholder="This is a placeholder"><SelectField valueProp='value' displayProp='display' /></MultiSelect>)
 
     expect(wrapper.find(SelectField).props().placeholder).to.equal('This is a placeholder')
   })
 
   it('should contain a SelectField and update the state when the value property changes', () => {
-    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']}><SelectField options={options} valueProp='value' displayProp='display' /></MultiSelect>)
+    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']}><SelectField valueProp='value' displayProp='display' /></MultiSelect>)
 
     expect(wrapper.state().value).to.have.length(2)
     expect(wrapper.state().value[0]).to.equal('0')
@@ -79,14 +81,14 @@ describe('MultiSelect', () => {
 
   it('should contain a SelectField and set the state and trigger callback when an options is selected', () => {
     const changeCallback = sinon.spy()
-    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><SelectField options={options} valueProp='value' displayProp='display' /></MultiSelect>)
+    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><SelectField valueProp='value' displayProp='display' /></MultiSelect>)
 
     expect(wrapper.state().value).to.have.length(2)
     expect(wrapper.state().value[0]).to.equal('0')
     expect(wrapper.state().value[1]).to.equal('2')
 
-    wrapper.childAt(0).childAt(1).simulate('click')
-    wrapper.childAt(0).childAt(2).childAt(1).simulate('click')
+    wrapper.find(SelectField).at(0).simulate('click')
+    wrapper.find(SelectField).at(0).find('li').at(1).simulate('click')
 
     expect(changeCallback.called).to.be.true
     expect(wrapper.state().value).to.have.length(3)
@@ -97,28 +99,28 @@ describe('MultiSelect', () => {
 
   it('should contain a SelectField and remove a selected item when the remove icon is clicked', () => {
     const changeCallback = sinon.spy()
-    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><SelectField options={options} valueProp='value' displayProp='display' /></MultiSelect>)
-
-    expect(wrapper.childAt(1).children()).to.have.length(2)
+    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><SelectField valueProp='value' displayProp='display' /></MultiSelect>)
+    expect(wrapper.find(TagList).at(0).find('li')).to.have.length(2)
     expect(wrapper.state().value).to.have.length(2)
     expect(wrapper.state().value[0]).to.equal('0')
     expect(wrapper.state().value[1]).to.equal('2')
 
-    wrapper.childAt(1).childAt(1).find('Icon').simulate('click')
+    wrapper.find(TagList).at(0).find(Icon).at(1).simulate('click')
 
-    expect(wrapper.childAt(1).children()).to.have.length(1)
+    wrapper.update()
+    expect(wrapper.find(TagList).at(0).find('li')).to.have.length(1)
     expect(wrapper.state().value).to.have.length(1)
     expect(wrapper.state().value[0]).to.equal('0')
   })
 
   it('should render itself with a Typeahead', () => {
-    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display'><Typeahead options={options} valueProp='value' displayProp='display' /></MultiSelect>)
+    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display'><Typeahead valueProp='value' displayProp='display' /></MultiSelect>)
 
     expect(wrapper.find(Typeahead)).to.have.length(1)
   })
 
   it('should contain a Typeahead and have values selected', () => {
-    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']}><Typeahead options={options} valueProp='value' displayProp='display' /></MultiSelect>)
+    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']}><Typeahead valueProp='value' displayProp='display' /></MultiSelect>)
 
     expect(wrapper.state().value).to.have.length(2)
     expect(wrapper.state().value[0]).to.equal('0')
@@ -136,13 +138,13 @@ describe('MultiSelect', () => {
   })
 
   it('should contain a Typeahead and have a placeholder', () => {
-    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' placeholder="This is a placeholder"><Typeahead options={options} valueProp='value' displayProp='display' /></MultiSelect>)
+    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' placeholder="This is a placeholder"><Typeahead valueProp='value' displayProp='display' /></MultiSelect>)
 
     expect(wrapper.find(Typeahead).props().placeholder).to.equal('This is a placeholder')
   })
 
   it('should contain a Typeahead and update the state when the value property changes', () => {
-    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']}><Typeahead options={options} valueProp='value' displayProp='display' /></MultiSelect>)
+    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']}><Typeahead valueProp='value' displayProp='display' /></MultiSelect>)
 
     expect(wrapper.state().value).to.have.length(2)
     expect(wrapper.state().value[0]).to.equal('0')
@@ -166,7 +168,7 @@ describe('MultiSelect', () => {
 
   it('should contain a Typeahead and set the state and trigger callback when an options is selected', () => {
     const changeCallback = sinon.spy()
-    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><Typeahead options={options} valueProp='value' displayProp='display' /></MultiSelect>)
+    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><Typeahead valueProp='value' displayProp='display' /></MultiSelect>)
 
     expect(wrapper.state().value).to.have.length(2)
     expect(wrapper.state().value[0]).to.equal('0')
@@ -175,7 +177,7 @@ describe('MultiSelect', () => {
     wrapper.find('input').simulate('change', {target: {value: 't'}})
 
     expect(wrapper.childAt(0).childAt(1).find('li')).to.have.length(2)
-    wrapper.childAt(0).childAt(1).childAt(1).simulate('click')
+    wrapper.find(Typeahead).find('li').at(1).simulate('click')
 
     expect(changeCallback.called).to.be.true
     expect(wrapper.state().value).to.have.length(3)
@@ -186,21 +188,21 @@ describe('MultiSelect', () => {
 
   it('should contain a Typeahead and remove a selected item when the remove icon is clicked', () => {
     const changeCallback = sinon.spy()
-    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><Typeahead options={options} valueProp='value' displayProp='display' /></MultiSelect>)
+    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><Typeahead valueProp='value' displayProp='display' /></MultiSelect>)
 
-    expect(wrapper.childAt(1).children()).to.have.length(2)
+    expect(wrapper.find(TagList).at(0).find('li')).to.have.length(2)
     expect(wrapper.state().value).to.have.length(2)
     expect(wrapper.state().value[0]).to.equal('0')
     expect(wrapper.state().value[1]).to.equal('2')
 
-    wrapper.childAt(1).childAt(1).find('Icon').simulate('click')
+    wrapper.find(TagList).at(0).find(Icon).at(1).simulate('click')
 
-    expect(wrapper.childAt(1).children()).to.have.length(1)
+    expect(wrapper.find(TagList).at(0).find('li')).to.have.length(1)
     expect(wrapper.state().value).to.have.length(1)
     expect(wrapper.state().value[0]).to.equal('0')
   })
 
-  it('should not contain already selected items in a typeahead dropdown list', (done) => {
+  it('should not contain already selected items in a typeahead dropdown list', () => {
     const changeCallback = sinon.spy()
     const handleSearch = () => {
       return new Promise((resolve) => {
@@ -208,46 +210,16 @@ describe('MultiSelect', () => {
       })
     }
 
-    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><Typeahead options={options} valueProp='value' displayProp='display' searchCallback={handleSearch} /></MultiSelect>)
+    wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><Typeahead valueProp='value' displayProp='display' searchCallback={handleSearch} /></MultiSelect>)
 
     let typeahead = wrapper.find(Typeahead)
-
     expect(typeahead.props().options).to.have.length(2)
     expect(typeahead.props().options[0].value).to.equal('1')
     expect(typeahead.props().options[1].value).to.equal('3')
 
-    wrapper.childAt(0).find('input').simulate('change', {target: {value: 't'}})
+    wrapper.setProps({ value: ['0', '1', '2', '3'] })
 
-    setTimeout(function() {
-      expect(wrapper.childAt(0).find('li')).to.have.length(2)
-      wrapper.childAt(0).childAt(1).childAt(1).simulate('click')
-      expect(changeCallback.called).to.be.true
-      expect(wrapper.state().value).to.have.length(3)
-      expect(wrapper.state().value[0]).to.equal('0')
-      expect(wrapper.state().value[1]).to.equal('2')
-      expect(wrapper.state().value[2]).to.equal('3')
-      done()
-    }, 500)
-
-    wrapper.childAt(0).find('input').simulate('change', {target: {value: 't'}})
-
-    setTimeout(function() {
-      expect(wrapper.childAt(0).find('li')).to.have.length(1)
-      wrapper.childAt(0).childAt(2).childAt(0).simulate('click')
-      expect(changeCallback.called).to.be.true
-      expect(wrapper.state().value).to.have.length(4)
-      expect(wrapper.state().value[0]).to.equal('0')
-      expect(wrapper.state().value[1]).to.equal('2')
-      expect(wrapper.state().value[2]).to.equal('3')
-      expect(wrapper.state().value[3]).to.equal('1')
-      done()
-    }, 500)
-
-    wrapper.childAt(0).find('input').simulate('change', {target: {value: 't'}})
-
-    setTimeout(function() {
-      expect(wrapper.childAt(0).find('li')).to.have.length(0)
-      done()
-    }, 500)
+    typeahead = wrapper.find(Typeahead)
+    expect(typeahead.props().options).to.have.length(0)
   })
 })

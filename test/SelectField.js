@@ -186,7 +186,7 @@ describe('SelectField', () => {
   it('should show a message when there are no options to select', () => {
     wrapper = mount(<SelectField options={[]} valueProp='value' displayProp='display' />)
 
-    expect(wrapper.childAt(2).childAt(0).text()).to.equal('Nothing to select')
+    expect(wrapper.find('.not-clickable').text()).to.equal('Nothing to select')
   })
 
   it('should add a "hidden" class to an item if it has a specific "hideProp" prop set to true', () => {

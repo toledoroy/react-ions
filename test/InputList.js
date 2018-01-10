@@ -80,8 +80,9 @@ describe('InputList', () => {
       {display: 'Something', value: 'Something'}
     ]
     wrapper = mount(<InputList value={value} changeCallback={spy} />)
-    wrapper.setState({currentValue: 'Something'})
-    wrapper.childAt(1).simulate('click')
+    wrapper.setState({ currentValue: 'Something' })
+    wrapper.instance().handleClick()
+    wrapper.update()
     expect(wrapper.state().options).to.deep.equal(clickStateValue)
   })
 

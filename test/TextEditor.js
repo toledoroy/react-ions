@@ -5,10 +5,10 @@ describe('TextEditor', () => {
   let wrapper
 
   it('should shallow render itself', () => {
-    wrapper = shallow(<TextEditor />)
+    wrapper = mount(<TextEditor />)
 
-    expect(wrapper.hasClass('editor-component')).to.be.true
-    expect(wrapper.children()).to.have.length(3)
+    expect(wrapper.find('.editor-component')).to.have.length(1)
+    expect(wrapper.find('.editor-component').children()).to.have.length(3)
     expect(wrapper.state().value).to.equal('')
   })
 

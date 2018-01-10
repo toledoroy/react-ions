@@ -7,10 +7,9 @@ import Alert from './Alert'
 class AlertSystem extends React.Component {
   constructor(props) {
     super(props)
-  }
-
-  state = {
-    alerts: this.props.alerts
+    this.state = {
+      alerts: props.alerts
+    }
   }
 
   static propTypes = {

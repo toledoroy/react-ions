@@ -11,7 +11,7 @@ import classNames from 'classnames/bind'
 /**
  * The ColorPicker component.
  */
-class ColorPicker extends React.Component {
+export class ColorPicker extends React.Component {
   constructor(props) {
     super(props)
 

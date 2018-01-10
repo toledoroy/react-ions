@@ -50,15 +50,14 @@ describe('ButtonGroup', () => {
   })
 
   it('should have an option selected', () => {
-    wrapper = mount(<ButtonGroup name="test-group" options={options} label="Test label" defaultOption={0}/>)
+    wrapper = shallow(<ButtonGroup name="test-group" options={options} label="Test label" defaultOption={0}/>)
 
-    expect(wrapper.childAt(1).childAt(0).props().checked).to.be.equal(true)
-    expect(wrapper.childAt(1).childAt(1).props().checked).to.be.equal(false)
+    expect(wrapper.state('checkedOption')).to.equal(options[0].value)
 
     wrapper.setProps({ defaultOption: 1 })
+    wrapper.update()
 
-    expect(wrapper.childAt(1).childAt(0).props().checked).to.be.equal(false)
-    expect(wrapper.childAt(1).childAt(1).props().checked).to.be.equal(true)
+    expect(wrapper.state('checkedOption')).to.equal(options[1].value)
   })
 
   it('should have an extra class', () => {
@@ -89,8 +88,8 @@ describe('ButtonGroup', () => {
   it('should call changeCallback function', () => {
     const spy = sinon.spy()
 
-    wrapper = mount(<ButtonGroup name="test-group" options={options} label="Test label" changeCallback={spy}/>)
-    wrapper.childAt(1).childAt(0).find('input').simulate('change')
+    wrapper = shallow(<ButtonGroup name="test-group" options={options} label="Test label" changeCallback={spy}/>)
+    wrapper.instance().handleChange({ persist: () => {} }, 'test')
 
     expect(spy.calledOnce).to.be.true
   })
@@ -100,13 +99,11 @@ describe('ButtonGroup', () => {
     const callback = function(event, value) {
       selected = value
     }
-    wrapper = mount(<ButtonGroup name="test-group" options={options} label="Test label" changeCallback={callback}/>)
+    wrapper = shallow(<ButtonGroup name="test-group" options={options} label="Test label" changeCallback={callback}/>)
+    const handleChange = wrapper.instance().handleChange
 
-    wrapper.childAt(1).childAt(0).find('input').simulate('change')
-    expect(selected).to.be.equal('option_1')
-
-    wrapper.childAt(1).childAt(1).find('input').simulate('change')
-    expect(selected).to.be.equal('option_2')
+    handleChange({ persist: () => {} }, 'option_1')
+    expect(wrapper.state('checkedOption')).to.equal('option_1')
   })
 
   it('should use custom props for value and label', () => {

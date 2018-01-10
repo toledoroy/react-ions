@@ -60,24 +60,24 @@ describe('Button', () => {
     expect(wrapper.hasClass('test-class-3')).to.be.true
   })
 
-  it('displays confirmation button without prompt', () => {
-    wrapper = shallow(<ButtonConfirmation>Delete</ButtonConfirmation>)
-
-    expect(wrapper.props().className).to.equal('confirmation-wrapper')
-    expect(wrapper.children().length).to.be.equal(2)
-    expect(wrapper.props().children[0].props.prompt).to.equal('Are you sure?')
-    expect(wrapper.props().children[0].props.children).to.equal('Delete')
+  it('hides text when collapse prop is passed', () => {
+    wrapper = shallow(<Button collapse={true}>Test</Button>)
+    expect(wrapper.props().className).to.contain('btn collapse')
   })
+})
 
-  it('displays confirmation button with prompt', () => {
-    wrapper = shallow(<ButtonConfirmation prompt={'Are you a robot?'}>Robot?</ButtonConfirmation>)
+describe('ButtonConfirmation', () => {
+  let wrapper
 
-    expect(wrapper.props().children[0].props.prompt).to.equal('Are you a robot?')
-    expect(wrapper.props().children[0].props.children).to.equal('Robot?')
+  it('displays confirmation button without prompt', () => {
+    wrapper = mount(<ButtonConfirmation>Delete</ButtonConfirmation>)
+
+    expect(wrapper.childAt(0).prop('className')).to.equal('confirmation-wrapper')
+    expect(wrapper.childAt(0).children()).to.have.length(2)
   })
 
   it('handles opening and closing on the confirmation button', () => {
-    wrapper = shallow(<ButtonConfirmation hasBeenOpened={true}>Delete</ButtonConfirmation>)
+    wrapper = mount(<ButtonConfirmation hasBeenOpened={true}>Delete</ButtonConfirmation>)
 
     let inst = wrapper.instance()
 
@@ -89,7 +89,7 @@ describe('Button', () => {
   })
 
   it('handles confirmation on the confirmation button', () => {
-    wrapper = shallow(<ButtonConfirmation>Delete</ButtonConfirmation>)
+    wrapper = mount(<ButtonConfirmation>Delete</ButtonConfirmation>)
     wrapper.setState({confirmationOverlayOpen: true})
     let inst = wrapper.instance()
 
@@ -98,7 +98,7 @@ describe('Button', () => {
   })
 
   it('get styles on the confirmation button when position not passed', () => {
-    wrapper = shallow(<ButtonConfirmation>Delete</ButtonConfirmation>)
+    wrapper = mount(<ButtonConfirmation>Delete</ButtonConfirmation>)
     wrapper.setState({
       overlayWidth: 20,
       triggerWidth: 10
@@ -109,7 +109,7 @@ describe('Button', () => {
   })
 
   it('get styles on the confirmation button when position right', () => {
-    wrapper = shallow(<ButtonConfirmation position={'right'}>Delete</ButtonConfirmation>)
+    wrapper = mount(<ButtonConfirmation position={'right'}>Delete</ButtonConfirmation>)
     wrapper.setState({confirmationOverlayOffset: 40})
     let inst = wrapper.instance()
 
@@ -117,7 +117,7 @@ describe('Button', () => {
   })
 
   it('get styles on the confirmation button when position left', () => {
-    wrapper = shallow(<ButtonConfirmation position={'left'}>Delete</ButtonConfirmation>)
+    wrapper = mount(<ButtonConfirmation position={'left'}>Delete</ButtonConfirmation>)
     wrapper.setState({confirmationOverlayOffset: 40})
     let inst = wrapper.instance()
 
@@ -125,7 +125,7 @@ describe('Button', () => {
   })
 
   it('get caret styles on the confirmation button when position not passed and is not wide', () => {
-    wrapper = shallow(<ButtonConfirmation>Delete</ButtonConfirmation>)
+    wrapper = mount(<ButtonConfirmation>Delete</ButtonConfirmation>)
     wrapper.setState({ wide: false })
     let inst = wrapper.instance()
 
@@ -133,7 +133,7 @@ describe('Button', () => {
   })
 
   it('get caret styles on the confirmation button when position not passed and is wide', () => {
-    wrapper = shallow(<ButtonConfirmation>Delete</ButtonConfirmation>)
+    wrapper = mount(<ButtonConfirmation>Delete</ButtonConfirmation>)
     wrapper.setState({ wide: true })
     let inst = wrapper.instance()
 
@@ -141,7 +141,7 @@ describe('Button', () => {
   })
 
   it('get caret styles on the confirmation button when position right', () => {
-    wrapper = shallow(<ButtonConfirmation position={'right'}>Delete</ButtonConfirmation>)
+    wrapper = mount(<ButtonConfirmation position={'right'}>Delete</ButtonConfirmation>)
     wrapper.setState({triggerWidth: 40})
     let inst = wrapper.instance()
 
@@ -149,7 +149,7 @@ describe('Button', () => {
   })
 
   it('get caret styles on the confirmation button when position left', () => {
-    wrapper = shallow(<ButtonConfirmation position={'left'}>Delete</ButtonConfirmation>)
+    wrapper = mount(<ButtonConfirmation position={'left'}>Delete</ButtonConfirmation>)
     wrapper.setState({triggerWidth: 40})
     let inst = wrapper.instance()
 
@@ -157,13 +157,13 @@ describe('Button', () => {
   })
 
   it('handles collapse with confirmation button', () => {
-    wrapper = shallow(<ButtonConfirmation collapse={true}>Delete</ButtonConfirmation>)
+    wrapper = mount(<ButtonConfirmation collapse={true}>Delete</ButtonConfirmation>)
 
-    expect(wrapper.props().children[0].props.collapse).to.be.true
+    expect(wrapper.childAt(0).childAt(0).prop('collapse')).to.be.true
   })
 
   it('handles setup on the confirmation button', () => {
-    wrapper = shallow(<ButtonConfirmation>Delete</ButtonConfirmation>)
+    wrapper = mount(<ButtonConfirmation>Delete</ButtonConfirmation>)
     wrapper.instance()._trigger = {
       children: [{
         getBoundingClientRect: () => {
@@ -191,7 +191,7 @@ describe('Button', () => {
   })
 
   it('handles wide on the confirmation button', () => {
-    wrapper = shallow(<ButtonConfirmation prompt={'This is a test.'}>Delete</ButtonConfirmation>)
+    wrapper = mount(<ButtonConfirmation prompt={'This is a test.'}>Delete</ButtonConfirmation>)
 
     let inst = wrapper.instance()
 
@@ -208,43 +208,42 @@ describe('Button', () => {
     expect(wrapper.state().wide).to.be.true
   })
 
-  it('hides text when collapse prop is passed', () => {
-    wrapper = shallow(<Button collapse={true}>Test</Button>)
-    expect(wrapper.props().className).to.contain('btn collapse')
-  })
+  describe('shouldComponentUpdate', () => {
+    const props = {
+      size: 'large',
+      disabled: false,
+      loading: false,
+      collapse: false,
+      optClass: 'test-class',
+      onClick: () => {},
+      prompt: 'Test prompt'
+    }
+    wrapper = mount(<ButtonConfirmation {...props}>Delete</ButtonConfirmation>)
+    const state = wrapper.state()
+    const shouldComponentUpdate = wrapper.instance().shouldComponentUpdate
 
-  it('updates when certain props are changed', () => {
-    const size = 'large'
-    const disabled = false
-    const loading = false
-    const collapse = false
-    const optClass = 'test-class'
-    const onClick = sinon.spy
-    const prompt = 'Test prompt'
+    it('does not update when props and state have not changed', () => {
+      expect(shouldComponentUpdate(props, state)).to.be.false
+    })
 
-    const confirmationOverlayOpen = false
-    const confirmationOverlayOffset = 0
-    const hasBeenOpened = false
-    const wide = false
+    it('updates when loading is changed', () => {
+      expect(shouldComponentUpdate({ ...props, loading: true }, state)).to.be.true
+    })
+    it('updates when prompt is changed', () => {
+      expect(shouldComponentUpdate({ ...props, prompt: 'New prompt' }, state)).to.be.true
+    })
 
-    wrapper = shallow(
-      <ButtonConfirmation
-        size={size}
-        disabled={disabled}
-        loading={loading}
-        collapse={collapse}
-        optClass={optClass}
-        onClick={onClick}
-        prompt={prompt}>
-        Delete</ButtonConfirmation>)
-    const inst = wrapper.instance()
-
-    expect(inst.shouldComponentUpdate({size, disabled, loading, collapse, optClass, onClick, prompt}, { confirmationOverlayOpen, confirmationOverlayOffset, hasBeenOpened, wide })).to.be.false
-    expect(inst.shouldComponentUpdate({size, disabled, loading: true, collapse, optClass, onClick, prompt}, { confirmationOverlayOpen, confirmationOverlayOffset, hasBeenOpened, wide })).to.be.true
-    expect(inst.shouldComponentUpdate({size, disabled, loading, collapse, optClass, onClick, prompt: 'New prompt'}, { confirmationOverlayOpen, confirmationOverlayOffset, hasBeenOpened, wide })).to.be.true
-    expect(inst.shouldComponentUpdate({size, disabled, loading, collapse, optClass, onClick, prompt}, { confirmationOverlayOpen: true, confirmationOverlayOffset, hasBeenOpened, wide })).to.be.true
-    expect(inst.shouldComponentUpdate({size, disabled, loading, collapse, optClass, onClick, prompt}, { confirmationOverlayOpen, confirmationOverlayOffset, hasBeenOpened, wide, triggerWidth: 10 })).to.be.true
-    expect(inst.shouldComponentUpdate({size, disabled, loading, collapse, optClass, onClick, prompt}, { confirmationOverlayOpen, confirmationOverlayOffset, hasBeenOpened, wide, overlayWidth: 50 })).to.be.true
-    expect(inst.shouldComponentUpdate({size, disabled, loading, collapse, optClass, onClick, prompt}, { confirmationOverlayOpen, confirmationOverlayOffset, hasBeenOpened, wide: true })).to.be.true
+    it('updates when confirmationOverlayOpen is changed', () => {
+      expect(shouldComponentUpdate(props, { ...state, confirmationOverlayOpen: true })).to.be.true
+    })
+    it('updates when triggerWidth is changed', () => {
+      expect(shouldComponentUpdate(props, { ...state, triggerWidth: 10 })).to.be.true
+    })
+    it('updates when overlayWidth is changed', () => {
+      expect(shouldComponentUpdate(props, { ...state, overlayWidth: 50 })).to.be.true
+    })
+    it('updates when wide is changed', () => {
+      expect(shouldComponentUpdate(props, { ...state, wide: true })).to.be.true
+    })
   })
 })

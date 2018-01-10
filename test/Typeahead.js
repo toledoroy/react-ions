@@ -42,15 +42,16 @@ describe('Typeahead', () => {
   })
 
   it('should display a list when the user types a letter', () => {
-    wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' />)
-    wrapper.find('input').simulate('change', {target: {value: 'a'}})
+    wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' />)
+    wrapper.instance().handleChange({ target: { value: 'a' } })
+    wrapper.update()
 
-    expect(wrapper.childAt(1).find('li')).to.have.length(2)
+    expect(wrapper.find('li')).to.have.length(2)
   })
 
   it('should display a loader', () => {
-    wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' loading={true} />)
-    expect(wrapper.childAt(1).type()).to.equal(Loader)
+    wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' loading={true} />)
+    expect(wrapper.find(Loader)).to.have.length(1)
   })
 
   it('should take a search callback', () => {
@@ -85,39 +86,36 @@ describe('Typeahead', () => {
   })
 
   it('should not clear search string after selection', () => {
-    wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' />)
+    wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' />)
 
-    let inputField = wrapper.find('input')
+    wrapper.instance().handleChange({ target: { value: 'a' } })
 
-    inputField.simulate('change', {target: {value: 'a'}})
-    expect(inputField.node.value).to.equal('a')
+    expect(wrapper.state('searchStr')).to.equal('a')
 
-    wrapper.childAt(1).childAt(0).simulate('click')
-    expect(inputField.node.value).to.equal(options[0].display)
+    wrapper.instance().selectOption(options[0])
+    expect(wrapper.state('searchStr')).to.equal('Austria')
   })
 
   it('should clear search string after selection', () => {
     wrapper = mount(<Typeahead resetAfterSelection={true} options={options} valueProp='value' displayProp='display' />)
 
-    let inputField = wrapper.find('input')
+    wrapper.instance().handleChange({ target: { value: 'a' } })
 
-    inputField.simulate('change', {target: {value: 'a'}})
-    expect(inputField.node.value).to.equal('a')
+    expect(wrapper.state('searchStr')).to.equal('a')
 
-    wrapper.childAt(0).childAt(1).childAt(0).simulate('click')
-    expect(inputField.node.value).to.equal('')
+    wrapper.instance().selectOption(options[0])
+    expect(wrapper.state('searchStr')).to.equal('')
   })
 
   it('should clear search when the clear button is clicked', () => {
     wrapper = mount(<Typeahead resetAfterSelection={true} options={options} valueProp='value' displayProp='display' changeCallback={sinon.spy()} />)
 
-    let inputField = wrapper.find('input')
+    wrapper.instance().handleChange({ target: { value: 'a' } })
 
-    inputField.simulate('change', {target: {value: 'a'}})
-    expect(inputField.node.value).to.equal('a')
+    expect(wrapper.state('searchStr')).to.equal('a')
 
-    wrapper.childAt(1).childAt(0).simulate('click')
-    expect(inputField.node.value).to.equal('')
+    wrapper.instance().clearSearch()
+    expect(wrapper.state('searchStr')).to.equal('')
   })
 
   it('should clear search string when input value is an empty string', () => {

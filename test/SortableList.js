@@ -46,67 +46,61 @@ describe('SortableList', () => {
   it('should render itself', () => {
     wrapper = mount(<SortableListWrapped items={items} />)
 
-    expect(wrapper.find('SortableList')).to.have.length(1)
-    expect(wrapper.find('SortableItem')).to.have.length(4)
+    expect(wrapper.find(SortableList)).to.have.length(1)
+    expect(wrapper.find(SortableItem)).to.have.length(4)
 
-    expect(wrapper.childAt(0).childAt(0).props().value).to.be.equal('email')
-    expect(wrapper.childAt(0).childAt(0).props().text).to.be.equal('Email')
-    expect(wrapper.childAt(0).childAt(1).props().value).to.be.equal('push_notification')
-    expect(wrapper.childAt(0).childAt(1).props().text).to.be.equal('Push Notification')
-    expect(wrapper.childAt(0).childAt(2).props().value).to.be.equal('web')
-    expect(wrapper.childAt(0).childAt(2).props().text).to.be.equal('Web')
-    expect(wrapper.childAt(0).childAt(3).props().value).to.be.equal('sms')
-    expect(wrapper.childAt(0).childAt(3).props().text).to.be.equal('SMS')
+    expect(wrapper.find(SortableItem).at(0).prop('value')).to.equal('email')
+    expect(wrapper.find(SortableItem).at(0).prop('text')).to.equal('Email')
+    expect(wrapper.find(SortableItem).at(1).prop('value')).to.equal('push_notification')
+    expect(wrapper.find(SortableItem).at(1).prop('text')).to.equal('Push Notification')
+    expect(wrapper.find(SortableItem).at(2).prop('value')).to.equal('web')
+    expect(wrapper.find(SortableItem).at(2).prop('text')).to.equal('Web')
+    expect(wrapper.find(SortableItem).at(3).prop('value')).to.equal('sms')
+    expect(wrapper.find(SortableItem).at(3).prop('text')).to.equal('SMS')
   })
 
   it('should update state when an item is toggled', () => {
     wrapper = mount(<SortableListWrapped items={items} />)
+    const list = wrapper.find(SortableList)
+    expect(wrapper.find(SortableItem).at(0).prop('active')).to.be.false
 
-    expect(wrapper.childAt(0).childAt(0).props().active).to.be.false
-    expect(wrapper.childAt(0).childAt(1).props().active).to.be.true
-    expect(wrapper.childAt(0).childAt(2).props().active).to.be.false
-    expect(wrapper.childAt(0).childAt(3).props().active).to.be.false
+    list.instance().toggleSortableItem(0)
+    wrapper.update()
+    expect(wrapper.find(SortableItem).at(0).prop('active')).to.be.true
 
-    wrapper.childAt(0).childAt(0).childAt(2).childAt(0).simulate('click')
-
-    expect(wrapper.childAt(0).childAt(0).props().active).to.be.true
-    expect(wrapper.childAt(0).childAt(1).props().active).to.be.true
-    expect(wrapper.childAt(0).childAt(2).props().active).to.be.false
-    expect(wrapper.childAt(0).childAt(3).props().active).to.be.false
-
-    wrapper.childAt(0).childAt(0).childAt(2).childAt(0).simulate('click')
-
-    expect(wrapper.childAt(0).childAt(0).props().active).to.be.false
-    expect(wrapper.childAt(0).childAt(1).props().active).to.be.true
-    expect(wrapper.childAt(0).childAt(2).props().active).to.be.false
-    expect(wrapper.childAt(0).childAt(3).props().active).to.be.false
+    list.instance().toggleSortableItem(0)
+    wrapper.update()
+    expect(wrapper.find(SortableItem).at(0).prop('active')).to.be.false
   })
 
   it('should trigger a callback when an item is toggled', () => {
     let sortableItems = items
-    const changeCallback = function(event) {
-      sortableItems = event.target.value
-    }
-    wrapper = mount(<SortableListWrapped items={items} changeCallback={changeCallback} />)
+    const changeCallback = sinon.spy()
+    wrapper = mount(<SortableListWrapped items={items} changeCallback={changeCallback} name='test'/>)
 
-    expect(sortableItems[0].active).to.be.false
-    expect(sortableItems[1].active).to.be.true
-    expect(sortableItems[2].active).to.be.false
-    expect(sortableItems[3].active).to.be.false
-
-    wrapper.childAt(0).childAt(0).childAt(2).childAt(0).simulate('click')
-
-    expect(sortableItems[0].active).to.be.true
-    expect(sortableItems[1].active).to.be.true
-    expect(sortableItems[2].active).to.be.false
-    expect(sortableItems[3].active).to.be.false
-
-    wrapper.childAt(0).childAt(0).childAt(2).childAt(0).simulate('click')
-
-    expect(sortableItems[0].active).to.be.false
-    expect(sortableItems[1].active).to.be.true
-    expect(sortableItems[2].active).to.be.false
-    expect(sortableItems[3].active).to.be.false
+    wrapper.find(SortableList).instance().toggleSortableItem(0)
+    expect(changeCallback.calledWithExactly({
+      target: {
+        name: 'test',
+        value: [{
+          value: 'email',
+          text: 'Email',
+          active: true
+        }, {
+          value: 'push_notification',
+          text: 'Push Notification',
+          active: true
+        }, {
+          value: 'web',
+          text: 'Web',
+          active: false
+        }, {
+          value: 'sms',
+          text: 'SMS',
+          active: false
+        }]
+      }
+    })).to.be.true
   })
 
   it('should update the state when props change', () => {
@@ -167,11 +161,11 @@ describe('SortableList', () => {
     const onDragStartSpy = sinon.spy()
     wrapper = shallow(<SortableList items={items} onDragStart={onDragStartSpy} />)
 
-    expect(wrapper.state().dragging).to.be.false
+    expect(wrapper.state('dragging')).to.be.false
 
     wrapper.instance().onDragStart()
 
-    expect(wrapper.state().dragging).to.be.true
+    expect(wrapper.state('dragging')).to.be.true
     expect(onDragStartSpy.called).to.be.true
   })
 
@@ -180,11 +174,11 @@ describe('SortableList', () => {
     wrapper = shallow(<SortableList items={items} onDragStop={onDragStopSpy} />)
 
     wrapper.setState({ dragging: true })
-    expect(wrapper.state().dragging).to.be.true
+    expect(wrapper.state('dragging')).to.be.true
 
     wrapper.instance().onDragStop()
 
-    expect(wrapper.state().dragging).to.be.false
+    expect(wrapper.state('dragging')).to.be.false
     expect(onDragStopSpy.called).to.be.true
   })
 

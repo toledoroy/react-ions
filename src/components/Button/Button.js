@@ -45,7 +45,7 @@ const Button = (props) => {
       color: colors.white
     }
   })
-  
+
   const spinnerOptions = {
     lines: 10,
     length: 4,
@@ -55,10 +55,10 @@ const Button = (props) => {
   }
 
   return (
-    <button 
-      type={props.type} 
-      style={props.style} 
-      className={btnClasses} 
+    <button
+      type={props.type}
+      style={props.style}
+      className={btnClasses}
       disabled={props.disabled || props.loading}
       aria-disabled={props.disabled || props.loading}
       onClick={props.onClick}
@@ -68,7 +68,7 @@ const Button = (props) => {
       onMouseOut={props.onMouseOut}
       onMouseOver={props.onMouseOver}
       onMouseUp={props.onMouseUp}>
-      { props.loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
+      { props.loading && <Loader loaded={false} options={spinnerOptions} /> }
       <em>{props.children}</em>
     </button>
   )

@@ -42,9 +42,9 @@ describe('Spinner', () => {
 
   it('should have a custom color', () => {
     wrapper = mount(<Spinner loading={true} type='spinner-bounce' color='#3C97D3' />)
-    expect(wrapper.childAt(0).childAt(0).childAt(0).node.style.backgroundColor).to.equal('rgb(60, 151, 211)')
-    expect(wrapper.childAt(0).childAt(0).childAt(1).node.style.backgroundColor).to.equal('rgb(60, 151, 211)')
-    expect(wrapper.childAt(0).childAt(0).childAt(2).node.style.backgroundColor).to.equal('rgb(60, 151, 211)')
+    expect(wrapper.childAt(0).childAt(0).childAt(0).childAt(0).props('style').style.backgroundColor).to.equal('#3C97D3')
+    expect(wrapper.childAt(0).childAt(0).childAt(0).childAt(1).props('style').style.backgroundColor).to.equal('#3C97D3')
+    expect(wrapper.childAt(0).childAt(0).childAt(0).childAt(2).props('style').style.backgroundColor).to.equal('#3C97D3')
   })
 
   it('should be hidden', () => {
@@ -66,6 +66,7 @@ describe('Spinner', () => {
   it('should set state when passed props', () => {
     wrapper = shallow(<Spinner loading={false} type='spinner-bounce' />)
     wrapper.setProps({loading: true})
+    wrapper.update()
     expect(wrapper.hasClass('is-hidden')).to.be.false
   })
 

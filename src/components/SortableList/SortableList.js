@@ -51,7 +51,12 @@ export class SortableList extends React.Component {
   }
 
   handleResize = () => {
-    this.setState({ width: this._sortableList.getBoundingClientRect().width, top: this._sortableList.getBoundingClientRect().top })
+    if (this._sortableList) {
+      this.setState({
+        width: this._sortableList.getBoundingClientRect().width,
+        top: this._sortableList.getBoundingClientRect().top
+      })
+    }
   }
 
   componentDidMount = () => {

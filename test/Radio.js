@@ -25,9 +25,7 @@ describe('Radio', () => {
     wrapper = shallow(<Radio value='test' label='Test label' disabled></Radio>)
     expect(wrapper.hasClass('radio-component')).to.equal(true)
     expect(wrapper.hasClass('radio-disabled')).to.equal(true)
-
-    wrapper = mount(<Radio value='test' label='Test label' disabled></Radio>)
-    expect(wrapper.find('input').node.hasAttribute('disabled')).to.equal(true)
+    expect(wrapper.childAt(0).props().disabled).to.equal(true)
   })
 
   it('should have an extra class', () => {
