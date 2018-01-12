@@ -376,8 +376,8 @@ class InlineEdit extends React.Component {
             {this.getField()}
             {this.state.isEditing && !this.state.loading
               ? <div className={style['inline-button-wrapper']}>
-                  <Icon name='check' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
-                  <Icon name='x' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
+                  <Icon name='icon-check-2-1' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
+                  <Icon name='icon-delete-1' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
                 </div>
               : null
             }
