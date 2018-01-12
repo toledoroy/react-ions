@@ -2,7 +2,7 @@
 
 ## 3.1.2
 ###### _January 12, 2018_
-Inline Edit - changing icon names to match previous Streamline version
+Inline Edit - changing icon names to match previous Streamline version  [#569](https://github.com/GetAmbassador/react-ions/pull/569)
 
 ## 3.1.1
 ###### _January 2, 2018_
