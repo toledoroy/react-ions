@@ -77,7 +77,7 @@
       @include vertical-align('block');
       color: $primary-4;
       cursor: pointer;
-      display: block;
+      display: flex;
       padding: 10px;
       text-decoration: none;
       min-height: 18px;
