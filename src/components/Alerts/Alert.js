@@ -80,7 +80,7 @@ class Alert extends React.Component {
 
     return (
       <div className={alertClasses} onMouseOver={this.pauseTimer} onMouseOut={this.startTimer}>
-        {this.props.closable ? <div className={style['close-icon']} onClick={this.closeAlert}><Icon name='md-remove' width='12' height='12' /></div> : null}
+        {this.props.closable ? <div className={style['close-icon']} onClick={this.closeAlert}><Icon name='md-close' width='12' height='12' /></div> : null}
         <Icon name={alertIcons[this.props.type]} width='17' height='17' />
         <div>{this.props.children}</div>
       </div>

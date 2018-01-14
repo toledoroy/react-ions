@@ -30,5 +30,20 @@ In this minimal example, we import a Button with styles already bundled:
 
 Live examples and more info [documentation site](http://reactions.getambassador.com/components).
 
+Icons
+-----
+### To make a Material Icon available in our apps:
+- Search for the icon on the [Material Icon](https://material.io/icons/) site.
+- Open the master list `/react-ions/src/assets/icons/master-list.js`, and add the icon to the `material` array.
+  - The *category* of the icon is needed to construct the path.
+  - The *hash* after the path will be the `name` prop as passed into the React:ions `Icon` component.
+  - All Material icon names should be prefixed with `md-`.
+- Stop and then start the `Common` app
+- Go to: http://localhost:3000/foundations/iconography and your icon should be visible in the list.
+- Follow the release process below and upgrade `Common` in any given app, to use the icon.
+
+### To make a Custom Icon available in our apps:
+- Follow the instructions for adding a `Material` app, however instead you will add to the `mbsy` array, and include a raw `.svg` file here: `/common/src/assets/icons/svg`.
+
 ## License
 This project is licensed under the terms of the [MIT license](LICENSE)

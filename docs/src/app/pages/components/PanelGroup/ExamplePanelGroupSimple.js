@@ -26,7 +26,7 @@ const ExamplePanelGroupSimple = () => (
         <PanelContent>
           <h3>What happens after a promoter submits their score?</h3>
           <RadioGroup
-            name="default-radio-group"
+            name='default-radio-group'
             options={options}>
           </RadioGroup>
         </PanelContent>
