@@ -1,7 +1,7 @@
 ## HEAD
 
 ## 4.0.0-rc.2
-###### _January 12, 2018_
+###### _January 15, 2018_
 - React-ions now supports react v16, support for react versions lower than 15.3 has been dropped
 
 ## 3.1.1
