@@ -12,8 +12,8 @@ describe('SelectField', () => {
   ]
 
   const optionsWithIcons = [
-    {value: '0', display: 'test 1', someOtherProp: true, icon: 'icon-megaphone-1'},
-    {value: '1', display: 'test 2', someOtherProp: false, icon: 'icon-slack-1', iconColor: '#3C97D3'}
+    {value: '0', display: 'test 1', someOtherProp: true, icon: 'md-dashboard'},
+    {value: '1', display: 'test 2', someOtherProp: false, icon: 'mbsy-slack', iconColor: '#3C97D3'}
   ]
 
   const optionsAltValueProp = [
@@ -45,7 +45,7 @@ describe('SelectField', () => {
     expect(wrapper.childAt(0).props().type).to.equal('hidden')
     expect(wrapper.childAt(0).props().value).to.equal('')
     expect(wrapper.childAt(1).text().indexOf('Please select an option')).to.equal(0)
-    expect(wrapper.find(Icon).props().name).to.equal('icon-caret')
+    expect(wrapper.find(Icon).props().name).to.equal('md-arrow-drop-down')
     expect(wrapper.find('ul').children()).to.have.length(2)
     expect(wrapper.find('ul').childAt(0).text()).to.equal(options[0].display)
     expect(wrapper.find('ul').childAt(0).props().className).to.not.equal('hidden')
@@ -78,7 +78,7 @@ describe('SelectField', () => {
   })
 
   it('should have an icon', () => {
-    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' icon='icon-globe-1' />)
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' icon='md-globe' />)
 
     expect(wrapper.hasClass('has-icon')).to.be.true
     expect(wrapper.find('.icon')).to.have.length(1)
@@ -89,9 +89,9 @@ describe('SelectField', () => {
 
     expect(wrapper.find('.icon')).to.have.length(2)
     expect(wrapper.find('ul').childAt(0).find(Icon)).to.have.length(1)
-    expect(wrapper.find('ul').childAt(0).find(Icon).props().name).to.equal('icon-megaphone-1')
+    expect(wrapper.find('ul').childAt(0).find(Icon).props().name).to.equal('md-dashboard')
     expect(wrapper.find('ul').childAt(1).find(Icon)).to.have.length(1)
-    expect(wrapper.find('ul').childAt(1).find(Icon).props().name).to.equal('icon-slack-1')
+    expect(wrapper.find('ul').childAt(1).find(Icon).props().name).to.equal('mbsy-slack')
     expect(wrapper.find('ul').childAt(1).find(Icon).props().fill).to.equal('#3C97D3')
 
     wrapper.childAt(1).simulate('click')

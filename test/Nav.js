@@ -9,7 +9,7 @@ describe('Nav', () => {
     {
       name: 'Item 1',
       route: '/',
-      icon: 'icon-award-3',
+      icon: 'md-local-activity'
     }, {
       name: 'Item 2',
       route: '/'

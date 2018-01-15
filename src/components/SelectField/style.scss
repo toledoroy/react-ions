@@ -15,12 +15,14 @@
   }
 
   .selectfield-value {
+    align-items: center;
     background-color: $white;
     border: 2px solid $neutral-3;
     border-radius: 3px;
     color: $primary-4;
     cursor: pointer;
     background: $white;
+    display: flex;
     position: relative;
     padding: 10px 29px 10px 10px;
     user-select: none;
@@ -28,8 +30,7 @@
 
     > svg:last-of-type {
       position: absolute;
-      right: 10px;
-      top: 13px;
+      right: 4px;
       transform: rotate(0);
     }
 
@@ -76,7 +77,7 @@
       @include vertical-align('block');
       color: $primary-4;
       cursor: pointer;
-      display: block;
+      display: flex;
       padding: 10px;
       text-decoration: none;
       min-height: 18px;

@@ -110,6 +110,7 @@
     "mkdirp": "^0.5.1",
     "mocha": "~2.3.3",
     "mocha-jsdom": "~1.0.0",
+    "ncp": "^2.0.0",
     "node-sass": "~3.4.2",
     "postcss-load-config": "1.1.0",
     "postcss-loader": "1.2.2",

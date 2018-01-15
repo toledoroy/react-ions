@@ -30,7 +30,7 @@ class ExampleInlineEditTooltip extends React.Component {
     }
     return (
       <div>
-        <InlineEdit name='test' value={this.state.value} tooltipClass={style['tooltip']} label='Email' icon='icon-mail-1' tooltipText={`The value is: '${this.state.value}'`} tooltipPlacement={this.state.tooltipPlacement} changeCallback={this.changeCallback} />
+        <InlineEdit name='test' value={this.state.value} tooltipClass={style['tooltip']} label='Email' icon='md-email' tooltipText={`The value is: '${this.state.value}'`} tooltipPlacement={this.state.tooltipPlacement} changeCallback={this.changeCallback} />
         <div className={style['button-callback']}>
           <p>Tooltip placement</p>
           <Button onClick={this.setTooltipPlacement.bind(this, 'top')} optClass={buttons.top}>Top</Button>
