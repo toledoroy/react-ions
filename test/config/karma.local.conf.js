@@ -6,7 +6,7 @@ module.exports = function(config) {
 
   config.set({
     basePath: '../',
-    frameworks: ['mocha', 'chai', 'sinon', 'enzyme-react-15'],
+    frameworks: ['mocha', 'chai', 'sinon', 'enzyme-react-16'],
     files: [
       'config/index.js'
     ],
@@ -113,7 +113,7 @@ module.exports = function(config) {
       'karma-chrome-launcher',
       'karma-coverage',
       'karma-threshold-reporter',
-      'karma-enzyme-react-15'
+      'karma-enzyme-react-16'
     ],
 
     babelPreprocessor: {

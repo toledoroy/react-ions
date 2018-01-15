@@ -55,21 +55,4 @@ describe('Toolbar', () => {
 
     expect(toolGroups.at(6).find('MergeTags')).to.have.length(1)
   })
-
-  it('should update when props change', () => {
-    wrapper = mount(<Toolbar textEditor={textEditor} mergeTags={mergeTags} onMount={onMount} />)
-    let shouldUpdate
-
-    shouldUpdate = wrapper.instance().shouldComponentUpdate({ textEditor, mergeTags, onMount }, null)
-
-    expect(shouldUpdate).to.be.false
-
-    const newMergeTags = [
-      { name: 'Tag 1', tag: '{tag_1}' },
-      { name: 'Tag 2', tag: '{tag_2}' }
-    ]
-    shouldUpdate = wrapper.instance().shouldComponentUpdate({ textEditor, mergeTags: newMergeTags, onMount }, null)
-
-    expect(shouldUpdate).to.be.true
-  })
 })
