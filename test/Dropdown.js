@@ -40,23 +40,18 @@ describe('Dropdown', () => {
   })
 
   it('displays a modified state upon changing props', function () {
-    var TestParent = React.createFactory(React.createClass({
-      getInitialState() {
-        return {isOpened: false}
-      },
-      render() {
-        return <WrappedDropdown ref='dropdown' trigger='Test' isOpened={this.state.isOpened}>This is a test.</WrappedDropdown>
-      }
-    }))
+    const listItems = [
+      {name: 'test1'},
+      {name: 'test2'},
+      {name: 'test3'}
+    ]
+    
+    wrapper = shallow(<Dropdown optClass='test' listItems={listItems} isOpened={false}>This is a test.</Dropdown>)
 
-    var parent = TestUtils.renderIntoDocument(TestParent())
-    expect(parent.refs.dropdown.props.isOpened).to.be.false
+    expect(wrapper.state('isOpened')).to.be.false
+    wrapper.setProps({ isOpened: true })
 
-    parent.setState({
-      isOpened: true
-    })
-
-    expect(parent.refs.dropdown.props.isOpened).to.be.true
+    expect(wrapper.state('isOpened')).to.be.true
   })
 
   it('should call changeCallback function', () => {

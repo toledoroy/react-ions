@@ -66,8 +66,8 @@ class Breadcrumb extends React.Component {
     return InlineStylePrefixer(styles)
   }
 
-  breadcrumbNode = (title) => {
-    return <em>
+  breadcrumbNode = (title, index) => {
+    return <em key={index}>
        <Icon name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />
        <span className={style.secondary}>{title}</span>
      </em>
@@ -83,11 +83,11 @@ class Breadcrumb extends React.Component {
 
       let tags = []
       if (rootRendered) {
-        tags.push(this.breadcrumbNode(title))
+        tags.push(this.breadcrumbNode(title, index))
         return tags
       }
 
-      tags.push(<h2 className={style.primary}>{title}</h2>)
+      tags.push(<h2 key={index} className={style.primary}>{title}</h2>)
       rootRendered = true
       return tags
     })

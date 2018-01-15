@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import Quill from 'quill'
-import shallowCompare from 'react-addons-shallow-compare'
 import Toolbar from './Toolbar'
 import style from './style.scss'
 import '../../styles/global/quill.scss'
@@ -10,7 +9,7 @@ import '../../styles/global/quill.scss'
 /**
  * The TextEditor component.
  */
-class TextEditor extends React.Component {
+class TextEditor extends PureComponent {
   constructor(props) {
     super(props)
 
@@ -134,10 +133,6 @@ class TextEditor extends React.Component {
       this.setContent(nextProps.value)
       this.setState({ value: nextProps.value })
     }
-  }
-
-  shouldComponentUpdate = (nextProps, nextState) => {
-    return shallowCompare(this, nextProps, nextState)
   }
 
   setToolbarRef = (toolbar) => {
