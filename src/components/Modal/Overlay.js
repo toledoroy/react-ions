@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import InlineStylePrefixer from '../internal/InlineStylePrefixer'
 
-const Overlay = (props) => {
+const Overlay = props => {
 
   const getStyles = function () {
     var style = {
@@ -36,7 +36,7 @@ const Overlay = (props) => {
 
   const {
     show,
-    ...other,
+    ...other
   } = props
 
   return (

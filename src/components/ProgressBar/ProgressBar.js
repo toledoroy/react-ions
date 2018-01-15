@@ -7,7 +7,7 @@ import style from './style.scss'
 /**
  * The ProgressBar fills from 0% to 100% to show the progress of a task.
  */
-const ProgressBar = (props) => {
+const ProgressBar = props => {
   let percentage = props.value > props.denominator ? 100 : (props.value / props.denominator) * 100
   let progressStyles = classNames(style['progress-bar'], style[props.optClass])
 

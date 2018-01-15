@@ -33,12 +33,13 @@ class Toolbar extends PureComponent {
 
   renderMergeTags = () => {
     const { onMount, ...other } = this.props
+
     return this.props.mergeTags ? <MergeTags {...other} /> : null
   }
 
   render = () => {
     return (
-      <div ref={(c) => this._toolbar = c}>
+      <div ref={c => this._toolbar = c}>
         <span className='ql-formats'>
           <select className='ql-font'></select>
         </span>

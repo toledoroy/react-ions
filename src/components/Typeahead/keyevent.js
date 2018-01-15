@@ -2,6 +2,7 @@
  * PolyFills make me sad
  */
 var KeyEvent = KeyEvent || {}
+
 KeyEvent.DOM_VK_UP = KeyEvent.DOM_VK_UP || 38
 KeyEvent.DOM_VK_DOWN = KeyEvent.DOM_VK_DOWN || 40
 KeyEvent.DOM_VK_RETURN = KeyEvent.DOM_VK_RETURN || 13

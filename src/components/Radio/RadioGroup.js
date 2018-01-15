@@ -68,7 +68,7 @@ class RadioGroup extends React.Component {
     }
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.value !== undefined && nextProps.value !== this.state.value) {
       this.setState({value: nextProps.value}, () => {
         this.checkItem(nextProps.value, this.state.options || nextProps.options)
@@ -90,6 +90,7 @@ class RadioGroup extends React.Component {
 
   checkItem = (value, options) => {
     let index = this.getIndex(value, options)
+
     if (index >= 0) {
       options[index].checked = true
     }
@@ -97,6 +98,7 @@ class RadioGroup extends React.Component {
 
   getIndex = (value, options) => {
     let optionIndex = -1
+
     options.map((radio, index) => {
       if (radio.value === value) {
         optionIndex = index
@@ -123,14 +125,13 @@ class RadioGroup extends React.Component {
             changeCallback: this.handleChange
           })
         }
-        else {
-          return child
-        }
+        return child
+
       })
     }
     // this means a normal RadioGroup with an options array was defined
-    else {
-      return this.props.options.map((option) =>
+
+    return this.props.options.map(option =>
         <Radio
           key={option.value}
           value={option.value}
@@ -142,7 +143,7 @@ class RadioGroup extends React.Component {
           changeCallback={this.handleChange}
           {...other} />
       )
-    }
+
   }
 
   render() {

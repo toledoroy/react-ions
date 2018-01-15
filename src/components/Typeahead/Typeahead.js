@@ -106,13 +106,12 @@ export class Typeahead extends React.Component {
   componentWillMount = () => {
     if (typeof this.state.value !== 'undefined' && this.state.value !== '' && this.getIndex(this.state.value, this.props.options) > -1) {
       this.selectItem(this.state.value, this.props.options)
-    }
-    else {
+    } else {
       this.setState({selected: ''})
     }
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     const valueIsEmpty = nextProps.value === ''
     const valueChanged = nextProps.value !== this.state.value
     const allowCustomValue = this.props.allowCustomValue
@@ -133,7 +132,7 @@ export class Typeahead extends React.Component {
     }
   }
 
-  selectOption = (option) => {
+  selectOption = option => {
     let normalizedOption = option.original ? option.original : option
 
     let newState = {
@@ -166,6 +165,7 @@ export class Typeahead extends React.Component {
 
   selectItem = (value, options) => {
     let index = this.getIndex(value, options)
+
     if (index >= 0) {
       this.selectOption(options[index], false)
     }
@@ -173,6 +173,7 @@ export class Typeahead extends React.Component {
 
   getIndex = (value, options) => {
     let optionIndex = -1
+
     options.map((option, index) => {
       if (option[this.props.valueProp] === value) {
         optionIndex = index
@@ -181,7 +182,7 @@ export class Typeahead extends React.Component {
     return optionIndex
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     if (!event.target.value.length) {
       this.clearSearch()
       return
@@ -199,7 +200,7 @@ export class Typeahead extends React.Component {
     }
 
     if (typeof this.props.searchCallback === 'function') {
-      this.props.searchCallback(event.target.value).then((options) => {
+      this.props.searchCallback(event.target.value).then(options => {
         this.updateResults(event, options)
       })
     } else {
@@ -215,7 +216,7 @@ export class Typeahead extends React.Component {
     let str = {
       pre: '<b>',
       post: '</b>',
-      extract: (el) => {
+      extract: el => {
         return el[this.props.displayProp]
       }
     }
@@ -225,10 +226,11 @@ export class Typeahead extends React.Component {
     }
 
     let results = fuzzy.filter(event.target.value, options, str)
+
     this.setState({results: results, isActive: true})
   }
 
-  getDynamicList = (str) => {
+  getDynamicList = str => {
     return {
       __html: str
     }
@@ -276,7 +278,7 @@ export class Typeahead extends React.Component {
         { label && <label>{label}</label> }
 
         <div className={style['input-wrapper']}>
-          <Input ref={(c) => this._inputField = c} changeCallback={this.onChange} value={this.state.searchStr} placeholder={placeholder} disabled={disabled} />
+          <Input ref={c => this._inputField = c} changeCallback={this.onChange} value={this.state.searchStr} placeholder={placeholder} disabled={disabled} />
 
           { this.state.searchStr !== '' && !loading && !disabled
             ? <Icon name='icon-delete-1-1' onClick={this.clearSearch} className={style['reset-button']}>Reset</Icon>
@@ -286,8 +288,8 @@ export class Typeahead extends React.Component {
 
         { loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
 
-        { this.state.isActive ?
-          <ul className={style['typeahead-list']}>
+        { this.state.isActive
+          ? <ul className={style['typeahead-list']}>
             {options}
           </ul>
           : null

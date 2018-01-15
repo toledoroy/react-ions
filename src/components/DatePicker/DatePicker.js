@@ -204,7 +204,7 @@ class DatePicker extends React.Component {
    * @returns {Array} Array of objects, ex. [{ value: '0', display: 'Jan' }, (...), { value: '11', display: 'Dec' }]
    * @private
    */
-  _getMonths = (dateObj) => {
+  _getMonths = dateObj => {
     let monthOptions = []
     const checkMin = dateObj.year.value === dateObj.year.min
     const checkMax = dateObj.year.value === dateObj.year.max
@@ -235,7 +235,7 @@ class DatePicker extends React.Component {
    * @returns {Array} Array of objects, ex. [{ value: '1' }, (...), { value: '31' }]
    * @private
    */
-  _getDays = (dateObj) => {
+  _getDays = dateObj => {
     let dayOptions = []
 
     const checkMin = dateObj.year.value === dateObj.year.min && dateObj.month.value === dateObj.month.min
@@ -279,8 +279,9 @@ class DatePicker extends React.Component {
     return moment.utc().year(state.year.value).month(state.month.value).date(state.day.value).format(format)
   }
 
-  handleChangeYear = (event) => {
+  handleChangeYear = event => {
     let state = this.state
+
     state.year.value = parseInt(event.target.value)
     state.value = this._getValue(state, this.props.format)
 
@@ -296,8 +297,9 @@ class DatePicker extends React.Component {
     })
   }
 
-  handleChangeMonth = (event) => {
+  handleChangeMonth = event => {
     let state = this.state
+
     state.month.value = parseInt(event.target.value)
     state.value = this._getValue(state, this.props.format)
     state.day.options = this._getDays(state)
@@ -310,8 +312,9 @@ class DatePicker extends React.Component {
     })
   }
 
-  handleChangeDay = (event) => {
+  handleChangeDay = event => {
     let state = this.state
+
     state.day.value = parseInt(event.target.value)
     state.value = this._getValue(state, this.props.format)
     this.setState({
@@ -322,7 +325,7 @@ class DatePicker extends React.Component {
     })
   }
 
-  callback = (value) => {
+  callback = value => {
     if (typeof this.props.changeCallback === 'function') {
       this.props.changeCallback({
         target: {
@@ -337,7 +340,7 @@ class DatePicker extends React.Component {
     this._initDate(this.props.value, this.props.format)
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.value !== this.props.value) {
       this._initDate(nextProps.value, this.props.format)
     }

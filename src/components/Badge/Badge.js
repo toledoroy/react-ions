@@ -4,7 +4,7 @@ import style from './style.scss'
 import classNames from 'classnames/bind'
 import Icon from '../Icon'
 
-const Badge = (props) => {
+const Badge = props => {
   const cx = classNames.bind(style)
   const iconPlusText = (props.icon && props.text) ? 'padded' : null
   const iconSize = props.size === 'heavy' ? '30' : '16'

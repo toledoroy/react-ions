@@ -4,7 +4,7 @@ import Node from './Node'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 
-const Nav = (props) => {
+const Nav = props => {
   const cx = classNames.bind(style)
   const navClasses = cx(style.nav, props.optClass)
 

@@ -48,7 +48,7 @@ export class Popover extends React.Component {
     return false
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.showing) {
       const popoverRect = this._popoverElement.getBoundingClientRect()
 

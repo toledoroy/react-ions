@@ -50,13 +50,13 @@ export class ColorPicker extends React.Component {
     }
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.value !== this.props.value) {
       this.setState({ color: nextProps.value })
     }
   }
 
-  handleClick = (event) => {
+  handleClick = event => {
     this.setState({ displayColorPicker: !this.state.displayColorPicker })
   }
 
@@ -64,7 +64,7 @@ export class ColorPicker extends React.Component {
     this.setState({ displayColorPicker: false })
   }
 
-  handlePickerChange = (color) => {
+  handlePickerChange = color => {
     let newColor = color.hex
 
     this.setState({ color: newColor }, function () {
@@ -79,7 +79,7 @@ export class ColorPicker extends React.Component {
     })
   }
 
-  handleInputChange = (event) => {
+  handleInputChange = event => {
     let newColor = ''
 
     if (event.target.value && !event.target.value.startsWith('#')) {
@@ -115,11 +115,11 @@ export class ColorPicker extends React.Component {
         />
         <div
           className={colorPreviewClass}
-          style={{backgroundColor: this.state.color, border: '1px solid ' + colorLuminance(this.state.color || '#ffffff', -.20)}}
+          style={{backgroundColor: this.state.color, border: '1px solid ' + colorLuminance(this.state.color || '#ffffff', -0.20)}}
           onClick={this.handleClick}>
         </div>
-        { this.state.displayColorPicker ?
-          <div className={style['sketch-container']} ref={(c) => this._sketchContainer = c}>
+        { this.state.displayColorPicker
+          ? <div className={style['sketch-container']} ref={c => this._sketchContainer = c}>
             <SketchPicker color={ this.state.color } onChange={this.handlePickerChange} presetColors={[]} />
           </div>
           : null

@@ -48,6 +48,7 @@ class RenderToLayer extends React.Component {
       // entirely different part of the page.
 
       const layerElement = render()
+
       this.layerElement = ReactDOM.unstable_renderSubtreeIntoContainer(this, layerElement, this.layer)
     } else {
       this.unrenderLayer()

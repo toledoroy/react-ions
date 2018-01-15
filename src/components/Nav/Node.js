@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 import Icon from '../Icon'
 import style from './style.scss'
 
-const Node = (props) => {
+const Node = props => {
   let childnodes = null
   let iconParent = props.node.icon ? props.node.icon : null
   let link
@@ -35,21 +35,19 @@ const Node = (props) => {
   return (
     <li>
     { props.node.external && typeof props.node.action === 'string' || typeof props.node.action === 'function'
-      ?
-      <div>
+      ? <div>
         {link}
-        { childnodes ?
-          <ul className={iconParent ? style.indent : null}>{childnodes}</ul>
+        { childnodes
+          ? <ul className={iconParent ? style.indent : null}>{childnodes}</ul>
         : null }
       </div>
-      :
-      <div>
+      : <div>
         <Link to={props.node.action} activeClassName={style.active}>
           {iconParent ? <Icon name={iconParent} fill='currentColor' /> : null}
           {props.node.name}
         </Link>
-        { childnodes ?
-          <ul className={iconParent ? style.indent : null}>{childnodes}</ul>
+        { childnodes
+          ? <ul className={iconParent ? style.indent : null}>{childnodes}</ul>
         : null }
       </div>
       }

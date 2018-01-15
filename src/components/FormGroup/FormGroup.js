@@ -60,7 +60,7 @@ class FormGroup extends React.Component {
     fieldErrors: {}
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     const nextPropsSchema = fromJS(nextProps.schema)
     const thisPropsSchema = fromJS(this.props.schema)
 
@@ -81,7 +81,7 @@ class FormGroup extends React.Component {
   // errors can be captured from state if internal validation is used
   _mapFieldErrors = () => Map(this.state.fieldErrors).merge(this.props.fieldErrors)
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault()
 
     const fieldErrors = validate(this._formValidation, formSchemaToKeyVal(this.state.fields))
@@ -98,7 +98,7 @@ class FormGroup extends React.Component {
     }
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     let val = event.target.value
     let option = event.target.option
 
@@ -121,7 +121,7 @@ class FormGroup extends React.Component {
     })
   }
 
-  getElements = (children) => {
+  getElements = children => {
     // Resetting validation each time this is run
     let validationMap = Map()
     const fieldErrors = this._mapFieldErrors()
@@ -130,6 +130,7 @@ class FormGroup extends React.Component {
       if (!child) return child
 
       let childProps = {}
+
       if (child.props) {
         const name = child.props.name
 
@@ -140,7 +141,7 @@ class FormGroup extends React.Component {
 
         if (child.props.validation) {
           validationMap = validationMap.set(name, Map({
-            validators: fromJS(child.props.validation),
+            validators: fromJS(child.props.validation)
           }))
         }
 
@@ -173,9 +174,9 @@ class FormGroup extends React.Component {
                         {elements}
                       </fieldset>
                     </form>
-    }
-    else {
+    } else {
       const fieldsetClass = optclass(style, 'fieldset', this.props.optClass)
+
       formWrapper = <fieldset className={fieldsetClass}>
                       {elements}
                     </fieldset>

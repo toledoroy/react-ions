@@ -71,7 +71,7 @@ export class SortableList extends React.Component {
     window.removeEventListener('resize', this.handleResize)
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     this.setState({ items: nextProps.items })
   }
 
@@ -98,8 +98,9 @@ export class SortableList extends React.Component {
     })
   }
 
-  toggleSortableItem = (index) => {
+  toggleSortableItem = index => {
     let items = this.state.items
+
     items[index].active = !items[index].active
 
     this.setState(update(this.state, {
@@ -137,7 +138,7 @@ export class SortableList extends React.Component {
     const { hideOrderNumbers } = this.props
 
     return (
-      <div className={style['sortable-list-container']} ref={(c) => this._sortableList = c}>
+      <div className={style['sortable-list-container']} ref={c => this._sortableList = c}>
         <div className={style['sortable-list']}>
           {items.map((item, i) => {
             return (

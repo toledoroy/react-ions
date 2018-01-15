@@ -4,14 +4,14 @@ import { Link } from 'react-router'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 
-const ButtonAnchor = (props) => {
+const ButtonAnchor = props => {
   const cx = classNames.bind(style)
   const collapseClass = props.collapse ? 'collapse' : null
   const btnAnchorClasses = cx(style.btn, props.optClass, props.size, collapseClass)
 
   let buttonAnchor
 
-  const handleClick = (e) => {
+  const handleClick = e => {
     if (props.disabled) {
       e.preventDefault()
     }

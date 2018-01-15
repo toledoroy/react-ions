@@ -35,7 +35,7 @@ class Breadcrumb extends React.Component {
     routes: Immutable.fromJS(this.props.routes)
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     this.setState({
       routes: Immutable.fromJS(nextProps.routes)
     })
@@ -79,9 +79,11 @@ class Breadcrumb extends React.Component {
 
     return this.state.routes.map((item, index) => {
       const title = item.get('title')
+
       if (title === undefined) return
 
       let tags = []
+
       if (rootRendered) {
         tags.push(this.breadcrumbNode(title, index))
         return tags

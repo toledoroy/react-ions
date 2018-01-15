@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import svg from 'react-ions/sprite/sprite.svg'
 
-const Icon = (props) => {
+const Icon = props => {
   const {
     name, width, height, fill, className, onClick
   } = props

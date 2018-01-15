@@ -48,7 +48,7 @@ class ButtonToggle extends React.Component {
     changeCallback: PropTypes.func
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     if (typeof this.props.changeCallback === 'function') {
       this.props.changeCallback(event, this.props.value)
     }
