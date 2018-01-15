@@ -35,7 +35,7 @@ describe('Node', () => {
     {
       name: 'Colors',
       action: '/foundations/colors',
-      icon: 'icon-check-1-1'
+      icon: 'md-check'
     }
   ]
 
@@ -64,14 +64,14 @@ describe('Node', () => {
     const wrapper = shallow(<Node node={nodeWithIcon[0]} />)
     expect(wrapper.childAt(0).childAt(0).type()).to.equal(Link)
     expect(wrapper.childAt(0).childAt(0).childAt(0).type()).to.equal(Icon)
-    expect(wrapper.childAt(0).childAt(0).childAt(0).props().name).to.equal('icon-check-1-1')
+    expect(wrapper.childAt(0).childAt(0).childAt(0).props().name).to.equal('md-check')
     expect(wrapper.childAt(0).childAt(0).childAt(0).props().fill).to.equal('currentColor')
   })
 
   it('should render a single external node with an icon', () => {
     const wrapper = shallow(<Node node={nodeWithIcon[0]} />)
     expect(wrapper.childAt(0).childAt(0).childAt(0).type()).to.equal(Icon)
-    expect(wrapper.childAt(0).childAt(0).childAt(0).props().name).to.equal('icon-check-1-1')
+    expect(wrapper.childAt(0).childAt(0).childAt(0).props().name).to.equal('md-check')
     expect(wrapper.childAt(0).childAt(0).childAt(0).props().fill).to.equal('currentColor')
   })
 

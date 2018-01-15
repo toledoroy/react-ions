@@ -7,7 +7,7 @@ import styles from './styles'
 const ExampleDropdownButton = () => (
   <Dropdown trigger={<Button>Dropdown</Button>}>
     <div className={styles.wrapper}>
-      <Badge icon='icon-check-1-1' theme='success' /><span>Dropdown content here.</span>
+      <Badge icon='md-check' theme='success' /><span>Dropdown content here.</span>
     </div>
   </Dropdown>
 )

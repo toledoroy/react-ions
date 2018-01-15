@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import svg from 'react-ions/sprite/sprite.svg'
+import svg from '../../assets/icons/symbol/sprite.svg'
 
 const Icon = (props) => {
   const {
