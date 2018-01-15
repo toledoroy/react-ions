@@ -67,7 +67,7 @@ export class ColorPicker extends React.Component {
   handlePickerChange = (color) => {
     let newColor = color.hex
 
-    this.setState({ color: newColor }, function() {
+    this.setState({ color: newColor }, function () {
       if (typeof this.props.changeCallback === 'function') {
         this.throttle(this.props.changeCallback, {
           target: {
@@ -88,7 +88,7 @@ export class ColorPicker extends React.Component {
 
     newColor += event.target.value
 
-    this.setState({ color: newColor }, function() {
+    this.setState({ color: newColor }, function () {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {

@@ -50,8 +50,8 @@ class RadioGroup extends React.Component {
   }
 
   componentWillMount = () => {
-    //form an array of options based on the children that were passed in
-    //this can be done in the case of a RadioGroup with explicit children (see docs example)
+    // form an array of options based on the children that were passed in
+    // this can be done in the case of a RadioGroup with explicit children (see docs example)
     if (this.props.children) {
       const childOptions = this.props.children.reduce((options, child) => {
         if (child.type === Radio) {
@@ -111,8 +111,8 @@ class RadioGroup extends React.Component {
     const groupName = this.props.name
     const { options, label, name, value, description, changeCallback, ...other } = this.props
 
-    //this means explicit radio buttons were defined (usually paired with other form fields)
-    //we create an options array in the state (because there is no options in props) for checkItem to use
+    // this means explicit radio buttons were defined (usually paired with other form fields)
+    // we create an options array in the state (because there is no options in props) for checkItem to use
     if (this.props.children) {
       return this.props.children.map((child, index) => {
         if (child.type === Radio) {
@@ -128,7 +128,7 @@ class RadioGroup extends React.Component {
         }
       })
     }
-    //this means a normal RadioGroup with an options array was defined
+    // this means a normal RadioGroup with an options array was defined
     else {
       return this.props.options.map((option) =>
         <Radio

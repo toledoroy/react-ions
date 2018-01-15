@@ -19,7 +19,7 @@ export class ButtonConfirmation extends Component {
     /**
      * Optional styles to add to the button.
      */
-     optClass: PropTypes.oneOfType([
+    optClass: PropTypes.oneOfType([
        PropTypes.array,
        PropTypes.string
      ]),
@@ -70,7 +70,7 @@ export class ButtonConfirmation extends Component {
   }
 
   handleConfirmation = (confirm) => {
-    this.setState({ confirmationOverlayOpen: false  }, () => {
+    this.setState({ confirmationOverlayOpen: false }, () => {
       if (typeof this.props.handleConfirmation === 'function' && confirm) {
         this.props.handleConfirmation(confirm)
       }
@@ -119,7 +119,7 @@ export class ButtonConfirmation extends Component {
     if (this.props.position === 'left') {
       return { left: `calc(${(this.state.triggerWidth / 2) - 5}px)` }
     }
-    return this.state.wide ? { left: `95px` } :  { left: `75px` }
+    return this.state.wide ? { left: '95px' } : { left: '75px' }
   }
 
   /**

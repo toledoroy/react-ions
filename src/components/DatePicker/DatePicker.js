@@ -4,7 +4,7 @@ import moment from 'moment'
 import SelectField from '../SelectField/SelectField'
 import style from './style.scss'
 import optclass from '../internal/OptClass'
-import DateHelper  from './DateHelper'
+import DateHelper from './DateHelper'
 
 /**
  * The DatePicker component.
@@ -191,7 +191,7 @@ class DatePicker extends React.Component {
   _getYears = (min, max) => {
     let yearOptions = []
 
-    for (var i=min; i<=max; i++) {
+    for (var i = min; i <= max; i++) {
       yearOptions.push({value: i.toString()})
     }
 
@@ -210,20 +210,20 @@ class DatePicker extends React.Component {
     const checkMax = dateObj.year.value === dateObj.year.max
 
     let start = checkMin ? dateObj.month.min : 0
-    let end = checkMax ? dateObj.month.max+1 : 12
+    let end = checkMax ? dateObj.month.max + 1 : 12
 
-    for (var i=start; i<end; i++) {
-      monthOptions.push({value: i.toString(), display: moment.utc(i+1, 'MM').format('MMM')})
+    for (var i = start; i < end; i++) {
+      monthOptions.push({value: i.toString(), display: moment.utc(i + 1, 'MM').format('MMM')})
     }
 
     // if selected month is greater than max month, change it to max month
     if (checkMax && dateObj.month.value > dateObj.month.max) {
-        dateObj.month.value = dateObj.month.max
+      dateObj.month.value = dateObj.month.max
     }
 
     // if selected month is lower than min month, change it to min month
     if (checkMin && dateObj.month.value < dateObj.month.min) {
-        dateObj.month.value = dateObj.month.min
+      dateObj.month.value = dateObj.month.min
     }
 
     return monthOptions
@@ -240,12 +240,12 @@ class DatePicker extends React.Component {
 
     const checkMin = dateObj.year.value === dateObj.year.min && dateObj.month.value === dateObj.month.min
     const checkMax = dateObj.year.value === dateObj.year.max && dateObj.month.value === dateObj.month.max
-    const daysInMonth = moment.utc(dateObj.year.value+'-'+(dateObj.month.value+1), 'YYYY-M').daysInMonth()
+    const daysInMonth = moment.utc(dateObj.year.value + '-' + (dateObj.month.value + 1), 'YYYY-M').daysInMonth()
 
     let start = checkMin ? dateObj.day.min : 1
     let end = checkMax ? dateObj.day.max : daysInMonth
 
-    for (var i=start; i<=end; i++) {
+    for (var i = start; i <= end; i++) {
       dayOptions.push({value: i.toString()})
     }
 
@@ -256,12 +256,12 @@ class DatePicker extends React.Component {
 
     // if selected day is greater than max day, change it to max day
     if (checkMax && dateObj.day.value > dateObj.day.max) {
-        dateObj.day.value = dateObj.day.max
+      dateObj.day.value = dateObj.day.max
     }
 
     // if selected day is lower than min day, change it to min day
     if (checkMin && dateObj.day.value < dateObj.day.min) {
-        dateObj.day.value = dateObj.day.min
+      dateObj.day.value = dateObj.day.min
     }
 
     dateObj.value = this._getValue(dateObj, this.props.format)

@@ -64,7 +64,7 @@ class FileUpload extends React.Component {
   }
 
   _normalizeValue = (value) => {
-    if(!value || value === '') {
+    if (!value || value === '') {
       return []
     }
     else if (typeof value === 'object') {
@@ -101,7 +101,7 @@ class FileUpload extends React.Component {
 
   handleUpload = (files) => {
     if (!this.props.disabled) {
-      this.setState({ files: files }, function() {
+      this.setState({ files: files }, function () {
         this.handleChange()
       })
     }
@@ -110,7 +110,7 @@ class FileUpload extends React.Component {
   handleRemove = (index) => {
     let savedFiles = this.state.files
     savedFiles.splice(index, 1)
-    this.setState({ files: savedFiles }, function() {
+    this.setState({ files: savedFiles }, function () {
       this.handleChange()
     })
   }

@@ -15,7 +15,7 @@ const Node = (props) => {
     )
   }
 
-  const handleClick = function(e) {
+  const handleClick = function (e) {
     e.preventDefault()
     props.node.action()
   }

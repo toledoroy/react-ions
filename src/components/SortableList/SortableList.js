@@ -86,7 +86,7 @@ export class SortableList extends React.Component {
           [hoverIndex, 0, dragSortableItem]
         ]
       }
-    }), function() {
+    }), function () {
       if (this.props.changeCallback) {
         this.props.changeCallback({
           target: {
@@ -104,7 +104,7 @@ export class SortableList extends React.Component {
 
     this.setState(update(this.state, {
       items: { $set: items }
-    }), function() {
+    }), function () {
       if (this.props.changeCallback) {
         this.props.changeCallback({
           target: {
@@ -117,7 +117,7 @@ export class SortableList extends React.Component {
   }
 
   onDragStart = () => {
-    this.setState({ dragging: true }, function() {
+    this.setState({ dragging: true }, function () {
       if (this.props.onDragStart) {
         this.props.onDragStart()
       }
@@ -125,7 +125,7 @@ export class SortableList extends React.Component {
   }
 
   onDragStop = () => {
-    this.setState({ dragging: false }, function() {
+    this.setState({ dragging: false }, function () {
       if (this.props.onDragStop) {
         this.props.onDragStop()
       }

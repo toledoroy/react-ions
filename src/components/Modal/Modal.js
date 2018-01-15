@@ -104,7 +104,7 @@ class Modal extends React.Component {
     const modalClass = cx(style['modal-component'], this.props.optClass, modalOpenClass, theme)
     const modalContentClass = cx(style['modal-content'], modalSizeClass)
     const modalTitleIsElement = !(typeof this.props.title === 'string')
-    const modalTitle = modalTitleIsElement ?  this.props.title : <h1>{this.props.title}</h1>
+    const modalTitle = modalTitleIsElement ? this.props.title : <h1>{this.props.title}</h1>
 
     const actionsContainer = React.Children.count(this.props.actions) > 0 && (
       <div className={style['modal-actions']}>
@@ -124,7 +124,7 @@ class Modal extends React.Component {
           <div className={modalContentClass}>
             <div className={style['modal-header']}>
               {
-                //render close button if closeOnAction is false and modalTitle is not an element
+                // render close button if closeOnAction is false and modalTitle is not an element
                 !this.props.closeOnAction && !modalTitleIsElement
                   ? <div className={style['modal-close']}>
                       <Icon

@@ -9,7 +9,7 @@ const Icon = (props) => {
 
   return (
     <svg role='img' name={name} width={width} height={height} fill={fill} className={className} onClick={onClick} viewBox='0 0 8 8'>
-      <use xlinkHref={svg+'#'+props.name} />
+      <use xlinkHref={svg + '#' + props.name} />
     </svg>
   )
 }

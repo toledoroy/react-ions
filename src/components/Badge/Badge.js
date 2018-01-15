@@ -5,10 +5,10 @@ import classNames from 'classnames/bind'
 import Icon from '../Icon'
 
 const Badge = (props) => {
-  const cx = classNames.bind(style);
-  const iconPlusText = (props.icon && props.text) ? 'padded' : null;
-  const iconSize = props.size === 'heavy' ? '30' : '16';
-  const badgeClasses = cx(style.badge, props.theme, props.size, props.optClass, iconPlusText);
+  const cx = classNames.bind(style)
+  const iconPlusText = (props.icon && props.text) ? 'padded' : null
+  const iconSize = props.size === 'heavy' ? '30' : '16'
+  const badgeClasses = cx(style.badge, props.theme, props.size, props.optClass, iconPlusText)
 
   return (
     <div className={badgeClasses}>

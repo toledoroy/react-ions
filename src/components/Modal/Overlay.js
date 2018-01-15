@@ -4,7 +4,7 @@ import InlineStylePrefixer from '../internal/InlineStylePrefixer'
 
 const Overlay = (props) => {
 
-  const getStyles = function() {
+  const getStyles = function () {
     var style = {
       position: 'fixed',
       height: '100%',

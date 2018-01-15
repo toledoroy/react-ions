@@ -5,12 +5,12 @@ import style from './style.scss'
 import classNames from 'classnames/bind'
 
 const Nav = (props) => {
-  const cx = classNames.bind(style);
-  const navClasses = cx(style.nav, props.optClass);
+  const cx = classNames.bind(style)
+  const navClasses = cx(style.nav, props.optClass)
 
   const nodes = props.data.map((item, index) =>
     <Node node={item} children={item.nav} key={index} />
-  );
+  )
 
   return (
     <div role='nav' className={navClasses}>
@@ -18,7 +18,7 @@ const Nav = (props) => {
        {nodes}
       </ul>
     </div>
-  );
+  )
 }
 
 Nav.propTypes = {

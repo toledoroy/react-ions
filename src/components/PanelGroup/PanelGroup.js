@@ -95,13 +95,13 @@ class PanelGroup extends React.Component {
 
     if (!this.props.accordion) {
       state[panelIndex] = {active: !this.state.panels[panelIndex].active}
-      this.setState({panels: state}, function() {
+      this.setState({panels: state}, function () {
         this.onPanelToggle()
       })
     } else {
       var resetState = this.collapsePanels()
       resetState[panelIndex] = {active: !this.state.panels[panelIndex].active}
-      this.setState({panels: resetState}, function() {
+      this.setState({panels: resetState}, function () {
         this.onPanelToggle()
       })
     }

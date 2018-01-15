@@ -64,7 +64,7 @@ class FormGroup extends React.Component {
     const nextPropsSchema = fromJS(nextProps.schema)
     const thisPropsSchema = fromJS(this.props.schema)
 
-    if(!is(nextPropsSchema, thisPropsSchema)) {
+    if (!is(nextPropsSchema, thisPropsSchema)) {
       this.setState({
         fields: fromJS(nextProps.schema)
       })
@@ -125,7 +125,7 @@ class FormGroup extends React.Component {
     // Resetting validation each time this is run
     let validationMap = Map()
     const fieldErrors = this._mapFieldErrors()
-    
+
     return React.Children.map(children, child => {
       if (!child) return child
 

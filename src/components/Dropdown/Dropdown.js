@@ -40,7 +40,7 @@ export class Dropdown extends React.Component {
     /**
      * Optional array of items used in a dropdown list
      */
-     listItems: PropTypes.array
+    listItems: PropTypes.array
   }
 
   state = {
