@@ -2,8 +2,9 @@ var SVGSpriter = require('svg-sprite');
 var path = require('path');
 var mkdirp = require('mkdirp');
 var fs = require('fs');
+var ncp = require('ncp').ncp;
 var cwd = path.join(__dirname, '/../');
-var dest = path.normalize(path.join(__dirname, '/../lib/assets/icons'));
+var dest = path.normalize(path.join(__dirname, '/../src/assets/icons'));
 var list = require('../src/assets/icons/master-list');
 var normalizeIconList = require('./normalize-icon-list');
 
@@ -18,6 +19,17 @@ var spriter = new SVGSpriter({
   }
 });
 
+function copySpriteFile() {
+  var source = cwd + 'src/assets';
+  var destination = cwd + 'lib/assets';
+
+  ncp(source, destination, function (err) {
+    if (err) {
+      return console.error(err);
+    }
+    console.log('Sprite assets copied to /lib.');
+   });
+}
 /**
  * Add a bunch of SVG files
  *
@@ -46,5 +58,6 @@ addFixtureFiles(spriter, normalizeIconList(list)).compile({
       fs.writeFileSync(result.symbol[type].path, result.symbol[type].contents);
     }
     console.log('Sprite file generated.');
+    copySpriteFile()
   }
 })
