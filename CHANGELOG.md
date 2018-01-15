@@ -1,5 +1,13 @@
 ## HEAD
 
+## 4.0.0-rc.2
+###### _January 12, 2018_
+- React-ions now supports react v16, support for react versions lower than 15.3 has been dropped
+
+## 3.1.2
+###### _January 12, 2018_
+Inline Edit - changing icon names to match previous Streamline version  [#569](https://github.com/GetAmbassador/react-ions/pull/569)
+
 ## 3.1.1
 ###### _January 2, 2018_
 Icon UI - adjusting a few minor example UI items [#561](https://github.com/GetAmbassador/react-ions/pull/561)
