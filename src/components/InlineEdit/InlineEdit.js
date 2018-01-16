@@ -275,7 +275,7 @@ class InlineEdit extends React.Component {
     }
 
     const copyIconFill = this.state.value === '' ? '#9198A0' : '#3C97D3'
-    return <Icon name='clipboard' height='14' width='14' fill={copyIconFill} />
+    return <Icon name='icon-clipboard-1' height='14' width='14' fill={copyIconFill} />
   }
 
   getIcon = () => {
