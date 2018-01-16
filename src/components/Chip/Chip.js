@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import optclass from '../internal/OptClass'
 import style from './style.scss'
 
-const Chip = (props) => {
+const Chip = props => {
   const isActionable = props.clickCallback ? 'is-actionable' : null
   const chipClasses = optclass(style, ['chip-wrapper', props.color, props.size, props.optClass, isActionable])
 

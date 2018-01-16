@@ -9,37 +9,37 @@ class RenderToLayer extends React.Component {
   };
 
   componentDidMount() {
-    this.renderLayer();
+    this.renderLayer()
   }
 
   componentDidUpdate() {
-    this.renderLayer();
+    this.renderLayer()
   }
 
   componentWillUnmount() {
-    this.unrenderLayer();
+    this.unrenderLayer()
   }
 
   unrenderLayer() {
     if (!this.layer) {
-      return;
+      return
     }
 
-    ReactDOM.unmountComponentAtNode(this.layer);
-    document.body.removeChild(this.layer);
-    this.layer = null;
+    ReactDOM.unmountComponentAtNode(this.layer)
+    document.body.removeChild(this.layer)
+    this.layer = null
   }
 
   renderLayer() {
     const {
       open,
       render
-    } = this.props;
+    } = this.props
 
     if (open) {
       if (!this.layer) {
-        this.layer = document.createElement('div');
-        document.body.appendChild(this.layer);
+        this.layer = document.createElement('div')
+        document.body.appendChild(this.layer)
       }
 
       // By calling this method in componentDidMount() and
@@ -47,15 +47,16 @@ class RenderToLayer extends React.Component {
       // funnels React's hierarchical updates through to a DOM node on an
       // entirely different part of the page.
 
-      const layerElement = render();
-      this.layerElement = ReactDOM.unstable_renderSubtreeIntoContainer(this, layerElement, this.layer);
+      const layerElement = render()
+
+      this.layerElement = ReactDOM.unstable_renderSubtreeIntoContainer(this, layerElement, this.layer)
     } else {
-      this.unrenderLayer();
+      this.unrenderLayer()
     }
   }
 
   render() {
-    return null;
+    return null
   }
 }
 

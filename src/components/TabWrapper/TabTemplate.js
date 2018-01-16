@@ -16,7 +16,7 @@ class TabTemplate extends React.Component {
     const styles = {
       width: '100%',
       position: 'relative',
-      textAlign: 'initial',
+      textAlign: 'initial'
     }
 
     if (!this.props.active) {

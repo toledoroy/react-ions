@@ -19,10 +19,10 @@ export class ButtonConfirmation extends Component {
     /**
      * Optional styles to add to the button.
      */
-     optClass: PropTypes.oneOfType([
-       PropTypes.array,
-       PropTypes.string
-     ]),
+    optClass: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string
+    ]),
     /**
      * The size of button.
      */
@@ -69,8 +69,8 @@ export class ButtonConfirmation extends Component {
     })
   }
 
-  handleConfirmation = (confirm) => {
-    this.setState({ confirmationOverlayOpen: false  }, () => {
+  handleConfirmation = confirm => {
+    this.setState({ confirmationOverlayOpen: false }, () => {
       if (typeof this.props.handleConfirmation === 'function' && confirm) {
         this.props.handleConfirmation(confirm)
       }
@@ -119,7 +119,7 @@ export class ButtonConfirmation extends Component {
     if (this.props.position === 'left') {
       return { left: `calc(${(this.state.triggerWidth / 2) - 5}px)` }
     }
-    return this.state.wide ? { left: `95px` } :  { left: `75px` }
+    return this.state.wide ? { left: '95px' } : { left: '75px' }
   }
 
   /**
@@ -164,7 +164,7 @@ export class ButtonConfirmation extends Component {
     const confirmationOverlayClasses = cx(overlayVisibleClass, overlayPositionClass, overlayWideClass, style['confirmation-overlay'])
 
     return (
-      <div ref={(trigger) => this._trigger = trigger} className={style['confirmation-wrapper']}>
+      <div ref={trigger => this._trigger = trigger} className={style['confirmation-wrapper']}>
         <Button {...other} disabled={this.state.confirmationOverlayOpen} onClick={this.handleOpen}>
           { this.props.children }
         </Button>
@@ -180,6 +180,5 @@ export class ButtonConfirmation extends Component {
     )
   }
 }
-
 
 export default ButtonConfirmation

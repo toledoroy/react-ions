@@ -71,7 +71,7 @@ class TextEditor extends PureComponent {
     })
   }
 
-  handleChange = (value) => {
+  handleChange = value => {
     const event = {
       target: {
         name: this.props.name,
@@ -87,7 +87,7 @@ class TextEditor extends PureComponent {
     })
   }
 
-  setContent = (value) => {
+  setContent = value => {
     this._editor.firstChild.innerHTML = value
   }
 
@@ -104,6 +104,7 @@ class TextEditor extends PureComponent {
     // Use style attribute for align and font tools
     const AlignAttribute = Quill.import('attributors/style/align')
     const FontAttribute = Quill.import('attributors/style/font')
+
     Quill.register(AlignAttribute, true)
     Quill.register(FontAttribute, true)
 
@@ -124,7 +125,7 @@ class TextEditor extends PureComponent {
     })
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     // Enable/disable the editor
     this.state.textEditor.enable(!nextProps.disabled)
 
@@ -135,7 +136,7 @@ class TextEditor extends PureComponent {
     }
   }
 
-  setToolbarRef = (toolbar) => {
+  setToolbarRef = toolbar => {
     this._toolbar = toolbar
   }
 
@@ -147,7 +148,7 @@ class TextEditor extends PureComponent {
     return (
       <div className={editorClass}>
         <Toolbar textEditor={this.state.textEditor} mergeTags={this.props.mergeTags} onMount={this.setToolbarRef} />
-        <div ref={(c) => this._editor = c}></div>
+        <div ref={c => this._editor = c}></div>
         <div className={style.overlay}></div>
       </div>
     )

@@ -52,6 +52,7 @@ class Alert extends React.Component {
   pauseTimer = () => {
     clearTimeout(this.state.timer)
     let timeout = this.state.timeout
+
     timeout -= new Date() - this.state.timerStart
 
     this.setState({ timeout: timeout })

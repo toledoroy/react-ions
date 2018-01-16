@@ -40,7 +40,7 @@ export class Dropdown extends React.Component {
     /**
      * Optional array of items used in a dropdown list
      */
-     listItems: PropTypes.array
+    listItems: PropTypes.array
   }
 
   state = {
@@ -55,7 +55,7 @@ export class Dropdown extends React.Component {
     }
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.isOpened !== this.state.isOpened) {
       this.setState({isOpened: !!nextProps.isOpened})
     }
@@ -65,7 +65,7 @@ export class Dropdown extends React.Component {
     }
   }
 
-  toggleDropdown = (e) => {
+  toggleDropdown = e => {
     e.preventDefault()
     this.setState({isOpened: !this.state.isOpened}, () => {
       if (typeof this.props.changeCallback === 'function') {
@@ -84,7 +84,7 @@ export class Dropdown extends React.Component {
     })
   }
 
-  listItemCallback = (item) => {
+  listItemCallback = item => {
     this.setState({isOpened: false, confirmationOverlayOpen: false, clickedItem: null})
 
     if (typeof item.callback === 'function') {
@@ -92,20 +92,18 @@ export class Dropdown extends React.Component {
     }
   }
 
-  handleConfirmation = (confirm) => {
+  handleConfirmation = confirm => {
     if (confirm) {
       this.listItemCallback(this.state.clickedItem)
-    }
-    else {
+    } else {
       this.setState({ confirmationOverlayOpen: false, clickedItem: null })
     }
   }
 
-  handleItemClick = (item) => {
+  handleItemClick = item => {
     if (item.callbackConfirmation) {
       this.setState({ confirmationOverlayOpen: true, clickedItem: item })
-    }
-    else {
+    } else {
       this.listItemCallback(item)
     }
   }

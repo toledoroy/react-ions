@@ -84,15 +84,15 @@ export class SelectField extends React.Component {
     }
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.value === this.state.value) {
       return
     }
     let validIndex = this.getIndex(nextProps.value, nextProps.options) > -1
+
     if (nextProps.value === undefined || nextProps.value === null || !validIndex) {
       this.setState({selected: '', value: ''})
-    }
-    else {
+    } else {
       this.selectItem(nextProps.value, nextProps.options)
     }
   }
@@ -123,6 +123,7 @@ export class SelectField extends React.Component {
 
   selectItem = (value, options) => {
     let index = this.getIndex(value, options)
+
     if (index >= 0) {
       this.selectOption(options[index], false)
     }
@@ -130,6 +131,7 @@ export class SelectField extends React.Component {
 
   getIndex = (value, options) => {
     let optionIndex = -1
+
     options.map((option, index) => {
       if (option[this.props.valueProp] === value) {
         optionIndex = index
@@ -142,32 +144,28 @@ export class SelectField extends React.Component {
   getDisplayText = () => {
     if (this.state.selected !== '') {
       return this.state.selected[this.props.displayProp]
-    }
-    else if (typeof this.props.placeholder !== 'undefined') {
+    } else if (typeof this.props.placeholder !== 'undefined') {
       return this.props.placeholder
     }
-    else {
-      return 'Please select an option'
-    }
+    return 'Please select an option'
+
   }
 
   getDisplayIcon = () => {
     if (this.state.selected && this.state.selected.icon) {
-      return <Icon name={this.state.selected.icon} fill={this.state.selected.iconColor ||  null} className={style.icon} height='16' width='16' />
-    }
-    else if (this.props.icon) {
+      return <Icon name={this.state.selected.icon} fill={this.state.selected.iconColor || null} className={style.icon} height='16' width='16' />
+    } else if (this.props.icon) {
       return <Icon name={this.props.icon} className={style.icon} height='16' width='16' />
     }
-    else {
-      return null
-    }
+    return null
+
   }
 
   render() {
     const cx = classNames.bind(style)
     const disabledClass = this.props.disabled ? style['selectfield-disabled'] : ''
     const activeClass = this.state.isOpen ? style['active'] : ''
-    const hasIconClass = !!this.getDisplayIcon() ? style['has-icon'] : ''
+    const hasIconClass = this.getDisplayIcon() ? style['has-icon'] : ''
     const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, hasIconClass, this.props.optClass)
     const { valueProp, hideProp, label } = this.props
 
@@ -179,7 +177,7 @@ export class SelectField extends React.Component {
           {option.icon
             ? <Icon
               name={option.icon}
-              fill={option.iconColor ||  null}
+              fill={option.iconColor || null}
               className={style.icon}
               height='16'
               width='16' />
@@ -194,6 +192,7 @@ export class SelectField extends React.Component {
     }
 
     let value = ''
+
     if (this.state.selected) {
       value = this.state.selected[valueProp]
     }

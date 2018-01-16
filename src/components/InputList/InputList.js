@@ -29,17 +29,18 @@ class InputList extends React.Component {
     ])
   }
 
-  generateOptionsList = (o) => {
-    let options = o.map((v) => {
+  generateOptionsList = o => {
+    let options = o.map(v => {
       return {
         display: v,
         value: v
       }
     })
+
     return options
   }
 
-  buildStatefromProps = (value) => {
+  buildStatefromProps = value => {
     if (value instanceof Array && value.length > 0) {
       return {
         value: value,
@@ -52,7 +53,7 @@ class InputList extends React.Component {
 
   state = this.buildStatefromProps(this.props.value)
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.value === this.state.value) {
       return
     }
@@ -71,8 +72,9 @@ class InputList extends React.Component {
     }
   }
 
-  onRemove = (index) => {
+  onRemove = index => {
     let arr = this.state.value
+
     arr.splice(index, 1)
     this.setState({
       value: arr,
@@ -84,8 +86,9 @@ class InputList extends React.Component {
     this.setState({currentValue: ''})
   }
 
-  updateList = (v) => {
+  updateList = v => {
     let stateValue = this.state.value
+
     stateValue.push(v)
     const options = this.generateOptionsList(stateValue)
 
@@ -95,13 +98,13 @@ class InputList extends React.Component {
     })
   }
 
-  handleKeyPress = (event) => {
+  handleKeyPress = event => {
     if (event.charCode === 13 && event.target.value) {
       this.updateList(event.target.value)
     }
   }
 
-  handleKeyUp = (event) => {
+  handleKeyUp = event => {
     this.setState({currentValue: event.target.value})
   }
 
@@ -123,7 +126,7 @@ class InputList extends React.Component {
           value={this.state.currentValue}
           onKeyUp={this.handleKeyUp}
           onKeyPress={this.handleKeyPress}
-          ref={(c) => this._input = c}
+          ref={c => this._input = c}
         />
         <Icon name='plus' className={style['input-list-add-item']} width='14' height='14' fill='#9198A0' onClick={this.handleClick} />
         <TagList tags={this.state.options} displayProp='display' onRemove={this.onRemove} />

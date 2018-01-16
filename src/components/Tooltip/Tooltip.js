@@ -78,7 +78,7 @@ class Tooltip extends React.Component {
     return false
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     // If not currently showing and should show or already showing but the content changed
     if (nextProps.show && (!this.state.showing || (nextProps.content !== this.props.content))) {
       this.showTip()
@@ -170,7 +170,7 @@ class Tooltip extends React.Component {
     return this._tooltipPlacement.translate + 'px'
   }
 
-  getComputedStyle = (propVal) => {
+  getComputedStyle = propVal => {
     // getComputedStyle allows us to access a node's CSS values
     return window.getComputedStyle(this._tipElement, null).getPropertyValue(propVal)
   }
@@ -232,7 +232,7 @@ class Tooltip extends React.Component {
 
   render = () => {
     return (
-      <span onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} ref={(c) => this._tipElement = c} >
+      <span onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} ref={c => this._tipElement = c} >
         {this.props.children}
       </span>
     )
