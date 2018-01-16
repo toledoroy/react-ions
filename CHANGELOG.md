@@ -1,5 +1,13 @@
 ## HEAD
 
+## 3.1.3
+###### _January 16, 2018_
+Inline Edit - adding correct clipboard icon path [#579](https://github.com/GetAmbassador/react-ions/pull/579)
+
+## 3.1.2
+###### _January 12, 2018_
+Inline Edit - changing icon names to match previous Streamline version  [#569](https://github.com/GetAmbassador/react-ions/pull/569)
+
 ## 3.1.1
 ###### _January 2, 2018_
 Icon UI - adjusting a few minor example UI items [#561](https://github.com/GetAmbassador/react-ions/pull/561)
