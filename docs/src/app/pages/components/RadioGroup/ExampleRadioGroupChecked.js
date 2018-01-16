@@ -25,11 +25,11 @@ class ExampleRadioChecked extends React.Component {
     selected: 'option_2'
   }
 
-  updateSelected = (value) => {
+  updateSelected = value => {
     this.setState({ selected: value })
   }
 
-  render () {
+  render() {
     return (
       <div>
         <div className={style.update}>

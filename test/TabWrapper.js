@@ -44,6 +44,7 @@ describe('TabWrapper', () => {
 
   it('should not result in an error if the select callback is not defined', () => {
     const spy = sinon.spy(console, 'error')
+
     wrapper = shallow(
       <TabWrapper>
         <Tab title="Test Tab">Test tab content</Tab>

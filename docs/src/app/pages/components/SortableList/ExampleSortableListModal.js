@@ -38,7 +38,7 @@ class ExampleSortableListModal extends React.Component {
     this.setState({open: false})
   }
 
-  onChange = (event) => {
+  onChange = event => {
     console.log(event.target.value)
     this.setState({ items: event.target.value })
   }

@@ -9,6 +9,7 @@ class ExampleButtonMultipleOptClasses extends React.Component {
       style['custom-color'],
       style['custom-color-hover']
     ]
+
     return (
       <Button optClass={optClasses}>Multiple Opt Classes</Button>
     )

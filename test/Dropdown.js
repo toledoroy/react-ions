@@ -31,7 +31,7 @@ describe('Dropdown', () => {
     wrapper = mount(<WrappedDropdown isOpened={true} trigger='Test'>This is a test.</WrappedDropdown>)
     expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true)
     expect(wrapper.find('.dropdown-component').hasClass('is-opened')).to.equal(true)
-   })
+  })
 
   it('should take an optional CSS class', () => {
     wrapper = mount(<WrappedDropdown optClass='test' trigger='Test'>This is a test.</WrappedDropdown>)
@@ -45,7 +45,7 @@ describe('Dropdown', () => {
       {name: 'test2'},
       {name: 'test3'}
     ]
-    
+
     wrapper = shallow(<Dropdown optClass='test' listItems={listItems} isOpened={false}>This is a test.</Dropdown>)
 
     expect(wrapper.state('isOpened')).to.be.false
@@ -56,6 +56,7 @@ describe('Dropdown', () => {
 
   it('should call changeCallback function', () => {
     const spy = sinon.spy()
+
     wrapper = mount(<WrappedDropdown optClass='test' trigger='Test' changeCallback={spy}>This is a test.</WrappedDropdown>)
     trigger = wrapper.find('.trigger').at(0)
 

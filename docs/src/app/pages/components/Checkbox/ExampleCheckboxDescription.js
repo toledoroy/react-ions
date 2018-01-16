@@ -26,7 +26,7 @@ class ExampleCheckboxDescription extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div className={style['checkbox-group']}>
         {this.getCheckboxBlocks()}
       </div>

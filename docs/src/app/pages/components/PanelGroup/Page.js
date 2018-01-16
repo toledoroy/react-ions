@@ -69,7 +69,7 @@ const PanelGroupPage = () => (
           <ExamplePanelSlider />
         </CodeExample>
       </div>
-      {/*<div className={styles.block}>
+      {/* <div className={styles.block}>
         <h3>Panel Group Props</h3>
         <PropsList list={panelGroupDocs[0].props} />
       </div>

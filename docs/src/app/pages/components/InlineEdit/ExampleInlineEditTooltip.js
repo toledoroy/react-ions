@@ -13,11 +13,11 @@ class ExampleInlineEditTooltip extends React.Component {
     tooltipPlacement: 'right'
   }
 
-  changeCallback = (event) => {
+  changeCallback = event => {
     this.setState({ value: event.target.value })
   }
 
-  setTooltipPlacement = (placement) => {
+  setTooltipPlacement = placement => {
     this.setState({ tooltipPlacement: placement })
   }
 
@@ -28,6 +28,7 @@ class ExampleInlineEditTooltip extends React.Component {
       bottom: this.state.tooltipPlacement === 'bottom' ? 'success' : '',
       left: this.state.tooltipPlacement === 'left' ? 'success' : ''
     }
+
     return (
       <div>
         <InlineEdit name='test' value={this.state.value} tooltipClass={style['tooltip']} label='Email' icon='icon-mail-1' tooltipText={`The value is: '${this.state.value}'`} tooltipPlacement={this.state.tooltipPlacement} changeCallback={this.changeCallback} />

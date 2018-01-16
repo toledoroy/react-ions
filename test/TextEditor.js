@@ -38,8 +38,9 @@ describe('TextEditor', () => {
     editorEnableSpy.restore()
   })
 
-  it('should trigger the callback when the value changes', (done) => {
+  it('should trigger the callback when the value changes', done => {
     const changeCallback = sinon.spy()
+
     wrapper = mount(<TextEditor changeCallback={changeCallback} name='textEditor' />)
 
     wrapper.instance().setContent('<p>Test!</p>')
@@ -76,6 +77,7 @@ describe('TextEditor', () => {
     expect(wrapper.instance().getHTML()).to.equal('<p>Test!</p>')
 
     const editor = wrapper.state().textEditor
+
     editor.formatLine(1, 2, 'align', 'right')
 
     expect(wrapper.instance().getHTML()).to.equal('<p style="text-align: right;">Test!</p>')
@@ -87,6 +89,7 @@ describe('TextEditor', () => {
     expect(wrapper.instance().getHTML()).to.equal('<p>Test!</p>')
 
     const editor = wrapper.state().textEditor
+
     editor.formatText(0, 5, 'font', 'serif')
     expect(wrapper.instance().getHTML()).to.equal('<p><span style="font-family: serif;">Test!</span></p>')
   })

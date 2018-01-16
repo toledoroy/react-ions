@@ -12,7 +12,7 @@ class ExampleRadioChecked extends React.Component {
     defaultOption: 1
   }
 
-  handleChange = (index) => {
+  handleChange = index => {
     this.setState({defaultOption: index})
   }
 
@@ -21,16 +21,16 @@ class ExampleRadioChecked extends React.Component {
       {
         customValue: 'option_1',
         customLabel: 'Option 1'
-      },{
+      }, {
         customValue: 'option_2',
         customLabel: 'Option 2'
-      },{
+      }, {
         customValue: 'option_3',
         customLabel: 'Option 3'
       }
     ]
 
-    return(
+    return (
       <div>
         <div className={style['button-wrapper']}>
           <Button onClick={this.handleChange.bind(this, 0)}>Select 1st option</Button>

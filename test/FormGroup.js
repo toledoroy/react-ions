@@ -29,10 +29,10 @@ describe('FormGroup', () => {
   it('should render a fieldset with child nodes', () => {
     const schema = {
       'subject': {
-        'value':'This is my subject'
+        'value': 'This is my subject'
       },
       'message': {
-        'value':'This is my message'
+        'value': 'This is my message'
       }
     }
 
@@ -51,13 +51,13 @@ describe('FormGroup', () => {
   it('should update the state when props are passed', () => {
     const schema = {
       'subject': {
-        'value':'This is my subject'
+        'value': 'This is my subject'
       }
     }
 
     const schema2 = {
       'subject': {
-        'value':'This is my answer'
+        'value': 'This is my answer'
       }
     }
 
@@ -73,13 +73,13 @@ describe('FormGroup', () => {
   it('should not update the state when identical props are passed', () => {
     const schema = {
       'subject': {
-        'value':'This is my subject'
+        'value': 'This is my subject'
       }
     }
 
     const schema2 = {
       'subject': {
-        'value':'This is my subject'
+        'value': 'This is my subject'
       }
     }
 
@@ -97,7 +97,7 @@ describe('FormGroup', () => {
 
     const schema = {
       'subject': {
-        'value':'This is my subject'
+        'value': 'This is my subject'
       }
     }
 
@@ -117,7 +117,7 @@ describe('FormGroup', () => {
   it('should update the state when changeCallback is not provided', () => {
     const schema = {
       'subject': {
-        'value':'This is my subject'
+        'value': 'This is my subject'
       }
     }
 
@@ -138,7 +138,7 @@ describe('FormGroup', () => {
 
     const schema = {
       'subject': {
-        'value':'This is my subject'
+        'value': 'This is my subject'
       }
     }
 
@@ -157,7 +157,7 @@ describe('FormGroup', () => {
   it('should render a fieldset without a form wrapper', () => {
     const schema = {
       'subject': {
-        'value':'This is my subject'
+        'value': 'This is my subject'
       }
     }
 
@@ -166,8 +166,8 @@ describe('FormGroup', () => {
         <Input name='subject' label='Subject line' type='text' />
       </FormGroup>)
 
-      expect(formGroup.type()).to.equal('fieldset')
-      expect(formGroup.hasClass('fieldset')).to.equal(true)
+    expect(formGroup.type()).to.equal('fieldset')
+    expect(formGroup.hasClass('fieldset')).to.equal(true)
   })
 
   it('should pass object value as raw js when cloning children', () => {
@@ -177,7 +177,7 @@ describe('FormGroup', () => {
       }
     }
 
-    const CustomFormField = (props) => {
+    const CustomFormField = props => {
       return (<span>hello</span>)
     }
 
@@ -186,7 +186,7 @@ describe('FormGroup', () => {
         <CustomFormField name='subject' />
       </FormGroup>)
 
-      expect(formGroup.find(CustomFormField).props().value).to.deep.equal(schema.subject.value)
+    expect(formGroup.find(CustomFormField).props().value).to.deep.equal(schema.subject.value)
   })
 
   it('should call a submit callback', () => {
@@ -194,7 +194,7 @@ describe('FormGroup', () => {
 
     const schema = {
       'subject': {
-        'value':'This is my subject'
+        'value': 'This is my subject'
       }
     }
 
@@ -216,7 +216,7 @@ describe('FormGroup', () => {
 
     const schema = {
       'country': {
-        'value':'AF'
+        'value': 'AF'
       }
     }
 
@@ -229,6 +229,7 @@ describe('FormGroup', () => {
         option: options[1]
       }
     }
+
     wrapper.instance().handleChange(event)
 
     expect(changeCallback.calledOnce).to.be.true

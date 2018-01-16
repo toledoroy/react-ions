@@ -4,25 +4,25 @@ import Button from 'react-ions/lib/components/Button'
 
 class ExampleModalLarge extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       open: false
-    };
+    }
   }
 
   handleOpen = () => {
-    this.setState({open: true});
+    this.setState({open: true})
   }
 
   handleClose = () => {
-    this.setState({open: false});
+    this.setState({open: false})
   }
 
   render() {
     const actions = [
       <Button onClick={this.handleClose} optClass="inverted">Cancel</Button>,
       <Button onClick={this.handleClose}>Submit</Button>
-    ];
+    ]
 
     return (
       <div>
@@ -37,7 +37,7 @@ class ExampleModalLarge extends React.Component {
           <p>This is a large modal.</p>
         </Modal>
       </div>
-    );
+    )
   }
 }
 

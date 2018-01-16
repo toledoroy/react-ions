@@ -23,7 +23,7 @@ const description = {
   toggleOptClass: 'This is the `toggle component` with an optional class.',
   toggleCallback: 'This is the `toggle component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
   toggleCustomText: 'This is the `toggle component` with text.'
-};
+}
 
 const TogglePage = () => (
   <div>
@@ -72,6 +72,6 @@ const TogglePage = () => (
       </div>
     </div>
   </div>
-);
+)
 
 export default TogglePage

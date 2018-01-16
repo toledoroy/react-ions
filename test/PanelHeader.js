@@ -40,6 +40,7 @@ describe('PanelHeader', () => {
 
   it('should call an onClick handler when clicked when clicked', () => {
     var spy = sinon.spy()
+
     panel = shallow(<Panel optClass={'test'}><PanelHeader onClick={spy} /><PanelContent optClass='test-class'>Test Content</PanelContent></Panel>)
     panelHeader = panel.childAt(0).childAt(0)
 

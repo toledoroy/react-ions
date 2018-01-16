@@ -38,7 +38,7 @@ const description = {
   inlineEditTooltip: 'This is the **inline edit component** with a tooltip.',
   inlineEditEmpty: 'This is the empty (value is null) **inline edit component**.',
   inlineEditSelect: 'This is the select **inline edit component**.'
-};
+}
 
 const InlineEditPage = () => (
   <div>

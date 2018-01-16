@@ -6,6 +6,7 @@ describe('InlineEdit', () => {
 
   it('should render a span and buttons', () => {
     const wrapper = mount(<InlineEdit name='test' value='test value' isEditing={true} />)
+
     expect(wrapper.hasClass('readonly')).to.be.false
     expect(wrapper.find('.inline-text-wrapper')).to.have.length(1)
     expect(wrapper.find('.inline-text-wrapper-hover')).to.have.length(0)
@@ -20,6 +21,7 @@ describe('InlineEdit', () => {
 
   it('should not render buttons', () => {
     const wrapper = mount(<InlineEdit name='test' value='test value' />)
+
     expect(wrapper.find('.inline-text-wrapper-hover')).to.have.length(1)
     expect(wrapper.find(Icon)).to.have.length(0)
   })
@@ -41,6 +43,7 @@ describe('InlineEdit', () => {
   it('should not trigger the callback if the edit was canceled', () => {
     const changeCallback = sinon.spy()
     const wrapper = mount(<InlineEdit name='test' isEditing={true} value='test value' changeCallback={changeCallback} />)
+
     wrapper.update()
     wrapper.instance().handleSave()
 
@@ -123,6 +126,7 @@ describe('InlineEdit', () => {
     wrapper.find('.inline-text-wrapper').at(0).node.innerHTML = 'test value'
 
     let saveTrigger = wrapper.find('.inline-button-wrapper').at(0).childAt(0)
+
     saveTrigger.simulate('click')
 
     expect(wrapper.state().value).to.equal('test value')
@@ -139,6 +143,7 @@ describe('InlineEdit', () => {
     expect(wrapper.state().isEditing).to.be.true
 
     const cancelTrigger = wrapper.find('.inline-button-wrapper').at(0).childAt(1)
+
     cancelTrigger.simulate('click')
 
     expect(wrapper.state().error).to.equal('')
@@ -153,6 +158,7 @@ describe('InlineEdit', () => {
     wrapper.find('.inline-text-wrapper').at(0).node.innerHTML = 'test value'
 
     let saveTrigger = wrapper.find('.inline-button-wrapper').at(0).childAt(0)
+
     saveTrigger.simulate('click')
 
     expect(changeCallback.calledWithExactly({ target: { name: 'test', value: 'test value' }})).to.be.true
@@ -163,13 +169,15 @@ describe('InlineEdit', () => {
     expect(wrapper.state().isEditing).to.be.true
 
     const cancelTrigger = wrapper.find('.inline-button-wrapper').at(0).childAt(1)
+
     cancelTrigger.simulate('click')
 
     expect(changeCallback.calledWithExactly({ target: { name: 'test', value: 'testValue', canceled: true }})).to.be.true
   })
 
-  it('should have a copy to clipboard icon', (done) => {
+  it('should have a copy to clipboard icon', done => {
     const wrapper = mount(<InlineEdit name='test' value='test value' copyToClipboard />)
+
     expect(wrapper.find('.copy-icon Icon')).to.have.length(1)
     expect(wrapper.find('.copy-icon').hasClass('copied')).to.be.false
 
@@ -229,6 +237,7 @@ describe('InlineEdit', () => {
     const saveStub = sinon.stub(wrapper.instance(), 'handleSave')
 
     let event = { keyCode: 13, preventDefault: sinon.spy() }
+
     wrapper.instance().handleKeyPress(event)
 
     expect(event.preventDefault.called).to.be.true
@@ -252,6 +261,7 @@ describe('InlineEdit', () => {
     const cancelStub = sinon.stub(wrapper.instance(), 'handleCancel')
 
     let event = { keyCode: 27, preventDefault: sinon.spy() }
+
     wrapper.instance().handleKeyUp(event)
 
     expect(event.preventDefault.called).to.be.true

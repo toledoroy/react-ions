@@ -18,7 +18,6 @@ import PropsList from 'private/modules/PropsList'
 import docs from '!!docgen!react-ions/lib/components/DatePicker/DatePicker'
 import styles from 'private/css/content'
 
-
 const DatePickerPage = () => (
   <div>
     <div className={styles.content}>

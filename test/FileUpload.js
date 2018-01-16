@@ -96,6 +96,7 @@ describe('FileUpload', () => {
 
   it('should not result in an error if changeCallback is not defined', () => {
     const spy = sinon.spy(console, 'error')
+
     wrapper = shallow(<FileUpload label='Default file upload' value='test.jpg' showPreview={true} />)
     wrapper.instance().handleChange()
 

@@ -59,16 +59,18 @@ describe('Typeahead', () => {
       {value: 'US', display: 'United States'}
     ]
     const searchStub = sinon.stub().returns(Promise.resolve(promiseOptions))
+
     wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' searchCallback={searchStub} />)
     wrapper.find('input').simulate('change', {target: {value: 'b'}})
     expect(searchStub.calledWithExactly('b')).to.be.true
   })
 
-  it('should have a custom search debounce time', (done) => {
+  it('should have a custom search debounce time', done => {
     const promiseOptions = [
       {value: 'US', display: 'United States'}
     ]
     const searchStub = sinon.stub().returns(Promise.resolve(promiseOptions))
+
     wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' searchCallback={searchStub} searchDebounceTime={200} />)
     wrapper.find('input').simulate('change', {target: {value: 'b'}})
 
@@ -120,6 +122,7 @@ describe('Typeahead', () => {
 
   it('should clear search string when input value is an empty string', () => {
     const changeCallback = sinon.spy()
+
     wrapper = mount(<Typeahead name='typeahead' resetAfterSelection={true} options={options} valueProp='value' displayProp='display' changeCallback={changeCallback} />)
 
     let inputField = wrapper.find('input')
@@ -134,6 +137,7 @@ describe('Typeahead', () => {
 
   it('should set state when props are received', () => {
     const changeCallback = sinon.spy()
+
     wrapper = mount(<Typeahead name='typeahead' options={options} valueProp='value' displayProp='display' changeCallback={changeCallback} />)
 
     wrapper.setProps({ value: 'AT' })
@@ -148,15 +152,18 @@ describe('Typeahead', () => {
 
   it('should allow a custom value', () => {
     const changeCallback = sinon.spy()
+
     wrapper = mount(<Typeahead name='typeahead' options={options} valueProp='value' displayProp='display' allowCustomValue={true} changeCallback={changeCallback} />)
 
     let inputField = wrapper.find('input')
+
     inputField.simulate('change', {target: {value: 'a random string'}})
     expect(changeCallback.calledWithExactly({ target: { name: 'typeahead', value: 'a random string' } })).to.be.true
   })
 
   it('should set state when the value changes and a custom value is allowed', () => {
     const changeCallback = sinon.spy()
+
     wrapper = shallow(<Typeahead name='typeahead' options={options} valueProp='value' displayProp='display' allowCustomValue={true} changeCallback={changeCallback} />)
     const inst = wrapper.instance()
 

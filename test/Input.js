@@ -32,6 +32,7 @@ describe('Input', () => {
 
   it('should be disabled', () => {
     const disabled = true
+
     wrapper = mount(<WrappedInput label='Disabled input' value='' disabled={disabled} />)
     expect(wrapper.find('input').prop('disabled')).to.be.true
   })
@@ -50,6 +51,7 @@ describe('Input', () => {
 
   it('should update the value onChange', () => {
     const afterChange = { target: { value: 'New value' }, persist: () => {} }
+
     wrapper = mount(<WrappedInput value='test' />)
     expect(wrapper.state('value')).to.equal('test')
     wrapper.instance().handleChange(afterChange)
@@ -59,6 +61,7 @@ describe('Input', () => {
 
   it('should run the changeCallback on change', () => {
     const spy = sinon.spy()
+
     wrapper = mount(<WrappedInput value='test' changeCallback={spy} />)
     wrapper.instance().handleChange({ target: { value: 'New value' }, persist: () => {} })
     wrapper.update()
@@ -67,6 +70,7 @@ describe('Input', () => {
 
   it('should run the blurCallback on blur', () => {
     const spy = sinon.spy()
+
     wrapper = mount(<WrappedInput value='test' blurCallback={spy} />)
     wrapper.instance().handleBlur()
     expect(spy.calledOnce).to.be.true
@@ -74,6 +78,7 @@ describe('Input', () => {
 
   it('should run the focusCallback on focus', () => {
     const spy = sinon.spy()
+
     wrapper = mount(<WrappedInput value='test' focusCallback={spy} />)
     wrapper.instance().handleFocus()
     expect(spy.calledOnce).to.be.true
@@ -81,6 +86,7 @@ describe('Input', () => {
 
   it('should not result in an error if changeCallback is not defined', () => {
     const spy = sinon.spy(console, 'error')
+
     wrapper = mount(<WrappedInput value='test' />)
     wrapper.instance().handleChange({ target: { value: 'New value' }, persist: () => {} })
     wrapper.update()
@@ -91,6 +97,7 @@ describe('Input', () => {
 
   it('should not result in an error if blurCallback is not defined', () => {
     const spy = sinon.spy(console, 'error')
+
     wrapper = mount(<WrappedInput value='test' />)
     wrapper.instance().handleBlur()
 
@@ -100,6 +107,7 @@ describe('Input', () => {
 
   it('should not result in an error if focusCallback is not defined', () => {
     const spy = sinon.spy(console, 'error')
+
     wrapper = mount(<WrappedInput value='test' />)
     wrapper.instance().handleFocus()
 
@@ -109,6 +117,7 @@ describe('Input', () => {
 
   it('should pass value as string to changeCallback', () => {
     const spy = sinon.spy()
+
     wrapper = mount(<WrappedInput value='14.10' changeCallback={spy} />)
     wrapper.instance().handleChange({ persist: () => {}, target: { value: '19.89' } })
     wrapper.update()
@@ -118,6 +127,7 @@ describe('Input', () => {
 
   it('should pass value as number to changeCallback', () => {
     const spy = sinon.spy()
+
     wrapper = mount(<WrappedInput valueType='number' value={14.10} changeCallback={spy} />)
     wrapper.instance().handleChange({ persist: () => {}, target: { value: '19.89', valueAsNumber: 19.89 } })
     expect(spy.calledOnce).to.be.true
@@ -185,6 +195,7 @@ describe('Input', () => {
 
   it('should handle null values', () => {
     const changeCallbackSpy = sinon.spy()
+
     wrapper = shallow(<WrappedInput name='input_field' value={null} changeCallback={changeCallbackSpy} nullValue='' />)
     const inst = wrapper.instance()
 

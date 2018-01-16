@@ -81,6 +81,7 @@ describe('MultiSelect', () => {
 
   it('should contain a SelectField and set the state and trigger callback when an options is selected', () => {
     const changeCallback = sinon.spy()
+
     wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><SelectField valueProp='value' displayProp='display' /></MultiSelect>)
 
     expect(wrapper.state().value).to.have.length(2)
@@ -99,6 +100,7 @@ describe('MultiSelect', () => {
 
   it('should contain a SelectField and remove a selected item when the remove icon is clicked', () => {
     const changeCallback = sinon.spy()
+
     wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><SelectField valueProp='value' displayProp='display' /></MultiSelect>)
     expect(wrapper.find(TagList).at(0).find('li')).to.have.length(2)
     expect(wrapper.state().value).to.have.length(2)
@@ -168,6 +170,7 @@ describe('MultiSelect', () => {
 
   it('should contain a Typeahead and set the state and trigger callback when an options is selected', () => {
     const changeCallback = sinon.spy()
+
     wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><Typeahead valueProp='value' displayProp='display' /></MultiSelect>)
 
     expect(wrapper.state().value).to.have.length(2)
@@ -188,6 +191,7 @@ describe('MultiSelect', () => {
 
   it('should contain a Typeahead and remove a selected item when the remove icon is clicked', () => {
     const changeCallback = sinon.spy()
+
     wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><Typeahead valueProp='value' displayProp='display' /></MultiSelect>)
 
     expect(wrapper.find(TagList).at(0).find('li')).to.have.length(2)
@@ -205,7 +209,7 @@ describe('MultiSelect', () => {
   it('should not contain already selected items in a typeahead dropdown list', () => {
     const changeCallback = sinon.spy()
     const handleSearch = () => {
-      return new Promise((resolve) => {
+      return new Promise(resolve => {
         resolve(options)
       })
     }
@@ -213,6 +217,7 @@ describe('MultiSelect', () => {
     wrapper = mount(<MultiSelect options={options} valueProp='value' displayProp='display' value={['0', '2']} changeCallback={changeCallback}><Typeahead valueProp='value' displayProp='display' searchCallback={handleSearch} /></MultiSelect>)
 
     let typeahead = wrapper.find(Typeahead)
+
     expect(typeahead.props().options).to.have.length(2)
     expect(typeahead.props().options[0].value).to.equal('1')
     expect(typeahead.props().options[1].value).to.equal('3')

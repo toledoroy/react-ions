@@ -137,14 +137,14 @@ describe('Modal', () => {
     let wrapper
 
     it('has custom Icon', () => {
-      wrapper = shallow(<Header closeIcon={<div className='super-secret-class' /> } /> )
+      wrapper = shallow(<Header closeIcon={<div className='super-secret-class' /> } />)
 
       expect(wrapper.find('.super-secret-class')).to.have.length(1)
       expect(wrapper.find(Icon)).to.have.length(0)
     })
 
     it('has the default close Icon', () => {
-      wrapper = shallow(<Header /> )
+      wrapper = shallow(<Header />)
 
       expect(wrapper.find(Icon)).to.have.length(1)
     })
@@ -162,7 +162,7 @@ describe('Modal', () => {
       theme: 'color-splash'
     }
 
-    const renderModal = (propOverrides) => shallow(shallow(<Modal {...props}  {...propOverrides} />).instance().renderModal())
+    const renderModal = propOverrides => shallow(shallow(<Modal {...props} {...propOverrides} />).instance().renderModal())
 
     it('is open', () => {
       wrapper = renderModal()

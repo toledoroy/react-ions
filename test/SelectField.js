@@ -45,6 +45,7 @@ describe('SelectField', () => {
 
   it('should be disabled', () => {
     const disabled = true
+
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' disabled={disabled} />)
 
     expect(wrapper.hasClass('selectfield-component')).to.equal(true)
@@ -61,6 +62,7 @@ describe('SelectField', () => {
 
   it('should have a placeholder', () => {
     const placeholder = 'Placeholder text...'
+
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' placeholder={placeholder} />)
 
     expect(wrapper.childAt(1).text().indexOf(placeholder)).to.equal(0)
@@ -97,6 +99,7 @@ describe('SelectField', () => {
 
   it('should not have an option selected and should not result in an error if an invalid value is provided', () => {
     const spy = sinon.spy(console, 'error')
+
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' value={'2'} />)
 
     expect(spy.calledOnce).to.be.false
@@ -107,6 +110,7 @@ describe('SelectField', () => {
   it('should have the placeholder displayed and should not result in an error if an invalid value is provided', () => {
     const spy = sinon.spy(console, 'error')
     const placeholder = 'Placeholder text...'
+
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' value={'2'} placeholder={placeholder} />)
 
     expect(spy.calledOnce).to.be.false
@@ -127,9 +131,9 @@ describe('SelectField', () => {
 
     expect(wrapper.childAt(1).text().indexOf('Please select an option')).to.equal(0)
 
-    //open <ul>
+    // open <ul>
     wrapper.childAt(1).simulate('click')
-    //click <li>
+    // click <li>
     wrapper.childAt(2).childAt(1).simulate('click')
 
     expect(wrapper.childAt(1).text().indexOf(options[1].display)).to.equal(0)
@@ -150,6 +154,7 @@ describe('SelectField', () => {
 
   it('should not result in an error if changeCallback is not defined', () => {
     const spy = sinon.spy(console, 'error')
+
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' />)
 
     // open <ul>

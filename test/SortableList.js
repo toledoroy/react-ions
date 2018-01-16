@@ -62,6 +62,7 @@ describe('SortableList', () => {
   it('should update state when an item is toggled', () => {
     wrapper = mount(<SortableListWrapped items={items} />)
     const list = wrapper.find(SortableList)
+
     expect(wrapper.find(SortableItem).at(0).prop('active')).to.be.false
 
     list.instance().toggleSortableItem(0)
@@ -76,6 +77,7 @@ describe('SortableList', () => {
   it('should trigger a callback when an item is toggled', () => {
     let sortableItems = items
     const changeCallback = sinon.spy()
+
     wrapper = mount(<SortableListWrapped items={items} changeCallback={changeCallback} name='test'/>)
 
     wrapper.find(SortableList).instance().toggleSortableItem(0)
@@ -116,6 +118,7 @@ describe('SortableList', () => {
 
   it('should remove event listener when the component is unmounted', () => {
     const spy = sinon.spy(window, 'removeEventListener')
+
     wrapper = mount(<SortableListWrapped items={items} />)
 
     wrapper.unmount()
@@ -125,7 +128,7 @@ describe('SortableList', () => {
 
   it('should reorder items when dragging', () => {
     let sortableItems = items
-    const changeCallback = (event) => {
+    const changeCallback = event => {
       sortableItems = event.target.value
     }
 
@@ -159,6 +162,7 @@ describe('SortableList', () => {
 
   it('should set state and trigger callback when dragging starts', () => {
     const onDragStartSpy = sinon.spy()
+
     wrapper = shallow(<SortableList items={items} onDragStart={onDragStartSpy} />)
 
     expect(wrapper.state('dragging')).to.be.false
@@ -171,6 +175,7 @@ describe('SortableList', () => {
 
   it('should set state and trigger callback when dragging stops', () => {
     const onDragStopSpy = sinon.spy()
+
     wrapper = shallow(<SortableList items={items} onDragStop={onDragStopSpy} />)
 
     wrapper.setState({ dragging: true })
