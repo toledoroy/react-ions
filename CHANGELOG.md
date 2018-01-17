@@ -2,7 +2,9 @@
 
 ## 4.0.0
 ###### _January 17, 2018_
-Added support for React 16, dropped support for React versions prior to 15.3 [#575](https://github.com/GetAmbassador/react-ions/pull/575)
+
+### Breaking changes
+- In order to upgrade to React 16 support for React versions prior to 15.3 has been dropped [#575](https://github.com/GetAmbassador/react-ions/pull/575)
 
 ## 3.1.3
 ###### _January 16, 2018_
