@@ -2,12 +2,12 @@ import React from 'react'
 import Typeahead from 'react-ions/lib/components/Typeahead/Typeahead'
 import options from './CountryList'
 
-  class ExampleTypeaheadDebounce extends React.Component {
+class ExampleTypeaheadDebounce extends React.Component {
   constructor(props) {
     super(props)
   }
 
-  handleSearch = (value) => {
+  handleSearch = value => {
     console.log('Search value: ', value)
     return new Promise((resolve, reject) => {
       resolve(options)
@@ -15,7 +15,7 @@ import options from './CountryList'
   }
 
   render() {
-    return(
+    return (
       <Typeahead
         options={options}
         valueProp='countryCode'

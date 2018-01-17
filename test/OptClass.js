@@ -6,6 +6,7 @@ describe('OptClass', () => {
       'test-class': 'test-class-45554'
     }
     let testClasses = optclass(style, 'test-class')
+
     expect(testClasses).to.be.equal('test-class-45554')
   })
 
@@ -15,24 +16,28 @@ describe('OptClass', () => {
       'test-class-2': 'test-class-hdh8'
     }
     let testClasses = optclass(style, ['test-class', 'test-class-2'])
+
     expect(testClasses).to.be.equal('test-class-45554 test-class-hdh8')
   })
 
   it('should return an array of pure classes', () => {
     const style = {}
     let testClasses = optclass(style, ['test-class', 'test-class-2'])
+
     expect(testClasses).to.be.equal('test-class test-class-2')
   })
 
   it('should handle an undefined arg', () => {
     const style = {}
     let testClasses = optclass(style, ['test-class', undefined])
+
     expect(testClasses).to.be.equal('test-class')
   })
 
   it('should handle className', () => {
     const style = {}
     let testClasses = optclass(style, ['test-class', 'test-class-2'], 'optClass', 'className')
+
     expect(testClasses).to.be.equal('test-class test-class-2 optClass className')
   })
 })

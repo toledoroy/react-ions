@@ -1,6 +1,6 @@
-var path = require('path');
+var path = require('path')
 
-module.exports = function(config) {
+module.exports = function (config) {
 
   var rewirePlugin = require('rewire-webpack')
 
@@ -16,7 +16,7 @@ module.exports = function(config) {
     },
 
     coverageReporter: {
-      type : 'text',
+      type: 'text',
       includeAllSources: true
     },
 
@@ -101,7 +101,7 @@ module.exports = function(config) {
     },
 
     webpackServer: {
-      noInfo: true //please don't spam the console when running in karma!
+      noInfo: true // please don't spam the console when running in karma!
     },
 
     plugins: [
@@ -136,4 +136,4 @@ module.exports = function(config) {
 
     singleRun: true
   })
-};
+}

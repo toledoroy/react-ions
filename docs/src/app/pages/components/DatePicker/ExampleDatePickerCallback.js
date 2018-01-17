@@ -11,11 +11,11 @@ class ExampleDatePickerCallback extends React.Component {
     super(props)
   }
 
-  _setStatus = (date) => {
+  _setStatus = date => {
     return 'Selected date is ' + date
   }
 
-  _updateState = (value) => {
+  _updateState = value => {
     this.setState({
       date: value,
       status: this._setStatus(value)
@@ -27,8 +27,9 @@ class ExampleDatePickerCallback extends React.Component {
     date: oldDate
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     const date = new Date()
+
     console.log('Date:' + event.target.value, 'Time:' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds())
     this._updateState(event.target.value)
   }
@@ -42,7 +43,7 @@ class ExampleDatePickerCallback extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <div className={style.buttons}>
           <Button onClick={this.updateDate} disabled={this.state.date == newDate}>Set new date</Button>

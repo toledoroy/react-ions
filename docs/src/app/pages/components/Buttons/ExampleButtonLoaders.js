@@ -3,7 +3,7 @@ import Button from 'react-ions/lib/components/Button'
 
 class ExampleButtonLoaders extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       default: false,
       secondary: false,
@@ -16,16 +16,17 @@ class ExampleButtonLoaders extends React.Component {
       plain: false,
       plainLight: false,
       palevioletred: false
-    };
+    }
   }
 
   handleClick(button) {
-    const component = this;
-    component.setState({ [button]: true }, function() {
-      setTimeout(function() {
-        component.setState({ [button]: false });
-      }, 13000);
-    });
+    const component = this
+
+    component.setState({ [button]: true }, function () {
+      setTimeout(function () {
+        component.setState({ [button]: false })
+      }, 13000)
+    })
   }
 
   render() {
@@ -43,7 +44,7 @@ class ExampleButtonLoaders extends React.Component {
         <Button loading={this.state['plainLight']} onClick={this.handleClick.bind(this, 'plainLight')} optClass='plain-light'>Plain Light</Button>
         <Button loading={this.state.palevioletred} loaderColor='palevioletred' onClick={this.handleClick.bind(this, 'palevioletred')} optClass='plain-light'>Palevioletred Loader</Button>
       </div>
-    );
+    )
   }
 }
 

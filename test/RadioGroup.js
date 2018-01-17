@@ -95,10 +95,11 @@ describe('RadioGroup', () => {
   })
 
   it('should update checked value via callback when rendered with options', () => {
-    let checked = undefined
+    let checked
     const callback = (event, value) => {
       checked = value
     }
+
     wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' changeCallback={callback} />)
 
     const input = wrapper.find('input').at(0)
@@ -112,7 +113,7 @@ describe('RadioGroup', () => {
   })
 
   it('should update checked value via callback when rendered with explicit children', () => {
-    let checked = undefined
+    let checked
     const callback = (event, value) => {
       checked = value
     }
@@ -133,7 +134,7 @@ describe('RadioGroup', () => {
     expect(checked).to.be.equal('option_1')
 
     input2.simulate('change')
-    expect(checked).to.be.equal('option_2')    
+    expect(checked).to.be.equal('option_2')
   })
 
   it('should update the state when the value property changes', () => {
@@ -171,7 +172,7 @@ describe('RadioGroup', () => {
 
     const input = wrapper.find('input').at(0)
     const input2 = wrapper.find('input').at(1)
-    
+
     expect(input.props().checked).to.be.false
     expect(input2.props().checked).to.be.false
   })
@@ -201,12 +202,13 @@ describe('RadioGroup', () => {
 
     // We need to reassign after .update() is called, apparently
     input = wrapper.find('input').at(0)
-    
+
     expect(input.props().checked).to.be.false
   })
 
   it('should not result in an error if changeCallback is not defined', () => {
     const spy = sinon.spy(console, 'error')
+
     wrapper = mount(<RadioGroup name='test-group' options={options} label='Test label' />)
 
     wrapper.find('input').at(0).simulate('change')

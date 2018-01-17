@@ -69,9 +69,10 @@ describe('ColorPicker', () => {
 
   it('should run the changeCallback on change', () => {
     let result = ''
-    const callback = function(event) {
+    const callback = function (event) {
       result = event
     }
+
     wrapper = mount(<ColorPicker value={oldColor} changeCallback={callback} />)
     wrapper.find('input').simulate('change')
     expect(result.target.value).to.equal(oldColor)
@@ -79,6 +80,7 @@ describe('ColorPicker', () => {
 
   it('should not result in an error if changeCallback is not defined', () => {
     const spy = sinon.spy(console, 'error')
+
     wrapper = mount(<ColorPicker value={oldColor} />)
     wrapper.find('input').simulate('change')
 
@@ -89,6 +91,7 @@ describe('ColorPicker', () => {
   it('should update the state when new color is selected in the picker', () => {
     wrapper = shallow(<ColorPicker changeCallback={() => {}} />)
     const handlePickerChange = wrapper.instance().handlePickerChange
+
     handlePickerChange({ hex: newColor })
 
     expect(wrapper.state('color')).to.equal(newColor)
@@ -96,8 +99,10 @@ describe('ColorPicker', () => {
 
   it('should run the changeCallback when new color is selected in the picker', () => {
     const callback = sinon.spy()
+
     wrapper = shallow(<ColorPicker changeCallback={callback} />)
     const handlePickerChange = wrapper.instance().handlePickerChange
+
     handlePickerChange({ hex: newColor })
 
     expect(callback.calledOnce).to.be.true

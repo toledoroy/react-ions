@@ -8,6 +8,7 @@ describe('Utilities::Form', () => {
       const expected = fromJS({'email': 'test@test.com'})
 
       const result = formSchemaToKeyVal(schema)
+
       expect(is(result, expected)).to.be.true
     })
   })

@@ -1,6 +1,6 @@
 import React from 'react'
-import PropsList from 'private/modules/PropsList';
-import docs from '!!docgen!react-ions/lib/components/Nav/Nav';
+import PropsList from 'private/modules/PropsList'
+import docs from '!!docgen!react-ions/lib/components/Nav/Nav'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleNavDefault from './ExampleNavDefault'
 import exampleNavDefaultCode from '!raw!./ExampleNavDefault'
@@ -8,7 +8,7 @@ import style from 'private/css/content'
 
 const description = {
   navDefault: 'This is the `nav component`.'
-};
+}
 
 const NavPage = () => {
   return (
@@ -32,4 +32,4 @@ const NavPage = () => {
   )
 }
 
-export default NavPage;
+export default NavPage

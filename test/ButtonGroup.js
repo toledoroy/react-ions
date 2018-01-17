@@ -7,7 +7,7 @@ describe('ButtonGroup', () => {
     {
       value: 'option_1',
       label: 'Option 1'
-    },{
+    }, {
       value: 'option_2',
       label: 'Option 2'
     }
@@ -96,9 +96,10 @@ describe('ButtonGroup', () => {
 
   it('should update selected value via callback', () => {
     let selected = false
-    const callback = function(event, value) {
+    const callback = function (event, value) {
       selected = value
     }
+
     wrapper = shallow(<ButtonGroup name="test-group" options={options} label="Test label" changeCallback={callback}/>)
     const handleChange = wrapper.instance().handleChange
 
@@ -111,7 +112,7 @@ describe('ButtonGroup', () => {
       {
         customValue: 'option_1',
         customLabel: 'Option 1'
-      },{
+      }, {
         customValue: 'option_2',
         customLabel: 'Option 2'
       }

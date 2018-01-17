@@ -18,16 +18,16 @@ class ExampleSelectFieldSelected extends React.Component {
     selected: 0
   }
 
-  updateSelected = (index) => {
+  updateSelected = index => {
     this.setState({ selected: index })
   }
 
-  changeCallback = (event) => {
+  changeCallback = event => {
     this.setState({ selected: event.target.value, status: 'The callback was triggered and the chosen option is ' + event.target.value })
   }
 
-  render () {
-    return(
+  render() {
+    return (
       <div>
         <div className={style.update}>
           <Button onClick={this.updateSelected.bind(this, 0)}>Select 1st item</Button>

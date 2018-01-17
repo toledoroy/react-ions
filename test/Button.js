@@ -52,6 +52,7 @@ describe('Button', () => {
 
   it('should have extra classes', () => {
     const optClasses = ['test-class', 'test-class-2', 'test-class-3']
+
     wrapper = shallow(<Button size='lg' optClass={optClasses} />)
     expect(wrapper.hasClass('btn')).to.be.true
     expect(wrapper.hasClass('lg')).to.be.true
@@ -218,6 +219,7 @@ describe('ButtonConfirmation', () => {
       onClick: () => {},
       prompt: 'Test prompt'
     }
+
     wrapper = mount(<ButtonConfirmation {...props}>Delete</ButtonConfirmation>)
     const state = wrapper.state()
     const shouldComponentUpdate = wrapper.instance().shouldComponentUpdate

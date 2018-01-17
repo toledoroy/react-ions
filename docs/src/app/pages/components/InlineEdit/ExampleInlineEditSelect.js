@@ -20,10 +20,10 @@ class ExampleInlineEditSelect extends React.Component {
   }
 
   makeReadonly = () => {
-    this.setState({ readonly: this.state.readonly ? false : true })
+    this.setState({ readonly: !this.state.readonly })
   }
 
-  changeCallback = (event) => {
+  changeCallback = event => {
     console.log('Selected:', event.target.value)
     this.setState({ value: event.target.value, loading: true })
 

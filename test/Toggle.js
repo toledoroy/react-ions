@@ -46,6 +46,7 @@ describe('Toggle', () => {
     expect(wrapper.find('span').text()).to.equal('No')
 
     const inst = wrapper.instance()
+
     expect(wrapper.state().value).to.be.false
 
     wrapper = shallow(<Toggle value={true} hasText={true} />)
@@ -75,9 +76,10 @@ describe('Toggle', () => {
 
   it('should update checked value via callback', () => {
     let value = false
-    const callback = function(event) {
+    const callback = function (event) {
       value = event.target.value
     }
+
     wrapper = shallow(<Toggle value={false} changeCallback={callback} />)
     wrapper.instance().handleChange()
 

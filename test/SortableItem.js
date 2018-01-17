@@ -7,7 +7,7 @@ import { DragDropContext } from 'react-dnd'
 describe('SortableItem', () => {
   let wrapper
 
-  const moveSortableItem = (dragIndex) => {}
+  const moveSortableItem = dragIndex => {}
   const toggleSortableItem = () => {}
   const onDragStart = () => {}
   const onDragStop = () => {}
@@ -28,6 +28,7 @@ describe('SortableItem', () => {
   it('should shallow render itself', () => {
     // Render with the test context that uses the test backend
     const SortableItemContext = wrapInTestContext(SortableItem)
+
     wrapper = mount(<SortableItemContext key={0} index={0} value="test-1" text="Test 1" moveSortableItem={sinon.spy()} toggleSortableItem={sinon.spy()} onDragStart={sinon.spy()} onDragStop={sinon.spy()} count={1} />)
 
     expect(wrapper.find('.sortable-item')).to.have.length(1)
@@ -46,10 +47,12 @@ describe('SortableItem', () => {
 
     // Test that the opacity is 1
     let sortableItem = TestUtils.findRenderedDOMComponentWithClass(root, 'sortable-item')
+
     expect(sortableItem.style.opacity).to.be.equal('1')
 
     // Find the drag source ID and use it to simulate the dragging operation
     const item = TestUtils.findRenderedComponentWithType(root, SortableItem)
+
     backend.simulateBeginDrag([item.getDecoratedComponentInstance().getHandlerId()])
 
     // Verify that the div changed its opacity
@@ -71,6 +74,7 @@ describe('SortableItem', () => {
 
     // Find the drag source ID and use it to simulate the dragging operation
     const item = TestUtils.findRenderedComponentWithType(root, SortableItem)
+
     backend.simulateBeginDrag([item.getDecoratedComponentInstance().getHandlerId()])
 
     expect(draggingStarted).to.be.true
@@ -90,6 +94,7 @@ describe('SortableItem', () => {
 
     // Find the drag source ID and use it to simulate the dragging operation
     const item = TestUtils.findRenderedComponentWithType(root, SortableItem)
+
     backend.simulateBeginDrag([item.getDecoratedComponentInstance().getHandlerId()])
     backend.simulateDrop()
     backend.simulateEndDrag()
@@ -99,6 +104,7 @@ describe('SortableItem', () => {
 
   it('should not render the order numbers', () => {
     const SortableItemContext = wrapInTestContext(SortableItem)
+
     wrapper = mount(<SortableItemContext key={0} index={0} value="test-1" text="Test 1" moveSortableItem={sinon.spy()} toggleSortableItem={sinon.spy()} onDragStart={sinon.spy()} onDragStop={sinon.spy()} count={1} hideOrderNumber={true} />)
 
     expect(wrapper.find('Badge')).to.have.length(0)

@@ -17,7 +17,7 @@ const description = {
   formGroupInline: 'This is an example `form group` component with inline elements',
   formGroupNested: 'This is an example of nested form groups',
   formValidation: 'This is an example `form group` both internal and "external eg: props-based" validation.'
-};
+}
 
 const FormGroupPage = () => (
   <div>
@@ -54,6 +54,6 @@ const FormGroupPage = () => (
       </div>
     </div>
   </div>
-);
+)
 
 export default FormGroupPage

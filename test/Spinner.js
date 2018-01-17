@@ -84,6 +84,7 @@ describe('Spinner', () => {
     wrapper.update()
 
     const anotherNextState = Object.assign({loading: true})
+
     expect(wrapper.instance().shouldComponentUpdate(null, anotherNextState)).to.be.false
   })
 

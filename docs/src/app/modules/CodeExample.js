@@ -26,7 +26,7 @@ class CodeExample extends PureComponent {
   static propTypes = {
     markup: PropTypes.string.isRequired,
     description: PropTypes.string,
-    title: PropTypes.string,
+    title: PropTypes.string
   }
 
   state = {
@@ -56,6 +56,7 @@ class CodeExample extends PureComponent {
   highlightCode = () => {
     var ref = this.refs.example
     var nodes = ref.querySelectorAll('pre code')
+
     if (nodes.length > 0) {
       for (var i = 0; i < nodes.length; i = i + 1) {
         hljs.highlightBlock(nodes[i])

@@ -28,6 +28,7 @@ describe('Checkbox', () => {
 
   it('should be checked', () => {
     const checked = true
+
     wrapper = mount(<Checkbox value={checked} label='Test label'></Checkbox>)
 
     expect(wrapper.find('input').prop('value')).to.equal(checked)
@@ -36,7 +37,7 @@ describe('Checkbox', () => {
 
   it('should be locked when value is true', () => {
     let checked = true
-    const callback = function(event) {
+    const callback = function (event) {
       checked = event.target.checked
     }
     const event = {
@@ -56,7 +57,7 @@ describe('Checkbox', () => {
 
   it('should not be locked when value is false', () => {
     let checked = false
-    const callback = function(event) {
+    const callback = function (event) {
       checked = event.target.checked
     }
     const event = {
@@ -103,6 +104,7 @@ describe('Checkbox', () => {
 
   it('should not result in an error if the change callback is not defined', () => {
     let checked = false
+
     wrapper = mount(<Checkbox value={checked} label='Test label' />)
 
     wrapper.childAt(0).simulate('change', {target: { checked: true }})

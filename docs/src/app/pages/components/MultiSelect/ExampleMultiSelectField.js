@@ -14,11 +14,11 @@ class ExampleMultiSelectField extends React.Component {
     status: 'Chosen options are: 0,1'
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({ value: event.target.value, status: 'The callback was triggered and ' + (event.target.value.length > 0 ? 'the chosen options are: ' + event.target.value.join(',') : 'there are no options selected') })
   }
 
-  updateSelected = (index) => {
+  updateSelected = index => {
     this.setState({ value: [index], status: 'Chosen options are: ' + index })
   }
 
@@ -30,7 +30,7 @@ class ExampleMultiSelectField extends React.Component {
       {value: '3', display: 'Test 4'}
     ]
 
-    return(
+    return (
       <div>
         <div className={style.update}>
           <Button onClick={this.updateSelected.bind(this, '0')}>Select 1st item</Button>

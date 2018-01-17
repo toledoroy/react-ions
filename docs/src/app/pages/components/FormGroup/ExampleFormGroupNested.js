@@ -28,7 +28,7 @@ class ExampleFormGroup extends React.Component {
     }
   }
 
-  handleChange = (fields) => {
+  handleChange = fields => {
     console.log(fields)
   }
 

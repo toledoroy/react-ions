@@ -37,9 +37,10 @@ describe('Radio', () => {
 
   it('should have a callback', () => {
     let checked = false
-    const callback = function(event, value) {
+    const callback = function (event, value) {
       checked = value
     }
+
     wrapper = mount(<Radio value='test' label='Test label' changeCallback={callback}></Radio>)
 
     wrapper.find('input').simulate('change')
@@ -48,6 +49,7 @@ describe('Radio', () => {
 
   it('should not result in an error if the callback is not defined', () => {
     const spy = sinon.spy(console, 'error')
+
     wrapper = mount(<Radio value='test' label='Test label'></Radio>)
 
     wrapper.find('input').simulate('change')

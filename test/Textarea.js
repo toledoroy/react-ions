@@ -46,6 +46,7 @@ describe('Textarea', () => {
   it('should run the blurCallback on blur', () => {
     const blurCallback = sinon.spy()
     const event = { key: 'value' }
+
     wrapper = shallow(<Textarea value='test' blurCallback={blurCallback} />)
     wrapper.instance().handleBlur(event)
     expect(blurCallback.calledWithExactly(event)).to.be.true
@@ -53,6 +54,7 @@ describe('Textarea', () => {
 
   it('should not result in an error when blurCallback is not defined', () => {
     const spy = sinon.spy(console, 'error')
+
     wrapper = mount(<Textarea value='test' />)
     wrapper.instance().handleBlur()
 
@@ -62,6 +64,7 @@ describe('Textarea', () => {
 
   it('should not result in an error when focusCallback is not defined', () => {
     const spy = sinon.spy(console, 'error')
+
     wrapper = mount(<Textarea value='test' />)
     wrapper.instance().handleFocus()
 
@@ -72,6 +75,7 @@ describe('Textarea', () => {
   it('should run the focusCallback on focus', () => {
     const spy = sinon.spy()
     const event = { key: 'value' }
+
     wrapper = mount(<Textarea value='test' focusCallback={spy} />)
     wrapper.instance().handleFocus(event)
     expect(spy.calledWithExactly(event)).to.be.true
@@ -80,7 +84,7 @@ describe('Textarea', () => {
   it('should update the state when the value property changes', () => {
     wrapper = shallow(<Textarea value='test' value="Test text" />)
 
-    wrapper.setProps({ value: "Test change" })
+    wrapper.setProps({ value: 'Test change' })
     wrapper.update()
 
     expect(wrapper.state('value')).to.equal('Test change')

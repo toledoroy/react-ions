@@ -17,6 +17,7 @@ const validate = {
   },
   isValidEmail: email => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
     return !!email && re.test(email.trim())
   }
 }
@@ -46,7 +47,7 @@ class ExampleFormValidation extends React.Component {
 
   state = defaultState
 
-  handleChange = (fields) => {
+  handleChange = fields => {
     this.setState({schema: fields})
   }
 
@@ -68,15 +69,13 @@ class ExampleFormValidation extends React.Component {
           submitted: true
         })
       }, 1000)
-    }
-
-    else {
+    } else {
       this.setState(defaultState)
       console.log('Payload:', JSON.stringify(fields, 2, null))
     }
   }
 
-  handleErrors = (errors) => {
+  handleErrors = errors => {
     console.log(errors.toJS())
   }
 

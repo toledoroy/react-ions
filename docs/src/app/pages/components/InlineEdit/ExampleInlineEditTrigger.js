@@ -13,7 +13,7 @@ class ExampleInlineEditTrigger extends React.Component {
     value: 'Example value'
   }
 
-  handleCallback = (event) => {
+  handleCallback = event => {
     this.setState({ isEditing: false, value: event.target.value })
   }
 

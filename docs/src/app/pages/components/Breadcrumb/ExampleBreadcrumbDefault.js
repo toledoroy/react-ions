@@ -10,7 +10,7 @@ const routes = [
     path: 'subpage',
     title: 'Subpage'
   }
-];
+]
 
 const ExampleBreadcrumbDefault = () => (
   <Breadcrumb routes={routes} />

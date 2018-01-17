@@ -16,7 +16,7 @@ class ExampleSpinnerBounce extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <Button onClick={this.toggleLoader}>{this.state.loading ? 'Hide' : 'Show'} Spinner</Button>
         <Spinner loading={this.state.loading} type='spinner-bounce' position='inline' />
@@ -25,4 +25,4 @@ class ExampleSpinnerBounce extends React.Component {
   }
 }
 
-export default ExampleSpinnerBounce;
+export default ExampleSpinnerBounce

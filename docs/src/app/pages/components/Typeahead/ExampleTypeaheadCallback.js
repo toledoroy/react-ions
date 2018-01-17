@@ -11,12 +11,12 @@ class ExampleTypeaheadCallback extends React.Component {
     status: ''
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({status: 'Chosen value is \'' + event.target.value + '\''})
   }
 
   render() {
-    return(
+    return (
       <div>
         <Typeahead
           options={options}

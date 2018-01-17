@@ -31,6 +31,7 @@ class CodeExample extends React.Component {
   highlightCode() {
     var ref = this.refs.example
     var nodes = ref.querySelectorAll('pre')
+
     if (nodes.length > 0) {
       for (var i = 0; i < nodes.length; i = i + 1) {
         hljs.highlightBlock(nodes[i])

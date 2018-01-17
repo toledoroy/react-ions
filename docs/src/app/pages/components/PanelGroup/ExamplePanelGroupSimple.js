@@ -16,7 +16,7 @@ const options = [
     value: 'option_4',
     label: 'Redirect them'
   }
-];
+]
 
 const ExamplePanelGroupSimple = () => (
   <div>

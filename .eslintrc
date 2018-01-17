@@ -23,7 +23,11 @@
     "expect": true,
     "sinon": true,
     "beforeEach": true,
-    "afterEach": true
+    "afterEach": true,
+    "shallow": true,
+    "mount": true,
+    "render": true,
+    "Enzyme": true
   },
 
   "parser": "babel-eslint",
