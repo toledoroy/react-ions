@@ -61,7 +61,7 @@ class PanelHeader extends React.Component {
             <div className={style['toggle-icon']}>
               {this.props.toggleIcon
               ? <Icon name={iconProps.name} height={iconProps.size} width={iconProps.size} />
-              : <Icon name='chevron-top' height='12' width='12' />
+              : <Icon name='icon-arrow-66' height='12' width='12' />
               }
             </div>
           </div>
