@@ -1,6 +1,6 @@
 import React from 'react'
-import PropsList from 'private/modules/PropsList';
-import docs from '!!docgen!react-ions/lib/components/Badge/Badge';
+import PropsList from 'private/modules/PropsList'
+import docs from '!!docgen!react-ions/lib/components/Badge/Badge'
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleBadges from './ExampleBadges'
@@ -11,7 +11,7 @@ import exampleBadgesHeavyCode from '!raw!./ExampleBadgesHeavy'
 const description = {
   badges: 'This is the `badge component`.',
   badgesHeavy: 'This is the "heavy" `badge component`.'
-};
+}
 
 const BadgePage = () => (
   <div>

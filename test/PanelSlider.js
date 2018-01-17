@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import {PanelSlider, PanelHeader, Panel, PanelContent} from '../src/components/PanelGroup'
 
 describe('PanelSlider', () => {
@@ -27,7 +26,7 @@ describe('PanelSlider', () => {
   it('should return a transform value', () => {
     panelSlider = shallow(<PanelSlider activePanel={0}><Panel><PanelContent>Test Content</PanelContent></Panel><Panel><PanelContent>Test Content</PanelContent></Panel></PanelSlider>)
     expect(panelSlider.instance().getStyle(1)).to.deep.equal({
-      'transform': `translateX(-100%)`
+      'transform': 'translateX(-100%)'
     })
   })
 
@@ -35,7 +34,7 @@ describe('PanelSlider', () => {
     panelSlider = shallow(<PanelSlider activePanel={0}><Panel><PanelContent>Test Content</PanelContent></Panel><Panel><PanelContent>Test Content</PanelContent></Panel></PanelSlider>)
     panelSlider.instance().activatePanel(1)
 
-    expect(panelSlider.state().panels).to.deep.equal([{active: false},{active: true}])
+    expect(panelSlider.state().panels).to.deep.equal([{active: false}, {active: true}])
   })
 
   it('should not return a PanelHeader', () => {

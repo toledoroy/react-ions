@@ -1,6 +1,6 @@
 import React from 'react'
-import PropsList from 'private/modules/PropsList';
-import docs from '!!docgen!react-ions/lib/components/Dropdown/Dropdown';
+import PropsList from 'private/modules/PropsList'
+import docs from '!!docgen!react-ions/lib/components/Dropdown/Dropdown'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleDropdownButton from './ExampleDropdownButton'
 import exampleDropdownButtonCode from '!raw!./ExampleDropdownButton'
@@ -17,7 +17,7 @@ const description = {
   dropdownButtonCallback: 'This is the **dropdown component** with a callback function to open.',
   dropdownList: 'This is the **dropdown component** that displays a list.',
   dropdownConfirmation: 'This is the **dropdown component** that displays a list with a confirmation overlay when clicked.'
-};
+}
 
 const DropdownPage = () => (
   <div>

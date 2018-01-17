@@ -4,18 +4,18 @@ import Button from 'react-ions/lib/components/Button'
 
 class ExampleModalDefault extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      open: false,
-    };
+      open: false
+    }
   }
 
   handleOpen = () => {
-    this.setState({open: true});
+    this.setState({open: true})
   };
 
   handleClose = () => {
-    this.setState({open: false});
+    this.setState({open: false})
   };
 
   render() {
@@ -37,7 +37,7 @@ class ExampleModalDefault extends React.Component {
           <p>Nunc sodales nibh ut erat molestie, nec pellentesque sapien facilisis. Aenean mattis odio orci, eget aliquet diam faucibus non. Sed non leo sit amet metus tincidunt finibus id aliquet tellus. Integer blandit at arcu sit amet fringilla. Vestibulum scelerisque fermentum consectetur. Vestibulum tristique turpis at nisi pharetra, sollicitudin elementum erat malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce nulla lacus, ultricies sit amet metus eget, dignissim bibendum nulla. Duis eget libero quis sapien pharetra congue nec id nunc. Curabitur sagittis id enim vitae tincidunt. Nullam et dignissim erat. Praesent sem nisi, dapibus a finibus vel, ultricies vel sapien. Donec odio metus, fermentum a pellentesque at, dignissim ultricies felis. Proin pulvinar non mi eget pulvinar. Nulla vestibulum volutpat lectus, eget tincidunt lacus tempus sed. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
         </Modal>
       </div>
-    );
+    )
   }
 }
 

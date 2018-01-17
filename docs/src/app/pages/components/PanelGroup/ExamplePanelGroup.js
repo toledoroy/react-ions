@@ -6,7 +6,7 @@ import style from './style.scss'
 
 class ExamplePanelGroup extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -19,8 +19,8 @@ class ExamplePanelGroup extends React.Component {
     }
   }
 
-  panelToggle = (activePanels) => {
-    this.setState({ panels: activePanels });
+  panelToggle = activePanels => {
+    this.setState({ panels: activePanels })
   }
 
   render() {

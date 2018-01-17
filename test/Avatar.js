@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import Avatar from '../src/components/Avatar'
 
 describe('Avatar', () => {
@@ -92,7 +91,7 @@ describe('Avatar', () => {
     expect(style.backgroundColor).to.equal('#ffffff')
   })
 
- it('should return a style object for the text', () => {
+  it('should return a style object for the text', () => {
     wrapper = shallow(<Avatar size='100' />)
 
     inst = wrapper.instance()
@@ -101,7 +100,7 @@ describe('Avatar', () => {
     expect(style.fontSize).to.equal('60px')
   })
 
- it('should only update under certain circumstances', () => {
+  it('should only update under certain circumstances', () => {
     wrapper = shallow(<Avatar size='100' src='test' letters='aa' />)
 
     inst = wrapper.instance()
@@ -133,9 +132,9 @@ describe('Avatar', () => {
     expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
     nextProps.fadeIn = false
     expect(inst.shouldComponentUpdate(nextProps, nextState)).to.be.true
- })
+  })
 
- it('should return a proper background color based on the first character of the letter', () => {
+  it('should return a proper background color based on the first character of the letter', () => {
     const colorCases = [
         {character: undefined, color: '#F93943'},
         {character: 'k', color: '#F93943'},
@@ -206,9 +205,9 @@ describe('Avatar', () => {
     expect(inst.getBackgroundColor()).to.equal('#F93943')
 
     for (let i = colorCases.length - 1; i >= 0; i--) {
-        wrapper.setProps({ letters: colorCases[i].character})
-        wrapper.update()
-        expect(inst.getBackgroundColor()).to.equal(colorCases[i].color)
+      wrapper.setProps({ letters: colorCases[i].character})
+      wrapper.update()
+      expect(inst.getBackgroundColor()).to.equal(colorCases[i].color)
     }
   })
 

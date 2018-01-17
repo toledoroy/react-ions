@@ -13,7 +13,7 @@ class ExampleDropdownCallback extends React.Component {
     isOpened: false
   }
 
-  handleChange = (state) => {
+  handleChange = state => {
     this.setState({isOpened: state})
   }
 

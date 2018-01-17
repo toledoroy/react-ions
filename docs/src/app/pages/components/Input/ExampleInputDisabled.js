@@ -5,7 +5,7 @@ import style from './style.scss'
 
 class ExampleInputDisabled extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -13,7 +13,7 @@ class ExampleInputDisabled extends React.Component {
   }
 
   toggleDisabled = () => {
-    this.setState({ disabled: !this.state.disabled });
+    this.setState({ disabled: !this.state.disabled })
   }
 
   render() {

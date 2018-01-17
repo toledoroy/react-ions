@@ -18,7 +18,7 @@ class ExampleSpinnerDelay extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <Button onClick={this.cancelLoader}>{this.state.loading ? 'Cancel' : 'Canceled'}</Button>
         <Spinner loading={this.state.loading} delay={5000} type='spinner-bounce' position='inline' />

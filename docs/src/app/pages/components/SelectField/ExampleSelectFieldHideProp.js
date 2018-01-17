@@ -16,7 +16,7 @@ class ExampleSelectFieldHideProp extends React.Component {
     status: ''
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     let options = this.state.options.map(option => {
       option.notShowing = option.value === event.target.value
       return option
@@ -26,7 +26,7 @@ class ExampleSelectFieldHideProp extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <SelectField
         options={this.state.options}
         valueProp='value'

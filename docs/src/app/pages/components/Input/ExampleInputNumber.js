@@ -18,14 +18,14 @@ class ExampleInputNumber extends React.Component {
     this.setState({statusString: 'My value is: ' + this.state.valueString + ' and it is of type: ' + typeof this.state.valueString})
   }
 
-  handleChangeNumber = (event) => {
+  handleChangeNumber = event => {
     if (event.target.value === '') {
       event.target.value = '\'\' (empty string)'
     }
     this.setState({statusNumber: 'My value is: ' + event.target.value + ' and it is of type: ' + typeof event.target.value})
   }
 
-  handleChangeString = (event) => {
+  handleChangeString = event => {
     if (event.target.value === '') {
       event.target.value = '\'\' (empty string)'
     }
@@ -33,7 +33,7 @@ class ExampleInputNumber extends React.Component {
   }
 
   render = () => {
-    return(
+    return (
       <div>
         <Input valueType='number' value={this.state.valueNumber} changeCallback={this.handleChangeNumber} label='Input of number type' />
         <code>{this.state.statusNumber}</code>

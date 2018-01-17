@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import update from 'react/lib/update'
+import update from 'immutability-helper'
 import SortableItem from './SortableItem'
 import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
@@ -51,7 +51,12 @@ export class SortableList extends React.Component {
   }
 
   handleResize = () => {
-    this.setState({ width: this._sortableList.getBoundingClientRect().width, top: this._sortableList.getBoundingClientRect().top })
+    if (this._sortableList) {
+      this.setState({
+        width: this._sortableList.getBoundingClientRect().width,
+        top: this._sortableList.getBoundingClientRect().top
+      })
+    }
   }
 
   componentDidMount = () => {
@@ -66,7 +71,7 @@ export class SortableList extends React.Component {
     window.removeEventListener('resize', this.handleResize)
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     this.setState({ items: nextProps.items })
   }
 
@@ -81,7 +86,7 @@ export class SortableList extends React.Component {
           [hoverIndex, 0, dragSortableItem]
         ]
       }
-    }), function() {
+    }), function () {
       if (this.props.changeCallback) {
         this.props.changeCallback({
           target: {
@@ -93,13 +98,14 @@ export class SortableList extends React.Component {
     })
   }
 
-  toggleSortableItem = (index) => {
+  toggleSortableItem = index => {
     let items = this.state.items
+
     items[index].active = !items[index].active
 
     this.setState(update(this.state, {
       items: { $set: items }
-    }), function() {
+    }), function () {
       if (this.props.changeCallback) {
         this.props.changeCallback({
           target: {
@@ -112,7 +118,7 @@ export class SortableList extends React.Component {
   }
 
   onDragStart = () => {
-    this.setState({ dragging: true }, function() {
+    this.setState({ dragging: true }, function () {
       if (this.props.onDragStart) {
         this.props.onDragStart()
       }
@@ -120,7 +126,7 @@ export class SortableList extends React.Component {
   }
 
   onDragStop = () => {
-    this.setState({ dragging: false }, function() {
+    this.setState({ dragging: false }, function () {
       if (this.props.onDragStop) {
         this.props.onDragStop()
       }
@@ -132,7 +138,7 @@ export class SortableList extends React.Component {
     const { hideOrderNumbers } = this.props
 
     return (
-      <div className={style['sortable-list-container']} ref={(c) => this._sortableList = c}>
+      <div className={style['sortable-list-container']} ref={c => this._sortableList = c}>
         <div className={style['sortable-list']}>
           {items.map((item, i) => {
             return (

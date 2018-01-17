@@ -72,7 +72,7 @@ class ButtonGroup extends React.Component {
     }
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (typeof nextProps.defaultOption !== 'undefined' && nextProps.options[nextProps.defaultOption][nextProps.valueProp] !== this.state.checkedOption) {
       nextProps.options[nextProps.defaultOption].checked = true
       this.setState({checkedOption: nextProps.options[nextProps.defaultOption][nextProps.valueProp]})

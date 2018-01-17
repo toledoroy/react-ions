@@ -17,15 +17,15 @@ class ExampleFileUploadCallback extends React.Component {
     this.setState({ files: [this._imageUrl.state.value] })
   }
 
-  changeCallback = (event) => {
+  changeCallback = event => {
     console.log(event)
   }
 
   render() {
-    return(
+    return (
       <div>
         <div className={style.update}>
-          <Input value='' placeholder='Paste an image URL here' ref={(c) => this._imageUrl = c} />
+          <Input value='' placeholder='Paste an image URL here' ref={c => this._imageUrl = c} />
           <Button onClick={this.updateValue}>Update Value</Button>
         </div>
         <FileUpload label="File upload with value" showPreview={true} changeCallback={this.changeCallback} value={this.state.files[0]} />

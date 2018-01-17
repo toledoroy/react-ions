@@ -12,7 +12,7 @@ class ExampleInlineEditCallback extends React.Component {
     isEditing: false
   }
 
-  changeCallback = (event) => {
+  changeCallback = event => {
     console.log(event.target.value)
   }
 

@@ -6,9 +6,9 @@ import ButtonAnchor from 'react-ions/lib/components/Button/ButtonAnchor'
 import Icon from 'react-ions/lib/components/Icon'
 
 const HomePage = () => {
-  const cx = classNames.bind(baseStyles);
-  var heroClass = cx(baseStyles.block, localStyles.hero);
-  var secondaryClass = cx(baseStyles.block, localStyles.secondary);
+  const cx = classNames.bind(baseStyles)
+  var heroClass = cx(baseStyles.block, localStyles.hero)
+  var secondaryClass = cx(baseStyles.block, localStyles.secondary)
 
   return (
     <div>
@@ -24,4 +24,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage;
+export default HomePage

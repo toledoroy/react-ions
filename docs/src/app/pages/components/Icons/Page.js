@@ -11,7 +11,7 @@ import styles from 'private/css/content'
 const description = {
   iconDefault: 'This is the `icon component` with only a `name` property, which is required.',
   iconCustom: 'This is the `icon component` customized with additional `width`, `height`, `fill`, and `className` properties.'
-};
+}
 
 const IconsPage = () => (
   <div>
@@ -36,6 +36,6 @@ const IconsPage = () => (
       </div>
     </div>
   </div>
-);
+)
 
 export default IconsPage

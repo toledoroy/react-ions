@@ -16,15 +16,16 @@ class ExampleCheckboxToggle extends React.Component {
 
   toggleIcon = () => {
     const iconName = this.state.iconName === 'icon-check-2-1' ? 'icon-delete-1' : 'icon-check-2-1'
+
     this.setState({ iconName: iconName })
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({ checked: event.target.checked })
   }
 
   render() {
-    return(
+    return (
       <div>
         <Button onClick={this.toggleIcon} optClass={style.toggle}>
           <span>Use</span>

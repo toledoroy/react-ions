@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 
-const Radio = (props) => {
+const Radio = props => {
   const {
     label,
     optClass,
@@ -17,7 +17,7 @@ const Radio = (props) => {
   const radioClass = cx(style['radio-component'], optClass, disabledClass)
   const labelWrapperClass = props.description ? style['label-group'] : null
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     event.persist()
     if (typeof props.changeCallback === 'function') {
       props.changeCallback(event, props.value)

@@ -67,7 +67,7 @@ class MultiSelect extends React.Component {
     }
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.value !== this.state.value) {
       // Set state
       if (nextProps.value instanceof Array && (this.containsValidValue(nextProps.value, nextProps.options) || nextProps.value.length === 0)) {
@@ -80,8 +80,9 @@ class MultiSelect extends React.Component {
     }
   }
 
-  getIndex = (value) => {
+  getIndex = value => {
     let optionIndex = -1
+
     this.props.options.map((option, index) => {
       if (option[this.props.valueProp] === value) {
         optionIndex = index
@@ -103,7 +104,7 @@ class MultiSelect extends React.Component {
     return isValid
   }
 
-  getSelectedOptions = (values) => {
+  getSelectedOptions = values => {
     let selectedOptions = []
 
     values.map((value, index) => {
@@ -117,10 +118,11 @@ class MultiSelect extends React.Component {
     return selectedOptions
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     // when value & option are empty it means that reset button was clicked
     if (event.target.value !== '' && event.target.option !== '') {
       let values = this.state.value
+
       values.push(event.target.value)
 
       this.setState({selected: this.getSelectedOptions(values), value: values}, () => {
@@ -137,13 +139,15 @@ class MultiSelect extends React.Component {
     }
   }
 
-  filterOptions = (option) => {
+  filterOptions = option => {
     const optionValue = option[this.props.valueProp]
+
     return (this.state.value.indexOf(optionValue) === -1)
   }
 
-  getElements = (children) => {
+  getElements = children => {
     let {options, value, ...props} = this.props
+
     props.options = this.props.options.filter(this.filterOptions)
     props.changeCallback = this.handleChange
 
@@ -159,8 +163,9 @@ class MultiSelect extends React.Component {
     })
   }
 
-  onRemove = (index) => {
+  onRemove = index => {
     const values = this.state.value.slice()
+
     values.splice(index, 1)
 
     this.setState({selected: this.getSelectedOptions(values), value: values}, () => {

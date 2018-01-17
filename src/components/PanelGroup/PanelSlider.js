@@ -39,7 +39,7 @@ class PanelSlider extends React.Component {
   // No sCU on this component because
   // nested child components need to be
   // able to update as needed
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.activePanel !== this.props.activePanel) {
       this.setState({
         isTransitioning: true
@@ -53,7 +53,7 @@ class PanelSlider extends React.Component {
     }
   }
 
-  getStyle = (index) => {
+  getStyle = index => {
     let translateValue
 
     if (index === 0) {
@@ -69,7 +69,8 @@ class PanelSlider extends React.Component {
 
   getPanels = () => {
     const panels = []
-    React.Children.forEach(this.props.children, (panel) => {
+
+    React.Children.forEach(this.props.children, panel => {
       if (React.isValidElement(panel)) {
         panels.push(panel)
       }
@@ -77,12 +78,13 @@ class PanelSlider extends React.Component {
     return panels
   }
 
-  activatePanel = (activePanel) => {
+  activatePanel = activePanel => {
     var panels = this.getPanels()
     var initialPanels = []
 
     panels.forEach((panel, index) => {
       const active = activePanel === index
+
       initialPanels = [...initialPanels, { active }]
     })
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import Loader from 'react-loader'
 import Input from '../src/components/Input/Input'
 import { Typeahead } from '../src/components/Typeahead/Typeahead'
@@ -43,15 +42,16 @@ describe('Typeahead', () => {
   })
 
   it('should display a list when the user types a letter', () => {
-    wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' />)
-    wrapper.find('input').simulate('change', {target: {value: 'a'}})
+    wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' />)
+    wrapper.instance().handleChange({ target: { value: 'a' } })
+    wrapper.update()
 
-    expect(wrapper.childAt(1).find('li')).to.have.length(2)
+    expect(wrapper.find('li')).to.have.length(2)
   })
 
   it('should display a loader', () => {
-    wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' loading={true} />)
-    expect(wrapper.childAt(1).type()).to.equal(Loader)
+    wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' loading={true} />)
+    expect(wrapper.find(Loader)).to.have.length(1)
   })
 
   it('should take a search callback', () => {
@@ -59,16 +59,18 @@ describe('Typeahead', () => {
       {value: 'US', display: 'United States'}
     ]
     const searchStub = sinon.stub().returns(Promise.resolve(promiseOptions))
+
     wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' searchCallback={searchStub} />)
     wrapper.find('input').simulate('change', {target: {value: 'b'}})
     expect(searchStub.calledWithExactly('b')).to.be.true
   })
 
-  it('should have a custom search debounce time', (done) => {
+  it('should have a custom search debounce time', done => {
     const promiseOptions = [
       {value: 'US', display: 'United States'}
     ]
     const searchStub = sinon.stub().returns(Promise.resolve(promiseOptions))
+
     wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' searchCallback={searchStub} searchDebounceTime={200} />)
     wrapper.find('input').simulate('change', {target: {value: 'b'}})
 
@@ -86,43 +88,41 @@ describe('Typeahead', () => {
   })
 
   it('should not clear search string after selection', () => {
-    wrapper = mount(<Typeahead options={options} valueProp='value' displayProp='display' />)
+    wrapper = shallow(<Typeahead options={options} valueProp='value' displayProp='display' />)
 
-    let inputField = wrapper.find('input')
+    wrapper.instance().handleChange({ target: { value: 'a' } })
 
-    inputField.simulate('change', {target: {value: 'a'}})
-    expect(inputField.node.value).to.equal('a')
+    expect(wrapper.state('searchStr')).to.equal('a')
 
-    wrapper.childAt(1).childAt(0).simulate('click')
-    expect(inputField.node.value).to.equal(options[0].display)
+    wrapper.instance().selectOption(options[0])
+    expect(wrapper.state('searchStr')).to.equal('Austria')
   })
 
   it('should clear search string after selection', () => {
     wrapper = mount(<Typeahead resetAfterSelection={true} options={options} valueProp='value' displayProp='display' />)
 
-    let inputField = wrapper.find('input')
+    wrapper.instance().handleChange({ target: { value: 'a' } })
 
-    inputField.simulate('change', {target: {value: 'a'}})
-    expect(inputField.node.value).to.equal('a')
+    expect(wrapper.state('searchStr')).to.equal('a')
 
-    wrapper.childAt(0).childAt(1).childAt(0).simulate('click')
-    expect(inputField.node.value).to.equal('')
+    wrapper.instance().selectOption(options[0])
+    expect(wrapper.state('searchStr')).to.equal('')
   })
 
   it('should clear search when the clear button is clicked', () => {
     wrapper = mount(<Typeahead resetAfterSelection={true} options={options} valueProp='value' displayProp='display' changeCallback={sinon.spy()} />)
 
-    let inputField = wrapper.find('input')
+    wrapper.instance().handleChange({ target: { value: 'a' } })
 
-    inputField.simulate('change', {target: {value: 'a'}})
-    expect(inputField.node.value).to.equal('a')
+    expect(wrapper.state('searchStr')).to.equal('a')
 
-    wrapper.childAt(1).childAt(0).simulate('click')
-    expect(inputField.node.value).to.equal('')
+    wrapper.instance().clearSearch()
+    expect(wrapper.state('searchStr')).to.equal('')
   })
 
   it('should clear search string when input value is an empty string', () => {
     const changeCallback = sinon.spy()
+
     wrapper = mount(<Typeahead name='typeahead' resetAfterSelection={true} options={options} valueProp='value' displayProp='display' changeCallback={changeCallback} />)
 
     let inputField = wrapper.find('input')
@@ -137,6 +137,7 @@ describe('Typeahead', () => {
 
   it('should set state when props are received', () => {
     const changeCallback = sinon.spy()
+
     wrapper = mount(<Typeahead name='typeahead' options={options} valueProp='value' displayProp='display' changeCallback={changeCallback} />)
 
     wrapper.setProps({ value: 'AT' })
@@ -151,15 +152,18 @@ describe('Typeahead', () => {
 
   it('should allow a custom value', () => {
     const changeCallback = sinon.spy()
+
     wrapper = mount(<Typeahead name='typeahead' options={options} valueProp='value' displayProp='display' allowCustomValue={true} changeCallback={changeCallback} />)
 
     let inputField = wrapper.find('input')
+
     inputField.simulate('change', {target: {value: 'a random string'}})
     expect(changeCallback.calledWithExactly({ target: { name: 'typeahead', value: 'a random string' } })).to.be.true
   })
 
   it('should set state when the value changes and a custom value is allowed', () => {
     const changeCallback = sinon.spy()
+
     wrapper = shallow(<Typeahead name='typeahead' options={options} valueProp='value' displayProp='display' allowCustomValue={true} changeCallback={changeCallback} />)
     const inst = wrapper.instance()
 

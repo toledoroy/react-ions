@@ -4,7 +4,6 @@ import Typeahead from 'react-ions/lib/components/Typeahead/Typeahead'
 import style from './style.scss'
 import options from '../Typeahead/CountryList'
 
-
 class ExampleMultiTypeaheadSearch extends React.Component {
   constructor(props) {
     super(props)
@@ -18,7 +17,7 @@ class ExampleMultiTypeaheadSearch extends React.Component {
   }
 
   handleSearch = () => {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       this.setState({isSearching: true}, () => {
         // Do asynchronous search here
         setTimeout(() => {
@@ -29,13 +28,13 @@ class ExampleMultiTypeaheadSearch extends React.Component {
     })
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({ value: event.target.value, status: 'The callback was triggered and ' + (event.target.value.length > 0 ? 'the chosen options are: ' + event.target.value.join(',') : 'there are no options selected') })
   }
 
   render() {
 
-    return(
+    return (
       <div>
         <MultiSelect optClass={style['custom-multi']} options={options} valueProp='countryCode' displayProp='countryName' value={this.state.value} changeCallback={this.handleChange} placeholder="Start typing to select one or more items">
           <Typeahead loading={this.state.isSearching} searchCallback={this.handleSearch} />

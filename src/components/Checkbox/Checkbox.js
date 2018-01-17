@@ -64,7 +64,7 @@ class Checkbox extends React.Component {
     description: PropTypes.string
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     event.persist()
 
     // Allow user to interact with locked checkboxes only if the value is false (unchecked)
@@ -77,7 +77,7 @@ class Checkbox extends React.Component {
     }
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     let newState = {}
 
     if (nextProps.value !== this.props.value) {
