@@ -1,5 +1,9 @@
 ## HEAD
 
+## 4.0.0
+###### _January 17, 2018_
+Added support for React 16, dropped support for React versions prior to 15.3 [#575](https://github.com/GetAmbassador/react-ions/pull/575)
+
 ## 3.1.3
 ###### _January 16, 2018_
 Inline Edit - adding correct clipboard icon path [#579](https://github.com/GetAmbassador/react-ions/pull/579)
