@@ -1,5 +1,9 @@
 ## HEAD
 
+## 4.0.1
+###### _January 17, 2018_
+- Fixed an icon paths [#585](https://github.com/GetAmbassador/react-ions/pull/585)
+
 ## 4.0.0
 ###### _January 17, 2018_
 
