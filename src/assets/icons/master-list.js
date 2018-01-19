@@ -64,7 +64,9 @@ var list = {
     materialPath + '/action/svg/production/ic_credit_card_24px.svg#md-credit-card',
     materialPath + '/communication/svg/production/ic_contact_phone_24px.svg#md-contact',
     materialPath + '/maps/svg/production/ic_place_24px.svg#md-place',
-    materialPath + '/social/svg/production/ic_domain_24px.svg#md-domain'
+    materialPath + '/social/svg/production/ic_domain_24px.svg#md-domain',
+    materialPath + '/content/svg/production/ic_flag_24px.svg#md-flag',
+    materialPath + '/content/svg/production/ic_content_copy_24px.svg#md-copy'
   ],
   mbsy: [
     mbsyPath + '/twitter.svg#mbsy-twitter',
