@@ -4,14 +4,14 @@ import style from './style'
 
 class ExampleButtonConfirmationCallback extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
     status: 'Callback was not fired.'
   }
 
-  handleConfirmation = (event) => {
+  handleConfirmation = event => {
     this.setState({status: 'Callback was fired.'}, () => {
       setTimeout(() => {
         this.setState({status: 'Callback was not fired.'})
@@ -20,7 +20,7 @@ class ExampleButtonConfirmationCallback extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <div className={style['custom-confirmation-wrapper']}>
           <ButtonConfirmation prompt={'Would you like to see the callback fire?'} position={'left'} handleConfirmation={this.handleConfirmation}>Test</ButtonConfirmation>

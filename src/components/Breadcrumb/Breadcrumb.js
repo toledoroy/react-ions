@@ -35,7 +35,7 @@ class Breadcrumb extends React.Component {
     routes: Immutable.fromJS(this.props.routes)
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     this.setState({
       routes: Immutable.fromJS(nextProps.routes)
     })
@@ -66,7 +66,7 @@ class Breadcrumb extends React.Component {
     return InlineStylePrefixer(styles)
   }
 
-  breadcrumbNode = (title) => {
+  breadcrumbNode = title => {
     return <em>
        <Icon name='md-chevron-right' className={style['md-chevron-right']} width='15' height='15' color='#879098' />
        <span className={style.secondary}>{title}</span>
@@ -79,15 +79,17 @@ class Breadcrumb extends React.Component {
 
     return this.state.routes.map((item, index) => {
       const title = item.get('title')
+
       if (title === undefined) return
 
       let tags = []
+
       if (rootRendered) {
-        tags.push(this.breadcrumbNode(title))
+        tags.push(this.breadcrumbNode(title, index))
         return tags
       }
 
-      tags.push(<h2 className={style.primary}>{title}</h2>)
+      tags.push(<h2 key={index} className={style.primary}>{title}</h2>)
       rootRendered = true
       return tags
     })

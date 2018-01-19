@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import Nav from '../src/components/Nav/Nav'
 import Node from '../src/components/Nav/Node'
 
@@ -9,7 +8,7 @@ describe('Nav', () => {
     {
       name: 'Item 1',
       route: '/',
-      icon: 'md-local-activity'
+      icon: 'icon-award-3'
     }, {
       name: 'Item 2',
       route: '/'
@@ -18,6 +17,7 @@ describe('Nav', () => {
 
   it('should render a .nav wrapper with list items', () => {
     const wrapper = shallow(<Nav data={data} />)
+
     expect(wrapper.find('.nav')).to.have.length(1)
     expect(wrapper.find('ul').children()).to.have.length(data.length)
     expect(wrapper.find(Node)).to.have.length(data.length)

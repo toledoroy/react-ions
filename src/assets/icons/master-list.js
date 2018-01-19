@@ -1,6 +1,6 @@
-var path = require('path');
-var materialPath = path.join('node_modules', 'material-design-icons');
-var mbsyPath = path.normalize('src/assets/icons/svg');
+var path = require('path')
+var materialPath = path.join('node_modules', 'material-design-icons')
+var mbsyPath = path.normalize('src/assets/icons/svg')
 
 var list = {
   material: [
@@ -58,14 +58,22 @@ var list = {
     materialPath + '/navigation/svg/production/ic_chevron_left_24px.svg#md-chevron-left',
     materialPath + '/navigation/svg/production/ic_chevron_right_24px.svg#md-chevron-right',
     materialPath + '/social/svg/production/ic_notifications_none_24px.svg#md-notifications',
-    materialPath + '/social/svg/production/ic_person_24px.svg#md-person'
+    materialPath + '/social/svg/production/ic_person_24px.svg#md-person',
+    materialPath + '/device/svg/production/ic_wifi_tethering_24px.svg#md-wifi',
+    materialPath + '/action/svg/production/ic_credit_card_24px.svg#md-credit-card',
+    materialPath + '/communication/svg/production/ic_contact_phone_24px.svg#md-contact',
+    materialPath + '/maps/svg/production/ic_place_24px.svg#md-place',
+    materialPath + '/social/svg/production/ic_domain_24px.svg#md-domain'
   ],
   mbsy: [
     mbsyPath + '/twitter.svg#mbsy-twitter',
     mbsyPath + '/klout.svg#md-klout',
     mbsyPath + '/linked_in.svg#mbsy-linkedin',
     mbsyPath + '/facebook.svg#mbsy-facebook',
-    mbsyPath + '/slack.svg#mbsy-slack'
+    mbsyPath + '/slack.svg#mbsy-slack',
+    mbsyPath + '/paypal.svg#mbsy-paypal',
+    mbsyPath + '/dwolla.svg#mbsy-dwolla',
+    mbsyPath + '/webhooks.svg#mbsy-webhooks'
   ]
 }
 

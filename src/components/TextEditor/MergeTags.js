@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import shallowCompare from 'react-addons-shallow-compare'
 import Dropdown from '../Dropdown'
 import style from './style.scss'
 import '../../styles/global/quill.scss'
@@ -8,7 +7,7 @@ import '../../styles/global/quill.scss'
 /**
  * The MergeTags component.
  */
-class MergeTags extends React.Component {
+class MergeTags extends PureComponent {
   constructor(props) {
     super(props)
   }
@@ -24,13 +23,10 @@ class MergeTags extends React.Component {
     mergeTags: PropTypes.array.isRequired
   }
 
-  shouldComponentUpdate = (nextProps, nextState) => {
-    return shallowCompare(this, nextProps, nextState)
-  }
-
-  insertTag = (tag) => {
+  insertTag = tag => {
     // Get selection and focus editor if necessary
     const range = this.props.textEditor.getSelection(true)
+
     if (range.length > 0) {
       // Remove selected text
       this.props.textEditor.deleteText(range.index, range.length)
@@ -45,7 +41,7 @@ class MergeTags extends React.Component {
 
   render = () => {
     const mergeTagsTrigger = <span className='ql-picker-label'>Merge Tags <svg viewBox='0 0 18 18'> <polygon className='ql-stroke' points='7 11 9 13 11 11 7 11'></polygon> <polygon className='ql-stroke' points='7 7 9 5 11 7 7 7'></polygon> </svg></span>
-    const mergeTags = this.props.mergeTags.map((option) => {
+    const mergeTags = this.props.mergeTags.map(option => {
       return { name: option.name, callback: this.insertTag.bind(this, option.tag) }
     })
 

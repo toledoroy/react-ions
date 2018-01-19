@@ -13,7 +13,7 @@ class ExampleTypeaheadCustomValue extends React.Component {
     selected: ''
   }
 
-  updateSelected = (index) => {
+  updateSelected = index => {
     this.setState({
       selected: index,
       status: 'The callback was triggered and the chosen value is \'' + index + '\''
@@ -29,7 +29,7 @@ class ExampleTypeaheadCustomValue extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <div className={style.update}>
           <Button onClick={this.updateSelected.bind(this, options[1].countryCode)}>Select Albania</Button>

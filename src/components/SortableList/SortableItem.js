@@ -149,7 +149,7 @@ class SortableItem extends React.Component {
     })
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.count !== this.state.count) {
       this.setState({ count: nextProps.count })
     }

@@ -14,7 +14,7 @@ class ExampleInputCallback extends React.Component {
     this.setState({status: 'I am focused.'})
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({status: 'My value is: ' + event.target.value})
   }
 
@@ -23,7 +23,7 @@ class ExampleInputCallback extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <Input value=''
           focusCallback={this.handleFocus}

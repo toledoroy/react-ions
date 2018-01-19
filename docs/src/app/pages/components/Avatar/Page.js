@@ -1,6 +1,6 @@
 import React from 'react'
-import PropsList from 'private/modules/PropsList';
-import docs from '!!docgen!react-ions/lib/components/Avatar/Avatar';
+import PropsList from 'private/modules/PropsList'
+import docs from '!!docgen!react-ions/lib/components/Avatar/Avatar'
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleAvatar from './ExampleAvatar'
@@ -14,7 +14,7 @@ const description = {
   avatar: 'This is the `avatar component`.',
   fallbackAvatar: 'This is the `avatar component` with fallback letters and color',
   avatarNoFade: 'This is the `avatar component` with no fade in effect.'
-};
+}
 
 const AvatarPage = () => (
   <div>

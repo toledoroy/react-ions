@@ -51,7 +51,7 @@ class Tab extends React.Component {
     return this.props.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   }
 
-  handleClick = (event) => {
+  handleClick = event => {
     if (this.props.onClick && !this.props.disabled) {
       this.props.onClick(event, this)
     }

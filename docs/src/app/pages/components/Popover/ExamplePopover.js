@@ -27,7 +27,7 @@ class ExamplePopover extends React.Component {
   }
 
   render = () => {
-    return(
+    return (
       <div style={{display: 'inline-block'}}>
         <Popover showing={this.state.showing} content={this.getPopoverContent()} onRequestClose={this.togglePopover}>
           <Button onClick={this.togglePopover}>{ this.state.showing ? 'Close' : 'Open' } popover</Button>

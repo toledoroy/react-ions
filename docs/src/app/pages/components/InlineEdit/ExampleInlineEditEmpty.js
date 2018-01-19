@@ -11,7 +11,7 @@ class ExampleInlineEditEmpty extends React.Component {
     inlineValue: null
   }
 
-  handleSave = (event) => {
+  handleSave = event => {
     if (event.target.name === 'test') {
       this.setState({ inlineValue: event.target.value })
     }

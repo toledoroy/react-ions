@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import { PanelContent } from '../src/components/PanelGroup'
 
 describe('PanelContent', () => {

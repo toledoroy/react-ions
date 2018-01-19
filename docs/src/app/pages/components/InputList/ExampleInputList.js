@@ -15,7 +15,7 @@ class ExampleInputList extends React.Component {
     status: 'Provided values are: Test 1,Test 2'
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
       values: event.target.value,
       status: 'The callback was triggered and ' + (event.target.value.length > 0 ? 'the provided values are: ' + event.target.value.join(',') : 'there are no values provided')
@@ -23,7 +23,7 @@ class ExampleInputList extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <InputList optClass={style['input-list']} value={this.state.value} changeCallback={this.handleChange} placeholder="Type something and hit enter" />
         <code className={style['callback-status']}>{this.state.status}</code>

@@ -1,6 +1,5 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
-import { AlertSystem } from '../src/components/Alerts'
+import { AlertSystem, Alert } from '../src/components/Alerts'
 
 describe('AlertSystem', () => {
   let wrapper
@@ -15,6 +14,7 @@ describe('AlertSystem', () => {
     let alerts = [
       { content: 'Test success' }
     ]
+
     wrapper = shallow(<AlertSystem alerts={alerts}/>)
 
     expect(wrapper.children()).to.have.length(1)
@@ -50,89 +50,97 @@ describe('AlertSystem', () => {
     let alerts = [
       { type: 'success', content: 'Test success' }
     ]
+
     wrapper = mount(<AlertSystem alerts={alerts}/>)
 
-    expect(wrapper.children()).to.have.length(1)
+    expect(wrapper.find(Alert)).to.have.length(1)
     expect(wrapper.childAt(0).hasClass('close-icon')).to.equal(false)
 
     wrapper.childAt(0).childAt(0).simulate('click')
 
-    expect(wrapper.children()).to.have.length(0)
+    expect(wrapper.find(alert)).to.have.length(0)
   })
 
   it('should run onClose callback when the close icon is clicked', () => {
     const closeClickCallback = sinon.spy()
     let alerts = [
-      { type: 'success', content: 'Test success', onClose: closeClickCallback }
+      { key: 'test', type: 'success', content: 'Test success', onClose: closeClickCallback }
     ]
-    wrapper = mount(<AlertSystem alerts={alerts}/>)
-    wrapper.childAt(0).childAt(0).simulate('click')
+
+    wrapper = shallow(<AlertSystem alerts={alerts}/>)
+    wrapper.instance().removeAlert({ key: 'test', type: 'success', content: 'Test success', onClose: closeClickCallback })
 
     expect(closeClickCallback.calledOnce).to.be.true
   })
 
-  it('should close an alert when the timeout expires', (done) => {
+  it('should close an alert when the timeout expires', done => {
     let alerts = [
       { type: 'success', content: 'Test success', timeout: 1000 }
     ]
+
     wrapper = mount(<AlertSystem alerts={alerts}/>)
 
-    expect(wrapper.children()).to.have.length(1)
+    expect(wrapper.find(Alert)).to.have.length(1)
     expect(wrapper.childAt(0).hasClass('close-icon')).to.equal(false)
 
-    setTimeout(function() {
-      expect(wrapper.children()).to.have.length(0)
+    setTimeout(function () {
+      wrapper.update()
+      expect(wrapper.find(Alert)).to.have.length(0)
       done()
     }, 1500)
   })
 
-  it('should run onClose callback when the timeout expires', (done) => {
+  it('should run onClose callback when the timeout expires', done => {
     const closeExpireCallback = sinon.spy()
     let alerts = [
       { type: 'success', content: 'Test success', timeout: 1000, onClose: closeExpireCallback }
     ]
+
     wrapper = mount(<AlertSystem alerts={alerts}/>)
 
-    setTimeout(function() {
+    setTimeout(function () {
       expect(closeExpireCallback.calledOnce).to.be.true
       done()
     }, 1500)
   })
 
-  it('should pause the timeout when the cursor is over the alert', (done) => {
+  it('should pause the timeout when the cursor is over the alert', done => {
     let alerts = [
       { type: 'success', content: 'Test success', timeout: 1000 }
     ]
+
     wrapper = mount(<AlertSystem alerts={alerts}/>)
 
-    expect(wrapper.children()).to.have.length(1)
+    expect(wrapper.find(Alert)).to.have.length(1)
     expect(wrapper.childAt(0).hasClass('close-icon')).to.equal(false)
 
     wrapper.childAt(0).simulate('mouseOver')
 
-    setTimeout(function() {
-      expect(wrapper.children()).to.have.length(1)
+    setTimeout(function () {
+      expect(wrapper.find(Alert)).to.have.length(1)
       done()
     }, 1500)
   })
 
-  it('should resume the timeout when the cursor moves away from the alert', (done) => {
+  it('should resume the timeout when the cursor moves away from the alert', done => {
     let alerts = [
       { type: 'success', content: 'Test success', timeout: 1000 }
     ]
+
     wrapper = mount(<AlertSystem alerts={alerts}/>)
 
-    expect(wrapper.children()).to.have.length(1)
+    expect(wrapper.find(Alert)).to.have.length(1)
     expect(wrapper.childAt(0).hasClass('close-icon')).to.equal(false)
 
     wrapper.childAt(0).simulate('mouseOver')
 
-    setTimeout(function() {
+    setTimeout(function () {
       wrapper.childAt(0).simulate('mouseOut')
     }, 200)
 
-    setTimeout(function() {
-      expect(wrapper.children()).to.have.length(0)
+    setTimeout(function () {
+      wrapper.update()
+      expect(wrapper.find(Alert)).to.have.length(0)
       done()
     }, 1500)
   })
@@ -141,6 +149,7 @@ describe('AlertSystem', () => {
     let alerts = [
       { type: 'success', content: 'Test success', closable: false }
     ]
+
     wrapper = mount(<AlertSystem alerts={alerts}/>)
 
     expect(wrapper.children()).to.have.length(1)
@@ -151,7 +160,8 @@ describe('AlertSystem', () => {
     let alerts = [
       { type: 'success', content: 'Test success' }
     ]
-    wrapper = shallow(<AlertSystem alerts={alerts} optClass="test-class"/>)
+
+    wrapper = shallow(<AlertSystem alerts={alerts} optClass='test-class'/>)
 
     expect(wrapper.hasClass('test-class')).to.be.true
   })
@@ -160,6 +170,7 @@ describe('AlertSystem', () => {
     let alerts = [
       { type: 'success', content: 'Test success', class: 'test-class' }
     ]
+
     wrapper = shallow(<AlertSystem alerts={alerts}/>)
 
     expect(wrapper.childAt(0).props().optClass).to.equal('test-class')
@@ -169,6 +180,7 @@ describe('AlertSystem', () => {
     let alerts = [
       { type: 'success', content: 'Test success' }
     ]
+
     wrapper = shallow(<AlertSystem alerts={alerts} slideIn={true} />)
     expect(wrapper.props().className).to.equal('alert-system slide-in-right')
   })

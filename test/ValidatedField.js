@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import ValidatedField from '../src/components/FormGroup/ValidatedField'
 import Input from '../src/components/Input'
 

@@ -1,10 +1,10 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const autoprefixer = require('autoprefixer');
-const StatsPlugin = require('stats-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const autoprefixer = require('autoprefixer')
+const StatsPlugin = require('stats-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const config = {
   entry: [
@@ -13,6 +13,7 @@ const config = {
   resolve: {
     extensions: ['', '.js', '.md', '.txt', '.scss', '.css'],
     alias: {
+      'react-ions/lib/assets/icons/symbol/sprite.svg': path.resolve(__dirname, '../lib/assets/icons/symbol/sprite.svg'),
       'react-ions/lib': path.resolve(__dirname, '../src'),
       'react-ions/styles': path.resolve(__dirname, '../src/styles'),
       'react-ions/utilities': path.resolve(__dirname, '../src/utilities'),
@@ -22,7 +23,7 @@ const config = {
       'private/images': path.resolve(__dirname, 'src/www/images'),
       'private/modules': path.resolve(__dirname, 'src/app/modules'),
       'private/config': path.resolve(__dirname, 'src/app/_config')
-    },
+    }
   },
   output: {
     path: path.join(__dirname, '/dist/'),
@@ -87,9 +88,9 @@ const config = {
       test: /\.(jpe?g|gif|png|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: 'file-loader'
     }
-  ]
+    ]
   },
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]
-};
+}
 
-module.exports = config;
+module.exports = config

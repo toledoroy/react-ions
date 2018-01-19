@@ -27,7 +27,7 @@ class TagList extends React.Component {
     onRemove: PropTypes.func.isRequired
   }
 
-  removeTag = (index) => {
+  removeTag = index => {
     this.props.onRemove(index)
   }
 

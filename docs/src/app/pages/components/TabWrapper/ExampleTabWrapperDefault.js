@@ -13,7 +13,7 @@ class ExampleTabWrapperDefault extends React.Component {
     selectedTabIndex: 0
   }
 
-  selectCallback = (index) => {
+  selectCallback = index => {
     let selectedTab
 
     switch (index) {
@@ -29,7 +29,7 @@ class ExampleTabWrapperDefault extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <p>The {this.state.selected} tab is selected.</p>
         <div className={style.update}>

@@ -12,7 +12,7 @@ var spriter = new SVGSpriter({
   dest: dest,
   shape: {
     id: {
-      generator: function(name) {
+      generator: function (name) {
         return name.split('#')[1]
       }
     }
@@ -23,7 +23,7 @@ function copySpriteFile() {
   var source = cwd + 'src/assets';
   var destination = cwd + 'lib/assets';
 
-  ncp(source, destination, function (err) {
+  ncp(source, destination, function(err) {
     if (err) {
       return console.error(err);
     }
@@ -37,13 +37,14 @@ function copySpriteFile() {
  * @param {Array} files               SVG files
  * @return {SVGSpriter}               Spriter instance
  */
+
 function addFixtureFiles(spriter, iconList) {
-  iconList.forEach(function(file) {
+  iconList.forEach(function (file) {
     spriter.add(path.resolve(path.join(cwd, file)), file, fs.readFileSync(path.join(cwd, file.split('#')[0]), {
       encoding: 'utf-8'
-    }));
+    }))
   })
-  return spriter;
+  return spriter
 }
 addFixtureFiles(spriter, normalizeIconList(list)).compile({
   symbol: {

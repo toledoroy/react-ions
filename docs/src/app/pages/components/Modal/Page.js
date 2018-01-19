@@ -23,7 +23,7 @@ const description = {
   modalLarge: 'This is the large `modal component`.',
   modalCustomTitle: 'This is the `modal component` with a custom title element.',
   modalColorSplash: 'This is the `modal component` with the color splash theme.'
-};
+}
 
 const ModalPage = () => (
   <div>

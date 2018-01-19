@@ -31,7 +31,7 @@ class ExampleSortableListNodes extends React.Component {
     count: 0
   }
 
-  onChange = (event) => {
+  onChange = event => {
     console.log(event.target.value)
     this.setState({ items: event.target.value })
   }

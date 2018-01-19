@@ -37,8 +37,8 @@ let fields = {
   ]
 }
 
-const CustomFormField = (props) => {
-  const changeCallback = (event) => {
+const CustomFormField = props => {
+  const changeCallback = event => {
     props.changeCallback(
       {
         target: {
@@ -133,7 +133,7 @@ class ExampleFormGroup extends React.Component {
     }
   }
 
-  handleChange = (fields) => {
+  handleChange = fields => {
     this.setState({schema: fields})
   }
 
@@ -215,7 +215,7 @@ class ExampleFormGroup extends React.Component {
     })
   }
 
-  getRadioChildClass = (sibling) => {
+  getRadioChildClass = sibling => {
     return sibling !== this.state.schema.radioWithChildren.value ? formStyle['is-hidden'] : style['radio-child']
   }
 
@@ -292,7 +292,6 @@ class ExampleFormGroup extends React.Component {
           <Checkbox name='twitter' label='Twitter' optClass={formStyle.field} />
           <Checkbox name='linkedin' label='LinkedIn' optClass={formStyle.field} />
         </fieldset>
-
 
         <fieldset>
           <h3>Custom Form Field</h3>

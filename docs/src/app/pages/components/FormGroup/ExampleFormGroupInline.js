@@ -29,41 +29,41 @@ let fields = {
     {value: 'and', label: 'And'},
     {value: 'or', label: 'Or'}
   ]
-};
+}
 
 class ExampleFormGroupInline extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
     schema: {
       'selectField': {
-        'value':''
+        'value': ''
       },
       'selectField2': {
-        'value':''
+        'value': ''
       },
       'num': {
         'value': ''
       },
       'selectField3': {
-        'value':''
+        'value': ''
       },
       'buttonGroup': {
-        'value':''
+        'value': ''
       },
       'input': {
-        'value':'3'
+        'value': '3'
       },
       'selectField4': {
-        'value':''
+        'value': ''
       },
       'selectField5': {
-        'value':''
+        'value': ''
       },
       'selectField6': {
-        'value':''
+        'value': ''
       },
       'date': {
         'value': moment().format('YYYY-MM-DD')
@@ -71,13 +71,14 @@ class ExampleFormGroupInline extends React.Component {
     }
   }
 
-  handleChange = (fields) => {
-    console.log(fields);
+  handleChange = fields => {
+    console.log(fields)
     this.setState({ schema: fields })
   }
 
   render() {
     const defaultOption = this.state.schema.buttonGroup.value === 'or' ? 1 : 0
+
     return (
       <FormGroup
         changeCallback={this.handleChange}

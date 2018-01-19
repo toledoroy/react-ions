@@ -3,7 +3,7 @@ import Textarea from 'react-ions/lib/components/Textarea'
 
 class ExampleTextareaCallback extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -11,19 +11,19 @@ class ExampleTextareaCallback extends React.Component {
   }
 
   handleFocus = () => {
-    this.setState({status: 'I am focused.'});
+    this.setState({status: 'I am focused.'})
   }
 
-  handleChange = (event) => {
-    this.setState({status: 'My value is: ' + event.target.value});
+  handleChange = event => {
+    this.setState({status: 'My value is: ' + event.target.value})
   }
 
   handleBlur = () => {
-    this.setState({status: 'I am blurred.'});
+    this.setState({status: 'I am blurred.'})
   }
 
   render() {
-    return(
+    return (
       <div>
         <Textarea value=''
           focusCallback={this.handleFocus}
