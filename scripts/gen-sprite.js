@@ -39,7 +39,7 @@ function copySpriteFile() {
  */
 
 function addFixtureFiles(spriter, iconList) {
-  iconList.forEach(function (file) {
+  iconList.forEach(function (file) {    
     spriter.add(path.resolve(path.join(cwd, file)), file, fs.readFileSync(path.join(cwd, file.split('#')[0]), {
       encoding: 'utf-8'
     }))
