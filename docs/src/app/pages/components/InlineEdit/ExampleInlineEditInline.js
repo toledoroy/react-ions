@@ -10,7 +10,7 @@ class ExampleInlineEditInline extends React.Component {
 
   render = () => {
     return (
-      <InlineEdit name='test' value='test@example.com' optClass={style['opt-wrapper']} label='Email' icon='icon-mail-1' />
+      <InlineEdit name='test' value='test@example.com' optClass={style['opt-wrapper']} label='Email' icon='md-email' />
     )
   }
 }

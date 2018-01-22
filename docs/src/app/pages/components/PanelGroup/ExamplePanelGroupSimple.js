@@ -22,7 +22,17 @@ const ExamplePanelGroupSimple = () => (
   <div>
     <PanelGroup accordion={true} optClass='simple'>
       <Panel>
-        <PanelHeader title='Promoter' contextIcon='icon-caret' contextIconSize='12' />
+        <PanelHeader title='Promoter' contextIcon='md-arrow-drop-down' contextIconSize='12' />
+        <PanelContent>
+          <h3>What happens after a promoter submits their score?</h3>
+          <RadioGroup
+            name='default-radio-group'
+            options={options}>
+          </RadioGroup>
+        </PanelContent>
+      </Panel>
+      <Panel>
+      <PanelHeader title='Passive' contextIcon='md-arrow-drop-down' contextIconSize='12' />
         <PanelContent>
           <h3>What happens after a promoter submits their score?</h3>
           <RadioGroup
@@ -32,17 +42,7 @@ const ExamplePanelGroupSimple = () => (
         </PanelContent>
       </Panel>
       <Panel>
-      <PanelHeader title='Passive' contextIcon='icon-caret' contextIconSize='12' />
-        <PanelContent>
-          <h3>What happens after a promoter submits their score?</h3>
-          <RadioGroup
-            name="default-radio-group"
-            options={options}>
-          </RadioGroup>
-        </PanelContent>
-      </Panel>
-      <Panel>
-      <PanelHeader title='Detractor' contextIcon='icon-caret' contextIconSize='12' />
+      <PanelHeader title='Detractor' contextIcon='md-arrow-drop-down' contextIconSize='12' />
         <PanelContent>
         <h3>What happens after a promoter submits their score?</h3>
         <RadioGroup

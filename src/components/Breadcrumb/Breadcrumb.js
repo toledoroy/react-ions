@@ -66,9 +66,9 @@ class Breadcrumb extends React.Component {
     return InlineStylePrefixer(styles)
   }
 
-  breadcrumbNode = (title, index) => {
-    return <em key={index}>
-       <Icon name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />
+  breadcrumbNode = title => {
+    return <em>
+       <Icon name='md-chevron-right' className={style['md-chevron-right']} width='15' height='15' color='#879098' />
        <span className={style.secondary}>{title}</span>
      </em>
   }
