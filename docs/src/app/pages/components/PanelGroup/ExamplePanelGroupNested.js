@@ -11,7 +11,7 @@ const content = {
 const ExamplePanelGroupNested = () => (
   <PanelGroup accordion={true} optClass='multi-step'>
     <Panel>
-      <PanelHeader title='Multi-step' contextNode={<Badge text='1' />} toggleIcon={{name: 'md-arrow-drop-down', size: '14'}} />
+      <PanelHeader title='Multi-step' contextNode={<Badge text='1' />} toggleIcon={{name: 'mbsy-caret', size: '14'}} />
       <PanelContent>
         <PanelGroup accordion={true} optClass='simple'>
           <Panel>
