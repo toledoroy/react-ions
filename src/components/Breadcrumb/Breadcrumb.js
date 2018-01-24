@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Immutable from 'immutable'
+import { Link } from 'react-router'
 import InlineStylePrefixer from '../internal/InlineStylePrefixer'
 import optclass from '../internal/OptClass'
 import Icon from '../Icon'
@@ -28,7 +29,15 @@ class Breadcrumb extends React.Component {
     /**
      * Optional CSS class to be used for local styles
      */
-    optClass: PropTypes.string
+    optClass: PropTypes.string,
+    /**
+     * Whether the breadcrumbs are clickable or not
+     */
+    clickable: PropTypes.bool
+  }
+
+  static defaultProps = {
+    clickable: false
   }
 
   state = {
@@ -66,32 +75,43 @@ class Breadcrumb extends React.Component {
     return InlineStylePrefixer(styles)
   }
 
-  breadcrumbNode = (title, index) => {
-    return <em key={index}>
-       <Icon name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />
-       <span className={style.secondary}>{title}</span>
-     </em>
+  getPath = index => {
+    let parts = []
+
+    for (let i = 0; i <= index; i++) {
+      if (this.state.routes.getIn([i, 'path']) !== '/') {
+        parts.push(this.state.routes.getIn([i, 'path']))
+      }
+    }
+
+    return `/${parts.join('/')}`
+  }
+
+  breadcrumbNode = (title, index, firstItem) => {
+    const lastItem = title === this.state.routes.filter(route => typeof route.get('title') !== 'undefined').last().get('title')
+
+    const node = (
+      <em key={index}>
+        {!firstItem && <Icon name='icon-arrow-68' className={style['icon-arrow-68']} width='14' height='14' color='#879098' />}
+        <span>{title}</span>
+      </em>
+    )
+
+    return this.props.clickable && !lastItem ? <Link to={this.getPath(index)} key={index}>{node}</Link> : node
   }
 
   getTags = () => {
-    const depth = this.state.routes.size
-    let rootRendered = false
+    let firstItem = true
 
     return this.state.routes.map((item, index) => {
       const title = item.get('title')
 
       if (title === undefined) return
 
-      let tags = []
+      const breadcrumbNode = this.breadcrumbNode(title, index, firstItem)
+      firstItem = false
 
-      if (rootRendered) {
-        tags.push(this.breadcrumbNode(title, index))
-        return tags
-      }
-
-      tags.push(<h2 key={index} className={style.primary}>{title}</h2>)
-      rootRendered = true
-      return tags
+      return breadcrumbNode
     })
   }
 
