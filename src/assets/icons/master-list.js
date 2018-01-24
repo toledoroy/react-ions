@@ -70,7 +70,12 @@ var list = {
     materialPath + '/navigation/svg/production/ic_chevron_right_24px.svg#md-chevron-right',
     materialPath + '/social/svg/production/ic_notifications_none_24px.svg#md-notifications',
     materialPath + '/social/svg/production/ic_person_24px.svg#md-person',
-    materialPath + '/social/svg/production/ic_domain_24px.svg#md-domain'
+    materialPath + '/social/svg/production/ic_domain_24px.svg#md-domain',
+    materialPath + '/toggle/svg/production/ic_check_box_24px.svg#md-checkbox-checked',
+    materialPath + '/toggle/svg/production/ic_check_box_outline_blank_24px.svg#md-checkbox-unchecked',
+    materialPath + '/toggle/svg/production/ic_indeterminate_check_box_24px.svg#md-checkbox-ind',
+    materialPath + '/toggle/svg/production/ic_radio_button_checked_24px.svg#md-radio-checked',
+    materialPath + '/toggle/svg/production/ic_radio_button_unchecked_24px.svg#md-radio-unchecked'
   ],
   mbsy: [
     mbsyPath + '/google.svg#mbsy-google',
