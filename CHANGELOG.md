@@ -1,5 +1,11 @@
 ## HEAD
 
+## 4.0.2
+###### _January 24, 2018_
+- Breadcrumb: Visual changes [#596](https://github.com/GetAmbassador/react-ions/pull/596)
+
+- Breadcrumb: Allow items to be clickable [#592](https://github.com/GetAmbassador/react-ions/pull/592)
+
 ## 4.0.1
 ###### _January 17, 2018_
 - Fixed icon paths [#585](https://github.com/GetAmbassador/react-ions/pull/585)
