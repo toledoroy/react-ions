@@ -88,7 +88,7 @@ class Breadcrumb extends React.Component {
   }
 
   breadcrumbNode = (title, index, firstItem) => {
-    const lastItem = index === this.state.routes.size - 1
+    const lastItem = title === this.state.routes.filter(route => typeof route.get('title') !== 'undefined').last().get('title')
 
     const node = (
       <em key={index}>
