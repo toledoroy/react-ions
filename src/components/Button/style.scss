@@ -22,8 +22,10 @@
   svg {
     fill: $white;
   }
-
+  
   em {
+    align-items: center;
+    display: flex;
     font-style: normal;
   }
 
@@ -87,28 +89,10 @@
     @include button-context($white, $primary-1);
   }
 
-  em > span {
-    float: left;
-  }
-
   // To handle inline icons
   svg + span,
   span + svg {
     margin-left: 6px;
-  }
-
-  span + svg {
-    float: right;
-  }
-
-  // for Firefox
-  svg,
-  svg ~ span {
-    float: left;
-  }
-
-  svg + svg {
-    float: none;
   }
 
   @media #{$media-small-minus} {
