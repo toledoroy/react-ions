@@ -75,10 +75,6 @@
 
     &:last-child span {
       opacity: 1;
-
-      @media #{$media-small-minus} {
-        padding-right: 24px;
-      }
     }
   }
 
