@@ -106,7 +106,11 @@ class Input extends React.Component {
     /**
      * A fallback value for when the value is null.
      */
-    nullValue: PropTypes.string
+    nullValue: PropTypes.string,
+    /**
+     * A string to be used as the ID.
+     */
+    id: PropTypes.string
   }
 
   _getValue = props => {
@@ -187,6 +191,7 @@ class Input extends React.Component {
           {prefix && <div ref={c => this._prefix = c} className={prefixClass}>{prefix}</div>}
 
           <input
+            id={this.props.id}
             ref={c => this._input = c}
             value={this.state.value}
             onFocus={this.handleFocus}
