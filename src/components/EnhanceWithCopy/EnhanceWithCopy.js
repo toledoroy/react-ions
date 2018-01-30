@@ -92,10 +92,12 @@ const EnhanceWithCopy = WrappedComponent => {
 
     render = () => {
       const { tooltipPlacement, ...otherProps } = this.props
+      const tooltipText = this.state.copied ? 'Copied!' : 'Click to copy'
+      const tooltipShow = this.state.copied || this.state.showTooltip
 
       return (
         <div onMouseEnter={this.handleMouseEnterLeave} onMouseLeave={this.handleMouseEnterLeave}>
-          <Tooltip content={this.state.copied ? 'Copied!' : 'Click to copy'} tooltipPlacement={tooltipPlacement} show={this.state.copied || this.state.showTooltip}>
+          <Tooltip content={tooltipText} tooltipPlacement={tooltipPlacement} show={tooltipShow}>
             <WrappedComponent {...otherProps} />
           </Tooltip>
         </div>
