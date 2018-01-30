@@ -1,11 +1,12 @@
 import React from 'react'
-import { string } from 'prop-types'
+import { string, func } from 'prop-types'
 import Clipboard from 'clipboard'
 import Tooltip from '../Tooltip'
 
 const EnhanceWithCopy = WrappedComponent => {
   return class extends React.Component {
     static propTypes = {
+      getValue: func,
       id: string.isRequired,
       tooltipPlacement: string
     }
