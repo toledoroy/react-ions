@@ -1,5 +1,9 @@
 ## HEAD
 
+## 4.0.3
+###### _January 29, 2018_
+- Breadcrumb: Slight tweak to mobile padding [#598](https://github.com/GetAmbassador/react-ions/pull/598)
+
 ## 4.0.2
 ###### _January 24, 2018_
 - Breadcrumb: Visual changes [#596](https://github.com/GetAmbassador/react-ions/pull/596)
