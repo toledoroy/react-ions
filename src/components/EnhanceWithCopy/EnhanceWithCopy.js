@@ -72,13 +72,15 @@ const EnhanceWithCopy = WrappedComponent => {
     handleCopy = () => {
       // Set the copied state to true
       this.setState({ copied: true }, () => {
-        // Focus the trigger element if it needs to be focused (input or textarea)
+        // The input gets blurred every time the component is updated so we need to
+        // focus the trigger element if it needs to be focused (input or textarea)
         this.focusTriggerElement()
 
         setTimeout(() => {
           // Set the copied state to false
           this.setState({ copied: false }, () => {
-            // Focus the trigger element if it needs to be focused (input or textarea)
+            // The input gets blurred every time the component is updated so we need to
+            // focus the trigger element if it needs to be focused (input or textarea)
             this.focusTriggerElement()
           })
         }, 1800)
