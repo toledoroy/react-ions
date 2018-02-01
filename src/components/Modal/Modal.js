@@ -100,9 +100,8 @@ class Modal extends React.Component {
     const theme = themesStyles[this.props.theme]
     const modalOpenClass = this.props.open ? style['modal-open'] : ''
     const modalSizeClass = this.props.size ? style['modal-' + this.props.size] : ''
-    const modalCloseOnActionClass = this.props.closeOnAction ? style['close-on-action'] : ''
     const modalClass = cx(style['modal-component'], this.props.optClass, modalOpenClass, theme)
-    const modalContentClass = cx(style['modal-content'], modalSizeClass, modalCloseOnActionClass)
+    const modalContentClass = cx(style['modal-content'], modalSizeClass)
     const modalTitleIsElement = !(typeof this.props.title === 'string')
     const modalTitle = modalTitleIsElement ? this.props.title : <h1>{this.props.title}</h1>
 
