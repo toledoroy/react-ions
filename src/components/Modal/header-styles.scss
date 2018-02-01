@@ -2,29 +2,24 @@
 
 .header-wrapper {
   align-items: center;
-  min-height: 76px;
+  min-height: 72px;
   border-radius: 3px 3px 0 0;
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  background-color: $primary-1;
+  width: calc(100% + 48px);
   box-sizing: border-box;
-  padding: 24px;
-
-  [class^='modal-close'] {
-    top: -4px;
-    position: relative;
-  }
+  padding: 8px 24px;
+  margin: -24px -24px 0;
 
   .header-content {
     > h1 {
-      color: $white;
+      color: $navy-text;
       font-size: 22px;
       margin: 0 !important;
     }
 
     p {
-      color: $white;
+      color: $navy-text;
       margin: 10px 0 0;
     }
   }
