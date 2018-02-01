@@ -48,6 +48,12 @@
     will-change: scale, opacity, transform;
     z-index: z('below');
 
+    &.close-on-action {
+      [class^='modal-close'] {
+        display: none !important;
+      }
+    }
+
     .modal-header {
       .modal-close {
         position: absolute;

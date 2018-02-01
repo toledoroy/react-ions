@@ -1,5 +1,6 @@
 import React from 'react'
 import Modal from 'react-ions/lib/components/Modal'
+import Header from 'react-ions/lib/components/Modal/Header'
 import Button from 'react-ions/lib/components/Button'
 
 class ExampleModalCustomTitle extends React.Component {
@@ -27,15 +28,16 @@ class ExampleModalCustomTitle extends React.Component {
       <Button onClick={this.handleClose} optClass="inverted">Cancel</Button>,
       <Button onClick={this.handleSubmit}>Submit</Button>
     ]
-    const style = {
-      fontSize: '30px'
-    }
 
     return (
       <div>
         <Button onClick={this.handleOpen}>Open Modal</Button>
         <Modal
-          title={<h1 style={style} className='example-class'>Custom Title</h1>}
+          title={
+            <Header handleClose={this.handleClose}>
+              <h1>Custom Title</h1>
+            </Header>
+          }
           open={this.state.open}
           onRequestClose={this.handleClose}
           actions={actions}
