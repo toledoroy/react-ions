@@ -88,35 +88,39 @@ class ExampleFormValidation extends React.Component {
         schema={schema}
         fieldErrors={this.state.fieldErrors}
       >
-        <ValidatedInput
-          name='email'
-          label='Email'
-          type='text'
-          placeholder='sugerman@6am.com'
-          validation={[
-            {
-              validator: validate.isNotEmpty,
-              message: 'The email field is required.'
-            },
-            {
-              validator: validate.isValidEmail,
-              message: 'Please enter a valid email address.'
-            }
-          ]}
-          optClass={formStyle.field}
-        />
-        <ValidatedTextarea
-          name='message'
-          label='Message'
-          type='text'
-          validation={[
-            {
-              validator: validate.isNotEmpty,
-              message: 'This textfield is required.'
-            }
-          ]}
-          optClass={formStyle.field}
-        />
+        <div>
+          <ValidatedInput
+            name='email'
+            label='Email'
+            type='text'
+            placeholder='sugerman@6am.com'
+            validation={[
+              {
+                validator: validate.isNotEmpty,
+                message: 'The email field is required.'
+              },
+              {
+                validator: validate.isValidEmail,
+                message: 'Please enter a valid email address.'
+              }
+            ]}
+            optClass={formStyle.field}
+          />
+        </div>
+        <div>
+          <ValidatedTextarea
+            name='message'
+            label='Message'
+            type='text'
+            validation={[
+              {
+                validator: validate.isNotEmpty,
+                message: 'This textfield is required.'
+              }
+            ]}
+            optClass={formStyle.field}
+          />
+        </div>
         <Button type='submit' loading={this.state.loading}>Submit</Button>
       </FormGroup>
     )
