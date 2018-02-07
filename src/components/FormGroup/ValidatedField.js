@@ -12,7 +12,7 @@ const ValidatedField = WrappedComponent => {
       const wrapperErrorClass = this.props.error ? style['has-error'] : null
 
       return (
-        <div>
+        <div className={style['validated-field']}>
           <WrappedComponent {...this.props} className={wrapperErrorClass} />
           {this.props.error &&
             <span className={style['has-error__message']}>
