@@ -287,22 +287,31 @@ describe('FormGroup', () => {
     })
 
     formGroup = shallow(<FormGroup schema={schema} fieldErrors={fieldErrors}>
-      <ValidatedInput
-        name='message'
-        label='Message'
-        type='text'
-        validation={[
-          {
-            validator: () => false,
-            message: 'oranges'
-          }
-        ]}
-      />
+      <div>
+        <ValidatedInput
+          name='message'
+          label='Message'
+          type='text'
+          validation={[
+            {
+              validator: () => false,
+              message: 'oranges'
+            }
+          ]}
+        />
+      </div>
     </FormGroup>)
 
     formGroup.instance().handleSubmit(event)
 
     expect(Immutable.is(formGroup.instance()._mapFieldErrors(), fieldErrors)).to.be.true
     expect(formGroup.state().fieldErrors.toJS()).to.deep.equal({ message: 'oranges'})
+
+    const getElementsSpy = sinon.spy(formGroup.instance(), 'getElements')
+    formGroup.instance().renderForm()
+    expect(getElementsSpy.calledThrice).to.be.true
+    expect(getElementsSpy.firstCall.args[1]).to.be.undefined
+    expect(getElementsSpy.secondCall.args[1]).to.be.true
+    expect(getElementsSpy.thirdCall.args[1]).to.be.true
   })
 })
