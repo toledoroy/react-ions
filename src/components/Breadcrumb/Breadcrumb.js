@@ -14,6 +14,10 @@ class Breadcrumb extends React.Component {
 
   static propTypes = {
     /**
+     * A class name to be used for local styles or integrations (required to support styled-components)
+     */
+    className: PropTypes.string,
+    /**
      * The array of routes to generate the Breadcrumbs.
      */
     routes: PropTypes.array.isRequired,
@@ -117,16 +121,13 @@ class Breadcrumb extends React.Component {
 
   render() {
     const breadcrumbClasses = optclass(style, ['breadcrumbs-outer'], this.props.optClass)
-
-    const gradientColor = {
-      color: this.props.gradientColor || 'white'
-    }
+    const breadcrumbNodeClasses = optclass(style, ['breadcrumb', this.props.className])
 
     return (
       <div className={breadcrumbClasses}>
         <div className={style['overflow-gradient']} style={this.getGradientStyles()} />
         <div className={style['breadcrumbs-container']} style={this.getContainerStyles()}>
-          <div className={style.breadcrumb}>{this.getTags()}</div>
+          <div className={breadcrumbNodeClasses}>{this.getTags()}</div>
         </div>
       </div>
     )
