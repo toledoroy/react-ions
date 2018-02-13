@@ -1,5 +1,21 @@
 ## HEAD
 
+## 4.0.4
+###### _February 5, 2018_
+- Update Header to handle both splash and non-splash UI [#602](https://github.com/GetAmbassador/react-ions/pull/602)
+- Create an HOC EnhanceWithCopy [#601](https://github.com/GetAmbassador/react-ions/pull/601)
+- Add id prop to the Input component [#600](https://github.com/GetAmbassador/react-ions/pull/600)
+
+## 4.0.3
+###### _January 29, 2018_
+- Breadcrumb: Slight tweak to mobile padding [#598](https://github.com/GetAmbassador/react-ions/pull/598)
+
+## 4.0.2
+###### _January 24, 2018_
+- Breadcrumb: Visual changes [#596](https://github.com/GetAmbassador/react-ions/pull/596)
+
+- Breadcrumb: Allow items to be clickable [#592](https://github.com/GetAmbassador/react-ions/pull/592)
+
 ## 4.0.1
 ###### _January 17, 2018_
 - Fixed icon paths [#585](https://github.com/GetAmbassador/react-ions/pull/585)

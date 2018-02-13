@@ -121,9 +121,11 @@ class FormGroup extends React.Component {
     })
   }
 
-  getElements = children => {
-    // Resetting validation each time this is run
-    let validationMap = Map()
+  getElements = (children, recursiveCall) => {
+    // Reset validation each time this called on the form group
+    if (!recursiveCall) {
+      this._formValidation = Map()
+    }
     const fieldErrors = this._mapFieldErrors()
 
     return React.Children.map(children, child => {
@@ -140,7 +142,7 @@ class FormGroup extends React.Component {
         const valueProp = valueIsImmutable ? value.toJS() : value
 
         if (child.props.validation) {
-          validationMap = validationMap.set(name, Map({
+          this._formValidation = this._formValidation.set(name, Map({
             validators: fromJS(child.props.validation)
           }))
         }
@@ -153,9 +155,7 @@ class FormGroup extends React.Component {
           }
         }
 
-        childProps.children = this.getElements(child.props.children)
-
-        this._formValidation = validationMap
+        childProps.children = this.getElements(child.props.children, true)
         return React.cloneElement(child, childProps)
       }
 
