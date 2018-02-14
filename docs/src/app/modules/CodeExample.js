@@ -24,7 +24,7 @@ class CodeExample extends PureComponent {
   }
 
   static propTypes = {
-    markup: PropTypes.string.isRequired,
+    markup: PropTypes.string,
     description: PropTypes.string,
     title: PropTypes.string
   }
@@ -34,7 +34,7 @@ class CodeExample extends PureComponent {
   }
 
   componentDidMount = () => {
-    this.highlightCode()
+    this.props.markup ? this.highlightCode() : null
   }
 
   handleToggle = () => {
@@ -87,12 +87,15 @@ ${this.props.markup}
       <div className={style['code-example-wrap']}>
         <header>
           <h3>{this.props.title}</h3>
-          <Button onClick={this.handleToggle} optClass={codeExampleBtnClass}>
-            <div className={style['button-icon-wrap']}>
-              <Icon name='md-chevron-left' width='12' height='12' fill='white' />
-              <Icon name='md-chevron-right' width='12' height='12' fill='white' />
-            </div>
-          </Button>
+          {this.props.markup
+            ? <Button onClick={this.handleToggle} optClass={codeExampleBtnClass}>
+                <div className={style['button-icon-wrap']}>
+                  <Icon name='md-chevron-left' width='12' height='12' fill='white' />
+                  <Icon name='md-chevron-right' width='12' height='12' fill='white' />
+                </div>
+              </Button>
+            : null
+          }
         </header>
         <div className={codeExampleClass}>
           <div ref='example' className={style.hljs} dangerouslySetInnerHTML={this.generateRawMarkup()} />

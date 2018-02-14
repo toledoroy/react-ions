@@ -1,9 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router'
 import CodeExample from 'private/modules/CodeExample'
 import Icon from 'react-ions/lib/components/Icon'
-import snippetStyles from 'private/css/snippet'
-import Snippet from '../../../modules/Snippet'
 import baseStyle from 'private/css/content'
 import localStyle from './styles.scss'
 

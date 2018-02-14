@@ -34,7 +34,7 @@ describe('SelectField', () => {
     expect(wrapper.childAt(0).props().type).to.equal('hidden')
     expect(wrapper.childAt(0).props().value).to.equal('')
     expect(wrapper.childAt(1).text().indexOf('Please select an option')).to.equal(0)
-    expect(wrapper.find(Icon).props().name).to.equal('md-arrow-drop-down')
+    expect(wrapper.find(Icon).props().name).to.equal('mbsy-caret')
     expect(wrapper.find('ul').children()).to.have.length(2)
     expect(wrapper.find('ul').childAt(0).text()).to.equal(options[0].display)
     expect(wrapper.find('ul').childAt(0).props().className).to.not.equal('hidden')
