@@ -92,7 +92,7 @@ class Breadcrumb extends React.Component {
 
     const node = (
       <em key={index}>
-        {!firstItem && <Icon name='icon-arrow-68' className={style['md-chevron-right']} width='16' height='16' color='#879098' />}
+        {!firstItem && <Icon name='md-chevron-right' className={style['md-chevron-right']} width='16' height='16' color='#879098' />}
         <span>{title}</span>
       </em>
     )
