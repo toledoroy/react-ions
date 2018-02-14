@@ -87,14 +87,13 @@ ${this.props.markup}
       <div className={style['code-example-wrap']}>
         <header>
           <h3>{this.props.title}</h3>
-          {this.props.markup
-            ? <Button onClick={this.handleToggle} optClass={codeExampleBtnClass}>
-                <div className={style['button-icon-wrap']}>
-                  <Icon name='md-chevron-left' width='12' height='12' fill='white' />
-                  <Icon name='md-chevron-right' width='12' height='12' fill='white' />
-                </div>
-              </Button>
-            : null
+          {this.props.markup &&
+            <Button onClick={this.handleToggle} optClass={codeExampleBtnClass}>
+              <div className={style['button-icon-wrap']}>
+                <Icon name='md-chevron-left' width='12' height='12' fill='white' />
+                <Icon name='md-chevron-right' width='12' height='12' fill='white' />
+              </div>
+            </Button>
           }
         </header>
         <div className={codeExampleClass}>
