@@ -18,7 +18,7 @@ describe('FormGroup', () => {
     expect(formGroup.find('form')).to.have.length(1)
     expect(formGroup.hasClass('form-group')).to.equal(true)
     expect(typeof formGroup.props().onSubmit).to.equal('function')
-    expect(formGroup.state().fieldErrors).to.deep.equal({})
+    expect(Immutable.is(formGroup.state().fieldErrors, Map())).to.be.true
   })
 
   it('should render with an optional CSS class', () => {
@@ -101,7 +101,11 @@ describe('FormGroup', () => {
       }
     }
 
-    wrapper = mount(<FormGroup changeCallback={changeCallback} schema={schema}><Input name='subject' label='Subject line' type='text' /></FormGroup>)
+    const fieldErrors = Map({
+      subject: 'Test error.'
+    })
+
+    wrapper = mount(<FormGroup changeCallback={changeCallback} schema={schema} fieldErrors={fieldErrors}><Input name='subject' label='Subject line' type='text' /></FormGroup>)
 
     wrapper.find('input').simulate('change', {
       target: {
@@ -111,7 +115,10 @@ describe('FormGroup', () => {
     })
 
     expect(changeCallback.calledOnce).to.be.true
+    expect(changeCallback.firstCall.args[0]).to.deep.equal({ subject: { value: 'This is my answer' } })
+    expect(changeCallback.firstCall.args[1].toJS()).to.deep.equal({ subject: '' })
     expect(wrapper.state().fields.getIn(['subject', 'value'])).to.equal('This is my answer')
+    expect(wrapper.state().fieldErrors.get('subject')).to.equal('')
   })
 
   it('should update the state when changeCallback is not provided', () => {
