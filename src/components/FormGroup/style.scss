@@ -161,9 +161,10 @@ fieldset.row {
   top: -16px;
 }
 
-.has-error input,
-.has-error textarea {
-  border: 2px solid $danger !important;
+.has-error {
+  input, textarea, [class*='selectfield-value'] {
+    border: 2px solid $danger !important;
+  }
 }
 
 .has-error__message {
