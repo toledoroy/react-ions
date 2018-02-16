@@ -44,8 +44,21 @@
   width: 100%;
   max-width: 100%;
 
-  .icon-arrow-68 {
-    margin: 0 3px;
+  .primary {
+    display: inline-block;
+    font-weight: 200;
+    font-size: 20px;
+  }
+
+  .secondary {
+    color: $base-text;
+    font-size: 14px;
+    font-style: normal;
+    position: relative;
+  }
+
+  .md-chevron-right {
+    margin: 0 6px;
     min-width: 14px;
     fill-opacity: 0.5;
   }
