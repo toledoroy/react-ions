@@ -57,7 +57,7 @@ class FormGroup extends React.Component {
   }
 
   state = {
-    fieldErrors: {}
+    fieldErrors: Map()
   }
 
   componentWillReceiveProps = nextProps => {
@@ -79,7 +79,7 @@ class FormGroup extends React.Component {
 
   // Errors can be passed in via props if external validation is used or
   // errors can be captured from state if internal validation is used
-  _mapFieldErrors = () => Map(this.state.fieldErrors).merge(this.props.fieldErrors)
+  _mapFieldErrors = () => this.state.fieldErrors.merge(this.props.fieldErrors)
 
   handleSubmit = event => {
     event.preventDefault()
@@ -99,6 +99,7 @@ class FormGroup extends React.Component {
   }
 
   handleChange = event => {
+    const name = event.target.name
     let val = event.target.value
     let option = event.target.option
 
@@ -108,15 +109,18 @@ class FormGroup extends React.Component {
     }
 
     this.setState(prevState => {
-      let fields = prevState.fields.setIn([event.target.name, 'value'], val)
+      let fields = prevState.fields.setIn([name, 'value'], val)
 
       if (option) {
-        fields = fields.setIn([event.target.name, 'option'], option)
+        fields = fields.setIn([name, 'option'], option)
       }
-      return { fields }
+
+      const fieldErrors = prevState.fieldErrors.set(name, '')
+
+      return { fields, fieldErrors }
     }, () => {
       if (this.props.changeCallback) {
-        this.props.changeCallback(this.state.fields.toJS())
+        this.props.changeCallback(this.state.fields.toJS(), this.state.fieldErrors)
       }
     })
   }
