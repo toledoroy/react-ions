@@ -275,7 +275,7 @@ class InlineEdit extends React.Component {
 
     const copyIconFill = this.state.value === '' ? '#9198A0' : '#3C97D3'
 
-    return <Icon name='icon-clipboard-1' height='14' width='14' fill={copyIconFill} />
+    return <Icon name='md-copy' height='14' width='14' fill={copyIconFill} />
   }
 
   getIcon = () => {
@@ -381,8 +381,8 @@ class InlineEdit extends React.Component {
             {this.getField()}
             {this.state.isEditing && !this.state.loading
               ? <div className={style['inline-button-wrapper']}>
-                  <Icon name='icon-check-2-1' onClick={this.handleSave} height='14' width='14' className={style['save-button']}>Save</Icon>
-                  <Icon name='icon-delete-1' onClick={this.handleCancel} height='14' width='14' className={style['cancel-button']}>Cancel</Icon>
+                  <Icon name='md-check' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
+                  <Icon name='md-close' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
                 </div>
               : null
             }
