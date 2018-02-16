@@ -70,7 +70,7 @@ var list = {
     materialPath + '/navigation/svg/production/ic_close_24px.svg#md-close',
     materialPath + '/navigation/svg/production/ic_chevron_left_24px.svg#md-chevron-left',
     materialPath + '/navigation/svg/production/ic_chevron_right_24px.svg#md-chevron-right',
-    materialPath + '/social/svg/production/ic_notification_do_not_disturb_24px.svg#md-no-access',
+    materialPath + '/notification/svg/production/ic_do_not_disturb_24px.svg#md-no-access',
     materialPath + '/social/svg/production/ic_notifications_none_24px.svg#md-notifications',
     materialPath + '/social/svg/production/ic_person_24px.svg#md-person',
     materialPath + '/social/svg/production/ic_people_24px.svg#md-people',
