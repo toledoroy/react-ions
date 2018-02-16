@@ -102,10 +102,12 @@ describe('FormGroup', () => {
     }
 
     const fieldErrors = Map({
-      subject: 'Test error.'
+      subject: 'Test error.',
+      test_field: 'Another error'
     })
 
     wrapper = mount(<FormGroup changeCallback={changeCallback} schema={schema} fieldErrors={fieldErrors}><Input name='subject' label='Subject line' type='text' /></FormGroup>)
+    wrapper.setState({ fieldErrors: wrapper.state('fieldErrors').set('test_field', 'State error') })
 
     wrapper.find('input').simulate('change', {
       target: {
@@ -116,7 +118,7 @@ describe('FormGroup', () => {
 
     expect(changeCallback.calledOnce).to.be.true
     expect(changeCallback.firstCall.args[0]).to.deep.equal({ subject: { value: 'This is my answer' } })
-    expect(changeCallback.firstCall.args[1].toJS()).to.deep.equal({ subject: '' })
+    expect(changeCallback.firstCall.args[1].toJS()).to.deep.equal({ subject: '', test_field: 'State error' })
     expect(wrapper.state().fields.getIn(['subject', 'value'])).to.equal('This is my answer')
     expect(wrapper.state().fieldErrors.get('subject')).to.equal('')
   })
