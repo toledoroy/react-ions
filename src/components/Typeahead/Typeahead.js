@@ -112,9 +112,10 @@ export class Typeahead extends React.Component {
   }
 
   componentWillReceiveProps = nextProps => {
+    const { allowCustomValue, changeCallback,  } = this.props
     const valueIsEmpty = nextProps.value === ''
     const valueChanged = nextProps.value !== this.state.value
-    const allowCustomValue = this.props.allowCustomValue
+    const allowCustomValue = allowCustomValue
     const searchStringIsEmpty = this.state.searchStr !== ''
     const optionExists = this.getIndex(nextProps.value, nextProps.options) > -1
 
@@ -127,7 +128,7 @@ export class Typeahead extends React.Component {
     // Else if allowCustomValue is true trigger the change callback
     else if (nextProps.value && valueChanged && allowCustomValue) {
       this.setState({ value: nextProps.value, searchStr: nextProps.value }, () => {
-        this.props.changeCallback && this.props.changeCallback({ target: { name: nextProps.name, value: nextProps.value } })
+        changeCallback && changeCallback({ target: { name: nextProps.name, value: nextProps.value } })
       })
     }
     // When the value is an empty string and the current state value is not an empty string
