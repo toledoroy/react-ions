@@ -115,7 +115,6 @@ export class Typeahead extends React.Component {
     const { allowCustomValue, changeCallback,  } = this.props
     const valueIsEmpty = nextProps.value === ''
     const valueChanged = nextProps.value !== this.state.value
-    const allowCustomValue = allowCustomValue
     const searchStringIsEmpty = this.state.searchStr !== ''
     const optionExists = this.getIndex(nextProps.value, nextProps.options) > -1
 
