@@ -120,7 +120,7 @@ class FormGroup extends React.Component {
       return { fields, fieldErrors }
     }, () => {
       if (this.props.changeCallback) {
-        this.props.changeCallback(this.state.fields.toJS(), this.state.fieldErrors)
+        this.props.changeCallback(this.state.fields.toJS(), this.props.fieldErrors.merge(this.state.fieldErrors))
       }
     })
   }
