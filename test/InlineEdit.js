@@ -197,7 +197,7 @@ describe('InlineEdit', () => {
   })
 
   it('should have an inline icon and label', () => {
-    const wrapper = mount(<InlineEdit name='test' value='test value' label='Email' icon='icon-mail-1' />)
+    const wrapper = mount(<InlineEdit name='test' value='test value' label='Email' icon='md-mail' />)
 
     expect(wrapper.find('.inline-icon')).to.have.length(1)
     expect(wrapper.find('.inline-label')).to.have.length(1)
@@ -208,7 +208,7 @@ describe('InlineEdit', () => {
 
     expect(wrapper.state().inlineEditMaxWidth).to.equal('calc(100% - 0px)')
 
-    wrapper = mount(<InlineEdit name='test' value='test value' label='Email' icon='icon-mail-1' />)
+    wrapper = mount(<InlineEdit name='test' value='test value' label='Email' icon='md-mail' />)
 
     expect(wrapper.state().inlineEditMaxWidth).to.not.equal('calc(100% - 0px)')
   })

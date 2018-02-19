@@ -4,7 +4,11 @@ import { Route, Redirect, IndexRoute } from 'react-router'
 // Base Layout
 import Base from './layout/Base'
 
-// Pages
+// Foundations Pages
+import ColorsPage from './pages/foundations/Colors/Page'
+import IconographyPage from './pages/foundations/Iconography/Page'
+
+// Component Pages
 import ComponentsPage from './pages/components/Page'
 import AlertsPage from './pages/components/Alerts/Page'
 import AvatarPage from './pages/components/Avatar/Page'
@@ -12,7 +16,6 @@ import BadgePage from './pages/components/Badge/Page'
 import BreadcrumbPage from './pages/components/Breadcrumb/Page'
 import ButtonsPage from './pages/components/Buttons/Page'
 import ButtonGroupPage from './pages/components/ButtonGroup/Page'
-import ColorsPage from './pages/foundations/Colors/Page'
 import ColorPickerPage from './pages/components/ColorPicker/Page'
 import DatePickerPage from './pages/components/DatePicker/Page'
 import CheckboxPage from './pages/components/Checkbox/Page'
@@ -48,13 +51,14 @@ const Routes = (
     <Redirect from='foundations' to='/foundations/colors' />
     <Route path='foundations' title='Foundations'>
       <Route path='colors' title='Colors' component={ColorsPage} />
+      <Route path='iconography' title='Iconography' component={IconographyPage} />
     </Route>
     <Route path='components' title='Components'>
       <IndexRoute component={ComponentsPage} />
       <Route path='alerts' title='Alerts' component={AlertsPage} />
       <Route path='avatar' title='Avatar' component={AvatarPage} />
       <Route path='badge' title='Badge' component={BadgePage} />
-      <Route path="breadcrumb" title="Breadcrumb" component={BreadcrumbPage} />
+      <Route path='breadcrumb' title='Breadcrumb' component={BreadcrumbPage} />
       <Route path='dropdown' title='Dropdown' component={DropdownPage} />
       <Route path='button-group' title='Button Group' component={ButtonGroupPage} />
       <Route path='buttons' title='Buttons' component={ButtonsPage} />

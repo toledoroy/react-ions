@@ -6,7 +6,6 @@ describe('Icon', () => {
     const wrapper = shallow(<Icon name='icon-check-1-1' width='12' height='24' fill='green' className='custom' />)
 
     expect(wrapper.find('svg')).to.have.length(1)
-    expect(wrapper.props().name).to.equal('icon-check-1-1')
     expect(wrapper.props().width).to.equal('12')
     expect(wrapper.props().height).to.equal('24')
     expect(wrapper.props().fill).to.equal('green')

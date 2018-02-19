@@ -30,5 +30,25 @@ In this minimal example, we import a Button with styles already bundled:
 
 Live examples and more info [documentation site](http://reactions.getambassador.com/components).
 
+Icons
+-----
+To limit the number of network requests, this library dynamically generates an `.svg` sprite, to handle our user interfaces. The list of available icons is here: https://reactions.getambassador.com/foundations/iconography.
+
+The list is primarily made up of [Material Icons](https://material.io/icons/). However, there are a few social icons that we have added on our own.
+
+If you've cloned the React:ions library, and wish to add/remove Material icons, or add custom (eg: non-Material) icons, to the sprite, follow the directions below.
+
+### To add a Material Icon to the svg sprite:
+- Search for the icon on the [Material Icon](https://material.io/icons/) site.
+- Open the master list `/react-ions/src/assets/icons/master-list.js`, and add the icon to the `material` array.
+  - The *category* of the icon is needed to construct the path.
+  - The *hash* after the path will be the `name` prop as passed into the React:ions `Icon` component.
+  - All Material icon names should be prefixed with `md-`.
+- Stop and then start the `React-ions` app
+- Go to: http://localhost:3000/foundations/iconography and your icon will be visible in the list.
+
+### To make a Custom Icon available in our apps:
+- Follow the instructions for adding a `Material` app, however instead you will add to the `mbsy` array, and include a raw `.svg` file here: `/react-ions/src/assets/icons/svg`.
+
 ## License
 This project is licensed under the terms of the [MIT license](LICENSE)
