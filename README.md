@@ -32,7 +32,7 @@ Live examples and more info [documentation site](http://reactions.getambassador.
 
 Icons
 -----
-To limit the number of network requests, this library dynamically generates an `.svg` sprite, to handle our user interfaces. The list of available icons is here: https://reactions.getambassador.com/foundations/iconography.
+To limit the number of network requests, this library dynamically generates an `.svg` sprite, to handle our user interfaces. The list of available icons is here: http://reactions.getambassador.com/foundations/iconography.
 
 The list is primarily made up of [Material Icons](https://material.io/icons/). However, there are a few social icons that we have added on our own.
 
