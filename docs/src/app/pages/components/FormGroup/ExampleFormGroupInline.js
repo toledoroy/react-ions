@@ -105,7 +105,7 @@ class ExampleFormGroupInline extends React.Component {
             <SelectField name='selectField6' options={fields.selectField3} valueProp='value' displayProp='display' optClass={style.field} />
           </div>
           <div className={style['remove-item']}>
-            <Icon name='icon-delete-1' height='16' width='16' fill='#233040' />
+            <Icon name='md-remove' height='16' width='16' fill='#233040' />
           </div>
         </fieldset>
       </FormGroup>

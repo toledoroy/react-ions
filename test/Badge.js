@@ -8,7 +8,6 @@ describe('Badge', () => {
   it('displays a button', () => {
     wrapper = shallow(<Badge icon='icon-link-1' text='Word' theme='success' />)
     expect(wrapper.props().className).to.equal('badge success padded')
-    expect(wrapper.childAt(0).props().name).to.equal('icon-link-1')
     expect(wrapper.childAt(0).type()).to.equal(Icon)
     expect(wrapper.find('span').text()).to.equal('Word')
     expect(wrapper.find('div')).to.have.length(1)

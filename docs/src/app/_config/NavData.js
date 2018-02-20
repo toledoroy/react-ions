@@ -6,6 +6,10 @@ const nav = [
       {
         name: 'Colors',
         action: '/foundations/colors'
+      },
+      {
+        name: 'Iconography',
+        action: '/foundations/iconography'
       }
     ]
   }, {
