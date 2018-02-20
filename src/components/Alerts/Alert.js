@@ -73,10 +73,10 @@ class Alert extends React.Component {
     const cx = classNames.bind(style)
     const alertClasses = cx(style.alert, this.props.optClass, this.props.type, (this.props.closable ? 'closable' : ''))
     const alertIcons = {
-      success: 'md-check',
-      warning: 'md-info',
-      info: 'md-info-outline',
-      danger: 'md-remove'
+      success: 'md-success',
+      warning: 'md-warning',
+      info: 'md-info',
+      danger: 'md-danger'
     }
 
     return (

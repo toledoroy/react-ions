@@ -5,7 +5,7 @@ var mbsyPath = path.normalize('src/assets/icons/svg')
 var list = {
   material: [
     materialPath + '/action/svg/production/ic_assessment_24px.svg#md-assessment',
-    materialPath + '/action/svg/production/ic_check_circle_24px.svg#md-check-circle',
+    materialPath + '/action/svg/production/ic_check_circle_24px.svg#md-success',
     materialPath + '/action/svg/production/ic_compare_arrows_24px.svg#md-compare',
     materialPath + '/action/svg/production/ic_dashboard_24px.svg#md-dashboard',
     materialPath + '/action/svg/production/ic_date_range_24px.svg#md-date',
@@ -31,6 +31,7 @@ var list = {
     materialPath + '/action/svg/production/ic_fingerprint_24px.svg#md-fingerprint',
     materialPath + '/action/svg/production/ic_label_24px.svg#md-label',
     materialPath + '/alert/svg/production/ic_warning_24px.svg#md-warning',
+    materialPath + '/alert/svg/production/ic_error_24px.svg#md-danger',
     materialPath + '/av/svg/production/ic_fiber_manual_record_48px.svg#md-record',
     materialPath + '/av/svg/production/ic_pause_24px.svg#md-pause',
     materialPath + '/av/svg/production/ic_stop_24px.svg#md-stop',
@@ -66,6 +67,7 @@ var list = {
     materialPath + '/navigation/svg/production/ic_arrow_drop_down_24px.svg#md-arrow-drop-down',
     materialPath + '/navigation/svg/production/ic_arrow_drop_up_24px.svg#md-arrow-drop-up',
     materialPath + '/navigation/svg/production/ic_arrow_forward_24px.svg#md-arrow-forward',
+    materialPath + '/hardware/svg/production/ic_keyboard_arrow_up_24px.svg#md-keyboard-up',
     materialPath + '/hardware/svg/production/ic_keyboard_arrow_down_24px.svg#md-keyboard-down',
     materialPath + '/hardware/svg/production/ic_mouse_24px.svg#md-mouse',
     materialPath + '/navigation/svg/production/ic_check_24px.svg#md-check',
