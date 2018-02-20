@@ -31,8 +31,7 @@ module.exports = function (config) {
       resolve: {
         alias: {
           'react-ions/utilities': path.resolve(__dirname, '../../src/utilities'),
-          'react-ions/sprite': path.resolve(__dirname, '../../lib/assets/icons/symbol'),
-          'react-ions/lib/assets/icons/symbol/sprite.svg': path.resolve(__dirname, '../../lib/assets/icons/symbol/sprite.svg')
+          'react-ions/sprite': path.resolve(__dirname, '../../lib/assets/icons/symbol')
         }
       },
       module: {

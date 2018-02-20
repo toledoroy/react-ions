@@ -11,7 +11,7 @@ const StyledInput = styled(Input)`
   }
 `
 
-const iconNode = <Icon name='icon-add-1' width='16' height='16' />
+const iconNode = <Icon name='md-add' width='16' height='16' />
 
 const ExampleInputPrefixSuffix = () => (
   <div>
