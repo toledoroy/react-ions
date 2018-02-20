@@ -29,6 +29,7 @@ var list = {
     materialPath + '/action/svg/production/ic_thumb_up_24px.svg#md-thumb-up',
     materialPath + '/action/svg/production/ic_thumb_down_24px.svg#md-thumb-down',
     materialPath + '/action/svg/production/ic_fingerprint_24px.svg#md-fingerprint',
+    materialPath + '/action/svg/production/ic_label_24px.svg#md-label',
     materialPath + '/alert/svg/production/ic_warning_24px.svg#md-warning',
     materialPath + '/av/svg/production/ic_fiber_manual_record_48px.svg#md-record',
     materialPath + '/av/svg/production/ic_pause_24px.svg#md-pause',
