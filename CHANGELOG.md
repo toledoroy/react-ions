@@ -7,11 +7,11 @@
 - All components have been updated with new icons [#566](https://github.com/GetAmbassador/react-ions/pull/566)
 
 ### Additional changes
-- Merge prop errors with state errors before calling changeCallback [#611](https://github.com/GetAmbassador/react-ions/pull/611)
-- Set custom value on typeahead when it first mounts [#609](https://github.com/GetAmbassador/react-ions/pull/609)
-- Update various form validation and styles [#608](https://github.com/GetAmbassador/react-ions/pull/608)
-- Add a class and default styles to the ValidatedField HOC [#605](https://github.com/GetAmbassador/react-ions/pull/605)
-- Make form validation work with nested form fields [#604](https://github.com/GetAmbassador/react-ions/pull/604)
+- FormGroup: Merge prop errors with state errors before calling changeCallback [#611](https://github.com/GetAmbassador/react-ions/pull/611)
+- Typeahead: Set custom value on when it first mounts [#609](https://github.com/GetAmbassador/react-ions/pull/609)
+- Forms: Update various form validation and styles [#608](https://github.com/GetAmbassador/react-ions/pull/608)
+- ValidatedField: Add a class and default styles [#605](https://github.com/GetAmbassador/react-ions/pull/605)
+- FormGroup: Make form validation work with nested form fields [#604](https://github.com/GetAmbassador/react-ions/pull/604)
 
 ## 4.0.4
 ###### _February 5, 2018_
