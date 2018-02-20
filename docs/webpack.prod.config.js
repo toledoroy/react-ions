@@ -13,7 +13,6 @@ const config = {
   resolve: {
     extensions: ['', '.js', '.md', '.txt', '.scss', '.css'],
     alias: {
-      'react-ions/lib/assets/icons/symbol/sprite.svg': path.resolve(__dirname, '../lib/assets/icons/symbol/sprite.svg'),
       'react-ions/lib': path.resolve(__dirname, '../src'),
       'react-ions/styles': path.resolve(__dirname, '../src/styles'),
       'react-ions/utilities': path.resolve(__dirname, '../src/utilities'),
