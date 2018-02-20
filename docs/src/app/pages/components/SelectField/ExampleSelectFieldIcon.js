@@ -11,7 +11,7 @@ const ExampleSelectFieldIcon = () => (
     options={options}
     valueProp='value'
     displayProp='display'
-    icon='check' />
+    icon='md-check' />
 )
 
 export default ExampleSelectFieldIcon
