@@ -63,13 +63,13 @@ class Textarea extends React.Component {
     blurCallback: PropTypes.func
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.value !== this.props.value) {
       this.setState({ value: nextProps.value })
     }
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     event.persist()
 
     this.setState({value: event.target.value}, () => {
@@ -84,13 +84,13 @@ class Textarea extends React.Component {
     })
   }
 
-  handleFocus = (event) => {
+  handleFocus = event => {
     if (typeof this.props.focusCallback === 'function') {
       this.props.focusCallback(event)
     }
   }
 
-  handleBlur = (event) => {
+  handleBlur = event => {
     if (typeof this.props.blurCallback === 'function') {
       this.props.blurCallback(event)
     }

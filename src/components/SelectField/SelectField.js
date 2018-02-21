@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import enhanceWithClickOutside from 'react-click-outside'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 import Icon from '../Icon'
 
-class SelectField extends React.Component {
+export class SelectField extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -83,38 +84,31 @@ class SelectField extends React.Component {
     }
   }
 
-  componentWillUnmount = () => {
-    document.removeEventListener('click', this.toggleSelectField)
-  }
-
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.value === this.state.value) {
       return
     }
     let validIndex = this.getIndex(nextProps.value, nextProps.options) > -1
+
     if (nextProps.value === undefined || nextProps.value === null || !validIndex) {
       this.setState({selected: '', value: ''})
-    }
-    else {
+    } else {
       this.selectItem(nextProps.value, nextProps.options)
     }
   }
 
+  handleClickOutside = () => {
+    if (this.state.isOpen) this.toggleSelectField()
+  }
+
   toggleSelectField = () => {
     if (this.props.disabled) return
-    
-    this.setState({isOpen: !this.state.isOpen}, () => {
-      if (this.state.isOpen) {
-        document.addEventListener('click', this.toggleSelectField)
-      }
-      else {
-        document.removeEventListener('click', this.toggleSelectField)
-      }
-    })
+
+    this.setState({isOpen: !this.state.isOpen})
   }
 
   selectOption = (option, triggerCallback) => {
-    this.setState({selected: option, value: option[this.props.valueProp]}, () => {
+    this.setState({ selected: option, value: option[this.props.valueProp], isOpen: false }, () => {
       if (triggerCallback && typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {
@@ -129,6 +123,7 @@ class SelectField extends React.Component {
 
   selectItem = (value, options) => {
     let index = this.getIndex(value, options)
+
     if (index >= 0) {
       this.selectOption(options[index], false)
     }
@@ -136,6 +131,7 @@ class SelectField extends React.Component {
 
   getIndex = (value, options) => {
     let optionIndex = -1
+
     options.map((option, index) => {
       if (option[this.props.valueProp] === value) {
         optionIndex = index
@@ -148,37 +144,47 @@ class SelectField extends React.Component {
   getDisplayText = () => {
     if (this.state.selected !== '') {
       return this.state.selected[this.props.displayProp]
-    }
-    else if (typeof this.props.placeholder !== 'undefined') {
+    } else if (typeof this.props.placeholder !== 'undefined') {
       return this.props.placeholder
     }
-    else {
-      return 'Please select an option'
-    }
+    return 'Please select an option'
+
   }
 
   getDisplayIcon = () => {
     if (this.state.selected && this.state.selected.icon) {
-      return <Icon name={this.state.selected.icon} fill={this.state.selected.iconColor ||  null} className={style.icon} height='16' width='16' />
-    }
-    else if (this.props.icon) {
+      return <Icon name={this.state.selected.icon} fill={this.state.selected.iconColor || null} className={style.icon} height='16' width='16' />
+    } else if (this.props.icon) {
       return <Icon name={this.props.icon} className={style.icon} height='16' width='16' />
     }
-    else {
-      return null
-    }
+    return null
+
   }
 
   render() {
     const cx = classNames.bind(style)
     const disabledClass = this.props.disabled ? style['selectfield-disabled'] : ''
     const activeClass = this.state.isOpen ? style['active'] : ''
-    const hasIconClass = !!this.getDisplayIcon() ? style['has-icon'] : ''
+    const hasIconClass = this.getDisplayIcon() ? style['has-icon'] : ''
     const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, hasIconClass, this.props.optClass)
     const { valueProp, hideProp, label } = this.props
 
     let options = this.props.options.map((option, index) =>
-      <li key={index} onClick={this.selectOption.bind(null, option, true)} className={hideProp && option[hideProp] && style['hidden']}>{option.icon ? <Icon name={option.icon} fill={option.iconColor ||  null} className={style.icon} height='16' width='16' /> : null}{option[this.props.displayProp]}</li>
+      <li
+        key={index}
+        onClick={this.selectOption.bind(null, option, true)}
+        className={(hideProp && option[hideProp]) ? style['hidden'] : undefined}>
+          {option.icon
+            ? <Icon
+              name={option.icon}
+              fill={option.iconColor || null}
+              className={style.icon}
+              height='16'
+              width='16' />
+            : null
+          }
+          {option[this.props.displayProp]}
+        </li>
     )
 
     if (options.length === 0) {
@@ -186,6 +192,7 @@ class SelectField extends React.Component {
     }
 
     let value = ''
+
     if (this.state.selected) {
       value = this.state.selected[valueProp]
     }
@@ -197,7 +204,7 @@ class SelectField extends React.Component {
         <div className={style['selectfield-value']} onClick={this.toggleSelectField}>
           {this.getDisplayIcon()}
           <span className={style['display-text']}>{this.getDisplayText()}</span>
-          <Icon name='icon-caret' width='10' height='10' />
+          <Icon name='mbsy-caret' width='10' height='10' />
         </div>
         <ul>
           {options}
@@ -207,4 +214,4 @@ class SelectField extends React.Component {
   }
 }
 
-export default SelectField
+export default enhanceWithClickOutside(SelectField)

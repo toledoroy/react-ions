@@ -1,5 +1,6 @@
 import React from 'react'
 import { array, object, string } from 'prop-types'
+import optclass from '../internal/OptClass'
 import style from './style.scss'
 
 const ValidatedField = WrappedComponent => {
@@ -9,11 +10,12 @@ const ValidatedField = WrappedComponent => {
     }
 
     render = () => {
-      const wrapperErrorClass = this.props.error ? style['has-error'] : null
+      const wrapperErrorClass = this.props.error ? 'has-error' : ''
+      const validatedFieldClass = optclass(style, ['validated-field', wrapperErrorClass])
 
       return (
-        <div>
-          <WrappedComponent {...this.props} className={wrapperErrorClass} />
+        <div className={validatedFieldClass}>
+          <WrappedComponent {...this.props} />
           {this.props.error &&
             <span className={style['has-error__message']}>
               {this.props.error}

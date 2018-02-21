@@ -20,16 +20,16 @@ class ExampleButtonGroupCallback extends React.Component {
       {
         value: 'Option 1',
         label: 'Option 1'
-      },{
+      }, {
         value: 'Option 2',
         label: 'Option 2'
-      },{
+      }, {
         value: 'Option 3',
         label: 'Option 3'
       }
     ]
 
-    return(
+    return (
       <div>
         <ButtonGroup
           name="callback-button-group"

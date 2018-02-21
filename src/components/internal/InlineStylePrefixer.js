@@ -1,6 +1,6 @@
 import Prefixer from 'inline-style-prefixer'
 
-const InlineStylePrefixer = (styles) => {
+const InlineStylePrefixer = styles => {
 
   const prefixer = new Prefixer()
   const prefixedStyles = prefixer.prefix(styles)

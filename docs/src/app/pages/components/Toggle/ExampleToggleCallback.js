@@ -11,13 +11,13 @@ class ExampleToggleCallback extends React.Component {
     status: 'Value is false'
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     console.log('Name: ' + event.target.name, 'Value: ' + event.target.value)
     this.setState({status: 'Value is ' + event.target.value})
   }
 
   render() {
-    return(
+    return (
       <div>
         <Toggle label='Would you like to set this?' value={false} changeCallback={this.handleChange} name='toggle_name' />
         <code className={style['callback-status']}>{this.state.status}</code>

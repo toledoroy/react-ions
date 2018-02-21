@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import Tooltip from '../src/components/Tooltip/Tooltip'
 
 describe.skip('Tooltip', () => {
@@ -7,6 +6,7 @@ describe.skip('Tooltip', () => {
 
   // Mocking the #app div, so we can render the tooltip
   const appDiv = global.document.createElement('div')
+
   appDiv.setAttribute('id', 'app')
   global.document.body.appendChild(appDiv)
 
@@ -20,13 +20,13 @@ describe.skip('Tooltip', () => {
 
   const willUnmount = sinon.spy()
 
-  const mountRender = (props) => {
+  const mountRender = props => {
     const mountWrapper = mount(<Tooltip content='Testing the top tooltip' {...props}>Test text</Tooltip>, { attachTo: appDiv })
 
     return mountWrapper
   }
 
-  const shallowRender = (props) => {
+  const shallowRender = props => {
     const shallowWrapper = mount(<Tooltip content='Testing the top tooltip' {...props}>Test text</Tooltip>)
 
     return shallowWrapper
@@ -43,7 +43,7 @@ describe.skip('Tooltip', () => {
     wrapper.unmount()
   })
 
-  it.skip('should display the tooltip when the show prop is passed', (done) => {
+  it.skip('should display the tooltip when the show prop is passed', done => {
     wrapper = mountRender({
       show: true
     })
@@ -60,7 +60,7 @@ describe.skip('Tooltip', () => {
     wrapper.unmount()
   })
 
-  it.skip('should render with an alternate tip wrapper and an optClass', (done) => {
+  it.skip('should render with an alternate tip wrapper and an optClass', done => {
     wrapper = mountRender({
       tipWrapper: 'random-wrapper',
       optClass: 'opt-class',
@@ -79,7 +79,7 @@ describe.skip('Tooltip', () => {
     wrapper.unmount()
   })
 
-  it.skip('should render with a different tip placement', (done) => {
+  it.skip('should render with a different tip placement', done => {
     wrapper = mountRender({
       tooltipPlacement: 'right',
       show: true

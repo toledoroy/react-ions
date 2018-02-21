@@ -15,7 +15,7 @@ const description = {
   alertDefault: 'This is the `alert component`.',
   alertSystemDefault: 'This is the `alert system component`.',
   alertSystemTimeout: 'This is the `alert system component` with alerts that can have a timeout.'
-};
+}
 
 const AlertsPage = () => (
   <div>

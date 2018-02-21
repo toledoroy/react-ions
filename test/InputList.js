@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import InputList from '../src/components/InputList/InputList'
 import Input from '../src/components/Input/Input'
 import Icon from '../src/components/Icon/Icon'
@@ -22,6 +21,7 @@ describe('InputList', () => {
 
   it('should shallow render itself', () => {
     const spy = sinon.spy()
+
     wrapper = shallow(<InputList optClass='test' value={[]} changeCallback={spy} placeholder='Type something and hit enter' />)
 
     expect(wrapper.props().className).to.equal('input-list-wrapper test')
@@ -38,12 +38,14 @@ describe('InputList', () => {
 
   it('should build state from props', () => {
     const spy = sinon.spy()
+
     wrapper = shallow(<InputList value={value} changeCallback={spy} />)
     expect(wrapper.state().value).to.equal(value)
   })
 
   it('should generate an options list', () => {
     const spy = sinon.spy()
+
     wrapper = shallow(<InputList value={value} changeCallback={spy} />)
     expect(wrapper.state().options).to.deep.equal(options)
   })
@@ -55,6 +57,7 @@ describe('InputList', () => {
         value: 'Key Upped'
       }
     }
+
     wrapper = shallow(<InputList value={value} changeCallback={spy} />)
     wrapper.childAt(0).simulate('keyUp', keyUpValue)
     expect(wrapper.state().currentValue).to.equal(keyUpValue.target.value)
@@ -68,6 +71,7 @@ describe('InputList', () => {
         value: 'Key Pressed'
       }
     }
+
     wrapper = shallow(<InputList value={value} changeCallback={spy} />)
     wrapper.childAt(0).simulate('keyPress', keyPressValue)
     expect(wrapper.state().value).to.equal(value)
@@ -80,9 +84,11 @@ describe('InputList', () => {
       {display: 'Test 2', value: 'Test 2'},
       {display: 'Something', value: 'Something'}
     ]
+
     wrapper = mount(<InputList value={value} changeCallback={spy} />)
-    wrapper.setState({currentValue: 'Something'})
-    wrapper.childAt(1).simulate('click')
+    wrapper.setState({ currentValue: 'Something' })
+    wrapper.instance().handleClick()
+    wrapper.update()
     expect(wrapper.state().options).to.deep.equal(clickStateValue)
   })
 
@@ -101,6 +107,7 @@ describe('InputList', () => {
     const nextProps = {
       value: ['Test 1', 'Test 2', 'Tornado']
     }
+
     wrapper = shallow(<InputList value={value} changeCallback={spy} />)
     wrapper.setProps(nextProps)
     wrapper.update()
@@ -112,6 +119,7 @@ describe('InputList', () => {
     const nextProps = {
       value: ['Test 1', 'Test 2']
     }
+
     wrapper = shallow(<InputList value={value} changeCallback={spy} />)
     wrapper.setProps(nextProps)
     wrapper.update()

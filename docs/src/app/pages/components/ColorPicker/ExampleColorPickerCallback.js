@@ -11,11 +11,11 @@ class ExampleColorPickerCallback extends React.Component {
     super(props)
   }
 
-  _setStatus = (color) => {
+  _setStatus = color => {
     return 'Selected color is ' + color.toUpperCase()
   }
 
-  _updateState = (color) => {
+  _updateState = color => {
     this.setState({
       color: color,
       status: this._setStatus(color)
@@ -27,8 +27,9 @@ class ExampleColorPickerCallback extends React.Component {
     color: oldColor
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     const date = new Date()
+
     console.log('Color:' + event.target.value, 'Time:' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds())
     this._updateState(event.target.value)
   }
@@ -42,7 +43,7 @@ class ExampleColorPickerCallback extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <div className={style.buttons}>
           <Button onClick={this.updateColor} disabled={this.state.color == newColor}>Set new color</Button>

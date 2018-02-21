@@ -1,5 +1,56 @@
 ## HEAD
 
+## 5.0.0
+###### _February 20, 2018_
+
+### Breaking changes
+- All components have been updated with new icons [#566](https://github.com/GetAmbassador/react-ions/pull/566)
+
+### Additional changes
+- FormGroup: Merge prop errors with state errors before calling changeCallback [#611](https://github.com/GetAmbassador/react-ions/pull/611)
+- Typeahead: Set custom value on when it first mounts [#609](https://github.com/GetAmbassador/react-ions/pull/609)
+- Forms: Update various form validation and styles [#608](https://github.com/GetAmbassador/react-ions/pull/608)
+- ValidatedField: Add a class and default styles [#605](https://github.com/GetAmbassador/react-ions/pull/605)
+- FormGroup: Make form validation work with nested form fields [#604](https://github.com/GetAmbassador/react-ions/pull/604)
+
+## 4.0.4
+###### _February 5, 2018_
+- Update Header to handle both splash and non-splash UI [#602](https://github.com/GetAmbassador/react-ions/pull/602)
+- Create an HOC EnhanceWithCopy [#601](https://github.com/GetAmbassador/react-ions/pull/601)
+- Add id prop to the Input component [#600](https://github.com/GetAmbassador/react-ions/pull/600)
+
+## 4.0.3
+###### _January 29, 2018_
+- Breadcrumb: Slight tweak to mobile padding [#598](https://github.com/GetAmbassador/react-ions/pull/598)
+
+## 4.0.2
+###### _January 24, 2018_
+- Breadcrumb: Visual changes [#596](https://github.com/GetAmbassador/react-ions/pull/596)
+
+- Breadcrumb: Allow items to be clickable [#592](https://github.com/GetAmbassador/react-ions/pull/592)
+
+## 4.0.1
+###### _January 17, 2018_
+- Fixed icon paths [#585](https://github.com/GetAmbassador/react-ions/pull/585)
+
+## 4.0.0
+###### _January 17, 2018_
+
+### Breaking changes
+- In order to upgrade to React 16 support for React versions prior to 15.3 has been dropped [#575](https://github.com/GetAmbassador/react-ions/pull/575)
+
+## 3.1.3
+###### _January 16, 2018_
+Inline Edit - adding correct clipboard icon path [#579](https://github.com/GetAmbassador/react-ions/pull/579)
+
+## 3.1.2
+###### _January 12, 2018_
+Inline Edit - changing icon names to match previous Streamline version  [#569](https://github.com/GetAmbassador/react-ions/pull/569)
+
+## 3.1.1
+###### _January 2, 2018_
+Icon UI - adjusting a few minor example UI items [#561](https://github.com/GetAmbassador/react-ions/pull/561)
+
 ## 3.1.0
 ###### _January 2, 2018_
 - Update LICENSE [#559](https://github.com/GetAmbassador/react-ions/pull/559)

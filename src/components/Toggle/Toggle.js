@@ -67,7 +67,7 @@ class Toggle extends React.Component {
     })
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.value !== this.props.value) {
       this.setState({ value: nextProps.value })
     }
@@ -76,13 +76,11 @@ class Toggle extends React.Component {
   toggleText = (hasText, text, isOn) => {
     if (hasText && isOn) {
       return text[0]
-    }
-    else if (hasText && !isOn) {
+    } else if (hasText && !isOn) {
       return text[1]
     }
-    else {
-      return ''
-    }
+    return ''
+
   }
 
   render = () => {

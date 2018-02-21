@@ -13,12 +13,13 @@ class ExampleAlertSystemDefault extends React.Component {
     alerts: []
   }
 
-  onCloseCallback = (alert) => {
+  onCloseCallback = alert => {
     console.log(alert)
   }
 
-  addAlert = (type) => {
+  addAlert = type => {
     let alerts = this.state.alerts
+
     alerts.push({ type: type, content: this._alertText.state.value, onClose: this.onCloseCallback, timeout: 5000 })
     this.setState({ alerts: alerts })
   }
@@ -26,7 +27,7 @@ class ExampleAlertSystemDefault extends React.Component {
   render() {
     return (
       <div>
-        <Input value='Alert text' placeholder='Alert text' ref={(c) => this._alertText = c} />
+        <Input value='Alert text' placeholder='Alert text' ref={c => this._alertText = c} />
         <div className={style.buttons}>
           <Button onClick={this.addAlert.bind(this, 'success')} optClass="success">Add Success Alert</Button>
           <Button onClick={this.addAlert.bind(this, 'warning')} optClass={style['warning-btn']}>Add Warning Alert</Button>

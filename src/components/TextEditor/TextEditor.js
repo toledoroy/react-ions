@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import Quill from 'quill'
-import shallowCompare from 'react-addons-shallow-compare'
 import Toolbar from './Toolbar'
 import style from './style.scss'
 import '../../styles/global/quill.scss'
@@ -10,7 +9,7 @@ import '../../styles/global/quill.scss'
 /**
  * The TextEditor component.
  */
-class TextEditor extends React.Component {
+class TextEditor extends PureComponent {
   constructor(props) {
     super(props)
 
@@ -72,7 +71,7 @@ class TextEditor extends React.Component {
     })
   }
 
-  handleChange = (value) => {
+  handleChange = value => {
     const event = {
       target: {
         name: this.props.name,
@@ -88,7 +87,7 @@ class TextEditor extends React.Component {
     })
   }
 
-  setContent = (value) => {
+  setContent = value => {
     this._editor.firstChild.innerHTML = value
   }
 
@@ -105,6 +104,7 @@ class TextEditor extends React.Component {
     // Use style attribute for align and font tools
     const AlignAttribute = Quill.import('attributors/style/align')
     const FontAttribute = Quill.import('attributors/style/font')
+
     Quill.register(AlignAttribute, true)
     Quill.register(FontAttribute, true)
 
@@ -125,7 +125,7 @@ class TextEditor extends React.Component {
     })
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     // Enable/disable the editor
     this.state.textEditor.enable(!nextProps.disabled)
 
@@ -136,11 +136,7 @@ class TextEditor extends React.Component {
     }
   }
 
-  shouldComponentUpdate = (nextProps, nextState) => {
-    return shallowCompare(this, nextProps, nextState)
-  }
-
-  setToolbarRef = (toolbar) => {
+  setToolbarRef = toolbar => {
     this._toolbar = toolbar
   }
 
@@ -152,7 +148,7 @@ class TextEditor extends React.Component {
     return (
       <div className={editorClass}>
         <Toolbar textEditor={this.state.textEditor} mergeTags={this.props.mergeTags} onMount={this.setToolbarRef} />
-        <div ref={(c) => this._editor = c}></div>
+        <div ref={c => this._editor = c}></div>
         <div className={style.overlay}></div>
       </div>
     )

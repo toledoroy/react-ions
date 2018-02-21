@@ -5,7 +5,7 @@ import style from './style.scss'
 import optclass, { mapOptClass } from '../internal/OptClass'
 import colors from '../internal/colors'
 
-const Button = (props) => {
+const Button = props => {
   const collapseClass = props.collapse ? 'collapse' : null
   const loaderClasses = props.loading ? 'loading' : null
   const btnClasses = optclass(style, [style.btn, props.size, loaderClasses, collapseClass], props.optClass, props.className)
@@ -55,10 +55,10 @@ const Button = (props) => {
   }
 
   return (
-    <button 
-      type={props.type} 
-      style={props.style} 
-      className={btnClasses} 
+    <button
+      type={props.type}
+      style={props.style}
+      className={btnClasses}
       disabled={props.disabled || props.loading}
       aria-disabled={props.disabled || props.loading}
       onClick={props.onClick}
@@ -68,7 +68,7 @@ const Button = (props) => {
       onMouseOut={props.onMouseOut}
       onMouseOver={props.onMouseOver}
       onMouseUp={props.onMouseUp}>
-      { props.loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
+      { props.loading && <Loader loaded={false} options={spinnerOptions} /> }
       <em>{props.children}</em>
     </button>
   )

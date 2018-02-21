@@ -45,7 +45,7 @@ class PanelGroup extends React.Component {
     this.setInitialState()
   }
 
-  activatePanels = (activePanels) => {
+  activatePanels = activePanels => {
     var panels = this.getPanels()
     var initialPanels = []
 
@@ -64,7 +64,7 @@ class PanelGroup extends React.Component {
     this.activatePanels(this.props.activePanels)
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     this.activatePanels(nextProps.activePanels)
   }
 
@@ -81,7 +81,8 @@ class PanelGroup extends React.Component {
 
   getPanels = () => {
     const panels = []
-    React.Children.forEach(this.props.children, (panel) => {
+
+    React.Children.forEach(this.props.children, panel => {
       if (React.isValidElement(panel)) {
         panels.push(panel)
       }
@@ -89,19 +90,20 @@ class PanelGroup extends React.Component {
     return panels
   }
 
-  handlePanelClick = (panel) => {
+  handlePanelClick = panel => {
     let panelIndex = panel.props.panelIndex
     let state = this.state.panels
 
     if (!this.props.accordion) {
       state[panelIndex] = {active: !this.state.panels[panelIndex].active}
-      this.setState({panels: state}, function() {
+      this.setState({panels: state}, function () {
         this.onPanelToggle()
       })
     } else {
       var resetState = this.collapsePanels()
+
       resetState[panelIndex] = {active: !this.state.panels[panelIndex].active}
-      this.setState({panels: resetState}, function() {
+      this.setState({panels: resetState}, function () {
         this.onPanelToggle()
       })
     }
@@ -109,6 +111,7 @@ class PanelGroup extends React.Component {
 
   onPanelToggle = () => {
     let activePanels = []
+
     this.state.panels.map((panel, index) => {
       if (panel.active) {
         activePanels.push(index)

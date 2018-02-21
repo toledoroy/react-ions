@@ -11,7 +11,7 @@ class ExampleTypeaheadDefaultValue extends React.Component {
     loading: false
   }
 
-  handleSearch = (value) => {
+  handleSearch = value => {
     return new Promise((resolve, reject) => {
       this.setState({loading: true}, () => {
         // Do asynchronous search here
@@ -24,7 +24,7 @@ class ExampleTypeaheadDefaultValue extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <Typeahead
         options={options}
         valueProp='countryCode'

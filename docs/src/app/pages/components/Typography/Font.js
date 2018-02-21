@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.scss'
 
-const Font = (props) => {
+const Font = props => {
   return (
     <div className={styles['font-box']}>
       <div className={styles['font-box-aa']} style={ {fontFamily: props.fontFamily, fontWeight: props.fontWeight, fontStyle: props.fontStyle} }>

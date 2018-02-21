@@ -25,18 +25,19 @@ class ExampleAvatar extends React.Component {
     data: data[0]
   }
 
-  setAvatar = (data) => {
+  setAvatar = data => {
     this.setState({ data })
   }
 
-  setSize = (size) => {
+  setSize = size => {
     const current = Object.assign({}, this.state.data)
+
     current.size = size
     this.setState({ data: current })
   }
 
   render = () => {
-    return(
+    return (
       <div>
         <Avatar src={this.state.data.src} alt={this.state.data.alt} size={this.state.data.size} />
         <div className={style['avatar-controls']}>

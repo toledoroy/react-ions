@@ -1,15 +1,14 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import TextEditor from '../src/components/TextEditor/TextEditor'
 
 describe('TextEditor', () => {
   let wrapper
 
   it('should shallow render itself', () => {
-    wrapper = shallow(<TextEditor />)
+    wrapper = mount(<TextEditor />)
 
-    expect(wrapper.hasClass('editor-component')).to.be.true
-    expect(wrapper.children()).to.have.length(3)
+    expect(wrapper.find('.editor-component')).to.have.length(1)
+    expect(wrapper.find('.editor-component').children()).to.have.length(3)
     expect(wrapper.state().value).to.equal('')
   })
 
@@ -39,8 +38,9 @@ describe('TextEditor', () => {
     editorEnableSpy.restore()
   })
 
-  it('should trigger the callback when the value changes', (done) => {
+  it('should trigger the callback when the value changes', done => {
     const changeCallback = sinon.spy()
+
     wrapper = mount(<TextEditor changeCallback={changeCallback} name='textEditor' />)
 
     wrapper.instance().setContent('<p>Test!</p>')
@@ -77,6 +77,7 @@ describe('TextEditor', () => {
     expect(wrapper.instance().getHTML()).to.equal('<p>Test!</p>')
 
     const editor = wrapper.state().textEditor
+
     editor.formatLine(1, 2, 'align', 'right')
 
     expect(wrapper.instance().getHTML()).to.equal('<p style="text-align: right;">Test!</p>')
@@ -88,6 +89,7 @@ describe('TextEditor', () => {
     expect(wrapper.instance().getHTML()).to.equal('<p>Test!</p>')
 
     const editor = wrapper.state().textEditor
+
     editor.formatText(0, 5, 'font', 'serif')
     expect(wrapper.instance().getHTML()).to.equal('<p><span style="font-family: serif;">Test!</span></p>')
   })

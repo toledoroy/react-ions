@@ -8,7 +8,7 @@ class ExampleTabWrapperSecondary extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <TabWrapper onSelect={this.selectCallback} optClass="secondary">
           <Tab title="All Recent Activity" optTabContentClass={style['tab-content-secondary']}>

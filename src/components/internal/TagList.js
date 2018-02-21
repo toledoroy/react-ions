@@ -27,13 +27,13 @@ class TagList extends React.Component {
     onRemove: PropTypes.func.isRequired
   }
 
-  removeTag = (index) => {
+  removeTag = index => {
     this.props.onRemove(index)
   }
 
   renderTags = () => {
     return this.props.tags.map((tag, index) =>
-      <li key={index}><span className={style['text']}>{tag[this.props.displayProp]}</span><Icon name='icon-delete-1' onClick={this.removeTag.bind(this, index)} width='12' height='12'/></li>
+      <li key={index}><span className={style['text']}>{tag[this.props.displayProp]}</span><Icon name='md-remove' fill='#9198A0' onClick={this.removeTag.bind(this, index)} width='12' height='12'/></li>
     )
   }
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import TestUtils from 'react-dom/test-utils'
-import { shallow, mount } from 'enzyme'
 import WrappedDropdown, { Dropdown } from '../src/components/Dropdown'
 import Immutable from 'immutable'
 
@@ -20,7 +19,7 @@ describe('Dropdown', () => {
 
   it('should open when clicked', () => {
     wrapper = mount(<WrappedDropdown trigger='Test'>This is a test.</WrappedDropdown>)
-    trigger = wrapper.childAt(0)
+    trigger = wrapper.find('.trigger').at(0)
     expect(trigger.hasClass('trigger')).to.equal(true)
     expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true)
     trigger.simulate('click')
@@ -32,7 +31,7 @@ describe('Dropdown', () => {
     wrapper = mount(<WrappedDropdown isOpened={true} trigger='Test'>This is a test.</WrappedDropdown>)
     expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true)
     expect(wrapper.find('.dropdown-component').hasClass('is-opened')).to.equal(true)
-   })
+  })
 
   it('should take an optional CSS class', () => {
     wrapper = mount(<WrappedDropdown optClass='test' trigger='Test'>This is a test.</WrappedDropdown>)
@@ -41,29 +40,25 @@ describe('Dropdown', () => {
   })
 
   it('displays a modified state upon changing props', function () {
-    var TestParent = React.createFactory(React.createClass({
-      getInitialState() {
-        return {isOpened: false}
-      },
-      render() {
-        return <WrappedDropdown ref='dropdown' trigger='Test' isOpened={this.state.isOpened}>This is a test.</WrappedDropdown>
-      }
-    }))
+    const listItems = [
+      {name: 'test1'},
+      {name: 'test2'},
+      {name: 'test3'}
+    ]
 
-    var parent = TestUtils.renderIntoDocument(TestParent())
-    expect(parent.refs.dropdown.props.isOpened).to.be.false
+    wrapper = shallow(<Dropdown optClass='test' listItems={listItems} isOpened={false}>This is a test.</Dropdown>)
 
-    parent.setState({
-      isOpened: true
-    })
+    expect(wrapper.state('isOpened')).to.be.false
+    wrapper.setProps({ isOpened: true })
 
-    expect(parent.refs.dropdown.props.isOpened).to.be.true
+    expect(wrapper.state('isOpened')).to.be.true
   })
 
   it('should call changeCallback function', () => {
     const spy = sinon.spy()
+
     wrapper = mount(<WrappedDropdown optClass='test' trigger='Test' changeCallback={spy}>This is a test.</WrappedDropdown>)
-    trigger = wrapper.childAt(0)
+    trigger = wrapper.find('.trigger').at(0)
 
     trigger.simulate('click')
 
@@ -79,9 +74,9 @@ describe('Dropdown', () => {
     ]
 
     wrapper = mount(<WrappedDropdown optClass='test' listItems={listItems}>This is a test.</WrappedDropdown>)
-    expect(wrapper.childAt(1).childAt(0).hasClass('list-wrapper')).to.equal(true)
-    expect(wrapper.childAt(1).find('ul').length).to.equal(1)
-    expect(wrapper.childAt(1).childAt(0).find('li').length).to.equal(3)
+    expect(wrapper.find('.list-wrapper')).to.have.length(1)
+    expect(wrapper.find('ul')).to.have.length(1)
+    expect(wrapper.find('li')).to.have.length(3)
   })
 
   it('should display a confirmation overlay when an item is clicked', () => {

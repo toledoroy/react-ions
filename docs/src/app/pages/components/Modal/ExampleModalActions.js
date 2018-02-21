@@ -4,29 +4,29 @@ import Button from 'react-ions/lib/components/Button'
 
 class ExampleModalActions extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      open: false,
-    };
+      open: false
+    }
   }
 
   handleOpen = () => {
-    this.setState({open: true});
+    this.setState({open: true})
   }
 
   handleClose = () => {
-    this.setState({open: false});
+    this.setState({open: false})
   }
 
   handleSubmit = () => {
-    this.setState({open: false});
+    this.setState({open: false})
   }
 
   render() {
     const actions = [
       <Button onClick={this.handleClose} optClass="inverted">Cancel</Button>,
       <Button onClick={this.handleSubmit}>Submit</Button>
-    ];
+    ]
 
     return (
       <div>
@@ -42,7 +42,7 @@ class ExampleModalActions extends React.Component {
           <p>This modal can only be closed by selecting one of the actions.</p>
         </Modal>
       </div>
-    );
+    )
   }
 }
 

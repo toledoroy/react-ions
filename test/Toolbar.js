@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import Toolbar from '../src/components/TextEditor/Toolbar'
 
 describe('Toolbar', () => {
@@ -21,7 +20,7 @@ describe('Toolbar', () => {
   const onMount = sinon.spy()
 
   it('should shallow render itself', () => {
-    wrapper = shallow(<Toolbar textEditor={textEditor} />)
+    wrapper = shallow(<Toolbar textEditor={textEditor} onMount={onMount} />)
 
     const toolGroups = wrapper.children()
 
@@ -48,29 +47,12 @@ describe('Toolbar', () => {
   })
 
   it('should have merge tags', () => {
-    wrapper = mount(<Toolbar textEditor={textEditor} mergeTags={mergeTags} onMount={onMount} />)
+    wrapper = shallow(<Toolbar textEditor={textEditor} mergeTags={mergeTags} onMount={onMount} />)
 
     const toolGroups = wrapper.children()
 
     expect(toolGroups).to.have.length(7)
 
     expect(toolGroups.at(6).find('MergeTags')).to.have.length(1)
-  })
-
-  it('should update when props change', () => {
-    wrapper = mount(<Toolbar textEditor={textEditor} mergeTags={mergeTags} onMount={onMount} />)
-    let shouldUpdate
-
-    shouldUpdate = wrapper.instance().shouldComponentUpdate({ textEditor, mergeTags, onMount }, null)
-
-    expect(shouldUpdate).to.be.false
-
-    const newMergeTags = [
-      { name: 'Tag 1', tag: '{tag_1}' },
-      { name: 'Tag 2', tag: '{tag_2}' }
-    ]
-    shouldUpdate = wrapper.instance().shouldComponentUpdate({ textEditor, mergeTags: newMergeTags, onMount }, null)
-
-    expect(shouldUpdate).to.be.true
   })
 })

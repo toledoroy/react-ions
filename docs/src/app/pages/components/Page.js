@@ -49,7 +49,7 @@ const ComponentsPage = () => (
 
       <div className={styles.block}>
         <h2>Fonts</h2>
-        <p>This site and our components are designed to use <b>Promima Nova</b>, which we own under license.</p> 
+        <p>This site and our components are designed to use <b>Promima Nova</b>, which we own under license.</p>
         <p>If you do not own <b>Proxima Nova</b>, the font-family will render the following:</p>
         <Snippet markup={fontCss} />
       </div>

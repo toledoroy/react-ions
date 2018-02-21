@@ -1,5 +1,5 @@
-import React from 'react';
-import style from 'private/css/props';
+import React from 'react'
+import style from 'private/css/props'
 
 class PropsList extends React.Component {
   static defaultProps = {
@@ -7,21 +7,22 @@ class PropsList extends React.Component {
   }
 
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
-    let hasRequiredProps = false;
+    let hasRequiredProps = false
     let propsList = Object.keys(this.props.list).map((name, index) => {
       if (this.props.list[name].required) {
-        hasRequiredProps = true;
+        hasRequiredProps = true
       }
       let types = null
+
       if (this.props.list[name].type.name === 'enum') {
-        types = this.props.list[name].type.value.map((v) => <span key={v.value} className={style['enum-values']}> {v.value}</span>)
+        types = this.props.list[name].type.value.map(v => <span key={v.value} className={style['enum-values']}> {v.value}</span>)
       }
       if (this.props.list[name].type.name === 'union') {
-        types = this.props.list[name].type.value.map((v) => <span key={v.name} className={style['enum-values']}>{v.name}</span>)
+        types = this.props.list[name].type.value.map(v => <span key={v.name} className={style['enum-values']}>{v.name}</span>)
       }
       return (
         <tr key={name}>
@@ -31,7 +32,7 @@ class PropsList extends React.Component {
           <td>{this.props.list[name].description}</td>
         </tr>
       )
-    });
+    })
 
     return (
       <div className={style.wrapper}>

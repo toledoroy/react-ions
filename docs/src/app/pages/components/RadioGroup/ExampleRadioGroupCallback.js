@@ -3,7 +3,7 @@ import RadioGroup from 'react-ions/lib/components/Radio/RadioGroup'
 
 class ExampleRadioCallback extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -11,7 +11,7 @@ class ExampleRadioCallback extends React.Component {
   }
 
   handleChange = (event, value) => {
-    this.setState({status: value + ' is checked'});
+    this.setState({status: value + ' is checked'})
   }
 
   render() {
@@ -19,16 +19,16 @@ class ExampleRadioCallback extends React.Component {
       {
         value: 'Option 1',
         label: 'Option 1'
-      },{
+      }, {
         value: 'Option 2',
         label: 'Option 2'
-      },{
+      }, {
         value: 'Option 3',
         label: 'Option 3'
       }
-    ];
+    ]
 
-    return(
+    return (
       <div>
         <RadioGroup
           name="callback-radio-group"
