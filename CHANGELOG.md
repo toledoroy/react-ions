@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.0.1
+###### _March 2, 2018_
+- Popover: Center text on actionable buttons [#619](https://github.com/GetAmbassador/react-ions/pull/619)
+
 ## 5.0.0
 ###### _February 20, 2018_
 
