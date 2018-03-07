@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.0.2
+###### _March 7, 2018_
+- Popover: Assign default position when specified conditions aren't met [#621](https://github.com/GetAmbassador/react-ions/pull/621)
+
 ## 5.0.1
 ###### _March 2, 2018_
 - Popover: Center text on actionable buttons [#619](https://github.com/GetAmbassador/react-ions/pull/619)
