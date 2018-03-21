@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.0.3
+###### _March 21, 2018_
+- Select Field: fix for cross-browser caret positioning [#623](https://github.com/GetAmbassador/react-ions/pull/623)
+
 ## 5.0.2
 ###### _March 7, 2018_
 - Popover: Assign default position when specified conditions aren't met [#621](https://github.com/GetAmbassador/react-ions/pull/621)
