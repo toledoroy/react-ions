@@ -71,7 +71,6 @@ describe('SelectField', () => {
   it('should have an icon', () => {
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' icon='md-globe' />)
 
-    expect(wrapper.hasClass('has-icon')).to.be.true
     expect(wrapper.find('.icon')).to.have.length(1)
   })
 
@@ -87,8 +86,6 @@ describe('SelectField', () => {
 
     wrapper.childAt(1).simulate('click')
     wrapper.childAt(2).childAt(1).simulate('click')
-
-    expect(wrapper.hasClass('has-icon')).to.be.true
   })
 
   it('should have an option selected by default', () => {
