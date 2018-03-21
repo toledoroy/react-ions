@@ -165,8 +165,7 @@ export class SelectField extends React.Component {
     const cx = classNames.bind(style)
     const disabledClass = this.props.disabled ? style['selectfield-disabled'] : ''
     const activeClass = this.state.isOpen ? style['active'] : ''
-    const hasIconClass = this.getDisplayIcon() ? style['has-icon'] : ''
-    const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, hasIconClass, this.props.optClass)
+    const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, this.props.optClass)
     const { valueProp, hideProp, label } = this.props
 
     let options = this.props.options.map((option, index) =>
