@@ -49,13 +49,6 @@ export class Popover extends React.Component {
   }
 
   componentWillReceiveProps = nextProps => {
-    // We need to set this to the bottom each time,
-    // so that when we're subtracting the popoverRect.bottom
-    // position from the innerHeight of the window, the
-    // reference is consistent (thus not producing 'bottom' position)
-    // erroneously, which can happen from time to time
-    this.setState({ position: 'bottom' })
-
     if (nextProps.showing) {
       const popoverRect = this._popoverElement.getBoundingClientRect()
 
@@ -75,6 +68,13 @@ export class Popover extends React.Component {
       } else {
         this.setState({ position: 'bottom' })
       }
+    } else {
+      // We need to set this to the bottom each time,
+      // so that when we're subtracting the popoverRect.bottom
+      // position from the innerHeight of the window, the
+      // reference is consistent (thus not producing 'bottom' position)
+      // erroneously, which can happen from time to time
+      this.setState({ position: 'bottom' })
     }
   }
 
