@@ -41,6 +41,8 @@ export class Popover extends React.Component {
     showing: false
   }
 
+
+  
   shouldComponentUpdate = (nextProps, nextState) => {
     if (this.props.showing !== nextProps.showing) return true
     if (this.props.content !== nextProps.content) return true
@@ -69,10 +71,8 @@ export class Popover extends React.Component {
         this.setState({ position: 'bottom' })
       }
     } else {
-      // We need to set this to the bottom each time,
-      // so that when we're subtracting the popoverRect.bottom
-      // position from the innerHeight of the window, the
-      // reference is consistent (thus not producing 'bottom' position)
+      // We need to set this to the bottom each time, so that when we're subtracting the popoverRect.bottom
+      // position from the innerHeight of the window, the reference is consistent (thus not producing 'bottom' position)
       // erroneously, which can happen from time to time
       this.setState({ position: 'bottom' })
     }
