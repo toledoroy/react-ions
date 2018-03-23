@@ -41,8 +41,6 @@ export class Popover extends React.Component {
     showing: false
   }
 
-
-  
   shouldComponentUpdate = (nextProps, nextState) => {
     if (this.props.showing !== nextProps.showing) return true
     if (this.props.content !== nextProps.content) return true
