@@ -52,18 +52,10 @@ export class Popover extends React.Component {
     if (nextProps.showing) {
       const popoverRect = this._popoverElement.getBoundingClientRect()
 
-      // If the top position of the bounding rect minus the pageYOffset is < 0
-      // then the top of the window is clipping the popover and it needs to have
-      // its position switched to bottom
-      if (this.props.defaultPosition === 'top' && popoverRect.top - window.pageYOffset < 0) {
+      if (this.props.defaultPosition === 'top' && popoverRect.top < 0) {
         this.setState({ position: 'bottom' })
-      }
-
-      // If the window height minus the bottom position of the bounding rect plus
-      // the pageYOffset is < 0 then the bottom of the window is clipping the popover
-      // and it needs to have its position switched to top
-      else if (this.props.defaultPosition === 'bottom' &&
-        window.innerHeight - popoverRect.bottom + window.pageYOffset < 0) {
+      } else if (this.props.defaultPosition === 'bottom' &&
+        window.innerHeight - popoverRect.bottom < 0) {
         this.setState({ position: 'top' })
       } else {
         this.setState({ position: 'bottom' })
