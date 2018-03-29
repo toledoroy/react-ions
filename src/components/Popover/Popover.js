@@ -45,17 +45,26 @@ export class Popover extends React.Component {
     if (this.props.showing !== nextProps.showing) return true
     if (this.props.content !== nextProps.content) return true
     if (this.state.position !== nextState.position) return true
+
     return false
   }
 
   componentWillReceiveProps = nextProps => {
     if (nextProps.showing) {
       const popoverRect = this._popoverElement.getBoundingClientRect()
+      const popoverWrapper = this._popoverWrapper.getBoundingClientRect()
 
-      if (this.props.defaultPosition === 'top' && popoverRect.top < 0) {
+      // When the height of the popover + the distance of the clicked target is
+      // greater than the distance from the clicked target to the top of the browser,
+      // it's too close to the top, so set the position to 'bottom'.
+      // This enables the user to view the full popover, as they can scroll
+      // down but not up, when content is cut-off.
+      const isTooCloseToTop = popoverRect.height + popoverWrapper.height > popoverWrapper.top
+
+      if (this.props.defaultPosition !== 'top' && popoverRect.top < 0) {
         this.setState({ position: 'bottom' })
-      } else if (this.props.defaultPosition === 'bottom' &&
-        window.innerHeight - popoverRect.bottom < 0) {
+      } else if (this.props.defaultPosition === 'top' &&
+        window.innerHeight - popoverRect.bottom < 0 && !isTooCloseToTop) {
         this.setState({ position: 'top' })
       } else {
         this.setState({ position: 'bottom' })
@@ -91,7 +100,7 @@ export class Popover extends React.Component {
     const popoverClasses = cx(style['popover'], this.props.optClass)
 
     return (
-      <div className={popoverClasses}>
+      <div className={popoverClasses} ref={p => {this._popoverWrapper = p}}>
         {
           this.state.position === 'top' &&
           <div className={style['popover-wrapper']}>
