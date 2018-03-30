@@ -12,6 +12,12 @@ class ExamplePopover extends React.Component {
     showing: false
   }
 
+  componentDidMount = () => {
+    setInterval(() => {
+      this.setState({ showing: !this.state.showing })
+    }, 750)
+  }
+
   togglePopover = () => {
     this.setState({ showing: !this.state.showing })
   }
@@ -28,8 +34,11 @@ class ExamplePopover extends React.Component {
 
   render = () => {
     return (
-      <div style={{display: 'flex'}}>
+      <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
         <Popover showing={this.state.showing} content={this.getPopoverContent()} onRequestClose={this.togglePopover}>
+          <Button onClick={this.togglePopover}>{ this.state.showing ? 'Close' : 'Open' } default popover</Button>
+        </Popover>
+        <Popover showing={this.state.showing} position='top' content={this.getPopoverContent()} onRequestClose={this.togglePopover}>
           <Button onClick={this.togglePopover}>{ this.state.showing ? 'Close' : 'Open' } default popover</Button>
         </Popover>
       </div>
