@@ -63,8 +63,7 @@ export class Popover extends React.Component {
 
       if (this.props.defaultPosition !== 'top' && popoverRect.top < 0) {
         this.setState({ position: 'bottom' })
-      } else if (this.props.defaultPosition === 'top' &&
-        window.innerHeight - popoverRect.bottom < 0 && !isTooCloseToTop) {
+      } else if (this.props.defaultPosition === 'top' && !isTooCloseToTop) {
         this.setState({ position: 'top' })
       } else {
         this.setState({ position: 'bottom' })
