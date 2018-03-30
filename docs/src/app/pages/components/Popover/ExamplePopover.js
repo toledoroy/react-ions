@@ -19,8 +19,8 @@ class ExamplePopover extends React.Component {
   getPopoverContent = () => {
     return (
       <div className={localStyle['popover-wrapper']}>
-        <h1>Popover Title</h1>
-        <p>Popover content.</p>
+        <h1>Lorem ipsum dolor sit amet.</h1>
+        <p>Duis sit amet ex ligula. Nam sit amet leo leo. Aliquam erat volutpat. Vivamus in ipsum et felis aliquet ullamcorper.</p>
         <Button onClick={this.togglePopover} optClass={localStyle['popover-btn']}>Close</Button>
       </div>
     )
@@ -28,9 +28,12 @@ class ExamplePopover extends React.Component {
 
   render = () => {
     return (
-      <div style={{display: 'inline-block'}}>
+      <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
         <Popover showing={this.state.showing} content={this.getPopoverContent()} onRequestClose={this.togglePopover}>
-          <Button onClick={this.togglePopover}>{ this.state.showing ? 'Close' : 'Open' } popover</Button>
+          <Button onClick={this.togglePopover}>{ this.state.showing ? 'Close' : 'Open' } default popover</Button>
+        </Popover>
+        <Popover showing={this.state.showing} defaultPosition='top' content={this.getPopoverContent()} onRequestClose={this.togglePopover}>
+          <Button onClick={this.togglePopover}>{ this.state.showing ? 'Close' : 'Open' } top popover</Button>
         </Popover>
       </div>
     )

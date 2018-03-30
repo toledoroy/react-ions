@@ -58,7 +58,9 @@
 }
 
 .popover-content {
+  overflow-wrap: break-word;
   position: relative;
+  word-wrap: break-word;
   z-index: 1;
 
   // Center the text on the popover-content buttons,
