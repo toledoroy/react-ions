@@ -38,8 +38,8 @@ class ExamplePopover extends React.Component {
         <Popover showing={this.state.showing} content={this.getPopoverContent()} onRequestClose={this.togglePopover}>
           <Button onClick={this.togglePopover}>{ this.state.showing ? 'Close' : 'Open' } default popover</Button>
         </Popover>
-        <Popover showing={this.state.showing} position='top' content={this.getPopoverContent()} onRequestClose={this.togglePopover}>
-          <Button onClick={this.togglePopover}>{ this.state.showing ? 'Close' : 'Open' } default popover</Button>
+        <Popover showing={this.state.showing} defaultPosition='top' content={this.getPopoverContent()} onRequestClose={this.togglePopover}>
+          <Button onClick={this.togglePopover}>{ this.state.showing ? 'Close' : 'Open' } top popover</Button>
         </Popover>
       </div>
     )
