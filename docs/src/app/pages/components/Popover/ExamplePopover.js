@@ -12,12 +12,6 @@ class ExamplePopover extends React.Component {
     showing: false
   }
 
-  componentDidMount = () => {
-    // setInterval(() => {
-    //   this.setState({ showing: !this.state.showing })
-    // }, 750)
-  }
-
   togglePopover = () => {
     this.setState({ showing: !this.state.showing })
   }
