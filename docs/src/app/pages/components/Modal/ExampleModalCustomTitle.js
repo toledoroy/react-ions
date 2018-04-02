@@ -1,41 +1,43 @@
 import React from 'react'
 import Modal from 'react-ions/lib/components/Modal'
+import Header from 'react-ions/lib/components/Modal/Header'
 import Button from 'react-ions/lib/components/Button'
 
 class ExampleModalCustomTitle extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      open: false,
-    };
+      open: false
+    }
   }
 
   handleOpen = () => {
-    this.setState({open: true});
+    this.setState({open: true})
   }
 
   handleClose = () => {
-    this.setState({open: false});
+    this.setState({open: false})
   }
 
   handleSubmit = () => {
-    this.setState({open: false});
+    this.setState({open: false})
   }
 
   render() {
     const actions = [
       <Button onClick={this.handleClose} optClass="inverted">Cancel</Button>,
       <Button onClick={this.handleSubmit}>Submit</Button>
-    ];
-    const style = {
-      fontSize: '30px'
-    }
+    ]
 
     return (
       <div>
         <Button onClick={this.handleOpen}>Open Modal</Button>
         <Modal
-          title={<h1 style={style} className='example-class'>Custom Title</h1>}
+          title={
+            <Header handleClose={this.handleClose}>
+              <h1>Custom Title</h1>
+            </Header>
+          }
           open={this.state.open}
           onRequestClose={this.handleClose}
           actions={actions}
@@ -45,7 +47,7 @@ class ExampleModalCustomTitle extends React.Component {
           <p>This modal can only be closed by selecting one of the actions.</p>
         </Modal>
       </div>
-    );
+    )
   }
 }
 

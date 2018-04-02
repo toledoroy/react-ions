@@ -29,7 +29,7 @@ const description = {
   textareaCallback: 'This is the `textarea component` with a callback function. __Note__: _the `style import` and `code` tag is for display purposes only._',
   textareaPopulated: 'This is the `textarea component` that already has some content.',
   textareaStyled: 'This is a styled `textarea component`.'
-};
+}
 
 const TextareaPage = () => (
   <div>

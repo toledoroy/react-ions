@@ -1,6 +1,6 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import { SortableItemPreview } from '../src/components/SortableList'
+import Badge from '../src/components/Badge'
 
 describe('SortableItemPreview', () => {
   let wrapper
@@ -49,25 +49,26 @@ describe('SortableItemPreview', () => {
   })
 
   it('should reduce badge opacity on every following item', () => {
-    wrapper = mount(<SortableItemPreview item={items[0]} count={4} />)
+    wrapper = shallow(<SortableItemPreview item={items[0]} count={4} />)
 
-    expect(wrapper.childAt(0).node.style.opacity).to.be.equal('1')
-    expect(wrapper.childAt(0).text()).to.be.equal('1')
+    wrapper.find('sortable-item-badge')
+    expect(wrapper.childAt(0).prop('style').opacity).to.equal(1)
+    expect(wrapper.find(Badge).prop('text')).to.equal(1)
 
-    wrapper = mount(<SortableItemPreview item={items[1]} count={4} />)
+    wrapper = shallow(<SortableItemPreview item={items[1]} count={4} />)
 
-    expect(wrapper.childAt(0).node.style.opacity).to.be.equal('0.8')
-    expect(wrapper.childAt(0).text()).to.be.equal('2')
+    expect(wrapper.childAt(0).prop('style').opacity).to.closeTo(0.8, 0.01)
+    expect(wrapper.find(Badge).prop('text')).to.equal(2)
 
-    wrapper = mount(<SortableItemPreview item={items[2]} count={4} />)
+    wrapper = shallow(<SortableItemPreview item={items[2]} count={4} />)
 
-    expect(wrapper.childAt(0).node.style.opacity).to.be.equal('0.6')
-    expect(wrapper.childAt(0).text()).to.be.equal('3')
+    expect(wrapper.childAt(0).prop('style').opacity).to.closeTo(0.6, 0.01)
+    expect(wrapper.find(Badge).prop('text')).to.equal(3)
 
-    wrapper = mount(<SortableItemPreview item={items[3]} count={4} />)
+    wrapper = shallow(<SortableItemPreview item={items[3]} count={4} />)
 
-    expect(wrapper.childAt(0).node.style.opacity).to.be.equal('0.4')
-    expect(wrapper.childAt(0).text()).to.be.equal('4')
+    expect(wrapper.childAt(0).prop('style').opacity).to.closeTo(0.4, 0.01)
+    expect(wrapper.find(Badge).prop('text')).to.equal(4)
   })
 
   it('should not render the order numbers', () => {

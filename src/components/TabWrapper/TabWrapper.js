@@ -35,7 +35,7 @@ class TabWrapper extends React.Component {
     selectedIndex: this.props.initialSelectedIndex < this.props.children.length ? this.props.initialSelectedIndex : 0
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.initialSelectedIndex !== this.props.initialSelectedIndex) {
       this.setState({ selectedIndex: (nextProps.initialSelectedIndex < nextProps.children.length ? nextProps.initialSelectedIndex : 0) })
     }
@@ -51,7 +51,8 @@ class TabWrapper extends React.Component {
 
   getTabs = () => {
     const tabs = []
-    React.Children.forEach(this.props.children, (tab) => {
+
+    React.Children.forEach(this.props.children, tab => {
       if (React.isValidElement(tab)) {
         tabs.push(tab)
       }
@@ -59,7 +60,7 @@ class TabWrapper extends React.Component {
     return tabs
   }
 
-  isActive = (index) => {
+  isActive = index => {
     return this.state.selectedIndex === index
   }
 
@@ -82,8 +83,8 @@ class TabWrapper extends React.Component {
     const tabPanel = []
 
     const tabs = this.getTabs().map((tab, index) => {
-      tabPanel.push(tab.props.children ?
-        React.createElement(TabTemplate, {
+      tabPanel.push(tab.props.children
+        ? React.createElement(TabTemplate, {
           key: index,
           active: this.isActive(index),
           class: tab.props.optTabContentClass

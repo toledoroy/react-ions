@@ -158,17 +158,29 @@ fieldset.row {
 [class*='input-component'] + [class^='has-error__message'],
 [class*='textarea-component'] + [class^='has-error__message'] {
   position: relative;
-  top: -8px;
+  top: -16px;
 }
 
-.has-error input,
-.has-error textarea {
-  border: 2px solid $danger !important;
+.has-error {
+  input, textarea, [class*='selectfield-value'] {
+    border: 2px solid $danger !important;
+  }
 }
 
 .has-error__message {
   color: $danger;
   display: block;
-  margin-top: 4px;
+  margin-top: 8px;
   margin-bottom: 8px;
+}
+
+.validated-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  > * {
+    width: 100%;
+  }
 }

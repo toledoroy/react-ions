@@ -7,13 +7,16 @@
     max-width: 688px;
 
     [class^='modal-header'] {
-      .header-wrapper {
+      [class^='header-wrapper'] {
         align-items: center;
         min-height: 76px;
         border-radius: 3px 3px 0 0;
         display: flex;
         justify-content: space-between;
         width: 100%;
+        background-color: $primary-1;
+        padding: 24px;
+        margin: 0;
 
         [class^='modal-close'] {
           top: -4px;
@@ -21,9 +24,9 @@
         }
       }
 
-      .header-content {
+      [class^='header-content'] {
         > h1 {
-          font-size: 22px;
+          color: $white;
           margin: 0;
         }
 
@@ -32,7 +35,7 @@
         }
       }
 
-      .modal-close {
+      [class^='modal-close'] {
         svg {
           cursor: pointer;
         }
@@ -92,7 +95,7 @@
         display: none;
       }
     }
-    
+
     .modal-tab-content {
       background-color: $white;
       border-radius: 3px;
@@ -100,16 +103,6 @@
 
       label {
         font-size: 15px;
-      }
-    }
-
-    .header-wrapper {
-      background-color: $primary-1;
-      box-sizing: border-box;
-      padding: 24px;
-
-      p {
-        margin: 10px 0 0;
       }
     }
   }

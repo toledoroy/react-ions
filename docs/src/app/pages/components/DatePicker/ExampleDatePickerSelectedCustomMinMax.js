@@ -8,8 +8,6 @@ const minCurrent = { month: 'current', day: 'current', year: 'current'}
 const minCalc = { month: '-3', day: '-10', year: '-5'}
 const maxCalc = { month: '+2', day: '+10', year: '+2'}
 
-
-
 const ExampleDatePickerSelectedCustomMinMax = () => (
   <div>
     <code>Min date: {JSON.stringify(minCurrent)} | Max date: {JSON.stringify(maxCustomDate)}</code>

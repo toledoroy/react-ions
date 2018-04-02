@@ -11,7 +11,7 @@ import classNames from 'classnames/bind'
 /**
  * The ColorPicker component.
  */
-class ColorPicker extends React.Component {
+export class ColorPicker extends React.Component {
   constructor(props) {
     super(props)
 
@@ -50,13 +50,13 @@ class ColorPicker extends React.Component {
     }
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.value !== this.props.value) {
       this.setState({ color: nextProps.value })
     }
   }
 
-  handleClick = (event) => {
+  handleClick = event => {
     this.setState({ displayColorPicker: !this.state.displayColorPicker })
   }
 
@@ -64,10 +64,10 @@ class ColorPicker extends React.Component {
     this.setState({ displayColorPicker: false })
   }
 
-  handlePickerChange = (color) => {
+  handlePickerChange = color => {
     let newColor = color.hex
 
-    this.setState({ color: newColor }, function() {
+    this.setState({ color: newColor }, function () {
       if (typeof this.props.changeCallback === 'function') {
         this.throttle(this.props.changeCallback, {
           target: {
@@ -79,7 +79,7 @@ class ColorPicker extends React.Component {
     })
   }
 
-  handleInputChange = (event) => {
+  handleInputChange = event => {
     let newColor = ''
 
     if (event.target.value && !event.target.value.startsWith('#')) {
@@ -88,7 +88,7 @@ class ColorPicker extends React.Component {
 
     newColor += event.target.value
 
-    this.setState({ color: newColor }, function() {
+    this.setState({ color: newColor }, function () {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {
@@ -115,11 +115,11 @@ class ColorPicker extends React.Component {
         />
         <div
           className={colorPreviewClass}
-          style={{backgroundColor: this.state.color, border: '1px solid ' + colorLuminance(this.state.color || '#ffffff', -.20)}}
+          style={{backgroundColor: this.state.color, border: '1px solid ' + colorLuminance(this.state.color || '#ffffff', -0.20)}}
           onClick={this.handleClick}>
         </div>
-        { this.state.displayColorPicker ?
-          <div className={style['sketch-container']} ref={(c) => this._sketchContainer = c}>
+        { this.state.displayColorPicker
+          ? <div className={style['sketch-container']} ref={c => this._sketchContainer = c}>
             <SketchPicker color={ this.state.color } onChange={this.handlePickerChange} presetColors={[]} />
           </div>
           : null

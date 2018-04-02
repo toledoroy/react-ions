@@ -5,7 +5,7 @@ import style from './style.scss'
 
 class ExampleTextareaPopulated extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   state = {
@@ -13,15 +13,15 @@ class ExampleTextareaPopulated extends React.Component {
   };
 
   addPeriod = () => {
-    this.setState({ text: this.state.text + '.' });
+    this.setState({ text: this.state.text + '.' })
   }
 
-  handleChange = (event) => {
-    this.setState({ text: event.target.value });
+  handleChange = event => {
+    this.setState({ text: event.target.value })
   }
 
   render() {
-    return(
+    return (
       <div>
         <div className={style.update}>
           <Button onClick={this.addPeriod}>Append a period</Button>

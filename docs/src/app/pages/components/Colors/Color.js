@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.scss'
 
-const Color = (props) => {
+const Color = props => {
   return (
     <div className={styles['color-box']}>
       <div className={styles['color-box-color']} style={ {backgroundColor: props.hex} }>

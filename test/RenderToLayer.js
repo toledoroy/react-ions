@@ -1,5 +1,4 @@
 import React from 'react'
-import { mount } from 'enzyme'
 import RenderToLayer from '../src/components/internal/RenderToLayer'
 
 describe('RenderToLayer', () => {
@@ -10,9 +9,10 @@ describe('RenderToLayer', () => {
     )
   }
 
-  afterEach(function() {
+  afterEach(function () {
     var elems = document.body.children
-    document.body.removeChild(elems[elems.length -1])
+
+    document.body.removeChild(elems[elems.length - 1])
   })
 
   it('should render an element at the bottom of the document body when the open property is set to true', () => {

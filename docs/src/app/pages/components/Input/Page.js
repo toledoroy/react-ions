@@ -21,6 +21,8 @@ import ExampleInputNumber from './ExampleInputNumber'
 import exampleInputNumberCode from '!raw!./ExampleInputNumber'
 import ExampleInputPrefixSuffix from './ExampleInputPrefixSuffix'
 import exampleInputPrefixSuffixCode from '!raw!./ExampleInputPrefixSuffix'
+import ExampleInputCopy from './ExampleInputCopy'
+import exampleInputCopyCode from '!raw!./ExampleInputCopy'
 
 const description = {
   inputDefault: 'This is the `input component` as it appears by default.',
@@ -30,7 +32,8 @@ const description = {
   inputWithLabel: 'This is the `input component` with a label.',
   inputCallback: 'This is the `input component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
   inputNumber: 'This is the `input component` with different types.',
-  inputPrefixSuffix: 'This is the `input component` with a variety of prefix and suffix.'
+  inputPrefixSuffix: 'This is the `input component` with a variety of prefix and suffix.',
+  inputCopy: 'This is the `input component` with click to copy.'
 }
 
 const InputPage = () => (
@@ -90,6 +93,12 @@ const InputPage = () => (
           description={description.inputPrefixSuffix}
           markup={exampleInputPrefixSuffixCode}>
           <ExampleInputPrefixSuffix />
+        </CodeExample>
+        <CodeExample
+          title='Input with click to copy'
+          description={description.inputCopy}
+          markup={exampleInputCopyCode}>
+          <ExampleInputCopy id='test-input-copy' value='Copy me to your clipboard' />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>

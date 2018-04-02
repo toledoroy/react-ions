@@ -12,7 +12,7 @@ class ExampleInlineEditLoading extends React.Component {
     loading: false
   }
 
-  handleSave = (event) => {
+  handleSave = event => {
     if (event.target.name === 'test') {
       this.setState({ inlineValue: event.target.value, loading: true })
 

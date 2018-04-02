@@ -10,31 +10,32 @@ class ExampleTypeaheadCustomValue extends React.Component {
   }
 
   state = {
-    selected: ''
+    selected: 'This is a custom value'
   }
 
-  updateSelected = (index) => {
+  updateSelected = value => {
     this.setState({
-      selected: index,
-      status: 'The callback was triggered and the chosen value is \'' + index + '\''
+      selected: value,
+      status: 'The callback was triggered and the chosen value is \'' + value + '\''
     })
   }
 
-  handleChange = (event, index) => {
+  handleChange = event => {
     this.setState({
-      selected: index,
+      selected: event.target.value,
       status: 'The callback was triggered and the chosen value is \'' + event.target.value + '\''
     })
     console.log('Custom value: ', event)
   }
 
   render() {
-    return(
+    return (
       <div>
         <div className={style.update}>
           <Button onClick={this.updateSelected.bind(this, options[1].countryCode)}>Select Albania</Button>
           <Button onClick={this.updateSelected.bind(this, options[18].countryCode)}>Select Belarus</Button>
           <Button onClick={this.updateSelected.bind(this, options[49].countryCode)}>Select Congo</Button>
+          <Button onClick={this.updateSelected.bind(this, 'This is a custom value')}>Select Custom</Button>
           <Button onClick={this.updateSelected.bind(this, '')}>Reset</Button>
         </div>
         <Typeahead

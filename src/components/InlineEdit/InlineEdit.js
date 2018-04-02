@@ -107,12 +107,13 @@ class InlineEdit extends React.Component {
     copied: false
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.isEditing) {
       this.showButtons()
     }
 
     let newState = {}
+
     if (nextProps.loading !== this.state.loading) {
       newState.loading = nextProps.loading
     }
@@ -137,23 +138,23 @@ class InlineEdit extends React.Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    return this.state.isEditing !== nextState.isEditing
-        || this.state.value !== nextState.value
-        || this.state.loading !== nextState.loading
-        || this.state.error !== nextState.error
-        || this.state.copied !== nextState.copied
-        || this.state.inlineEditMaxWidth !== nextState.inlineEditMaxWidth
-        || this.props.tooltipText !== nextProps.tooltipText
-        || this.props.tooltipPlacement !== nextProps.tooltipPlacement
-        || this.props.readonly !== nextProps.readonly
+    return this.state.isEditing !== nextState.isEditing ||
+        this.state.value !== nextState.value ||
+        this.state.loading !== nextState.loading ||
+        this.state.error !== nextState.error ||
+        this.state.copied !== nextState.copied ||
+        this.state.inlineEditMaxWidth !== nextState.inlineEditMaxWidth ||
+        this.props.tooltipText !== nextProps.tooltipText ||
+        this.props.tooltipPlacement !== nextProps.tooltipPlacement ||
+        this.props.readonly !== nextProps.readonly
   }
 
-  handleSave = (event) => {
+  handleSave = event => {
     if (this.props.type === 'text') {
       const inputText = this._textValue.textContent
       const shouldTriggerCallback = inputText !== this.state.value
       const previousValue = this.state.value
-      const isEditing = this.state.error !== '' ? true : false
+      const isEditing = this.state.error !== ''
 
       this.setState({ isEditing: isEditing, value: inputText }, () => {
         if (!isEditing) {
@@ -173,8 +174,7 @@ class InlineEdit extends React.Component {
           this.props.changeCallback(event)
         }
       })
-    }
-    else {
+    } else {
       const shouldTriggerCallback = event.target.value !== this.state.value
 
       this.setState({ value: event.target.value }, () => {
@@ -233,9 +233,8 @@ class InlineEdit extends React.Component {
     if (this.props.type === 'select') {
       return this.getSelect()
     }
-    else {
-      return this.getSpan()
-    }
+    return this.getSpan()
+
   }
 
   getSelect = () => {
@@ -256,11 +255,11 @@ class InlineEdit extends React.Component {
 
   getSpan = () => {
     if (this.state.isEditing) {
-      return <span id='span_id' contentEditable className={style['inline-text-wrapper']} dangerouslySetInnerHTML={{__html: this.state.value}} ref={(c) => this._textValue = c} />
+      return <span id='span_id' contentEditable className={style['inline-text-wrapper']} dangerouslySetInnerHTML={{__html: this.state.value}} ref={c => this._textValue = c} />
     }
 
     return (
-      <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={(c) => this._textValue = c}>
+      <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={c => this._textValue = c}>
         {this.props.tooltipText
           ? <Tooltip content={this.props.tooltipText} tooltipPlacement={this.props.tooltipPlacement} appendToBody={true} className={style['value-tooltip']} optClass={this.props.tooltipClass || ''}>{this.state.value || this.props.placeholder }</Tooltip>
           : <span>{this.state.value || this.props.placeholder }</span>
@@ -275,26 +274,29 @@ class InlineEdit extends React.Component {
     }
 
     const copyIconFill = this.state.value === '' ? '#9198A0' : '#3C97D3'
-    return <Icon name='clipboard' height='14' width='14' fill={copyIconFill} />
+
+    return <Icon name='md-copy' height='14' width='14' fill={copyIconFill} />
   }
 
   getIcon = () => {
     if (this.props.icon) {
-      return <span className={style['inline-icon']} ref={(c) => this._inlineIcon = c}><Icon name={this.props.icon} height='14' width='14' fill='#9198A0' /></span>
+      return <span className={style['inline-icon']} ref={c => this._inlineIcon = c}><Icon name={this.props.icon} height='14' width='14' fill='#9198A0' /></span>
     }
   }
 
   getLabel = () => {
     if (this.props.label) {
-      return <label className={style['inline-label']} ref={(c) => this._inlineLabel = c}>{this.props.label}</label>
+      return <label className={style['inline-label']} ref={c => this._inlineLabel = c}>{this.props.label}</label>
     }
   }
 
-  selectElementContents = (element) => {
+  selectElementContents = element => {
     const range = document.createRange()
+
     range.selectNodeContents(element)
 
     const selection = window.getSelection()
+
     selection.removeAllRanges()
     selection.addRange(range)
     element.focus()
@@ -305,18 +307,20 @@ class InlineEdit extends React.Component {
     this._textValue.addEventListener('keyup', this.handleKeyUp)
   }
 
-  handleKeyPress = (event) => {
+  handleKeyPress = event => {
     // Grabs the character code, even in FireFox
     const charCode = event.keyCode ? event.keyCode : event.which
+
     if (charCode === 13) {
       event.preventDefault()
       this.handleSave()
     }
   }
 
-  handleKeyUp = (event) => {
+  handleKeyUp = event => {
     // Grabs the character code, even in FireFox
     const charCode = event.keyCode ? event.keyCode : event.which
+
     if (charCode === 27) {
       event.preventDefault()
       this.handleCancel()
@@ -329,6 +333,7 @@ class InlineEdit extends React.Component {
     }
 
     const clipboard = new Clipboard(this._copyTrigger)
+
     clipboard.on('success', () => {
       this.handleCopy()
     })
@@ -376,13 +381,13 @@ class InlineEdit extends React.Component {
             {this.getField()}
             {this.state.isEditing && !this.state.loading
               ? <div className={style['inline-button-wrapper']}>
-                  <Icon name='icon-check-2-1' onClick={this.handleSave} height='14' width='14' className={style['save-button']}>Save</Icon>
-                  <Icon name='icon-delete-1' onClick={this.handleCancel} height='14' width='14' className={style['cancel-button']}>Cancel</Icon>
+                  <Icon name='md-check' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
+                  <Icon name='md-close' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
                 </div>
               : null
             }
             {this.props.copyToClipboard && !this.state.isEditing && !this.state.loading
-              ? <span ref={(c) => this._copyTrigger = c} data-clipboard-text={this.state.value}>
+              ? <span ref={c => this._copyTrigger = c} data-clipboard-text={this.state.value}>
                   <span className={copyIconClass}>{this.getCopyIcon()}</span>
                 </span>
               : null

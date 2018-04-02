@@ -63,17 +63,16 @@ class FileUpload extends React.Component {
     changeCallback: PropTypes.func
   }
 
-  _normalizeValue = (value) => {
-    if(!value || value === '') {
+  _normalizeValue = value => {
+    if (!value || value === '') {
       return []
-    }
-    else if (typeof value === 'object') {
+    } else if (typeof value === 'object') {
       return value
     }
-    else {
-      const file = value.match(/.*\/(.*)$/)
-      return [{ preview: value, name: (file && file[1] ? file[1] : null) }]
-    }
+    const file = value.match(/.*\/(.*)$/)
+
+    return [{ preview: value, name: (file && file[1] ? file[1] : null) }]
+
   }
 
   componentWillMount = () => {
@@ -82,7 +81,7 @@ class FileUpload extends React.Component {
     }
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.value !== this.props.value) {
       this.setState({ files: this._normalizeValue(nextProps.value) })
     }
@@ -99,18 +98,19 @@ class FileUpload extends React.Component {
     }
   }
 
-  handleUpload = (files) => {
+  handleUpload = files => {
     if (!this.props.disabled) {
-      this.setState({ files: files }, function() {
+      this.setState({ files: files }, function () {
         this.handleChange()
       })
     }
   }
 
-  handleRemove = (index) => {
+  handleRemove = index => {
     let savedFiles = this.state.files
+
     savedFiles.splice(index, 1)
-    this.setState({ files: savedFiles }, function() {
+    this.setState({ files: savedFiles }, function () {
       this.handleChange()
     })
   }
@@ -120,6 +120,7 @@ class FileUpload extends React.Component {
       maxWidth: this.props.previewSize + 'px',
       maxHeight: this.props.previewSize + 'px'
     }
+
     return this.state.files.map((file, index) =>
       <div key={index} className={style.image}>
         <img style={imgStyle} src={file.preview} />

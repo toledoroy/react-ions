@@ -17,6 +17,7 @@ const validate = {
   },
   isValidEmail: email => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
     return !!email && re.test(email.trim())
   }
 }
@@ -46,7 +47,7 @@ class ExampleFormValidation extends React.Component {
 
   state = defaultState
 
-  handleChange = (fields) => {
+  handleChange = fields => {
     this.setState({schema: fields})
   }
 
@@ -68,15 +69,13 @@ class ExampleFormValidation extends React.Component {
           submitted: true
         })
       }, 1000)
-    }
-
-    else {
+    } else {
       this.setState(defaultState)
       console.log('Payload:', JSON.stringify(fields, 2, null))
     }
   }
 
-  handleErrors = (errors) => {
+  handleErrors = errors => {
     console.log(errors.toJS())
   }
 
@@ -89,35 +88,39 @@ class ExampleFormValidation extends React.Component {
         schema={schema}
         fieldErrors={this.state.fieldErrors}
       >
-        <ValidatedInput
-          name='email'
-          label='Email'
-          type='text'
-          placeholder='sugerman@6am.com'
-          validation={[
-            {
-              validator: validate.isNotEmpty,
-              message: 'The email field is required.'
-            },
-            {
-              validator: validate.isValidEmail,
-              message: 'Please enter a valid email address.'
-            }
-          ]}
-          optClass={formStyle.field}
-        />
-        <ValidatedTextarea
-          name='message'
-          label='Message'
-          type='text'
-          validation={[
-            {
-              validator: validate.isNotEmpty,
-              message: 'This textfield is required.'
-            }
-          ]}
-          optClass={formStyle.field}
-        />
+        <div>
+          <ValidatedInput
+            name='email'
+            label='Email'
+            type='text'
+            placeholder='sugerman@6am.com'
+            validation={[
+              {
+                validator: validate.isNotEmpty,
+                message: 'The email field is required.'
+              },
+              {
+                validator: validate.isValidEmail,
+                message: 'Please enter a valid email address.'
+              }
+            ]}
+            optClass={formStyle.field}
+          />
+        </div>
+        <div>
+          <ValidatedTextarea
+            name='message'
+            label='Message'
+            type='text'
+            validation={[
+              {
+                validator: validate.isNotEmpty,
+                message: 'This textfield is required.'
+              }
+            ]}
+            optClass={formStyle.field}
+          />
+        </div>
         <Button type='submit' loading={this.state.loading}>Submit</Button>
       </FormGroup>
     )

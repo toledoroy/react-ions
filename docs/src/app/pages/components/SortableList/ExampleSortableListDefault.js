@@ -29,7 +29,7 @@ class ExampleSortableListDefault extends React.Component {
     count: 0
   }
 
-  onChange = (event) => {
+  onChange = event => {
     console.log(event.target.value)
     this.setState({ items: event.target.value })
   }
@@ -37,6 +37,7 @@ class ExampleSortableListDefault extends React.Component {
   addItem = () => {
     let items = this.state.items
     let count = this.state.count + 1
+
     items.push({ value: 'sortable_item_' + count, text: 'Sortable Item ' + count })
 
     this.setState({ items: items, count: count })

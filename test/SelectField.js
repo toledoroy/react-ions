@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { shallow, mount } from 'enzyme'
-import SelectField from '../src/components/SelectField/SelectField'
+import { SelectField } from '../src/components/SelectField/SelectField'
 import Icon from '../src/components/Icon/Icon'
 
 describe('SelectField', () => {
@@ -12,24 +11,14 @@ describe('SelectField', () => {
   ]
 
   const optionsWithIcons = [
-    {value: '0', display: 'test 1', someOtherProp: true, icon: 'icon-megaphone-1'},
-    {value: '1', display: 'test 2', someOtherProp: false, icon: 'icon-slack-1', iconColor: '#3C97D3'}
+    {value: '0', display: 'test 1', someOtherProp: true, icon: 'md-dashboard'},
+    {value: '1', display: 'test 2', someOtherProp: false, icon: 'mbsy-slack', iconColor: '#3C97D3'}
   ]
 
   const optionsAltValueProp = [
     {id: '0', display: 'test 1', someOtherProp: true},
     {id: '1', display: 'test 2', someOtherProp: false}
   ]
-
-  function eventFire(el, etype){
-    if (el.fireEvent) {
-      el.fireEvent('on' + etype)
-    } else {
-      var evObj = document.createEvent('Events')
-      evObj.initEvent(etype, true, false)
-      el.dispatchEvent(evObj)
-    }
-  }
 
   it('should shallow render itself', () => {
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' />)
@@ -45,7 +34,7 @@ describe('SelectField', () => {
     expect(wrapper.childAt(0).props().type).to.equal('hidden')
     expect(wrapper.childAt(0).props().value).to.equal('')
     expect(wrapper.childAt(1).text().indexOf('Please select an option')).to.equal(0)
-    expect(wrapper.find(Icon).props().name).to.equal('icon-caret')
+    expect(wrapper.find(Icon).props().name).to.equal('mbsy-caret')
     expect(wrapper.find('ul').children()).to.have.length(2)
     expect(wrapper.find('ul').childAt(0).text()).to.equal(options[0].display)
     expect(wrapper.find('ul').childAt(0).props().className).to.not.equal('hidden')
@@ -56,6 +45,7 @@ describe('SelectField', () => {
 
   it('should be disabled', () => {
     const disabled = true
+
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' disabled={disabled} />)
 
     expect(wrapper.hasClass('selectfield-component')).to.equal(true)
@@ -72,15 +62,15 @@ describe('SelectField', () => {
 
   it('should have a placeholder', () => {
     const placeholder = 'Placeholder text...'
+
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' placeholder={placeholder} />)
 
     expect(wrapper.childAt(1).text().indexOf(placeholder)).to.equal(0)
   })
 
   it('should have an icon', () => {
-    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' icon='icon-globe-1' />)
+    wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' icon='md-globe' />)
 
-    expect(wrapper.hasClass('has-icon')).to.be.true
     expect(wrapper.find('.icon')).to.have.length(1)
   })
 
@@ -89,15 +79,13 @@ describe('SelectField', () => {
 
     expect(wrapper.find('.icon')).to.have.length(2)
     expect(wrapper.find('ul').childAt(0).find(Icon)).to.have.length(1)
-    expect(wrapper.find('ul').childAt(0).find(Icon).props().name).to.equal('icon-megaphone-1')
+    expect(wrapper.find('ul').childAt(0).find(Icon).props().name).to.equal('md-dashboard')
     expect(wrapper.find('ul').childAt(1).find(Icon)).to.have.length(1)
-    expect(wrapper.find('ul').childAt(1).find(Icon).props().name).to.equal('icon-slack-1')
+    expect(wrapper.find('ul').childAt(1).find(Icon).props().name).to.equal('mbsy-slack')
     expect(wrapper.find('ul').childAt(1).find(Icon).props().fill).to.equal('#3C97D3')
 
     wrapper.childAt(1).simulate('click')
     wrapper.childAt(2).childAt(1).simulate('click')
-
-    expect(wrapper.hasClass('has-icon')).to.be.true
   })
 
   it('should have an option selected by default', () => {
@@ -108,6 +96,7 @@ describe('SelectField', () => {
 
   it('should not have an option selected and should not result in an error if an invalid value is provided', () => {
     const spy = sinon.spy(console, 'error')
+
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' value={'2'} />)
 
     expect(spy.calledOnce).to.be.false
@@ -118,6 +107,7 @@ describe('SelectField', () => {
   it('should have the placeholder displayed and should not result in an error if an invalid value is provided', () => {
     const spy = sinon.spy(console, 'error')
     const placeholder = 'Placeholder text...'
+
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' value={'2'} placeholder={placeholder} />)
 
     expect(spy.calledOnce).to.be.false
@@ -138,9 +128,9 @@ describe('SelectField', () => {
 
     expect(wrapper.childAt(1).text().indexOf('Please select an option')).to.equal(0)
 
-    //open <ul>
+    // open <ul>
     wrapper.childAt(1).simulate('click')
-    //click <li>
+    // click <li>
     wrapper.childAt(2).childAt(1).simulate('click')
 
     expect(wrapper.childAt(1).text().indexOf(options[1].display)).to.equal(0)
@@ -161,6 +151,7 @@ describe('SelectField', () => {
 
   it('should not result in an error if changeCallback is not defined', () => {
     const spy = sinon.spy(console, 'error')
+
     wrapper = shallow(<SelectField options={options} valueProp='value' displayProp='display' />)
 
     // open <ul>
@@ -170,53 +161,6 @@ describe('SelectField', () => {
 
     expect(spy.calledOnce).to.be.false
     spy.restore()
-  })
-
-  it('should close the list if open when document is clicked', () => {
-    const div = document.createElement('div')
-    document.body.appendChild(div)
-    const component = ReactDOM.render(<SelectField options={options} valueProp='value' displayProp='display' />, div)
-    const containerDiv = ReactDOM.findDOMNode(div)
-
-    // Trigger a click on the dropdown value
-    eventFire(document.body.getElementsByClassName('selectfield-value')[0], 'click')
-
-    expect(document.body.getElementsByClassName('active')).to.have.length(1)
-
-    // Trigger a click on the body element
-    eventFire(document.body, 'click')
-
-    expect(document.body.getElementsByClassName('active')).to.have.length(0)
-  })
-
-  it('should not react to document click if list is not open', () => {
-    const div = document.createElement('div')
-    document.body.appendChild(div)
-    const component = ReactDOM.render(<SelectField options={options} valueProp='value' displayProp='display' />, div)
-    const containerDiv = ReactDOM.findDOMNode(div)
-
-    expect(document.body.getElementsByClassName('active')).to.have.length(0)
-
-    // Trigger a click on the body element
-    eventFire(document.body, 'click')
-
-    expect(document.body.getElementsByClassName('active')).to.have.length(0)
-  })
-
-  it('should not react to document click if component unmounts', () => {
-    const div = document.createElement('div')
-    document.body.appendChild(div)
-    const component = ReactDOM.render(<SelectField options={options} valueProp='value' displayProp='display' />, div)
-    const containerDiv = ReactDOM.findDOMNode(div)
-
-    expect(document.body.getElementsByClassName('active')).to.have.length(0)
-
-    component.componentWillUnmount()
-
-    // Trigger a click on the body element
-    eventFire(document.body, 'click')
-
-    expect(document.body.getElementsByClassName('active')).to.have.length(0)
   })
 
   it('should update the state when the value property changes', () => {
@@ -244,7 +188,7 @@ describe('SelectField', () => {
   it('should show a message when there are no options to select', () => {
     wrapper = mount(<SelectField options={[]} valueProp='value' displayProp='display' />)
 
-    expect(wrapper.childAt(2).childAt(0).text()).to.equal('Nothing to select')
+    expect(wrapper.find('.not-clickable').text()).to.equal('Nothing to select')
   })
 
   it('should add a "hidden" class to an item if it has a specific "hideProp" prop set to true', () => {
@@ -260,5 +204,35 @@ describe('SelectField', () => {
 
     expect(wrapper.childAt(1).type()).to.equal('label')
     expect(wrapper.childAt(1).text()).to.equal('Select Field Label')
+  })
+
+  describe('handleClickOutside', () => {
+    let handleClickOutside, toggleSelectField
+
+    beforeEach(() => {
+      wrapper = shallow(
+        <SelectField
+          options={options}
+          valueProp='value'
+          displayProp='display'
+          label='Select Field Label'
+        />)
+      handleClickOutside = wrapper.instance().handleClickOutside
+      toggleSelectField = sinon.spy(wrapper.instance(), 'toggleSelectField')
+    })
+
+    it('should call its toggleSelectField method when isOpen', () => {
+      wrapper.setState({ isOpen: true })
+      wrapper.update()
+      handleClickOutside()
+      expect(toggleSelectField.calledOnce).to.be.true
+    })
+
+    it('should not call its toggleSelectField method when not isOpen', () => {
+      wrapper.setState({ isOpen: false })
+      wrapper.update()
+      handleClickOutside()
+      expect(toggleSelectField.calledOnce).to.be.false
+    })
   })
 })

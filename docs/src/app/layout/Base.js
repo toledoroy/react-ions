@@ -29,9 +29,10 @@ class Base extends React.Component {
     this.setState({sidebarCollapsed: false})
   }
 
-  handleScroll = (event) => {
+  handleScroll = event => {
     let target = event.target || event.srcElement
     let scrollTop = target.body.scrollTop || target.documentElement.scrollTop
+
     this.setState({ breadcrumbActive: scrollTop > 30 })
   }
 
@@ -53,9 +54,9 @@ class Base extends React.Component {
         <div className={style.row}>
           <Sidebar collapsed={!this.state.sidebarCollapsed} onSidebarClick={this.handleSidebarClick} />
           <div className={!this.state.sidebarCollapsed ? contentClass : contentClassSidebarActive}>
-            { currentBasePage ?
-            <div className={!this.state.breadcrumbActive ? breadcrumbClass : breadcrumbActive}>
-              <Breadcrumb routes={this.props.routes} gradientColor='#ECF0F0' padding={15} />
+            { currentBasePage
+            ? <div className={!this.state.breadcrumbActive ? breadcrumbClass : breadcrumbActive}>
+              <Breadcrumb routes={this.props.routes} gradientColor='#ECF0F0' padding={15} clickable={true} />
             </div>
             : null
             }

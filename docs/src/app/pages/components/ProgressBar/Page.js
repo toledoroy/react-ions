@@ -1,6 +1,6 @@
 import React from 'react'
 import PropsList from 'private/modules/PropsList'
-import docs from '!!docgen!react-ions/lib/components/ProgressBar/ProgressBar';
+import docs from '!!docgen!react-ions/lib/components/ProgressBar/ProgressBar'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleProgressBarDefault from './ExampleProgressBarDefault'
 import exampleProgressBarDefaultCode from '!raw!./ExampleProgressBarDefault'
@@ -11,7 +11,7 @@ import styles from 'private/css/content'
 const description = {
   progressBarDefault: 'This is the default `Progress Bar`',
   progressBarLabel: 'This is the `Progress Bar` with a `label` and `percentage`.'
-};
+}
 
 const ProgressBarPage = () => (
   <div>
@@ -36,6 +36,6 @@ const ProgressBarPage = () => (
       </div>
     </div>
   </div>
-);
+)
 
 export default ProgressBarPage

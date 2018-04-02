@@ -11,7 +11,7 @@ class Avatar extends React.Component {
   state = {
     // If image src was passed in, it is not yet loaded
     // Else, if letters were passed in, set loaded to true
-    loaded: this.props.src ? false : true
+    loaded: !this.props.src
   }
 
   static propTypes = {
@@ -53,12 +53,12 @@ class Avatar extends React.Component {
    * or if it's a letter-based avatar,
    * set loaded to true, so it won't fade in */
   state = {
-    loaded: !this.props.fadeIn || !this.props.src ? true : false
+    loaded: !!(!this.props.fadeIn || !this.props.src)
   }
 
   /* If the source changes, and fadeIn
    * is set, fade in the new avatar */
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.src !== this.props.src && this.props.fadeIn) {
       this.setState({ loaded: false })
     }
@@ -133,7 +133,7 @@ class Avatar extends React.Component {
 
   getTextStyle = () => {
     return {
-      fontSize: (+this.props.size) * .6 + 'px'
+      fontSize: (+this.props.size) * 0.6 + 'px'
     }
   }
 
@@ -144,8 +144,7 @@ class Avatar extends React.Component {
   loadAvatar = () => {
     if (this.props.src) {
       return <img src={this.props.src} onLoad={this.handleLoad} alt={this.props.alt} height={this.props.size} />
-    }
-    else if (this.props.letters) {
+    } else if (this.props.letters) {
       return (
         <div style={this.getWrapperStyle()}>
           <span style={this.getTextStyle()}>{this.props.letters.length <= 2 ? this.props.letters : this.props.letters.substr(0, 2)}</span>

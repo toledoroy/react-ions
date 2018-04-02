@@ -169,7 +169,7 @@
 
       .toggle-icon {
         opacity: 1;
-        top: calc(50% - 9px);
+        top: calc(50% - 6px);
         transform: rotate(0);
       }
 
@@ -217,7 +217,7 @@
         }
 
         .toggle-icon {
-          top: calc(50% - 15px);
+          top: calc(50% - 12px);
           transform: rotate(180deg);
 
           svg {
@@ -266,12 +266,22 @@
     }
   }
 
+  > .panel {
+    > span > .panel-header {
+      .context-icon {
+        left: 0;
+        top: 0;
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
   > .panel.panel-active {
     > span > .panel-header {
       .context-icon {
-        left: -2px;
-        top: 0;
-        transform: rotate(90deg);
+        left: 0;
+        top: 2px;
+        transform: rotate(0deg);
       }
     }
     > span > .panel-content {

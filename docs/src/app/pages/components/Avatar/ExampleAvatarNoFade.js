@@ -25,12 +25,12 @@ class ExampleAvatarNoFade extends React.Component {
     data: data[0]
   }
 
-  setAvatar = (data) => {
+  setAvatar = data => {
     this.setState({ data })
   }
 
   render = () => {
-    return(
+    return (
       <div>
         <Avatar src={this.state.data.src} alt={this.state.data.alt} size={this.state.data.size} fadeIn={false} />
         <div className={style['avatar-controls']}>

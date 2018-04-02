@@ -22,7 +22,7 @@ class ExampleTooltipCallbacks extends React.Component {
   render = () => {
     return (
       <div>
-        <Tooltip content='Tooltip with callbacks' tooltipPlacement='right' mouseOverCallback={this.handleMouseOver} mouseOutCallback={this.handleMouseOut}> 
+        <Tooltip content='Tooltip with callbacks' tooltipPlacement='right' mouseOverCallback={this.handleMouseOver} mouseOutCallback={this.handleMouseOut}>
           hover here
         </Tooltip>
         <code className={style['callback-status']}>{this.state.status}</code>

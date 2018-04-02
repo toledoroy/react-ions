@@ -50,8 +50,8 @@ class RadioGroup extends React.Component {
   }
 
   componentWillMount = () => {
-    //form an array of options based on the children that were passed in
-    //this can be done in the case of a RadioGroup with explicit children (see docs example)
+    // form an array of options based on the children that were passed in
+    // this can be done in the case of a RadioGroup with explicit children (see docs example)
     if (this.props.children) {
       const childOptions = this.props.children.reduce((options, child) => {
         if (child.type === Radio) {
@@ -68,7 +68,7 @@ class RadioGroup extends React.Component {
     }
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.value !== undefined && nextProps.value !== this.state.value) {
       this.setState({value: nextProps.value}, () => {
         this.checkItem(nextProps.value, this.state.options || nextProps.options)
@@ -90,6 +90,7 @@ class RadioGroup extends React.Component {
 
   checkItem = (value, options) => {
     let index = this.getIndex(value, options)
+
     if (index >= 0) {
       options[index].checked = true
     }
@@ -97,6 +98,7 @@ class RadioGroup extends React.Component {
 
   getIndex = (value, options) => {
     let optionIndex = -1
+
     options.map((radio, index) => {
       if (radio.value === value) {
         optionIndex = index
@@ -111,8 +113,8 @@ class RadioGroup extends React.Component {
     const groupName = this.props.name
     const { options, label, name, value, description, changeCallback, ...other } = this.props
 
-    //this means explicit radio buttons were defined (usually paired with other form fields)
-    //we create an options array in the state (because there is no options in props) for checkItem to use
+    // this means explicit radio buttons were defined (usually paired with other form fields)
+    // we create an options array in the state (because there is no options in props) for checkItem to use
     if (this.props.children) {
       return this.props.children.map((child, index) => {
         if (child.type === Radio) {
@@ -123,14 +125,13 @@ class RadioGroup extends React.Component {
             changeCallback: this.handleChange
           })
         }
-        else {
-          return child
-        }
+        return child
+
       })
     }
-    //this means a normal RadioGroup with an options array was defined
-    else {
-      return this.props.options.map((option) =>
+    // this means a normal RadioGroup with an options array was defined
+
+    return this.props.options.map(option =>
         <Radio
           key={option.value}
           value={option.value}
@@ -142,7 +143,7 @@ class RadioGroup extends React.Component {
           changeCallback={this.handleChange}
           {...other} />
       )
-    }
+
   }
 
   render() {

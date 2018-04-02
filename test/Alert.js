@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import { Alert } from '../src/components/Alerts'
 
 describe('Alert', () => {
@@ -10,7 +9,7 @@ describe('Alert', () => {
 
     expect(wrapper.hasClass('alert')).to.be.true
     expect(wrapper.hasClass('success')).to.be.true
-    expect(wrapper.find('[name="icon-check-2-1"]')).to.have.length(1)
+    expect(wrapper.find('[name="md-success"]')).to.have.length(1)
   })
 
   it('should display a success alert', () => {
@@ -18,7 +17,7 @@ describe('Alert', () => {
 
     expect(wrapper.hasClass('alert')).to.be.true
     expect(wrapper.hasClass('success')).to.be.true
-    expect(wrapper.find('[name="icon-check-2-1"]')).to.have.length(1)
+    expect(wrapper.find('[name="md-success"]')).to.have.length(1)
   })
 
   it('should display a warning alert', () => {
@@ -26,7 +25,7 @@ describe('Alert', () => {
 
     expect(wrapper.hasClass('alert')).to.be.true
     expect(wrapper.hasClass('warning')).to.be.true
-    expect(wrapper.find('[name="icon-alert-1"]')).to.have.length(1)
+    expect(wrapper.find('[name="md-warning"]')).to.have.length(1)
   })
 
   it('should display an info alert', () => {
@@ -34,7 +33,7 @@ describe('Alert', () => {
 
     expect(wrapper.hasClass('alert')).to.be.true
     expect(wrapper.hasClass('info')).to.be.true
-    expect(wrapper.find('[name="icon-information"]')).to.have.length(1)
+    expect(wrapper.find('[name="md-info"]')).to.have.length(1)
   })
 
   it('should display a danger alert', () => {
@@ -42,7 +41,7 @@ describe('Alert', () => {
 
     expect(wrapper.hasClass('alert')).to.be.true
     expect(wrapper.hasClass('danger')).to.be.true
-    expect(wrapper.find('[name="icon-delete-3"]')).to.have.length(1)
+    expect(wrapper.find('[name="md-danger"]')).to.have.length(1)
   })
 
 })

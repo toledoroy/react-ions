@@ -5,4 +5,4 @@ const ExampleProgressBarLabel = () => (
   <ProgressBar label='This is a label' showPercentage={true} value={10} denominator={50} />
 )
 
-export default ExampleProgressBarLabel;
+export default ExampleProgressBarLabel

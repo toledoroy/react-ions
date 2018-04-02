@@ -58,6 +58,15 @@
 }
 
 .popover-content {
+  overflow-wrap: break-word;
   position: relative;
+  word-wrap: break-word;
   z-index: 1;
+
+  // Center the text on the popover-content buttons,
+  // since we can't easily apply the `fill` class to each one
+  // eg: buttons are implemented in a child component
+  button em {
+    display: block;
+  }
 }

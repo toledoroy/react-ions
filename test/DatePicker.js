@@ -1,6 +1,6 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import DatePicker from '../src/components/DatePicker/DatePicker'
+import SelectField from '../src/components/SelectField/SelectField'
 import moment from 'moment'
 const rewire = require('rewire')
 const DateHelper = rewire('../src/components/DatePicker/DateHelper')
@@ -9,7 +9,15 @@ describe('DatePicker', () => {
   const oldDate = '2017-07-02'
   const newDate = '2019-03-03'
   const defaultFormat = 'YYYY-MM-DD'
-  let wrapper
+  let wrapper, consoleErrorSpy
+
+  beforeEach(() => {
+    consoleErrorSpy = sinon.spy(console, 'error')
+  })
+
+  afterEach(() => {
+    consoleErrorSpy.restore()
+  })
 
   it('should shallow render itself', () => {
     wrapper = shallow(<DatePicker value={oldDate} />)
@@ -17,6 +25,7 @@ describe('DatePicker', () => {
     expect(wrapper.find('.datepicker')).to.have.length(1)
 
     const datepicker = wrapper.find('.datepicker').at(0)
+
     expect(datepicker.children()).to.have.length(3)
     expect(datepicker.childAt(0).props().placeholder).to.equal('Month')
     expect(datepicker.childAt(1).props().placeholder).to.equal('Day')
@@ -24,9 +33,9 @@ describe('DatePicker', () => {
   })
 
   it('should have current date by default', () => {
-    DateHelper.__set__('_getDate', function() { return '20' })
-    DateHelper.__set__('_getMonth', function() { return '10' })
-    DateHelper.__set__('_getYear', function() { return '2012' })
+    DateHelper.__set__('_getDate', function () { return '20' })
+    DateHelper.__set__('_getMonth', function () { return '10' })
+    DateHelper.__set__('_getYear', function () { return '2012' })
     wrapper = shallow(<DatePicker dateHelper={DateHelper} />)
 
     expect(wrapper.find('.datepicker-component')).to.have.length(1)
@@ -60,45 +69,50 @@ describe('DatePicker', () => {
 
   it('should run the changeCallback on changing a month', () => {
     let result = ''
-    const callback = (event) => {
+    const callback = event => {
       result = event
     }
+
     wrapper = mount(<DatePicker value={oldDate} changeCallback={callback} />)
     const datepicker = wrapper.find('.datepicker').at(0)
 
     // open <ul>
-    datepicker.childAt(0).childAt(2).simulate('click')
+    datepicker.find(SelectField).at(0).simulate('click')
     // click <li>
-    datepicker.childAt(0).childAt(2).childAt(0).simulate('click')
+    datepicker.find(SelectField).at(0).find('li').at(0).simulate('click')
 
     const firstMonth = '2017-01-02'
+
     expect(result.target.value).to.equal(firstMonth)
     expect(wrapper.state('value')).to.equal(firstMonth)
   })
 
   it('should run the changeCallback on changing a day', () => {
     let result = ''
-    const callback = (event) => {
+    const callback = event => {
       result = event
     }
+
     wrapper = mount(<DatePicker value={oldDate} changeCallback={callback} />)
     const datepicker = wrapper.find('.datepicker').at(0)
 
     // open <ul>
-    datepicker.childAt(1).childAt(2).simulate('click')
+    datepicker.find(SelectField).at(1).simulate('click')
     // click <li>
-    datepicker.childAt(1).childAt(2).childAt(0).simulate('click')
+    datepicker.find(SelectField).at(1).find('li').at(0).simulate('click')
 
     const firstDay = '2017-07-01'
+
     expect(result.target.value).to.equal(firstDay)
     expect(wrapper.state('value')).to.equal(firstDay)
   })
 
   it('should run the changeCallback on changing a year', () => {
     let result = ''
-    const callback = (event) => {
+    const callback = event => {
       result = event
     }
+
     wrapper = mount(<DatePicker value={oldDate} changeCallback={callback} />)
     const datepicker = wrapper.find('.datepicker').at(0)
 
@@ -113,8 +127,8 @@ describe('DatePicker', () => {
     const monthSelected = moment.utc(oldDate, defaultFormat).month()
     const monthToday = moment.utc().month()
 
-    //if trying to select the minimum year, if the day and month selected are less
-    //then today's respective values, the datepicker will default to today's today - 10 years
+    // if trying to select the minimum year, if the day and month selected are less
+    // then today's respective values, the datepicker will default to today's today - 10 years
     if (daySelected <= dayToday && monthSelected <= monthToday) {
       firstDate = moment.utc().subtract(10, 'year').format(defaultFormat)
     } else {
@@ -126,21 +140,20 @@ describe('DatePicker', () => {
   })
 
   it('should not result in an error if changeCallback is not defined', () => {
-    const spy = sinon.spy(console, 'error')
     wrapper = mount(<DatePicker value={oldDate} />)
+    const datepicker = wrapper.find('.datepicker').at(0)
 
     // open <ul>
-    wrapper.childAt(0).childAt(2).simulate('click')
+    datepicker.find(SelectField).at(1).simulate('click')
     // click <li>
-    wrapper.childAt(0).childAt(2).childAt(0).simulate('click')
+    datepicker.find(SelectField).at(1).find('li').at(0).simulate('click')
 
-    expect(spy.called).to.be.false
-    spy.restore()
+    expect(consoleErrorSpy.called).to.be.false
   })
 
   it('should change to max month & day if selected are greater than max value on selecting last year', () => {
     let result = ''
-    const callback = (event) => {
+    const callback = event => {
       result = event
     }
     const maxCalc = { month: '5', day: '20', year: '+1'}
@@ -150,19 +163,20 @@ describe('DatePicker', () => {
     wrapper = mount(<DatePicker value={date} min={minCurrent} max={maxCalc} changeCallback={callback} />)
     const datepicker = wrapper.find('.datepicker').at(0)
 
-    // set last year
-    datepicker.childAt(2).childAt(2).simulate('click')
-    // click <li>
-    datepicker.childAt(2).childAt(2).childAt(1).simulate('click')
+    // open <ul>
+    datepicker.find(SelectField).at(2).simulate('click')
+    // select last year
+    datepicker.find(SelectField).at(2).find('li').at(1).simulate('click')
 
-    const firstYear = moment.utc().add(1, 'year').format('YYYY')+'-06-20'
+    const firstYear = moment.utc().add(1, 'year').format('YYYY') + '-06-20'
+
     expect(result.target.value).to.equal(firstYear)
     expect(wrapper.state('value')).to.equal(firstYear)
   })
 
   it('should change to min month & day if selected are lower than min value on selecting first year', () => {
     let result = ''
-    const callback = (event) => {
+    const callback = event => {
       result = event
     }
     const minCalc = { month: '5', day: '20', year: '-1'}
@@ -172,19 +186,20 @@ describe('DatePicker', () => {
     wrapper = mount(<DatePicker value={date} min={minCalc} max={maxCurrent} changeCallback={callback} />)
     const datepicker = wrapper.find('.datepicker').at(0)
 
-    // set first year
-    datepicker.childAt(2).childAt(2).simulate('click')
-    // click <li>
-    datepicker.childAt(2).childAt(2).childAt(0).simulate('click')
+    // open <ul>
+    datepicker.find(SelectField).at(2).simulate('click')
+    // select first year
+    datepicker.find(SelectField).at(2).find('li').at(0).simulate('click')
 
-    const firstYear = moment.utc().subtract(1, 'year').format('YYYY')+'-06-20'
+    const firstYear = moment.utc().subtract(1, 'year').format('YYYY') + '-06-20'
+
     expect(result.target.value).to.equal(firstYear)
     expect(wrapper.state('value')).to.equal(firstYear)
   })
 
   it('should show correct date when passing custom format and run the changeCallback on changing a year', () => {
     let result = ''
-    const callback = (event) => {
+    const callback = event => {
       result = event
     }
 
@@ -194,14 +209,16 @@ describe('DatePicker', () => {
 
     wrapper = mount(<DatePicker value={date} min={minCurrent} format={format} changeCallback={callback} />)
     const datepicker = wrapper.find('.datepicker').at(0)
+
     expect(wrapper.state('value')).to.equal(date)
 
     // open <ul>
-    datepicker.childAt(2).childAt(2).simulate('click')
-    // click <li>
-    datepicker.childAt(2).childAt(2).childAt(1).simulate('click')
+    datepicker.find(SelectField).at(2).simulate('click')
+    // select last year
+    datepicker.find(SelectField).at(2).find('li').at(1).simulate('click')
 
     const newDate = moment.utc().add(1, 'year').format(format)
+
     expect(result.target.value).to.equal(newDate)
     expect(wrapper.state('value')).to.equal(newDate)
   })
@@ -351,6 +368,7 @@ describe('DatePicker', () => {
 
       it('should returns full days range of a 30-days month and change day.value to day.max', () => {
         let dateObj = getDateObj()
+
         dateObj.month.value = 5
         dateObj.day.max = 30
         dateObj.value = '2015-05-31'
@@ -368,6 +386,7 @@ describe('DatePicker', () => {
 
       it('should returns full days range of a 29-days month and change day.value to day.max', () => {
         let dateObj = getDateObj()
+
         dateObj.year.value = 2016
         dateObj.month.value = 1
         dateObj.day.max = 29
@@ -386,6 +405,7 @@ describe('DatePicker', () => {
 
       it('should returns full days range of a 28-days month and change day.value to day.max', () => {
         let dateObj = getDateObj()
+
         dateObj.month.value = 1
         dateObj.day.max = 28
         dateObj.value = '2015-02-31'
@@ -450,9 +470,9 @@ describe('DatePicker', () => {
     describe('_getMinOrMax()', () => {
 
       it('should return min values for year, month, day', () => {
-        DateHelper.__set__('_getDate', function() { return '20' })
-        DateHelper.__set__('_getMonth', function() { return '10' })
-        DateHelper.__set__('_getYear', function() { return '2012' })
+        DateHelper.__set__('_getDate', function () { return '20' })
+        DateHelper.__set__('_getMonth', function () { return '10' })
+        DateHelper.__set__('_getYear', function () { return '2012' })
 
         wrapper = shallow(<DatePicker value={oldDate} dateHelper={DateHelper} />)
 
@@ -461,15 +481,16 @@ describe('DatePicker', () => {
         const minYear = wrapper.instance()._getMinOrMax(min, 'year')
         const minMonth = wrapper.instance()._getMinOrMax(min, 'month')
         const minDay = wrapper.instance()._getMinOrMax(min, 'day')
+
         expect(minYear).to.equal(2012)
         expect(minMonth).to.equal(10)
         expect(minDay).to.equal(20)
       })
 
       it('should return max values for year, month, day', () => {
-        DateHelper.__set__('_getDate', function() { return '1' })
-        DateHelper.__set__('_getMonth', function() { return '1' })
-        DateHelper.__set__('_getYear', function() { return '2020' })
+        DateHelper.__set__('_getDate', function () { return '1' })
+        DateHelper.__set__('_getMonth', function () { return '1' })
+        DateHelper.__set__('_getYear', function () { return '2020' })
 
         wrapper = shallow(<DatePicker value={oldDate} dateHelper={DateHelper} />)
 
@@ -478,6 +499,7 @@ describe('DatePicker', () => {
         const minYear = wrapper.instance()._getMinOrMax(max, 'year')
         const minMonth = wrapper.instance()._getMinOrMax(max, 'month')
         const minDay = wrapper.instance()._getMinOrMax(max, 'day')
+
         expect(minYear).to.equal(2020)
         expect(minMonth).to.equal(1)
         expect(minDay).to.equal(1)

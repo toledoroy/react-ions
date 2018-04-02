@@ -15,29 +15,26 @@
   }
 
   .selectfield-value {
+    align-items: center;
     background-color: $white;
     border: 2px solid $neutral-3;
     border-radius: 3px;
     color: $primary-4;
     cursor: pointer;
     background: $white;
+    display: flex;
     position: relative;
-    padding: 10px 29px 10px 10px;
+    padding: 10px;
+    justify-content: space-between;
     user-select: none;
     transition: border-color ease-in-out .15s;
 
     > svg:last-of-type {
-      position: absolute;
-      right: 10px;
-      top: 13px;
       transform: rotate(0);
     }
 
     > .icon {
-      left: 10px;
-      position: absolute;
-      top: 50%;
-      transform: translate(0, -50%);
+      padding-right: 8px;
     }
 
     &:hover {
@@ -51,10 +48,11 @@
   }
 
   .display-text {
+    display: block;
     overflow: hidden;
+    padding-right: 8px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    display: block;
   }
 
   ul {
@@ -76,7 +74,7 @@
       @include vertical-align('block');
       color: $primary-4;
       cursor: pointer;
-      display: block;
+      display: flex;
       padding: 10px;
       text-decoration: none;
       min-height: 18px;
@@ -114,6 +112,7 @@
     > div {
       background-color: rgba($neutral-3, .6);
       border-color: $neutral-3;
+      color: rgba($primary-4, 0.5);
       cursor: not-allowed;
 
       > svg {
@@ -147,10 +146,6 @@
     ul {
       display: inline-block;
     }
-  }
-
-  &.has-icon .selectfield-value {
-    padding-left: 35px;
   }
 
   &.fill {

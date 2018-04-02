@@ -1,12 +1,12 @@
-var path = require('path');
+var path = require('path')
 
-module.exports = function(config) {
+module.exports = function (config) {
 
   var rewirePlugin = require('rewire-webpack')
 
   config.set({
     basePath: '../',
-    frameworks: ['mocha', 'chai', 'sinon'],
+    frameworks: ['mocha', 'chai', 'sinon', 'enzyme-react-16'],
     files: [
       'config/index.js'
     ],
@@ -16,7 +16,7 @@ module.exports = function(config) {
     },
 
     coverageReporter: {
-      type : 'text',
+      type: 'text',
       includeAllSources: true
     },
 
@@ -101,7 +101,7 @@ module.exports = function(config) {
     },
 
     webpackServer: {
-      noInfo: true //please don't spam the console when running in karma!
+      noInfo: true // please don't spam the console when running in karma!
     },
 
     plugins: [
@@ -112,7 +112,8 @@ module.exports = function(config) {
       'karma-chai',
       'karma-chrome-launcher',
       'karma-coverage',
-      'karma-threshold-reporter'
+      'karma-threshold-reporter',
+      'karma-enzyme-react-16'
     ],
 
     babelPreprocessor: {
@@ -135,4 +136,4 @@ module.exports = function(config) {
 
     singleRun: true
   })
-};
+}

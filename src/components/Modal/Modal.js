@@ -59,14 +59,14 @@ class Modal extends React.Component {
     theme: PropTypes.oneOf(['color-splash'])
   }
 
-  handleKeyUp = (event) => {
+  handleKeyUp = event => {
     // When Esc is pressed
     if (event.keyCode === 27) {
       this.requestClose(false)
     }
   }
 
-  handleClick = (event) => {
+  handleClick = event => {
     event.persist()
     if (typeof event.target.className === 'string' && event.target.className.indexOf('modal-scroll-container') !== -1) {
       this.handleCloseClick()
@@ -77,7 +77,7 @@ class Modal extends React.Component {
     this.requestClose(false)
   }
 
-  requestClose = (buttonClicked) => {
+  requestClose = buttonClicked => {
     if (!buttonClicked && this.props.closeOnAction) {
       return
     }
@@ -90,8 +90,7 @@ class Modal extends React.Component {
   setKeyupListener = () => {
     if (this.props.open) {
       window.addEventListener('keyup', this.handleKeyUp)
-    }
-    else {
+    } else {
       window.removeEventListener('keyup', this.handleKeyUp)
     }
   }
@@ -104,7 +103,7 @@ class Modal extends React.Component {
     const modalClass = cx(style['modal-component'], this.props.optClass, modalOpenClass, theme)
     const modalContentClass = cx(style['modal-content'], modalSizeClass)
     const modalTitleIsElement = !(typeof this.props.title === 'string')
-    const modalTitle = modalTitleIsElement ?  this.props.title : <h1>{this.props.title}</h1>
+    const modalTitle = modalTitleIsElement ? this.props.title : <h1>{this.props.title}</h1>
 
     const actionsContainer = React.Children.count(this.props.actions) > 0 && (
       <div className={style['modal-actions']}>
@@ -124,13 +123,13 @@ class Modal extends React.Component {
           <div className={modalContentClass}>
             <div className={style['modal-header']}>
               {
-                //render close button if closeOnAction is false and modalTitle is not an element
+                // render close button if closeOnAction is false and modalTitle is not an element
                 !this.props.closeOnAction && !modalTitleIsElement
                   ? <div className={style['modal-close']}>
                       <Icon
-                        name="icon-delete-1"
-                        width="12"
-                        height="12"
+                        name="md-close"
+                        width="15"
+                        height="15"
                         onClick={this.handleCloseClick}
                       />
                     </div>

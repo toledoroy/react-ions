@@ -14,7 +14,6 @@ import exampleTextEditorPopulatedCode from '!raw!./ExampleTextEditorPopulated'
 import ExampleTextEditorMergeTags from './ExampleTextEditorMergeTags'
 import exampleTextEditorMergeTagsCode from '!raw!./ExampleTextEditorMergeTags'
 
-
 const description = {
   textEditorDefault: 'This is the `text editor component` as it appears by default.',
   textEditorDisabled: 'This is the disabled `text editor component`.',

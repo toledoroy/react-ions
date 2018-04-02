@@ -6,6 +6,7 @@ import style from './style.scss'
 
 function getItemStyles(props) {
   const { initialOffset, currentOffset } = props
+
   if (!initialOffset || !currentOffset) {
     return {
       display: 'none'
@@ -15,6 +16,7 @@ function getItemStyles(props) {
   let { x, y } = currentOffset
 
   const transform = `translate(0px, ${y - props.dimensions.top - 10}px)`
+
   return {
     width: props.dimensions.width + 'px',
     transform: transform,

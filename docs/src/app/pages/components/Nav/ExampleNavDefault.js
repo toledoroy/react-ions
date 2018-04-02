@@ -21,10 +21,10 @@ const data = [
         action: 'https://example.com'
       }, {
         name: 'Callback function',
-        action: function() {
+        action: function () {
           alert('callback')
         }
-      },
+      }
     ]
   }, {
     name: 'Item 2',
@@ -33,10 +33,10 @@ const data = [
     name: 'Item 3',
     action: '/components/nav'
   }
-];
+]
 
 const ExampleNavDefault = () => (
   <Nav data={data} optClass={style.inverted} />
 )
 
-export default ExampleNavDefault;
+export default ExampleNavDefault

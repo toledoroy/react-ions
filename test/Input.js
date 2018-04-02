@@ -1,12 +1,19 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
 import Input from '../src/components/Input/Input'
+
+class WrappedInput extends Input {
+  constructor(props) {
+    super(props)
+    this._prefix = document.createElement('div')
+    this._suffix = document.createElement('div')
+  }
+}
 
 describe('Input', () => {
   let wrapper
 
   it('should shallow render itself', () => {
-    wrapper = shallow(<Input label='Default input' placeholder='Placeholder text' value='Initial value.' />)
+    wrapper = shallow(<WrappedInput label='Default input' placeholder='Placeholder text' value='Initial value.' />)
     expect(wrapper.find('input')).to.have.length(1)
     expect(wrapper.find('label')).to.have.length(1)
     expect(wrapper.find('label').text()).to.equal('Default input')
@@ -17,7 +24,7 @@ describe('Input', () => {
   })
 
   it('should shallow render a prefix and suffix', () => {
-    wrapper = shallow(<Input prefix='$' suffix='days' />)
+    wrapper = shallow(<WrappedInput prefix='$' suffix='days' />)
     expect(wrapper.find('div')).to.have.length(4)
     expect(wrapper.childAt(0).childAt(0).props().className).to.equal('prefix')
     expect(wrapper.childAt(0).childAt(2).props().className).to.equal('suffix')
@@ -25,58 +32,64 @@ describe('Input', () => {
 
   it('should be disabled', () => {
     const disabled = true
-    wrapper = mount(<Input label='Disabled input' value='' disabled={disabled} />)
-    expect(wrapper.find('input').node.hasAttribute('disabled')).to.equal(true)
+
+    wrapper = mount(<WrappedInput label='Disabled input' value='' disabled={disabled} />)
+    expect(wrapper.find('input').prop('disabled')).to.be.true
   })
 
   it('should have an extra class', () => {
-    wrapper = shallow(<Input label='Input with error' value='' optClass='input-error' />)
+    wrapper = shallow(<WrappedInput label='Input with error' value='' optClass='input-error' />)
     expect(wrapper.hasClass('input-component')).to.equal(true)
     expect(wrapper.hasClass('input-error')).to.equal(true)
   })
 
   it('should have state set to an initial value', () => {
-    wrapper = shallow(<Input label='Input with initial value' value='' />)
+    wrapper = shallow(<WrappedInput label='Input with initial value' value='' />)
     wrapper.setState({ value: 'testing' })
     expect(wrapper.childAt(1).childAt(0).props().value).to.equal('testing')
   })
 
   it('should update the value onChange', () => {
-    const afterChange = {target: {value: 'New value'}}
-    wrapper = mount(<Input value='test' />)
-    expect(wrapper.childAt(0).childAt(0).props().value).to.equal('test')
-    wrapper.childAt(0).childAt(0).simulate('change', afterChange)
-    expect(wrapper.childAt(0).childAt(0).props().value).to.equal('New value')
+    const afterChange = { target: { value: 'New value' }, persist: () => {} }
+
+    wrapper = mount(<WrappedInput value='test' />)
+    expect(wrapper.state('value')).to.equal('test')
+    wrapper.instance().handleChange(afterChange)
+    wrapper.update()
+    expect(wrapper.state('value')).to.equal('New value')
   })
 
   it('should run the changeCallback on change', () => {
     const spy = sinon.spy()
-    wrapper = mount(<Input value='test' changeCallback={spy} />)
-    expect(typeof wrapper.childAt(0).childAt(0).props().onChange).to.equal('function')
-    wrapper.childAt(0).childAt(0).simulate('change')
+
+    wrapper = mount(<WrappedInput value='test' changeCallback={spy} />)
+    wrapper.instance().handleChange({ target: { value: 'New value' }, persist: () => {} })
+    wrapper.update()
     expect(spy.calledOnce).to.be.true
   })
 
   it('should run the blurCallback on blur', () => {
     const spy = sinon.spy()
-    wrapper = mount(<Input value='test' blurCallback={spy} />)
-    expect(typeof wrapper.childAt(0).childAt(0).props().onBlur).to.equal('function')
-    wrapper.childAt(0).childAt(0).simulate('blur')
+
+    wrapper = mount(<WrappedInput value='test' blurCallback={spy} />)
+    wrapper.instance().handleBlur()
     expect(spy.calledOnce).to.be.true
   })
 
   it('should run the focusCallback on focus', () => {
     const spy = sinon.spy()
-    wrapper = mount(<Input value='test' focusCallback={spy} />)
-    expect(typeof wrapper.childAt(0).childAt(0).props().onFocus).to.equal('function')
-    wrapper.childAt(0).childAt(0).simulate('focus')
+
+    wrapper = mount(<WrappedInput value='test' focusCallback={spy} />)
+    wrapper.instance().handleFocus()
     expect(spy.calledOnce).to.be.true
   })
 
   it('should not result in an error if changeCallback is not defined', () => {
     const spy = sinon.spy(console, 'error')
-    wrapper = mount(<Input value='test' />)
-    wrapper.childAt(0).childAt(0).simulate('change')
+
+    wrapper = mount(<WrappedInput value='test' />)
+    wrapper.instance().handleChange({ target: { value: 'New value' }, persist: () => {} })
+    wrapper.update()
 
     expect(spy.calledOnce).to.be.false
     spy.restore()
@@ -84,8 +97,9 @@ describe('Input', () => {
 
   it('should not result in an error if blurCallback is not defined', () => {
     const spy = sinon.spy(console, 'error')
-    wrapper = mount(<Input value='test' />)
-    wrapper.childAt(0).simulate('blur')
+
+    wrapper = mount(<WrappedInput value='test' />)
+    wrapper.instance().handleBlur()
 
     expect(spy.calledOnce).to.be.false
     spy.restore()
@@ -93,49 +107,40 @@ describe('Input', () => {
 
   it('should not result in an error if focusCallback is not defined', () => {
     const spy = sinon.spy(console, 'error')
-    wrapper = mount(<Input value='test' />)
-    wrapper.childAt(0).simulate('focus')
+
+    wrapper = mount(<WrappedInput value='test' />)
+    wrapper.instance().handleFocus()
 
     expect(spy.calledOnce).to.be.false
     spy.restore()
   })
 
-  it('should update the state when the disabled property changes', () => {
-    wrapper = mount(<Input label='Disabled input' value='' disabled={false} />)
-
-    expect(wrapper.find('input').node.hasAttribute('disabled')).to.be.false
-
-    wrapper.setProps({ disabled: true })
-    wrapper.update()
-
-    expect(wrapper.find('input').node.hasAttribute('disabled')).to.be.true
-  })
-
   it('should pass value as string to changeCallback', () => {
     const spy = sinon.spy()
-    wrapper = mount(<Input value='14.10' changeCallback={spy} />)
-    expect(typeof wrapper.childAt(0).childAt(0).props().onChange).to.equal('function')
-    wrapper.childAt(0).childAt(0).simulate('change', {target: { value: '19.89' }})
+
+    wrapper = mount(<WrappedInput value='14.10' changeCallback={spy} />)
+    wrapper.instance().handleChange({ persist: () => {}, target: { value: '19.89' } })
+    wrapper.update()
     expect(spy.calledOnce).to.be.true
     expect(spy.getCall(0).args[0].target.value).to.equal('19.89')
   })
 
   it('should pass value as number to changeCallback', () => {
     const spy = sinon.spy()
-    wrapper = mount(<Input valueType='number' value={14.10} changeCallback={spy} />)
-    expect(typeof wrapper.childAt(0).childAt(0).props().onChange).to.equal('function')
-    wrapper.childAt(0).childAt(0).simulate('change', {target: { value: '19.89', valueAsNumber: 19.89 }})
+
+    wrapper = mount(<WrappedInput valueType='number' value={14.10} changeCallback={spy} />)
+    wrapper.instance().handleChange({ persist: () => {}, target: { value: '19.89', valueAsNumber: 19.89 } })
     expect(spy.calledOnce).to.be.true
     expect(spy.getCall(0).args[0].target.value).to.equal(19.89)
   })
 
   it('should render an inline style tag', () => {
-    wrapper = shallow(<Input width='100px' />)
+    wrapper = shallow(<WrappedInput width='100px' />)
     expect(wrapper.childAt(0).props().style).to.deep.equal({width: '100px'})
   })
 
   it('should handle inline styles for prefix', () => {
-    wrapper = shallow(<Input width='100px' prefix='$' />)
+    wrapper = shallow(<WrappedInput width='100px' prefix='$' />)
 
     wrapper.instance()._prefix = {
       getBoundingClientRect: () => {
@@ -150,7 +155,7 @@ describe('Input', () => {
   })
 
   it('should handle inline styles for suffix', () => {
-    wrapper = shallow(<Input width='100px' suffix='$' />)
+    wrapper = shallow(<WrappedInput width='100px' suffix='$' />)
 
     wrapper.instance()._suffix = {
       getBoundingClientRect: () => {
@@ -165,7 +170,7 @@ describe('Input', () => {
   })
 
   it('should handle inline styles when component updates', () => {
-    wrapper = shallow(<Input width='100px' />)
+    wrapper = shallow(<WrappedInput width='100px' />)
 
     const spy = sinon.spy(wrapper.instance(), 'handleInlineStyles')
 
@@ -177,7 +182,7 @@ describe('Input', () => {
   })
 
   it('should not render inline styles when suffix or prefix don\'t change', () => {
-    wrapper = shallow(<Input width='100px' prefix='$' />)
+    wrapper = shallow(<WrappedInput width='100px' prefix='$' />)
 
     const spy = sinon.spy(wrapper.instance(), 'handleInlineStyles')
 
@@ -190,7 +195,8 @@ describe('Input', () => {
 
   it('should handle null values', () => {
     const changeCallbackSpy = sinon.spy()
-    wrapper = shallow(<Input name='input_field' value={null} changeCallback={changeCallbackSpy} nullValue='' />)
+
+    wrapper = shallow(<WrappedInput name='input_field' value={null} changeCallback={changeCallbackSpy} nullValue='' />)
     const inst = wrapper.instance()
 
     expect(wrapper.state().value).to.equal('')

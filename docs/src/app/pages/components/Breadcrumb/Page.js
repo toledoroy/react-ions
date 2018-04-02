@@ -1,6 +1,6 @@
 import React from 'react'
-import PropsList from 'private/modules/PropsList';
-import docs from '!!docgen!react-ions/lib/components/Breadcrumb/Breadcrumb';
+import PropsList from 'private/modules/PropsList'
+import docs from '!!docgen!react-ions/lib/components/Breadcrumb/Breadcrumb'
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExampleBreadcrumbDefault from './ExampleBreadcrumbDefault'
@@ -11,7 +11,7 @@ import exampleBreadcrumbMultipleSubpagesCode from '!raw!./ExampleBreadcrumbMulti
 const description = {
   breadcrumbDefault: 'This is the `breadcrumb component` showing a page with a subpage.',
   breadcrumbMultipleSubpages: 'This is the `breadcrumb component` showing a page and two subpages.'
-};
+}
 
 const BreadcrumbsPage = () => (
   <div>

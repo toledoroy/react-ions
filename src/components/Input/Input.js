@@ -106,10 +106,14 @@ class Input extends React.Component {
     /**
      * A fallback value for when the value is null.
      */
-    nullValue: PropTypes.string
+    nullValue: PropTypes.string,
+    /**
+     * A string to be used as the ID.
+     */
+    id: PropTypes.string
   }
 
-  _getValue = (props) => {
+  _getValue = props => {
     return (props.value === null && typeof props.nullValue !== 'undefined') ? props.nullValue : props.value
   }
 
@@ -121,13 +125,13 @@ class Input extends React.Component {
     this.handleInlineStyles()
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.value !== this.props.value) {
       this.setState({ value: this._getValue(nextProps) })
     }
   }
 
-  componentDidUpdate = (prevProps) => {
+  componentDidUpdate = prevProps => {
     if (prevProps.suffix !== this.props.suffix || prevProps.prefix !== this.props.prefix) {
       this.handleInlineStyles()
     }
@@ -148,7 +152,7 @@ class Input extends React.Component {
     this.setState({ inputStyles })
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     event.persist()
     const value = (this.props.valueType === 'number' && event.target.value !== '' && !isNaN(event.target.value))
                   ? parseFloat(event.target.value) : event.target.value
@@ -158,11 +162,11 @@ class Input extends React.Component {
     })
   }
 
-  handleFocus = (event) => {
+  handleFocus = event => {
     this.props.focusCallback && this.props.focusCallback(event)
   }
 
-  handleBlur = (event) => {
+  handleBlur = event => {
     this.props.blurCallback && this.props.blurCallback(event)
   }
 
@@ -184,10 +188,11 @@ class Input extends React.Component {
       <div className={inputClass}>
         {label && <label>{label}</label>}
         <div className={inputContainerClass} style={widthStyle}>
-          {prefix && <div ref={(c) => this._prefix = c} className={prefixClass}>{prefix}</div>}
+          {prefix && <div ref={c => this._prefix = c} className={prefixClass}>{prefix}</div>}
 
           <input
-            ref={(c) => this._input = c}
+            id={this.props.id}
+            ref={c => this._input = c}
             value={this.state.value}
             onFocus={this.handleFocus}
             onChange={this.handleChange}
@@ -202,7 +207,7 @@ class Input extends React.Component {
             onKeyDown={this.props.onKeyDown}>
           </input>
 
-          {suffix && <div ref={(c) => this._suffix = c} className={suffixClass}>{suffix}</div>}
+          {suffix && <div ref={c => this._suffix = c} className={suffixClass}>{suffix}</div>}
         </div>
       </div>
     )

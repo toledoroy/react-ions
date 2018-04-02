@@ -20,10 +20,10 @@ class ExampleInlineEditSelect extends React.Component {
   }
 
   makeReadonly = () => {
-    this.setState({ readonly: this.state.readonly ? false : true })
+    this.setState({ readonly: !this.state.readonly })
   }
 
-  changeCallback = (event) => {
+  changeCallback = event => {
     console.log('Selected:', event.target.value)
     this.setState({ value: event.target.value, loading: true })
 
@@ -41,7 +41,7 @@ class ExampleInlineEditSelect extends React.Component {
 
     return (
       <div>
-        <InlineEdit name='test' value={this.state.value} label='Email' icon='icon-mail-1' changeCallback={this.changeCallback} type='select' loading={this.state.loading} error={this.state.error} readonly={this.state.readonly} options={options} />
+        <InlineEdit name='test' value={this.state.value} label='Email' icon='md-email' changeCallback={this.changeCallback} type='select' loading={this.state.loading} error={this.state.error} readonly={this.state.readonly} options={options} />
         <div className={style['button-callback']}>
           <Button onClick={this.setErrorState}>{this.state.error === '' ? 'Mock Error' : 'Clear Error'}</Button>
           <Button onClick={this.makeReadonly}>{this.state.readonly ? 'Make Editable' : 'Make Readonly'}</Button>
