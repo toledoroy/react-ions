@@ -1,4 +1,8 @@
 ## HEAD
+## 5.0.4
+###### _April, 10, 2018_
+- Circle: update yml file for pushing to staging [#627](https://github.com/GetAmbassador/react-ions/pull/627)
+- Icons: added new icon, ic_devices_hub, for source [#627](https://github.com/GetAmbassador/react-ions/pull/627)
 
 ## 5.0.3
 ###### _March 21, 2018_
