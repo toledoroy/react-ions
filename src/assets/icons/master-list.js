@@ -68,6 +68,7 @@ var list = {
     materialPath + '/navigation/svg/production/ic_arrow_drop_down_24px.svg#md-arrow-drop-down',
     materialPath + '/navigation/svg/production/ic_arrow_drop_up_24px.svg#md-arrow-drop-up',
     materialPath + '/navigation/svg/production/ic_arrow_forward_24px.svg#md-arrow-forward',
+    materialPath + '/hardware/svg/production/ic_device_hub_24px.svg#md-source',
     materialPath + '/hardware/svg/production/ic_keyboard_arrow_up_24px.svg#md-keyboard-up',
     materialPath + '/hardware/svg/production/ic_keyboard_arrow_down_24px.svg#md-keyboard-down',
     materialPath + '/hardware/svg/production/ic_mouse_24px.svg#md-mouse',
