@@ -93,7 +93,7 @@ var list = {
     mbsyPath + '/google.svg#mbsy-google',
     mbsyPath + '/yahoo.svg#mbsy-yahoo',
     mbsyPath + '/twitter.svg#mbsy-twitter',
-    mbsyPath + '/klout.svg#md-klout',
+    mbsyPath + '/klout.svg#mbsy-klout',
     mbsyPath + '/linked_in.svg#mbsy-linkedin',
     mbsyPath + '/facebook.svg#mbsy-facebook',
     mbsyPath + '/slack.svg#mbsy-slack',
