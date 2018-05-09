@@ -1,6 +1,12 @@
 ## HEAD
+
+## 5.0.5
+###### _May 9, 2018_
+- Icons: Why you should forget everything you learned about viewbox. [#632](https://github.com/GetAmbassador/react-ions/pull/632)
+- Panel Group: Changing icon so that arrow points to the right in example [#631](https://github.com/GetAmbassador/react-ions/pull/631)
+
 ## 5.0.4
-###### _April, 10, 2018_
+###### _April 10, 2018_
 - Circle: update yml file for pushing to staging [#627](https://github.com/GetAmbassador/react-ions/pull/627)
 - Icons: added new icon, ic_devices_hub, for source [#627](https://github.com/GetAmbassador/react-ions/pull/627)
 
