@@ -3,6 +3,7 @@ import PropsList from 'private/modules/PropsList'
 import docs from '!!docgen!react-ions/lib/components/Input/Input'
 import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
+import ExampleInputCaret from './ExampleInputCaret'
 import ExampleInputDefault from './ExampleInputDefault'
 import exampleInputDefaultCode from '!raw!./ExampleInputDefault'
 import ExampleInputPlaceholder from './ExampleInputPlaceholder'
@@ -40,6 +41,11 @@ const InputPage = () => (
   <div>
     <div className={styles.content}>
       <div className={styles.block}>
+        <CodeExample
+          title='Input Caret Position'
+        >
+          <ExampleInputCaret />
+        </CodeExample>
         <CodeExample
           title='Default Input'
           description={description.inputDefault}
