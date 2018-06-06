@@ -19,8 +19,6 @@ class ExampleInputCaret extends React.Component {
     this._input.focus()
 
     this.setState({
-      // TODO: upgrade react from 16.2 -> 16.4, to gain access to React.createRef()
-      // Thus, giving us access to what we need in the DOM vs. doing this crap
       selectionStart: this._input._input.selectionStart
     })
   }
