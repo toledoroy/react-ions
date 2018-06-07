@@ -39,6 +39,7 @@
 }
 
 .list-wrapper {
+  line-height: initial; // needed in case dropdown is nested within components that set zero line-height
   margin: 0;
   min-width: 110px;
   padding: 0;
