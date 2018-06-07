@@ -2,13 +2,10 @@
 @import '../../styles/common/functions';
 
 .popover {
+  position: relative;
   > * {
     margin: 0;
   }
-}
-
-.popover-wrapper {
-  position: relative;
 }
 
 .popover-inner {
@@ -41,6 +38,14 @@
 .popover-showing {
   opacity: 1;
   visibility: visible;
+}
+
+.right {
+  left: calc(100% + 14px);
+}
+
+.left {
+  right: calc(100% + 14px);
 }
 
 .top {

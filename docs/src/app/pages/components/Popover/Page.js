@@ -5,6 +5,8 @@ import CodeExample from 'private/modules/CodeExample'
 import styles from 'private/css/content'
 import ExamplePopover from './ExamplePopover'
 import examplePopoverCode from '!raw!./ExamplePopover'
+import ExampleLeftPopover from './ExampleLeftPopover'
+import exampleLeftPopoverCode from '!raw!./ExampleLeftPopover'
 
 const description = {
   popoverDefault: 'This is the `popover component` as it appears by default.'
@@ -13,12 +15,21 @@ const description = {
 const PopoverPage = () => (
   <div>
     <div className={styles.content}>
-      <div className={styles.block}>
+      {/* <div className={styles.block}>
         <CodeExample
           title='Example Popover'
           description={description.popoverDefault}
           markup={examplePopoverCode}>
           <ExamplePopover />
+        </CodeExample>
+      </div> */}
+
+      <div className={styles.block}>
+        <CodeExample
+          title='Example Left Side Popover'
+          description={description.popoverDefault}
+          markup={exampleLeftPopoverCode}>
+          <ExampleLeftPopover />
         </CodeExample>
       </div>
       <div className={styles.block}>
