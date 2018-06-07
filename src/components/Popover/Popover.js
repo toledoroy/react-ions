@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import enhanceWithClickOutside from 'react-click-outside'
-import style from './style.scss'
-import classNames from 'classnames/bind'
 import StyledDiv from '../StyledDiv'
 import styles from './styles.css'
 
@@ -29,7 +27,7 @@ export class Popover extends React.Component {
      */
     content: PropTypes.node,
     /**
-     * Optional styles to add to the checkbox.
+     * Optional styles to add to the popover.
      */
     optClass: PropTypes.string,
     /**
@@ -55,35 +53,52 @@ export class Popover extends React.Component {
     if (nextProps.showing) {
       this._parentRect = this._popoverWrapper.getBoundingClientRect()
       this._boudingRect = this._popoverElement.getBoundingClientRect()
+
+      this.setState({ position: this.dynamicResposition(nextProps.defaultPosition) })
     }
+  }
+
+  dynamicResposition = defaultPosition => {
+
+    switch (defaultPosition) {
+      case 'top':
+        if (this._boudingRect.top < 0) return 'bottom'
+        break
+      case 'bottom':
+        if (this._boudingRect.bottom > window.innerHeight) return 'top'
+        break
+      case 'left':
+        if (this._boudingRect.left < 0) return 'right'
+        break
+      case 'right':
+        if (this._boudingRect.right > window.innerWidth) return 'left'
+        break
+    }
+    return defaultPosition
   }
 
   handleClickOutside = () => {
     if (this.props.showing && this.props.onRequestClose) this.props.onRequestClose()
   }
 
-  render = () => {
-    console.log(this._boudingRect, this._parentRect)
-
-    return (
-      <StyledDiv
-        css={styles({ ...this.props, ...this.state, parent: this._parentRect })}
-        className={this.props.optClass}
-        innerRef={p => {this._popoverWrapper = p}}
+  render = () => (
+    <StyledDiv
+      css={styles({ ...this.props, ...this.state, parent: this._parentRect })}
+      className={this.props.optClass}
+      innerRef={p => {this._popoverWrapper = p}}
+    >
+      <div
+        className='popoverInner'
+        ref={c => (this._popoverElement = c)}
       >
-        <div
-          className='popoverInner'
-          ref={c => (this._popoverElement = c)}
-        >
-          <div className='popoverContent'>
-            {this.props.content}
-          </div>
+        <div className='popoverContent'>
+          {this.props.content}
         </div>
-        { this.props.children }
+      </div>
+      { this.props.children }
 
-      </StyledDiv>
-    )
-  }
+    </StyledDiv>
+  )
 }
 
 export default enhanceWithClickOutside(Popover)

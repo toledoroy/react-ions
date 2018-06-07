@@ -23,19 +23,19 @@ const styles = ({ showing, position = 'bottom', parent = { width: 0, height: 0 }
   }
   const popoverPos = {
     left: {
-      right: `${Math.ceil(parent.width) + 14}px`,
+      right: `${Math.ceil(parent.width) + 20}px`,
       transform: `translateY(calc(-50% + ${parent.height / 2}px))`
     },
     right: {
-      left: `${Math.ceil(parent.width) + 14}px`,
+      left: `${Math.ceil(parent.width) + 20}px`,
       transform: `translateY(calc(-50% + ${parent.height / 2}px))`
     },
     top: {
-      bottom: `${Math.ceil(parent.height) + 14}px`,
+      bottom: `${Math.ceil(parent.height) + 20}px`,
       transform: `translateX(calc(-50% + ${parent.width / 2}px))`
     },
     bottom: {
-      top: `${Math.ceil(parent.height) + 14}px`,
+      top: `${Math.ceil(parent.height) + 20}px`,
       transform: `translateX(calc(-50% + ${parent.width / 2}px))`
     }
   }
