@@ -1,43 +1,35 @@
 import colors from '../../styles/common/colors.css'
 import { zLayers } from '../../styles/common/functions.css'
 
-const styles = ({ showing, position = 'bottom', parent = { width: 0, height: 0 } }) => {
+const styles = ({
+  showing,
+  position = 'bottom',
+  parent = { width: 0, height: 0 },
+  width = 300,
+  maxHeight = 'initial'
+}) => {
+  const caretOffset = '-10px'
+  const caretCenter = 'calc(50% - 10px)'
+  const popoverOffset = `${Math.ceil(
+    position === 'left' || position === 'right'
+      ? parent.width
+      : parent.height
+    ) + 20}px`
+  const popoverTransform =
+    position === 'left' || position === 'right'
+      ? `translateY(calc(-50% + ${parent.height / 2}px))`
+      : `translateX(calc(-50% + ${parent.width / 2}px))`
   const caretPos = {
-    left: {
-      right: '-10px',
-      bottom: 'calc(50% - 10px)'
-    },
-    right: {
-      left: '-10px',
-      bottom: 'calc(50% - 10px)'
-    },
-    top: {
-      left: 'calc(50% - 10px)',
-      bottom: '-10px'
-    },
-    bottom: {
-      left: 'calc(50% - 10px)',
-      top: '-10px'
-    }
-
+    left: { right: caretOffset, bottom: caretCenter },
+    right: { left: caretOffset, bottom: caretCenter },
+    top: { left: caretCenter, bottom: caretOffset },
+    bottom: { left: caretCenter, top: caretOffset }
   }
   const popoverPos = {
-    left: {
-      right: `${Math.ceil(parent.width) + 20}px`,
-      transform: `translateY(calc(-50% + ${parent.height / 2}px))`
-    },
-    right: {
-      left: `${Math.ceil(parent.width) + 20}px`,
-      transform: `translateY(calc(-50% + ${parent.height / 2}px))`
-    },
-    top: {
-      bottom: `${Math.ceil(parent.height) + 20}px`,
-      transform: `translateX(calc(-50% + ${parent.width / 2}px))`
-    },
-    bottom: {
-      top: `${Math.ceil(parent.height) + 20}px`,
-      transform: `translateX(calc(-50% + ${parent.width / 2}px))`
-    }
+    left: { right: popoverOffset, transform: popoverTransform },
+    right: { left: popoverOffset, transform: popoverTransform },
+    top: { bottom: popoverOffset, transform: popoverTransform },
+    bottom: { top: popoverOffset, transform: popoverTransform }
   }
 
   return {
@@ -72,7 +64,6 @@ const styles = ({ showing, position = 'bottom', parent = { width: 0, height: 0 }
     },
     '.popoverContent': {
       overflowWrap: 'break-word',
-      position: 'relative',
       wordWrap: 'break-word',
       zIndex: 1,
 

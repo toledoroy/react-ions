@@ -27,6 +27,10 @@ export class Popover extends React.Component {
      */
     content: PropTypes.node,
     /**
+    * The width of the popover, in any unit supported in css
+    */
+    width: PropTypes.string,
+    /**
      * Optional styles to add to the popover.
      */
     optClass: PropTypes.string,
@@ -38,6 +42,7 @@ export class Popover extends React.Component {
 
   static defaultProps = {
     defaultPosition: 'bottom',
+    width: '300px',
     showing: false
   }
 
@@ -54,11 +59,13 @@ export class Popover extends React.Component {
       this._parentRect = this._popoverWrapper.getBoundingClientRect()
       this._boudingRect = this._popoverElement.getBoundingClientRect()
 
+      console.log(this.dynamicResposition(nextProps.defaultPosition))
       this.setState({ position: this.dynamicResposition(nextProps.defaultPosition) })
     }
   }
 
   dynamicResposition = defaultPosition => {
+    console.log(defaultPosition)
 
     switch (defaultPosition) {
       case 'top':
@@ -74,7 +81,7 @@ export class Popover extends React.Component {
         if (this._boudingRect.right > window.innerWidth) return 'left'
         break
     }
-    return defaultPosition
+    return this.state.position
   }
 
   handleClickOutside = () => {
