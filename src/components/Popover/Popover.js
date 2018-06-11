@@ -9,10 +9,6 @@ export class Popover extends React.Component {
     super(props)
   }
 
-  state = {
-    position: this.props.defaultPosition
-  }
-
   static propTypes = {
     /**
      * Whether to show the popover.
@@ -31,9 +27,13 @@ export class Popover extends React.Component {
     */
     width: PropTypes.string,
     /**
-     * Optional styles to add to the popover.
+     * Optional class to add to the popover.
      */
     optClass: PropTypes.string,
+    /**
+     * Optional class to add to the popover.
+     */
+    className: PropTypes.string,
     /**
      * The method to be triggered on close.
      */
@@ -46,12 +46,8 @@ export class Popover extends React.Component {
     showing: false
   }
 
-  shouldComponentUpdate = (nextProps, nextState) => {
-    if (this.props.showing !== nextProps.showing) return true
-    if (this.props.content !== nextProps.content) return true
-    if (this.state.position !== nextState.position) return true
-
-    return false
+  state = {
+    position: this.props.defaultPosition
   }
 
   componentWillReceiveProps = nextProps => {
@@ -59,14 +55,11 @@ export class Popover extends React.Component {
       this._parentRect = this._popoverWrapper.getBoundingClientRect()
       this._boudingRect = this._popoverElement.getBoundingClientRect()
 
-      console.log(this.dynamicResposition(nextProps.defaultPosition))
       this.setState({ position: this.dynamicResposition(nextProps.defaultPosition) })
     }
   }
 
   dynamicResposition = defaultPosition => {
-    console.log(defaultPosition)
-
     switch (defaultPosition) {
       case 'top':
         if (this._boudingRect.top < 0) return 'bottom'
@@ -91,7 +84,7 @@ export class Popover extends React.Component {
   render = () => (
     <StyledDiv
       css={styles({ ...this.props, ...this.state, parent: this._parentRect })}
-      className={this.props.optClass}
+      className={this.props.optClass + ' ' + this.props.className}
       innerRef={p => {this._popoverWrapper = p}}
     >
       <div
@@ -102,7 +95,7 @@ export class Popover extends React.Component {
           {this.props.content}
         </div>
       </div>
-      { this.props.children }
+      {this.props.children}
 
     </StyledDiv>
   )

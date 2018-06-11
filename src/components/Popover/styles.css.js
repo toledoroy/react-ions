@@ -5,8 +5,7 @@ const styles = ({
   showing,
   position = 'bottom',
   parent = { width: 0, height: 0 },
-  width = 300,
-  maxHeight = 'initial'
+  width = '300px'
 }) => {
   const caretOffset = '-10px'
   const caretCenter = 'calc(50% - 10px)'

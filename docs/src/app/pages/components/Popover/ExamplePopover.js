@@ -24,7 +24,7 @@ class ExampleLeftPopover extends React.Component {
   getPopoverContent = () => (
     <div className={localStyle['popover-wrapper']}>
       <h1>Lorem ipsum dolor sit amet.</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nisi non metus malesuada feugiat. Curabitur magna lectus, gravida ut tempor in, malesuada vitae erat. Donec porttitor neque id magna posuere, et malesuada dolor laoreet. Curabitur ut lorem nec enim mattis ultrices quis non metus. Aenean sagittis ipsum eros, eget lobortis mi auctor a. Donec tincidunt leo interdum, venenatis magna quis, ullamcorper tellus. Fusce semper lectus ac lectus pretium, et facilisis nibh posuere. Vivamus non justo commodo, ornare ipsum ut, sodales diam. Vestibulum congue nulla id tortor maximus tempus. Nullam scelerisque magna at augue cursus, id ultricies orci venenatis. Donec finibus risus ligula, quis porttitor neque sagittis ut. Suspendisse semper nulla vitae ligula congue, ut tincidunt ante lacinia. Etiam porttitor lectus vel vulputate bibendum. Nullam libero dolor, sollicitudin eu nisi a, scelerisque lobortis lectus. In at fringilla magna.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur.</p>
       <Button onClick={this.togglePopover} optClass={localStyle['popover-btn']}>Close</Button>
     </div>
   )
