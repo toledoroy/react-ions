@@ -3,7 +3,7 @@ import Popover from 'react-ions/lib/components/Popover'
 import Button from 'react-ions/lib/components/Button'
 import localStyle from './style.scss'
 
-class ExampleLeftPopover extends React.Component {
+class ExamplePopover extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -90,4 +90,4 @@ class ExampleLeftPopover extends React.Component {
   )
 }
 
-export default ExampleLeftPopover
+export default ExamplePopover

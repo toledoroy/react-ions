@@ -7,6 +7,9 @@ import styles from './styles.css'
 export class Popover extends React.Component {
   constructor(props) {
     super(props)
+    if (props.optClass && process.env.NODE_ENV !== 'production') {
+      console.warn('Popover: Use of optClass will be deprecated as of react-ions 6.0.0, please use `className` instead')
+    }
   }
 
   static propTypes = {
@@ -31,7 +34,7 @@ export class Popover extends React.Component {
      */
     optClass: PropTypes.string,
     /**
-     * Optional class to add to the popover.
+     * Optional class to add to the popover. (DEPRECATED, use className instead)
      */
     className: PropTypes.string,
     /**
