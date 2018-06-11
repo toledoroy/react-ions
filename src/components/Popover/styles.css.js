@@ -13,7 +13,7 @@ const styles = ({
     position === 'left' || position === 'right'
       ? parent.width
       : parent.height
-    ) + 20}px`
+  ) + 20}px`
   const popoverTransform =
     position === 'left' || position === 'right'
       ? `translateY(calc(-50% + ${parent.height / 2}px))`
