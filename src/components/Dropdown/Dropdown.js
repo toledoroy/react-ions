@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import enhanceWithClickOutside from 'react-click-outside'
 import Button from '../Button/Button'
 import StyledDiv from '../StyledDiv'
-import styles from './style.css.js'
+import styles from './styles.css'
 import Immutable from 'immutable'
 
 export class Dropdown extends React.Component {
