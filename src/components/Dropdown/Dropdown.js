@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import enhanceWithClickOutside from 'react-click-outside'
 import Button from '../Button/Button'
-import style from './style.scss'
-import classNames from 'classnames/bind'
+import StyledDiv from '../StyledDiv'
+import styles from './style.css.js'
 import Immutable from 'immutable'
 
 export class Dropdown extends React.Component {
   constructor(props) {
     super(props)
+
+    if (props.optClass && process.env.NODE_ENV !== 'production') {
+      console.warn('Dropdown: Use of optClass will be deprecated as of react-ions 6.0.0, please use `className` instead')
+    }
   }
 
   static defaultProps = {
@@ -26,6 +30,10 @@ export class Dropdown extends React.Component {
      */
     isOpened: PropTypes.bool,
     /**
+     * The alignment of the dropdown with respect to the trigger.
+     */
+    alignment: PropTypes.oneOf(['left', 'right']),
+    /**
      * Optional styles to add to the button.
      */
     optClass: PropTypes.string,
@@ -40,19 +48,21 @@ export class Dropdown extends React.Component {
     /**
      * Optional array of items used in a dropdown list
      */
-    listItems: PropTypes.array
+    listItems: PropTypes.array,
+    /**
+     * Optional class to add to the popover.
+     */
+    className: PropTypes.string
+  }
+
+  static defaultProps = {
+    alignment: 'left'
   }
 
   state = {
     isOpened: this.props.isOpened,
     listItems: this.props.listItems ? Immutable.fromJS(this.props.listItems) : Immutable.fromJS([]),
     clickedItem: null
-  }
-
-  componentWillMount = () => {
-    if (this.props.isOpened) {
-      this.setState({isOpened: true})
-    }
   }
 
   componentWillReceiveProps = nextProps => {
@@ -108,12 +118,7 @@ export class Dropdown extends React.Component {
     }
   }
 
-  render() {
-    const cx = classNames.bind(style)
-    const isOpenedClass = this.state.isOpened ? style['is-opened'] : null
-    const dropdownClasses = cx(style['dropdown-component'], this.props.optClass, isOpenedClass)
-    const dropdownWrapperClasses = cx(style['dropdown-wrapper'], (this.props.listItems ? style['dropdown-wrapper-flush'] : null))
-
+  render = () => {
     const listItems = this.state.listItems.toJS()
     const listItemNodes = listItems instanceof Array
       ? listItems.map((item, index) =>
@@ -122,29 +127,31 @@ export class Dropdown extends React.Component {
       : []
 
     return (
-      <div className={dropdownClasses}>
-        <span className={style.trigger} onClick={this.toggleDropdown}>{this.props.trigger}</span>
-        <div className={dropdownWrapperClasses}>
+      <StyledDiv
+        css={styles({ ...this.props, isOpened: this.state.isOpened })}
+        className={this.props.optClass + ' ' + this.props.className}>
+
+        <span className='trigger' onClick={this.toggleDropdown}>{this.props.trigger}</span>
+        <div className='dropdown-wrapper'>
           {
             listItemNodes.length > 0 && !this.state.confirmationOverlayOpen
-            ? <ul className={style['list-wrapper']}>
+            ? <ul className='list-wrapper'>
                 {listItemNodes}
               </ul>
             : this.props.children
           }
           {
-            this.state.confirmationOverlayOpen
-            ? <div className={style.overlay}>
+            this.state.confirmationOverlayOpen &&
+              <div className='overlay'>
                 <span>Are you sure?</span>
-                <div className={style['button-wrapper']}>
+                <div className='button-wrapper'>
                   <Button onClick={this.handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>
                   <Button onClick={this.handleConfirmation.bind(this, true)}>Yes</Button>
                 </div>
               </div>
-            : null
           }
         </div>
-      </div>
+      </StyledDiv>
     )
   }
 }
