@@ -1,10 +1,10 @@
-import React from 'react'
+import { Component } from 'react'
 import PropTypes from 'prop-types'
 import enhanceWithClickOutside from 'react-click-outside'
 import StyledDiv from '../StyledDiv'
 import styles from './styles.css'
 
-export class Popover extends React.Component {
+export class Popover extends Component {
   constructor(props) {
     super(props)
     if (props.optClass && process.env.NODE_ENV !== 'production') {
@@ -30,11 +30,11 @@ export class Popover extends React.Component {
     */
     width: PropTypes.string,
     /**
-     * Optional class to add to the popover.
+     * Optional class to add to the popover. (DEPRECATED, use className instead)
      */
     optClass: PropTypes.string,
     /**
-     * Optional class to add to the popover. (DEPRECATED, use className instead)
+     * Optional class to add to the popover.
      */
     className: PropTypes.string,
     /**
@@ -53,28 +53,37 @@ export class Popover extends React.Component {
     position: this.props.defaultPosition
   }
 
-  componentWillReceiveProps = nextProps => {
-    if (nextProps.showing) {
-      this._parentRect = this._popoverWrapper.getBoundingClientRect()
-      this._boudingRect = this._popoverElement.getBoundingClientRect()
-
-      this.setState({ position: this.dynamicResposition(nextProps.defaultPosition) })
-    }
+  componentDidMount = () => {
+    this.updateRect()
+    this.forceUpdate()
   }
 
-  dynamicResposition = defaultPosition => {
+  componentDidUpdate = (prevProps, prevState) => {
+    this.updateRect()
+
+    const updatedPosition = this.getPosition(this.props.defaultPosition)
+
+    if (updatedPosition !== prevState.position) this.setState({ position: updatedPosition })
+  }
+
+  updateRect = () => {
+    this._parentRect = this._popoverWrapper.getBoundingClientRect()
+    this._boundingRect = this._popoverElement.getBoundingClientRect()
+  }
+
+  getPosition = defaultPosition => {
     switch (defaultPosition) {
       case 'top':
-        if (this._boudingRect.top < 0) return 'bottom'
+        if (this._boundingRect.top < 0) return 'bottom'
         break
       case 'bottom':
-        if (this._boudingRect.bottom > window.innerHeight) return 'top'
+        if (this._boundingRect.bottom > window.innerHeight) return 'top'
         break
       case 'left':
-        if (this._boudingRect.left < 0) return 'right'
+        if (this._boundingRect.left < 0) return 'right'
         break
       case 'right':
-        if (this._boudingRect.right > window.innerWidth) return 'left'
+        if (this._boundingRect.right > window.innerWidth) return 'left'
         break
     }
     return this.state.position
