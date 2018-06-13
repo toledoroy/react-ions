@@ -8,7 +8,8 @@ const styles = ({ listItems, alignment, optClass, isOpened }) => {
       margin: 0
     },
     '.trigger': {
-      cursor: 'pointer'
+      cursor: 'pointer',
+      position: 'relative'
     },
     '.dropdown-wrapper': {
       backgroundColor: colors.white,
@@ -22,6 +23,7 @@ const styles = ({ listItems, alignment, optClass, isOpened }) => {
       overflow: listItems ? 'hidden' : 'unset',
       padding: listItems ? 0 : '10px',
       position: 'absolute',
+      right: isOpened && alignment === 'right' ? 0 : 'unset',
       visibility: isOpened ? 'visible' : 'hidden',
       zIndex: zLayers.dropdown,
     },

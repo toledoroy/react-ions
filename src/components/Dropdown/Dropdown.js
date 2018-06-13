@@ -67,17 +67,17 @@ export class Dropdown extends React.Component {
 
   componentWillReceiveProps = nextProps => {
     if (nextProps.isOpened !== this.state.isOpened) {
-      this.setState({isOpened: !!nextProps.isOpened})
+      this.setState({ isOpened: !!nextProps.isOpened })
     }
 
     if (nextProps.listItems && !Immutable.is(Immutable.fromJS(nextProps.listItems), this.state.listItems)) {
-      this.setState({listItems: Immutable.fromJS(nextProps.listItems)})
+      this.setState({ listItems: Immutable.fromJS(nextProps.listItems) })
     }
   }
 
   toggleDropdown = e => {
     e.preventDefault()
-    this.setState({isOpened: !this.state.isOpened}, () => {
+    this.setState({ isOpened: !this.state.isOpened }, () => {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback(this.state.isOpened)
       }
@@ -87,7 +87,7 @@ export class Dropdown extends React.Component {
   handleClickOutside = () => {
     if (!this.state.isOpened) return
 
-    this.setState({isOpened: false, confirmationOverlayOpen: false, clickedItem: null}, () => {
+    this.setState({ isOpened: false, confirmationOverlayOpen: false, clickedItem: null }, () => {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback(this.state.isOpened)
       }
@@ -95,7 +95,7 @@ export class Dropdown extends React.Component {
   }
 
   listItemCallback = item => {
-    this.setState({isOpened: false, confirmationOverlayOpen: false, clickedItem: null})
+    this.setState({ isOpened: false, confirmationOverlayOpen: false, clickedItem: null })
 
     if (typeof item.callback === 'function') {
       item.callback(item.name)
@@ -131,26 +131,29 @@ export class Dropdown extends React.Component {
         css={styles({ ...this.props, isOpened: this.state.isOpened })}
         className={this.props.optClass + ' ' + this.props.className}>
 
-        <span className='trigger' onClick={this.toggleDropdown}>{this.props.trigger}</span>
-        <div className='dropdown-wrapper'>
-          {
-            listItemNodes.length > 0 && !this.state.confirmationOverlayOpen
-            ? <ul className='list-wrapper'>
-                {listItemNodes}
-              </ul>
-            : this.props.children
-          }
-          {
-            this.state.confirmationOverlayOpen &&
-              <div className='overlay'>
-                <span>Are you sure?</span>
-                <div className='button-wrapper'>
-                  <Button onClick={this.handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>
-                  <Button onClick={this.handleConfirmation.bind(this, true)}>Yes</Button>
+        <span className='trigger' onClick={this.toggleDropdown}>
+          {this.props.trigger}
+
+          <div className='dropdown-wrapper'>
+            {
+              listItemNodes.length > 0 && !this.state.confirmationOverlayOpen
+              ? <ul className='list-wrapper'>
+                  {listItemNodes}
+                </ul>
+              : this.props.children
+            }
+            {
+              this.state.confirmationOverlayOpen &&
+                <div className='overlay'>
+                  <span>Are you sure?</span>
+                  <div className='button-wrapper'>
+                    <Button onClick={this.handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>
+                    <Button onClick={this.handleConfirmation.bind(this, true)}>Yes</Button>
+                  </div>
                 </div>
-              </div>
-          }
-        </div>
+            }
+          </div>
+        </span>
       </StyledDiv>
     )
   }
