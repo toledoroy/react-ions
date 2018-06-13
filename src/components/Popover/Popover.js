@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import enhanceWithClickOutside from 'react-click-outside'
 import StyledDiv from '../StyledDiv'
@@ -67,8 +67,8 @@ export class Popover extends Component {
   }
 
   updateRect = () => {
-    this._parentRect = this._popoverWrapper.getBoundingClientRect()
-    this._boundingRect = this._popoverElement.getBoundingClientRect()
+    this._parentRect = this._popoverWrapper && this._popoverWrapper.getBoundingClientRect()
+    this._boundingRect = this._popoverWrapper && this._popoverElement.getBoundingClientRect()
   }
 
   getPosition = defaultPosition => {
@@ -96,7 +96,7 @@ export class Popover extends Component {
   render = () => (
     <StyledDiv
       css={styles({ ...this.props, ...this.state, parent: this._parentRect })}
-      className={this.props.optClass + ' ' + this.props.className}
+      className={[this.props.optClass, this.props.className].join(' ').trim()}
       innerRef={p => {this._popoverWrapper = p}}
     >
       <div
