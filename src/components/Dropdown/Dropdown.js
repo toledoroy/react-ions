@@ -1,11 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import enhanceWithClickOutside from 'react-click-outside'
 import Button from '../Button/Button'
 import StyledDiv from '../StyledDiv'
 import styles from './styles.css'
-import Immutable from 'immutable'
 
 export class Dropdown extends React.Component {
   constructor(props) {
@@ -34,7 +32,7 @@ export class Dropdown extends React.Component {
      */
     alignment: PropTypes.oneOf(['left', 'right']),
     /**
-     * Optional styles to add to the button.
+     * Optional styles to add to the button. (DEPRECATED in react-ions 6.0.0, please use className instead)
      */
     optClass: PropTypes.string,
     /**
@@ -56,22 +54,18 @@ export class Dropdown extends React.Component {
   }
 
   static defaultProps = {
-    alignment: 'left'
+    alignment: 'left',
+    isOpened: false
   }
 
   state = {
     isOpened: this.props.isOpened,
-    listItems: this.props.listItems ? Immutable.fromJS(this.props.listItems) : Immutable.fromJS([]),
     clickedItem: null
   }
 
   componentWillReceiveProps = nextProps => {
     if (nextProps.isOpened !== this.state.isOpened) {
       this.setState({ isOpened: !!nextProps.isOpened })
-    }
-
-    if (nextProps.listItems && !Immutable.is(Immutable.fromJS(nextProps.listItems), this.state.listItems)) {
-      this.setState({ listItems: Immutable.fromJS(nextProps.listItems) })
     }
   }
 
@@ -119,7 +113,7 @@ export class Dropdown extends React.Component {
   }
 
   render = () => {
-    const listItems = this.state.listItems.toJS()
+    const listItems = this.props.listItems
     const listItemNodes = listItems instanceof Array
       ? listItems.map((item, index) =>
           <li key={index} onClick={this.handleItemClick.bind(this, item)}>{item.name}</li>
