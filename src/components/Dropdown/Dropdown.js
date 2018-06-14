@@ -129,7 +129,7 @@ export class Dropdown extends React.Component {
     return (
       <StyledDiv
         css={styles({ ...this.props, isOpened: this.state.isOpened })}
-        className={this.props.optClass + ' ' + this.props.className}>
+        className={[this.props.optClass, this.props.className].join(' ').trim()}>
 
         <span className='trigger' onClick={this.toggleDropdown}>
           {this.props.trigger}
