@@ -25,7 +25,7 @@ const styles = ({ listItems, alignment, optClass, isOpened }) => {
       position: 'absolute',
       right: isOpened && alignment === 'right' ? 0 : 'unset',
       visibility: isOpened ? 'visible' : 'hidden',
-      zIndex: zLayers.dropdown,
+      zIndex: zLayers.dropdown
     },
     '.list-wrapper': {
       margin: 0,

@@ -18,7 +18,6 @@ describe('Dropdown', () => {
   it('should take an optional CSS class', () => {
     wrapper = mount(<Dropdown optClass='test' trigger='Test'>This is a test.</Dropdown>)
 
-    console.log(wrapper.debug())
     expect(wrapper.childAt(0).hasClass('test')).to.equal(true)
   })
 
