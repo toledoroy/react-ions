@@ -1,6 +1,7 @@
 import colors from '../../styles/common/colors.css'
 import { zLayers } from '../../styles/common/functions.css'
 
+// TODO: Write test(s) for any logic contained herein
 const styles = ({ listItems, alignment, optClass, isOpened }) => {
   return {
     display: 'inline-block',
