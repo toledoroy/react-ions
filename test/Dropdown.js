@@ -62,6 +62,7 @@ describe('Dropdown', () => {
   })
 
   it('should display a confirmation overlay when an item is clicked', () => {
+    const stopPropagation = sinon.spy()
     const listItems = [
       {name: 'test1'},
       {name: 'test2'},
@@ -69,18 +70,21 @@ describe('Dropdown', () => {
     ]
 
     wrapper = shallow(<Dropdown optClass='test' listItems={listItems}>This is a test.</Dropdown>)
-    wrapper.instance().handleItemClick(listItems[0])
+    wrapper.instance().handleItemClick(listItems[0], { stopPropagation })
 
     expect(wrapper.state().confirmationOverlayOpen).to.be.false
     expect(wrapper.state().clickedItem).to.be.null
+    expect(stopPropagation.calledOnce).to.be.true
 
-    wrapper.instance().handleItemClick(listItems[2])
+    wrapper.instance().handleItemClick(listItems[2], { stopPropagation })
 
     expect(wrapper.state().confirmationOverlayOpen).to.be.true
     expect(wrapper.state().clickedItem).to.deep.equal(listItems[2])
+    expect(stopPropagation.calledTwice).to.be.true
   })
 
   it('should close the confirmation overlay when action buttons are clicked', () => {
+    const stopPropagation = sinon.spy()
     const listItems = [
       {name: 'test1'},
       {name: 'test2'},
@@ -89,14 +93,14 @@ describe('Dropdown', () => {
 
     wrapper = shallow(<Dropdown optClass='test' listItems={listItems} isOpened={true}>This is a test.</Dropdown>)
 
-    wrapper.instance().handleItemClick(listItems[2])
+    wrapper.instance().handleItemClick(listItems[2], { stopPropagation })
     wrapper.instance().handleConfirmation(false)
 
     expect(wrapper.state().isOpened).to.be.true
     expect(wrapper.state().confirmationOverlayOpen).to.be.false
     expect(wrapper.state().clickedItem).to.be.null
 
-    wrapper.instance().handleItemClick(listItems[2])
+    wrapper.instance().handleItemClick(listItems[2], { stopPropagation })
     wrapper.instance().handleConfirmation(true)
 
     expect(wrapper.state().isOpened).to.be.false
