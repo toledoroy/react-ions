@@ -71,6 +71,7 @@ export class Dropdown extends React.Component {
 
   toggleDropdown = e => {
     e.preventDefault()
+
     this.setState({ isOpened: !this.state.isOpened }, () => {
       if (typeof this.props.changeCallback === 'function') {
         this.props.changeCallback(this.state.isOpened)
@@ -104,7 +105,11 @@ export class Dropdown extends React.Component {
     }
   }
 
-  handleItemClick = item => {
+  handleItemClick = (item, e) => {
+    // Since the dropdown is contained within the trigger, stop the click event
+    // from propagating up (which causes toggleDropdown to be called unnecessarily)
+    e.stopPropagation()
+
     if (item.callbackConfirmation) {
       this.setState({ confirmationOverlayOpen: true, clickedItem: item })
     } else {
