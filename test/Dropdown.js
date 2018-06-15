@@ -94,14 +94,14 @@ describe('Dropdown', () => {
     wrapper = shallow(<Dropdown optClass='test' listItems={listItems} isOpened={true}>This is a test.</Dropdown>)
 
     wrapper.instance().handleItemClick(listItems[2], { stopPropagation })
-    wrapper.instance().handleConfirmation(false)
+    wrapper.instance().handleConfirmation(false, { stopPropagation })
 
     expect(wrapper.state().isOpened).to.be.true
     expect(wrapper.state().confirmationOverlayOpen).to.be.false
     expect(wrapper.state().clickedItem).to.be.null
 
     wrapper.instance().handleItemClick(listItems[2], { stopPropagation })
-    wrapper.instance().handleConfirmation(true)
+    wrapper.instance().handleConfirmation(true, { stopPropagation })
 
     expect(wrapper.state().isOpened).to.be.false
     expect(wrapper.state().confirmationOverlayOpen).to.be.false

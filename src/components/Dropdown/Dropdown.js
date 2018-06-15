@@ -97,7 +97,11 @@ export class Dropdown extends React.Component {
     }
   }
 
-  handleConfirmation = confirm => {
+  handleConfirmation = (confirm, e) => {
+    // Since the dropdown is contained within the trigger, stop the click event
+    // from propagating up (which causes toggleDropdown to be called unnecessarily)
+    e.stopPropagation()
+
     if (confirm) {
       this.listItemCallback(this.state.clickedItem)
     } else {
