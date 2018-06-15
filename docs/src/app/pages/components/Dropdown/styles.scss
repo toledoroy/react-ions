@@ -12,8 +12,13 @@
 
 .wrapper {
   @include vertical-align('inline');
+  white-space: nowrap;
 
   span {
     margin-left: 10px;
   }
+}
+
+button {
+  margin-right: unset !important;
 }
