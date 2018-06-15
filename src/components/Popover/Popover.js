@@ -86,7 +86,7 @@ export class Popover extends Component {
         if (this._boundingRect.right > window.innerWidth) return 'left'
         break
     }
-    return this.state.position
+    return defaultPosition
   }
 
   handleClickOutside = () => {
