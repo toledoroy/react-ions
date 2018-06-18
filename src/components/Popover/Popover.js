@@ -61,7 +61,7 @@ export class Popover extends Component {
   componentDidUpdate = (prevProps, prevState) => {
     this.updateRect()
 
-    const updatedPosition = this.getPosition(this.props.defaultPosition)
+    const updatedPosition = this.getPosition(this.state.position)
 
     if (updatedPosition !== prevState.position) this.setState({ position: updatedPosition })
   }
