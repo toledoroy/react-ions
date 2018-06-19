@@ -40,7 +40,7 @@ const styles = ({
       backgroundColor: colors.white,
       borderRadius: '3px',
       boxShadow: '0 8px 24px 0 rgba(27,37,47,0.5)',
-      width: '300px',
+      width,
       boxSizing: 'border-box',
       padding: '20px',
       position: 'absolute',
