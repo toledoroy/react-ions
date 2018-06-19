@@ -32,6 +32,7 @@ const styles = ({ listItems, alignment, optClass, isOpened }) => {
       margin: 0,
       minWidth: '110px',
       padding: 0,
+      lineHeight: 'initial',
       li: {
         boxSizing: 'border-box',
         color: colors.primary_4,
