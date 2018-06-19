@@ -1,72 +1,89 @@
 import React from 'react'
-import Button from '../src/components/Button'
+import StyledDiv from '../src/components/StyledDiv'
 import { Popover } from '../src/components/Popover/Popover'
+import styles from '../src/components/Popover/styles.css'
 
 describe('Popover', () => {
-  const content = <Button>Test button</Button>
-  const optClass = 'test-class'
-  const onRequestClose = sinon.spy()
-  const defaultPosition = 'bottom'
+  const defaultProps = {
+    showing: false,
+    defaultPosition: 'top',
+    content: (<p>Test Content</p>),
+    width: '400px',
+    optClass: 'popover',
+    className: 'popoverClass',
+    onRequestClose: sinon.spy()
+  }
+  let props = defaultProps
 
-  it('should render itself', () => {
-    const wrapper = shallow(<Popover content={content} optClass={optClass} onRequestClose={onRequestClose} />)
-
-    expect(wrapper.hasClass('popover')).to.be.true
-    expect(wrapper.hasClass(optClass)).to.be.true
-    expect(wrapper.state().position).to.equal('bottom')
-    expect(wrapper.find(Button)).to.be.length(1)
+  beforeEach(() => {
+    props = defaultProps
   })
 
-  it('should not update', () => {
-    const wrapper = shallow(<Popover content={content} optClass={optClass} onRequestClose={onRequestClose} />)
+  describe('handleClickOutside', () => {
+    it('does nothing when closed', () => {
+      shallow(<Popover {...props} />).instance().handleClickOutside()
+      expect(props.onRequestClose.calledOnce).to.be.false
+    })
 
-    expect(
-      wrapper.instance().shouldComponentUpdate({ defaultPosition, content, optClass, showing: false, onRequestClose }, { position: 'bottom' })
-    ).to.be.false
-    expect(
-      wrapper.instance().shouldComponentUpdate({ defaultPosition: 'top', content, optClass, showing: false, onRequestClose }, { position: 'bottom' })
-    ).to.be.false
-    expect(
-      wrapper.instance().shouldComponentUpdate({ defaultPosition, content, optClass: 'other-class', showing: false, onRequestClose }, { position: 'bottom' })
-    ).to.be.false
-    expect(
-      wrapper.instance().shouldComponentUpdate({ defaultPosition, content, optClass, showing: false, onRequestClose: () => {} }, { position: 'bottom' })
-    ).to.be.false
+    it('requests close when it is open', () => {
+      shallow(<Popover {...props} showing={true} />).instance().handleClickOutside()
+      expect(props.onRequestClose.calledOnce).to.be.true
+    })
   })
 
-  it('should update', () => {
-    const wrapper = shallow(<Popover content={content} optClass={optClass} onRequestClose={onRequestClose} />)
+  describe('render', () => {
+    const wrapper = shallow(<Popover {...props} />)
 
-    expect(wrapper.instance().shouldComponentUpdate({ content, optClass }, { position: 'top' })).to.be.true
-    expect(wrapper.instance().shouldComponentUpdate({ content, optClass, showing: true }, { position: 'bottom' })).to.be.true
-    expect(wrapper.instance().shouldComponentUpdate({ content: 'test-content', optClass }, { position: 'bottom' })).to.be.true
+    it('is a StyledDiv', () => {
+      expect(wrapper.type()).to.equal(StyledDiv)
+    })
+
+    it('uses optClass for class', () => {
+      expect(wrapper.hasClass(props.optClass)).to.be.true
+    })
+
+    it('uses className for class', () => {
+      expect(wrapper.hasClass(props.className)).to.be.true
+    })
   })
 
-  it('should get the popover content', () => {
-    let wrapper = shallow(<Popover content={content} optClass={optClass} onRequestClose={onRequestClose} />)
-    let popoverContent = wrapper.instance().getPopover()
+  describe('styles', () => {
+    const defaultStyleProps = {
+      ...defaultProps,
+      position: defaultProps.defaultPosition,
+      parent: { width: 100, height: 50 }
+    }
 
-    expect(popoverContent.props.className).to.contain('popover-inner')
-    expect(popoverContent.props.className).to.contain('bottom')
-    expect(popoverContent.props.className).to.not.contain('popover-showing')
-    expect(popoverContent.props.children.props.className).to.contain('popover-content')
-    expect(popoverContent.props.children.props.children.type).to.equal(Button)
+    beforeEach(() => {
+      props = defaultStyleProps
+    })
 
-    wrapper = shallow(<Popover content={content} optClass={optClass} onRequestClose={onRequestClose} showing={true}/>)
-    popoverContent = wrapper.instance().getPopover()
-    expect(popoverContent.props.className).to.contain('popover-inner')
-    expect(popoverContent.props.className).to.contain('popover-showing')
-    expect(popoverContent.props.className).to.contain('bottom')
-  })
+    it('has visibility hidden when showing is false', () => {
+      const renderedStyle = styles(props)['.popoverInner']
 
-  it('should call onRequestClose when its showing', () => {
-    let wrapper = shallow(<Popover content={content} optClass={optClass} onRequestClose={onRequestClose} />)
+      expect(renderedStyle.visibility).to.equal('hidden')
+      expect(renderedStyle.opacity).to.equal(0)
+    })
 
-    wrapper.instance().handleClickOutside()
-    expect(onRequestClose.calledOnce).to.be.false
+    it('has visibility visible, opacity 1 when showing is true', () => {
+      const renderedStyle = styles({ ...props, showing: true })['.popoverInner']
 
-    wrapper = shallow(<Popover content={content} optClass={optClass} onRequestClose={onRequestClose} showing={true}/>)
-    wrapper.instance().handleClickOutside()
-    expect(onRequestClose.calledOnce).to.be.true
+      expect(renderedStyle.visibility).to.equal('visible')
+      expect(renderedStyle.opacity).to.equal(1)
+    })
+
+    it('is on the top when position is top', () => {
+      const renderedStyle = styles(props)['.popoverInner']
+
+      expect(renderedStyle.bottom).to.equal('70px')
+      expect(renderedStyle.transform).to.equal('translateX(calc(-50% + 50px))')
+    })
+
+    it('is on the left when position is left', () => {
+      const renderedStyle = styles({ ...props, position: 'left' })['.popoverInner']
+
+      expect(renderedStyle.right).to.equal('120px')
+      expect(renderedStyle.transform).to.equal('translateY(calc(-50% + 25px))')
+    })
   })
 })
