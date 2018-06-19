@@ -1,4 +1,5 @@
 import React from 'react'
+import StyledDiv from '../src/components/StyledDiv'
 import { Popover } from '../src/components/Popover/Popover'
 import styles from '../src/components/Popover/styles.css'
 
@@ -20,19 +21,23 @@ describe('Popover', () => {
 
   describe('handleClickOutside', () => {
     it('does nothing when closed', () => {
-      mount(<Popover {...props} />).instance().handleClickOutside()
+      shallow(<Popover {...props} />).instance().handleClickOutside()
       expect(props.onRequestClose.calledOnce).to.be.false
     })
 
     it('requests close when it is open', () => {
-      mount(<Popover {...props} showing={true} />).instance().handleClickOutside()
+      shallow(<Popover {...props} showing={true} />).instance().handleClickOutside()
       expect(props.onRequestClose.calledOnce).to.be.true
     })
   })
 
   describe('render', () => {
-    const wrapper = mount(<Popover {...props} />)
-    console.log(wrapper.debug())
+    const wrapper = shallow(<Popover {...props} />)
+
+    it('is a StyledDiv', () => {
+      expect(wrapper.type()).to.equal(StyledDiv)
+    })
+
     it('uses optClass for class', () => {
       expect(wrapper.hasClass(props.optClass)).to.be.true
     })
