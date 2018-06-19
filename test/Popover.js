@@ -58,6 +58,10 @@ describe('Popover', () => {
       props = defaultStyleProps
     })
 
+    it('has uses the provided width', () => {
+      expect(styles({ width: '600px' })['.popoverInner'].width).to.equal('600px')
+    })
+
     it('has visibility hidden when showing is false', () => {
       const renderedStyle = styles(props)['.popoverInner']
 
