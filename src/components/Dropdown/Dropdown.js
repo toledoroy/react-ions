@@ -69,6 +69,10 @@ export class Dropdown extends React.Component {
     }
   }
 
+  componentDidMount = () => {
+    this.getTriggerRect()
+  }
+
   toggleDropdown = e => {
     e.preventDefault()
 
@@ -121,6 +125,10 @@ export class Dropdown extends React.Component {
     }
   }
 
+  getTriggerRect = () => {
+    this._triggerRect = this._trigger.getBoundingClientRect()
+  }
+
   render = () => {
     const listItems = this.props.listItems
     const listItemNodes = listItems instanceof Array
@@ -131,10 +139,10 @@ export class Dropdown extends React.Component {
 
     return (
       <StyledDiv
-        css={styles({ ...this.props, isOpened: this.state.isOpened })}
+        css={styles({ ...this.props, isOpened: this.state.isOpened, triggerRect: this._triggerRect })}
         className={[this.props.optClass, this.props.className].join(' ').trim()}>
 
-        <span className='trigger' onClick={this.toggleDropdown}>
+        <span ref={c => this._trigger = c} className='trigger' onClick={this.toggleDropdown}>
           {this.props.trigger}
 
           <div className='dropdown-wrapper'>
