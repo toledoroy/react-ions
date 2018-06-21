@@ -1,5 +1,10 @@
 ## HEAD
 
+## 5.1.0
+###### _June 21, 2018_
+- Popover: Option to include left and right positioning, refactoring to use Styled Component [#636](https://github.com/GetAmbassador/react-ions/pull/636)
+- Dropdown: Option to allow right alignment under a node, refactoring to use Styled Component [#637](https://github.com/GetAmbassador/react-ions/pull/637)
+
 ## 5.0.5
 ###### _May 9, 2018_
 - Icons: Why you should forget everything you learned about viewbox. [#632](https://github.com/GetAmbassador/react-ions/pull/632)
