@@ -2,8 +2,8 @@
 
 ## 5.1.0
 ###### _June 21, 2018_
-- Popover: Option to include left and right positioning, refactoring to use JSS [#636](https://github.com/GetAmbassador/react-ions/pull/636)
-- Dropdown: Option to allow right alignment under a node, refactoring to use JSS [#637](https://github.com/GetAmbassador/react-ions/pull/637)
+- Popover: Option to include left and right positioning, refactoring to use Styled Component [#636](https://github.com/GetAmbassador/react-ions/pull/636)
+- Dropdown: Option to allow right alignment under a node, refactoring to use Styled Component [#637](https://github.com/GetAmbassador/react-ions/pull/637)
 
 ## 5.0.5
 ###### _May 9, 2018_
