@@ -25,7 +25,7 @@ const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { widt
       padding: listItems ? 0 : '10px',
       position: 'absolute',
       right: isOpened && alignment === 'right' ? `calc(100% - ${triggerRect.width}px)` : 'unset',
-      visibility: isOpened ? 'visible' : 'hidden',
+      display: isOpened ? 'block' : 'none',
       zIndex: zLayers.dropdown
     },
     '.list-wrapper': {

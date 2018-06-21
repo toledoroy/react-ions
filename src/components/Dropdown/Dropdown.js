@@ -126,7 +126,7 @@ export class Dropdown extends React.Component {
   }
 
   getTriggerRect = () => {
-    this._triggerRect = this._trigger.getBoundingClientRect()
+    this._triggerRect = this._trigger && this._trigger.getBoundingClientRect()
   }
 
   render = () => {
