@@ -2,7 +2,7 @@ import colors from '../../styles/common/colors.css'
 import { zLayers } from '../../styles/common/functions.css'
 
 // TODO: Write test(s) for any logic contained herein
-const styles = ({ listItems, alignment, optClass, isOpened }) => {
+const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { width: 0 } }) => {
   return {
     display: 'inline-block',
     '> *': {
@@ -24,8 +24,8 @@ const styles = ({ listItems, alignment, optClass, isOpened }) => {
       overflow: listItems ? 'hidden' : 'unset',
       padding: listItems ? 0 : '10px',
       position: 'absolute',
-      right: isOpened && alignment === 'right' ? 0 : 'unset',
-      visibility: isOpened ? 'visible' : 'hidden',
+      right: isOpened && alignment === 'right' ? `calc(100% - ${triggerRect.width}px)` : 'unset',
+      display: isOpened ? 'block' : 'none',
       zIndex: zLayers.dropdown
     },
     '.list-wrapper': {
