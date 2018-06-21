@@ -50,7 +50,7 @@ var list = {
     materialPath + '/content/svg/production/ic_content_copy_24px.svg#md-copy',
     materialPath + '/device/svg/production/ic_access_time_24px.svg#md-time',
     materialPath + '/device/svg/production/ic_wifi_tethering_24px.svg#md-wifi',
-    materialPath + '/editor/svg/production/ic_merge_type_24px.svg#md-merge-type',
+    materialPath + '/editor/svg/production/ic_merge_type_24px.svg#md-merge',
     materialPath + '/editor/svg/production/ic_attach_money_24px.svg#md-money',
     materialPath + '/editor/svg/production/ic_insert_chart_24px.svg#md-insert-chart',
     materialPath + '/editor/svg/production/ic_insert_drive_file_24px.svg#md-file',
