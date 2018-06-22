@@ -125,6 +125,10 @@ export class Dropdown extends React.Component {
     }
   }
 
+  handleDropdownClick = e => {
+    e.stopPropagation()
+  }
+
   getTriggerRect = () => {
     this._triggerRect = this._trigger && this._trigger.getBoundingClientRect()
   }
@@ -145,7 +149,7 @@ export class Dropdown extends React.Component {
         <span ref={c => this._trigger = c} className='trigger' onClick={this.toggleDropdown}>
           {this.props.trigger}
 
-          <div className='dropdown-wrapper'>
+          <div className='dropdown-wrapper' onClick={this.handleDropdownClick.bind(this)}>
             {
               listItemNodes.length > 0 && !this.state.confirmationOverlayOpen
               ? <ul className='list-wrapper'>
