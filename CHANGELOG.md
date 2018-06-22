@@ -2,7 +2,7 @@
 
 ## 5.1.1
 ###### _June 22, 2018_
-- Icons: Adding md-merge and md-share
+- Icons: Adding md-merge and md-share [#642](https://github.com/GetAmbassador/react-ions/pull/642)
 
 ## 5.1.0
 ###### _June 21, 2018_
