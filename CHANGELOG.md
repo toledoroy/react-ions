@@ -2,7 +2,7 @@
 
 ## 5.1.3
 ###### _June 22, 2018_
-- Re-release for 5.1.3
+- Re-release for 5.1.2
 
 ## 5.1.2
 ###### _June 22, 2018_
