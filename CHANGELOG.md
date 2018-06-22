@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.1.1
+###### _June 22, 2018_
+- Icons: Adding md-merge and md-share [#642](https://github.com/GetAmbassador/react-ions/pull/642)
+
 ## 5.1.0
 ###### _June 21, 2018_
 - Popover: Option to include left and right positioning, refactoring to use Styled Component [#636](https://github.com/GetAmbassador/react-ions/pull/636)
