@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.1.3
+###### _June 22, 2018_
+- Re-release for 5.1.2
+
 ## 5.1.2
 ###### _June 22, 2018_
 - Dropdown: Patch for dropdown close [#644](https://github.com/GetAmbassador/react-ions/pull/644)
