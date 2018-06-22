@@ -9,7 +9,6 @@ const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { widt
       margin: 0
     },
     '.trigger': {
-      cursor: 'pointer',
       position: 'relative'
     },
     '.dropdown-wrapper': {
