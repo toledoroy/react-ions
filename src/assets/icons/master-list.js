@@ -84,6 +84,7 @@ var list = {
     materialPath + '/social/svg/production/ic_people_24px.svg#md-people',
     materialPath + '/social/svg/production/ic_group_add_24px.svg#md-group-add',
     materialPath + '/social/svg/production/ic_domain_24px.svg#md-domain',
+    materialPath + '/social/svg/production/ic_share_24px.svg#md-share',
     materialPath + '/toggle/svg/production/ic_check_box_24px.svg#md-checkbox-checked',
     materialPath + '/toggle/svg/production/ic_check_box_outline_blank_24px.svg#md-checkbox-unchecked',
     materialPath + '/toggle/svg/production/ic_indeterminate_check_box_24px.svg#md-checkbox-ind',
