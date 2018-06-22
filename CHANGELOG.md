@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.1.2
+###### _June 22, 2018_
+- Dropdown: Patch for dropdown close [#644](https://github.com/GetAmbassador/react-ions/pull/644)
+
 ## 5.1.1
 ###### _June 22, 2018_
 - Icons: Adding md-merge and md-share [#642](https://github.com/GetAmbassador/react-ions/pull/642)
