@@ -4,7 +4,6 @@ import { zLayers } from '../../styles/common/functions.css'
 // TODO: Write test(s) for any logic contained herein
 const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { width: 0 } }) => {
   return {
-    display: 'inline-block',
     position: 'relative',
     '> *': {
       margin: 0
@@ -55,8 +54,7 @@ const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { widt
         fontSize: '16px',
         fontWeight: 200,
         color: colors.navy_text,
-        marginLeft: '10px',
-        marginTop: '10px',
+        margin: '10px 10px 0',
         display: 'block'
       },
       '.button-wrapper': {
