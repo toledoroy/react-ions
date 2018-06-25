@@ -18,7 +18,6 @@ const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { widt
       boxShadow: '0 1px 2px 1px rgba(0, 0, 0, 0.2)',
       boxSizing: 'border-box',
       height: 'auto',
-      minWidth: '128px',
       marginTop: '7px',
       opacity: isOpened ? 1 : 0,
       overflow: listItems ? 'hidden' : 'unset',
