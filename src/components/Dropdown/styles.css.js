@@ -18,7 +18,6 @@ const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { widt
       boxShadow: '0 1px 2px 1px rgba(0, 0, 0, 0.2)',
       boxSizing: 'border-box',
       height: 'auto',
-      minWidth: '128px',
       marginTop: '7px',
       opacity: isOpened ? 1 : 0,
       overflow: listItems ? 'hidden' : 'unset',
@@ -50,6 +49,7 @@ const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { widt
     },
     '.overlay': {
       backgroundColor: colors.white,
+      minWidth: '128px',
       width: '100%',
       '> span': {
         fontSize: '16px',
@@ -62,11 +62,14 @@ const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { widt
       '.button-wrapper': {
         boxSizing: 'border-box',
         display: 'flex',
-        justifyContent: 'space-between',
-        padding: '10px 10px 10px 0',
+        justifyContent: 'flex-end',
+        padding: '10px',
         width: '100%',
         button: {
-          margin: 0
+          margin: 0,
+          '&:first-child': {
+            marginRight: '12px !important'
+          }
         }
       }
     }
