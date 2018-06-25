@@ -5,11 +5,12 @@ import { zLayers } from '../../styles/common/functions.css'
 const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { width: 0 } }) => {
   return {
     display: 'inline-block',
+    position: 'relative',
     '> *': {
       margin: 0
     },
     '.trigger': {
-      position: 'relative'
+      cursor: 'pointer'
     },
     '.dropdown-wrapper': {
       backgroundColor: colors.white,
@@ -23,7 +24,7 @@ const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { widt
       overflow: listItems ? 'hidden' : 'unset',
       padding: listItems ? 0 : '10px',
       position: 'absolute',
-      right: isOpened && alignment === 'right' ? `calc(100% - ${triggerRect.width}px)` : 'unset',
+      transform: isOpened && alignment === 'right' ? `translateX(calc(-100% + ${triggerRect.width}px))` : 'inherit',
       display: isOpened ? 'block' : 'none',
       zIndex: zLayers.dropdown
     },
