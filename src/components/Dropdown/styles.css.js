@@ -4,12 +4,12 @@ import { zLayers } from '../../styles/common/functions.css'
 // TODO: Write test(s) for any logic contained herein
 const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { width: 0 } }) => {
   return {
-    display: 'inline-block',
+    position: 'relative',
     '> *': {
       margin: 0
     },
     '.trigger': {
-      position: 'relative'
+      cursor: 'pointer'
     },
     '.dropdown-wrapper': {
       backgroundColor: colors.white,
@@ -17,13 +17,12 @@ const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { widt
       boxShadow: '0 1px 2px 1px rgba(0, 0, 0, 0.2)',
       boxSizing: 'border-box',
       height: 'auto',
-      minWidth: '128px',
       marginTop: '7px',
       opacity: isOpened ? 1 : 0,
       overflow: listItems ? 'hidden' : 'unset',
       padding: listItems ? 0 : '10px',
       position: 'absolute',
-      right: isOpened && alignment === 'right' ? `calc(100% - ${triggerRect.width}px)` : 'unset',
+      transform: isOpened && alignment === 'right' ? `translateX(calc(-100% + ${triggerRect.width}px))` : 'inherit',
       display: isOpened ? 'block' : 'none',
       zIndex: zLayers.dropdown
     },
@@ -49,23 +48,26 @@ const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { widt
     },
     '.overlay': {
       backgroundColor: colors.white,
+      minWidth: '128px',
       width: '100%',
       '> span': {
         fontSize: '16px',
         fontWeight: 200,
         color: colors.navy_text,
-        marginLeft: '10px',
-        marginTop: '10px',
+        margin: '10px 10px 0',
         display: 'block'
       },
       '.button-wrapper': {
         boxSizing: 'border-box',
         display: 'flex',
-        justifyContent: 'space-between',
-        padding: '10px 10px 10px 0',
+        justifyContent: 'flex-end',
+        padding: '10px',
         width: '100%',
         button: {
-          margin: 0
+          margin: 0,
+          '&:first-child': {
+            marginRight: '12px !important'
+          }
         }
       }
     }

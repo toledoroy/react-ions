@@ -148,27 +148,27 @@ export class Dropdown extends React.Component {
 
         <span ref={c => this._trigger = c} className='trigger' onClick={this.toggleDropdown}>
           {this.props.trigger}
-
-          <div className='dropdown-wrapper' onClick={this.handleDropdownClick.bind(this)}>
-            {
-              listItemNodes.length > 0 && !this.state.confirmationOverlayOpen
-              ? <ul className='list-wrapper'>
-                  {listItemNodes}
-                </ul>
-              : this.props.children
-            }
-            {
-              this.state.confirmationOverlayOpen &&
-                <div className='overlay'>
-                  <span>Are you sure?</span>
-                  <div className='button-wrapper'>
-                    <Button onClick={this.handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>
-                    <Button onClick={this.handleConfirmation.bind(this, true)}>Yes</Button>
-                  </div>
-                </div>
-            }
-          </div>
         </span>
+
+        <div className='dropdown-wrapper' onClick={this.handleDropdownClick.bind(this)}>
+          {
+            listItemNodes.length > 0 && !this.state.confirmationOverlayOpen
+            ? <ul className='list-wrapper'>
+                {listItemNodes}
+              </ul>
+            : this.props.children
+          }
+          {
+            this.state.confirmationOverlayOpen &&
+              <div className='overlay'>
+                <span>Are you sure?</span>
+                <div className='button-wrapper'>
+                  <Button onClick={this.handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>
+                  <Button onClick={this.handleConfirmation.bind(this, true)}>Yes</Button>
+                </div>
+              </div>
+          }
+        </div>
       </StyledDiv>
     )
   }
