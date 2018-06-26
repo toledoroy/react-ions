@@ -57,6 +57,7 @@ const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { widt
         fontWeight: 200,
         color: colors.navy_text,
         margin: '10px 10px 0',
+        textAlign: 'left',
         display: 'block'
       },
       '.button-wrapper': {
