@@ -48,7 +48,7 @@ const styles = ({
       transition: 'opacity .25s ease',
       visibility: showing ? 'visible' : 'hidden',
       opacity: showing ? 1 : 0,
-      zIndex: zLayers.alert,
+      zIndex: zLayers.popover,
 
       '&:before': {
         backgroundColor: colors.white,
