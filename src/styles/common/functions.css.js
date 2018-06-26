@@ -1,7 +1,7 @@
 export const zLayers = {
   'spinner-fixed': 4000,
-  'breadcrumb': 3850,
-  'alert': 3750,
+  'alert': 3850,
+  'breadcrumb': 3750,
   'tooltip': 3625,
   'popover': 3575,
   'modal': 3500,
