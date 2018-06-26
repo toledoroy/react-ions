@@ -5,6 +5,7 @@ import { zLayers } from '../../styles/common/functions.css'
 const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { width: 0 } }) => {
   return {
     position: 'relative',
+
     '> *': {
       margin: 0
     },
@@ -12,6 +13,7 @@ const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { widt
       cursor: 'pointer'
     },
     '.dropdown-wrapper': {
+      backfaceVisibility: 'hidden',
       backgroundColor: colors.white,
       borderRadius: '3px',
       boxShadow: '0 1px 2px 1px rgba(0, 0, 0, 0.2)',

@@ -1,7 +1,6 @@
 import React from 'react'
 import Dropdown from 'react-ions/lib/components/Dropdown'
 import Button from 'react-ions/lib/components/Button'
-import styles from './styles'
 
 class ExampleDropdownRightAlign extends React.Component {
   constructor(props) {
@@ -10,15 +9,13 @@ class ExampleDropdownRightAlign extends React.Component {
 
   render() {
     const listItems = [
-      { name: 'Item 1' },
-      { name: 'Item 2' },
-      { name: 'Item 3' }
+      { name: 'Item 1 with alignment' },
+      { name: 'Item 2 with alignment' },
+      { name: 'Item 3 with alignment' }
     ]
 
     return (
-      <div>
-        <Dropdown trigger={<Button>Dropdown List</Button>} listItems={listItems} alignment='right' />
-      </div>
+      <Dropdown trigger={<Button>Open</Button>} listItems={listItems} alignment='right' />
     )
   }
 }
