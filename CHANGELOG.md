@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.1.4
+###### _June 26, 2018_
+- Dropdown: fix for alignment: right positioning. Reverted previous DOM structure, because it introduced display issues with various implementations. Implemented CSS-based solution using translateX [#647](https://github.com/GetAmbassador/react-ions/pull/647)
+
 ## 5.1.3
 ###### _June 22, 2018_
 - Re-release for 5.1.2
