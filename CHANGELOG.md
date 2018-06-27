@@ -5,14 +5,14 @@
 - Popover: adding popover specific z-index, to help layering with tooltips
 [#651](https://github.com/GetAmbassador/react-ions/pull/651)
 
+## 5.1.4
+###### _June 26, 2018_
 - Button Confirmation: adding left align explicitly to confirmation header 
 [#650](https://github.com/GetAmbassador/react-ions/pull/650)
 
 - Dropdown: tweak to z-index and example
 [#649](https://github.com/GetAmbassador/react-ions/pull/649)
 
-## 5.1.4
-###### _June 26, 2018_
 - Dropdown: fix for alignment: right positioning. Reverted previous DOM structure, because it introduced display issues with various implementations. Implemented CSS-based solution using translateX [#647](https://github.com/GetAmbassador/react-ions/pull/647)
 
 ## 5.1.3
