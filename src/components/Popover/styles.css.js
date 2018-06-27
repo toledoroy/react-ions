@@ -39,7 +39,7 @@ const styles = ({
     '.popoverInner': {
       backgroundColor: colors.white,
       borderRadius: '3px',
-      boxShadow: '0 8px 24px 0 rgba(27,37,47,0.5)',
+      boxShadow: '0 8px 24px 0 rgba(27,37,47,0.16)',
       width,
       boxSizing: 'border-box',
       padding: '20px',
@@ -48,7 +48,7 @@ const styles = ({
       transition: 'opacity .25s ease',
       visibility: showing ? 'visible' : 'hidden',
       opacity: showing ? 1 : 0,
-      zIndex: zLayers.alert,
+      zIndex: zLayers.popover,
 
       '&:before': {
         backgroundColor: colors.white,
