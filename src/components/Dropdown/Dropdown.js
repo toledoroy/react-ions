@@ -140,7 +140,7 @@ export class Dropdown extends React.Component {
   }
 
   getTriggerNode = () => {
-    return React.cloneElement(this.props.trigger, { disabled: this.props.disabled })
+    return React.isValidElement(this.props.trigger) ? React.cloneElement(this.props.trigger, { disabled: this.props.disabled }) : this.props.trigger
   }
 
   render = () => {
