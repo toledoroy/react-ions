@@ -107,4 +107,15 @@ describe('Dropdown', () => {
     expect(wrapper.state().confirmationOverlayOpen).to.be.false
     expect(wrapper.state().clickedItem).to.be.null
   })
+
+  it('should render a disabled dropdown', () => {
+    wrapper = shallow(<Dropdown trigger={<button>Test</button>} disabled={true}>This is a test.</Dropdown>)
+
+    const trigger = shallow(wrapper.instance().getTriggerNode())
+    expect(trigger.props().disabled).to.be.true
+
+    expect(wrapper.state().isOpened).to.be.false
+    wrapper.instance().toggleDropdown({ preventDefault: sinon.spy() })
+    expect(wrapper.state().isOpened).to.be.false
+  })
 })
