@@ -1,7 +1,5 @@
 import React from 'react'
-import TestUtils from 'react-dom/test-utils'
 import WrappedDropdown, { Dropdown } from '../src/components/Dropdown'
-import Immutable from 'immutable'
 
 describe('Dropdown', () => {
   let wrapper, trigger
@@ -17,26 +15,10 @@ describe('Dropdown', () => {
     expect(wrapper.childAt(1).find('li').length).to.equal(0)
   })
 
-  it('should open when clicked', () => {
-    wrapper = mount(<WrappedDropdown trigger='Test'>This is a test.</WrappedDropdown>)
-    trigger = wrapper.find('.trigger').at(0)
-    expect(trigger.hasClass('trigger')).to.equal(true)
-    expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true)
-    trigger.simulate('click')
-    expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true)
-    expect(wrapper.find('.dropdown-component').hasClass('is-opened')).to.equal(true)
-  })
-
-  it('should be opened by default', () => {
-    wrapper = mount(<WrappedDropdown isOpened={true} trigger='Test'>This is a test.</WrappedDropdown>)
-    expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true)
-    expect(wrapper.find('.dropdown-component').hasClass('is-opened')).to.equal(true)
-  })
-
   it('should take an optional CSS class', () => {
-    wrapper = mount(<WrappedDropdown optClass='test' trigger='Test'>This is a test.</WrappedDropdown>)
-    expect(wrapper.find('.dropdown-component').hasClass('dropdown-component')).to.equal(true)
-    expect(wrapper.find('.dropdown-component').hasClass('test')).to.equal(true)
+    wrapper = mount(<Dropdown optClass='test' trigger='Test'>This is a test.</Dropdown>)
+
+    expect(wrapper.childAt(0).hasClass('test')).to.equal(true)
   })
 
   it('displays a modified state upon changing props', function () {
@@ -80,6 +62,7 @@ describe('Dropdown', () => {
   })
 
   it('should display a confirmation overlay when an item is clicked', () => {
+    const stopPropagation = sinon.spy()
     const listItems = [
       {name: 'test1'},
       {name: 'test2'},
@@ -87,18 +70,21 @@ describe('Dropdown', () => {
     ]
 
     wrapper = shallow(<Dropdown optClass='test' listItems={listItems}>This is a test.</Dropdown>)
-    wrapper.instance().handleItemClick(listItems[0])
+    wrapper.instance().handleItemClick(listItems[0], { stopPropagation })
 
     expect(wrapper.state().confirmationOverlayOpen).to.be.false
     expect(wrapper.state().clickedItem).to.be.null
+    expect(stopPropagation.calledOnce).to.be.true
 
-    wrapper.instance().handleItemClick(listItems[2])
+    wrapper.instance().handleItemClick(listItems[2], { stopPropagation })
 
     expect(wrapper.state().confirmationOverlayOpen).to.be.true
     expect(wrapper.state().clickedItem).to.deep.equal(listItems[2])
+    expect(stopPropagation.calledTwice).to.be.true
   })
 
   it('should close the confirmation overlay when action buttons are clicked', () => {
+    const stopPropagation = sinon.spy()
     const listItems = [
       {name: 'test1'},
       {name: 'test2'},
@@ -107,43 +93,29 @@ describe('Dropdown', () => {
 
     wrapper = shallow(<Dropdown optClass='test' listItems={listItems} isOpened={true}>This is a test.</Dropdown>)
 
-    wrapper.instance().handleItemClick(listItems[2])
-    wrapper.instance().handleConfirmation(false)
+    wrapper.instance().handleItemClick(listItems[2], { stopPropagation })
+    wrapper.instance().handleConfirmation(false, { stopPropagation })
 
     expect(wrapper.state().isOpened).to.be.true
     expect(wrapper.state().confirmationOverlayOpen).to.be.false
     expect(wrapper.state().clickedItem).to.be.null
 
-    wrapper.instance().handleItemClick(listItems[2])
-    wrapper.instance().handleConfirmation(true)
+    wrapper.instance().handleItemClick(listItems[2], { stopPropagation })
+    wrapper.instance().handleConfirmation(true, { stopPropagation })
 
     expect(wrapper.state().isOpened).to.be.false
     expect(wrapper.state().confirmationOverlayOpen).to.be.false
     expect(wrapper.state().clickedItem).to.be.null
   })
 
-  it('should set state to nextProps receiving a list that differs from current state', () => {
-    const listItemsInit = [
-      {name: 'test1'},
-      {name: 'test2'},
-      {name: 'test3', callbackConfirmation: true}
-    ]
+  it('should render a disabled dropdown', () => {
+    wrapper = shallow(<Dropdown trigger={<button>Test</button>} disabled={true}>This is a test.</Dropdown>)
 
-    const listItems = [
-      {name: 'test1'},
-      {name: 'test2'},
-      {name: 'test3'},
-      {name: 'test4'},
-      {name: 'test5'}
-    ]
+    const trigger = shallow(wrapper.instance().getTriggerNode())
+    expect(trigger.props().disabled).to.be.true
 
-    const nextProps = {
-      listItems
-    }
-
-    wrapper = shallow(<Dropdown listItems={listItemsInit} isOpened={true}>This is a test.</Dropdown>)
-    wrapper.instance().componentWillReceiveProps(nextProps)
-
-    expect(wrapper.state().listItems).to.deep.equal(Immutable.fromJS(listItems))
+    expect(wrapper.state().isOpened).to.be.false
+    wrapper.instance().toggleDropdown({ preventDefault: sinon.spy() })
+    expect(wrapper.state().isOpened).to.be.false
   })
 })

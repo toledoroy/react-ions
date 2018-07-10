@@ -1,5 +1,5 @@
 import React from 'react'
-import Immutable from 'immutable'
+import Immutable, { Map } from 'immutable'
 import FormGroup from 'react-ions/lib/components/FormGroup'
 import ValidatedField from 'react-ions/lib/components/FormGroup/ValidatedField'
 import Input from 'react-ions/lib/components/Input'
@@ -35,7 +35,7 @@ const schema = {
 }
 
 const defaultState = {
-  fieldErrors: {},
+  fieldErrors: Map(),
   loading: false,
   submitted: false
 }
@@ -55,16 +55,16 @@ class ExampleFormValidation extends React.Component {
     event.preventDefault()
 
     this.setState({
-      fieldErrors: {},
+      fieldErrors: Map(),
       loading: true
     })
 
     if (!this.state.submitted) {
       setTimeout(() => {
         this.setState({
-          fieldErrors: {
+          fieldErrors: Map({
             email: 'This is a mock backend error message.'
-          },
+          }),
           loading: false,
           submitted: true
         })
