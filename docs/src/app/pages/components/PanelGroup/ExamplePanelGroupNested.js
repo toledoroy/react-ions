@@ -15,13 +15,13 @@ const ExamplePanelGroupNested = () => (
       <PanelContent>
         <PanelGroup accordion={true} optClass='simple'>
           <Panel>
-            <PanelHeader title='Simple' contextIcon='md-chevron-right' contextIconSize='16' />
+            <PanelHeader title='Simple' contextIcon='md-keyboard-down' contextIconSize='16' />
             <PanelContent optClass={style['rating-specific']}>
               <p className={style.paragraph}>{content.lorum1}</p>
             </PanelContent>
           </Panel>
           <Panel>
-            <PanelHeader title='What happens after a user submits their response?' contextIcon='md-chevron-right' contextIconSize='16' />
+            <PanelHeader title='What happens after a user submits their response?' contextIcon='md-keyboard-down' contextIconSize='16' />
             <PanelContent>
               <p className={style.paragraph}>{content.lorum2}</p>
             </PanelContent>

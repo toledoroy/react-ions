@@ -23,6 +23,13 @@
   white-space: pre;
 }
 
+// Set this class on elements that may contain long unbroken strings of text
+@mixin dont-break-out {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+}
+
 @mixin button-context($bg-color: inherit, $color: inherit, $fadeOnHover: true) {
   background-color: $bg-color;
   color: $color;

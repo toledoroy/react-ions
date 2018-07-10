@@ -1,16 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import enhanceWithClickOutside from 'react-click-outside'
-import style from './style.scss'
-import classNames from 'classnames/bind'
+import StyledDiv from '../StyledDiv'
+import styles from './styles.css'
 
-export class Popover extends React.Component {
+export class Popover extends Component {
   constructor(props) {
     super(props)
-  }
-
-  state = {
-    position: this.props.defaultPosition
+    if (props.optClass && process.env.NODE_ENV !== 'production') {
+      console.warn('Popover: Use of optClass will be deprecated as of react-ions 6.0.0, please use `className` instead')
+    }
   }
 
   static propTypes = {
@@ -21,15 +20,23 @@ export class Popover extends React.Component {
     /**
      * The default position of the popover.
      */
-    defaultPosition: PropTypes.oneOf(['top', 'bottom']),
+    defaultPosition: PropTypes.oneOf(['top', 'bottom', 'right', 'left']),
     /**
      * The content to display inside the popover.
      */
     content: PropTypes.node,
     /**
-     * Optional styles to add to the checkbox.
+    * The width of the popover, in any unit supported in css
+    */
+    width: PropTypes.string,
+    /**
+     * Optional class to add to the popover. (DEPRECATED, use className instead)
      */
     optClass: PropTypes.string,
+    /**
+     * Optional class to add to the popover.
+     */
+    className: PropTypes.string,
     /**
      * The method to be triggered on close.
      */
@@ -38,75 +45,72 @@ export class Popover extends React.Component {
 
   static defaultProps = {
     defaultPosition: 'bottom',
+    width: '300px',
     showing: false
   }
 
-  shouldComponentUpdate = (nextProps, nextState) => {
-    if (this.props.showing !== nextProps.showing) return true
-    if (this.props.content !== nextProps.content) return true
-    if (this.state.position !== nextState.position) return true
-    return false
+  state = {
+    position: this.props.defaultPosition
   }
 
-  componentWillReceiveProps = nextProps => {
-    if (nextProps.showing) {
-      const popoverRect = this._popoverElement.getBoundingClientRect()
+  componentDidMount = () => {
+    this.updateRect()
+    this.forceUpdate()
+  }
 
-      // If the top position of the bounding rect minus the pageYOffset is < 0
-      // then the top of the window is clipping the popover and it needs to have
-      // its position switched to bottom
-      if (this.props.defaultPosition === 'top' && popoverRect.top - window.pageYOffset < 0) {
-        this.setState({ position: 'bottom' })
-      }
-      // If the window height minus the bottom position of the bounding rect plus
-      // the pageYOffset is < 0 then the bottom of the window is clipping the popover
-      // and it needs to have its position switched to top
-      else if (this.props.defaultPosition === 'bottom' && window.innerHeight - popoverRect.bottom + window.pageYOffset < 0) {
-        this.setState({ position: 'top' })
-      }
+  componentDidUpdate = (prevProps, prevState) => {
+    this.updateRect()
+
+    const updatedPosition = this.getPosition(this.state.position)
+
+    if (updatedPosition !== prevState.position) this.setState({ position: updatedPosition })
+  }
+
+  updateRect = () => {
+    this._parentRect = this._popoverWrapper && this._popoverWrapper.getBoundingClientRect()
+    this._boundingRect = this._popoverWrapper && this._popoverElement.getBoundingClientRect()
+  }
+
+  getPosition = defaultPosition => {
+    switch (defaultPosition) {
+      case 'top':
+        if (this._boundingRect.top < 0) return 'bottom'
+        break
+      case 'bottom':
+        if (this._boundingRect.bottom > window.innerHeight) return 'top'
+        break
+      case 'left':
+        if (this._boundingRect.left < 0) return 'right'
+        break
+      case 'right':
+        if (this._boundingRect.right > window.innerWidth) return 'left'
+        break
     }
+    return defaultPosition
   }
 
   handleClickOutside = () => {
     if (this.props.showing && this.props.onRequestClose) this.props.onRequestClose()
   }
 
-  getPopover = () => {
-    const cx = classNames.bind(style)
-    const popoverShowingClass = this.props.showing ? style['popover-showing'] : null
-    const innerClass = cx(style['popover-inner'], popoverShowingClass, style[this.state.position])
-
-    return (
-      <div className={innerClass} ref={c => (this._popoverElement = c)}>
-        <div className={style['popover-content']}>
+  render = () => (
+    <StyledDiv
+      css={styles({ ...this.props, ...this.state, parent: this._parentRect })}
+      className={[this.props.optClass, this.props.className].join(' ').trim()}
+      innerRef={p => {this._popoverWrapper = p}}
+    >
+      <div
+        className='popoverInner'
+        ref={c => (this._popoverElement = c)}
+      >
+        <div className='popoverContent'>
           {this.props.content}
         </div>
       </div>
-    )
-  }
+      {this.props.children}
 
-  render = () => {
-    const cx = classNames.bind(style)
-    const popoverClasses = cx(style['popover'], this.props.optClass)
-
-    return (
-      <div className={popoverClasses}>
-        {
-          this.state.position === 'top' &&
-          <div className={style['popover-wrapper']}>
-            {this.getPopover()}
-          </div>
-        }
-        { this.props.children }
-        {
-          this.state.position === 'bottom' &&
-          <div className={style['popover-wrapper']}>
-            {this.getPopover()}
-          </div>
-        }
-      </div>
-    )
-  }
+    </StyledDiv>
+  )
 }
 
 export default enhanceWithClickOutside(Popover)

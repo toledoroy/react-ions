@@ -1,5 +1,59 @@
 ## HEAD
 
+## 5.1.5
+###### _June 27, 2018_
+- Popover: adding popover specific z-index, to help layering with tooltips
+[#651](https://github.com/GetAmbassador/react-ions/pull/651)
+
+## 5.1.4
+###### _June 26, 2018_
+- Button Confirmation: adding left align explicitly to confirmation header 
+[#650](https://github.com/GetAmbassador/react-ions/pull/650)
+
+- Dropdown: tweak to z-index and example
+[#649](https://github.com/GetAmbassador/react-ions/pull/649)
+
+- Dropdown: fix for alignment: right positioning. Reverted previous DOM structure, because it introduced display issues with various implementations. Implemented CSS-based solution using translateX [#647](https://github.com/GetAmbassador/react-ions/pull/647)
+
+## 5.1.3
+###### _June 22, 2018_
+- Re-release for 5.1.2
+
+## 5.1.2
+###### _June 22, 2018_
+- Dropdown: Patch for dropdown close [#644](https://github.com/GetAmbassador/react-ions/pull/644)
+
+## 5.1.1
+###### _June 22, 2018_
+- Icons: Adding md-merge and md-share [#642](https://github.com/GetAmbassador/react-ions/pull/642)
+
+## 5.1.0
+###### _June 21, 2018_
+- Popover: Option to include left and right positioning, refactoring to use Styled Component [#636](https://github.com/GetAmbassador/react-ions/pull/636)
+- Dropdown: Option to allow right alignment under a node, refactoring to use Styled Component [#637](https://github.com/GetAmbassador/react-ions/pull/637)
+
+## 5.0.5
+###### _May 9, 2018_
+- Icons: Why you should forget everything you learned about viewbox. [#632](https://github.com/GetAmbassador/react-ions/pull/632)
+- Panel Group: Changing icon so that arrow points to the right in example [#631](https://github.com/GetAmbassador/react-ions/pull/631)
+
+## 5.0.4
+###### _April 10, 2018_
+- Circle: update yml file for pushing to staging [#627](https://github.com/GetAmbassador/react-ions/pull/627)
+- Icons: added new icon, ic_devices_hub, for source [#627](https://github.com/GetAmbassador/react-ions/pull/627)
+
+## 5.0.3
+###### _March 21, 2018_
+- SelectField: fix for cross-browser caret positioning [#623](https://github.com/GetAmbassador/react-ions/pull/623)
+
+## 5.0.2
+###### _March 7, 2018_
+- Popover: Assign default position when specified conditions aren't met [#621](https://github.com/GetAmbassador/react-ions/pull/621)
+
+## 5.0.1
+###### _March 2, 2018_
+- Popover: Center text on actionable buttons [#619](https://github.com/GetAmbassador/react-ions/pull/619)
+
 ## 5.0.0
 ###### _February 20, 2018_
 

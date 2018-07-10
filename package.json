@@ -1,6 +1,6 @@
 {
   "name": "react-ions",
-  "version": "5.0.0",
+  "version": "5.1.5",
   "description": "An open source set of React components that implement Ambassador's Design and UX patterns.",
   "main": "./lib/index.js",
   "repository": {
@@ -60,6 +60,7 @@
     "react-loader": "~2.4.2",
     "react-router": "~3.0.5",
     "stats-webpack-plugin": "~0.2.1",
+    "styled-components": "2.1.2",
     "svg4everybody": "~2.0.3"
   },
   "devDependencies": {
