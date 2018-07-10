@@ -50,7 +50,11 @@ export class Dropdown extends React.Component {
     /**
      * Optional class to add to the popover.
      */
-    className: PropTypes.string
+    className: PropTypes.string,
+    /**
+     * Whether the dropdown is disabled.
+     */
+    disabled: PropTypes.bool
   }
 
   static defaultProps = {
@@ -75,6 +79,8 @@ export class Dropdown extends React.Component {
 
   toggleDropdown = e => {
     e.preventDefault()
+
+    if (this.props.disabled) return
 
     this.setState({ isOpened: !this.state.isOpened }, () => {
       if (typeof this.props.changeCallback === 'function') {
@@ -133,6 +139,10 @@ export class Dropdown extends React.Component {
     this._triggerRect = this._trigger && this._trigger.getBoundingClientRect()
   }
 
+  getTriggerNode = () => {
+    return React.isValidElement(this.props.trigger) ? React.cloneElement(this.props.trigger, { disabled: this.props.disabled }) : this.props.trigger
+  }
+
   render = () => {
     const listItems = this.props.listItems
     const listItemNodes = listItems instanceof Array
@@ -147,7 +157,7 @@ export class Dropdown extends React.Component {
         className={[this.props.optClass, this.props.className].join(' ').trim()}>
 
         <span ref={c => this._trigger = c} className='trigger' onClick={this.toggleDropdown}>
-          {this.props.trigger}
+          {this.getTriggerNode()}
         </span>
 
         <div className='dropdown-wrapper' onClick={this.handleDropdownClick.bind(this)}>
