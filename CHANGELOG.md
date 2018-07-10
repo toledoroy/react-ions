@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.1.7
+###### _July 10, 2018_
+- Mixin: adding a property to handle webkit browsers [#660](https://github.com/GetAmbassador/react-ions/pull/660/files#diff-5795149b7e67bb2d17f892fa2c961573R26)
+
 ## 5.1.6
 ###### _July 10, 2018_
 - Popover: removing margin selector [#658](https://github.com/GetAmbassador/react-ions/pull/658)
