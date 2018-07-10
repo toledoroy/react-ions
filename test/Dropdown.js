@@ -115,7 +115,7 @@ describe('Dropdown', () => {
     expect(trigger.props().disabled).to.be.true
 
     expect(wrapper.state().isOpened).to.be.false
-    wrapper.instance().toggleDropdown()
+    wrapper.instance().toggleDropdown({ preventDefault: sinon.spy() })
     expect(wrapper.state().isOpened).to.be.false
   })
 })
