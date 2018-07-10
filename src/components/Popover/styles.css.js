@@ -33,9 +33,6 @@ const styles = ({
 
   return {
     position: 'relative',
-    '> *': {
-      margin: 0
-    },
     '.popoverInner': {
       backgroundColor: colors.white,
       borderRadius: '3px',
