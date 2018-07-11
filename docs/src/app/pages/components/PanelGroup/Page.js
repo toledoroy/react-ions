@@ -16,6 +16,8 @@ import ExamplePanelGroupSimple from './ExamplePanelGroupSimple'
 import ExamplePanelGroupSimpleCode from '!raw!./ExamplePanelGroupSimple'
 import ExamplePanelGroupNested from './ExamplePanelGroupNested'
 import ExamplePanelGroupNestedCode from '!raw!./ExamplePanelGroupNested'
+import ExamplePanelGroupNode from './ExamplePanelGroupNode'
+import examplePanelGroupNodeCode from '!raw!./ExamplePanelGroupNode'
 import ExamplePanelSlider from './ExamplePanelSlider'
 import ExamplePanelSliderCode from '!raw!./ExamplePanelSlider'
 
@@ -25,6 +27,7 @@ const description = {
   panelGroupMultiStep: 'This is the `panel group component` with a multi-step design variation.',
   panelGroupSimple: 'This is the `panel group component` with simple styles.',
   panelGroupNested: 'This is a `panel group component` within another component.',
+  panelGroupNode: 'This is a `panel group component` within nodes for titles.',
   panelSlider: 'This is a `panel slider component` Note: when implementing the panel-slider, add `overflow-x: hidden; overflow-y: scroll;` to a containing wrapper element, to avoid horizontal scrolling. This has the benefit of allowing slider contents to "overflow" eg: custom dropdowns, etc.'
 }
 
@@ -61,6 +64,12 @@ const PanelGroupPage = () => (
           description={description.panelGroupNested}
           markup={ExamplePanelGroupNestedCode}>
           <ExamplePanelGroupNested />
+        </CodeExample>
+        <CodeExample
+          title='Panel Group with nodes for titles'
+          description={description.panelGroupNode}
+          markup={examplePanelGroupNodeCode}>
+          <ExamplePanelGroupNode />
         </CodeExample>
         <CodeExample
           title='Panel Slider'
