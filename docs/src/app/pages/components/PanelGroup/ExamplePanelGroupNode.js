@@ -30,25 +30,25 @@ class ExamplePanelGroupNode extends React.Component {
         <p>Panels with the following indices are currently active: {this.state.panels.join() || '(none)'}</p>
         <PanelGroup activePanels={this.state.panels} onPanelToggle={this.panelToggle} optClass={'inline'}>
           <Panel>
-            <PanelHeader title={<Chip text='4 links' />} />
+            <PanelHeader title={<Chip text='Lorem' />} />
             <PanelContent optClass={style['rating-specific']}>
               <p className={style.paragraph}>{this.state.content.lorum1}</p>
             </PanelContent>
           </Panel>
           <Panel>
-            <PanelHeader title={<Chip text='3 links' />} />
+            <PanelHeader title={<Chip text='Ipsum' />} />
             <PanelContent>
               <p className={style.paragraph}>{this.state.content.lorum2}</p>
             </PanelContent>
           </Panel>
           <Panel>
-            <PanelHeader title={<Chip text='7 links' />} />
+            <PanelHeader title={<Chip text='Dolor' />} />
             <PanelContent>
               <p className={style.paragraph}>{this.state.content.lorum3}</p>
             </PanelContent>
           </Panel>
           <Panel>
-            <PanelHeader title={<Chip text='1 link' />} />
+            <PanelHeader title={<Chip text='Sit' />} />
             <PanelContent>
               <p className={style.paragraph}>{this.state.content.lorum4}</p>
             </PanelContent>
