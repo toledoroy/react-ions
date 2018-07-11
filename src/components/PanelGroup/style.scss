@@ -173,6 +173,12 @@
         transform: rotate(0);
       }
 
+      &.inline {
+        .toggle-icon {
+          transform: rotate(0) translate(0, 1px);
+        }
+      }
+
       &:hover {
         .title-group {
           h4 {
@@ -223,6 +229,10 @@
           svg {
             fill: $white;
           }
+        }
+
+        &.inline .toggle-icon {
+          transform: rotate(180deg) translate(0, 2px);
         }
       }
 
@@ -286,6 +296,46 @@
     }
     > span > .panel-content {
       padding: 0 0 15px;
+    }
+  }
+}
+
+// Inline Theme
+.panel-group.inline {
+  > .panel {
+    border-bottom: none;
+
+    > span > .panel-header {
+      padding: 12px 0;
+
+      > div {
+        display: flex;
+        align-items: center;
+      }
+
+      .title-group {
+        padding-right: 10px;
+      }
+
+      .toggle-icon {
+        opacity: 1 !important;
+        position: static;
+        transform: rotate(-180deg) translate(0, 1px);
+
+        svg {
+          fill: $neutral-4 !important;
+        }
+      }
+    }
+
+    > span > .panel-content {
+      padding: 0 0 15px;
+    }
+  }
+
+  > .panel.panel-active {
+    > span > .panel-header .toggle-icon {
+      transform: rotate(0) translate(0, 2px);
     }
   }
 }

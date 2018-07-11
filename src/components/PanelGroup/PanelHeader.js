@@ -13,7 +13,10 @@ class PanelHeader extends React.Component {
     /**
      * A title to be passed into the header
      */
-    title: PropTypes.string,
+    title: PropTypes.oneOfType([
+      PropTypes.node,
+      PropTypes.string
+    ]),
     /**
      * An icon to be passed to the left of the header
      */
@@ -47,31 +50,33 @@ class PanelHeader extends React.Component {
 
   render() {
     const iconProps = this.props.toggleIcon
-    const panelHeaderClasses = optclass(style, 'panel-header', this.props.optClass)
+    const title = typeof this.props.title === 'string' ? <h4>{this.props.title}</h4> : this.props.title
+    const panelHeaderClasses = optclass(style, ['panel-header'], this.props.optClass)
 
     return (
       <div className={panelHeaderClasses} onClick={this.handleClick}>
-        {!this.props.children
+        {
+          !this.props.children
           ? <div>
-            <div className={style['title-group']}>
-              {this.props.contextNode ? <div className={style['context-node']}>{this.props.contextNode}</div> : null}
-              {this.props.contextIcon
-                ? <div className={style['context-icon']}>
-                    <Icon
-                      name={this.props.contextIcon}
-                      height={this.props.contextIconSize}
-                      width={this.props.contextIconSize} />
-                  </div>
-                : null}
-              {this.props.title ? <h4>{this.props.title}</h4> : null}
+              <div className={style['title-group']}>
+                {this.props.contextNode ? <div className={style['context-node']}>{this.props.contextNode}</div> : null}
+                {this.props.contextIcon
+                  ? <div className={style['context-icon']}>
+                      <Icon
+                        name={this.props.contextIcon}
+                        height={this.props.contextIconSize}
+                        width={this.props.contextIconSize} />
+                    </div>
+                  : null}
+                {title}
+              </div>
+              <div className={style['toggle-icon']}>
+                {this.props.toggleIcon
+                ? <Icon name={iconProps.name} height={iconProps.size} width={iconProps.size} />
+                : <Icon name='md-keyboard-up' height='16' width='16' />
+                }
+              </div>
             </div>
-            <div className={style['toggle-icon']}>
-              {this.props.toggleIcon
-              ? <Icon name={iconProps.name} height={iconProps.size} width={iconProps.size} />
-              : <Icon name='md-keyboard-up' height='16' width='16' />
-              }
-            </div>
-          </div>
           : this.props.children
         }
       </div>
