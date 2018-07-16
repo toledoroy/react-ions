@@ -25,7 +25,7 @@ describe('Input', () => {
 
   it('should shallow render a prefix and suffix', () => {
     wrapper = shallow(<WrappedInput prefix='$' suffix='days' />)
-    expect(wrapper.find('div')).to.have.length(4)
+    expect(wrapper.find('div')).to.have.length(6)
     expect(wrapper.childAt(0).childAt(0).props().className).to.equal('prefix')
     expect(wrapper.childAt(0).childAt(2).props().className).to.equal('suffix')
   })
