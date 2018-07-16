@@ -17,18 +17,30 @@
     display: flex;
     position: relative;
 
-    .prefix, .suffix {
-      color: $primary-4;
+    .flex-wrapper {
+      align-items: center;
+      display: flex;
+      height: 100%;
       line-height: 0;
       position: absolute;
+      top: 0; // for IE 11 :)
+
+      &.suffix {
+        // compensates for the 16px margin added below
+        right: -16px;
+      }
+    }
+
+    .prefix, .suffix {
+      color: $primary-4;
     }
 
     .prefix {
-      left: 16px;
+      margin-left: 16px;
     }
 
     .suffix {
-      right: 16px;
+      margin-right: 16px;
     }
 
     input {

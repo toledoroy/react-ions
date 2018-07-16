@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames/bind'
+import optclass from '../internal/OptClass'
 import style from './style.scss'
 
 /**
@@ -176,19 +176,23 @@ class Input extends React.Component {
 
   render = () => {
     const {prefix, suffix, label, optClass, className, width, disabled} = this.props
-    const cx = classNames.bind(style)
+
     const disabledClass = disabled ? style['input-disabled'] : null
     const widthStyle = width ? { width: width } : null
     const prefixClass = prefix ? style['prefix'] : null
     const suffixClass = suffix ? style['suffix'] : null
-    const inputClass = cx(style['input-component'], className, optClass, disabledClass, prefixClass, suffixClass)
+    const inputClass = optclass(style, 'input-component', className, optClass, disabledClass, prefixClass, suffixClass)
     const inputContainerClass = style['input-container']
+    const flexWrapperClass = optclass(style, 'flex-wrapper')
+    const flexWrapperClassSuffix = optclass(style, flexWrapperClass, 'suffix')
 
     return (
       <div className={inputClass}>
         {label && <label>{label}</label>}
         <div className={inputContainerClass} style={widthStyle}>
-          {prefix && <div ref={c => this._prefix = c} className={prefixClass}>{prefix}</div>}
+          {prefix && <div className={flexWrapperClass}>
+            <div ref={c => this._prefix = c} className={prefixClass}>{prefix}</div>
+          </div>}
 
           <input
             id={this.props.id}
@@ -207,7 +211,9 @@ class Input extends React.Component {
             onKeyDown={this.props.onKeyDown}>
           </input>
 
-          {suffix && <div ref={c => this._suffix = c} className={suffixClass}>{suffix}</div>}
+          {suffix && <div className={flexWrapperClassSuffix}>
+            <div ref={c => this._suffix = c} className={suffixClass}>{suffix}</div>
+          </div>}
         </div>
       </div>
     )
