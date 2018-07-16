@@ -38,6 +38,12 @@
     box-sizing: border-box;
     justify-content: center;
     width: 100%;
+
+    em {
+      // This is not needed for any browser except for Safari 10 and below (on fill items)
+      justify-content: center;
+      width: 100%;
+    }
   }
 
   // Button size(s)
