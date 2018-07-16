@@ -177,14 +177,16 @@ class Input extends React.Component {
   render = () => {
     const {prefix, suffix, label, optClass, className, width, disabled} = this.props
 
+    const cx = classNames.bind(style)
+
     const disabledClass = disabled ? style['input-disabled'] : null
     const widthStyle = width ? { width: width } : null
     const prefixClass = prefix ? style['prefix'] : null
     const suffixClass = suffix ? style['suffix'] : null
-    const inputClass = optclass(style, 'input-component', className, optClass, disabledClass, prefixClass, suffixClass)
+    const inputClass = optclass(style, ['input-component', className, optClass, disabledClass, prefixClass, suffixClass])
     const inputContainerClass = style['input-container']
     const flexWrapperClass = optclass(style, 'flex-wrapper')
-    const flexWrapperClassSuffix = optclass(style, flexWrapperClass, 'suffix')
+    const flexWrapperClassSuffix = optclass(style, [flexWrapperClass, 'suffix'])
 
     return (
       <div className={inputClass}>
