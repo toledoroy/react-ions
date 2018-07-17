@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.1.9
+###### _July 17, 2018_
+- Input, Buttons: minor updates to handle legacy browsers (mostly Safari 10 and below)
+
 ## 5.1.8
 ###### _July 17, 2018_
 - Reactivate copy to clipboard when loading is finished [#665](https://github.com/GetAmbassador/react-ions/pull/665)
