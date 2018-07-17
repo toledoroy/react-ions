@@ -1,5 +1,11 @@
 ## HEAD
 
+## 5.1.8
+###### _July 17, 2018_
+- Reactivate copy to clipboard when loading is finished [#665](https://github.com/GetAmbassador/react-ions/pull/665)
+- Add custom copy value to InlineEdit [#663](https://github.com/GetAmbassador/react-ions/pull/663)
+- Update PanelGroup to accept node as title and toggle icon position right [#662](https://github.com/GetAmbassador/react-ions/pull/662)
+
 ## 5.1.7
 ###### _July 10, 2018_
 - Mixin: adding a property to handle webkit browsers [#660](https://github.com/GetAmbassador/react-ions/pull/660)
@@ -17,7 +23,7 @@
 
 ## 5.1.4
 ###### _June 26, 2018_
-- Button Confirmation: adding left align explicitly to confirmation header 
+- Button Confirmation: adding left align explicitly to confirmation header
 [#650](https://github.com/GetAmbassador/react-ions/pull/650)
 
 - Dropdown: tweak to z-index and example
