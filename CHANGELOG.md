@@ -2,7 +2,7 @@
 
 ## 5.1.9
 ###### _July 17, 2018_
-- Input, Buttons: minor updates to handle legacy browsers (mostly Safari 10 and below)
+- Input, Buttons: minor updates to handle legacy browsers (mostly Safari 10 and below) [#664](https://github.com/GetAmbassador/react-ions/pull/664)
 
 ## 5.1.8
 ###### _July 17, 2018_
