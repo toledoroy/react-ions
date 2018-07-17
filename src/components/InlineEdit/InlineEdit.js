@@ -116,9 +116,13 @@ class InlineEdit extends React.Component {
     }
 
     let newState = {}
+    let reactivateClipboard = false
 
     if (nextProps.loading !== this.state.loading) {
       newState.loading = nextProps.loading
+
+      // Reactivate clipboard when loading is finished
+      reactivateClipboard = !newState.loading
     }
     if (nextProps.error !== this.state.error) {
       newState.error = nextProps.error
@@ -128,7 +132,9 @@ class InlineEdit extends React.Component {
     }
 
     if (Object.keys(newState).length > 0) {
-      this.setState(newState)
+      this.setState(newState, () => {
+        reactivateClipboard && this.activateCopyToClipboard()
+      })
     }
   }
 
@@ -149,7 +155,8 @@ class InlineEdit extends React.Component {
         this.state.inlineEditMaxWidth !== nextState.inlineEditMaxWidth ||
         this.props.tooltipText !== nextProps.tooltipText ||
         this.props.tooltipPlacement !== nextProps.tooltipPlacement ||
-        this.props.readonly !== nextProps.readonly
+        this.props.readonly !== nextProps.readonly ||
+        this.props.copyToClipboard !== nextProps.copyToClipboard
   }
 
   handleSave = event => {
