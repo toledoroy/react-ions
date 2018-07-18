@@ -120,15 +120,18 @@ class InlineEdit extends React.Component {
 
     if (nextProps.loading !== this.state.loading) {
       newState.loading = nextProps.loading
-
-      // Reactivate clipboard when loading is finished
-      reactivateClipboard = !newState.loading
     }
+
     if (nextProps.error !== this.state.error) {
       newState.error = nextProps.error
     }
+
     if (nextProps.error !== '' && this.props.type === 'text') {
       this.showButtons()
+    }
+    else {
+      // Reactivate clipboard when loading is finished
+      reactivateClipboard = !newState.loading
     }
 
     if (Object.keys(newState).length > 0) {
