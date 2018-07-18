@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.1.10
+###### _July 18, 2018_
+- Fix InlineEdit bug where there's an error after loading [#671](https://github.com/GetAmbassador/react-ions/pull/671)
+
 ## 5.1.9
 ###### _July 17, 2018_
 - Input, Buttons: minor updates to handle legacy browsers (mostly Safari 10 and below) [#664](https://github.com/GetAmbassador/react-ions/pull/664)
