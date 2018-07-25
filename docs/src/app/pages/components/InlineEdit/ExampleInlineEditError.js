@@ -16,20 +16,17 @@ class ExampleInlineEditError extends React.Component {
 
   handleSave = event => {
     if (event.target.name === 'test') {
-      console.log('setting state', this.state.count++)
-      this.setState({ loading: true, error: '', count: this.state.count++ }, () => {
+      this.setState({ loading: true, error: '' })
 
-        if (event.target.canceled) {
-          console.log('reset error')
-          this.setState({ loading: false, error: '' })
-        } else {
-          setTimeout(() => {
-            console.log(this.state.count)
-            this.setState({ loading: false, error: this.state.count > 1 ? '' : 'This is an error' })
-          }, 1000)
-        }
-
-      })
+      if (event.target.canceled) {
+        this.setState({ loading: false, error: '' })
+      }
+      else {
+        setTimeout(() => {
+          this.setState((prevState) =>
+            ({ loading: false, count: prevState.count + 1, error: prevState.count === 0 ? 'This is an error' : '' }))
+        }, 3000)
+      }
     }
   }
 
