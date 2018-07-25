@@ -113,7 +113,6 @@ class InlineEdit extends React.Component {
   componentWillReceiveProps = nextProps => {
     const newState = {}
 
-    console.log('here', nextProps.isEditing, this.state.isEditing)
     if (nextProps.isEditing && !this.state.isEditing) {
       newState.isEditing = true
       this.showButtons()
