@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.1.11
+###### _July 27, 2018_
+- Fix InlineEdit bug - errors thrown on subsequent saves [#673](https://github.com/GetAmbassador/react-ions/pull/673)
+
 ## 5.1.10
 ###### _July 18, 2018_
 - Fix InlineEdit bug where there's an error after loading [#671](https://github.com/GetAmbassador/react-ions/pull/671)
