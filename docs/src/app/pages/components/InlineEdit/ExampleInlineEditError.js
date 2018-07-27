@@ -10,7 +10,8 @@ class ExampleInlineEditError extends React.Component {
   state = {
     inlineValue: 'I will have an error after saving',
     loading: false,
-    error: ''
+    error: '',
+    count: 0
   }
 
   handleSave = event => {
@@ -18,11 +19,12 @@ class ExampleInlineEditError extends React.Component {
       this.setState({ loading: true, error: '' })
 
       if (event.target.canceled) {
-        console.log('reset error')
         this.setState({ loading: false, error: '' })
-      } else {
+      }
+      else {
         setTimeout(() => {
-          this.setState({ loading: false, error: 'This is an error' })
+          this.setState((prevState) =>
+            ({ loading: false, count: prevState.count + 1, error: prevState.count === 0 ? 'This is an error' : '' }))
         }, 3000)
       }
     }
@@ -31,7 +33,7 @@ class ExampleInlineEditError extends React.Component {
   render() {
     return (
       <div>
-        <InlineEdit name='test' value={this.state.inlineValue} changeCallback={this.handleSave} placeholder='Custom Placeholder' loading={this.state.loading} error={this.state.error} />
+        <InlineEdit copyToClipboard name='test' value={this.state.inlineValue} changeCallback={this.handleSave} placeholder='Custom Placeholder' loading={this.state.loading} error={this.state.error} />
       </div>
     )
   }

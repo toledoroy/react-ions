@@ -13,17 +13,6 @@ class InlineEdit extends React.Component {
     super(props)
   }
 
-  static defaultProps = {
-    isEditing: false,
-    placeholder: 'Click to edit',
-    loading: false,
-    readonly: false,
-    error: '',
-    value: '',
-    tooltipPlacement: 'right',
-    type: 'text'
-  }
-
   static propTypes = {
     /**
      * Name of the input.
@@ -102,6 +91,17 @@ class InlineEdit extends React.Component {
     selectOptions: PropTypes.array
   }
 
+  static defaultProps = {
+    isEditing: false,
+    placeholder: 'Click to edit',
+    loading: false,
+    readonly: false,
+    error: '',
+    value: '',
+    tooltipPlacement: 'right',
+    type: 'text'
+  }
+
   state = {
     isEditing: this.props.isEditing,
     value: this.props.value || '',
@@ -111,12 +111,12 @@ class InlineEdit extends React.Component {
   }
 
   componentWillReceiveProps = nextProps => {
-    if (nextProps.isEditing) {
+    const newState = {}
+
+    if (nextProps.isEditing && !this.state.isEditing) {
+      newState.isEditing = true
       this.showButtons()
     }
-
-    let newState = {}
-    let reactivateClipboard = false
 
     if (nextProps.loading !== this.state.loading) {
       newState.loading = nextProps.loading
@@ -129,15 +129,15 @@ class InlineEdit extends React.Component {
     if (nextProps.error !== '' && this.props.type === 'text') {
       this.showButtons()
     }
-    else {
-      // Reactivate clipboard when loading is finished
-      reactivateClipboard = !newState.loading
+    else if (!newState.loading && !newState.isEditing && this.props.type === 'text') {
+      newState.isEditing = false
+      this.props.copyToClipboard && this.activateCopyToClipboard()
+      this._textValue.blur()
+      this._textValue.scrollLeft = 0
     }
 
     if (Object.keys(newState).length > 0) {
-      this.setState(newState, () => {
-        reactivateClipboard && this.activateCopyToClipboard()
-      })
+      this.setState(newState)
     }
   }
 
@@ -146,6 +146,7 @@ class InlineEdit extends React.Component {
       this.attachKeyListeners()
       this.activateCopyToClipboard()
     }
+
     this.getStyles()
   }
 
@@ -153,6 +154,7 @@ class InlineEdit extends React.Component {
     return this.state.isEditing !== nextState.isEditing ||
         this.state.value !== nextState.value ||
         this.state.loading !== nextState.loading ||
+        this.props.error !== nextProps.error ||
         this.state.error !== nextState.error ||
         this.state.copied !== nextState.copied ||
         this.state.inlineEditMaxWidth !== nextState.inlineEditMaxWidth ||
@@ -166,16 +168,8 @@ class InlineEdit extends React.Component {
     if (this.props.type === 'text') {
       const inputText = this._textValue.textContent
       const shouldTriggerCallback = inputText !== this.state.value
-      const previousValue = this.state.value
-      const isEditing = this.state.error !== ''
 
-      this.setState({ isEditing: isEditing, value: inputText }, () => {
-        if (!isEditing) {
-          this.activateCopyToClipboard()
-          this._textValue.blur()
-          this._textValue.scrollLeft = 0
-        }
-
+      this.setState({ isEditing: false, value: inputText }, () => {
         if (typeof this.props.changeCallback === 'function' && shouldTriggerCallback) {
           const event = {
             target: {
@@ -187,7 +181,8 @@ class InlineEdit extends React.Component {
           this.props.changeCallback(event)
         }
       })
-    } else {
+    }
+    else {
       const shouldTriggerCallback = event.target.value !== this.state.value
 
       this.setState({ value: event.target.value }, () => {
@@ -206,7 +201,7 @@ class InlineEdit extends React.Component {
   }
 
   handleCancel = () => {
-    let newState = { isEditing: false }
+    const newState = { isEditing: false }
     let shouldTriggerCallback = false
 
     if (this.state.error !== '' && this.props.value !== this.state.value) {
@@ -401,9 +396,12 @@ class InlineEdit extends React.Component {
               </div>
             }
             {
-              this.props.copyToClipboard && !this.state.isEditing && !this.state.loading &&
-              <span ref={c => this._copyTrigger = c} data-clipboard-text={copyValue}>
-                <span className={copyIconClass}>{this.getCopyIcon()}</span>
+              this.props.copyToClipboard &&
+                <span ref={c => this._copyTrigger = c} data-clipboard-text={copyValue}>
+                {
+                  !this.state.isEditing && !this.state.loading &&
+                    <span className={copyIconClass}>{this.getCopyIcon()}</span>
+                }
               </span>
             }
             <div className={style['loader-wrapper']}>
