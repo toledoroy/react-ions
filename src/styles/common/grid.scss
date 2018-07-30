@@ -10,14 +10,15 @@
     padding-left: 0;
   }
 
+  // .75rem = 12px
   .row {
     box-sizing: border-box;
     display: flex;
     flex: 0 1 auto;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-left: -.5rem;
-    margin-right: -.5rem;
+    margin-left: -.75rem;
+    margin-right: -.75rem;
   }
 
   .row.reverse {
@@ -55,8 +56,8 @@
   .col-xs-offset-12 {
     box-sizing: border-box;
     flex: 0 0 auto;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    padding-right: .75rem;
+    padding-left: .75rem;
   }
 
   .col-xs {
@@ -157,8 +158,8 @@
     .col-sm-offset-12 {
       box-sizing: border-box;
       flex: 0 0 auto;
-      padding-right: 0.5rem;
-      padding-left: 0.5rem;
+      padding-right: .75rem;
+      padding-left: .75rem;
     }
 
     .col-sm {
@@ -260,8 +261,8 @@
     .col-md-offset-12 {
       box-sizing: border-box;
       flex: 0 0 auto;
-      padding-right: 0.5rem;
-      padding-left: 0.5rem;
+      padding-right: .75rem;
+      padding-left: .75rem;
     }
 
     .col-md {
@@ -363,8 +364,8 @@
     .col-lg-offset-12 {
       box-sizing: border-box;
       flex: 0 0 auto;
-      padding-right: 0.5rem;
-      padding-left: 0.5rem;
+      padding-right: .75rem;
+      padding-left: .75rem;
     }
 
     .col-lg {
