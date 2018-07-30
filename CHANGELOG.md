@@ -2,7 +2,7 @@
 
 ## 5.1.12
 ###### _July 30, 2018_
-- Grid: changed default spacing values from .5rem (8px) to .75rem (12px)
+- Grid: changed default spacing values from .5rem (8px) to .75rem (12px) [#675](https://github.com/GetAmbassador/react-ions/pull/675)
 
 ## 5.1.11
 ###### _July 27, 2018_
