@@ -382,8 +382,8 @@ class InlineEdit extends React.Component {
       <div className={inlineEditClass}>
         { this.props.tooltipText
           ? <div className={style['inline-edit-wrapper-inner']}>
-              <Tooltip content={this.props.tooltipText} tooltipPlacement={this.props.tooltipPlacement} appendToBody={true} className={style['value-tooltip']} optClass={this.props.tooltipClass || ''}>
-                {this.getIcon()}
+              {this.getIcon()}
+              <Tooltip content={this.props.tooltipText} tooltipPlacement={this.props.tooltipPlacement} appendToBody={true} className={style['value-tooltip', 'inline-text-wrapper-hover']} optClass={this.props.tooltipClass || ''}>
                 {this.getLabel()}
                 <div className={overflowWrapperClass} style={{ maxWidth: this.state.inlineEditMaxWidth }}>
                   {this.getField()}
