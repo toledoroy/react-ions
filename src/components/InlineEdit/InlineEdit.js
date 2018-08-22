@@ -268,10 +268,7 @@ class InlineEdit extends React.Component {
 
     return (
       <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={c => this._textValue = c}>
-        {this.props.tooltipText
-          ? <Tooltip content={this.props.tooltipText} tooltipPlacement={this.props.tooltipPlacement} appendToBody={true} className={style['value-tooltip']} optClass={this.props.tooltipClass || ''}>{this.state.value || this.props.placeholder }</Tooltip>
-          : <span>{this.state.value || this.props.placeholder }</span>
-        }
+        <span>{this.state.value || this.props.placeholder }</span>
       </span>
     )
   }
@@ -383,32 +380,62 @@ class InlineEdit extends React.Component {
 
     return (
       <div className={inlineEditClass}>
-        <div className={style['inline-edit-wrapper-inner']}>
-          {this.getIcon()}
-          {this.getLabel()}
-          <div className={overflowWrapperClass} style={{ maxWidth: this.state.inlineEditMaxWidth }}>
-            {this.getField()}
-            {
-              this.state.isEditing && !this.state.loading &&
-              <div className={style['inline-button-wrapper']}>
-                <Icon name='md-check' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
-                <Icon name='md-close' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
-              </div>
-            }
-            {
-              this.props.copyToClipboard &&
-                <span ref={c => this._copyTrigger = c} data-clipboard-text={copyValue}>
-                {
-                  !this.state.isEditing && !this.state.loading &&
-                    <span className={copyIconClass}>{this.getCopyIcon()}</span>
-                }
-              </span>
-            }
-            <div className={style['loader-wrapper']}>
-              <Spinner loading={this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198A0' />
+        { this.props.tooltipText
+          ? <div className={style['inline-edit-wrapper-inner']}>
+              <Tooltip content={this.props.tooltipText} tooltipPlacement={this.props.tooltipPlacement} appendToBody={true} className={style['value-tooltip']} optClass={this.props.tooltipClass || ''}>
+                {this.getIcon()}
+                {this.getLabel()}
+                <div className={overflowWrapperClass} style={{ maxWidth: this.state.inlineEditMaxWidth }}>
+                  {this.getField()}
+                  {
+                    this.state.isEditing && !this.state.loading &&
+                    <div className={style['inline-button-wrapper']}>
+                      <Icon name='md-check' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
+                      <Icon name='md-close' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
+                    </div>
+                  }
+                  {
+                    this.props.copyToClipboard &&
+                    <span ref={c => this._copyTrigger = c} data-clipboard-text={copyValue}>
+                      {
+                        !this.state.isEditing && !this.state.loading &&
+                        <span className={copyIconClass}>{this.getCopyIcon()}</span>
+                      }
+                    </span>
+                  }
+                  <div className={style['loader-wrapper']}>
+                    <Spinner loading={this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198A0' />
+                  </div>
+                </div>
+              </Tooltip>
             </div>
-          </div>
-        </div>
+          : <div className={style['inline-edit-wrapper-inner']}>
+              {this.getIcon()}
+              {this.getLabel()}
+              <div className={overflowWrapperClass} style={{ maxWidth: this.state.inlineEditMaxWidth }}>
+                {this.getField()}
+                {
+                  this.state.isEditing && !this.state.loading &&
+                  <div className={style['inline-button-wrapper']}>
+                    <Icon name='md-check' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
+                    <Icon name='md-close' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
+                  </div>
+                }
+                {
+                  this.props.copyToClipboard &&
+                  <span ref={c => this._copyTrigger = c} data-clipboard-text={copyValue}>
+                    {
+                      !this.state.isEditing && !this.state.loading &&
+                      <span className={copyIconClass}>{this.getCopyIcon()}</span>
+                    }
+                  </span>
+                }
+                <div className={style['loader-wrapper']}>
+                  <Spinner loading={this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198A0' />
+                </div>
+              </div>
+            </div>
+        }
         {
           this.state.error && this.state.error !== '' &&
           <div className={style['error-text']}>{this.state.error}</div>
