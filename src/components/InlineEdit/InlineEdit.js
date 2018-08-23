@@ -249,18 +249,37 @@ class InlineEdit extends React.Component {
   getTooltip = () => {
     if (!this.state.isEditing && this.props.tooltipText) {
       return (
-      <Tooltip
-        content={this.props.tooltipText}
-        tooltipPlacement={this.props.tooltipPlacement}
-        appendToBody={true}
-        optClass={optclass(style, [this.props.tooltipClass, 'inline-text-top-wrapper']) || ''}>
-        <span className={style['inline-text-top-wrapper']}>
-          {this.getLabel()}{this.getSpan()}
+      <span id='span_id'>
+        <Tooltip
+          content={this.props.tooltipText}
+          tooltipPlacement={this.props.tooltipPlacement}
+          appendToBody={true}
+          optClass={optclass(style, [this.props.tooltipClass, 'inline-text-top-wrapper']) || ''}>
+          <span className={style['inline-text-top-wrapper']}>
+            {this.getLabel()}{this.getSpan()}
+          </span>
+        </Tooltip>
+      </span>
+      )
+    }
+    else if (this.state.isEditing && this.props.tooltipClass) {
+      return (
+        <span id='span_id'>
+          <Tooltip
+            content={this.props.tooltipText}
+            tooltipPlacement={this.props.tooltipPlacement}
+            appendToBody={true}
+            show={false}
+            optClass={optclass(style, [this.props.tooltipClass, 'inline-text-top-wrapper']) || ''}>
+            <span className={style['inline-text-top-wrapper']}>
+              {this.getLabel()}{this.getSpan()}
+            </span>
+          </Tooltip>
         </span>
-      </Tooltip>)
+      )
     }
     else {
-      return (<span className={style['inline-text-top-wrapper']}>{this.getLabel()}{this.getSpan()}</span>)
+      return (<span id='span_id' className={style['inline-text-top-wrapper']}>{this.getLabel()}{this.getSpan()}</span>)
     }
   }
 
@@ -282,11 +301,11 @@ class InlineEdit extends React.Component {
 
   getSpan = () => {
     if (this.state.isEditing) {
-      return <span id='span_id' contentEditable className={style['inline-text-wrapper-hover']} dangerouslySetInnerHTML={{ __html: this.state.value }} ref={c => this._textValue = c} />
+      return <span id='span_editable' ref={c => this._textValue = c} contentEditable className={style['inline-text-wrapper-hover']} dangerouslySetInnerHTML={{ __html: this.state.value }}/>
     }
 
     return (
-      <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={c => this._textValue = c}>
+      <span id='span_editable' ref={c => this._textValue = c}  onClick={this.showButtons} className={style['inline-text-wrapper-hover']}>
         {this.props.tooltipText
           ? this.state.value || this.props.placeholder
           : <span>{this.state.value || this.props.placeholder}</span>
@@ -335,7 +354,6 @@ class InlineEdit extends React.Component {
   }
 
   handleKeyPress = event => {
-    console.log('here', event)
     // Grabs the character code, even in FireFox
     const charCode = event.keyCode ? event.keyCode : event.which
 
