@@ -270,7 +270,7 @@ class InlineEdit extends React.Component {
             tooltipPlacement={this.props.tooltipPlacement}
             appendToBody={true}
             show={false}
-            optClass={optclass(style, [this.props.tooltipClass, 'inline-text-top-wrapper']) || ''}>
+            optClass={optclass(style, [this.props.tooltipClass]) || ''}>
             <span className={style['inline-text-top-wrapper']}>
               {this.getLabel()}{this.getSpan()}
             </span>
