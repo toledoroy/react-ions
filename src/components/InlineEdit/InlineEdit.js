@@ -254,7 +254,7 @@ class InlineEdit extends React.Component {
           content={this.props.tooltipText}
           tooltipPlacement={this.props.tooltipPlacement}
           appendToBody={true}
-          optClass={optclass(style, [this.props.tooltipClass, 'inline-text-top-wrapper']) || ''}>
+          optClass={optclass(style, [this.props.tooltipClass]) || ''}>
           <span className={style['inline-text-top-wrapper']}>
             {this.getLabel()}{this.getSpan()}
           </span>
@@ -262,7 +262,7 @@ class InlineEdit extends React.Component {
       </span>
       )
     }
-    else if (this.state.isEditing && this.props.tooltipClass) {
+    else if (this.state.isEditing && this.props.tooltipText) {
       return (
         <span id='span_id'>
           <Tooltip
@@ -301,7 +301,7 @@ class InlineEdit extends React.Component {
 
   getSpan = () => {
     if (this.state.isEditing) {
-      return <span id='span_editable' ref={c => this._textValue = c} contentEditable className={style['inline-text-wrapper-hover']} dangerouslySetInnerHTML={{ __html: this.state.value }}/>
+      return <span id='span_editable' ref={c => this._textValue = c} contentEditable className={style['inline-text-wrapper']} dangerouslySetInnerHTML={{ __html: this.state.value }}/>
     }
 
     return (
