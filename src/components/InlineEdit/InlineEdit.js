@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import optclass from 'react-ions/lib/components/internal/OptClass'
+import optclass from '../internal/OptClass'
 import Clipboard from 'clipboard'
 import style from './style.scss'
 import classNames from 'classnames/bind'
@@ -248,10 +248,19 @@ class InlineEdit extends React.Component {
 
   getTooltip = () => {
     if (!this.state.isEditing && this.props.tooltipText) {
-      return (<Tooltip content={this.props.tooltipText} tooltipPlacement={this.props.tooltipPlacement} appendToBody={true} optClass={optclass(style, [this.props.tooltipClass, 'value-tooltip', 'inline-text-wrapper-hover']) || ''}><span style={{ display: `inline-flex` }}>{this.getLabel()}{this.getSpan()}</span></Tooltip>)
+      return (
+      <Tooltip
+        content={this.props.tooltipText}
+        tooltipPlacement={this.props.tooltipPlacement}
+        appendToBody={true}
+        optClass={optclass(style, [this.props.tooltipClass, 'inline-text-top-wrapper']) || ''}>
+        <span className={style['inline-text-top-wrapper']}>
+          {this.getLabel()}{this.getSpan()}
+        </span>
+      </Tooltip>)
     }
     else {
-      return (<span style={{ display: `inline-flex` }}>{this.getLabel()}{this.getSpan()}</span>)
+      return (<span className={style['inline-text-top-wrapper']}>{this.getLabel()}{this.getSpan()}</span>)
     }
   }
 
@@ -273,7 +282,7 @@ class InlineEdit extends React.Component {
 
   getSpan = () => {
     if (this.state.isEditing) {
-      return <span id='span_id' contentEditable className={style['inline-text-wrapper']} dangerouslySetInnerHTML={{ __html: this.state.value }} ref={c => this._textValue = c} />
+      return <span id='span_id' contentEditable className={style['inline-text-wrapper-hover']} dangerouslySetInnerHTML={{ __html: this.state.value }} ref={c => this._textValue = c} />
     }
 
     return (
@@ -326,6 +335,7 @@ class InlineEdit extends React.Component {
   }
 
   handleKeyPress = event => {
+    console.log('here', event)
     // Grabs the character code, even in FireFox
     const charCode = event.keyCode ? event.keyCode : event.which
 

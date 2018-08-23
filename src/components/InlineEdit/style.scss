@@ -34,6 +34,15 @@
     }
   }
 
+  .inline-text-top-wrapper {
+    display: inline-flex;
+    max-width: 100%;
+    min-width: 50px;
+    outline: none;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
   .inline-text-wrapper {
     color: $navy-text;
     max-width: 100%;
@@ -43,6 +52,7 @@
     white-space: nowrap;
     border-bottom: 1px dashed transparent;
   }
+
 
   .inline-text-wrapper-hover {
     color: $navy-text;
