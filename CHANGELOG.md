@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.1.14
+###### _August 23, 2018_
+- InlineEdit: Update inline edit tooltip to include the label in the triggerable area [#680](https://github.com/GetAmbassador/react-ions/pull/680)
+
 ## 5.1.13
 ###### _August 22, 2018_
 - Icons: adding swap_horiz [#678](https://github.com/GetAmbassador/react-ions/pull/678)
