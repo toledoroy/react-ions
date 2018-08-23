@@ -11,3 +11,7 @@ export const zLayers = {
   'default': 1,
   'below': -1
 }
+
+export const z = layer => {
+  return zLayers.hasOwnProperty(zLayers[layer]) && zLayers[layer]
+}
