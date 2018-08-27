@@ -92,17 +92,19 @@ class Checkbox extends React.Component {
   }
 
   getLabel = () => {
+    const title = typeof this.props.label === 'string' ? this.props.label : ''
+
     if (this.props.label && this.props.description) {
       return <div className={style['label-wrapper']}>
         <label htmlFor={this.props.forLabelAttr}>
-          <span className={style['label-title']}>{this.props.label}</span>
+          <span className={style['label-title']} title={title}>{this.props.label}</span>
           <span className={style['label-description']}>{this.props.description}</span>
         </label>
       </div>
     }
 
     if (this.props.label) {
-      return <label htmlFor={this.props.forLabelAttr}>{this.props.label}</label>
+      return <label htmlFor={this.props.forLabelAttr} title={title}>{this.props.label}</label>
     }
 
     return null
@@ -127,10 +129,11 @@ class Checkbox extends React.Component {
     const checkboxClass = cx(style['checkbox-component'], allowNativeClass, descriptionClass, disabledClass, optClass)
     const inputFillColor = this.props.disabled ? '#9198A0' : '#3C97D3'
     const labelWrapperClass = this.props.description ? style['label-group'] : null
+    const title = typeof label === 'string' ? label : ''
 
     return (
       <div className={checkboxClass}>
-        <input type='checkbox' id={this.props.forLabelAttr} checked={this.state.value} onChange={this.handleChange} value={value} disabled={disabled} name={name} label={label}></input>
+        <input type='checkbox' id={this.props.forLabelAttr} checked={this.state.value} onChange={this.handleChange} value={value} disabled={disabled} name={name} label={label} title={title}></input>
         <div className={labelWrapperClass}>
           <div className={style['checkbox-input']}>
             <Icon name={this.state.iconName} fill={inputFillColor} />
