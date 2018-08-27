@@ -98,3 +98,47 @@ jobs:
         path: /tmp/circleci-artifacts
     - store_artifacts:
         path: /tmp/circleci-test-results
+
+  deploy-production:
+      machine:
+          enabled: true
+      working_directory: ~/GetAmbassador/react-ions
+      steps:
+          - checkout
+          - run:
+              name: Git fetch
+              command: git fetch --unshallow
+          - run:
+              name: Git push
+              command: git push git@heroku.com:react-ions.git $CIRCLE_SHA1:refs/heads/master -f
+
+  deploy-staging:
+    machine:
+        enabled: true
+    working_directory: ~/GetAmbassador/react-ions
+    steps:
+        - checkout
+        - run:
+            name: Git fetch
+            command: git fetch --unshallow
+        - run:
+            name: Git push
+            command: git push git@heroku.com:dev-react-ions.git $CIRCLE_SHA1:refs/heads/master -f
+
+workflows:
+  version: 2
+  build-test-deploy:
+    jobs:
+      - build
+      - deploy-prod:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+      - deploy-staging:
+          requires:
+            - build
+          filters:
+            branches:
+              only: dev-react-ions
