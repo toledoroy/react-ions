@@ -1,5 +1,14 @@
 ## HEAD
 
+## 5.1.15
+###### _August 27, 2018_
+- InlineEdit: Revert changes made in 5.1.14 [#683](https://github.com/GetAmbassador/react-ions/pull/683)
+- Tooltip: Remove shouldComponentUpdate from component to enable children updating [#683](https://github.com/GetAmbassador/react-ions/pull/683)
+
+## 5.1.14
+###### _August 23, 2018_
+- InlineEdit: Update inline edit tooltip to include the label in the triggerable area [#680](https://github.com/GetAmbassador/react-ions/pull/680)
+
 ## 5.1.13
 ###### _August 22, 2018_
 - Icons: adding swap_horiz [#678](https://github.com/GetAmbassador/react-ions/pull/678)
