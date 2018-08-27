@@ -1,6 +1,7 @@
 import React from 'react'
 import Dropdown from 'react-ions/lib/components/Dropdown'
 import Button from 'react-ions/lib/components/Button'
+import styles from './styles.scss'
 
 class ExampleDropdownRightAlign extends React.Component {
   constructor(props) {
@@ -15,7 +16,9 @@ class ExampleDropdownRightAlign extends React.Component {
     ]
 
     return (
-      <Dropdown trigger={<Button>Open</Button>} listItems={listItems} alignment='right' />
+      <div className={styles['right-align-example']}>
+        <Dropdown trigger={<Button>Open</Button>} listItems={listItems} alignment='right' />
+      </div>
     )
   }
 }

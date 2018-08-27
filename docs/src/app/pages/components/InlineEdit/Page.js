@@ -4,8 +4,6 @@ import docs from '!!docgen!react-ions/lib/components/InlineEdit/InlineEdit'
 import CodeExample from 'private/modules/CodeExample'
 import ExampleInlineEditDefault from './ExampleInlineEditDefault'
 import exampleInlineEditDefaultCode from '!raw!./ExampleInlineEditDefault'
-import ExampleInlineEditCallback from './ExampleInlineEditCallback'
-import exampleInlineEditCallbackCode from '!raw!./ExampleInlineEditCallback'
 import ExampleInlineEditTrigger from './ExampleInlineEditTrigger'
 import exampleInlineEditTriggerCode from '!raw!./ExampleInlineEditTrigger'
 import ExampleInlineEditInline from './ExampleInlineEditInline'
@@ -28,7 +26,6 @@ import styles from 'private/css/content'
 
 const description = {
   inlineEditDefault: 'This is the default **inline edit component**.',
-  inlineEditCallback: 'This is the **inline edit component** with a callback.',
   inlineEditTrigger: 'This is the **inline edit component** with an external edit trigger.',
   inlineEditInline: 'This is the **inline edit component** that is inline with other components.',
   inlineEditReadonly: 'This is the readonly **inline edit component**.',
@@ -49,12 +46,6 @@ const InlineEditPage = () => (
           description={description.inlineEditDefault}
           markup={exampleInlineEditDefaultCode}>
           <ExampleInlineEditDefault />
-        </CodeExample>
-        <CodeExample
-          title='Inline Edit with a callback'
-          description={description.inlineEditCallback}
-          markup={exampleInlineEditCallbackCode}>
-          <ExampleInlineEditCallback />
         </CodeExample>
         <CodeExample
           title='Inline Edit with an external edit trigger'

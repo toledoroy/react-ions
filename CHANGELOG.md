@@ -1,5 +1,50 @@
 ## HEAD
 
+## 5.1.15
+###### _August 27, 2018_
+- InlineEdit: Revert changes made in 5.1.14 [#683](https://github.com/GetAmbassador/react-ions/pull/683)
+- Tooltip: Remove shouldComponentUpdate from component to enable children updating [#683](https://github.com/GetAmbassador/react-ions/pull/683)
+
+## 5.1.14
+###### _August 23, 2018_
+- InlineEdit: Update inline edit tooltip to include the label in the triggerable area [#680](https://github.com/GetAmbassador/react-ions/pull/680)
+
+## 5.1.13
+###### _August 22, 2018_
+- Icons: adding swap_horiz [#678](https://github.com/GetAmbassador/react-ions/pull/678)
+
+## 5.1.12
+###### _July 30, 2018_
+- Grid: changed default spacing values from .5rem (8px) to .75rem (12px) [#675](https://github.com/GetAmbassador/react-ions/pull/675)
+
+## 5.1.11
+###### _July 27, 2018_
+- Fix InlineEdit bug - errors thrown on subsequent saves [#673](https://github.com/GetAmbassador/react-ions/pull/673)
+
+## 5.1.10
+###### _July 18, 2018_
+- Fix InlineEdit bug where there's an error after loading [#671](https://github.com/GetAmbassador/react-ions/pull/671)
+
+## 5.1.9
+###### _July 17, 2018_
+- Input, Buttons: minor updates to handle legacy browsers (mostly Safari 10 and below) [#664](https://github.com/GetAmbassador/react-ions/pull/664)
+
+## 5.1.8
+###### _July 17, 2018_
+- Reactivate copy to clipboard when loading is finished [#665](https://github.com/GetAmbassador/react-ions/pull/665)
+- Add custom copy value to InlineEdit [#663](https://github.com/GetAmbassador/react-ions/pull/663)
+- Update PanelGroup to accept node as title and toggle icon position right [#662](https://github.com/GetAmbassador/react-ions/pull/662)
+
+## 5.1.7
+###### _July 10, 2018_
+- Mixin: adding a property to handle webkit browsers [#660](https://github.com/GetAmbassador/react-ions/pull/660)
+
+## 5.1.6
+###### _July 10, 2018_
+- Popover: removing margin selector [#658](https://github.com/GetAmbassador/react-ions/pull/658)
+- Mixin: adding 'dont break out' mixin for long strings [#658](https://github.com/GetAmbassador/react-ions/pull/658)
+- Dropdown: add disabled prop [#657](https://github.com/GetAmbassador/react-ions/pull/657)
+
 ## 5.1.5
 ###### _June 27, 2018_
 - Popover: adding popover specific z-index, to help layering with tooltips
@@ -7,7 +52,7 @@
 
 ## 5.1.4
 ###### _June 26, 2018_
-- Button Confirmation: adding left align explicitly to confirmation header 
+- Button Confirmation: adding left align explicitly to confirmation header
 [#650](https://github.com/GetAmbassador/react-ions/pull/650)
 
 - Dropdown: tweak to z-index and example

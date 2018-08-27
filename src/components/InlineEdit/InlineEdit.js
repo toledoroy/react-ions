@@ -13,17 +13,6 @@ class InlineEdit extends React.Component {
     super(props)
   }
 
-  static defaultProps = {
-    isEditing: false,
-    placeholder: 'Click to edit',
-    loading: false,
-    readonly: false,
-    error: '',
-    value: '',
-    tooltipPlacement: 'right',
-    type: 'text'
-  }
-
   static propTypes = {
     /**
      * Name of the input.
@@ -68,7 +57,10 @@ class InlineEdit extends React.Component {
     /**
      * Boolean used to display the copy to clipboard icon.
      */
-    copyToClipboard: PropTypes.bool,
+    copyToClipboard: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string
+    ]),
     /**
      * A label to display next to the component.
      */
@@ -99,6 +91,17 @@ class InlineEdit extends React.Component {
     selectOptions: PropTypes.array
   }
 
+  static defaultProps = {
+    isEditing: false,
+    placeholder: 'Click to edit',
+    loading: false,
+    readonly: false,
+    error: '',
+    value: '',
+    tooltipPlacement: 'right',
+    type: 'text'
+  }
+
   state = {
     isEditing: this.props.isEditing,
     value: this.props.value || '',
@@ -108,20 +111,29 @@ class InlineEdit extends React.Component {
   }
 
   componentWillReceiveProps = nextProps => {
-    if (nextProps.isEditing) {
+    const newState = {}
+
+    if (nextProps.isEditing && !this.state.isEditing) {
+      newState.isEditing = true
       this.showButtons()
     }
-
-    let newState = {}
 
     if (nextProps.loading !== this.state.loading) {
       newState.loading = nextProps.loading
     }
+
     if (nextProps.error !== this.state.error) {
       newState.error = nextProps.error
     }
+
     if (nextProps.error !== '' && this.props.type === 'text') {
       this.showButtons()
+    }
+    else if (!newState.loading && !newState.isEditing && this.props.type === 'text') {
+      newState.isEditing = false
+      this.props.copyToClipboard && this.activateCopyToClipboard()
+      this._textValue.blur()
+      this._textValue.scrollLeft = 0
     }
 
     if (Object.keys(newState).length > 0) {
@@ -134,35 +146,30 @@ class InlineEdit extends React.Component {
       this.attachKeyListeners()
       this.activateCopyToClipboard()
     }
+
     this.getStyles()
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
     return this.state.isEditing !== nextState.isEditing ||
-        this.state.value !== nextState.value ||
-        this.state.loading !== nextState.loading ||
-        this.state.error !== nextState.error ||
-        this.state.copied !== nextState.copied ||
-        this.state.inlineEditMaxWidth !== nextState.inlineEditMaxWidth ||
-        this.props.tooltipText !== nextProps.tooltipText ||
-        this.props.tooltipPlacement !== nextProps.tooltipPlacement ||
-        this.props.readonly !== nextProps.readonly
+      this.state.value !== nextState.value ||
+      this.state.loading !== nextState.loading ||
+      this.props.error !== nextProps.error ||
+      this.state.error !== nextState.error ||
+      this.state.copied !== nextState.copied ||
+      this.state.inlineEditMaxWidth !== nextState.inlineEditMaxWidth ||
+      this.props.tooltipText !== nextProps.tooltipText ||
+      this.props.tooltipPlacement !== nextProps.tooltipPlacement ||
+      this.props.readonly !== nextProps.readonly ||
+      this.props.copyToClipboard !== nextProps.copyToClipboard
   }
 
   handleSave = event => {
     if (this.props.type === 'text') {
       const inputText = this._textValue.textContent
       const shouldTriggerCallback = inputText !== this.state.value
-      const previousValue = this.state.value
-      const isEditing = this.state.error !== ''
 
-      this.setState({ isEditing: isEditing, value: inputText }, () => {
-        if (!isEditing) {
-          this.activateCopyToClipboard()
-          this._textValue.blur()
-          this._textValue.scrollLeft = 0
-        }
-
+      this.setState({ isEditing: false, value: inputText }, () => {
         if (typeof this.props.changeCallback === 'function' && shouldTriggerCallback) {
           const event = {
             target: {
@@ -174,7 +181,8 @@ class InlineEdit extends React.Component {
           this.props.changeCallback(event)
         }
       })
-    } else {
+    }
+    else {
       const shouldTriggerCallback = event.target.value !== this.state.value
 
       this.setState({ value: event.target.value }, () => {
@@ -193,7 +201,7 @@ class InlineEdit extends React.Component {
   }
 
   handleCancel = () => {
-    let newState = { isEditing: false }
+    const newState = { isEditing: false }
     let shouldTriggerCallback = false
 
     if (this.state.error !== '' && this.props.value !== this.state.value) {
@@ -255,14 +263,14 @@ class InlineEdit extends React.Component {
 
   getSpan = () => {
     if (this.state.isEditing) {
-      return <span id='span_id' contentEditable className={style['inline-text-wrapper']} dangerouslySetInnerHTML={{__html: this.state.value}} ref={c => this._textValue = c} />
+      return <span id='span_id' contentEditable className={style['inline-text-wrapper']} dangerouslySetInnerHTML={{ __html: this.state.value }} ref={c => this._textValue = c} />
     }
 
     return (
       <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={c => this._textValue = c}>
         {this.props.tooltipText
-          ? <Tooltip content={this.props.tooltipText} tooltipPlacement={this.props.tooltipPlacement} appendToBody={true} className={style['value-tooltip']} optClass={this.props.tooltipClass || ''}>{this.state.value || this.props.placeholder }</Tooltip>
-          : <span>{this.state.value || this.props.placeholder }</span>
+          ? <Tooltip content={this.props.tooltipText} tooltipPlacement={this.props.tooltipPlacement} appendToBody={true} className={style['value-tooltip']} optClass={this.props.tooltipClass || ''}>{this.state.value || this.props.placeholder}</Tooltip>
+          : <span>{this.state.value || this.props.placeholder}</span>
         }
       </span>
     )
@@ -371,6 +379,7 @@ class InlineEdit extends React.Component {
     const copyIconClass = cx(style['copy-icon'], copyDisabledClass, this.state.copied ? 'copied' : '')
     const inlineEditClass = cx(style['inline-edit-wrapper'], this.props.optClass, readonlyClass, errorClass, placeholderClass)
     const overflowWrapperClass = cx(style['inline-text-overflow-wrapper'], this.props.type === 'select' ? style['visible'] : '')
+    const copyValue = typeof this.props.copyToClipboard === 'string' ? this.props.copyToClipboard : this.state.value
 
     return (
       <div className={inlineEditClass}>
@@ -379,27 +388,30 @@ class InlineEdit extends React.Component {
           {this.getLabel()}
           <div className={overflowWrapperClass} style={{ maxWidth: this.state.inlineEditMaxWidth }}>
             {this.getField()}
-            {this.state.isEditing && !this.state.loading
-              ? <div className={style['inline-button-wrapper']}>
-                  <Icon name='md-check' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
-                  <Icon name='md-close' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
-                </div>
-              : null
+            {
+              this.state.isEditing && !this.state.loading &&
+              <div className={style['inline-button-wrapper']}>
+                <Icon name='md-check' onClick={this.handleSave} height='20' width='20' className={style['save-button']}>Save</Icon>
+                <Icon name='md-close' onClick={this.handleCancel} height='20' width='20' className={style['cancel-button']}>Cancel</Icon>
+              </div>
             }
-            {this.props.copyToClipboard && !this.state.isEditing && !this.state.loading
-              ? <span ref={c => this._copyTrigger = c} data-clipboard-text={this.state.value}>
+            {
+              this.props.copyToClipboard &&
+              <span ref={c => this._copyTrigger = c} data-clipboard-text={copyValue}>
+                {
+                  !this.state.isEditing && !this.state.loading &&
                   <span className={copyIconClass}>{this.getCopyIcon()}</span>
-                </span>
-              : null
+                }
+              </span>
             }
             <div className={style['loader-wrapper']}>
               <Spinner loading={this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198A0' />
             </div>
           </div>
         </div>
-        {this.state.error && this.state.error !== ''
-          ? <div className={style['error-text']}>{this.state.error}</div>
-          : null
+        {
+          this.state.error && this.state.error !== '' &&
+          <div className={style['error-text']}>{this.state.error}</div>
         }
       </div>
     )
