@@ -1,5 +1,10 @@
 ## HEAD
 
+## 5.1.16
+###### _August 27, 2018_
+- Checkbox: Add native title to labels: [#685](https://github.com/GetAmbassador/react-ions/pull/685)
+- CircleCI 2.0: [#684](https://github.com/GetAmbassador/react-ions/pull/684)
+
 ## 5.1.15
 ###### _August 27, 2018_
 - InlineEdit: Revert changes made in 5.1.14 [#683](https://github.com/GetAmbassador/react-ions/pull/683)
