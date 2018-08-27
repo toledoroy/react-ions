@@ -152,16 +152,16 @@ class InlineEdit extends React.Component {
 
   shouldComponentUpdate = (nextProps, nextState) => {
     return this.state.isEditing !== nextState.isEditing ||
-        this.state.value !== nextState.value ||
-        this.state.loading !== nextState.loading ||
-        this.props.error !== nextProps.error ||
-        this.state.error !== nextState.error ||
-        this.state.copied !== nextState.copied ||
-        this.state.inlineEditMaxWidth !== nextState.inlineEditMaxWidth ||
-        this.props.tooltipText !== nextProps.tooltipText ||
-        this.props.tooltipPlacement !== nextProps.tooltipPlacement ||
-        this.props.readonly !== nextProps.readonly ||
-        this.props.copyToClipboard !== nextProps.copyToClipboard
+      this.state.value !== nextState.value ||
+      this.state.loading !== nextState.loading ||
+      this.props.error !== nextProps.error ||
+      this.state.error !== nextState.error ||
+      this.state.copied !== nextState.copied ||
+      this.state.inlineEditMaxWidth !== nextState.inlineEditMaxWidth ||
+      this.props.tooltipText !== nextProps.tooltipText ||
+      this.props.tooltipPlacement !== nextProps.tooltipPlacement ||
+      this.props.readonly !== nextProps.readonly ||
+      this.props.copyToClipboard !== nextProps.copyToClipboard
   }
 
   handleSave = event => {
@@ -263,14 +263,14 @@ class InlineEdit extends React.Component {
 
   getSpan = () => {
     if (this.state.isEditing) {
-      return <span id='span_id' contentEditable className={style['inline-text-wrapper']} dangerouslySetInnerHTML={{__html: this.state.value}} ref={c => this._textValue = c} />
+      return <span id='span_id' contentEditable className={style['inline-text-wrapper']} dangerouslySetInnerHTML={{ __html: this.state.value }} ref={c => this._textValue = c} />
     }
 
     return (
       <span id='span_id' onClick={this.showButtons} className={style['inline-text-wrapper-hover']} ref={c => this._textValue = c}>
         {this.props.tooltipText
-          ? <Tooltip content={this.props.tooltipText} tooltipPlacement={this.props.tooltipPlacement} appendToBody={true} className={style['value-tooltip']} optClass={this.props.tooltipClass || ''}>{this.state.value || this.props.placeholder }</Tooltip>
-          : <span>{this.state.value || this.props.placeholder }</span>
+          ? <Tooltip content={this.props.tooltipText} tooltipPlacement={this.props.tooltipPlacement} appendToBody={true} className={style['value-tooltip']} optClass={this.props.tooltipClass || ''}>{this.state.value || this.props.placeholder}</Tooltip>
+          : <span>{this.state.value || this.props.placeholder}</span>
         }
       </span>
     )
@@ -397,10 +397,10 @@ class InlineEdit extends React.Component {
             }
             {
               this.props.copyToClipboard &&
-                <span ref={c => this._copyTrigger = c} data-clipboard-text={copyValue}>
+              <span ref={c => this._copyTrigger = c} data-clipboard-text={copyValue}>
                 {
                   !this.state.isEditing && !this.state.loading &&
-                    <span className={copyIconClass}>{this.getCopyIcon()}</span>
+                  <span className={copyIconClass}>{this.getCopyIcon()}</span>
                 }
               </span>
             }
