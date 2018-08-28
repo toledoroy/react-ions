@@ -4,6 +4,7 @@ var mbsyPath = path.normalize('src/assets/icons/svg')
 
 var list = {
   material: [
+    materialPath + '/action/svg/production/ic_trending_up_24px.svg#md-trending_up',
     materialPath + '/action/svg/production/ic_assessment_24px.svg#md-assessment',
     materialPath + '/action/svg/production/ic_check_circle_24px.svg#md-success',
     materialPath + '/action/svg/production/ic_compare_arrows_24px.svg#md-compare',
