@@ -94,6 +94,12 @@ var list = {
     materialPath + '/toggle/svg/production/ic_radio_button_unchecked_24px.svg#md-radio-unchecked'
   ],
   mbsy: [
+    mbsyPath + '/Instagram.svg#mbsy-instagram',
+    mbsyPath + '/bing.svg#mbsy-bing',
+    mbsyPath + '/google-plus.svg#mbsy-google-plus',
+    mbsyPath + '/pinterest.svg#mbsy-pinterest',
+    mbsyPath + '/youtube.svg#mbsy-youtube',
+    mbsyPath + '/tumblr.svg#mbsy-tumblr',
     mbsyPath + '/google.svg#mbsy-google',
     mbsyPath + '/yahoo.svg#mbsy-yahoo',
     mbsyPath + '/twitter.svg#mbsy-twitter',
