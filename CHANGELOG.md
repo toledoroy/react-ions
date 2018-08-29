@@ -1,5 +1,10 @@
 ## HEAD
 
+## 5.1.17
+###### _August 29, 2018_
+- Icons: adding trending and social icons [#689](https://github.com/GetAmbassador/react-ions/pull/689)
+- Circle: build file fix [#688](https://github.com/GetAmbassador/react-ions/pull/688)
+
 ## 5.1.16
 ###### _August 27, 2018_
 - Checkbox: Add native title to labels: [#685](https://github.com/GetAmbassador/react-ions/pull/685)
