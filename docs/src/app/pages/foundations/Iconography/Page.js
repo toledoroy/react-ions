@@ -11,7 +11,7 @@ import normalizeIconList from '../../../../../../scripts/normalize-icon-list'
 const IconographyPage = () => {
   const sharedContent = (index, icon) => {
     return <div key={index} className={localStyle['icon-block']}>
-      <Icon name={icon} className={localStyle.icon} width='24' height='24' fill='#8B0000'></Icon>
+      <Icon name={icon} className={localStyle.icon} width='24' height='24'></Icon>
       <span>{icon}</span>
     </div>
   }
