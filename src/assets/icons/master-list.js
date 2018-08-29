@@ -4,7 +4,7 @@ var mbsyPath = path.normalize('src/assets/icons/svg')
 
 var list = {
   material: [
-    materialPath + '/action/svg/production/ic_trending_up_24px.svg#md-trending_up',
+    materialPath + '/action/svg/production/ic_trending_up_24px.svg#md-trending-up',
     materialPath + '/action/svg/production/ic_assessment_24px.svg#md-assessment',
     materialPath + '/action/svg/production/ic_check_circle_24px.svg#md-success',
     materialPath + '/action/svg/production/ic_compare_arrows_24px.svg#md-compare',
@@ -94,7 +94,7 @@ var list = {
     materialPath + '/toggle/svg/production/ic_radio_button_unchecked_24px.svg#md-radio-unchecked'
   ],
   mbsy: [
-    mbsyPath + '/Instagram.svg#mbsy-instagram',
+    mbsyPath + '/instagram.svg#mbsy-instagram',
     mbsyPath + '/bing.svg#mbsy-bing',
     mbsyPath + '/google-plus.svg#mbsy-google-plus',
     mbsyPath + '/pinterest.svg#mbsy-pinterest',
