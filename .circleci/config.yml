@@ -99,7 +99,7 @@ jobs:
     - store_artifacts:
         path: /tmp/circleci-test-results
 
-  deploy-production:
+  deploy-prod:
       machine:
           enabled: true
       working_directory: ~/GetAmbassador/react-ions
