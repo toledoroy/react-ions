@@ -44,8 +44,9 @@ If you've cloned the React:ions library, and wish to add/remove Material icons, 
   - The *category* of the icon is needed to construct the path.
   - The *hash* after the path will be the `name` prop as passed into the React:ions `Icon` component.
   - All Material icon names should be prefixed with `md-`.
-- Stop and then start the `React-ions` app
-- Go to: http://localhost:3000/foundations/iconography and your icon will be visible in the list.
+- Stop the app, and run `npm run build:sprite`.
+- Run the app again, and go to: http://localhost:3000/foundations/iconography.
+- Your icon will be visible in the list.
 
 ### To make a Custom Icon available in our apps:
 - Follow the instructions for adding a `Material` app, however instead you will add to the `mbsy` array, and include a raw `.svg` file here: `/react-ions/src/assets/icons/svg`.
