@@ -59,32 +59,32 @@ describe('Popover', () => {
     })
 
     it('has uses the provided width', () => {
-      expect(styles({ width: '600px' })['.popoverInner'].width).to.equal('600px')
+      expect(styles({ width: '600px' })['> .popoverInner'].width).to.equal('600px')
     })
 
     it('has visibility hidden when showing is false', () => {
-      const renderedStyle = styles(props)['.popoverInner']
+      const renderedStyle = styles(props)['> .popoverInner']
 
       expect(renderedStyle.visibility).to.equal('hidden')
       expect(renderedStyle.opacity).to.equal(0)
     })
 
     it('has visibility visible, opacity 1 when showing is true', () => {
-      const renderedStyle = styles({ ...props, showing: true })['.popoverInner']
+      const renderedStyle = styles({ ...props, showing: true })['> .popoverInner']
 
       expect(renderedStyle.visibility).to.equal('visible')
       expect(renderedStyle.opacity).to.equal(1)
     })
 
     it('is on the top when position is top', () => {
-      const renderedStyle = styles(props)['.popoverInner']
+      const renderedStyle = styles(props)['> .popoverInner']
 
       expect(renderedStyle.bottom).to.equal('70px')
       expect(renderedStyle.transform).to.equal('translateX(calc(-50% + 50px))')
     })
 
     it('is on the left when position is left', () => {
-      const renderedStyle = styles({ ...props, position: 'left' })['.popoverInner']
+      const renderedStyle = styles({ ...props, position: 'left' })['> .popoverInner']
 
       expect(renderedStyle.right).to.equal('120px')
       expect(renderedStyle.transform).to.equal('translateY(calc(-50% + 25px))')
