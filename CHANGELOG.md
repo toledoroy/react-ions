@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.1.20
+###### _August 30, 2018_
+- Adding back gen export [#698](https://github.com/GetAmbassador/react-ions/pull/698)
+
 ## 5.1.19
 ###### _August 30, 2018_
 - Clean up sprite generation script [#696](https://github.com/GetAmbassador/react-ions/pull/696)
