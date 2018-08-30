@@ -47,6 +47,11 @@ If you've cloned the React:ions library, and wish to add/remove Material icons, 
 - Stop and then start the `React-ions` app
 - Go to: http://localhost:3000/foundations/iconography and your icon will be visible in the list.
 
+#### To release an icon update
+- Run `npm run build:sprite` and commit the changes to a feature branch
+- Have someone review, and merge to master
+- In the next release, those icons will be available
+
 ### To make a Custom Icon available in our apps:
 - Follow the instructions for adding a `Material` app, however instead you will add to the `mbsy` array, and include a raw `.svg` file here: `/react-ions/src/assets/icons/svg`.
 
