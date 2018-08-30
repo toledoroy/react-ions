@@ -4,6 +4,7 @@
 ###### _August 30, 2018_
 - Clean up sprite generation script [#696](https://github.com/GetAmbassador/react-ions/pull/696)
 - Allow popover to be nested without conflicting styles [#694](https://github.com/GetAmbassador/react-ions/pull/694)
+- Upgraded lodash [#693](https://github.com/GetAmbassador/react-ions/pull/693)
 
 ## 5.1.18
 ###### _August 30, 2018_
