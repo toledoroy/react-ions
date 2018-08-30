@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.1.18
+###### _August 30, 2018_
+- Republishing an updated version and adding a sprite generation script option to npm  [#691](https://github.com/GetAmbassador/react-ions/pull/691)
+
 ## 5.1.17
 ###### _August 29, 2018_
 - Icons: adding trending and social icons [#689](https://github.com/GetAmbassador/react-ions/pull/689)
