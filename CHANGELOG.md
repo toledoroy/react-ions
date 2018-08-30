@@ -1,8 +1,13 @@
 ## HEAD
 
+## 5.1.19
+###### _August 30, 2018_
+- Clean up sprite generation script [#696](https://github.com/GetAmbassador/react-ions/pull/696)
+- Allow popover to be nested without conflicting styles [#694](https://github.com/GetAmbassador/react-ions/pull/694)
+
 ## 5.1.18
 ###### _August 30, 2018_
-- Republishing an updated version and adding a sprite generation script option to npm  [#691](https://github.com/GetAmbassador/react-ions/pull/691)
+- Republishing an updated version and adding a sprite generation script option to npm [#691](https://github.com/GetAmbassador/react-ions/pull/691)
 
 ## 5.1.17
 ###### _August 29, 2018_
@@ -11,7 +16,7 @@
 
 ## 5.1.16
 ###### _August 27, 2018_
-- Checkbox: Add native title to labels: [#685](https://github.com/GetAmbassador/react-ions/pull/685)
+- Checkbox: Add native title to labels [#685](https://github.com/GetAmbassador/react-ions/pull/685)
 - CircleCI 2.0: [#684](https://github.com/GetAmbassador/react-ions/pull/684)
 
 ## 5.1.15
