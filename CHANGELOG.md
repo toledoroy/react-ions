@@ -4,7 +4,6 @@
 ###### _September 6, 2018_
 - Icons: added Facebook Messenger and Google Ads [#700](https://github.com/GetAmbassador/react-ions/pull/700)
 
-
 ## 5.1.20
 ###### _August 30, 2018_
 - Adding back gen export [#698](https://github.com/GetAmbassador/react-ions/pull/698)
