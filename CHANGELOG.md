@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.1.22
+###### _September 12, 2018_
+- Dropdown: Improve css specificity of wrapper [#702](https://github.com/GetAmbassador/react-ions/pull/702)
+
 ## 5.1.21
 ###### _September 6, 2018_
 - Icons: Added Facebook Messenger and Google Ads [#700](https://github.com/GetAmbassador/react-ions/pull/700)
