@@ -126,7 +126,7 @@ class Input extends React.Component {
   }
 
   componentWillReceiveProps = nextProps => {
-    if (nextProps.value !== this.props.value) {
+    if (nextProps.value !== this.props.value || nextProps.value !== this.state.value) {
       this.setState({ value: this._getValue(nextProps) })
     }
   }
@@ -172,6 +172,10 @@ class Input extends React.Component {
 
   focus = () => {
     this._input.focus()
+  }
+
+  blur = () => {
+    this._input.blur()
   }
 
   render = () => {
