@@ -174,6 +174,10 @@ class Input extends React.Component {
     this._input.focus()
   }
 
+  blur = () => {
+    this._input.blur()
+  }
+
   render = () => {
     const {prefix, suffix, label, optClass, className, width, disabled} = this.props
 

@@ -317,7 +317,7 @@ class InlineEdit extends React.Component {
 
   handleKeyPress = event => {
     // Grabs the character code, even in FireFox
-    const charCode = event.keyCode ? event.keyCode : event.which
+    const charCode = event.keyCode || event.which
 
     if (charCode === 13) {
       event.preventDefault()
