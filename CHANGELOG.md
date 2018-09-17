@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.1.23
+###### _September 17, 2018_
+- Input: Expose a blur() method [#704](https://github.com/GetAmbassador/react-ions/pull/704)
+
 ## 5.1.22
 ###### _September 12, 2018_
 - Dropdown: Improve css specificity of wrapper [#702](https://github.com/GetAmbassador/react-ions/pull/702)
