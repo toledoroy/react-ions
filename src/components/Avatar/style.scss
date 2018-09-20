@@ -1,6 +1,8 @@
 @import '../../styles/common/colors';
 
 .avatar-wrapper {
+  flex-grow: 1;
+  flex-shrink: 0;
   opacity: 0;
   overflow: hidden;
   position: relative;
