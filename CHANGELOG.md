@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.1.24
+###### _September 20, 2018_
+- Avatar: Added flex properties to avatar, to handle width when wrapped [#706](https://github.com/GetAmbassador/react-ions/pull/706)
+
 ## 5.1.23
 ###### _September 17, 2018_
 - Input: Expose a blur() method [#704](https://github.com/GetAmbassador/react-ions/pull/704)
