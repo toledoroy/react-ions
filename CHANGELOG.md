@@ -1,5 +1,9 @@
 ## HEAD
 
+## 5.1.25
+###### _September 24, 2018_
+- Fix for avatar width [#708](https://github.com/GetAmbassador/react-ions/pull/708)
+
 ## 5.1.24
 ###### _September 20, 2018_
 - Avatar: Added flex properties to avatar, to handle width when wrapped [#706](https://github.com/GetAmbassador/react-ions/pull/706)
