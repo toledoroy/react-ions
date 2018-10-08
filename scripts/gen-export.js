@@ -6,7 +6,9 @@ function _genComponentExport(component) {
   fs.readFile('./lib/components/' + component + '/index.js', function (error, data) {
     var componentData = data.toString().replace('./', './components/')
 
-    fs.writeFile('./lib/' + component + '.js', componentData)
+    fs.writeFile('./lib/' + component + '.js', componentData, function (err, result) {
+      if (err) console.error('Error: ', err)
+    })
   })
 }
 
