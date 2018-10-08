@@ -27,8 +27,7 @@ jobs:
     # To see the list of pre-built images that CircleCI provides for most common languages see
     # https://circleci.com/docs/2.0/circleci-images/
     docker:
-    - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
-      command: /sbin/init
+    - image: circleci/node:10.11.0-browsers-legacy
     steps:
     # Machine Setup
     #   If you break your build into multiple jobs with workflows, you will probably want to do the parts of this that are relevant in each
@@ -42,11 +41,7 @@ jobs:
     - run:
         working_directory: ~/GetAmbassador/react-ions
         command: 'echo ''America/New_York'' | sudo tee -a /etc/timezone; sudo dpkg-reconfigure
-          -f noninteractive tzdata; sudo service mysql restart; sudo service postgresql
-          restart; '
-    - run:
-        working_directory: ~/GetAmbassador/react-ions
-        command: nvm install 4.8.4 && nvm alias default 4.8.4
+          -f noninteractive tzdata;'
     # Dependencies
     #   This would typically go in either a build or a build-and-test job when using workflows
     # Restore the dependency cache
@@ -58,8 +53,6 @@ jobs:
         - v1-dep-master-
         # Any branch if there are none on the default branch - this should be unnecessary if you have your default branch configured correctly
         - v1-dep-
-    # This is based on your 1.0 configuration file or project settings
-    - run: npm install -g npm@3.10.10
     # The following line was run implicitly in your 1.0 builds based on what CircleCI inferred about the structure of your project. In 2.0 you need to be explicit about which commands should be run. In some cases you can discard inferred commands if they are not relevant to your project.
     - run: if [ -z "${NODE_ENV:-}" ]; then export NODE_ENV=test; fi
     - run: export PATH="~/GetAmbassador/react-ions/node_modules/.bin:$PATH"
@@ -142,4 +135,3 @@ workflows:
           filters:
             branches:
               only: dev-react-ions
- 
