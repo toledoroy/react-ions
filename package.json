@@ -8,8 +8,8 @@
     "url": "https://github.com/GetAmbassador/react-ions.git"
   },
   "engines": {
-    "node": "4.8.4",
-    "npm": "3.10.10"
+    "node": "10.11.0",
+    "npm": "6.4.1"
   },
   "keywords": [
     "react",
@@ -116,7 +116,7 @@
     "mocha": "~2.3.3",
     "mocha-jsdom": "~1.0.0",
     "ncp": "^2.0.0",
-    "node-sass": "~3.4.2",
+    "node-sass": "^3.13.1",
     "postcss-load-config": "1.1.0",
     "postcss-loader": "1.2.2",
     "raw-loader": "~0.5.1",
