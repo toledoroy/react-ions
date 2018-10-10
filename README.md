@@ -1,6 +1,6 @@
 # React{ions}
 
-[ ![Circle CI Status for GetAmbassador/react-ions](https://circleci.com/gh/GetAmbassador/react-ions.svg?style=shield&circle-token=d8458a09c88aa541c37a7d45b471f48c14cb6a71)](https://circleci.com/)
+[![CircleCI](https://circleci.com/gh/GetAmbassador/react-ions.svg?style=svg)](https://circleci.com/gh/GetAmbassador/react-ions)
 
 **React{ions}** is a suite of React components that implement Ambassador's Design and UX patterns. They are designed to be re-usable and composable across large-scale web applications.
 
