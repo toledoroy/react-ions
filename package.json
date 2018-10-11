@@ -40,7 +40,7 @@
     "camelcase": "^4.0.0",
     "camelcase-keys": "^4.0.0",
     "classnames": "~2.2.5",
-    "clipboard": "~1.5.12",
+    "clipboard": "~2.0.1",
     "fuzzy": "~0.1.1",
     "immutability-helper": "^2.6.4",
     "immutable": "~3.8.1",
