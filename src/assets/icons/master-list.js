@@ -94,6 +94,7 @@ var list = {
     materialPath + '/toggle/svg/production/ic_radio_button_unchecked_24px.svg#md-radio-unchecked'
   ],
   mbsy: [
+    mbsyPath + '/check_circle_outline.svg#md-check-circle-outline',
     mbsyPath + '/instagram.svg#mbsy-instagram',
     mbsyPath + '/bing.svg#mbsy-bing',
     mbsyPath + '/google-plus.svg#mbsy-google-plus',
