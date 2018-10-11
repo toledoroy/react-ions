@@ -32,7 +32,6 @@ var list = {
     materialPath + '/action/svg/production/ic_fingerprint_24px.svg#md-fingerprint',
     materialPath + '/action/svg/production/ic_label_24px.svg#md-label',
     materialPath + '/action/svg/production/ic_swap_horiz_24px.svg#md-swap-horiz',
-    materialPath + '/action/svg/production/ic_check_circle_24px.svg#md-check-circle',
     materialPath + '/alert/svg/production/ic_warning_24px.svg#md-warning',
     materialPath + '/alert/svg/production/ic_error_24px.svg#md-danger',
     materialPath + '/av/svg/production/ic_fiber_manual_record_48px.svg#md-record',
@@ -95,6 +94,7 @@ var list = {
     materialPath + '/toggle/svg/production/ic_radio_button_unchecked_24px.svg#md-radio-unchecked'
   ],
   mbsy: [
+    mbsyPath + '/check_circle_outline.svg#md-check-circle-outline',
     mbsyPath + '/instagram.svg#mbsy-instagram',
     mbsyPath + '/bing.svg#mbsy-bing',
     mbsyPath + '/google-plus.svg#mbsy-google-plus',
