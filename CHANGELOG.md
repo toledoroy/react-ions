@@ -1,4 +1,8 @@
-## HEAD
+## 5.1.26
+###### _October 12, 2018_
+- Upgraded clipboard package to 2.0.1 [#712](https://github.com/GetAmbassador/react-ions/pull/712)
+- Added md-check-circle icon [#711](https://github.com/GetAmbassador/react-ions/pull/711)
+- Updated node and npm [#710](https://github.com/GetAmbassador/react-ions/pull/710)
 
 ## 5.1.25
 ###### _September 24, 2018_
