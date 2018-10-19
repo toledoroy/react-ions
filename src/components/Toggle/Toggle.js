@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import style from './style.scss'
 import classNames from 'classnames/bind'
+import Popover from '../Popover/Popover'
+import Button from '../Button'
 
-class Toggle extends React.Component {
+class Toggle extends PureComponent {
   constructor(props) {
     super(props)
   }
@@ -16,7 +18,8 @@ class Toggle extends React.Component {
 
   state = {
     value: this.props.value,
-    text: ['Yes', 'No']
+    text: ['Yes', 'No'],
+    confirmIsOpen: false
   }
 
   static propTypes = {
@@ -47,23 +50,39 @@ class Toggle extends React.Component {
     /**
     * Boolean used to signify if text is used on the toggle
     */
-    hasText: PropTypes.bool
+    hasText: PropTypes.bool,
+    /**
+    * Prop to signify if the toggle should have a confirmation when toggled on or off (or both)
+    */
+    confirm: PropTypes.oneOf(['on', 'off', 'both']),
   }
 
   handleChange = () => {
-    if (this.props.disabled) {
-      return
-    }
+    if (this.props.disabled) return
 
-    this.setState({ value: !this.state.value }, () => {
-      if (this.props.changeCallback) {
+    if (this.props.confirm === 'both') {
+      this.setState({ confirmIsOpen: true })
+    }
+    else if (this.props.confirm === 'on' && !this.state.value) {
+      this.setState({ confirmIsOpen: true })
+    }
+    else if (this.props.confirm === 'off' && this.state.value) {
+      this.setState({ confirmIsOpen: true })
+    }
+    else {
+      this.toggleValue()
+    }
+  }
+
+  toggleValue = () => {
+    this.setState({ value: !this.state.value, confirmIsOpen: false }, () => {
+      this.props.changeCallback &&
         this.props.changeCallback({
-          target: {
-            name: this.props.name,
-            value: this.state.value
-          }
+            target: {
+              name: this.props.name,
+              value: this.state.value
+            }
         })
-      }
     })
   }
 
@@ -73,17 +92,24 @@ class Toggle extends React.Component {
     }
   }
 
-  toggleText = (hasText, text, isOn) => {
-    if (hasText && isOn) {
-      return text[0]
-    } else if (hasText && !isOn) {
-      return text[1]
-    }
-    return ''
+  toggleText = isOn => {
+    if (!this.props.hasText) return ''
 
+    return isOn ? this.state.text[0] : this.state.text[1]
   }
 
-  render = () => {
+  togglePopover = () => {
+    this.setState({ confirmIsOpen: !this.state.confirmIsOpen })
+  }
+
+  getPopoverContent = () => (
+    <div>
+      <Button onClick={() => this.setState({ confirmIsOpen: false })} optClass='danger-alt'>Cancel</Button>
+      <Button onClick={this.toggleValue} optClass='change-this'>Yes</Button>
+    </div>
+  )
+
+  getToggle = () => {
     const cx = classNames.bind(style)
     const onClass = this.state.value ? style.on : ''
     const outerClasses = cx(style.outer, onClass)
@@ -93,23 +119,36 @@ class Toggle extends React.Component {
     const disabledClass = this.props.disabled ? style['toggle-disabled'] : ''
     const toggleWrapper = cx(style['toggle-wrapper'], hasTextClass)
     const toggleClass = cx(style['toggle-component'], disabledClass, this.props.optClass)
-    const toggleText = this.toggleText(this.props.hasText, this.state.text, onClass)
+    const toggleText = this.toggleText(onClass)
 
     return (
       <div className={toggleClass} onClick={this.handleChange}>
-        {
-          this.props.label &&
-          <label>{this.props.label}</label>
-        }
+        { this.props.label && <label>{this.props.label}</label> }
+
         <div className={toggleWrapper}>
           <div className={outerClasses} />
-           {this.props.hasText
-             ? <span className={textClasses}>{toggleText}</span>
-             : null
-           }
+           {this.props.hasText && <span className={textClasses}>{toggleText}</span>}
           <div className={innerClasses} />
         </div>
       </div>
+    )
+  }
+
+  render = () => {
+    return (
+      this.props.confirm ?
+        <Popover
+          showing={this.state.confirmIsOpen}
+          defaultPosition='bottom'
+          content={this.getPopoverContent()}
+          maxHeight='280px'
+          onRequestClose={this.togglePopover}>
+
+          {this.getToggle()}
+
+        </Popover>
+  
+      : this.getToggle()
     )
   }
 }
