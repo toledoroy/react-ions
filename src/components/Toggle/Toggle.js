@@ -4,6 +4,7 @@ import style from './style.scss'
 import classNames from 'classnames/bind'
 import Popover from '../Popover/Popover'
 import Button from '../Button'
+import ConfirmationOverlay from '../internal/ConfirmationOverlay'
 
 class Toggle extends PureComponent {
   constructor(props) {
@@ -60,13 +61,9 @@ class Toggle extends PureComponent {
   handleChange = () => {
     if (this.props.disabled) return
 
-    if (this.props.confirm === 'both') {
-      this.setState({ confirmIsOpen: true })
-    }
-    else if (this.props.confirm === 'on' && !this.state.value) {
-      this.setState({ confirmIsOpen: true })
-    }
-    else if (this.props.confirm === 'off' && this.state.value) {
+    if ((this.props.confirm === 'both') ||
+       (this.props.confirm === 'on' && !this.state.value) ||
+       (this.props.confirm === 'off' && this.state.value)) {
       this.setState({ confirmIsOpen: true })
     }
     else {
@@ -74,14 +71,17 @@ class Toggle extends PureComponent {
     }
   }
 
+  handleConfirmation = confirm => {
+    this.setState({ confirmIsOpen: false })
+
+    if (confirm) this.toggleValue()
+  }
+
   toggleValue = () => {
     this.setState({ value: !this.state.value, confirmIsOpen: false }, () => {
       this.props.changeCallback &&
         this.props.changeCallback({
-            target: {
-              name: this.props.name,
-              value: this.state.value
-            }
+          target: { name: this.props.name, value: this.state.value }
         })
     })
   }
@@ -101,13 +101,6 @@ class Toggle extends PureComponent {
   togglePopover = () => {
     this.setState({ confirmIsOpen: !this.state.confirmIsOpen })
   }
-
-  getPopoverContent = () => (
-    <div>
-      <Button onClick={() => this.setState({ confirmIsOpen: false })} optClass='danger-alt'>Cancel</Button>
-      <Button onClick={this.toggleValue} optClass='change-this'>Yes</Button>
-    </div>
-  )
 
   getToggle = () => {
     const cx = classNames.bind(style)
@@ -134,13 +127,19 @@ class Toggle extends PureComponent {
     )
   }
 
+  getConfirmationOverlay = () => (
+    <ConfirmationOverlay
+      isOpen={this.state.confirmIsOpen}
+      handleConfirmation={this.handleConfirmation} />
+  )
+
   render = () => {
     return (
       this.props.confirm ?
         <Popover
           showing={this.state.confirmIsOpen}
           defaultPosition='bottom'
-          content={this.getPopoverContent()}
+          content={this.getConfirmationOverlay()}
           maxHeight='280px'
           onRequestClose={this.togglePopover}>
 
