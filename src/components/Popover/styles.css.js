@@ -32,6 +32,7 @@ const styles = ({
   }
 
   return {
+    display: 'inline-flex',
     position: 'relative',
     '> .popoverInner': {
       backgroundColor: colors.white,
