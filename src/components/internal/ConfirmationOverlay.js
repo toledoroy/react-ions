@@ -10,22 +10,23 @@ const ConfirmationOverlay = ({ prompt, handleConfirmation }) => {
       fontSize: '14px',
       fontWeight: '600',
       color: colors.primary4,
-      margin: '8px 8px 24px 8px',
+      margin: '0 0 24px',
       display: 'block'
     }
   }
 
-  const getButtonStyle = () => {
+  const getButtonWrapperStyle = () => {
     return {
       display: 'flex',
-      justifyContent: 'flex-end'
+      justifyContent: 'flex-end',
+      marginRight: '-12px'
     }
   }
 
   return (
     <div>
       <span style={getTextStyle()}>{prompt || 'Are you sure?'}</span>
-      <div style={getButtonStyle()}>
+      <div style={getButtonWrapperStyle()}>
         <Button onClick={handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>
         <Button onClick={handleConfirmation.bind(this, true)}>Yes</Button>
       </div>
