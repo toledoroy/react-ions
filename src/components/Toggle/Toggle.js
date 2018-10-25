@@ -102,10 +102,6 @@ class Toggle extends PureComponent {
     this.setState({ confirmIsOpen: !this.state.confirmIsOpen })
   }
 
-  getConfirmationOverlay = () => (
-    <ConfirmationOverlay handleConfirmation={this.handleConfirmation} />
-  )
-
   render = () => {
     const cx = classNames.bind(style)
     const onClass = this.state.value ? style.on : ''
@@ -117,6 +113,13 @@ class Toggle extends PureComponent {
     const toggleWrapper = cx(style['toggle-wrapper'], hasTextClass)
     const toggleClass = cx(style['toggle-component'], disabledClass, this.props.optClass)
     const toggleText = this.getToggleText(onClass)
+    const toggle = (
+      <div className={toggleWrapper}>
+        <div className={outerClasses} />
+         {this.props.hasText && <span className={textClasses}>{toggleText}</span>}
+        <div className={innerClasses} />
+      </div>
+    )
 
     return (
       <div className={toggleClass} onClick={this.handleChange}>
@@ -127,24 +130,15 @@ class Toggle extends PureComponent {
           <Popover
             showing={this.state.confirmIsOpen}
             defaultPosition='bottom'
-            content={this.getConfirmationOverlay()}
-            maxHeight='280px'
+            content={<ConfirmationOverlay handleConfirmation={this.handleConfirmation} />}
+            width='200'
             onRequestClose={this.togglePopover}>
 
-        <div className={toggleWrapper}>
-              <div className={outerClasses} />
-               {this.props.hasText && <span className={textClasses}>{toggleText}</span>}
-              <div className={innerClasses} />
-      </div>
+            {toggle}
 
           </Popover>
     
-          :
-        <div className={toggleWrapper}>
-            <div className={outerClasses} />
-             {this.props.hasText && <span className={textClasses}>{toggleText}</span>}
-            <div className={innerClasses} />
-      </div>
+          : toggle
         }
       </div>
     )

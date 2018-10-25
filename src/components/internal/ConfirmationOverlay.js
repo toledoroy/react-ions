@@ -1,40 +1,40 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames/bind'
 import optclass from './OptClass'
 import Button from '../Button'
-import style from './style.scss'
 
-export class ConfirmationOverlay extends PureComponent {
-  constructor(props) {
-    super(props)
-    this.mql = window.matchMedia('(max-width: 992px)')
+const ConfirmationOverlay = ({ prompt, handleConfirmation }) => {
+  const getTextStyle = () => {
+    return {
+      fontSize: '14px',
+      fontWeight: '200',
+      color: '#233040',
+      margin: '8px 8px 24px 8px',
+      display: 'block'
+    }
   }
 
-  static propTypes = {
-    position: PropTypes.oneOf(['left', 'right']),
-    prompt: PropTypes.string,
-    handleConfirmation: PropTypes.func.isRequired
+  const getButtonStyle = () => {
+    return {
+      display: 'flex',
+      justifyContent: 'flex-end',
+    }
   }
 
-  static defaultProps = {
-    prompt: 'Are you sure?'
-  }
+  return (
+    <div>
+      <span style={getTextStyle()}>{prompt || 'Are you sure?'}</span>
+      <div style={getButtonStyle()}>
+        <Button onClick={handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>
+        <Button onClick={handleConfirmation.bind(this, true)}>Yes</Button>
+      </div>
+    </div>
+  )
+}
 
-  render = () => {
-    const cx = classNames.bind(style)
-    const buttonClass = optclass(style, ['confirmation-approve-btn'])
-
-    return (
-        <div>
-          <span className={style['confirmation-text']}>{this.props.prompt}</span>
-          <div className={style['button-wrapper']}>
-            <Button onClick={this.props.handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>
-            <Button onClick={this.props.handleConfirmation.bind(this, true)} optClass={buttonClass}>Yes</Button>
-          </div>
-        </div>
-    )
-  }
+ConfirmationOverlay.propTypes = {
+  prompt: PropTypes.string,
+  handleConfirmation: PropTypes.func.isRequired
 }
 
 export default ConfirmationOverlay
