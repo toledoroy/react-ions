@@ -53,9 +53,13 @@ class Toggle extends PureComponent {
     */
     hasText: PropTypes.bool,
     /**
-    * Prop to signify if the toggle should have a confirmation when toggled on or off (or both)
+    * Prop to add a confirmation to the toggle when toggled on or off (or both)
     */
     confirm: PropTypes.oneOf(['on', 'off', 'both']),
+    /**
+    * Prop to signify if the toggle should have a confirmation when toggled on or off (or both)
+    */
+    confirmText: PropTypes.string
   }
 
   componentWillReceiveProps = nextProps => {
@@ -74,17 +78,20 @@ class Toggle extends PureComponent {
     }
     else {
       this.toggleValue()
+      this.setState({ confirmIsOpen: false })
     }
   }
 
-  handleConfirmation = confirm => {
-    this.setState({ confirmIsOpen: false })
+  handleConfirmation = (confirm, e) => {
+    e.stopPropagation()
 
     if (confirm) this.toggleValue()
+
+    this.setState({ confirmIsOpen: false })
   }
 
   toggleValue = () => {
-    this.setState({ value: !this.state.value, confirmIsOpen: false }, () => {
+    this.setState({ value: !this.state.value }, () => {
       this.props.changeCallback &&
         this.props.changeCallback({
           target: { name: this.props.name, value: this.state.value }
@@ -96,10 +103,6 @@ class Toggle extends PureComponent {
     if (!this.props.hasText) return ''
 
     return isOn ? this.state.text[0] : this.state.text[1]
-  }
-
-  togglePopover = () => {
-    this.setState({ confirmIsOpen: !this.state.confirmIsOpen })
   }
 
   render = () => {
@@ -127,16 +130,20 @@ class Toggle extends PureComponent {
 
         {
           this.props.confirm ?
-          <Popover
-            showing={this.state.confirmIsOpen}
-            defaultPosition='bottom'
-            content={<ConfirmationOverlay handleConfirmation={this.handleConfirmation} />}
-            width='200'
-            onRequestClose={this.togglePopover}>
+            <Popover
+              showing={this.state.confirmIsOpen}
+              defaultPosition='bottom'
+              content={
+                <ConfirmationOverlay
+                  handleConfirmation={this.handleConfirmation}
+                  prompt={this.props.confirmText} />
+              }
+              width='184px'
+              onRequestClose={() => this.setState({ confirmIsOpen: false }) }>
 
-            {toggle}
+              {toggle}
 
-          </Popover>
+            </Popover>
     
           : toggle
         }

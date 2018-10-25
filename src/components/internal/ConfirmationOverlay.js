@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import optclass from './OptClass'
 import Button from '../Button'
+import colors from '../internal/colors'
 
 const ConfirmationOverlay = ({ prompt, handleConfirmation }) => {
   const getTextStyle = () => {
     return {
       fontSize: '14px',
-      fontWeight: '200',
-      color: '#233040',
+      fontWeight: '600',
+      color: colors.primary4,
       margin: '8px 8px 24px 8px',
       display: 'block'
     }
@@ -17,7 +18,7 @@ const ConfirmationOverlay = ({ prompt, handleConfirmation }) => {
   const getButtonStyle = () => {
     return {
       display: 'flex',
-      justifyContent: 'flex-end',
+      justifyContent: 'flex-end'
     }
   }
 
