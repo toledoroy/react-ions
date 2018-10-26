@@ -8,12 +8,16 @@ import ExampleToggleOn from './ExampleToggleOn'
 import exampleToggleOnCode from '!raw!./ExampleToggleOn'
 import ExampleToggleDisabled from './ExampleToggleDisabled'
 import exampleToggleDisabledCode from '!raw!./ExampleToggleDisabled'
+import ExampleToggleLoading from './ExampleToggleLoading'
+import exampleToggleLoadingCode from '!raw!./ExampleToggleLoading'
 import ExampleToggleOptClass from './ExampleToggleOptClass'
 import exampleToggleOptClassCode from '!raw!./ExampleToggleOptClass'
 import ExampleToggleCallback from './ExampleToggleCallback'
 import exampleToggleCallbackCode from '!raw!./ExampleToggleCallback'
 import ExampleToggleCustomText from './ExampleToggleCustomText'
 import exampleToggleCustomText from '!raw!./ExampleToggleCustomText'
+import ExampleToggleConfirmation from './ExampleToggleConfirmation'
+import exampleToggleConfirmation from '!raw!./ExampleToggleConfirmation'
 import styles from 'private/css/content'
 
 const description = {
@@ -22,7 +26,9 @@ const description = {
   toggleDisabled: 'This is the disabled `toggle component`.',
   toggleOptClass: 'This is the `toggle component` with an optional class.',
   toggleCallback: 'This is the `toggle component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
-  toggleCustomText: 'This is the `toggle component` with text.'
+  toggleCustomText: 'This is the `toggle component` with text.',
+  toggleConfirmation: 'This is the `toggle component` with a confirmation.',
+  toggleLoading: 'This is the `toggle component` with a loader.'
 }
 
 const TogglePage = () => (
@@ -64,6 +70,18 @@ const TogglePage = () => (
           description={description.toggleCustomText}
           markup={exampleToggleCustomText}>
           <ExampleToggleCustomText />
+        </CodeExample>
+        <CodeExample
+          title='Toggle with Confirmation'
+          description={description.toggleConfirmation}
+          markup={exampleToggleConfirmation}>
+          <ExampleToggleConfirmation />
+        </CodeExample>
+        <CodeExample
+          title='Toggle with Loader'
+          description={description.toggleLoading}
+          markup={exampleToggleLoadingCode}>
+          <ExampleToggleLoading />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>

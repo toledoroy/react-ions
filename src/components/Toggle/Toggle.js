@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import style from './style.scss'
 import classNames from 'classnames/bind'
+import Popover from '../Popover/Popover'
+import Button from '../Button'
+import ConfirmationOverlay from '../internal/ConfirmationOverlay'
 
-class Toggle extends React.Component {
+class Toggle extends PureComponent {
   constructor(props) {
     super(props)
   }
@@ -12,12 +15,14 @@ class Toggle extends React.Component {
     disabled: false,
     value: false,
     hasText: false,
-    loading: false
+    loading: false,
+    confirmWidth: '184'
   }
 
   state = {
     value: this.props.value,
-    text: ['Yes', 'No']
+    text: ['Yes', 'No'],
+    confirmIsOpen: false
   }
 
   static propTypes = {
@@ -52,24 +57,19 @@ class Toggle extends React.Component {
     /**
     * Whether to display the sweet loader.
     */
-   loading: PropTypes.bool
-  }
-
-  handleChange = () => {
-    if (this.props.disabled) {
-      return
-    }
-
-    this.setState({ value: !this.state.value }, () => {
-      if (this.props.changeCallback) {
-        this.props.changeCallback({
-          target: {
-            name: this.props.name,
-            value: this.state.value
-          }
-        })
-      }
-    })
+    loading: PropTypes.bool,
+    /**
+     * Prop to add a confirmation to the toggle when toggled on or off (or both)
+    */
+    confirm: PropTypes.oneOf(['on', 'off', 'both']),
+    /**
+    * Prop to signify if the toggle should have a confirmation when toggled on or off (or both)
+    */
+    confirmText: PropTypes.string,
+    /**
+    * Set the width of the confirmation popover
+    */
+    confirmWidth: PropTypes.string
   }
 
   componentWillReceiveProps = nextProps => {
@@ -78,48 +78,91 @@ class Toggle extends React.Component {
     }
   }
 
-  toggleText = (hasText, text, isOn) => {
-    if (hasText && isOn) {
-      return text[0]
-    } else if (hasText && !isOn) {
-      return text[1]
-    }
-    return ''
+  handleChange = () => {
+    if (this.props.disabled) return
 
+    if ((this.props.confirm === 'both') ||
+       (this.props.confirm === 'on' && !this.state.value) ||
+       (this.props.confirm === 'off' && this.state.value)) {
+      this.setState({ confirmIsOpen: true })
+    }
+    else {
+      this.toggleValue()
+      this.setState({ confirmIsOpen: false })
+    }
+  }
+
+  handleConfirmation = (confirm, e) => {
+    e.stopPropagation()
+
+    if (confirm) this.toggleValue()
+
+    this.setState({ confirmIsOpen: false })
+  }
+
+  toggleValue = () => {
+    this.setState({ value: !this.state.value }, () => {
+      this.props.changeCallback &&
+        this.props.changeCallback({
+          target: { name: this.props.name, value: this.state.value }
+        })
+    })
+  }
+
+  getToggleText = isOn => {
+    if (!this.props.hasText) return ''
+
+    return isOn ? this.state.text[0] : this.state.text[1]
   }
 
   render = () => {
     const cx = classNames.bind(style)
     const onClass = this.state.value ? style.on : ''
+    const loadingClass = this.props.loading ? style['toggle-loading'] : ''
     const innerLoading = this.props.loading ? 'loading' : ''
     const outerClasses = cx(style.outer, onClass)
     const innerClasses = cx(style.inner, onClass, innerLoading)
     const textClasses = cx(style.text, onClass)
     const hasTextClass = this.props.hasText ? style['has-text'] : style['no-text']
-    const disabledClass = this.props.disabled ? style['toggle-disabled'] : ''
-    const loadingClass = this.props.loading ? style['toggle-loading'] : ''
-    const toggleWrapper = cx(style['toggle-wrapper'], hasTextClass)
-    const toggleClass = cx(style['toggle-component'], disabledClass, loadingClass, this.props.optClass)
-    const toggleText = this.toggleText(this.props.hasText, this.state.text, onClass)
+    const disabledClass = this.props.disabled || this.state.confirmIsOpen ? style['toggle-disabled'] : ''
+    const toggleWrapper = cx(style['toggle-wrapper'], disabledClass, hasTextClass)
+    const toggleClass = cx(style['toggle-component'], loadingClass, this.props.optClass)
+    const toggleText = this.getToggleText(onClass)
+    const toggle = (
+      <div className={toggleWrapper}>
+        <div className={outerClasses} />
+         {this.props.hasText && <span className={textClasses}>{toggleText}</span>}
+        <div className={innerClasses}>
+        {this.props.loading
+          && <div className={style.ring}><div></div><div></div><div></div><div></div></div>
+        }
+        </div>
+      </div>
+    )
 
     return (
       <div className={toggleClass} onClick={this.handleChange}>
+        { this.props.label && <label className={disabledClass}>{this.props.label}</label> }
+
         {
-          this.props.label &&
-          <label>{this.props.label}</label>
+          this.props.confirm ?
+            <Popover
+              showing={this.state.confirmIsOpen}
+              defaultPosition='bottom'
+              content={
+                <ConfirmationOverlay
+                  handleConfirmation={this.handleConfirmation}
+                  prompt={this.props.confirmText} />
+              }
+              width={this.props.confirmWidth + 'px'}
+              onRequestClose={() => this.setState({ confirmIsOpen: false }) }>
+
+              {toggle}
+
+            </Popover>
+    
+          : toggle
         }
-        <div className={toggleWrapper}>
-          <div className={outerClasses} />
-           {this.props.hasText
-             ? <span className={textClasses}>{toggleText}</span>
-             : null
-           }
-          <div className={innerClasses}>
-            {this.props.loading
-              && <div className={style.ring}><div></div><div></div><div></div><div></div></div>
-            }
-          </div>
-        </div>
       </div>
     )
   }

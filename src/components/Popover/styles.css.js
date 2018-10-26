@@ -32,6 +32,7 @@ const styles = ({
   }
 
   return {
+    display: 'inline-flex',
     position: 'relative',
     '> .popoverInner': {
       backgroundColor: colors.white,
@@ -39,7 +40,7 @@ const styles = ({
       boxShadow: '0 8px 24px 0 rgba(27,37,47,0.16)',
       width,
       boxSizing: 'border-box',
-      padding: '20px',
+      padding: '16px',
       position: 'absolute',
       ...popoverPos[position],
       transition: 'opacity .25s ease',
