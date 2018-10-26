@@ -11,7 +11,8 @@ class Toggle extends React.Component {
   static defaultProps = {
     disabled: false,
     value: false,
-    hasText: false
+    hasText: false,
+    loading: false
   }
 
   state = {
@@ -47,7 +48,11 @@ class Toggle extends React.Component {
     /**
     * Boolean used to signify if text is used on the toggle
     */
-    hasText: PropTypes.bool
+    hasText: PropTypes.bool,
+    /**
+    * Whether to display the sweet loader.
+    */
+   loading: PropTypes.bool
   }
 
   handleChange = () => {
@@ -86,13 +91,15 @@ class Toggle extends React.Component {
   render = () => {
     const cx = classNames.bind(style)
     const onClass = this.state.value ? style.on : ''
+    const innerLoading = this.props.loading ? 'loading' : ''
     const outerClasses = cx(style.outer, onClass)
-    const innerClasses = cx(style.inner, onClass)
+    const innerClasses = cx(style.inner, onClass, innerLoading)
     const textClasses = cx(style.text, onClass)
     const hasTextClass = this.props.hasText ? style['has-text'] : style['no-text']
     const disabledClass = this.props.disabled ? style['toggle-disabled'] : ''
+    const loadingClass = this.props.loading ? style['toggle-loading'] : ''
     const toggleWrapper = cx(style['toggle-wrapper'], hasTextClass)
-    const toggleClass = cx(style['toggle-component'], disabledClass, this.props.optClass)
+    const toggleClass = cx(style['toggle-component'], disabledClass, loadingClass, this.props.optClass)
     const toggleText = this.toggleText(this.props.hasText, this.state.text, onClass)
 
     return (
@@ -107,7 +114,11 @@ class Toggle extends React.Component {
              ? <span className={textClasses}>{toggleText}</span>
              : null
            }
-          <div className={innerClasses} />
+          <div className={innerClasses}>
+            {this.props.loading
+              && <div className={style.ring}><div></div><div></div><div></div><div></div></div>
+            }
+          </div>
         </div>
       </div>
     )
