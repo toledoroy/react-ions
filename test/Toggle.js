@@ -22,8 +22,10 @@ describe('Toggle', () => {
 
   it('should be disabled', () => {
     wrapper = shallow(<Toggle value={false} label='Test label' disabled={true} />)
+
     expect(wrapper.hasClass('toggle-component')).to.be.true
-    expect(wrapper.hasClass('toggle-disabled')).to.be.true
+    expect(wrapper.childAt(0).hasClass('toggle-disabled')).to.be.true
+    expect(wrapper.childAt(1).hasClass('toggle-disabled')).to.be.true
   })
 
   it('should be true', () => {
