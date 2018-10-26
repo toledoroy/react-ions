@@ -21,10 +21,6 @@
       }
     }
 
-    &.toggle-disabled {
-      cursor: not-allowed;
-    }
-
     .outer {
       background: $neutral-4;
       border-radius: 100px;
@@ -76,9 +72,8 @@
   }
 
   &.toggle-disabled {
-    label {
-      cursor: not-allowed;
-    }
+    cursor: not-allowed;
+
     .outer {
       background: $neutral-3;
     }
