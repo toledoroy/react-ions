@@ -64,6 +64,35 @@ describe('Toggle', () => {
     expect(changeCallbackSpy.calledWithExactly({ target: { name: 'toggle_name', value: true } })).to.be.true
   })
 
+  it('should only open the confirmation overlay when confirm prop is set', () => {
+    wrapper = shallow(<Toggle value={false} />)
+    wrapper.instance().handleChange()
+
+    expect(wrapper.state().confirmIsOpen).to.be.false
+
+    wrapper = shallow(<Toggle value={false} confirm='on' />)
+    wrapper.instance().handleChange()
+
+    expect(wrapper.state().confirmIsOpen).to.be.true
+
+    wrapper = shallow(<Toggle value={true} confirm='off' />)
+    wrapper.instance().handleChange()
+
+    expect(wrapper.state().confirmIsOpen).to.be.true
+
+    wrapper = shallow(<Toggle value={false} confirm='both' />)
+    wrapper.instance().handleChange()
+
+    expect(wrapper.state().confirmIsOpen).to.be.true
+  })
+
+  it('should close the confirmation overlay when user clicks Yes or Cancel', () => {
+    wrapper = shallow(<Toggle value={false} label='label' confirm='on' />)
+    wrapper.instance().handleConfirmation(false, { stopPropagation: () => { } })
+
+    expect(wrapper.state().confirmIsOpen).to.be.false
+  })
+
   it('should not call changeCallback function when disabled', () => {
     const changeCallbackSpy = sinon.spy()
 
