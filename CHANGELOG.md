@@ -1,3 +1,9 @@
+## 5.1.28
+###### _October 26, 2018_
+- Toggle: Adding loading state [#716](https://github.com/GetAmbassador/react-ions/pull/716)
+- Buttons: Disable hover when not supported [#715](https://github.com/GetAmbassador/react-ions/pull/715)  
+- Toggle: add confirmation to [#714](https://github.com/GetAmbassador/react-ions/pull/714)
+
 ## 5.1.26
 ###### _October 12, 2018_
 - Upgraded clipboard package to 2.0.1 [#712](https://github.com/GetAmbassador/react-ions/pull/712)
