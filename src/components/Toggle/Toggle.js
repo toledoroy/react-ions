@@ -119,7 +119,7 @@ class Toggle extends PureComponent {
     const hasTextClass = this.props.hasText ? style['has-text'] : style['no-text']
     const disabledClass = this.props.disabled || this.state.confirmIsOpen ? style['toggle-disabled'] : ''
     const toggleWrapper = cx(style['toggle-wrapper'], disabledClass, hasTextClass)
-    const toggleClass = cx(style['toggle-component'], disabledClass, this.props.optClass)
+    const toggleClass = cx(style['toggle-component'], this.props.optClass)
     const toggleText = this.getToggleText(onClass)
     const toggle = (
       <div className={toggleWrapper}>
@@ -131,7 +131,7 @@ class Toggle extends PureComponent {
 
     return (
       <div className={toggleClass} onClick={this.handleChange}>
-        { this.props.label && <label>{this.props.label}</label> }
+        { this.props.label && <label className={disabledClass}>{this.props.label}</label> }
 
         {
           this.props.confirm ?

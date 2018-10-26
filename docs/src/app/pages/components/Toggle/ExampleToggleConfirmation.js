@@ -5,6 +5,7 @@ const ExampleToggleConfirmation = () => (
   <Toggle
   	label='Click to show a confirmation'
   	confirm='both'
+  	confirmWidth='184'
   	confirmText='Sure about that?' />
 )
 
