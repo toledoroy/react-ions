@@ -15,6 +15,7 @@ class Toggle extends PureComponent {
     disabled: false,
     value: false,
     hasText: false,
+    loading: false,
     confirmWidth: '184'
   }
 
@@ -54,7 +55,11 @@ class Toggle extends PureComponent {
     */
     hasText: PropTypes.bool,
     /**
-    * Prop to add a confirmation to the toggle when toggled on or off (or both)
+    * Whether to display the sweet loader.
+    */
+    loading: PropTypes.bool,
+    /**
+     * Prop to add a confirmation to the toggle when toggled on or off (or both)
     */
     confirm: PropTypes.oneOf(['on', 'off', 'both']),
     /**
@@ -113,19 +118,25 @@ class Toggle extends PureComponent {
   render = () => {
     const cx = classNames.bind(style)
     const onClass = this.state.value ? style.on : ''
+    const loadingClass = this.props.loading ? style['toggle-loading'] : ''
+    const innerLoading = this.props.loading ? 'loading' : ''
     const outerClasses = cx(style.outer, onClass)
-    const innerClasses = cx(style.inner, onClass)
+    const innerClasses = cx(style.inner, onClass, innerLoading)
     const textClasses = cx(style.text, onClass)
     const hasTextClass = this.props.hasText ? style['has-text'] : style['no-text']
     const disabledClass = this.props.disabled || this.state.confirmIsOpen ? style['toggle-disabled'] : ''
     const toggleWrapper = cx(style['toggle-wrapper'], disabledClass, hasTextClass)
-    const toggleClass = cx(style['toggle-component'], this.props.optClass)
+    const toggleClass = cx(style['toggle-component'], loadingClass, this.props.optClass)
     const toggleText = this.getToggleText(onClass)
     const toggle = (
       <div className={toggleWrapper}>
         <div className={outerClasses} />
          {this.props.hasText && <span className={textClasses}>{toggleText}</span>}
-        <div className={innerClasses} />
+        <div className={innerClasses}>
+        {this.props.loading
+          && <div className={style.ring}><div></div><div></div><div></div><div></div></div>
+        }
+        </div>
       </div>
     )
 
