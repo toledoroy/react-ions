@@ -45,7 +45,6 @@ export class Popover extends Component {
 
   static defaultProps = {
     defaultPosition: 'bottom',
-    width: '300px',
     showing: false
   }
 

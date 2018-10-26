@@ -1,24 +1,26 @@
 @import '../../styles/common/colors';
 
 .toggle-component {
-  cursor: pointer;
-  display: inline-block;
+  align-items: center;
+  display: inline-flex;
   margin: 0 -8px;
   padding: 0 8px;
 
   .toggle-wrapper {
-    display: inline-block;
+    cursor: pointer;
+    display: inline-flex;
     height: 20px;
     position: relative;
     width: 50px;
 
-  &.no-text {
-    width: 40px;
+    &.no-text {
+      width: 40px;
 
-    .inner {
-      right: 21px;
+      .inner {
+        right: 21px;
+      }
     }
-  }
+
     .outer {
       background: $neutral-4;
       border-radius: 100px;
@@ -60,23 +62,23 @@
       z-index: 1;
       left: 24px;
       font-weight: 500;
-      top: 2px;
+      top: 3px;
+      user-select: none;
 
       &.on {
         left: 8px;
       }
     }
-  }
 
-  &.toggle-disabled {
-    cursor: not-allowed;
+    &.toggle-disabled {
+      cursor: not-allowed;
 
-    .outer {
-      background: $neutral-3;
-    }
-
-    .inner {
-      border: 1px solid $neutral-3;
+      .outer {
+        background: $neutral-3;
+      }
+      .inner {
+        border: 1px solid $neutral-3;
+      }
     }
   }
 
@@ -84,7 +86,6 @@
     .outer.on {
       background: $danger;
     }
-
     .inner.on {
       border: 1px solid $danger;
     }
@@ -97,12 +98,8 @@
     margin-right: 5px;
     user-select: none;
 
-    & + .toggle-wrapper {
-      top: 5px;
-    }
-
-    & + .toggle-wrapper.has-text {
-      top: -2px;
+    &.toggle-disabled {
+      cursor: not-allowed;
     }
   }
 }
