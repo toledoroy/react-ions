@@ -14,7 +14,8 @@ class Toggle extends PureComponent {
   static defaultProps = {
     disabled: false,
     value: false,
-    hasText: false
+    hasText: false,
+    confirmWidth: '184'
   }
 
   state = {
@@ -59,7 +60,11 @@ class Toggle extends PureComponent {
     /**
     * Prop to signify if the toggle should have a confirmation when toggled on or off (or both)
     */
-    confirmText: PropTypes.string
+    confirmText: PropTypes.string,
+    /**
+    * Set the width of the confirmation popover
+    */
+    confirmWidth: PropTypes.string
   }
 
   componentWillReceiveProps = nextProps => {
@@ -113,7 +118,7 @@ class Toggle extends PureComponent {
     const textClasses = cx(style.text, onClass)
     const hasTextClass = this.props.hasText ? style['has-text'] : style['no-text']
     const disabledClass = this.props.disabled || this.state.confirmIsOpen ? style['toggle-disabled'] : ''
-    const toggleWrapper = cx(style['toggle-wrapper'], hasTextClass)
+    const toggleWrapper = cx(style['toggle-wrapper'], disabledClass, hasTextClass)
     const toggleClass = cx(style['toggle-component'], disabledClass, this.props.optClass)
     const toggleText = this.getToggleText(onClass)
     const toggle = (
@@ -138,7 +143,7 @@ class Toggle extends PureComponent {
                   handleConfirmation={this.handleConfirmation}
                   prompt={this.props.confirmText} />
               }
-              width='184px'
+              width={this.props.confirmWidth + 'px'}
               onRequestClose={() => this.setState({ confirmIsOpen: false }) }>
 
               {toggle}
