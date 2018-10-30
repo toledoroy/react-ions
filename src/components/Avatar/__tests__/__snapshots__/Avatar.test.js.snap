@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should shallow render a fallback avatar 1`] = `
+<div
+  className="loaded"
+  style={null}
+>
+  <div
+    style={
+      Object {
+        "backgroundColor": "#6E3FAF",
+        "height": "undefinedpx",
+        "width": "undefinedpx",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "fontSize": "NaNpx",
+        }
+      }
+    >
+      cf
+    </span>
+  </div>
+</div>
+`;
+
+exports[`should shallow render an image 1`] = `
+<div
+  className=""
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "height": "100px",
+      "width": "100px",
+    }
+  }
+>
+  <img
+    alt="Cat"
+    height="100"
+    onLoad={[Function]}
+    src="https://ambassador-api.s3.amazonaws.com/uploads/avatars/1088_2016_05_04_12_16_49.jpg"
+  />
+</div>
+`;
+
+exports[`should take an optClass 1`] = `
+<div
+  className="test"
+  style={null}
+>
+  <img
+    onLoad={[Function]}
+    src="https://ambassador-api.s3.amazonaws.com/uploads/avatars/1088_2016_05_04_12_16_49.jpg"
+  />
+</div>
+`;
