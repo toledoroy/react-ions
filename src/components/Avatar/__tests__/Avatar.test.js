@@ -1,7 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import Avatar from '../Avatar'
-import renderer from 'react-test-renderer'
 
 const data = {
   src: 'https://ambassador-api.s3.amazonaws.com/uploads/avatars/1088_2016_05_04_12_16_49.jpg',
