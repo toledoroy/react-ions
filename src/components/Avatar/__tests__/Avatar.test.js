@@ -1,34 +1,40 @@
 import React from 'react'
+import { shallow } from 'enzyme'
 import Avatar from '../Avatar'
 import renderer from 'react-test-renderer'
 
 const data = {
   src: 'https://ambassador-api.s3.amazonaws.com/uploads/avatars/1088_2016_05_04_12_16_49.jpg',
   alt: 'Cat',
-  size: '100'
+  size: '100',
+  letterBackgroundColor: '#8b0000',
+  letters: 'cf',
+  fadeIn: true,
+  optClass: 'test'
 }
 
-it('should shallow render an image', () => {
-  const tree = renderer
-    .create(<Avatar
+describe('Image-based Avatar', () => {
+  it('should shallow render with image-related props', () => {
+    const avatar = shallow(<Avatar
       src={data.src}
       alt={data.alt}
       size={data.size}
+      fadeIn={data.fadeIn}
+      optClass={data.optClass}
     />)
-    .toJSON()
-  expect(tree).toMatchSnapshot()
+    expect(avatar).toMatchSnapshot()
+  })
 })
 
-it('should shallow render a fallback avatar', () => {
-  const tree = renderer
-    .create(<Avatar letters='cf' />)
-    .toJSON()
-  expect(tree).toMatchSnapshot()
-})
-
-it('should take an optClass', () => {
-  const tree = renderer
-    .create(<Avatar src={data.src} optClass='test' />)
-    .toJSON()
-  expect(tree).toMatchSnapshot()
+describe('Letter-based avatar', () => {
+  it('should shallow render with letter-related props', () => {
+    const avatar = shallow(<Avatar
+      letterBackgroundColor={data.letterBackgroundColor}
+      letters={data.letters}
+      size={data.size}
+      fadeIn={data.fadeIn}
+      optClass={data.optClass}
+    />)
+    expect(avatar).toMatchSnapshot()
+  })
 })

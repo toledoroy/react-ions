@@ -42,8 +42,22 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
-    }
+      "\\.(css|scss)$": "identity-obj-proxy",
+      "^src/(.*)": "<rootDir>/src/$1"
+    },
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/test/config/enzyme-setup.js",
+    "modulePaths": [
+      "/src"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ]
   },
   "dependencies": {
     "camelcase": "^4.0.0",
@@ -95,6 +109,7 @@
     "docgen-loader": "~1.3.4",
     "enzyme": "3.2.0",
     "enzyme-adapter-react-16": "1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "eslint": "3.16.1",
     "eslint-loader": "~1.3.0",
     "eslint-plugin-mocha": "^4.8.0",
@@ -108,6 +123,7 @@
     "install": "~0.6.1",
     "isparta-instrumenter-loader": "~1.0.0",
     "jest": "^23.6.0",
+    "jest-styled-components": "^6.2.2",
     "jscs": "~2.1.1",
     "jsdom": "^6.5.1",
     "json-loader": "~0.5.3",

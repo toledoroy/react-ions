@@ -1,0 +1,234 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<span
+  className="spinner-wrap loading inline"
+>
+  <span
+    className="spinner-bounce"
+  >
+    <span>
+      <span
+        className="bounce1"
+        style={null}
+      />
+      <span
+        className="bounce2"
+        style={null}
+      />
+      <span
+        className="bounce3"
+        style={null}
+      />
+    </span>
+  </span>
+</span>
+`;
+
+exports[` 2`] = `
+<span
+  className="spinner-wrap loading absolute testing"
+>
+  <span
+    className="spinner-bounce"
+  >
+    <span>
+      <span
+        className="bounce1"
+        style={null}
+      />
+      <span
+        className="bounce2"
+        style={null}
+      />
+      <span
+        className="bounce3"
+        style={null}
+      />
+    </span>
+  </span>
+</span>
+`;
+
+exports[` 3`] = `
+<span
+  className="spinner-wrap loading absolute"
+>
+  <span
+    className="spinner-bounce"
+  >
+    <span>
+      <span
+        className="bounce1"
+        style={
+          Object {
+            "backgroundColor": "#3C97D3",
+          }
+        }
+      />
+      <span
+        className="bounce2"
+        style={
+          Object {
+            "backgroundColor": "#3C97D3",
+          }
+        }
+      />
+      <span
+        className="bounce3"
+        style={
+          Object {
+            "backgroundColor": "#3C97D3",
+          }
+        }
+      />
+    </span>
+  </span>
+</span>
+`;
+
+exports[` 4`] = `
+<span
+  className="spinner-wrap absolute is-hidden"
+>
+  <span
+    className="spinner-bounce"
+  >
+    <span>
+      <span
+        className="bounce1"
+        style={null}
+      />
+      <span
+        className="bounce2"
+        style={null}
+      />
+      <span
+        className="bounce3"
+        style={null}
+      />
+    </span>
+  </span>
+</span>
+`;
+
+exports[` 5`] = `
+<span
+  className="spinner-wrap absolute is-hidden"
+>
+  <span
+    className="spinner-bounce"
+  >
+    <span>
+      <span
+        className="bounce1"
+        style={null}
+      />
+      <span
+        className="bounce2"
+        style={null}
+      />
+      <span
+        className="bounce3"
+        style={null}
+      />
+    </span>
+  </span>
+</span>
+`;
+
+exports[`Spinner: Bounce displays a bounce spinner 1`] = `
+<span
+  className="spinner-wrap absolute is-hidden"
+>
+  <span
+    className="spinner-bounce"
+  >
+    <span>
+      <span
+        className="bounce1"
+        style={null}
+      />
+      <span
+        className="bounce2"
+        style={null}
+      />
+      <span
+        className="bounce3"
+        style={null}
+      />
+    </span>
+  </span>
+</span>
+`;
+
+exports[`Spinner: Dots displays a dots spinner 1`] = `
+<span
+  className="spinner-wrap absolute is-hidden"
+>
+  <span
+    className="spinner-dots"
+  >
+    <span>
+      <span
+        className="dot1"
+        style={null}
+      />
+      <span
+        className="dot2"
+        style={null}
+      />
+    </span>
+  </span>
+</span>
+`;
+
+exports[`Spinner: Loading state has a loading state 1`] = `
+<span
+  className="spinner-wrap loading absolute"
+>
+  <span
+    className="spinner-bounce"
+  >
+    <span>
+      <span
+        className="bounce1"
+        style={null}
+      />
+      <span
+        className="bounce2"
+        style={null}
+      />
+      <span
+        className="bounce3"
+        style={null}
+      />
+    </span>
+  </span>
+</span>
+`;
+
+exports[`Spinner: position: fixed has a loading state 1`] = `
+<span
+  className="spinner-wrap loading fixed"
+>
+  <span
+    className="spinner-bounce"
+  >
+    <span>
+      <span
+        className="bounce1"
+        style={null}
+      />
+      <span
+        className="bounce2"
+        style={null}
+      />
+      <span
+        className="bounce3"
+        style={null}
+      />
+    </span>
+  </span>
+</span>
+`;
