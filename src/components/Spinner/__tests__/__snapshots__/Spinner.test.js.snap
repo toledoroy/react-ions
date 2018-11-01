@@ -25,31 +25,6 @@ exports[`Spinner bounce displays a spinner-bounce class 1`] = `
 </span>
 `;
 
-exports[`Spinner calls a setTimeout when delay is passed 1`] = `
-<span
-  className="spinner-wrap absolute is-hidden"
->
-  <span
-    className="spinner-bounce"
-  >
-    <span>
-      <span
-        className="bounce1"
-        style={null}
-      />
-      <span
-        className="bounce2"
-        style={null}
-      />
-      <span
-        className="bounce3"
-        style={null}
-      />
-    </span>
-  </span>
-</span>
-`;
-
 exports[`Spinner displays an is-hidden class 1`] = `
 <span
   className="spinner-wrap absolute is-hidden"
