@@ -3,9 +3,6 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 
-/**
- * The Textarea component.
- */
 class Textarea extends React.Component {
   constructor(props) {
     super(props)
