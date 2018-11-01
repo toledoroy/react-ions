@@ -1,56 +1,69 @@
 import React from 'react'
 import Spinner from '../Spinner'
 
-describe('Spinner: Dots', () => {
-  it('displays a dots spinner', () => {
+describe('Spinner dots', () => {
+  it('displays a spinner-dots class', () => {
     const spinner = shallow(<Spinner type='spinner-dots' />)
     expect(spinner).toMatchSnapshot()
   })
 })
 
-describe('Spinner: Bounce', () => {
-  it('displays a bounce spinner', () => {
+describe('Spinner bounce', () => {
+  it('displays a spinner-bounce class', () => {
     const spinner = shallow(<Spinner type='spinner-bounce' />)
     expect(spinner).toMatchSnapshot()
   })
 })
 
-describe('Spinner: Loading state', () => {
-  it('has a loading state', () => {
+describe('Spinner with loading true', () => {
+  it('has a loading class', () => {
     const spinner = shallow(<Spinner loading={true} type='spinner-bounce' />)
     expect(spinner).toMatchSnapshot()
   })
 })  
 
-describe('Spinner: position: fixed', () => {
-  it('has a loading state', () => {
+describe('Spinner with fixed position', () => {
+  it('has a loading class', () => {
     const spinner = shallow(<Spinner loading={true} type='spinner-bounce' position='fixed' />)
     expect(spinner).toMatchSnapshot()
   })
 })
 
-describe('Spinner: position: inline', () => {
-  const spinner = shallow(<Spinner loading={true} type='spinner-bounce' position='inline' />)
-  expect(spinner).toMatchSnapshot()
+describe('Spinner with inline position', () => {
+  it('has a loading class', () => {
+    const spinner = shallow(<Spinner loading={true} type='spinner-bounce' position='inline' />)
+    expect(spinner).toMatchSnapshot()
+  })
 })
 
-describe('Spinner: optClass', () => {
-  const spinner = shallow(<Spinner loading={true} type='spinner-bounce' optClass='testing' />)
-  expect(spinner).toMatchSnapshot()
+describe('Spinner', () => {
+  it('has an optClass', () => {
+    const spinner = shallow(<Spinner loading={true} type='spinner-bounce' optClass='testing' />)
+    expect(spinner).toMatchSnapshot()
+  })
 })
 
-describe('Spinner: custom color', () => {
-  const spinner = shallow(<Spinner loading={true} type='spinner-bounce' color='#3C97D3' />)
-  expect(spinner).toMatchSnapshot()
+describe('Spinner', () => {
+  it('has custom background color', () => {
+    const spinner = shallow(<Spinner loading={true} type='spinner-bounce' color='#3C97D3' />)
+    expect(spinner).toMatchSnapshot()
+  })
 })
 
-describe('Spinner: hidden', () => {
-  const spinner = shallow(<Spinner loading={false} type='spinner-bounce' />)
-  expect(spinner).toMatchSnapshot()
+describe('Spinner', () => {
+  it('displays an is-hidden class', () => {
+    const spinner = shallow(<Spinner loading={false} type='spinner-bounce' />)
+    expect(spinner).toMatchSnapshot()
+  })
 })
 
-describe('Spinner: after delay', () => {
-  const spinner = shallow(<Spinner loading={true} type='spinner-bounce' delay={500} />)
-  expect(spinner).toMatchSnapshot()    
-})
+describe('Spinner', () => {
+  jest.useFakeTimers()
 
+  it('calls a setTimeout when delay is passed', () => {
+    const spinner = shallow(<Spinner loading={true} delay={1000} type='spinner-bounce' />)
+
+    expect(setTimeout).toHaveBeenCalledTimes(1)
+    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000)
+  })
+})

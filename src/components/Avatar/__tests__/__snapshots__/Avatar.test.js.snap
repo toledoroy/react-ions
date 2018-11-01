@@ -20,7 +20,7 @@ exports[`Image-based Avatar should shallow render with image-related props 1`] =
 </div>
 `;
 
-exports[`Letter-based avatar should shallow render with letter-related props 1`] = `
+exports[`Letter-based avatar should shallow render with letter-related properties 1`] = `
 <div
   className="avatar-wrapper loaded test"
   style={

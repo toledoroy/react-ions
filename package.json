@@ -68,6 +68,7 @@
     "immutability-helper": "^2.6.4",
     "immutable": "~3.8.1",
     "inline-style-prefixer": "^3.0.1",
+    "jest-cli": "^23.6.0",
     "lodash": "~4.17.5",
     "marked": "~0.3.7",
     "moment": "~2.19.3",

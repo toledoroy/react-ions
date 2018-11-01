@@ -25,7 +25,7 @@ describe('Image-based Avatar', () => {
 })
 
 describe('Letter-based avatar', () => {
-  it('should shallow render with letter-related props', () => {
+  it('should shallow render with letter-related properties', () => {
     const avatar = shallow(<Avatar
       letterBackgroundColor={data.letterBackgroundColor}
       letters={data.letters}
