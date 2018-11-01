@@ -48,7 +48,7 @@
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>/node_modules/karma-enzyme-react-16/adapter.js",
+    "setupTestFrameworkScriptFile": "./node_modules/karma-enzyme-react-16/adapter.js",
     "modulePaths": [
       "/src"
     ],
