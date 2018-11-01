@@ -75,8 +75,8 @@ jobs:
     # Test
     #   This would typically be a build job when using workflows, possibly combined with build
     # The following line was run implicitly in your 1.0 builds based on what CircleCI inferred about the structure of your project. In 2.0 you need to be explicit about which commands should be run. In some cases you can discard inferred commands if they are not relevant to your project.
-    - run: npm test:karma
-    - run: npm test:jest
+    - run: npm run test:karma
+    - run: npm run test:jest
     # Deployment
     # Your existing circle.yml file contains deployment steps.
     # The config translation tool does not support translating deployment steps
