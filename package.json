@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/GetAmbassador/react-ions",
   "scripts": {
-    "test": "export NODE_ENV=test && node_modules/karma/bin/karma start test/config/karma.local.conf.js",
+    "test:karma": "export NODE_ENV=test && node_modules/karma/bin/karma start test/config/karma.local.conf.js",
     "test:jest": "jest --coverage",
     "test:jest:watch": "jest --watchAll",
     "test:jest:update": "jest -u",
