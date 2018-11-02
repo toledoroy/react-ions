@@ -85,6 +85,10 @@ class Button extends PureComponent {
     */
     confirm: PropTypes.bool,
     /**
+     * Position of the confirmation popover
+     */
+    confirmPosition: PropTypes.oneOf(['top', 'bottom', 'right', 'left']),
+    /**
     * Text in the confirmation popover
     */
     confirmText: PropTypes.string,
@@ -95,6 +99,7 @@ class Button extends PureComponent {
   }
 
   static defaultProps = {
+    confirmPosition: 'bottom',
     type: 'button'
   }
 
@@ -190,7 +195,7 @@ class Button extends PureComponent {
       this.props.confirm ?
         <Popover
           showing={this.state.confirmIsOpen}
-          defaultPosition='bottom'
+          defaultPosition={this.props.confirmPosition}
           content={
             <ConfirmationOverlay
               handleConfirmation={this.handleConfirmation}

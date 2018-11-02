@@ -7,20 +7,22 @@ const ExampleButtonConfirmation = () => (
   <div className={style['custom-confirmation-wrapper']}>
     <Button
       confirm
-      collapse>
-      Left
+      confirmPosition='right'
+      confirmWidth='200'
+      confirmText='You are definitely not a robot right? That would be unfortunate. Also does that mean that you are skynet? Please tell me you are not skynet!'>
+      Right
     </Button>
     <Button
       confirm
       confirmText='Are you sure you are not a robot?'
       optClass='danger'>
       Delete
-      </Button>
+    </Button>
     <Button
       confirm
-      confirmWidth='200'
-      confirmText='You are definitely not a robot right? That would be unfortunate. Also does that mean that you are skynet? Please tell me you are not skynet!'>
-      Right
+      confirmPosition='top'
+      collapse>
+      Top
     </Button>
   </div>
 )

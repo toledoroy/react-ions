@@ -25,6 +25,7 @@ class ExampleButtonConfirmationCallback extends React.Component {
         <div className={style['custom-confirmation-wrapper']}>
           <Button
             confirm
+            confirmPosition='right'
             confirmText='Would you like to see the callback fire?'
             confirmWidth='200'
             onClick={this.handleConfirmation}>
