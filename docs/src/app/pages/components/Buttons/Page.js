@@ -36,9 +36,9 @@ const description = {
   buttonLoaders: 'Here are the available button types with loaders.',
   buttonMultipleOptClassesCode: 'This is the `button component` with multiple optClasses',
   buttonAnchor: 'The `<ButtonAnchor />` component generates an anchor tag.',
-  buttonConfirmation: 'The `<ButtonConfirmation />` component generates an overlay to confirm an action.',
-  buttonConfirmationCallback: 'This is `<ButtonConfirmation />` component showing the callback in action.',
-  buttonConfirmationLoader: 'This is `<ButtonConfirmation />` component with a loader.',
+  buttonConfirmation: 'This is the `button component` with a confirmation to confirm an action.',
+  buttonConfirmationCallback: 'This is the `button component` with a confirmation callback in action.',
+  buttonConfirmationLoader: 'This is the `button component` with a confirmation and a loader.',
   styledButton: 'This is a `<Button />` that has been styled using `styled-components` < 💅 >',
   buttonMouseEvent: 'This is a `<Button />` that has a couple of mouse events.'
 }

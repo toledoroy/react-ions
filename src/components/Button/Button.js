@@ -2,52 +2,10 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Loader from 'react-loader'
 import style from './style.scss'
+import Popover from '../Popover/Popover'
+import ConfirmationOverlay from '../internal/ConfirmationOverlay'
 import optclass, { mapOptClass } from '../internal/OptClass'
 import colors from '../internal/colors'
-
-const styles = mapOptClass(props.optClass, {
-  secondary: {
-    color: colors.primary4
-  },
-  warning: {
-    color: colors.white
-  },
-  inverted: {
-    color: colors.primary1
-  },
-  danger: {
-    color: colors.white
-  },
-  'danger-alt': {
-    color: colors.danger
-  },
-  success: {
-    color: colors.white
-  },
-  flat: {
-    color: colors.neutral4
-  },
-  info: {
-    color: colors.white
-  },
-  plain: {
-    color: colors.primary4
-  },
-  'plain-light': {
-    color: '#7b96b5'
-  },
-  default: {
-    color: colors.white
-  }
-})
-
-const spinnerOptions = {
-  lines: 10,
-  length: 4,
-  width: 3,
-  radius: 5,
-  color: props.loaderColor || styles.color
-}
 
 class Button extends PureComponent {
   constructor(props) {
@@ -121,35 +79,131 @@ class Button extends PureComponent {
     /**
      * A valid css color to set the color of the loader (if applicable).
      **/
-    loaderColor: PropTypes.string
+    loaderColor: PropTypes.string,
+    /**
+     * Prop to add a confirmation to the button when clicked
+    */
+    confirm: PropTypes.bool,
+    /**
+    * Text in the confirmation popover
+    */
+    confirmText: PropTypes.string,
+    /**
+    * The width of the confirmation popover
+    */
+    confirmWidth: PropTypes.string
   }
 
   static defaultProps = {
     type: 'button'
   }
 
+  state = {
+    confirmIsOpen: false
+  }
+
+  handleConfirmation = confirm => {
+    if (confirm) this.props.onClick && this.props.onClick()
+
+    this.setState({ confirmIsOpen: false })
+  }
+
+  handleClick = () => {
+    if (this.props.confirm) {
+      this.setState({ confirmIsOpen: true })
+    }
+    else {
+      this.props.onClick && this.props.onClick()
+    }
+  }
+
   render = () => {
-    const collapseClass = props.collapse ? 'collapse' : null
-    const loaderClasses = props.loading ? 'loading' : null
-    const btnClasses = optclass(style, [style.btn, props.size, loaderClasses, collapseClass], props.optClass, props.className)
+    const styles = mapOptClass(this.props.optClass, {
+      secondary: {
+        color: colors.primary4
+      },
+      warning: {
+        color: colors.white
+      },
+      inverted: {
+        color: colors.primary1
+      },
+      danger: {
+        color: colors.white
+      },
+      'danger-alt': {
+        color: colors.danger
+      },
+      success: {
+        color: colors.white
+      },
+      flat: {
+        color: colors.neutral4
+      },
+      info: {
+        color: colors.white
+      },
+      plain: {
+        color: colors.primary4
+      },
+      'plain-light': {
+        color: '#7b96b5'
+      },
+      default: {
+        color: colors.white
+      }
+    })
+
+    const spinnerOptions = {
+      lines: 10,
+      length: 4,
+      width: 3,
+      radius: 5,
+      color: this.props.loaderColor || styles.color
+    }
+
+    const collapseClass = this.props.collapse ? 'collapse' : null
+    const loaderClasses = this.props.loading ? 'loading' : null
+    const btnClasses = optclass(style, [style.btn, this.props.size, loaderClasses, collapseClass], this.props.optClass, this.props.className)
+
+    const button = (
+      <button
+        type={this.props.type}
+        style={this.props.style}
+        className={btnClasses}
+        disabled={this.props.disabled || this.props.loading}
+        aria-disabled={this.props.disabled || this.props.loading}
+        onClick={this.handleClick}
+        onMouseEnter={this.props.onMouseEnter}
+        onMouseLeave={this.props.onMouseLeave}
+        onMouseDown={this.props.onMouseDown}
+        onMouseOut={this.props.onMouseOut}
+        onMouseOver={this.props.onMouseOver}
+        onMouseUp={this.props.onMouseUp}>
+        { this.props.loading && <Loader loaded={false} options={spinnerOptions} /> }
+        <em>{this.props.children}</em>
+      </button>
+    )
 
     return (
-      <button
-        type={props.type}
-        style={props.style}
-        className={btnClasses}
-        disabled={props.disabled || props.loading}
-        aria-disabled={props.disabled || props.loading}
-        onClick={props.onClick}
-        onMouseEnter={props.onMouseEnter}
-        onMouseLeave={props.onMouseLeave}
-        onMouseDown={props.onMouseDown}
-        onMouseOut={props.onMouseOut}
-        onMouseOver={props.onMouseOver}
-        onMouseUp={props.onMouseUp}>
-        { props.loading && <Loader loaded={false} options={spinnerOptions} /> }
-        <em>{props.children}</em>
-      </button>
+
+      this.props.confirm ?
+        <Popover
+          showing={this.state.confirmIsOpen}
+          defaultPosition='bottom'
+          content={
+            <ConfirmationOverlay
+              handleConfirmation={this.handleConfirmation}
+              prompt={this.props.confirmText} />
+          }
+          width={this.props.confirmWidth + 'px'}
+          onRequestClose={() => this.setState({ confirmIsOpen: false }) }>
+
+          {button}
+
+        </Popover>
+
+      : button
     )
   }
 }

@@ -59,15 +59,15 @@ class Toggle extends PureComponent {
     */
     loading: PropTypes.bool,
     /**
-     * Prop to add a confirmation to the toggle when toggled on or off (or both)
+     * Add a confirmation to the toggle when toggled on or off (or both)
     */
     confirm: PropTypes.oneOf(['on', 'off', 'both']),
     /**
-    * Prop to signify if the toggle should have a confirmation when toggled on or off (or both)
+    * Text in the confirmation popover
     */
     confirmText: PropTypes.string,
     /**
-    * Set the width of the confirmation popover
+    * The width of the confirmation popover
     */
     confirmWidth: PropTypes.string
   }

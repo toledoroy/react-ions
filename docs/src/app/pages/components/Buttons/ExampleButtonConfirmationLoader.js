@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonConfirmation from 'react-ions/lib/components/Button/ButtonConfirmation'
+import Button from 'react-ions/lib/components/Button'
 import style from './style'
 
 class ExampleButtonConfirmationLoader extends React.Component {
@@ -23,7 +23,13 @@ class ExampleButtonConfirmationLoader extends React.Component {
     return (
       <div>
         <div className={style['custom-confirmation-wrapper']}>
-          <ButtonConfirmation loading={this.state.loading} prompt={'Are you sure?'} position={'left'} handleConfirmation={this.handleConfirmation}>Test</ButtonConfirmation>
+          <Button
+            loading={this.state.loading}
+            confirm
+            confirmText='Are you sure?'
+            onClick={this.handleConfirmation}>
+            Test
+          </Button>
         </div>
       </div>
     )
