@@ -25,6 +25,7 @@ class ExampleButtonConfirmationLoader extends React.Component {
         <div className={style['custom-confirmation-wrapper']}>
           <Button
             loading={this.state.loading}
+            confirm
             confirmPosition='right'
             confirmText='Are you sure?'
             onClick={this.handleConfirmation}>

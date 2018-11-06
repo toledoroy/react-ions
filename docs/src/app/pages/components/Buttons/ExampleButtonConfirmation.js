@@ -14,9 +14,8 @@ const ExampleButtonConfirmation = () => (
     </Button>
     <Button
       confirm
-      confirmText='Are you sure you are not a robot?'
-      optClass='danger'>
-      Delete
+      confirmText='Are you sure you are not a robot?'>
+      Default
     </Button>
     <Button
       confirm
