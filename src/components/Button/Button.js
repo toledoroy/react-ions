@@ -100,6 +100,7 @@ class Button extends PureComponent {
 
   static defaultProps = {
     confirmPosition: 'bottom',
+    confirmText: 'Are you sure?',
     type: 'button'
   }
 

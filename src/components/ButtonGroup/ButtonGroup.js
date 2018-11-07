@@ -4,9 +4,6 @@ import classNames from 'classnames/bind'
 import ButtonToggle from './ButtonToggle'
 import style from './style.scss'
 
-/**
- * The ButtonGroup component.
- */
 class ButtonGroup extends React.Component {
   constructor(props) {
     super(props)
