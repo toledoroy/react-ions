@@ -37,6 +37,10 @@ class Spinner extends React.Component {
      */
     type: PropTypes.oneOf(['spinner-dots', 'spinner-bounce', 'spinner-circular']).isRequired,
     /**
+     * The hex code of the background color.
+     */
+    backgroundColor: PropTypes.string,
+    /**
      * The hex code of the loader color.
      */
     color: PropTypes.string,
@@ -110,12 +114,12 @@ class Spinner extends React.Component {
   }
 
   render = () => {
-    const { className, color, optClass, position, size, type, } = this.props
+    const { backgroundColor, className, color, optClass, position, size, type, } = this.props
     const { loading } = this.state
 
     return (
       <StyledSpan
-        css={styles({ loading, hidden: !loading, position: position || 'absolute', color, size })}
+        css={styles({ loading, hidden: !loading, position: position || 'absolute', color, size, backgroundColor })}
         className={[optClass, className].join(' ').trim()}
       >
         <span className={type}>

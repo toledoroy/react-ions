@@ -62,9 +62,9 @@ const positionStyles = position => {
   }
 }
 
-const styles = ({ color, hidden, loading, position, size }) => {
+const styles = ({ backgroundColor, color, hidden, loading, position, size }) => {
   return {
-    backgroundColor: colors.white,
+    backgroundColor: backgroundColor || colors.white,
     display: 'none',
 
     ...loadingStyles(loading),
