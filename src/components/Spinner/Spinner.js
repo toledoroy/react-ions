@@ -1,11 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import style from './style.scss'
-import classNames from 'classnames/bind'
+import styled from 'styled-components'
+import styles from './styles.css'
+
+export const StyledSpan = styled.span`${props => props.css}`
 
 class Spinner extends React.Component {
   constructor(props) {
     super(props)
+
+    if (props.optClass && process.env.NODE_ENV !== 'production') {
+      console.warn('Dropdown: Use of optClass will be deprecated as of react-ions 6.0.0, please use `className` instead')
+    }
   }
 
   state = {
@@ -29,7 +35,7 @@ class Spinner extends React.Component {
     /**
      * The type of loader you want to display.
      */
-    type: PropTypes.oneOf(['spinner-dots', 'spinner-bounce']).isRequired,
+    type: PropTypes.oneOf(['spinner-dots', 'spinner-bounce', 'spinner-circular']).isRequired,
     /**
      * The hex code of the loader color.
      */
@@ -41,7 +47,11 @@ class Spinner extends React.Component {
     /**
      * A class name to be used for local styles or integrations (required to support styled-components)
      */
-    className: PropTypes.string
+    className: PropTypes.string,
+    /**
+     * The size of the spinner.
+     */
+    size: PropTypes.number
   }
 
   componentWillMount = () => {
@@ -69,38 +79,49 @@ class Spinner extends React.Component {
     }
   }
 
-  getStyle = () => {
-    return this.props.color ? { backgroundColor: this.props.color } : null
-  }
-
   innerHtml = () => {
     if (this.props.type === 'spinner-dots') {
-      return <span>
-               <span className={style.dot1} style={this.getStyle()}></span>
-               <span className={style.dot2} style={this.getStyle()}></span>
-             </span>
+      return (
+        <span>
+          <span className='dot1'></span>
+          <span className='dot2'></span>
+        </span>
+      )
     }
-    return <span>
-             <span className={style.bounce1} style={this.getStyle()}></span>
-             <span className={style.bounce2} style={this.getStyle()}></span>
-             <span className={style.bounce3} style={this.getStyle()}></span>
-           </span>
-  }
 
-  render() {
-    const cx = classNames.bind(style)
-    const loadingClass = this.state.loading ? style['loading'] : null
-    const isHiddenClass = !this.state.loading ? style['is-hidden'] : null
-    const spinnerPosition = this.props.position ? style[this.props.position] : style['absolute']
-    const spinnerWrap = cx(style['spinner-wrap'], loadingClass, spinnerPosition, this.props.optClass, isHiddenClass, this.props.className)
-    const spinnerClass = cx(style[this.props.type])
+    if (this.props.type === 'spinner-circular') {
+      return (
+        <span className='ring'>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      )
+    }
 
     return (
-      <span className={spinnerWrap}>
-        <span className={spinnerClass}>
+      <span>
+        <span className='bounce1'></span>
+        <span className='bounce2'></span>
+        <span className='bounce3'></span>
+      </span>
+    )
+  }
+
+  render = () => {
+    const { className, color, optClass, position, size, type, } = this.props
+    const { loading } = this.state
+
+    return (
+      <StyledSpan
+        css={styles({ loading, hidden: !loading, position: position || 'absolute', color, size })}
+        className={[optClass, className].join(' ').trim()}
+      >
+        <span className={type}>
           {this.innerHtml()}
         </span>
-      </span>
+      </StyledSpan>
     )
   }
 }

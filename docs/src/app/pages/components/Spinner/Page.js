@@ -12,12 +12,15 @@ import ExampleSpinnerDelay from './ExampleSpinnerDelay'
 import exampleSpinnerDelayCode from '!raw!./ExampleSpinnerDelay'
 import ExampleStyledSpinner from './ExampleStyledSpinner'
 import exampleStyledSpinnerCode from '!raw!./ExampleStyledSpinner'
+import ExampleSpinnerCircular from './ExampleSpinnerCircular'
+import exampleSpinnerCircularCode from '!raw!./ExampleSpinnerCircular'
 import style from 'private/css/content'
 import localStyle from './style.scss'
 
 const description = {
   spinnerDefault: 'This is the default **spinner component**. When `position=\'fixed\'` is passed as a prop, the spinner will fill the entire screen.',
   spinnerBounce: 'This is a variation of the **spinner component**.',
+  spinnerCircular: 'This is a variation of the **spinner component**.',
   spinnerInline: 'This is a variation of the **spinner component** that allows it to sit inline.',
   spinnerDelay: 'This is spinner with a five second delay before it\'s shown',
   styledSpinner: 'This is a `<Spinner />` that has been styled using `styled-components` < 💅 >'
@@ -41,6 +44,13 @@ const SpinnerPage = () => {
             markup={exampleSpinnerBounceCode}
             optClass={localStyle['component-override']}>
             <ExampleSpinnerBounce />
+          </CodeExample>
+          <CodeExample
+            title='Circular Spinner Example'
+            description={description.spinnerCircular}
+            markup={exampleSpinnerCircularCode}
+            optClass={localStyle['component-override']}>
+            <ExampleSpinnerCircular />
           </CodeExample>
           <CodeExample
             title='Spinner Inline Example'
