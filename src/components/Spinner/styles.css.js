@@ -116,6 +116,9 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
       }
     },
 
+    '.spinner-circular': {
+      display: 'flex'
+    },
     '.ring': {
       display: 'inline-block',
       position: 'relative',

@@ -52,6 +52,9 @@ exports[`Spinner bounce displays a spinner-bounce class 1`] = `
           "marginRight": 0,
         },
       },
+      ".spinner-circular": Object {
+        "display": "flex",
+      },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {
           "animation": "iQfAUB 2.0s infinite ease-in-out",
@@ -157,6 +160,9 @@ exports[`Spinner circular displays a spinner-circular class 1`] = `
           "marginRight": 0,
         },
       },
+      ".spinner-circular": Object {
+        "display": "flex",
+      },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {
           "animation": "iQfAUB 2.0s infinite ease-in-out",
@@ -258,6 +264,9 @@ exports[`Spinner displays an is-hidden class 1`] = `
         ".bounce3": Object {
           "marginRight": 0,
         },
+      },
+      ".spinner-circular": Object {
+        "display": "flex",
       },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {
@@ -364,6 +373,9 @@ exports[`Spinner dots displays a spinner-dots class 1`] = `
           "marginRight": 0,
         },
       },
+      ".spinner-circular": Object {
+        "display": "flex",
+      },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {
           "animation": "iQfAUB 2.0s infinite ease-in-out",
@@ -465,6 +477,9 @@ exports[`Spinner has an optClass 1`] = `
         ".bounce3": Object {
           "marginRight": 0,
         },
+      },
+      ".spinner-circular": Object {
+        "display": "flex",
       },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {
@@ -571,6 +586,9 @@ exports[`Spinner has custom background color 1`] = `
           "marginRight": 0,
         },
       },
+      ".spinner-circular": Object {
+        "display": "flex",
+      },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {
           "animation": "iQfAUB 2.0s infinite ease-in-out",
@@ -675,6 +693,9 @@ exports[`Spinner with fixed position has a loading class 1`] = `
         ".bounce3": Object {
           "marginRight": 0,
         },
+      },
+      ".spinner-circular": Object {
+        "display": "flex",
       },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {
@@ -781,6 +802,9 @@ exports[`Spinner with inline position has a loading class 1`] = `
           "marginRight": 0,
         },
       },
+      ".spinner-circular": Object {
+        "display": "flex",
+      },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {
           "animation": "iQfAUB 2.0s infinite ease-in-out",
@@ -877,6 +901,9 @@ exports[`Spinner with loading true has a loading class 1`] = `
         ".bounce3": Object {
           "marginRight": 0,
         },
+      },
+      ".spinner-circular": Object {
+        "display": "flex",
       },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {

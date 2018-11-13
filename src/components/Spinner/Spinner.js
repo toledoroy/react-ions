@@ -55,7 +55,7 @@ class Spinner extends React.Component {
     /**
      * The size of the spinner.
      */
-    size: PropTypes.number
+    size: PropTypes.string
   }
 
   componentWillMount = () => {
