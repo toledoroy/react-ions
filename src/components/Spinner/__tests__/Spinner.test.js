@@ -15,12 +15,19 @@ describe('Spinner bounce', () => {
   })
 })
 
+describe('Spinner circular', () => {
+  it('displays a spinner-circular class', () => {
+    const spinner = shallow(<Spinner type='spinner-circular' />)
+    expect(spinner).toMatchSnapshot()
+  })
+})
+
 describe('Spinner with loading true', () => {
   it('has a loading class', () => {
     const spinner = shallow(<Spinner loading={true} type='spinner-bounce' />)
     expect(spinner).toMatchSnapshot()
   })
-})  
+})
 
 describe('Spinner with fixed position', () => {
   it('has a loading class', () => {
