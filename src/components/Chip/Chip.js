@@ -5,7 +5,7 @@ import style from './style.scss'
 
 const Chip = props => {
   const isActionable = props.clickCallback ? 'is-actionable' : null
-  const chipClasses = optclass(style, ['chip-wrapper', props.color, props.size, props.optClass, isActionable])
+  const chipClasses = optclass(style, ['chip-wrapper', props.color, props.size, props.optClass, props.className, isActionable])
 
   return (
     <span className={chipClasses}>
@@ -16,15 +16,25 @@ const Chip = props => {
 
 Chip.propTypes = {
   /**
-   * The background color of the chip.
+   * The background color of the chip (see Foundations > Colors for more info).
    */
   color: PropTypes.oneOf([
-    'danger',
-    'neutral-1',
-    'neutral-4',
     'primary',
+    'primary-1',
+    'primary-2',
+    'primary-3',
+    'primary-4',
+    'primary-5',
     'primary-darker',
-    'success'
+    'primary-6',
+    'neutral-1',
+    'neutral-2',
+    'neutral-3',
+    'neutral-4',
+    'danger',
+    'success',
+    'warning',
+    'info'
   ]),
   /**
    * Optional click callback.
