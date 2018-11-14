@@ -4,7 +4,9 @@ import style from './style.scss'
 import classNames from 'classnames/bind'
 import Popover from '../Popover/Popover'
 import Button from '../Button'
+import Spinner from '../Spinner'
 import ConfirmationOverlay from '../internal/ConfirmationOverlay'
+import colors from '../internal/colors'
 
 class Toggle extends PureComponent {
   constructor(props) {
@@ -133,8 +135,9 @@ class Toggle extends PureComponent {
         <div className={outerClasses} />
          {this.props.hasText && <span className={textClasses}>{toggleText}</span>}
         <div className={innerClasses}>
-        {this.props.loading
-          && <div className={style.ring}><div></div><div></div><div></div><div></div></div>
+        {
+          this.props.loading &&
+          <Spinner loading={true} type='spinner-circular' backgroundColor='transparent' color={colors.white} size='16' className={style['toggle-loader']} />
         }
         </div>
       </div>
@@ -160,7 +163,7 @@ class Toggle extends PureComponent {
               {toggle}
 
             </Popover>
-    
+
           : toggle
         }
       </div>
