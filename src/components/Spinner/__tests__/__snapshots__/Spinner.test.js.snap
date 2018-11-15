@@ -426,7 +426,7 @@ exports[`Spinner dots displays a spinner-dots class 1`] = `
 </styled.span>
 `;
 
-exports[`Spinner has an optClass 1`] = `
+exports[`Spinner has an className 1`] = `
 <styled.span
   className="testing"
   css={

@@ -44,8 +44,8 @@ describe('Spinner with inline position', () => {
 })
 
 describe('Spinner', () => {
-  it('has an optClass', () => {
-    const spinner = shallow(<Spinner loading={true} type='spinner-bounce' optClass='testing' />)
+  it('has an className', () => {
+    const spinner = shallow(<Spinner loading={true} type='spinner-bounce' className='testing' />)
     expect(spinner).toMatchSnapshot()
   })
 })

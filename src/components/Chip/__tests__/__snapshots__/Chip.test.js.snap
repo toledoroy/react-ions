@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Chip should render with a className 1`] = `
+<span
+  className="chip-wrapper primary classy-class"
+>
+  <span />
+</span>
+`;
+
 exports[`Chip should render with a larger size 1`] = `
 <span
   className="chip-wrapper primary larger"
@@ -16,9 +24,14 @@ exports[`Chip should render with a smaller size 1`] = `
 </span>
 `;
 
-exports[`Chip should render with an optClass 1`] = `
+exports[`Chip should render with a style object 1`] = `
 <span
-  className="chip-wrapper primary classy-class"
+  className="chip-wrapper primary smaller"
+  style={
+    Object {
+      "marginRight": "4px",
+    }
+  }
 >
   <span />
 </span>

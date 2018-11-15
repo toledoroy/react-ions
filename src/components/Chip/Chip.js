@@ -8,7 +8,7 @@ const Chip = props => {
   const chipClasses = optclass(style, ['chip-wrapper', props.color, props.size, props.optClass, props.className, isActionable])
 
   return (
-    <span className={chipClasses}>
+    <span className={chipClasses} style={props.style}>
       <span onClick={props.clickCallback}>{props.text}</span>
     </span>
   )
@@ -48,6 +48,10 @@ Chip.propTypes = {
    * Optional size of the chip.
    */
   size: PropTypes.oneOf(['larger', 'smaller']),
+  /**
+   * Optional style object to be added for additional CSS.
+   */
+  style: PropTypes.object,
   /**
    * Text to display inside the chip.
    */

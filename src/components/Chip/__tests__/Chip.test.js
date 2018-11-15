@@ -82,7 +82,7 @@ describe('Chip', () => {
     expect(chip).toMatchSnapshot()
   })
 
-  it('should render with an optClass', () => {
+  it('should render with a className', () => {
     const chip = shallow(<Chip className='classy-class' />)
     expect(chip).toMatchSnapshot()
   })
@@ -99,6 +99,11 @@ describe('Chip', () => {
 
   it('should render with a smaller size', () => {
     const chip = shallow(<Chip size='smaller' />)
+    expect(chip).toMatchSnapshot()
+  })
+
+  it('should render with a style object', () => {
+    const chip = shallow(<Chip size='smaller' style={{marginRight: '4px'}} />)
     expect(chip).toMatchSnapshot()
   })
 })
