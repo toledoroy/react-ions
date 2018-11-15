@@ -152,7 +152,7 @@ export class Dropdown extends React.Component {
       : []
 
     return (
-      <StyledDiv
+      <StyledDivTest
         css={styles({ ...this.props, isOpened: this.state.isOpened, triggerRect: this._triggerRect })}
         className={[this.props.optClass, this.props.className].join(' ').trim()}>
 
@@ -179,7 +179,7 @@ export class Dropdown extends React.Component {
               </div>
           }
         </div>
-      </StyledDiv>
+      </StyledDivTest>
     )
   }
 }
