@@ -24,8 +24,8 @@ const chipList = [
 ]
 
 const chips = () => {
-  return chipList.map(chip => {
-    return <Chip text={chip} color={chip} style={inlineStyle} />
+  return chipList.map((chip, index) => {
+    return <Chip key={index} text={chip} color={chip} style={inlineStyle} />
   })
 }
 
