@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import enhanceWithClickOutside from 'react-click-outside'
-import StyledDiv from '../StyledDiv'
+import StyledDivTest from '../StyledDivTest'
 import styles from './styles.css'
 
 export class Popover extends Component {

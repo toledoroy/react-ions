@@ -1,3 +1,7 @@
+## 5.1.29
+###### _November 14, 2018_
+Chip: Allow full color palette to be rendered [#724](https://github.com/GetAmbassador/react-ions/pull/724)
+
 ## 5.1.28
 ###### _October 26, 2018_
 - Toggle: add loading state [#716](https://github.com/GetAmbassador/react-ions/pull/716)

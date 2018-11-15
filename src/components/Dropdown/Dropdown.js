@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import enhanceWithClickOutside from 'react-click-outside'
 import Button from '../Button/Button'
-import StyledDiv from '../StyledDiv'
+import StyledDivTest from '../StyledDivTest'
 import styles from './styles.css'
 
 export class Dropdown extends React.Component {
