@@ -1,3 +1,10 @@
+## 5.1.30
+###### _December 4, 2018_
+
+- Dependencies: upgrade Mocha [#729](https://github.com/GetAmbassador/react-ions/pull/729)
+- Input: allow for the type attribute to be passed [#727](https://github.com/GetAmbassador/react-ions/pull/727)
+- Chip: minor adjustments [#726](https://github.com/GetAmbassador/react-ions/pull/726)
+
 ## 5.1.29
 ###### _November 14, 2018_
 Chip: Allow full color palette to be rendered [#724](https://github.com/GetAmbassador/react-ions/pull/724)
