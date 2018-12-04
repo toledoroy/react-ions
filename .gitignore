@@ -10,3 +10,4 @@ coverage
 git-hooks
 lib
 scripts/release.sh
+src/index.js
