@@ -1,11 +1,15 @@
 const fs = require('fs')
 const requireContext = require('require-context')
-const jsFiles = requireContext('../../src', true, /^((?!__tests__).)*index\.js$/)
+const jsFiles = requireContext('../../src', true, /^((?!__tests__).)*index\.js$/).keys()
+const indexIndex = jsFiles.indexOf('index.js')
+if (indexIndex > -1) {
+  jsFiles.splice(indexIndex, 1)
+}
 const regex = /^(?:export default from '\.\/(.*?)'|export (.*?) from '.*')$/gm
 
 let indexFile = []
 
-jsFiles.keys().forEach(file => {
+jsFiles.forEach(file => {
   let match, fileExports = {
     default: null,
     nonDefault: []
@@ -30,6 +34,10 @@ jsFiles.keys().forEach(file => {
     exportString += `${fileExports.default}`
   }
   if (fileExports.nonDefault.length > 0) {
+    const defaultIndex = fileExports.default ? fileExports.nonDefault.indexOf(fileExports.default) : -1
+    if (defaultIndex > -1) {
+      fileExports.nonDefault.splice(defaultIndex, 1)
+    }
     exportString += `${fileExports.default ? ', ' : ''}{ ${fileExports.nonDefault.join(', ')} }`
   }
   exportString += ` from './${file.replace('/index.js', '')}'`
