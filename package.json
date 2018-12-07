@@ -1,6 +1,6 @@
 {
   "name": "react-ions",
-  "version": "5.1.29",
+  "version": "5.1.30",
   "description": "An open source set of React components that implement Ambassador's Design and UX patterns.",
   "main": "./lib/index.js",
   "repository": {
@@ -141,7 +141,7 @@
     "karma-webpack": "~1.7.0",
     "material-design-icons": "3.0.1",
     "mkdirp": "^0.5.1",
-    "mocha": "~2.3.3",
+    "mocha": "^2.3.4",
     "mocha-jsdom": "~1.0.0",
     "ncp": "^2.0.0",
     "node-sass": "^3.13.1",
