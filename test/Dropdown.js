@@ -1,5 +1,5 @@
 import React from 'react'
-import WrappedDropdown, { Dropdown } from '../src/components/Dropdown'
+import WrappedDropdown, { Dropdown } from '../src/components/Dropdown/Dropdown'
 
 describe('Dropdown', () => {
   let wrapper, trigger
