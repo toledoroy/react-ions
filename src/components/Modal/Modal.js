@@ -50,7 +50,7 @@ class Modal extends React.Component {
      */
     optClass: PropTypes.string,
     /**
-     * The size of the modal. The default is 'md' (medium).
+     * The size of the modal.
      */
     size: PropTypes.oneOf(['sm', 'md', 'lg']),
     /**
