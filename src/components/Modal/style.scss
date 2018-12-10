@@ -107,6 +107,14 @@
       }
     }
 
+    &.modal-md {
+      max-width: 588px;
+
+      @media (max-width: 600px) {
+        max-width: 100%;
+      }
+    }
+
     &.modal-lg {
       max-width: 1200px;
 
