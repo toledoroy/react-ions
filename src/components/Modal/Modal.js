@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import style from './style.scss'
 import themesStyles from './Themes/themes.scss'
+import StyledDiv from '../StyledDiv'
 import Overlay from './Overlay'
 import RenderToLayer from '../internal/RenderToLayer'
 import Icon from '../Icon'
@@ -35,6 +36,10 @@ class Modal extends React.Component {
      * Clicking outside the `Modal` will not trigger the `onRequestClose` in that case.
      */
     closeOnAction: PropTypes.bool,
+    /**
+     * Option to pass CSS as an object via Styled Components.
+     */
+    css: PropTypes.object,
     /**
      * Fired when the `Modal` is requested to be closed by a click outside the `Modal` or on the buttons.
      *
@@ -114,7 +119,7 @@ class Modal extends React.Component {
     this.setKeyupListener()
 
     return (
-      <div className={modalClass}>
+      <StyledDiv css={this.props.css} className={modalClass}>
         <div className={style['modal-scroll-container']} onClick={this.handleClick}>
           <Overlay
             show={this.props.open}
@@ -146,7 +151,7 @@ class Modal extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </StyledDiv>
     )
   }
 
