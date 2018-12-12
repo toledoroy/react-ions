@@ -1,6 +1,9 @@
+## 5.1.31
+###### _December 12, 2018_
+- Modal: updating size defaults, and adding an "medium" width option [#732](https://github.com/GetAmbassador/react-ions/pull/732)
+
 ## 5.1.30
 ###### _December 4, 2018_
-
 - Dependencies: upgrade Mocha [#729](https://github.com/GetAmbassador/react-ions/pull/729)
 - Input: allow for the type attribute to be passed [#727](https://github.com/GetAmbassador/react-ions/pull/727)
 - Chip: minor adjustments [#726](https://github.com/GetAmbassador/react-ions/pull/726)
