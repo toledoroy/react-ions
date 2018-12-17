@@ -1,4 +1,72 @@
-## HEAD
+## 5.1.31
+###### _December 12, 2018_
+- Modal: updating size defaults, and adding an "medium" width option [#732](https://github.com/GetAmbassador/react-ions/pull/732)
+
+## 5.1.30
+###### _December 4, 2018_
+- Dependencies: upgrade Mocha [#729](https://github.com/GetAmbassador/react-ions/pull/729)
+- Input: allow for the type attribute to be passed [#727](https://github.com/GetAmbassador/react-ions/pull/727)
+- Chip: minor adjustments [#726](https://github.com/GetAmbassador/react-ions/pull/726)
+
+## 5.1.29
+###### _November 14, 2018_
+Chip: Allow full color palette to be rendered [#724](https://github.com/GetAmbassador/react-ions/pull/724)
+
+## 5.1.28
+###### _October 26, 2018_
+- Toggle: add loading state [#716](https://github.com/GetAmbassador/react-ions/pull/716)
+- Buttons: disable hover when not supported [#715](https://github.com/GetAmbassador/react-ions/pull/715)  
+- Toggle: add confirmation [#714](https://github.com/GetAmbassador/react-ions/pull/714)
+
+## 5.1.26
+###### _October 12, 2018_
+- Upgraded clipboard package to 2.0.1 [#712](https://github.com/GetAmbassador/react-ions/pull/712)
+- Added md-check-circle icon [#711](https://github.com/GetAmbassador/react-ions/pull/711)
+- Updated node and npm [#710](https://github.com/GetAmbassador/react-ions/pull/710)
+
+## 5.1.25
+###### _September 24, 2018_
+- Fix for avatar width [#708](https://github.com/GetAmbassador/react-ions/pull/708)
+
+## 5.1.24
+###### _September 20, 2018_
+- Avatar: Added flex properties to avatar, to handle width when wrapped [#706](https://github.com/GetAmbassador/react-ions/pull/706)
+
+## 5.1.23
+###### _September 17, 2018_
+- Input: Expose a blur() method [#704](https://github.com/GetAmbassador/react-ions/pull/704)
+
+## 5.1.22
+###### _September 12, 2018_
+- Dropdown: Improve css specificity of wrapper [#702](https://github.com/GetAmbassador/react-ions/pull/702)
+
+## 5.1.21
+###### _September 6, 2018_
+- Icons: Added Facebook Messenger and Google Ads [#700](https://github.com/GetAmbassador/react-ions/pull/700)
+
+## 5.1.20
+###### _August 30, 2018_
+- Adding back gen export [#698](https://github.com/GetAmbassador/react-ions/pull/698)
+
+## 5.1.19
+###### _August 30, 2018_
+- Clean up sprite generation script [#696](https://github.com/GetAmbassador/react-ions/pull/696)
+- Allow popover to be nested without conflicting styles [#694](https://github.com/GetAmbassador/react-ions/pull/694)
+- Upgraded lodash [#693](https://github.com/GetAmbassador/react-ions/pull/693)
+
+## 5.1.18
+###### _August 30, 2018_
+- Republishing an updated version and adding a sprite generation script option to npm [#691](https://github.com/GetAmbassador/react-ions/pull/691)
+
+## 5.1.17
+###### _August 29, 2018_
+- Icons: adding trending and social icons [#689](https://github.com/GetAmbassador/react-ions/pull/689)
+- Circle: build file fix [#688](https://github.com/GetAmbassador/react-ions/pull/688)
+
+## 5.1.16
+###### _August 27, 2018_
+- Checkbox: Add native title to labels [#685](https://github.com/GetAmbassador/react-ions/pull/685)
+- CircleCI 2.0: [#684](https://github.com/GetAmbassador/react-ions/pull/684)
 
 ## 5.1.15
 ###### _August 27, 2018_

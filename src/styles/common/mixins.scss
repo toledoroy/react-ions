@@ -40,13 +40,15 @@
   }
 
   @if $fadeOnHover {
-    transition-property: background-color, color, opacity, border-color;
-    transition-duration: .15s;
-    transition-timing-function: ease-in-out;
+    @media (hover: hover) {
+      transition-property: background-color, color, opacity, border-color;
+      transition-duration: .15s;
+      transition-timing-function: ease-in-out;
 
     &:hover {
       background-color: darken($bg-color, 5%);
       opacity: .8;
+      }
     }
   }
 

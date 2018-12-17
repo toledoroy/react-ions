@@ -4,6 +4,7 @@ var mbsyPath = path.normalize('src/assets/icons/svg')
 
 var list = {
   material: [
+    materialPath + '/action/svg/production/ic_trending_up_24px.svg#md-trending-up',
     materialPath + '/action/svg/production/ic_assessment_24px.svg#md-assessment',
     materialPath + '/action/svg/production/ic_check_circle_24px.svg#md-success',
     materialPath + '/action/svg/production/ic_compare_arrows_24px.svg#md-compare',
@@ -93,6 +94,13 @@ var list = {
     materialPath + '/toggle/svg/production/ic_radio_button_unchecked_24px.svg#md-radio-unchecked'
   ],
   mbsy: [
+    mbsyPath + '/check_circle_outline.svg#md-check-circle-outline',
+    mbsyPath + '/instagram.svg#mbsy-instagram',
+    mbsyPath + '/bing.svg#mbsy-bing',
+    mbsyPath + '/google-plus.svg#mbsy-google-plus',
+    mbsyPath + '/pinterest.svg#mbsy-pinterest',
+    mbsyPath + '/youtube.svg#mbsy-youtube',
+    mbsyPath + '/tumblr.svg#mbsy-tumblr',
     mbsyPath + '/google.svg#mbsy-google',
     mbsyPath + '/yahoo.svg#mbsy-yahoo',
     mbsyPath + '/twitter.svg#mbsy-twitter',
@@ -102,6 +110,8 @@ var list = {
     mbsyPath + '/slack.svg#mbsy-slack',
     mbsyPath + '/paypal.svg#mbsy-paypal',
     mbsyPath + '/dwolla.svg#mbsy-dwolla',
+    mbsyPath + '/fb_messenger.svg#mbsy-fb-messenger',
+    mbsyPath + '/google_ads.svg#mbsy-google-ads',
     mbsyPath + '/webhooks.svg#mbsy-webhooks',
     mbsyPath + '/caret.svg#mbsy-caret'
   ]

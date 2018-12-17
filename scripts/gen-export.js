@@ -6,11 +6,13 @@ function _genComponentExport(component) {
   fs.readFile('./lib/components/' + component + '/index.js', function (error, data) {
     var componentData = data.toString().replace('./', './components/')
 
-    fs.writeFile('./lib/' + component + '.js', componentData)
+    fs.writeFile('./lib/' + component + '.js', componentData, function (error, data) {
+      if (error) console.error('Error: ', error)
+    })
   })
 }
 
-fs.readdir('./src/components', function (err, data) {
+fs.readdir('./src/components', function (error, data) {
   var components = data.filter(function (f) { return (/^[A-Z]/.test(f)) })
 
   // Generate individual component exports

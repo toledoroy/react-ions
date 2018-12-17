@@ -14,7 +14,8 @@ class Input extends React.Component {
   static defaultProps = {
     disabled: false,
     value: '',
-    valueType: 'string'
+    valueType: 'string',
+    type: 'text'
   }
 
   static propTypes = {
@@ -110,7 +111,11 @@ class Input extends React.Component {
     /**
      * A string to be used as the ID.
      */
-    id: PropTypes.string
+    id: PropTypes.string,
+    /**
+     * The type of the input.
+     */
+    type: PropTypes.string
   }
 
   _getValue = props => {
@@ -174,6 +179,10 @@ class Input extends React.Component {
     this._input.focus()
   }
 
+  blur = () => {
+    this._input.blur()
+  }
+
   render = () => {
     const {prefix, suffix, label, optClass, className, width, disabled} = this.props
 
@@ -208,8 +217,9 @@ class Input extends React.Component {
             style={this.state.inputStyles}
             onKeyUp={this.props.onKeyUp}
             onKeyPress={this.props.onKeyPress}
-            onKeyDown={this.props.onKeyDown}>
-          </input>
+            onKeyDown={this.props.onKeyDown}
+            type={this.props.type}
+          />
 
           {suffix && <div className={flexWrapperClassSuffix}>
             <div ref={c => this._suffix = c} className={suffixClass}>{suffix}</div>

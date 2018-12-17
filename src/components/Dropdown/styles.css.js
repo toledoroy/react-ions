@@ -12,7 +12,7 @@ const styles = ({ listItems, alignment, optClass, isOpened, triggerRect = { widt
     '.trigger': {
       cursor: 'pointer'
     },
-    '.dropdown-wrapper': {
+    '> .dropdown-wrapper': {
       backfaceVisibility: 'hidden',
       backgroundColor: colors.white,
       borderRadius: '3px',

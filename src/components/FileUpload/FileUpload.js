@@ -136,12 +136,13 @@ class FileUpload extends React.Component {
       optClass,
       showPreview,
       previewSize,
-      changeCallback
+      changeCallback,
+      className
     } = this.props
 
     const cx = classNames.bind(style)
     const disabledClass = this.props.disabled ? style['disabled'] : ''
-    const fileUploadClass = cx(style['file-upload-component'], optClass, disabledClass)
+    const fileUploadClass = cx(style['file-upload-component'], optClass, disabledClass, className)
 
     return (
       <div className={fileUploadClass}>
