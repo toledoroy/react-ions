@@ -65,7 +65,11 @@ export class SelectField extends React.Component {
     /**
      * An optional style object to render inline CSS.
      */
-    style: PropTypes.object
+    style: PropTypes.object,
+    /**
+     * A helper will render inline style='width: <value>'.
+     */
+    width: PropTypes.string
   }
 
   state = {
@@ -166,7 +170,8 @@ export class SelectField extends React.Component {
     const disabledClass = this.props.disabled ? style['selectfield-disabled'] : ''
     const activeClass = this.state.isOpen ? style['active'] : ''
     const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, this.props.optClass)
-    const { valueProp, hideProp, label } = this.props
+    const { valueProp, hideProp, label, width } = this.props
+    const widthStyle = width ? { width: width } : null
 
     let options = this.props.options.map((option, index) =>
       <li
@@ -200,7 +205,7 @@ export class SelectField extends React.Component {
       <div className={selectFieldClass} style={this.props.style}>
         <input type='hidden' name='selectfield-value' value={value} />
         { label && <label>{label}</label> }
-        <div className={style['selectfield-value']} onClick={this.toggleSelectField}>
+        <div className={style['selectfield-value']} onClick={this.toggleSelectField} style={widthStyle}>
           {this.getDisplayIcon()}
           <span className={style['display-text']}>{this.getDisplayText()}</span>
           <Icon name='mbsy-caret' width='10' height='10' />
