@@ -119,11 +119,12 @@ export class Typeahead extends React.Component {
     const { allowCustomValue, changeCallback } = this.props
     const valueIsEmpty = nextProps.value === ''
     const valueChanged = nextProps.value !== this.state.value
+    const optionsChanged = nextProps.options.length !== this.props.options.length
     const searchStringIsEmpty = this.state.searchStr !== ''
     const optionExists = this.getIndex(nextProps.value, nextProps.options) > -1
 
     // If the option exists select it
-    if (nextProps.value && valueChanged && optionExists) {
+    if (nextProps.value && (valueChanged || optionsChanged) && optionExists) {
       this.setState({ value: nextProps.value }, () => {
         this.selectItem(nextProps.value, nextProps.options)
       })
@@ -286,7 +287,7 @@ export class Typeahead extends React.Component {
     )
 
     return (
-      <div className={typeaheadClass}>
+      <div className={typeaheadClass} style={{ width: width }}>
         { label && <label>{label}</label> }
 
         <div className={style['input-wrapper']}>
