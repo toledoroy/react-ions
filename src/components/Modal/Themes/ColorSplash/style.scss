@@ -9,6 +9,7 @@
     [class^='modal-header'] {
       [class^='header-wrapper'] {
         align-items: center;
+        box-sizing: border-box;
         min-height: 76px;
         border-radius: 3px 3px 0 0;
         display: flex;

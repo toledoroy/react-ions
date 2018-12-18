@@ -27,6 +27,7 @@ const ExampleSelectFieldLabel = () => (
     displayProp='display'
     value={null}
     label='Select Field Label'
+    width='220px'
   />
 )
 
