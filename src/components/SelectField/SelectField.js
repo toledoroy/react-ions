@@ -171,7 +171,9 @@ export class SelectField extends React.Component {
     const activeClass = this.state.isOpen ? style['active'] : ''
     const selectFieldClass = cx(style['selectfield-component'], activeClass, disabledClass, this.props.optClass)
     const { valueProp, hideProp, label, width } = this.props
+    
     const widthStyle = width ? { width: width } : null
+    const listWidthStyle =  width ? { width: width, minWidth: width } : null
 
     let options = this.props.options.map((option, index) =>
       <li
@@ -210,7 +212,7 @@ export class SelectField extends React.Component {
           <span className={style['display-text']}>{this.getDisplayText()}</span>
           <Icon name='mbsy-caret' width='10' height='10' />
         </div>
-        <ul>
+        <ul style={listWidthStyle}>
           {options}
         </ul>
       </div>
