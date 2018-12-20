@@ -9,6 +9,7 @@ const ExampleTypeaheadLabel = () => (
     displayProp='countryName'
     placeholder='Start typing'
     label='Typeahead Label'
+    width='220px'
   />
 )
 

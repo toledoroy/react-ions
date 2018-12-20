@@ -7,6 +7,7 @@ import debounce from 'lodash/debounce'
 import Loader from 'react-loader'
 import Input from '../Input'
 import Icon from '../Icon'
+import StyledDiv from '../StyledDiv'
 import style from './style.scss'
 
 export class Typeahead extends React.Component {
@@ -92,7 +93,11 @@ export class Typeahead extends React.Component {
     /**
      * When set to true, the component (input) will accept a custom value
      */
-    allowCustomValue: PropTypes.bool
+    allowCustomValue: PropTypes.bool,
+    /**
+     * A helper will render inline style='width: <value>'.
+     */
+    width: PropTypes.string
   }
 
   state = {
@@ -115,11 +120,12 @@ export class Typeahead extends React.Component {
     const { allowCustomValue, changeCallback } = this.props
     const valueIsEmpty = nextProps.value === ''
     const valueChanged = nextProps.value !== this.state.value
+    const optionsChanged = nextProps.options.length !== this.props.options.length
     const searchStringIsEmpty = this.state.searchStr !== ''
     const optionExists = this.getIndex(nextProps.value, nextProps.options) > -1
 
     // If the option exists select it
-    if (nextProps.value && valueChanged && optionExists) {
+    if (nextProps.value && (valueChanged || optionsChanged) && optionExists) {
       this.setState({ value: nextProps.value }, () => {
         this.selectItem(nextProps.value, nextProps.options)
       })
@@ -270,7 +276,9 @@ export class Typeahead extends React.Component {
       width: 3
     }
 
-    const { placeholder, disabled, loading, label } = this.props
+    const { placeholder, disabled, loading, label, width } = this.props
+
+    const listWidth = width ? { width: `calc(${width} - 4px)` } : null
 
     const options = this.state.results.map((option, index) =>
       <li
@@ -283,23 +291,31 @@ export class Typeahead extends React.Component {
       <div className={typeaheadClass}>
         { label && <label>{label}</label> }
 
-        <div className={style['input-wrapper']}>
-          <Input ref={c => this._inputField = c} changeCallback={this.onChange} value={this.state.searchStr} placeholder={placeholder} disabled={disabled} />
+        <StyledDiv css={{width, position: 'relative'}}>
+          <div className={style['input-wrapper']}>
+            <Input 
+              ref={c => this._inputField = c} 
+              changeCallback={this.onChange} 
+              value={this.state.searchStr} 
+              placeholder={placeholder} 
+              disabled={disabled}
+            />
 
-          { this.state.searchStr !== '' && !loading && !disabled
-            ? <Icon name='md-close' onClick={this.clearSearch} className={style['reset-button']}>Reset</Icon>
+            { this.state.searchStr !== '' && !loading && !disabled
+              ? <Icon name='md-close' onClick={this.clearSearch} className={style['reset-button']}>Reset</Icon>
+              : null
+            }
+          </div>
+
+          { loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
+
+          { this.state.isActive
+            ? <ul className={style['typeahead-list']} style={listWidth}>
+                {options}
+              </ul>
             : null
           }
-        </div>
-
-        { loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
-
-        { this.state.isActive
-          ? <ul className={style['typeahead-list']}>
-            {options}
-          </ul>
-          : null
-        }
+        </StyledDiv>
       </div>
     )
   }

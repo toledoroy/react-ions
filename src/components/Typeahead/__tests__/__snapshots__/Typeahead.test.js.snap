@@ -1,0 +1,278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should be disabled 1`] = `
+<div
+  className="typeahead-component"
+>
+  <styled.div
+    css={
+      Object {
+        "position": "relative",
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="input-wrapper"
+    >
+      <Input
+        changeCallback={[Function]}
+        disabled={true}
+        type="text"
+        value=""
+        valueType="string"
+      />
+    </div>
+  </styled.div>
+</div>
+`;
+
+exports[`should display a list when the user types a letter 1`] = `
+<div
+  className="typeahead-component"
+>
+  <styled.div
+    css={
+      Object {
+        "position": "relative",
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="input-wrapper"
+    >
+      <Input
+        changeCallback={[Function]}
+        disabled={false}
+        type="text"
+        value="a"
+        valueType="string"
+      />
+      <Icon
+        className="reset-button"
+        height="24"
+        name="md-close"
+        onClick={[Function]}
+        width="24"
+      >
+        Reset
+      </Icon>
+    </div>
+    <ul
+      className="typeahead-list"
+      style={null}
+    >
+      <li
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<b>A</b>ustria",
+          }
+        }
+        key="0"
+        onClick={[Function]}
+      />
+      <li
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "Bermud<b>a</b>",
+          }
+        }
+        key="1"
+        onClick={[Function]}
+      />
+    </ul>
+  </styled.div>
+</div>
+`;
+
+exports[`should display a loader 1`] = `
+<div
+  className="typeahead-component loading"
+>
+  <styled.div
+    css={
+      Object {
+        "position": "relative",
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="input-wrapper"
+    >
+      <Input
+        changeCallback={[Function]}
+        disabled={false}
+        type="text"
+        value=""
+        valueType="string"
+      />
+    </div>
+    <Component
+      component="div"
+      loaded={false}
+      loadedClassName="loadedContent"
+      options={
+        Object {
+          "color": "#9198A0",
+          "left": "calc(100% - 21px)",
+          "length": 4,
+          "lines": 10,
+          "radius": 5,
+          "width": 3,
+        }
+      }
+      parentClassName="loader"
+    />
+  </styled.div>
+</div>
+`;
+
+exports[`should have a label 1`] = `
+<div
+  className="typeahead-component"
+>
+  <label>
+    Typeahead Label
+  </label>
+  <styled.div
+    css={
+      Object {
+        "position": "relative",
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="input-wrapper"
+    >
+      <Input
+        changeCallback={[Function]}
+        disabled={false}
+        type="text"
+        value=""
+        valueType="string"
+      />
+    </div>
+  </styled.div>
+</div>
+`;
+
+exports[`should have an extra class 1`] = `
+<div
+  className="typeahead-component test-class"
+>
+  <styled.div
+    css={
+      Object {
+        "position": "relative",
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="input-wrapper"
+    >
+      <Input
+        changeCallback={[Function]}
+        disabled={false}
+        type="text"
+        value=""
+        valueType="string"
+      />
+    </div>
+  </styled.div>
+</div>
+`;
+
+exports[`should have placeholder text 1`] = `
+<div
+  className="typeahead-component"
+>
+  <styled.div
+    css={
+      Object {
+        "position": "relative",
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="input-wrapper"
+    >
+      <Input
+        changeCallback={[Function]}
+        disabled={false}
+        placeholder="test"
+        type="text"
+        value=""
+        valueType="string"
+      />
+    </div>
+  </styled.div>
+</div>
+`;
+
+exports[`should shallow render itself 1`] = `
+<div
+  className="typeahead-component"
+>
+  <styled.div
+    css={
+      Object {
+        "position": "relative",
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="input-wrapper"
+    >
+      <Input
+        changeCallback={[Function]}
+        disabled={false}
+        type="text"
+        value=""
+        valueType="string"
+      />
+    </div>
+  </styled.div>
+</div>
+`;
+
+exports[`should update when props are set 1`] = `
+<div
+  className="typeahead-component test-class"
+>
+  <styled.div
+    css={
+      Object {
+        "position": "relative",
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="input-wrapper"
+    >
+      <Input
+        changeCallback={[Function]}
+        disabled={false}
+        type="text"
+        value="Number"
+        valueType="string"
+      />
+      <Icon
+        className="reset-button"
+        height="24"
+        name="md-close"
+        onClick={[Function]}
+        width="24"
+      >
+        Reset
+      </Icon>
+    </div>
+  </styled.div>
+</div>
+`;
