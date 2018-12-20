@@ -7,6 +7,7 @@ import debounce from 'lodash/debounce'
 import Loader from 'react-loader'
 import Input from '../Input'
 import Icon from '../Icon'
+import StyledDiv from '../StyledDiv'
 import style from './style.scss'
 
 export class Typeahead extends React.Component {
@@ -290,7 +291,7 @@ export class Typeahead extends React.Component {
       <div className={typeaheadClass}>
         { label && <label>{label}</label> }
 
-        <div style={{width, position: 'relative'}}>
+        <StyledDiv css={{width, position: 'relative'}}>
           <div className={style['input-wrapper']}>
             <Input 
               ref={c => this._inputField = c} 
@@ -314,7 +315,7 @@ export class Typeahead extends React.Component {
               </ul>
             : null
           }
-        </div>
+        </StyledDiv>
       </div>
     )
   }
