@@ -1,3 +1,8 @@
+## 5.1.32
+###### _December 20, 2018_
+- Typeahead: width support [#737](https://github.com/GetAmbassador/react-ions/pull/737)
+- SelectField: width support [#736](https://github.com/GetAmbassador/react-ions/pull/736)
+
 ## 5.1.31
 ###### _December 12, 2018_
 - Modal: updating size defaults, and adding an "medium" width option [#732](https://github.com/GetAmbassador/react-ions/pull/732)
