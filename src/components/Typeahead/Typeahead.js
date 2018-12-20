@@ -287,33 +287,34 @@ export class Typeahead extends React.Component {
     )
 
     return (
-      <div className={typeaheadClass} style={{ width: width }}>
+      <div className={typeaheadClass}>
         { label && <label>{label}</label> }
 
-        <div className={style['input-wrapper']}>
-          <Input 
-            ref={c => this._inputField = c} 
-            changeCallback={this.onChange} 
-            value={this.state.searchStr} 
-            placeholder={placeholder} 
-            disabled={disabled} 
-            width={width}
-          />
+        <div style={{width, position: 'relative'}}>
+          <div className={style['input-wrapper']}>
+            <Input 
+              ref={c => this._inputField = c} 
+              changeCallback={this.onChange} 
+              value={this.state.searchStr} 
+              placeholder={placeholder} 
+              disabled={disabled}
+            />
 
-          { this.state.searchStr !== '' && !loading && !disabled
-            ? <Icon name='md-close' onClick={this.clearSearch} className={style['reset-button']}>Reset</Icon>
+            { this.state.searchStr !== '' && !loading && !disabled
+              ? <Icon name='md-close' onClick={this.clearSearch} className={style['reset-button']}>Reset</Icon>
+              : null
+            }
+          </div>
+
+          { loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
+
+          { this.state.isActive
+            ? <ul className={style['typeahead-list']} style={listWidth}>
+                {options}
+              </ul>
             : null
           }
         </div>
-
-        { loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
-
-        { this.state.isActive
-          ? <ul className={style['typeahead-list']} style={listWidth}>
-            {options}
-          </ul>
-          : null
-        }
       </div>
     )
   }
