@@ -1,3 +1,7 @@
+## 5.1.33
+###### _December 21, 2018_
+- Tooltip: added className to node that wraps the "bound" tooltip element
+
 ## 5.1.32
 ###### _December 20, 2018_
 - Typeahead: width support [#737](https://github.com/GetAmbassador/react-ions/pull/737)
