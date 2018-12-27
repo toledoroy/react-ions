@@ -1,3 +1,7 @@
+## 5.1.34
+###### _December 27, 2018_
+- Upgraded libraries in package.json to address security vulnerabilities [#741](https://github.com/GetAmbassador/react-ions/pull/741)
+
 ## 5.1.33
 ###### _December 21, 2018_
 - Tooltip: added className to node that wraps the "bound" tooltip element
