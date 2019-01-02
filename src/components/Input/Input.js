@@ -101,7 +101,7 @@ class Input extends React.Component {
      */
     onKeyDown: PropTypes.func,
     /**
-     * A helper will render inline style='width: <value>'.
+     * An attribute that will add an explicit width (in pixels), to the input.
      */
     width: PropTypes.string,
     /**
