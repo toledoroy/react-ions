@@ -64,7 +64,7 @@ class Textarea extends React.Component {
     /**
      * An attribute will add an explicit height (in pixels) to the textarea.
      */
-    height: PropTypes.string,
+    height: PropTypes.string
   }
 
   componentWillReceiveProps = nextProps => {
@@ -101,7 +101,7 @@ class Textarea extends React.Component {
   }
 
   render() {
-    const { disabled, label, value, optClass, className, height } = this.props
+    const { disabled, label, optClass, className, height } = this.props
 
     const cx = classNames.bind(style)
     const heightStyle = height ? { height: height } : null
