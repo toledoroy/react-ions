@@ -60,7 +60,11 @@ class Textarea extends React.Component {
     /**
      * A callback function to be called when the textarea is blurred.
      */
-    blurCallback: PropTypes.func
+    blurCallback: PropTypes.func,
+    /**
+     * An attribute will add an explicit height (in pixels) to the textarea.
+     */
+    height: PropTypes.string,
   }
 
   componentWillReceiveProps = nextProps => {
@@ -97,9 +101,10 @@ class Textarea extends React.Component {
   }
 
   render() {
-    const { disabled, label, value, optClass, className } = this.props
+    const { disabled, label, value, optClass, className, height } = this.props
 
     const cx = classNames.bind(style)
+    const heightStyle = height ? { height: height } : null
     var disabledClass = disabled ? style['textarea-disabled'] : ''
     var textareaClass = cx(style['textarea-component'], optClass, className, disabledClass)
 
@@ -112,7 +117,9 @@ class Textarea extends React.Component {
           onChange={this.handleChange}
           onBlur={this.handleBlur}
           disabled={this.props.disabled}
-          placeholder={this.props.placeholder}>
+          placeholder={this.props.placeholder}
+          style={heightStyle}
+        >
         </textarea>
       </div>
     )

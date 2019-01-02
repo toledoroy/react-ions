@@ -28,7 +28,9 @@ class ExampleTextareaCallback extends React.Component {
         <Textarea value=''
           focusCallback={this.handleFocus}
           changeCallback={this.handleChange}
-          blurCallback={this.handleBlur} />
+          blurCallback={this.handleBlur} 
+          height='250px'
+        />
         <code>{this.state.status}</code>
       </div>
     )
