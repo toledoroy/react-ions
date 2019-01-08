@@ -162,7 +162,7 @@ class Avatar extends React.Component {
       }
       if (!this.state.square) {
         return (
-          <div style={this.getNotSquareStyle()} onLoad={this.handleLoad} >
+          <div style={this.getNotSquareStyle(this.props.src)} onLoad={this.handleLoad} title={this.props.alt}>
             <img src={this.props.src} alt={this.props.alt} height='0' />
           </div>
         )
