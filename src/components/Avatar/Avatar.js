@@ -153,7 +153,6 @@ class Avatar extends React.Component {
     } else {
       this.setState({ square: false })
     }
-    console.log(img.naturalHeight, img.naturalWidth)
   }
 
   loadAvatar = () => {
