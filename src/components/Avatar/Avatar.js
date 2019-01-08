@@ -53,7 +53,8 @@ class Avatar extends React.Component {
    * or if it's a letter-based avatar,
    * set loaded to true, so it won't fade in */
   state = {
-    loaded: !!(!this.props.fadeIn || !this.props.src)
+    loaded: !!(!this.props.fadeIn || !this.props.src),
+    square: true
   }
 
   /* If the source changes, and fadeIn
@@ -137,8 +138,9 @@ class Avatar extends React.Component {
     }
   }
 
-  handleLoad = () => {
+  handleLoad = ({target: img}) => {
     this.setState({ loaded: true })
+    console.log(img.naturalHeight, img.naturalWidth)
   }
 
   loadAvatar = () => {
