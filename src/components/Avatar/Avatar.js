@@ -138,14 +138,26 @@ class Avatar extends React.Component {
     }
   }
 
+  getNotSquareSize = () => {
+    return { 
+      background: 'url(' + this.props.src + ')',
+      backgroundSize: 'cover'
+    }
+  }
+
   handleLoad = ({target: img}) => {
     this.setState({ loaded: true })
+    if (img.naturalHeight === img.naturalWidth) {
+      this.setState({ square: true})
+    } else {
+      this.setState({ square: false })
+    }
     console.log(img.naturalHeight, img.naturalWidth)
   }
 
   loadAvatar = () => {
     if (this.props.src) {
-      return <img src={this.props.src} onLoad={this.handleLoad} alt={this.props.alt} height={this.props.size} />
+      return <img src={this.props.src} onLoad={this.handleLoad} alt={this.props.alt} height={this.props.size} style={this.state.square ? null : this.getNotSquareSize()} />
     } else if (this.props.letters) {
       return (
         <div style={this.getWrapperStyle()}>
