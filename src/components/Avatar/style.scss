@@ -24,4 +24,8 @@
       top: 2%;
     }
   }
+  &.not-square {
+    background: url(https://ambassador-api-dev.s3.amazonaws.com/uploads/avatars/1088_2018_12_11_17_04_41.jpg);
+    background-size: cover;
+  }
 }
