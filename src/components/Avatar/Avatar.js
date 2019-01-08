@@ -138,10 +138,11 @@ class Avatar extends React.Component {
     }
   }
 
-  getNotSquareSize = () => {
+  getNotSquareStyle = () => {
     return { 
-      background: 'url(' + this.props.src + ')',
-      backgroundSize: 'cover'
+      backgroundImage: 'url(' + this.props.src + ')',
+      backgroundSize: 'cover',
+      height: this.props.size + 'px'
     }
   }
 
@@ -157,7 +158,15 @@ class Avatar extends React.Component {
 
   loadAvatar = () => {
     if (this.props.src) {
-      return <img src={this.props.src} onLoad={this.handleLoad} alt={this.props.alt} height={this.props.size} style={this.state.square ? null : this.getNotSquareSize()} />
+      if (this.state.square) {
+        return <img src={this.props.src} onLoad={this.handleLoad} alt={this.props.alt} height={this.props.size} />
+      } else {
+        return (
+          <div style={this.getNotSquareStyle()} onLoad={this.handleLoad} >
+            <img src={this.props.src} alt={this.props.alt} height='0' />
+          </div>
+        ) 
+      }
     } else if (this.props.letters) {
       return (
         <div style={this.getWrapperStyle()}>
