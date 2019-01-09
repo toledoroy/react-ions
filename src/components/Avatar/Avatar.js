@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import style from './style.scss'
 import classNames from 'classnames/bind'
+import StyledDiv from '../StyledDiv'
+import styles from '../Dropdown/styles.css';
 
 class Avatar extends React.Component {
   constructor(props) {
@@ -11,7 +13,8 @@ class Avatar extends React.Component {
   state = {
     // If image src was passed in, it is not yet loaded
     // Else, if letters were passed in, set loaded to true
-    loaded: !this.props.src
+    loaded: !this.props.src,
+    square: true
   }
 
   static propTypes = {
@@ -148,25 +151,18 @@ class Avatar extends React.Component {
 
   handleLoad = ({target: img}) => {
     this.setState({ loaded: true })
-    if (img.naturalHeight === img.naturalWidth) {
-      this.setState({ square: true})
-    } else {
-      this.setState({ square: false })
-    }
+    img.naturalHeight !== img.naturalWidth ? this.setState({ square: false }) : this.setState({ square: true })
   }
 
   loadAvatar = () => {
     if (this.props.src) {
-      if (this.state.square) {
-        return <img src={this.props.src} onLoad={this.handleLoad} alt={this.props.alt} height={this.props.size} />
-      }
-      if (!this.state.square) {
-        return (
-          <div style={this.getNotSquareStyle(this.props.src)} onLoad={this.handleLoad} title={this.props.alt}>
-            <img src={this.props.src} alt={this.props.alt} height='0' />
-          </div>
-        )
-      }
+      return this.state.square
+        ? <img src={this.props.src} onLoad={this.handleLoad} alt={this.props.alt} height={this.props.size} />
+        : (
+            <StyledDiv css={this.getNotSquareStyle()} onLoad={this.handleLoad} title={this.props.alt}>
+              <img src={this.props.src} alt={this.props.alt} height='0' />
+            </StyledDiv>
+          )
     } else if (this.props.letters) {
       return (
         <div style={this.getWrapperStyle()}>
