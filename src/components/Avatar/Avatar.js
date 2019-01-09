@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 import StyledDiv from '../StyledDiv'
-import styles from '../Dropdown/styles.css';
 
 class Avatar extends React.Component {
   constructor(props) {
@@ -15,7 +14,7 @@ class Avatar extends React.Component {
     // Else, if letters were passed in, set loaded to true
     loaded: !this.props.src,
     square: true
-  }                                                                         
+  }
 
   static propTypes = {
     /**
@@ -150,12 +149,12 @@ class Avatar extends React.Component {
     }
   }
 
-  handleLoad = (el) => {
+  handleLoad = el => {
     this.setState({ loaded: true })
     el.naturalHeight !== el.naturalWidth ? this.setState({ square: false }) : this.setState({ square: true })
   }
 
-  handleImageLoad = (source) => {
+  handleImageLoad = source => {
     var a = new Image
     a.src = source
     a.onload = ()=> this.handleLoad(a)

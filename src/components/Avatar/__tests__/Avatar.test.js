@@ -54,7 +54,7 @@ describe('sCU', () => {
   
     let nextState = {
       loaded: false,
-      sqaure: false
+      sqaure: true
     }
   
     expect(inst.shouldComponentUpdate(nextProps, nextState)).toBe(false)
@@ -75,7 +75,7 @@ describe('sCU', () => {
     nextProps.fadeIn = false
     expect(inst.shouldComponentUpdate(nextProps, nextState)).toBe(true)
     nextState.square = true
-    expect(inst.shouldComponentUpdate(nextProps, nextState)).toBe(true)
+    expect(inst.shouldComponentUpdate(nextProps, nextState)).toBe(false)
   })  
 })
 
