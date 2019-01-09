@@ -15,7 +15,7 @@ class Avatar extends React.Component {
     // Else, if letters were passed in, set loaded to true
     loaded: !this.props.src,
     square: true
-  }
+  }                                                                         
 
   static propTypes = {
     /**
