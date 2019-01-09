@@ -74,7 +74,8 @@ class Avatar extends React.Component {
       nextProps.src !== this.props.src ||
       nextProps.size !== this.props.size ||
       nextProps.fadeIn !== this.props.fadeIn ||
-      nextState.loaded !== this.state.loaded
+      nextState.loaded !== this.state.loaded ||
+      nextState.square !== this.state.square
     )
   }
 
@@ -149,20 +150,23 @@ class Avatar extends React.Component {
     }
   }
 
-  handleLoad = ({target: img}) => {
+  handleLoad = (el) => {
     this.setState({ loaded: true })
-    img.naturalHeight !== img.naturalWidth ? this.setState({ square: false }) : this.setState({ square: true })
+    el.naturalHeight !== el.naturalWidth ? this.setState({ square: false }) : this.setState({ square: true })
+  }
+
+  handleImageLoad = (source) => {
+    var a = new Image
+    a.src = source
+    a.onload = ()=> this.handleLoad(a)
   }
 
   loadAvatar = () => {
+    this.handleImageLoad(this.props.src)
     if (this.props.src) {
       return this.state.square
-        ? <img src={this.props.src} onLoad={this.handleLoad} alt={this.props.alt} height={this.props.size} />
-        : (
-            <StyledDiv css={this.getNotSquareStyle()} onLoad={this.handleLoad} title={this.props.alt}>
-              <img src={this.props.src} alt={this.props.alt} height='0' />
-            </StyledDiv>
-          )
+        ? <img src={this.props.src} alt={this.props.alt} height={this.props.size} />
+        : <StyledDiv css={this.getNotSquareStyle()} title={this.props.alt} />
     } else if (this.props.letters) {
       return (
         <div style={this.getWrapperStyle()}>

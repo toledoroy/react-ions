@@ -14,7 +14,6 @@ exports[`Image-based Avatar should shallow render with image-related props 1`] =
   <img
     alt="Cat"
     height="100"
-    onLoad={[Function]}
     src="https://ambassador-api.s3.amazonaws.com/uploads/avatars/1088_2016_05_04_12_16_49.jpg"
   />
 </div>
