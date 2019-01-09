@@ -155,7 +155,7 @@ class Avatar extends React.Component {
   }
 
   handleImageLoad = source => {
-    var a = new Image
+    var a = new Image()
     a.src = source
     a.onload = ()=> this.handleLoad(a)
   }
