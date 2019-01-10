@@ -26,6 +26,18 @@ const AvatarPage = () => (
           markup={exampleAvatarCode}>
           <ExampleAvatar />
         </CodeExample>
+        <CodeExample
+          title='Fallback Avatar'
+          description={description.fallbackAvatar}
+          markup={fallbackAvatarCode}>
+          <FallbackAvatar />
+        </CodeExample>
+        <CodeExample
+          title='Avatar with no Fade'
+          description={description.avatarNoFade}
+          markup={exampleAvatarNoFadeCode}>
+          <ExampleAvatarNoFade />
+        </CodeExample>
       </div>
       <div className={styles.block}>
         <h3>Props</h3>
