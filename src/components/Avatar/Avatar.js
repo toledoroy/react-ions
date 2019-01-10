@@ -68,14 +68,14 @@ class Avatar extends React.Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    return (
-      nextProps.letters !== this.props.letters ||
-      nextProps.src !== this.props.src ||
-      nextProps.size !== this.props.size ||
-      nextProps.fadeIn !== this.props.fadeIn ||
-      nextState.loaded !== this.state.loaded ||
-      nextState.square !== this.state.square
-    )
+    if (nextProps.letters !== this.props.letters) return true
+    if (nextProps.src !== this.props.src) return true
+    if (nextProps.size !== this.props.size) return true
+    if (nextProps.fadeIn !== this.props.fadeIn) return true
+    if (nextState.loaded !== this.state.loaded) return true
+    if (nextState.square !== this.state.square) return true
+
+    return false
   }
 
   getWrapperStyle = () => {
@@ -151,18 +151,21 @@ class Avatar extends React.Component {
 
   handleLoad = el => {
     this.setState({ loaded: true })
-    el.naturalHeight !== el.naturalWidth ? this.setState({ square: false }) : this.setState({ square: true })
+    el.naturalHeight !== el.naturalWidth
+      ? this.setState({ square: false })
+      : this.setState({ square: true })
   }
 
   handleImageLoad = source => {
     var a = new Image()
     a.src = source
-    a.onload = ()=> this.handleLoad(a)
+    a.onload = () => this.handleLoad(a)
   }
 
   loadAvatar = () => {
-    this.handleImageLoad(this.props.src)
     if (this.props.src) {
+      this.handleImageLoad(this.props.src)
+
       return this.state.square
         ? <img src={this.props.src} alt={this.props.alt} height={this.props.size} />
         : <StyledDiv css={this.getNotSquareStyle()} title={this.props.alt} />
