@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Spinner from 'react-ions/lib/components/Spinner'
+import Spinner from '../Spinner'
 import style from './style.scss'
 import optclass, { mapOptClass } from '../internal/OptClass'
 import colors from '../internal/colors'
