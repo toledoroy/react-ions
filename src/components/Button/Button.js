@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Spinner from '../Spinner'
+import Spinner from '../Spinner/Spinner'
 import style from './style.scss'
 import optclass, { mapOptClass } from '../internal/OptClass'
 import colors from '../internal/colors'
@@ -62,12 +62,12 @@ const Button = props => {
       onMouseUp={props.onMouseUp}>
       { props.loading 
         && <Spinner
-        loading={props.loading}
-        type='spinner-circular'
-        backgroundColor={'transparent'}
-        color={styles.color || props.loaderColor} 
-        size='20'
-        />
+            loading={props.loading}
+            type='spinner-circular'
+            backgroundColor={'transparent'}
+            color={styles.color || props.loaderColor} 
+            size='20'
+          />
       }
       <em>{props.children}</em>
     </button>
