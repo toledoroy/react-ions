@@ -147,19 +147,7 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
       '.inner .inner-track': {
         stroke: 'rgba(92, 112, 128, .2)'
       }
-    },
-    // '> span': {
-    //   boxSizing: 'border-box',
-    //   display: 'block',
-    //   position: 'absolute',
-    //   width: `${size || 16}px`,
-    //   height: `${size || 16}px`,
-    //   margin: 0,
-    //   border: `${size ? size/8 : 2}px solid ${color || colors.neutral_4}`,
-    //   borderRadius: '50%',
-    //   borderColor: `${color || colors.neutral_4} transparent transparent transparent`,
-    //   animation: `${ring} .5s infinite`        
-    // }
+    }
   }
 }
 

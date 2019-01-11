@@ -17,7 +17,7 @@ class Toggle extends PureComponent {
     disabled: false,
     value: false,
     hasText: false,
-    loading: true,
+    loading: false,
     confirmWidth: '184'
   }
 
