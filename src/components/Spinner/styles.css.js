@@ -122,29 +122,29 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
       position: 'relative',
       width: `${size || 16}px`,
       height: `${size || 16}px`,
-      '.inner': {
+      '.sc-inner': {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'visible',
         verticalAlign: 'middle'
       },
-      '.inner-animation': {
+      '.sc-inner-animation': {
         animation: `${ring} .5s linear infinite`
       },
-      '.inner svg': {
+      '.sc-inner svg': {
         display: 'block'
       },
-      '.inner path': {
+      '.sc-inner path': {
         fillOpacity: '0'
       },
-      '.inner .inner-head': {
+      '.sc-inner-head': {
         transformOrigin: 'center',
         transition: 'stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)',
         stroke: `${color || colors.neutral_4}`,
         strokeLinecap: 'round'
       },
-      '.inner .inner-track': {
+      '.sc-inner-track': {
         stroke: 'rgba(92, 112, 128, .2)'
       }
     }
