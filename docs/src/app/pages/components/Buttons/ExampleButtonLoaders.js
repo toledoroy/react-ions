@@ -25,7 +25,7 @@ class ExampleButtonLoaders extends React.Component {
     component.setState({ [button]: true }, function () {
       setTimeout(function () {
         component.setState({ [button]: false })
-      }, 13000)
+      }, 130000)
     })
   }
 

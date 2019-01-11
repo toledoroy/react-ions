@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Loader from 'react-loader'
+import Spinner from 'react-ions/lib/components/Spinner'
 import style from './style.scss'
 import optclass, { mapOptClass } from '../internal/OptClass'
 import colors from '../internal/colors'
@@ -46,14 +46,6 @@ const Button = props => {
     }
   })
 
-  const spinnerOptions = {
-    lines: 10,
-    length: 4,
-    width: 3,
-    radius: 5,
-    color: props.loaderColor || styles.color
-  }
-
   return (
     <button
       type={props.type}
@@ -68,7 +60,15 @@ const Button = props => {
       onMouseOut={props.onMouseOut}
       onMouseOver={props.onMouseOver}
       onMouseUp={props.onMouseUp}>
-      { props.loading && <Loader loaded={false} options={spinnerOptions} /> }
+      { props.loading 
+        && <Spinner
+        loading={props.loading}
+        type='spinner-circular'
+        backgroundColor={'transparent'}
+        color={styles.color || props.loaderColor} 
+        size='20'
+        />
+      }
       <em>{props.children}</em>
     </button>
   )
