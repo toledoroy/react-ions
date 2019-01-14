@@ -405,7 +405,7 @@ class InlineEdit extends React.Component {
               </span>
             }
             <div className={style['loader-wrapper']}>
-              <Spinner loading={this.state.loading} optClass={style['spinner']} type='spinner-bounce' color='#9198A0' />
+              <Spinner loading={this.state.loading} type='spinner-circular' size='14' color='#9198A0' />
             </div>
           </div>
         </div>
