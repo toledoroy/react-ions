@@ -119,15 +119,6 @@
     height: 7px;
     top: 6px;
     right: 12px;
-
-    span[class^="spinner-bounce-"] > span {
-      span[class^="bounce1-"],
-      span[class^="bounce2-"],
-      span[class^="bounce3-"] {
-        width: 7px;
-        height: 7px;
-      }
-    }
   }
 
   .error-text {
