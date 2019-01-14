@@ -98,8 +98,17 @@ class Spinner extends React.Component {
         <div className='sc-inner'>
           <div className='sc-inner-animation'>
             <svg width={this.props.size || '20'} height={this.props.size || '20'} strokeWidth='16.00' viewBox='-3.00 -3.00 106.00 106.00'>
-              <path className='sc-inner-track' d='M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90'></path>
-              <path className='sc-inner-head' d='M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90' pathLength='280' strokeDasharray='280 280' strokeDashoffset='210'></path>
+              <path
+                className='sc-inner-track'
+                d='M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90'>
+              </path>
+              <path
+                className='sc-inner-head'
+                d='M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90'
+                pathLength='280'
+                strokeDasharray='280 280'
+                strokeDashoffset='210'>
+              </path>
             </svg>
           </div>
         </div>

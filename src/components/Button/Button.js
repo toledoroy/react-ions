@@ -60,14 +60,14 @@ const Button = props => {
       onMouseOut={props.onMouseOut}
       onMouseOver={props.onMouseOver}
       onMouseUp={props.onMouseUp}>
-      { props.loading 
-        && <Spinner
-            loading={props.loading}
-            type='spinner-circular'
-            backgroundColor={'transparent'}
-            color={styles.color || props.loaderColor} 
-            size='20'
-          />
+      { props.loading &&
+      <Spinner
+        loading={props.loading}
+        type='spinner-circular'
+        backgroundColor={'transparent'}
+        color={styles.color || props.loaderColor} 
+        size='20'
+      />
       }
       <em>{props.children}</em>
     </button>
