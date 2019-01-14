@@ -1,3 +1,8 @@
+## 5.1.35
+###### _January 14, 2018_
+- Loader: adding circular loader to buttons, and porting to SVG for animation [#746](https://github.com/GetAmbassador/react-ions/pull/746)
+- Textarea: adding height option [#744](https://github.com/GetAmbassador/react-ions/pull/744)
+
 ## 5.1.34
 ###### _December 27, 2018_
 - Upgraded libraries in package.json to address security vulnerabilities [#741](https://github.com/GetAmbassador/react-ions/pull/741)
