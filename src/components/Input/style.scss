@@ -12,6 +12,15 @@
     font-weight: 200;
   }
 
+  .helper-text {
+    color: $neutral-4;
+    font-size: 12px;
+    letter-spacing: 0.27px;
+    line-height: 15px;
+    margin-top: 8px;
+    display: block;
+  }
+
   .input-container {
     align-items: center;
     display: flex;
@@ -74,7 +83,7 @@
 
       &:focus {
         outline: 0;
-      }  
+      }
     }
   }
 
