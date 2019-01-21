@@ -29,7 +29,7 @@ const description = {
   inputPlaceholder: 'This is the `input component` with placeholder text.',
   inputDisabled: 'This is the disabled `input component`.',
   inputError: 'This is the `input component` with error.',
-  inputWithLabel: 'This is the `input component` with a label.',
+  inputWithLabel: 'This is the `input component` with a label and helper text.',
   inputCallback: 'This is the `input component` with a callback function. __Note__: the `style import` and `code` tag is for display purposes only.',
   inputNumber: 'This is the `input component` with different types.',
   inputPrefixSuffix: 'This is the `input component` with a variety of prefix and suffix.',
@@ -65,7 +65,7 @@ const InputPage = () => (
           <ExampleInputError />
         </CodeExample>
         <CodeExample
-          title='Input with Label'
+          title='Input with Label and Helper Text'
           description={description.inputWithLabel}
           markup={exampleInputLabel}>
           <ExampleInputLabel />
