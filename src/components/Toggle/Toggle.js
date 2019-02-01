@@ -74,7 +74,9 @@ class Toggle extends PureComponent {
   }
 
   componentWillReceiveProps = nextProps => {
-    this.setState({ value: nextProps.value })
+    if (nextProps.value !== this.props.value || this.props.confirm) {
+      this.setState({ value: nextProps.value })
+    }
   }
 
   handleChange = () => {

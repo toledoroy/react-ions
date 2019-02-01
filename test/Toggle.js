@@ -134,10 +134,10 @@ describe('Toggle', () => {
 
     inst.componentWillReceiveProps({ value: false })
     expect(wrapper.state().value).to.be.false
-    expect(setStateSpy.called).to.be.true
+    expect(setStateSpy.called).to.be.false
 
     inst.componentWillReceiveProps({ value: true })
     expect(wrapper.state().value).to.be.true
-    expect(setStateSpy.calledOnce).to.be.false
+    expect(setStateSpy.calledOnce).to.be.true
   })
 })
