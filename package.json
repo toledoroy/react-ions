@@ -150,7 +150,7 @@
     "react": "16.2.0",
     "react-dnd-test-backend": "~1.0.2",
     "react-docgen": "2.20.0",
-    "react-dom": "16.2.0",
+    "react-dom": "16.2.1",
     "react-highlight": "~0.8.0",
     "react-svg-inline": "~1.1.0",
     "react-test-renderer": "16.2.0",
