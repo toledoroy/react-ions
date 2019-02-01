@@ -1,3 +1,10 @@
+## 5.1.36
+###### _February 1, 2019_
+- Toggle: add condition to cWRP, to allow for confirmation to pass along nextProps, no matter what the current prop is [#751](https://github.com/GetAmbassador/react-ions/pull/751)
+- Security update: React-DOM [#750](https://github.com/GetAmbassador/react-ions/pull/750)
+- Input: add an icon and add helper text option [#749](https://github.com/GetAmbassador/react-ions/pull/749)
+- StyledComponents: add min-version to peer-dependencies [#748](https://github.com/GetAmbassador/react-ions/pull/748)
+
 ## 5.1.35
 ###### _January 14, 2018_
 - Loader: adding circular loader to buttons, and porting to SVG for animation [#746](https://github.com/GetAmbassador/react-ions/pull/746)
