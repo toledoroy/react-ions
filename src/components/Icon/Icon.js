@@ -16,7 +16,8 @@ const Icon = props => {
       fill={fill}
       className={className}
       onClick={onClick}
-      viewBox='0 0 24 24'>
+      viewBox='0 0 24 24'
+      xmlns="http://www.w3.org/2000/svg">
       <use xlinkHref={svg + '#' + props.name} />
     </svg>
   )
