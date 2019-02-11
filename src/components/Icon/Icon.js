@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import svg from '../../assets/icons/symbol/sprite.svg'
+import { paths } from './generated'
 
 const Icon = props => {
   const {
@@ -17,7 +17,10 @@ const Icon = props => {
       className={className}
       onClick={onClick}
       viewBox='0 0 24 24'>
-      <use xlinkHref={svg + '#' + props.name} />
+      <path
+        d={paths[name]}
+        fillRule='evenodd'
+      />
     </svg>
   )
 }
