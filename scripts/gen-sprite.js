@@ -1,5 +1,6 @@
 var SVGSpriter = require('svg-sprite')
 var path = require('path')
+var cheerio = require('cheerio')
 var mkdirp = require('mkdirp')
 var fs = require('fs')
 var ncp = require('ncp').ncp
@@ -38,15 +39,32 @@ function copySpriteFile() {
  * @param {Array} files               SVG files
  * @return {SVGSpriter}               Spriter instance
  */
-function addFixtureFiles(spriter, iconList) {
+function addFixtureFiles(iconList) {
+  let list = []
+
   iconList.forEach(file => {
-    spriter.add(path.resolve(path.join(cwd, file)), file, fs.readFileSync(path.join(cwd, file.split('#')[0]), {
-      encoding: 'utf-8'
-    }))
+    const $ = cheerio.load((fs.readFileSync(path.join(cwd, file.split('#')[0]), 'utf-8')))
+    let name = file.split('#')[1]
+    let length = $('svg path').length
+
+    const getPath = () => length === 1
+      ? $('svg path').attr('d')
+      : $('svg path').map(function(i, el) {
+          return $(this).attr('d')
+        }).get().join(' --- ')
+
+    list.push({
+      name: name,
+      path: path
+    })    
   })
-  return spriter
+
+  return list
 }
-addFixtureFiles(spriter, normalizeIconList(list)).compile({
+
+// console.log(normalizeIconList(list))
+
+addFixtureFiles(normalizeIconList(list)).compile({
   symbol: {
     sprite: 'sprite.svg'
   }
