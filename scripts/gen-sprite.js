@@ -1,64 +1,50 @@
-var SVGSpriter = require('svg-sprite')
-var path = require('path')
-var mkdirp = require('mkdirp')
-var fs = require('fs')
-var ncp = require('ncp').ncp
-var cwd = path.join(__dirname, '/../')
-var dest = path.normalize(path.join(__dirname, '/../src/assets/icons'))
-var list = require('../src/assets/icons/master-list')
-var normalizeIconList = require('./normalize-icon-list')
+const path = require('path')
+const fs = require('fs')
+const cheerio = require('cheerio')
+const cwd = path.join(__dirname, '/../')
+const list = require('../src/assets/icons/master-list')
+const normalizeIconList = require('./normalize-icon-list')
 
-var spriter = new SVGSpriter({
-  dest: dest,
-  shape: {
-    id: {
-      generator: function (name) {
-        return name.split('#')[1]
-      }
-    }
-  }
-})
+const _generatePath = list => {
+  const fs = require('fs')
 
-function copySpriteFile() {
-  var source = cwd + 'src/assets'
-  var destination = cwd + 'lib/assets'
-
-  ncp(source, destination, (err) => {
-    if (err) {
-      return console.error(err)
-    }
-    console.log('Sprite assets copied to /lib.')
-   })
-}
-
-/**
- * Add a bunch of SVG files
- *
- * @param {SVGSpriter} spriter        Spriter instance
- * @param {Array} files               SVG files
- * @return {SVGSpriter}               Spriter instance
- */
-function addFixtureFiles(spriter, iconList) {
-  iconList.forEach(file => {
-    spriter.add(path.resolve(path.join(cwd, file)), file, fs.readFileSync(path.join(cwd, file.split('#')[0]), {
-      encoding: 'utf-8'
-    }))
+  fs.writeFile(`${cwd}/src/assets/icons/generated-list.js`,
+    `export const paths = ${JSON.stringify(list)}`, err => {
+      return err
+        ? console.log(err)
+        : console.log('The file was saved!')
   })
-  return spriter
 }
-addFixtureFiles(spriter, normalizeIconList(list)).compile({
-  symbol: {
-    sprite: 'sprite.svg'
-  }
-}, (error, result) => {
-  if (error) {
-    console.log(error)
-  } else {
-    for (var type in result.symbol) {
-      mkdirp.sync(path.dirname(result.symbol[type].path))
-      fs.writeFileSync(result.symbol[type].path, result.symbol[type].contents)
-    }
-    console.log('Sprite file generated.')
-    copySpriteFile()
-  }
-})
+
+(function (list) {
+  // Consolidate several lists of icon paths into a single list
+  const normalizedList = normalizeIconList(list)
+
+  let returnedList = []
+
+  normalizedList.forEach(file => {
+    // Load and read the file into a Cheerio object
+    const $ = cheerio.load((fs.readFileSync(path.join(cwd, file.split('#')[0]), 'utf-8')))
+    // The file path includes a #hashed-name which will serve as the icon name
+    // so here we split the two, so we have just the name of the icon
+    let name = file.split('#')[1]
+    // More complex SVG's include more than one path
+    // Here we check to see if there's more than one
+    let length = $('svg path').length
+
+    // If there isn't more than one path, return the "d" attribute value
+    const getPath = () => length === 1
+      ? $('svg path').attr('d')
+      // Otherwise, map over and return them as a string separated with a |
+      : $('svg path').map(function(i, el) {
+          return $(this).attr('d')
+        }).get().join('|')
+
+    returnedList.push({
+      name: name,
+      path: getPath()
+    })
+  })
+
+  return _generatePath(returnedList)
+}(list))

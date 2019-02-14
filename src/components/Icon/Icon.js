@@ -1,11 +1,25 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import svg from '../../assets/icons/symbol/sprite.svg'
+import { paths } from '../../assets/icons/generated-list'
 
 const Icon = props => {
   const {
     name, width, height, fill, className, onClick
   } = props
+
+  const obj = paths.find(item => item.name === name)
+
+  const getPaths = () => {
+    if (obj === undefined) return
+
+    const pathArray = obj !== undefined && obj.path.split('|')
+
+    return pathArray.length > 1
+      ? <Fragment>
+        { pathArray.map((path, index) => <path key={index} d={path} />) }
+      </Fragment>
+    : <path d={obj.path} />
+  }
 
   return (
     <svg
@@ -17,7 +31,7 @@ const Icon = props => {
       className={className}
       onClick={onClick}
       viewBox='0 0 24 24'>
-      <use xlinkHref={svg + '#' + props.name} />
+      {getPaths()}
     </svg>
   )
 }
