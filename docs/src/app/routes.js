@@ -44,6 +44,7 @@ import TogglePage from './pages/components/Toggle/Page'
 import TextareaPage from './pages/components/Textarea/Page'
 import TextEditorPage from './pages/components/TextEditor/Page'
 import TypeaheadPage from './pages/components/Typeahead/Page'
+import TestButtonPage from './pages/components/TestButtonPage'
 
 const Routes = (
   <Route path='/' component={Base}>
@@ -55,6 +56,7 @@ const Routes = (
     </Route>
     <Route path='components' title='Components'>
       <IndexRoute component={ComponentsPage} />
+      <Route path='test' title='TestButtonPage' component={TestButtonPage} />
       <Route path='alerts' title='Alerts' component={AlertsPage} />
       <Route path='avatar' title='Avatar' component={AvatarPage} />
       <Route path='badge' title='Badge' component={BadgePage} />
