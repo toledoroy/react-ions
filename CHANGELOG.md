@@ -1,3 +1,7 @@
+## 5.1.37
+###### _February 18, 2019_
+- Button: Allow touch events on buttons [#757](https://github.com/GetAmbassador/react-ions/pull/757)
+
 ## 5.1.36
 ###### _February 1, 2019_
 - Toggle: add condition to cWRP, to allow for confirmation to pass along nextProps, no matter what the current prop is [#751](https://github.com/GetAmbassador/react-ions/pull/751)
