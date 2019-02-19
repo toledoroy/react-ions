@@ -20,7 +20,7 @@ const ExampleButtonIcon = () => (
     <Button optClass='secondary' collapse={true}>
       <Icon name='md-filter' height='14' width='14' />
       <span>Icon Both</span>
-      <Icon name='mbsy-caret' height='10' width='10' />
+      <Icon name='md-keyboard-down' height='14' width='14' />
     </Button>
 </div>
 )
