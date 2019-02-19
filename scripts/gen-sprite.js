@@ -28,21 +28,13 @@ const _generatePath = list => {
     // The file path includes a #hashed-name which will serve as the icon name
     // so here we split the two, so we have just the name of the icon
     let name = file.split('#')[1]
-    // More complex SVG's include more than one path
-    // Here we check to see if there's more than one
-    let length = $('svg path').length
 
-    // If there isn't more than one path, return the "d" attribute value
-    const getPath = () => length === 1
-      ? $('svg path').attr('d')
-      // Otherwise, map over and return them as a string separated with a |
-      : $('svg path').map(function(i, el) {
-          return $(this).attr('d')
-        }).get().join('|')
+    // Grab the blob of HTML inside the SVG wrapper
+    let data = $('svg').html()
 
     returnedList.push({
       name: name,
-      path: getPath()
+      data: data
     })
   })
 

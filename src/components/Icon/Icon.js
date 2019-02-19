@@ -9,16 +9,14 @@ const Icon = props => {
 
   const obj = paths.find(item => item.name === name)
 
-  const getPaths = () => {
+  const createMarkup = data => ({ __html: data })
+
+  const getData = () => {
     if (obj === undefined) return
 
-    const pathArray = obj !== undefined && obj.path.split('|')
+    const data = obj !== undefined && obj.data
 
-    return pathArray.length > 1
-      ? <Fragment>
-        { pathArray.map((path, index) => <path key={index} d={path} />) }
-      </Fragment>
-    : <path d={obj.path} />
+    return data
   }
 
   return (
@@ -30,8 +28,11 @@ const Icon = props => {
       fill={fill}
       className={className}
       onClick={onClick}
-      viewBox='0 0 24 24'>
-      {getPaths()}
+      viewBox='0 0 24 24'
+      // We control the exact content being injected here, 
+      // thus this is considered to be "safe" injection
+      // See scripts/gen-sprite.js for details
+      dangerouslySetInnerHTML={createMarkup(getData())}>
     </svg>
   )
 }
