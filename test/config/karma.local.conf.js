@@ -21,10 +21,10 @@ module.exports = function (config) {
     },
 
     thresholdReporter: {
-      statements: 88,
-      branches: 88,
-      functions: 88,
-      lines: 88
+      statements: 80,
+      branches: 80,
+      functions: 80,
+      lines: 80
     },
 
     webpack: { // kind of a copy of your webpack config

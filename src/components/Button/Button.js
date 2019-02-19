@@ -59,7 +59,12 @@ const Button = props => {
       onMouseDown={props.onMouseDown}
       onMouseOut={props.onMouseOut}
       onMouseOver={props.onMouseOver}
-      onMouseUp={props.onMouseUp}>
+      onMouseUp={props.onMouseUp}
+      onTouchCancel={props.onTouchCancel}
+      onTouchEnd={props.onTouchEnd}
+      onTouchMove={props.onTouchMove}
+      onTouchStart={props.onTouchStart}
+      >
       { props.loading &&
       <Spinner
         loading={props.loading}
@@ -130,6 +135,22 @@ Button.propTypes = {
    * A function to be called onMouseUp
    */
   onMouseUp: PropTypes.func,
+  /**
+   * A function to be called onTouchCancel
+   */
+  onTouchCancel: PropTypes.func,
+  /**
+   * A function to be called onTouchEnd
+   */
+  onTouchEnd: PropTypes.func,
+  /**
+   * A function to be called onTouchMove
+   */
+  onTouchMove: PropTypes.func,
+  /**
+   * A function to be called onTouchStart
+   */
+  onTouchStart: PropTypes.func,
   /**
    * The type of button.
    */
