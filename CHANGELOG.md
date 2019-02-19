@@ -1,3 +1,8 @@
+## 5.1.38
+###### _February 19, 2019_
+- Icons: Rebuilt the sprite generator, to eliminate the `use` element, as it was causing a bug in Chrome where the icon would disappear randomly. [#756](https://github.com/GetAmbassador/react-ions/pull/756)
+- Icons: added `mbsy-megaphone` [#759](https://github.com/GetAmbassador/react-ions/pull/759)
+
 ## 5.1.37
 ###### _February 18, 2019_
 - Button: Allow touch events on buttons [#757](https://github.com/GetAmbassador/react-ions/pull/757)
