@@ -35,6 +35,7 @@ var list = {
     materialPath + '/alert/svg/production/ic_warning_24px.svg#md-warning',
     materialPath + '/alert/svg/production/ic_error_24px.svg#md-danger',
     materialPath + '/av/svg/production/ic_pause_24px.svg#md-pause',
+    materialPath + '/av/svg/production/ic_fiber_manual_record_24px.svg#md-record',
     materialPath + '/av/svg/production/ic_stop_24px.svg#md-stop',
     materialPath + '/av/svg/production/ic_play_arrow_24px.svg#md-play',
     materialPath + '/av/svg/production/ic_radio_24px.svg#md-radio',
