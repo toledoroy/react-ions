@@ -34,7 +34,6 @@ var list = {
     materialPath + '/action/svg/production/ic_swap_horiz_24px.svg#md-swap-horiz',
     materialPath + '/alert/svg/production/ic_warning_24px.svg#md-warning',
     materialPath + '/alert/svg/production/ic_error_24px.svg#md-danger',
-    materialPath + '/av/svg/production/ic_fiber_manual_record_48px.svg#md-record',
     materialPath + '/av/svg/production/ic_pause_24px.svg#md-pause',
     materialPath + '/av/svg/production/ic_stop_24px.svg#md-stop',
     materialPath + '/av/svg/production/ic_play_arrow_24px.svg#md-play',
@@ -113,7 +112,8 @@ var list = {
     mbsyPath + '/paypal.svg#mbsy-paypal',
     mbsyPath + '/dwolla.svg#mbsy-dwolla',
     mbsyPath + '/fb_messenger.svg#mbsy-fb-messenger',
-    mbsyPath + '/webhooks.svg#mbsy-webhooks'
+    mbsyPath + '/webhooks.svg#mbsy-webhooks',
+    mbsyPath + '/megaphone.svg#mbsy-megaphone'
   ]
 }
 
