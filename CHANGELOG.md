@@ -1,3 +1,7 @@
+## 5.1.40
+###### _February 19, 2019_
+- Icons: patch for `mbsy-megaphone` [#763](https://github.com/GetAmbassador/react-ions/pull/763)
+
 ## 5.1.39
 ###### _February 19, 2019_
 - Icons: updated `mbsy-megaphone` [#761](https://github.com/GetAmbassador/react-ions/pull/761)
