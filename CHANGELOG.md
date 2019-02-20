@@ -1,3 +1,7 @@
+## 5.1.41
+###### _February 20, 2019_
+- Re-releasing with updated package-lock.json
+
 ## 5.1.40
 ###### _February 19, 2019_
 - Icons: patch for `mbsy-megaphone` [#763](https://github.com/GetAmbassador/react-ions/pull/763)
