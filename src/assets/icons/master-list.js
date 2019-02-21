@@ -114,7 +114,8 @@ var list = {
     mbsyPath + '/dwolla.svg#mbsy-dwolla',
     mbsyPath + '/fb_messenger.svg#mbsy-fb-messenger',
     mbsyPath + '/webhooks.svg#mbsy-webhooks',
-    mbsyPath + '/megaphone.svg#mbsy-megaphone'
+    mbsyPath + '/megaphone.svg#mbsy-megaphone',
+    mbsyPath + '/ambassabot.svg#mbsy-ambassabot'
   ]
 }
 
