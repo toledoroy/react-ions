@@ -155,12 +155,6 @@ fieldset.row {
   display: none !important;
 }
 
-[class*='input-component'] + [class^='has-error__message'],
-[class*='textarea-component'] + [class^='has-error__message'] {
-  position: relative;
-  top: -16px;
-}
-
 .has-error {
   input, textarea, [class*='selectfield-value'] {
     border: 2px solid $danger !important;
