@@ -1,3 +1,8 @@
+## 5.1.42
+###### _February 22, 2019_
+- Icons: adding ambassabot [#768](https://github.com/GetAmbassador/react-ions/pull/768)
+- FormGroup: Remove absolute positioning when validating [#767](https://github.com/GetAmbassador/react-ions/pull/767)
+
 ## 5.1.41
 ###### _February 20, 2019_
 - Re-releasing with updated package-lock.json
