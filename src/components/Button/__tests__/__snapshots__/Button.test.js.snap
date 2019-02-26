@@ -22,7 +22,6 @@ exports[`Button displays a disabled button with a loader 1`] = `
 >
   <Spinner
     backgroundColor="transparent"
-    color="#fff"
     loading={true}
     size="20"
     type="spinner-circular"
