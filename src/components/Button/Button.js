@@ -70,7 +70,7 @@ const Button = props => {
         loading={props.loading}
         type='spinner-circular'
         backgroundColor={'transparent'}
-        color={props.loaderColor} 
+        color={props.loaderColor || styles.color} 
         size='20'
       />
       }
