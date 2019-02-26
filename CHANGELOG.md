@@ -1,3 +1,7 @@
+## 5.1.43
+###### _February 26, 2019_
+- Button: swap color condition order to handle Spinner color [#771](https://github.com/GetAmbassador/react-ions/pull/771)
+
 ## 5.1.42
 ###### _February 22, 2019_
 - Icons: adding ambassabot [#768](https://github.com/GetAmbassador/react-ions/pull/768)
