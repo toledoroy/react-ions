@@ -1,3 +1,7 @@
+## 5.1.44
+###### _March 12, 2019_
+- Toggle, ConfirmationOverlay: Allow confirmText and prompt props to accept a node, respectively [#773](https://github.com/GetAmbassador/react-ions/pull/773)
+
 ## 5.1.43
 ###### _February 26, 2019_
 - Button: swap color condition order to handle Spinner color [#771](https://github.com/GetAmbassador/react-ions/pull/771)
