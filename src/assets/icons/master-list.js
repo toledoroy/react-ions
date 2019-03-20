@@ -34,8 +34,8 @@ var list = {
     materialPath + '/action/svg/production/ic_swap_horiz_24px.svg#md-swap-horiz',
     materialPath + '/alert/svg/production/ic_warning_24px.svg#md-warning',
     materialPath + '/alert/svg/production/ic_error_24px.svg#md-danger',
-    materialPath + '/av/svg/production/ic_fiber_manual_record_48px.svg#md-record',
     materialPath + '/av/svg/production/ic_pause_24px.svg#md-pause',
+    materialPath + '/av/svg/production/ic_fiber_manual_record_24px.svg#md-record',
     materialPath + '/av/svg/production/ic_stop_24px.svg#md-stop',
     materialPath + '/av/svg/production/ic_play_arrow_24px.svg#md-play',
     materialPath + '/av/svg/production/ic_radio_24px.svg#md-radio',
@@ -44,6 +44,7 @@ var list = {
     materialPath + '/communication/svg/production/ic_contact_phone_24px.svg#md-contact',
     materialPath + '/communication/svg/production/ic_chat_bubble_24px.svg#md-chat-bubble',
     materialPath + '/content/svg/production/ic_add_24px.svg#md-add',
+    materialPath + '/content/svg/production/ic_add_circle_24px.svg#md-add-circle',
     materialPath + '/content/svg/production/ic_filter_list_24px.svg#md-filter',
     materialPath + '/content/svg/production/ic_link_24px.svg#md-link',
     materialPath + '/content/svg/production/ic_send_24px.svg#md-send',
@@ -84,6 +85,7 @@ var list = {
     materialPath + '/social/svg/production/ic_person_outline_24px.svg#md-person-outline',
     materialPath + '/social/svg/production/ic_person_24px.svg#md-person',
     materialPath + '/social/svg/production/ic_people_24px.svg#md-people',
+    materialPath + '/social/svg/production/ic_group_24px.svg#md-group',
     materialPath + '/social/svg/production/ic_group_add_24px.svg#md-group-add',
     materialPath + '/social/svg/production/ic_domain_24px.svg#md-domain',
     materialPath + '/social/svg/production/ic_share_24px.svg#md-share',
@@ -111,9 +113,9 @@ var list = {
     mbsyPath + '/paypal.svg#mbsy-paypal',
     mbsyPath + '/dwolla.svg#mbsy-dwolla',
     mbsyPath + '/fb_messenger.svg#mbsy-fb-messenger',
-    mbsyPath + '/google_ads.svg#mbsy-google-ads',
     mbsyPath + '/webhooks.svg#mbsy-webhooks',
-    mbsyPath + '/caret.svg#mbsy-caret'
+    mbsyPath + '/megaphone.svg#mbsy-megaphone',
+    mbsyPath + '/ambassabot.svg#mbsy-ambassabot'
   ]
 }
 

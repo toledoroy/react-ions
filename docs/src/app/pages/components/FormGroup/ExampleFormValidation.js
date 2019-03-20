@@ -104,7 +104,7 @@ class ExampleFormValidation extends React.Component {
                 message: 'Please enter a valid email address.'
               }
             ]}
-            optClass={formStyle.field}
+            className={formStyle.field}
           />
         </div>
         <div>
@@ -118,7 +118,7 @@ class ExampleFormValidation extends React.Component {
                 message: 'This textfield is required.'
               }
             ]}
-            optClass={formStyle.field}
+            className={formStyle.field}
           />
         </div>
         <Button type='submit' loading={this.state.loading}>Submit</Button>

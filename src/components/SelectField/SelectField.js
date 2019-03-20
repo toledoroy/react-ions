@@ -210,7 +210,7 @@ export class SelectField extends React.Component {
         <div className={style['selectfield-value']} onClick={this.toggleSelectField} style={widthStyle}>
           {this.getDisplayIcon()}
           <span className={style['display-text']}>{this.getDisplayText()}</span>
-          <Icon name='mbsy-caret' width='10' height='10' />
+          <Icon name='md-keyboard-down' width='16' height='16' />
         </div>
         <ul style={listWidthStyle}>
           {options}

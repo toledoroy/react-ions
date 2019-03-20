@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Loader from 'react-loader'
+import Spinner from '../Spinner/Spinner'
 import style from './style.scss'
 import optclass, { mapOptClass } from '../internal/OptClass'
 import colors from '../internal/colors'
@@ -46,14 +46,6 @@ const Button = props => {
     }
   })
 
-  const spinnerOptions = {
-    lines: 10,
-    length: 4,
-    width: 3,
-    radius: 5,
-    color: props.loaderColor || styles.color
-  }
-
   return (
     <button
       type={props.type}
@@ -67,8 +59,21 @@ const Button = props => {
       onMouseDown={props.onMouseDown}
       onMouseOut={props.onMouseOut}
       onMouseOver={props.onMouseOver}
-      onMouseUp={props.onMouseUp}>
-      { props.loading && <Loader loaded={false} options={spinnerOptions} /> }
+      onMouseUp={props.onMouseUp}
+      onTouchCancel={props.onTouchCancel}
+      onTouchEnd={props.onTouchEnd}
+      onTouchMove={props.onTouchMove}
+      onTouchStart={props.onTouchStart}
+      >
+      { props.loading &&
+      <Spinner
+        loading={props.loading}
+        type='spinner-circular'
+        backgroundColor={'transparent'}
+        color={props.loaderColor || styles.color} 
+        size='20'
+      />
+      }
       <em>{props.children}</em>
     </button>
   )
@@ -130,6 +135,22 @@ Button.propTypes = {
    * A function to be called onMouseUp
    */
   onMouseUp: PropTypes.func,
+  /**
+   * A function to be called onTouchCancel
+   */
+  onTouchCancel: PropTypes.func,
+  /**
+   * A function to be called onTouchEnd
+   */
+  onTouchEnd: PropTypes.func,
+  /**
+   * A function to be called onTouchMove
+   */
+  onTouchMove: PropTypes.func,
+  /**
+   * A function to be called onTouchStart
+   */
+  onTouchStart: PropTypes.func,
   /**
    * The type of button.
    */
