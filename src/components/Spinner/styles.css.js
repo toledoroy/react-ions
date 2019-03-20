@@ -117,7 +117,6 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
     },
 
     '.spinner-circular': {
-      display: 'flex',
       display: 'inline-block',
       position: 'relative',
       width: `${size || 16}px`,
