@@ -2,6 +2,10 @@
 ###### _March 27, 2019_
 - add print icon [#778](https://github.com/GetAmbassador/react-ions/pull/778)
 
+## 5.1.45
+###### _March 20, 2019_
+- removing duplicate keys [#775](https://github.com/GetAmbassador/react-ions/pull/775)
+
 ## 5.1.44
 ###### _March 12, 2019_
 - Toggle, ConfirmationOverlay: Allow confirmText and prompt props to accept a node, respectively [#773](https://github.com/GetAmbassador/react-ions/pull/773)
