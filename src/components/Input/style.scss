@@ -61,11 +61,7 @@
       padding: 10px;
       width: 100%;
       transition: border-color ease-in-out .15s;
-      
-      @media #{$media-tiny} {
-        width: 100% !important;
-      }
-      
+            
       &:disabled {
         background-color: rgba($neutral-3, .6);
         cursor: not-allowed;
@@ -78,6 +74,10 @@
       &.fill {
         width: 100%;
       }
+    }
+    
+    @media #{$media-tiny} {
+      width: 100% !important;
     }
   }
 
