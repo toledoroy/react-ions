@@ -266,6 +266,7 @@ export class Typeahead extends React.Component {
     const cx = classNames.bind(style)
     const loaderClass = this.props.loading ? 'loading' : null
     const typeaheadClass = cx(style['typeahead-component'], loaderClass, this.props.optClass)
+    const typeaheadStyledClass = cx(style['typeahead-component-styled'])
 
     const spinnerOptions = {
       color: '#9198A0',
@@ -291,7 +292,7 @@ export class Typeahead extends React.Component {
       <div className={typeaheadClass}>
         { label && <label>{label}</label> }
 
-        <StyledDiv css={{width, position: 'relative'}} className='typeahead-component-styled'>
+        <StyledDiv css={{width, position: 'relative'}} className={typeaheadStyledClass}>
           <div className={style['input-wrapper']}>
             <Input 
               ref={c => this._inputField = c} 
