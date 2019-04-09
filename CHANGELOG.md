@@ -1,3 +1,7 @@
+## 5.1.47
+###### _April 9, 2019_
+- Add visibility icon, adjust width on small select and typeahead [#780](https://github.com/GetAmbassador/react-ions/pull/780)
+
 ## 5.1.46
 ###### _March 27, 2019_
 - add print icon [#778](https://github.com/GetAmbassador/react-ions/pull/778)
