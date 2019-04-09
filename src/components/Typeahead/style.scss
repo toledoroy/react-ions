@@ -48,7 +48,7 @@
     position: relative;
   }
   
-  @media #{$media-media-extra-small} {
+  @media #{$media-extra-small} {
   .typeahead-component-styled {
       width: 100% !important;
     }
