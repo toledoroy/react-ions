@@ -291,7 +291,7 @@ export class Typeahead extends React.Component {
       <div className={typeaheadClass}>
         { label && <label>{label}</label> }
 
-        <StyledDiv css={{width, position: 'relative'}}>
+        <StyledDiv css={{width, position: 'relative'}} className='typeahead-component-styled'>
           <div className={style['input-wrapper']}>
             <Input 
               ref={c => this._inputField = c} 
