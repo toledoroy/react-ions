@@ -206,10 +206,6 @@ class Input extends React.Component {
           {prefix && <div className={flexWrapperClass}>
             <div ref={c => this._prefix = c} className={prefixClass}>{prefix}</div>
           </div>}
-
-          {suffix && <div className={flexWrapperClassSuffix}>
-            <div ref={c => this._suffix = c} className={suffixClass}>{suffix}</div>
-          </div>}
           <input
             id={this.props.id}
             ref={c => this._input = c}
@@ -227,6 +223,10 @@ class Input extends React.Component {
             onKeyDown={this.props.onKeyDown}
             type={this.props.type}
           />
+          
+          {suffix && <div className={flexWrapperClassSuffix}>
+            <div ref={c => this._suffix = c} className={suffixClass}>{suffix}</div>
+          </div>}
         </div>
         { helperText && <span className={style['helper-text']}>{helperText}</span> }
       </div>
