@@ -62,7 +62,7 @@
       width: 100%;
       transition: border-color ease-in-out .15s;
       
-      @media #{$media-small-minus} {
+      @media #{$media-tiny} {
         width: 100% !important;
       }
       
