@@ -28,6 +28,7 @@ const Icon = props => {
       fill={fill}
       className={className}
       onClick={onClick}
+      style={onClick && {cursor: 'pointer'}}
       viewBox='0 0 24 24'
       // We control the exact content being injected here, 
       // thus this is considered to be "safe" injection

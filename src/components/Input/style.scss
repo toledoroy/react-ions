@@ -75,6 +75,10 @@
         width: 100%;
       }
     }
+    
+    @media #{$media-extra-small} {
+      width: 100% !important;
+    }
   }
 
   &.input-error {
