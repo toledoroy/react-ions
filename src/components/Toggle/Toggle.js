@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 import Popover from '../Popover/Popover'
-import Button from '../Button'
 import Spinner from '../Spinner'
 import ConfirmationOverlay from '../internal/ConfirmationOverlay'
 import colors from '../internal/colors'
@@ -67,7 +66,7 @@ class Toggle extends PureComponent {
     /**
     * Prop to signify if the toggle should have a confirmation when toggled on or off (or both)
     */
-    confirmText: PropTypes.string,
+    confirmText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     /**
     * Set the width of the confirmation popover
     */
@@ -75,7 +74,7 @@ class Toggle extends PureComponent {
   }
 
   componentWillReceiveProps = nextProps => {
-    if (nextProps.value !== this.props.value) {
+    if (nextProps.value !== this.props.value || this.props.confirm) {
       this.setState({ value: nextProps.value })
     }
   }

@@ -1,11 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import svg from '../../assets/icons/symbol/sprite.svg'
+import { paths } from '../../assets/icons/generated-list'
 
 const Icon = props => {
   const {
     name, width, height, fill, className, onClick
   } = props
+
+  const obj = paths.find(item => item.name === name)
+
+  const createMarkup = data => ({ __html: data })
+
+  const getData = () => {
+    if (obj === undefined) return
+
+    const data = obj !== undefined && obj.data
+
+    return data
+  }
 
   return (
     <svg
@@ -16,8 +28,11 @@ const Icon = props => {
       fill={fill}
       className={className}
       onClick={onClick}
-      viewBox='0 0 24 24'>
-      <use xlinkHref={svg + '#' + props.name} />
+      viewBox='0 0 24 24'
+      // We control the exact content being injected here, 
+      // thus this is considered to be "safe" injection
+      // See scripts/gen-sprite.js for details
+      dangerouslySetInnerHTML={createMarkup(getData())}>
     </svg>
   )
 }

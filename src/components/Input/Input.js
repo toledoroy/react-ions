@@ -101,7 +101,7 @@ class Input extends React.Component {
      */
     onKeyDown: PropTypes.func,
     /**
-     * A helper will render inline style='width: <value>'.
+     * An attribute that will add an explicit width (in pixels), to the input.
      */
     width: PropTypes.string,
     /**
@@ -115,7 +115,11 @@ class Input extends React.Component {
     /**
      * The type of the input.
      */
-    type: PropTypes.string
+    type: PropTypes.string,
+    /**
+     * The text that is displayed below the field.
+     */
+    helperText: PropTypes.string
   }
 
   _getValue = props => {
@@ -184,7 +188,7 @@ class Input extends React.Component {
   }
 
   render = () => {
-    const {prefix, suffix, label, optClass, className, width, disabled} = this.props
+    const { prefix, suffix, label, optClass, className, width, disabled, helperText } = this.props
 
     const disabledClass = disabled ? style['input-disabled'] : null
     const widthStyle = width ? { width: width } : null
@@ -225,6 +229,7 @@ class Input extends React.Component {
             <div ref={c => this._suffix = c} className={suffixClass}>{suffix}</div>
           </div>}
         </div>
+        { helperText && <span className={style['helper-text']}>{helperText}</span> }
       </div>
     )
   }

@@ -223,7 +223,7 @@ class Tooltip extends React.Component {
 
   render = () => {
     return (
-      <span onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} ref={c => this._tipElement = c} >
+      <span onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} ref={c => this._tipElement = c} className='tooltip-node-wrapper'>
         {this.props.children}
       </span>
     )

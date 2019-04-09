@@ -5,33 +5,6 @@ exports[`Spinner bounce displays a spinner-bounce class 1`] = `
   className=""
   css={
     Object {
-      ".ring": Object {
-        "> span": Object {
-          "&:nth-child(1)": Object {
-            "animationDelay": "-0.45s",
-          },
-          "&:nth-child(2)": Object {
-            "animationDelay": "-0.3s",
-          },
-          "&:nth-child(3)": Object {
-            "animationDelay": "-0.15s",
-          },
-          "animation": "iECmZH 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
-          "border": "2px solid #9198A0",
-          "borderColor": "#9198A0 transparent transparent transparent",
-          "borderRadius": "50%",
-          "boxSizing": "border-box",
-          "display": "block",
-          "height": "16px",
-          "margin": 0,
-          "position": "absolute",
-          "width": "16px",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
       ".spinner-bounce": Object {
         ".bounce1": Object {
           "animationDelay": "-0.32s",
@@ -53,7 +26,35 @@ exports[`Spinner bounce displays a spinner-bounce class 1`] = `
         },
       },
       ".spinner-circular": Object {
-        "display": "flex",
+        ".sc-inner": Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+          "overflow": "visible",
+          "verticalAlign": "middle",
+        },
+        ".sc-inner path": Object {
+          "fillOpacity": "0",
+        },
+        ".sc-inner svg": Object {
+          "display": "block",
+        },
+        ".sc-inner-animation": Object {
+          "animation": "gWPqvk .5s linear infinite",
+        },
+        ".sc-inner-head": Object {
+          "stroke": "#9198A0",
+          "strokeLinecap": "round",
+          "transformOrigin": "center",
+          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
+        },
+        ".sc-inner-track": Object {
+          "stroke": "rgba(92, 112, 128, .2)",
+        },
+        "display": "inline-block",
+        "height": "16px",
+        "position": "relative",
+        "width": "16px",
       },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {
@@ -113,33 +114,6 @@ exports[`Spinner circular displays a spinner-circular class 1`] = `
   className=""
   css={
     Object {
-      ".ring": Object {
-        "> span": Object {
-          "&:nth-child(1)": Object {
-            "animationDelay": "-0.45s",
-          },
-          "&:nth-child(2)": Object {
-            "animationDelay": "-0.3s",
-          },
-          "&:nth-child(3)": Object {
-            "animationDelay": "-0.15s",
-          },
-          "animation": "iECmZH 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
-          "border": "2px solid #9198A0",
-          "borderColor": "#9198A0 transparent transparent transparent",
-          "borderRadius": "50%",
-          "boxSizing": "border-box",
-          "display": "block",
-          "height": "16px",
-          "margin": 0,
-          "position": "absolute",
-          "width": "16px",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
       ".spinner-bounce": Object {
         ".bounce1": Object {
           "animationDelay": "-0.32s",
@@ -161,7 +135,35 @@ exports[`Spinner circular displays a spinner-circular class 1`] = `
         },
       },
       ".spinner-circular": Object {
-        "display": "flex",
+        ".sc-inner": Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+          "overflow": "visible",
+          "verticalAlign": "middle",
+        },
+        ".sc-inner path": Object {
+          "fillOpacity": "0",
+        },
+        ".sc-inner svg": Object {
+          "display": "block",
+        },
+        ".sc-inner-animation": Object {
+          "animation": "gWPqvk .5s linear infinite",
+        },
+        ".sc-inner-head": Object {
+          "stroke": "#9198A0",
+          "strokeLinecap": "round",
+          "transformOrigin": "center",
+          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
+        },
+        ".sc-inner-track": Object {
+          "stroke": "rgba(92, 112, 128, .2)",
+        },
+        "display": "inline-block",
+        "height": "16px",
+        "position": "relative",
+        "width": "16px",
       },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {
@@ -201,14 +203,32 @@ exports[`Spinner circular displays a spinner-circular class 1`] = `
   <span
     className="spinner-circular"
   >
-    <span
-      className="ring"
+    <div
+      className="sc-inner"
     >
-      <span />
-      <span />
-      <span />
-      <span />
-    </span>
+      <div
+        className="sc-inner-animation"
+      >
+        <svg
+          height="20"
+          strokeWidth="16.00"
+          viewBox="-3.00 -3.00 106.00 106.00"
+          width="20"
+        >
+          <path
+            className="sc-inner-track"
+            d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+          />
+          <path
+            className="sc-inner-head"
+            d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+            pathLength="280"
+            strokeDasharray="280 280"
+            strokeDashoffset="210"
+          />
+        </svg>
+      </div>
+    </div>
   </span>
 </styled.span>
 `;
@@ -218,33 +238,6 @@ exports[`Spinner displays an is-hidden class 1`] = `
   className=""
   css={
     Object {
-      ".ring": Object {
-        "> span": Object {
-          "&:nth-child(1)": Object {
-            "animationDelay": "-0.45s",
-          },
-          "&:nth-child(2)": Object {
-            "animationDelay": "-0.3s",
-          },
-          "&:nth-child(3)": Object {
-            "animationDelay": "-0.15s",
-          },
-          "animation": "iECmZH 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
-          "border": "2px solid #9198A0",
-          "borderColor": "#9198A0 transparent transparent transparent",
-          "borderRadius": "50%",
-          "boxSizing": "border-box",
-          "display": "block",
-          "height": "16px",
-          "margin": 0,
-          "position": "absolute",
-          "width": "16px",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
       ".spinner-bounce": Object {
         ".bounce1": Object {
           "animationDelay": "-0.32s",
@@ -266,7 +259,35 @@ exports[`Spinner displays an is-hidden class 1`] = `
         },
       },
       ".spinner-circular": Object {
-        "display": "flex",
+        ".sc-inner": Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+          "overflow": "visible",
+          "verticalAlign": "middle",
+        },
+        ".sc-inner path": Object {
+          "fillOpacity": "0",
+        },
+        ".sc-inner svg": Object {
+          "display": "block",
+        },
+        ".sc-inner-animation": Object {
+          "animation": "gWPqvk .5s linear infinite",
+        },
+        ".sc-inner-head": Object {
+          "stroke": "#9198A0",
+          "strokeLinecap": "round",
+          "transformOrigin": "center",
+          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
+        },
+        ".sc-inner-track": Object {
+          "stroke": "rgba(92, 112, 128, .2)",
+        },
+        "display": "inline-block",
+        "height": "16px",
+        "position": "relative",
+        "width": "16px",
       },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {
@@ -326,33 +347,6 @@ exports[`Spinner dots displays a spinner-dots class 1`] = `
   className=""
   css={
     Object {
-      ".ring": Object {
-        "> span": Object {
-          "&:nth-child(1)": Object {
-            "animationDelay": "-0.45s",
-          },
-          "&:nth-child(2)": Object {
-            "animationDelay": "-0.3s",
-          },
-          "&:nth-child(3)": Object {
-            "animationDelay": "-0.15s",
-          },
-          "animation": "iECmZH 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
-          "border": "2px solid #9198A0",
-          "borderColor": "#9198A0 transparent transparent transparent",
-          "borderRadius": "50%",
-          "boxSizing": "border-box",
-          "display": "block",
-          "height": "16px",
-          "margin": 0,
-          "position": "absolute",
-          "width": "16px",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
       ".spinner-bounce": Object {
         ".bounce1": Object {
           "animationDelay": "-0.32s",
@@ -374,7 +368,35 @@ exports[`Spinner dots displays a spinner-dots class 1`] = `
         },
       },
       ".spinner-circular": Object {
-        "display": "flex",
+        ".sc-inner": Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+          "overflow": "visible",
+          "verticalAlign": "middle",
+        },
+        ".sc-inner path": Object {
+          "fillOpacity": "0",
+        },
+        ".sc-inner svg": Object {
+          "display": "block",
+        },
+        ".sc-inner-animation": Object {
+          "animation": "gWPqvk .5s linear infinite",
+        },
+        ".sc-inner-head": Object {
+          "stroke": "#9198A0",
+          "strokeLinecap": "round",
+          "transformOrigin": "center",
+          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
+        },
+        ".sc-inner-track": Object {
+          "stroke": "rgba(92, 112, 128, .2)",
+        },
+        "display": "inline-block",
+        "height": "16px",
+        "position": "relative",
+        "width": "16px",
       },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {
@@ -431,33 +453,6 @@ exports[`Spinner has an className 1`] = `
   className="testing"
   css={
     Object {
-      ".ring": Object {
-        "> span": Object {
-          "&:nth-child(1)": Object {
-            "animationDelay": "-0.45s",
-          },
-          "&:nth-child(2)": Object {
-            "animationDelay": "-0.3s",
-          },
-          "&:nth-child(3)": Object {
-            "animationDelay": "-0.15s",
-          },
-          "animation": "iECmZH 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
-          "border": "2px solid #9198A0",
-          "borderColor": "#9198A0 transparent transparent transparent",
-          "borderRadius": "50%",
-          "boxSizing": "border-box",
-          "display": "block",
-          "height": "16px",
-          "margin": 0,
-          "position": "absolute",
-          "width": "16px",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
       ".spinner-bounce": Object {
         ".bounce1": Object {
           "animationDelay": "-0.32s",
@@ -479,7 +474,35 @@ exports[`Spinner has an className 1`] = `
         },
       },
       ".spinner-circular": Object {
-        "display": "flex",
+        ".sc-inner": Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+          "overflow": "visible",
+          "verticalAlign": "middle",
+        },
+        ".sc-inner path": Object {
+          "fillOpacity": "0",
+        },
+        ".sc-inner svg": Object {
+          "display": "block",
+        },
+        ".sc-inner-animation": Object {
+          "animation": "gWPqvk .5s linear infinite",
+        },
+        ".sc-inner-head": Object {
+          "stroke": "#9198A0",
+          "strokeLinecap": "round",
+          "transformOrigin": "center",
+          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
+        },
+        ".sc-inner-track": Object {
+          "stroke": "rgba(92, 112, 128, .2)",
+        },
+        "display": "inline-block",
+        "height": "16px",
+        "position": "relative",
+        "width": "16px",
       },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {
@@ -539,33 +562,6 @@ exports[`Spinner has custom background color 1`] = `
   className=""
   css={
     Object {
-      ".ring": Object {
-        "> span": Object {
-          "&:nth-child(1)": Object {
-            "animationDelay": "-0.45s",
-          },
-          "&:nth-child(2)": Object {
-            "animationDelay": "-0.3s",
-          },
-          "&:nth-child(3)": Object {
-            "animationDelay": "-0.15s",
-          },
-          "animation": "iECmZH 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
-          "border": "2px solid #3C97D3",
-          "borderColor": "#3C97D3 transparent transparent transparent",
-          "borderRadius": "50%",
-          "boxSizing": "border-box",
-          "display": "block",
-          "height": "16px",
-          "margin": 0,
-          "position": "absolute",
-          "width": "16px",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
       ".spinner-bounce": Object {
         ".bounce1": Object {
           "animationDelay": "-0.32s",
@@ -587,7 +583,35 @@ exports[`Spinner has custom background color 1`] = `
         },
       },
       ".spinner-circular": Object {
-        "display": "flex",
+        ".sc-inner": Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+          "overflow": "visible",
+          "verticalAlign": "middle",
+        },
+        ".sc-inner path": Object {
+          "fillOpacity": "0",
+        },
+        ".sc-inner svg": Object {
+          "display": "block",
+        },
+        ".sc-inner-animation": Object {
+          "animation": "gWPqvk .5s linear infinite",
+        },
+        ".sc-inner-head": Object {
+          "stroke": "#3C97D3",
+          "strokeLinecap": "round",
+          "transformOrigin": "center",
+          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
+        },
+        ".sc-inner-track": Object {
+          "stroke": "rgba(92, 112, 128, .2)",
+        },
+        "display": "inline-block",
+        "height": "16px",
+        "position": "relative",
+        "width": "16px",
       },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {
@@ -647,33 +671,6 @@ exports[`Spinner with fixed position has a loading class 1`] = `
   className=""
   css={
     Object {
-      ".ring": Object {
-        "> span": Object {
-          "&:nth-child(1)": Object {
-            "animationDelay": "-0.45s",
-          },
-          "&:nth-child(2)": Object {
-            "animationDelay": "-0.3s",
-          },
-          "&:nth-child(3)": Object {
-            "animationDelay": "-0.15s",
-          },
-          "animation": "iECmZH 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
-          "border": "2px solid #9198A0",
-          "borderColor": "#9198A0 transparent transparent transparent",
-          "borderRadius": "50%",
-          "boxSizing": "border-box",
-          "display": "block",
-          "height": "16px",
-          "margin": 0,
-          "position": "absolute",
-          "width": "16px",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
       ".spinner-bounce": Object {
         ".bounce1": Object {
           "animationDelay": "-0.32s",
@@ -695,7 +692,35 @@ exports[`Spinner with fixed position has a loading class 1`] = `
         },
       },
       ".spinner-circular": Object {
-        "display": "flex",
+        ".sc-inner": Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+          "overflow": "visible",
+          "verticalAlign": "middle",
+        },
+        ".sc-inner path": Object {
+          "fillOpacity": "0",
+        },
+        ".sc-inner svg": Object {
+          "display": "block",
+        },
+        ".sc-inner-animation": Object {
+          "animation": "gWPqvk .5s linear infinite",
+        },
+        ".sc-inner-head": Object {
+          "stroke": "#9198A0",
+          "strokeLinecap": "round",
+          "transformOrigin": "center",
+          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
+        },
+        ".sc-inner-track": Object {
+          "stroke": "rgba(92, 112, 128, .2)",
+        },
+        "display": "inline-block",
+        "height": "16px",
+        "position": "relative",
+        "width": "16px",
       },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {
@@ -755,33 +780,6 @@ exports[`Spinner with inline position has a loading class 1`] = `
   className=""
   css={
     Object {
-      ".ring": Object {
-        "> span": Object {
-          "&:nth-child(1)": Object {
-            "animationDelay": "-0.45s",
-          },
-          "&:nth-child(2)": Object {
-            "animationDelay": "-0.3s",
-          },
-          "&:nth-child(3)": Object {
-            "animationDelay": "-0.15s",
-          },
-          "animation": "iECmZH 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
-          "border": "2px solid #9198A0",
-          "borderColor": "#9198A0 transparent transparent transparent",
-          "borderRadius": "50%",
-          "boxSizing": "border-box",
-          "display": "block",
-          "height": "16px",
-          "margin": 0,
-          "position": "absolute",
-          "width": "16px",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
       ".spinner-bounce": Object {
         ".bounce1": Object {
           "animationDelay": "-0.32s",
@@ -803,7 +801,35 @@ exports[`Spinner with inline position has a loading class 1`] = `
         },
       },
       ".spinner-circular": Object {
-        "display": "flex",
+        ".sc-inner": Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+          "overflow": "visible",
+          "verticalAlign": "middle",
+        },
+        ".sc-inner path": Object {
+          "fillOpacity": "0",
+        },
+        ".sc-inner svg": Object {
+          "display": "block",
+        },
+        ".sc-inner-animation": Object {
+          "animation": "gWPqvk .5s linear infinite",
+        },
+        ".sc-inner-head": Object {
+          "stroke": "#9198A0",
+          "strokeLinecap": "round",
+          "transformOrigin": "center",
+          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
+        },
+        ".sc-inner-track": Object {
+          "stroke": "rgba(92, 112, 128, .2)",
+        },
+        "display": "inline-block",
+        "height": "16px",
+        "position": "relative",
+        "width": "16px",
       },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {
@@ -855,33 +881,6 @@ exports[`Spinner with loading true has a loading class 1`] = `
   className=""
   css={
     Object {
-      ".ring": Object {
-        "> span": Object {
-          "&:nth-child(1)": Object {
-            "animationDelay": "-0.45s",
-          },
-          "&:nth-child(2)": Object {
-            "animationDelay": "-0.3s",
-          },
-          "&:nth-child(3)": Object {
-            "animationDelay": "-0.15s",
-          },
-          "animation": "iECmZH 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
-          "border": "2px solid #9198A0",
-          "borderColor": "#9198A0 transparent transparent transparent",
-          "borderRadius": "50%",
-          "boxSizing": "border-box",
-          "display": "block",
-          "height": "16px",
-          "margin": 0,
-          "position": "absolute",
-          "width": "16px",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
       ".spinner-bounce": Object {
         ".bounce1": Object {
           "animationDelay": "-0.32s",
@@ -903,7 +902,35 @@ exports[`Spinner with loading true has a loading class 1`] = `
         },
       },
       ".spinner-circular": Object {
-        "display": "flex",
+        ".sc-inner": Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+          "overflow": "visible",
+          "verticalAlign": "middle",
+        },
+        ".sc-inner path": Object {
+          "fillOpacity": "0",
+        },
+        ".sc-inner svg": Object {
+          "display": "block",
+        },
+        ".sc-inner-animation": Object {
+          "animation": "gWPqvk .5s linear infinite",
+        },
+        ".sc-inner-head": Object {
+          "stroke": "#9198A0",
+          "strokeLinecap": "round",
+          "transformOrigin": "center",
+          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
+        },
+        ".sc-inner-track": Object {
+          "stroke": "rgba(92, 112, 128, .2)",
+        },
+        "display": "inline-block",
+        "height": "16px",
+        "position": "relative",
+        "width": "16px",
       },
       ".spinner-dots": Object {
         ".dot1, .dot2": Object {

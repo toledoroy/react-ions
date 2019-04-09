@@ -28,8 +28,8 @@ const ring = keyframes`
   0% {
     transform: rotate(0deg);
   }
-  100% {
-    transform: rotate(360deg);
+  to {
+    transform: rotate(1turn);
   }
 `
 
@@ -117,33 +117,34 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
     },
 
     '.spinner-circular': {
-      display: 'flex'
-    },
-    '.ring': {
       display: 'inline-block',
       position: 'relative',
       width: `${size || 16}px`,
       height: `${size || 16}px`,
-      '> span': {
-        boxSizing: 'border-box',
-        display: 'block',
-        position: 'absolute',
-        width: `${size || 16}px`,
-        height: `${size || 16}px`,
-        margin: 0,
-        border: `${size ? size/8 : 2}px solid ${color || colors.neutral_4}`,
-        borderRadius: '50%',
-        borderColor: `${color || colors.neutral_4} transparent transparent transparent`,
-        animation: `${ring} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite`,
-        '&:nth-child(1)': {
-          animationDelay: '-0.45s'
-        },
-        '&:nth-child(2)': {
-          animationDelay: '-0.3s'
-        },
-        '&:nth-child(3)': {
-          animationDelay: '-0.15s'
-        }
+      '.sc-inner': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'visible',
+        verticalAlign: 'middle'
+      },
+      '.sc-inner-animation': {
+        animation: `${ring} .5s linear infinite`
+      },
+      '.sc-inner svg': {
+        display: 'block'
+      },
+      '.sc-inner path': {
+        fillOpacity: '0'
+      },
+      '.sc-inner-head': {
+        transformOrigin: 'center',
+        transition: 'stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)',
+        stroke: `${color || colors.neutral_4}`,
+        strokeLinecap: 'round'
+      },
+      '.sc-inner-track': {
+        stroke: 'rgba(92, 112, 128, .2)'
       }
     }
   }

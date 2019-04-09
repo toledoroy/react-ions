@@ -35,7 +35,7 @@ const ConfirmationOverlay = ({ prompt, handleConfirmation }) => {
 }
 
 ConfirmationOverlay.propTypes = {
-  prompt: PropTypes.string,
+  prompt: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   handleConfirmation: PropTypes.func.isRequired
 }
 
