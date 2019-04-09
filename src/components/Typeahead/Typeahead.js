@@ -4,7 +4,7 @@ import classNames from 'classnames/bind'
 import enhanceWithClickOutside from 'react-click-outside'
 import fuzzy from 'fuzzy'
 import debounce from 'lodash/debounce'
-import Loader from 'react-loader'
+import Spinner from '../Spinner'
 import Input from '../Input'
 import Icon from '../Icon'
 import StyledDiv from '../StyledDiv'
@@ -267,15 +267,7 @@ export class Typeahead extends React.Component {
     const loaderClass = this.props.loading ? 'loading' : null
     const typeaheadClass = cx(style['typeahead-component'], loaderClass, this.props.optClass)
     const typeaheadStyledClass = cx(style['typeahead-component-styled'])
-
-    const spinnerOptions = {
-      color: '#9198A0',
-      length: 4,
-      lines: 10,
-      radius: 5,
-      left: 'calc(100% - 21px)',
-      width: 3
-    }
+    const typeaheadSpinnerClass = cx(style['typeahead-spinner'])
 
     const { placeholder, disabled, loading, label, width } = this.props
 
@@ -308,7 +300,7 @@ export class Typeahead extends React.Component {
             }
           </div>
 
-          { loading ? <Loader loaded={false} options={spinnerOptions} /> : null }
+          <Spinner loading={loading} type='spinner-circular' size='16' className={typeaheadSpinnerClass} />
 
           { this.state.isActive
             ? <ul className={style['typeahead-list']} style={listWidth}>
