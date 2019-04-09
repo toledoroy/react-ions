@@ -46,6 +46,10 @@
       border-color: rgba($neutral-4, .6);
       outline: 0;
     }
+    
+    @media #{$media-extra-small} {
+      width: 100% !important;
+    }
   }
 
   .display-text {
@@ -104,6 +108,10 @@
     @media #{$media-small-minus} {
       left: 0;
       min-width: 100%;
+    }
+    
+    @media #{$media-extra-small} {
+      width: 100% !important;
     }
   }
 
