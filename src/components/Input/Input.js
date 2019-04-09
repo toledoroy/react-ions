@@ -223,7 +223,7 @@ class Input extends React.Component {
             onKeyDown={this.props.onKeyDown}
             type={this.props.type}
           />
-          
+
           {suffix && <div className={flexWrapperClassSuffix}>
             <div ref={c => this._suffix = c} className={suffixClass}>{suffix}</div>
           </div>}
