@@ -42,7 +42,7 @@ export class ButtonConfirmation extends Component {
     /**
      * Text that will appear in the overlay prompt.
      */
-    prompt: PropTypes.string,
+    prompt: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     /**
      * Function used to pass up the confirmation to the parent component
      */
