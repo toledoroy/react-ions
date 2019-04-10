@@ -1,3 +1,8 @@
+## 5.1.48
+###### _April 10, 2019_
+- ButtonConfirmation: adjust wrapper to play nicely with inlined buttons.
+- Typeahead: slight adjustment to loader position, and visual appeal of close button.
+
 ## 5.1.47
 ###### _April 9, 2019_
 - Add visibility icon, adjust width on small select and typeahead [#780](https://github.com/GetAmbassador/react-ions/pull/780)
