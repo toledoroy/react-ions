@@ -295,7 +295,7 @@ export class Typeahead extends React.Component {
             />
 
             { this.state.searchStr !== '' && !loading && !disabled
-              ? <Icon name='md-close' onClick={this.clearSearch} className={style['reset-button']}>Reset</Icon>
+              ? <Icon name='md-close' onClick={this.clearSearch} width='18' height='18' fill='#9198a0' className={style['reset-button']}>Reset</Icon>
               : null
             }
           </div>
