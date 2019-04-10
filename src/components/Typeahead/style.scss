@@ -50,8 +50,8 @@
 
   .typeahead-spinner {
     left: auto;
-    right: 12px;
-    top: 1px;
+    right: 14px;
+    top: 2px;
     background: transparent;
   }
     
@@ -63,14 +63,7 @@
 }
 
 .reset-button {
-  background-color: $neutral-4;
-  border-radius: 50%;
-  cursor: pointer;
-  fill: $white;
-  height: 11px;
-  padding: 3px;
   position: absolute;
-  right: 12px;
+  right: 13px;
   top: 12px;
-  width: 10px;
 }

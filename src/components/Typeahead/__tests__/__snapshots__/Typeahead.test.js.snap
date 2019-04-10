@@ -58,10 +58,11 @@ exports[`should display a list when the user types a letter 1`] = `
       />
       <Icon
         className="reset-button"
-        height="24"
+        fill="#9198a0"
+        height="18"
         name="md-close"
         onClick={[Function]}
-        width="24"
+        width="18"
       >
         Reset
       </Icon>
@@ -293,10 +294,11 @@ exports[`should update when props are set 1`] = `
       />
       <Icon
         className="reset-button"
-        height="24"
+        fill="#9198a0"
+        height="18"
         name="md-close"
         onClick={[Function]}
-        width="24"
+        width="18"
       >
         Reset
       </Icon>
