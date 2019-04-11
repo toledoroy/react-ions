@@ -206,7 +206,6 @@ class Input extends React.Component {
           {prefix && <div className={flexWrapperClass}>
             <div ref={c => this._prefix = c} className={prefixClass}>{prefix}</div>
           </div>}
-
           <input
             id={this.props.id}
             ref={c => this._input = c}

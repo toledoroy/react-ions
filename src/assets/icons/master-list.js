@@ -33,6 +33,8 @@ var list = {
     materialPath + '/action/svg/production/ic_label_24px.svg#md-label',
     materialPath + '/action/svg/production/ic_swap_horiz_24px.svg#md-swap-horiz',
     materialPath + '/action/svg/production/ic_print_24px.svg#md-print',
+    materialPath + '/action/svg/production/ic_visibility_24px.svg#md-visibility',
+    materialPath + '/action/svg/production/ic_visibility_off_24px.svg#md-visibility-off',
     materialPath + '/alert/svg/production/ic_warning_24px.svg#md-warning',
     materialPath + '/alert/svg/production/ic_error_24px.svg#md-danger',
     materialPath + '/av/svg/production/ic_pause_24px.svg#md-pause',

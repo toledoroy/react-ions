@@ -25,7 +25,7 @@
     overflow: auto;
     padding: 0;
     position: absolute;
-    width: calc(100% - 2px);
+    width: calc(100% - 2px) !important;
     z-index: 1;
 
     li {
@@ -47,23 +47,23 @@
   .input-wrapper {
     position: relative;
   }
-}
 
-.loader {
-  position: absolute;
-  right: 18px;
-  top: 18px;
+  .typeahead-spinner {
+    left: auto;
+    right: 14px;
+    top: 2px;
+    background: transparent;
+  }
+    
+  @media #{$media-extra-small} {
+  .typeahead-component-styled {
+      width: 100% !important;
+    }
+  }
 }
 
 .reset-button {
-  background-color: $neutral-4;
-  border-radius: 50%;
-  cursor: pointer;
-  fill: $white;
-  height: 11px;
-  padding: 3px;
   position: absolute;
-  right: 12px;
+  right: 13px;
   top: 12px;
-  width: 10px;
 }

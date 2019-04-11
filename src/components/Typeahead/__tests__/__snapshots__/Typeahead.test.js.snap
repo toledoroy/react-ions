@@ -5,6 +5,7 @@ exports[`should be disabled 1`] = `
   className="typeahead-component"
 >
   <styled.div
+    className="typeahead-component-styled"
     css={
       Object {
         "position": "relative",
@@ -23,6 +24,11 @@ exports[`should be disabled 1`] = `
         valueType="string"
       />
     </div>
+    <Spinner
+      className="typeahead-spinner"
+      size="16"
+      type="spinner-circular"
+    />
   </styled.div>
 </div>
 `;
@@ -32,6 +38,7 @@ exports[`should display a list when the user types a letter 1`] = `
   className="typeahead-component"
 >
   <styled.div
+    className="typeahead-component-styled"
     css={
       Object {
         "position": "relative",
@@ -51,14 +58,20 @@ exports[`should display a list when the user types a letter 1`] = `
       />
       <Icon
         className="reset-button"
-        height="24"
+        fill="#9198a0"
+        height="18"
         name="md-close"
         onClick={[Function]}
-        width="24"
+        width="18"
       >
         Reset
       </Icon>
     </div>
+    <Spinner
+      className="typeahead-spinner"
+      size="16"
+      type="spinner-circular"
+    />
     <ul
       className="typeahead-list"
       style={null}
@@ -91,6 +104,7 @@ exports[`should display a loader 1`] = `
   className="typeahead-component loading"
 >
   <styled.div
+    className="typeahead-component-styled"
     css={
       Object {
         "position": "relative",
@@ -109,21 +123,11 @@ exports[`should display a loader 1`] = `
         valueType="string"
       />
     </div>
-    <Component
-      component="div"
-      loaded={false}
-      loadedClassName="loadedContent"
-      options={
-        Object {
-          "color": "#9198A0",
-          "left": "calc(100% - 21px)",
-          "length": 4,
-          "lines": 10,
-          "radius": 5,
-          "width": 3,
-        }
-      }
-      parentClassName="loader"
+    <Spinner
+      className="typeahead-spinner"
+      loading={true}
+      size="16"
+      type="spinner-circular"
     />
   </styled.div>
 </div>
@@ -137,6 +141,7 @@ exports[`should have a label 1`] = `
     Typeahead Label
   </label>
   <styled.div
+    className="typeahead-component-styled"
     css={
       Object {
         "position": "relative",
@@ -155,6 +160,11 @@ exports[`should have a label 1`] = `
         valueType="string"
       />
     </div>
+    <Spinner
+      className="typeahead-spinner"
+      size="16"
+      type="spinner-circular"
+    />
   </styled.div>
 </div>
 `;
@@ -164,6 +174,7 @@ exports[`should have an extra class 1`] = `
   className="typeahead-component test-class"
 >
   <styled.div
+    className="typeahead-component-styled"
     css={
       Object {
         "position": "relative",
@@ -182,6 +193,11 @@ exports[`should have an extra class 1`] = `
         valueType="string"
       />
     </div>
+    <Spinner
+      className="typeahead-spinner"
+      size="16"
+      type="spinner-circular"
+    />
   </styled.div>
 </div>
 `;
@@ -191,6 +207,7 @@ exports[`should have placeholder text 1`] = `
   className="typeahead-component"
 >
   <styled.div
+    className="typeahead-component-styled"
     css={
       Object {
         "position": "relative",
@@ -210,6 +227,11 @@ exports[`should have placeholder text 1`] = `
         valueType="string"
       />
     </div>
+    <Spinner
+      className="typeahead-spinner"
+      size="16"
+      type="spinner-circular"
+    />
   </styled.div>
 </div>
 `;
@@ -219,6 +241,7 @@ exports[`should shallow render itself 1`] = `
   className="typeahead-component"
 >
   <styled.div
+    className="typeahead-component-styled"
     css={
       Object {
         "position": "relative",
@@ -237,6 +260,11 @@ exports[`should shallow render itself 1`] = `
         valueType="string"
       />
     </div>
+    <Spinner
+      className="typeahead-spinner"
+      size="16"
+      type="spinner-circular"
+    />
   </styled.div>
 </div>
 `;
@@ -246,6 +274,7 @@ exports[`should update when props are set 1`] = `
   className="typeahead-component test-class"
 >
   <styled.div
+    className="typeahead-component-styled"
     css={
       Object {
         "position": "relative",
@@ -265,14 +294,20 @@ exports[`should update when props are set 1`] = `
       />
       <Icon
         className="reset-button"
-        height="24"
+        fill="#9198a0"
+        height="18"
         name="md-close"
         onClick={[Function]}
-        width="24"
+        width="18"
       >
         Reset
       </Icon>
     </div>
+    <Spinner
+      className="typeahead-spinner"
+      size="16"
+      type="spinner-circular"
+    />
   </styled.div>
 </div>
 `;
