@@ -46,7 +46,11 @@ export class ButtonConfirmation extends Component {
     /**
      * Function used to pass up the confirmation to the parent component
      */
-    handleConfirmation: PropTypes.func
+    handleConfirmation: PropTypes.func,
+    /**
+     * Whether the prompt should be wide
+     */
+    wide: PropTypes.bool
   }
 
   state = {
@@ -88,7 +92,7 @@ export class ButtonConfirmation extends Component {
   }
 
   handleWide = () => {
-    if (this.props.prompt.length > 25) {
+    if (this.props.wide || this.props.prompt.length > 25) {
       this.setState({ wide: true })
     }
   }
