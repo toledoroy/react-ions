@@ -1,3 +1,7 @@
+## 5.1.49
+###### _April 17, 2019_
+- ButtonConfirmation: add wide prop.
+
 ## 5.1.48
 ###### _April 10, 2019_
 - ButtonConfirmation: adjust wrapper to play nicely with inlined buttons.
