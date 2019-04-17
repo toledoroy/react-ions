@@ -1,7 +1,11 @@
+## 5.1.49
+###### _April 17, 2019_
+- ButtonConfirmation: add wide prop. [#784](https://github.com/GetAmbassador/react-ions/pull/784)
+
 ## 5.1.48
 ###### _April 10, 2019_
-- ButtonConfirmation: adjust wrapper to play nicely with inlined buttons.
-- Typeahead: slight adjustment to loader position, and visual appeal of close button.
+- ButtonConfirmation: adjust wrapper to play nicely with inlined buttons. [#782](https://github.com/GetAmbassador/react-ions/pull/782)
+- Typeahead: slight adjustment to loader position, and visual appeal of close button. [#782](https://github.com/GetAmbassador/react-ions/pull/782)
 
 ## 5.1.47
 ###### _April 9, 2019_
