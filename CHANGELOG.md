@@ -1,3 +1,7 @@
+## 5.1.50
+###### _April 19, 2019_
+- Textarea: add readOnly prop. [#786](https://github.com/GetAmbassador/react-ions/pull/786)
+
 ## 5.1.49
 ###### _April 17, 2019_
 - ButtonConfirmation: add wide prop. [#784](https://github.com/GetAmbassador/react-ions/pull/784)
