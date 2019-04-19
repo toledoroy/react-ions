@@ -11,6 +11,8 @@ import ExampleTextareaLabel from './ExampleTextareaLabel'
 import exampleTextareaLabelCode from '!raw!./ExampleTextareaLabel'
 import ExampleTextareaDisabled from './ExampleTextareaDisabled'
 import exampleTextareaDisabledCode from '!raw!./ExampleTextareaDisabled'
+import ExampleTextareaReadOnly from './ExampleTextareaReadOnly'
+import exampleTextareaReadOnlyCode from '!raw!./ExampleTextareaReadOnly'
 import ExampleTextareaError from './ExampleTextareaError'
 import exampleTextareaErrorCode from '!raw!./ExampleTextareaError'
 import ExampleTextareaCallback from './ExampleTextareaCallback'
@@ -25,6 +27,7 @@ const description = {
   textareaPlaceholder: 'This is the `textarea component` with placeholder text.',
   textareaLabel: 'This is the `textarea component` with a label.',
   textareaDisabled: 'This is the disabled `textarea component`.',
+  textareaReadOnly: 'This is the readOnly `textarea component`.',
   textareaError: 'This is the `textarea component` with error.',
   textareaCallback: 'This is the `textarea component` with a callback function. __Note__: _the `style import` and `code` tag is for display purposes only._',
   textareaPopulated: 'This is the `textarea component` that already has some content.',
@@ -58,6 +61,12 @@ const TextareaPage = () => (
           description={description.textareaDisabled}
           markup={exampleTextareaDisabledCode}>
           <ExampleTextareaDisabled />
+        </CodeExample>
+        <CodeExample
+          title='ReadOnly Textarea'
+          description={description.textareaReadOnly}
+          markup={exampleTextareaReadOnlyCode}>
+          <ExampleTextareaReadOnly />
         </CodeExample>
         <CodeExample
           title='Error Textarea'

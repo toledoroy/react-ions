@@ -36,7 +36,7 @@ class Textarea extends React.Component {
     /**
      * Whether the textarea is read only.
      */
-    readonly: PropTypes.bool,
+    readOnly: PropTypes.bool,
     /**
      * Text shown above the textarea.
      */
@@ -105,7 +105,7 @@ class Textarea extends React.Component {
   }
 
   render() {
-    const { disabled, label, optClass, className, height, readonly, placeholder } = this.props
+    const { disabled, label, optClass, className, height, readOnly, placeholder } = this.props
 
     const cx = classNames.bind(style)
     const heightStyle = height ? { height: height } : null
@@ -121,7 +121,7 @@ class Textarea extends React.Component {
           onChange={this.handleChange}
           onBlur={this.handleBlur}
           disabled={disabled}
-          readonly={readonly}
+          readOnly={readOnly}
           placeholder={placeholder}
           style={heightStyle}
         >
