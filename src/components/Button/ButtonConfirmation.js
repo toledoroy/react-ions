@@ -50,7 +50,11 @@ export class ButtonConfirmation extends Component {
     /**
      * Whether the prompt should be wide
      */
-    wide: PropTypes.bool
+    wide: PropTypes.bool,
+    /**
+     * The type for the confirm button
+     */
+    type: PropTypes.string
   }
 
   state = {
@@ -177,7 +181,7 @@ export class ButtonConfirmation extends Component {
           <span className={style['confirmation-text']}>{this.props.prompt}</span>
           <div className={style['button-wrapper']}>
             <Button onClick={this.handleConfirmation.bind(this, false)} optClass='danger-alt'>Cancel</Button>
-            <Button onClick={this.handleConfirmation.bind(this, true)} optClass={buttonClass}>Yes</Button>
+            <Button onClick={this.handleConfirmation.bind(this, true)} optClass={buttonClass} type={this.props.type}>Yes</Button>
           </div>
         </div>
       </div>
