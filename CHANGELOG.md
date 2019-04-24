@@ -1,14 +1,18 @@
+## 5.1.51
+###### _April 24, 2019_
+- ButtonConfirmation: add type prop [#788](https://github.com/GetAmbassador/react-ions/pull/788)
+
 ## 5.1.50
 ###### _April 19, 2019_
-- Textarea: add readOnly prop. [#786](https://github.com/GetAmbassador/react-ions/pull/786)
+- Textarea: add readOnly prop [#786](https://github.com/GetAmbassador/react-ions/pull/786)
 
 ## 5.1.49
 ###### _April 17, 2019_
-- ButtonConfirmation: add wide prop. [#784](https://github.com/GetAmbassador/react-ions/pull/784)
+- ButtonConfirmation: add wide prop [#784](https://github.com/GetAmbassador/react-ions/pull/784)
 
 ## 5.1.48
 ###### _April 10, 2019_
-- ButtonConfirmation: adjust wrapper to play nicely with inlined buttons. [#782](https://github.com/GetAmbassador/react-ions/pull/782)
+- ButtonConfirmation: adjust wrapper to play nicely with inlined buttons [#782](https://github.com/GetAmbassador/react-ions/pull/782)
 - Typeahead: slight adjustment to loader position, and visual appeal of close button. [#782](https://github.com/GetAmbassador/react-ions/pull/782)
 
 ## 5.1.47
