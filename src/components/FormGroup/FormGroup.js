@@ -26,6 +26,10 @@ class FormGroup extends React.Component {
      */
     changeCallback: PropTypes.func,
     /**
+     * A callback function to be called when the form has error(s).
+     */
+    errorCallback: PropTypes.func,
+    /**
      * A callback function to be called when the form is submitted.
      */
     submitCallback: PropTypes.func,
