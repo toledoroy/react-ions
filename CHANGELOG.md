@@ -1,3 +1,7 @@
+## 5.1.52
+###### _April 25, 2019_
+- FormGroup: fix stop submit [#790](https://github.com/GetAmbassador/react-ions/pull/790)
+
 ## 5.1.51
 ###### _April 24, 2019_
 - ButtonConfirmation: add type prop [#788](https://github.com/GetAmbassador/react-ions/pull/788)
