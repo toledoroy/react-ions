@@ -312,7 +312,7 @@ describe('FormGroup', () => {
     formGroup.instance().handleSubmit(event)
 
     expect(errorCallbackSpy.calledOnce).to.be.true
-    expect(errorCallbackSpy.calledOnce).to.be.false
+    expect(submitCallbackSpy.called).to.be.false
   })
 
   it('should validate from props -> errorFields when passed', () => {
