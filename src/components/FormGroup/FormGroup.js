@@ -26,6 +26,10 @@ class FormGroup extends React.Component {
      */
     changeCallback: PropTypes.func,
     /**
+     * A callback function to be called when the form has error(s).
+     */
+    errorCallback: PropTypes.func,
+    /**
      * A callback function to be called when the form is submitted.
      */
     submitCallback: PropTypes.func,
@@ -78,7 +82,7 @@ class FormGroup extends React.Component {
   }
 
   // Errors can be passed in via props if external validation is used or
-  // errors can be captured from state if internal validation is used
+  // they can be captured from state if internal validation is used
   _mapFieldErrors = () => this.state.fieldErrors.merge(this.props.fieldErrors)
 
   handleSubmit = event => {
@@ -89,12 +93,11 @@ class FormGroup extends React.Component {
     // Required to send error prop to ValidatedField component
     this.setState({ fieldErrors })
 
-    if (fieldErrors && fieldErrors.size && typeof this.props.errorCallback === 'function') {
-      return this.props.errorCallback(fieldErrors)
+    if (fieldErrors && fieldErrors.size) {
+      this.props.errorCallback && this.props.errorCallback(fieldErrors)
     }
-
-    if (typeof this.props.submitCallback === 'function') {
-      this.props.submitCallback(event, this.state.fields.toJS())
+    else {
+      this.props.submitCallback && this.props.submitCallback(event, this.state.fields.toJS())
     }
   }
 

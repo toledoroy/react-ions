@@ -248,6 +248,7 @@ describe('FormGroup', () => {
 
   it('should handle field errors when the form is submitted', () => {
     const errorCallbackSpy = sinon.stub()
+    const submitCallbackSpy = sinon.stub()
     const schema = {
       message: {
         value: ''
@@ -260,7 +261,7 @@ describe('FormGroup', () => {
       preventDefault: () => {}
     }
 
-    formGroup = shallow(<FormGroup schema={schema} errorCallback={errorCallbackSpy}>
+    formGroup = shallow(<FormGroup schema={schema} errorCallback={errorCallbackSpy} submitCallbackSpy={submitCallbackSpy}>
       <ValidatedInput
         name='message'
         label='Message'
@@ -278,6 +279,40 @@ describe('FormGroup', () => {
 
     expect(formGroup.state().fieldErrors.toJS()).to.deep.equal({ message: 'The field cannot be left empty.'})
     expect(errorCallbackSpy.calledOnce).to.be.true
+    expect(submitCallbackSpy.calledOnce).to.be.false
+  })
+
+  it('should should not call submitCallback when there are errors', () => {
+    const submitCallbackSpy = sinon.stub()
+    const schema = {
+      message: {
+        value: ''
+      }
+    }
+
+    const errorMessage = 'The field cannot be left empty.'
+
+    const event = {
+      preventDefault: () => {}
+    }
+
+    formGroup = shallow(<FormGroup schema={schema} submitCallbackSpy={submitCallbackSpy}>
+      <ValidatedInput
+        name='message'
+        label='Message'
+        type='text'
+        validation={[
+          {
+            validator: () => false,
+            message: errorMessage
+          }
+        ]}
+      />
+    </FormGroup>)
+
+    formGroup.instance().handleSubmit(event)
+
+    expect(submitCallbackSpy.called).to.be.false
   })
 
   it('should validate from props -> errorFields when passed', () => {
