@@ -118,7 +118,7 @@ class FormGroup extends React.Component {
         fields = fields.setIn([name, 'option'], option)
       }
 
-      const fieldErrors = prevState.fieldErrors.set(name, '')
+      const fieldErrors = _mapFieldErrors().set(name, '')
 
       return { fields, fieldErrors }
     }, () => {
