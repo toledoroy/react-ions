@@ -123,6 +123,22 @@ describe('FormGroup', () => {
     expect(wrapper.state().fieldErrors.get('subject')).to.equal('')
   })
 
+  it.only('should add changeCallback to fields with ionName', () => {
+    const changeCallback = sinon.spy()
+
+    wrapper = mount(<FormGroup changeCallback={changeCallback}><Input ionName='ion' label='Ion Label Test' type='text' /></FormGroup>)
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        name: 'ion',
+        value: 'This is my answer'
+      }
+    })
+
+    expect(changeCallback.calledOnce).to.be.true
+    expect(changeCallback.firstCall.args[0]).to.deep.equal({ ion: { value: 'This is my answer' } })
+  })
+
   it('should update the state when changeCallback is not provided', () => {
     const schema = {
       'subject': {

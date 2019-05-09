@@ -61,7 +61,16 @@ class FormGroup extends React.Component {
   }
 
   state = {
-    fieldErrors: Map()
+    fieldErrors: Map(),
+    fields: Map()
+  }
+
+  updateSchema = schema => {
+    if(!schema) return
+
+    this.setState({
+      fields: this.state.fields.mergeDeep(schema)
+    })
   }
 
   componentWillReceiveProps = nextProps => {
@@ -69,16 +78,12 @@ class FormGroup extends React.Component {
     const thisPropsSchema = fromJS(this.props.schema)
 
     if (!is(nextPropsSchema, thisPropsSchema)) {
-      this.setState({
-        fields: fromJS(nextProps.schema)
-      })
+      this.updateSchema(nextPropsSchema)
     }
   }
 
   componentWillMount = () => {
-    this.setState({
-      fields: fromJS(this.props.schema)
-    })
+    this.updateSchema(fromJS(this.props.schema))
   }
 
   // Errors can be passed in via props if external validation is used or
@@ -141,7 +146,8 @@ class FormGroup extends React.Component {
       let childProps = {}
 
       if (child.props) {
-        const name = child.props.name
+        const name = child.props.name || child.props.ionName
+        const hasIonName = !!child.props.ionName
 
         const error = fieldErrors.get(name)
         const value = this.state.fields.getIn([name, 'value'])
@@ -154,10 +160,11 @@ class FormGroup extends React.Component {
           }))
         }
 
-        if (this.state.fields.has(name) && React.isValidElement(child)) {
+        if ((this.state.fields.has(name) || hasIonName) && React.isValidElement(child)) {
           childProps = {
             changeCallback: this.props.debounceTime ? this.debounce : this.handleChange,
             value: valueProp,
+            name,
             error
           }
         }

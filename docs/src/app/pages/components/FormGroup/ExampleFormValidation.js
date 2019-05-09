@@ -25,15 +25,6 @@ const validate = {
 const ValidatedInput = ValidatedField(Input)
 const ValidatedTextarea = ValidatedField(Textarea)
 
-const schema = {
-  email: {
-    value: ''
-  },
-  message: {
-    value: ''
-  }
-}
-
 const defaultState = {
   fieldErrors: Map(),
   loading: false,
@@ -85,12 +76,11 @@ class ExampleFormValidation extends React.Component {
         changeCallback={this.handleChange}
         submitCallback={this.handleSubmit}
         errorCallback={this.handleErrors}
-        schema={schema}
         fieldErrors={this.state.fieldErrors}
       >
         <div>
           <ValidatedInput
-            name='email'
+            ionName='email'
             label='Email'
             type='text'
             placeholder='sugerman@6am.com'
@@ -109,7 +99,7 @@ class ExampleFormValidation extends React.Component {
         </div>
         <div>
           <ValidatedTextarea
-            name='message'
+            ionName='message'
             label='Message'
             type='text'
             validation={[
