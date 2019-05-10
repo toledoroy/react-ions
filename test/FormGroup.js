@@ -96,31 +96,32 @@ describe('FormGroup', () => {
     const changeCallback = sinon.spy()
 
     const schema = {
-      'subject': {
+      'field_one': {
         'value': 'This is my subject'
       }
     }
 
     const fieldErrors = Map({
-      subject: 'Test error.',
-      test_field: 'Another error'
+      field_one: 'Error one',
+      field_two: 'Error two',
+      field_three: 'Error three'
     })
 
-    wrapper = mount(<FormGroup changeCallback={changeCallback} schema={schema} fieldErrors={fieldErrors}><Input name='subject' label='Subject line' type='text' /></FormGroup>)
-    wrapper.setState({ fieldErrors: wrapper.state('fieldErrors').set('test_field', 'State error') })
+    wrapper = mount(<FormGroup changeCallback={changeCallback} schema={schema} fieldErrors={fieldErrors}><Input name='field_one' label='Subject line' type='text' /></FormGroup>)
+    wrapper.setState({ fieldErrors: wrapper.state('fieldErrors').set('field_two', 'State error') })
 
     wrapper.find('input').simulate('change', {
       target: {
-        name: 'subject',
+        name: 'field_one',
         value: 'This is my answer'
       }
-    })
+    });
 
     expect(changeCallback.calledOnce).to.be.true
-    expect(changeCallback.firstCall.args[0]).to.deep.equal({ subject: { value: 'This is my answer' } })
-    expect(changeCallback.firstCall.args[1].toJS()).to.deep.equal({ subject: '', test_field: 'State error' })
-    expect(wrapper.state().fields.getIn(['subject', 'value'])).to.equal('This is my answer')
-    expect(wrapper.state().fieldErrors.get('subject')).to.equal('')
+    expect(changeCallback.firstCall.args[0]).to.deep.equal({ field_one: { value: 'This is my answer' } })
+    expect(changeCallback.firstCall.args[1].toJS()).to.deep.equal({ field_one: '', field_two: 'Error two', field_three: 'Error three' })
+    expect(wrapper.state().fields.getIn(['field_one', 'value'])).to.equal('This is my answer')
+    expect(wrapper.state().fieldErrors.toJS()).to.deep.equal({ field_one: '', field_two: 'Error two', field_three: 'Error three' })
   })
 
   it('should update the state when changeCallback is not provided', () => {
