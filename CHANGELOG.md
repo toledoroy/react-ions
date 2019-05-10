@@ -1,3 +1,7 @@
+## 5.1.53
+###### _May 10, 2019_
+- FormGroup: fix error reference in change handler [#792](https://github.com/GetAmbassador/react-ions/pull/792)
+
 ## 5.1.52
 ###### _April 25, 2019_
 - FormGroup: fix stop submit [#790](https://github.com/GetAmbassador/react-ions/pull/790)
