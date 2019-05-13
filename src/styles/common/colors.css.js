@@ -26,6 +26,7 @@ const colors = {
   orange: '#F29C1E',
   red: '#E54C3B',
   aqua: '#62CAF3',
+  purple: '#B77FE4',
 
   // Contextual References
   success: '#26B894',
