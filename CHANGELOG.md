@@ -1,3 +1,7 @@
+## 5.1.54
+###### _May 13, 2019_
+- Colors: adding purple [#794](https://github.com/GetAmbassador/react-ions/pull/794)
+
 ## 5.1.53
 ###### _May 10, 2019_
 - FormGroup: fix error reference in change handler [#792](https://github.com/GetAmbassador/react-ions/pull/792)
