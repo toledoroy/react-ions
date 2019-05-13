@@ -48,6 +48,9 @@ const colorList = {
     }, {
       sass: '$info',
       hex: '#62CAF3'
+    }, {
+      sass: '$purple',
+      hex: '#B77FE4'
     }
   ]
 }
