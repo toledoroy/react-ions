@@ -1,3 +1,7 @@
+## 5.1.55
+###### _June 3, 2019_
+- Re-release of 5.1.54 (export was botched)
+
 ## 5.1.54
 ###### _May 13, 2019_
 - Colors: adding purple [#794](https://github.com/GetAmbassador/react-ions/pull/794)
