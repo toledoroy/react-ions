@@ -1,3 +1,7 @@
+## 5.1.56
+###### _June 19, 2019_
+- RadioGroup/Radio: allow for boolean values to be passed [#798](https://github.com/GetAmbassador/react-ions/pull/798)
+
 ## 5.1.55
 ###### _June 3, 2019_
 - Re-release of 5.1.54 (export was botched)
