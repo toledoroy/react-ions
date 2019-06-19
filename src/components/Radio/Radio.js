@@ -73,7 +73,10 @@ Radio.propTypes = {
   /**
    * Value of the option.
    */
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.string
+  ]),
   /**
    * Optional styles to add to the radio component.
    */

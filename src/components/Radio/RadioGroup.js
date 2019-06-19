@@ -38,7 +38,10 @@ class RadioGroup extends React.Component {
     /**
      * Which option is checked.
      */
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string
+    ]),
     /**
      * A callback function to be called when an option is changed.
      */

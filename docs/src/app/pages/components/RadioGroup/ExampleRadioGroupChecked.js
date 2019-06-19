@@ -5,14 +5,11 @@ import style from './style.scss'
 
 const options = [
   {
-    value: 'option_1',
-    label: 'Option 1'
+    value: true,
+    label: 'Yes'
   }, {
-    value: 'option_2',
-    label: 'Option 2'
-  }, {
-    value: 'option_3',
-    label: 'Option 3'
+    value: false,
+    label: 'No'
   }
 ]
 
@@ -22,7 +19,7 @@ class ExampleRadioChecked extends React.Component {
   }
 
   state = {
-    selected: 'option_2'
+    selected: true
   }
 
   updateSelected = value => {
@@ -33,14 +30,14 @@ class ExampleRadioChecked extends React.Component {
     return (
       <div>
         <div className={style.update}>
-          <Button onClick={this.updateSelected.bind(this, 'option_1')}>Select 1st item</Button>
-          <Button onClick={this.updateSelected.bind(this, 'option_2')}>Select 2nd item</Button>
-          <Button onClick={this.updateSelected.bind(this, 'option_3')}>Select 3rd item</Button>
+          <Button onClick={this.updateSelected.bind(this, true)}>Select 1st item</Button>
+          <Button onClick={this.updateSelected.bind(this, false)}>Select 2nd item</Button>
           <Button onClick={this.updateSelected.bind(this, '')}>Uncheck</Button>
         </div>
         <RadioGroup
           name="checked-radio-group"
           options={options}
+          changeCallback={event => console.log(event.target.value)}
           value={this.state.selected}>
         </RadioGroup>
       </div>
