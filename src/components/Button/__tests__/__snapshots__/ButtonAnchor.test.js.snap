@@ -13,6 +13,7 @@ exports[`ButtonAnchor displays a button anchor with an external link 1`] = `
 
 exports[`ButtonAnchor displays a button anchor with an internal link 1`] = `
 <Link
+  className="btn"
   onClick={[Function]}
   onlyActiveOnIndex={false}
   style={Object {}}
