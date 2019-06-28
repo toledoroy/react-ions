@@ -18,7 +18,7 @@ const ButtonAnchor = props => {
   }
 
   if (props.internal) {
-    buttonAnchor = <Link to={props.path} className={btnAnchorClasses} size={props.size} disabled={props.disabled} onClick={handleClick}>{props.children}</Link>
+    buttonAnchor = <Link to={props.path} className={btnAnchorClasses} size={props.size} disabled={props.disabled} onClick={handleClick} style={props.style} className={props.className}>{props.children}</Link>
   } else {
     buttonAnchor = <a href={props.path} className={btnAnchorClasses} target={props.target} disabled={props.disabled} onClick={handleClick}>{props.children}</a>
   }
@@ -26,6 +26,14 @@ const ButtonAnchor = props => {
 }
 
 ButtonAnchor.propTypes = {
+  /**
+   * A string to allow for inline styles
+   */
+  style: PropTypes.string,
+  /**
+   * A class name to be used for local styles or integrations (required to support styled-components)
+   **/
+  className: PropTypes.string,
   /**
    * Optional styles to add to the button.
    */
