@@ -7,7 +7,7 @@ import classNames from 'classnames/bind'
 const ButtonAnchor = props => {
   const cx = classNames.bind(style)
   const collapseClass = props.collapse ? 'collapse' : null
-  const btnAnchorClasses = cx(style.btn, props.optClass, props.size, collapseClass)
+  const btnAnchorClasses = cx(style.btn, props.optClass, props.className, props.size, collapseClass)
 
   let buttonAnchor
 
@@ -18,7 +18,15 @@ const ButtonAnchor = props => {
   }
 
   if (props.internal) {
-    buttonAnchor = <Link to={props.path} className={btnAnchorClasses} size={props.size} disabled={props.disabled} onClick={handleClick} style={props.style} className={props.className}>{props.children}</Link>
+    buttonAnchor = <Link
+      to={props.path}
+      className={btnAnchorClasses}
+      size={props.size}
+      disabled={props.disabled}
+      onClick={handleClick}
+      style={props.style}>
+        {props.children}
+    </Link>
   } else {
     buttonAnchor = <a href={props.path} className={btnAnchorClasses} target={props.target} disabled={props.disabled} onClick={handleClick}>{props.children}</a>
   }
