@@ -1,3 +1,7 @@
+## 5.1.58
+###### _June 28, 2019_
+- AnchorButton: re-release w/ change to patch className issue [#802](https://github.com/GetAmbassador/react-ions/pull/802)
+
 ## 5.1.57
 ###### _June 28, 2019_
 - AnchorButton: add className and style props [#800](https://github.com/GetAmbassador/react-ions/pull/800)
