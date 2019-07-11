@@ -1,3 +1,7 @@
+## 5.2.1
+###### _July 11, 2019_
+- Re-release 5.2.0
+
 ## 5.2.0
 ###### _July 11, 2019_
 - RadioGroup: explicitly pass the event property through RadioGroup, so as to maintain boolean values (previously converted to a string). [#806](https://github.com/GetAmbassador/react-ions/pull/806)
