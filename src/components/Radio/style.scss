@@ -152,6 +152,14 @@
 }
 
 .radio-group {
+  > label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: $navy-text;
+    font-weight: 200;
+  }
+  
   .radio-component {
     margin-bottom: 15px;
 
