@@ -1,3 +1,7 @@
+## 5.2.0
+###### _July 11, 2019_
+- RadioGroup: explicitly pass the event property through RadioGroup, so as to maintain boolean values (previously converted to a string). [#806](https://github.com/GetAmbassador/react-ions/pull/806)
+
 ## 5.1.58
 ###### _June 28, 2019_
 - AnchorButton: re-release w/ change to patch className issue [#802](https://github.com/GetAmbassador/react-ions/pull/802)

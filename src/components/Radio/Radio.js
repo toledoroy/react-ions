@@ -20,7 +20,12 @@ const Radio = props => {
   const handleChange = event => {
     event.persist()
     if (typeof props.changeCallback === 'function') {
-      props.changeCallback(event, props.value)
+      props.changeCallback({
+        target: {
+          name: props.name,
+          value: props.value
+        }
+      }, props.value)
     }
   }
 
