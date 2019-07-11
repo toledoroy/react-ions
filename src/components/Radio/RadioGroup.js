@@ -80,7 +80,6 @@ class RadioGroup extends React.Component {
   }
 
   handleChange = (event, value) => {
-    event.persist()
     if (value !== this.state.value) {
       this.setState({value: value}, () => {
         this.checkItem(value, this.state.options || this.props.options)
