@@ -50,6 +50,16 @@ If you've cloned the React:ions library, and wish to add/remove Material icons, 
 
 ### To make a Custom Icon available in our apps:
 - Follow the instructions for adding a `Material` icon, however instead you will add to the `mbsy` array, and include a raw `.svg` file here: `/react-ions/src/assets/icons/svg`.
+- Open the new svg in an editor of your choice.
+- Remove the auto-generated code eg: title, desc, <— comments —>.
+- Remove the xml wrapper.
+- Remove any fill attributes from path or group nodes.
+- Save.
+- Run `npm run build:sprite`.
+- Open /docs/src/app/pages/components/Icons/ExampleCustom.js.
+- Replace the name attribute with `mbsy-[new icon name]`.
+- Run `npm start` and hit http://localhost:3000/components/icons.
+- The icon should inherit the custom color and size.
 
 ## License
 This project is licensed under the terms of the [MIT license](LICENSE)
