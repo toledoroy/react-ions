@@ -1,3 +1,7 @@
+## 5.2.2
+###### _July 23, 2019_
+- Add mbsy-test icon [#809](https://github.com/GetAmbassador/react-ions/pull/809)
+
 ## 5.2.1
 ###### _July 11, 2019_
 - Re-release 5.2.0
