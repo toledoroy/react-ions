@@ -1,3 +1,7 @@
+## 5.2.3
+###### _July 23, 2019_
+- Re-release 5.2.2 (svg adjustments) [#811](https://github.com/GetAmbassador/react-ions/pull/811)
+
 ## 5.2.2
 ###### _July 23, 2019_
 - Add mbsy-test icon [#809](https://github.com/GetAmbassador/react-ions/pull/809)
