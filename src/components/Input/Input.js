@@ -55,21 +55,21 @@ class Input extends React.Component {
      */
     name: PropTypes.string,
     /**
-     * Name of the input.
+     * Optional prefix to add to the input.
      */
     prefix: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.node
     ]),
     /**
-     * Optional prefix to add to the input.
+     * Optional suffix to add to the input.
      */
     suffix: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.node
     ]),
     /**
-     * Optional suffix to add to the input.
+     * Optional styles to add to the input.
      */
     optClass: PropTypes.string,
     /**

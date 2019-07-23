@@ -49,7 +49,7 @@ If you've cloned the React:ions library, and wish to add/remove Material icons, 
 - Your icon will be visible in the list.
 
 ### To make a Custom Icon available in our apps:
-- Follow the instructions for adding a `Material` app, however instead you will add to the `mbsy` array, and include a raw `.svg` file here: `/react-ions/src/assets/icons/svg`.
+- Follow the instructions for adding a `Material` icon, however instead you will add to the `mbsy` array, and include a raw `.svg` file here: `/react-ions/src/assets/icons/svg`.
 
 ## License
 This project is licensed under the terms of the [MIT license](LICENSE)
