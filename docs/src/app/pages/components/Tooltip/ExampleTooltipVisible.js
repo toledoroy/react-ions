@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Tooltip from 'react-ions/lib/components/Tooltip'
 import Button from 'react-ions/lib/components/Button'
 
@@ -18,7 +18,7 @@ class ExampleTooltipVisible extends React.Component {
   render = () => {
     return (
       <div>
-        <p>Umami four dollar toast craft beer polaroid <Tooltip tipWrapper='tooltip-visible-by-default' content='Visible tooltip' show={this.state.showing}>
+        <p>Umami four dollar toast craft beer polaroid <Tooltip tipWrapper='tooltip-visible-by-default' content='<Fragment><b>hi</b><br>testing</Fragment>' show={this.state.showing}>
           <a href='#'>visible</a></Tooltip> tooltip.
         </p>
         <Button onClick={this.handleVisibility}>{this.state.showing ? 'Hide' : 'Show'} Tooltip</Button>
