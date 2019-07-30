@@ -208,7 +208,7 @@ class Tooltip extends React.Component {
 
     tipNode.setAttribute('style', styles)
     tipNode.className = tipClass
-    tipNode.textContent = this.props.content
+    tipNode.innerHTML = this.props.content
   }
 
   handleMouseOver = () => {
