@@ -16,10 +16,15 @@ class ExampleTooltipVisible extends React.Component {
   }
 
   render = () => {
+    const sample = 'sample text'
+
     return (
       <div>
-        <p>Umami four dollar toast craft beer polaroid <Tooltip tipWrapper='tooltip-visible-by-default' content='<Fragment><b>hi</b><br>testing</Fragment>' show={this.state.showing}>
-          <a href='#'>visible</a></Tooltip> tooltip.
+        <p>Umami four dollar toast craft beer polaroid
+          <Tooltip tipWrapper='tooltip-visible-by-default' content={`<Fragment><b>Description: </b>${sample}<br/><b>Description: </b>more testing<br/><b>Description: </b>and more testing</Fragment>`} show={this.state.showing}>
+            <a href='#'>visible</a>
+          </Tooltip>
+          tooltip.
         </p>
         <Button onClick={this.handleVisibility}>{this.state.showing ? 'Hide' : 'Show'} Tooltip</Button>
       </div>
