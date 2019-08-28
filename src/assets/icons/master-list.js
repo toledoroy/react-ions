@@ -119,7 +119,8 @@ var list = {
     mbsyPath + '/webhooks.svg#mbsy-webhooks',
     mbsyPath + '/megaphone.svg#mbsy-megaphone',
     mbsyPath + '/ambassabot.svg#mbsy-ambassabot',
-    mbsyPath + '/test.svg#mbsy-test'
+    mbsyPath + '/test.svg#mbsy-test',
+    mbsyPath + '/native_share.svg#mbsy-native-share'
   ]
 }
 
