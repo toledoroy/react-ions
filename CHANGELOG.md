@@ -1,3 +1,7 @@
+## 5.2.4
+###### _August 28, 2019_
+- Add native share icon [#814](https://github.com/GetAmbassador/react-ions/pull/814)
+
 ## 5.2.3
 ###### _July 23, 2019_
 - Re-release 5.2.2 (svg adjustments) [#811](https://github.com/GetAmbassador/react-ions/pull/811)
