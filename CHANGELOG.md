@@ -1,3 +1,7 @@
+## 5.2.5
+###### _September 3, 2019_
+- Display full date in datepicker [#816](https://github.com/GetAmbassador/react-ions/pull/816)
+
 ## 5.2.4
 ###### _August 28, 2019_
 - Add native share icon [#814](https://github.com/GetAmbassador/react-ions/pull/814)
@@ -151,7 +155,7 @@ Chip: Allow full color palette to be rendered [#724](https://github.com/GetAmbas
 ## 5.1.28
 ###### _October 26, 2018_
 - Toggle: add loading state [#716](https://github.com/GetAmbassador/react-ions/pull/716)
-- Buttons: disable hover when not supported [#715](https://github.com/GetAmbassador/react-ions/pull/715)  
+- Buttons: disable hover when not supported [#715](https://github.com/GetAmbassador/react-ions/pull/715)
 - Toggle: add confirmation [#714](https://github.com/GetAmbassador/react-ions/pull/714)
 
 ## 5.1.26
