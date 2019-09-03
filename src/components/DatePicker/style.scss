@@ -12,7 +12,6 @@
 
   .datepicker > div {
     &:first-of-type {
-      width: 70px;
       > div {
         border-radius: 3px 0 0 3px;
 
@@ -22,7 +21,6 @@
       }
     }
     &:nth-of-type(2) {
-      width: 60px;
       margin-left: -2px;
       > div {
         border-radius: 0;
@@ -34,13 +32,15 @@
       }
     }
     &:nth-of-type(3) {
-      width: 75px;
       margin-left: -2px;
       > div {
         border-radius: 0 3px 3px 0;
 
         @media #{$media-small-minus} {
           border-radius: 0 0 3px 3px;
+        }
+        > span {
+          overflow: visible;
         }
       }
 
