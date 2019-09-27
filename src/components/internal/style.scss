@@ -19,10 +19,11 @@
   > li {
     align-items: center;
     background-color: $neutral-2;
+    border-radius: 3px;
     display: flex;
     justify-content: space-between;
     margin: 8px 8px 0 0;
-    padding: 10px 8px;
+    padding: 8px 12px;
   }
 
   svg {
