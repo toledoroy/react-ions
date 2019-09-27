@@ -27,7 +27,13 @@ class ExampleMultiSelectField extends React.Component {
       {value: '0', display: 'Test 1'},
       {value: '1', display: 'Test 2'},
       {value: '2', display: 'Test 3'},
-      {value: '3', display: 'Test 4'}
+      {value: '3', display: 'Test 4'},
+      {value: '4', display: 'Test 5'},
+      {value: '5', display: 'Test 6'},
+      {value: '6', display: 'Test 7'},
+      {value: '7', display: 'Test 8'},
+      {value: '8', display: 'Test 9'},
+      {value: '9', display: 'Test 10'}
     ]
 
     return (
