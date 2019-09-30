@@ -1,3 +1,7 @@
+## 5.2.6
+###### _September 30, 2019_
+- Update TagList UI [#818](https://github.com/GetAmbassador/react-ions/pull/818)
+
 ## 5.2.5
 ###### _September 3, 2019_
 - Display full date in datepicker [#816](https://github.com/GetAmbassador/react-ions/pull/816)
