@@ -29,7 +29,6 @@ class ExampleBottomPopover extends React.Component {
     <StyledDiv css={{ display: 'flex', justifyContent: 'space-around' }}>
       <Popover
         showing={this.state.showing}
-        defaultPosition='bottom'
         content={this.getPopoverContent()}
         maxHeight='280px'
         onRequestClose={this.togglePopover}

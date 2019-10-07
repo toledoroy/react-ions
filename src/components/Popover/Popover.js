@@ -96,16 +96,16 @@ export class Popover extends Component {
     <StyledDiv
       css={styles({ ...this.props, ...this.state, parent: this._parentRect })}
       className={[this.props.optClass, this.props.className].join(' ').trim()}
-      innerRef={p => {this._popoverWrapper = p}}
-    >
+      innerRef={p => {this._popoverWrapper = p}}>
+
       <div
         className='popoverInner'
-        ref={c => (this._popoverElement = c)}
-      >
+        ref={c => (this._popoverElement = c)}>
         <div className='popoverContent'>
           {this.props.content}
         </div>
       </div>
+
       {this.props.children}
 
     </StyledDiv>
