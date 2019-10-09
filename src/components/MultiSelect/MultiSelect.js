@@ -29,7 +29,7 @@ class MultiSelect extends React.Component {
     /**
      * Which field in the option object will be used as the value of the MultiSelect component.
      */
-    valueProp: PropTypes.string.isRequired,
+    valueProp: PropTypes.string,
     /**
      * Which field in the option object will be used as the display of the MultiSelect component.
      */
@@ -107,8 +107,8 @@ class MultiSelect extends React.Component {
   getSelectedOptions = values => {
     let selectedOptions = []
 
-    values.map((value, index) => {
-      this.props.options.map((option, index) => {
+    values.map(value => {
+      this.props.options.map(option => {
         if (option[this.props.valueProp] === value) {
           selectedOptions.push(option)
         }

@@ -31,9 +31,10 @@ export class SelectField extends React.Component {
      */
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /**
-     * Which field in the option object will be used as the value of the select field.
+     * Which field in the option object will be used as the value of the select field. If left empty, the selected 
+     * "option" will be returned.
      */
-    valueProp: PropTypes.string.isRequired,
+    valueProp: PropTypes.string,
     /**
      * Which field in the option object will be used as the display of the select field.
      */
@@ -112,12 +113,14 @@ export class SelectField extends React.Component {
   }
 
   selectOption = (option, triggerCallback) => {
-    this.setState({ selected: option, value: option[this.props.valueProp], isOpen: false }, () => {
+    const value = this.props.valueProp ? option[this.props.valueProp] : option
+    
+    this.setState({ selected: option, value: value, isOpen: false }, () => {
       if (triggerCallback && typeof this.props.changeCallback === 'function') {
         this.props.changeCallback({
           target: {
             name: this.props.name,
-            value: option[this.props.valueProp],
+            value: value,
             option: option
           }
         })
@@ -162,7 +165,6 @@ export class SelectField extends React.Component {
       return <Icon name={this.props.icon} className={style.icon} height='16' width='16' />
     }
     return null
-
   }
 
   render() {
@@ -200,7 +202,7 @@ export class SelectField extends React.Component {
     let value = ''
 
     if (this.state.selected) {
-      value = this.state.selected[valueProp]
+      value = this.state.selected[valueProp] || {}
     }
 
     return (

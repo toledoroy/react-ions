@@ -25,7 +25,7 @@ const ExampleSelectFieldDefault = () => (
     options={options}
     valueProp='value'
     displayProp='display'
-    value={null}/>
+    value={null }/>
 )
 
 export default ExampleSelectFieldDefault
