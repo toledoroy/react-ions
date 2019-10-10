@@ -3,7 +3,7 @@ import { zLayers } from '../../styles/common/functions.css'
 
 const styles = ({
   showing,
-  position = 'bottom',
+  position,
   parent = { width: 0, height: 0 },
   width = '300px'
 }) => {
@@ -14,21 +14,46 @@ const styles = ({
       ? parent.width
       : parent.height
   ) + 20}px`
-  const popoverTransform =
-    position === 'left' || position === 'right'
-      ? `translateY(calc(-50% + ${parent.height / 2}px))`
-      : `translateX(calc(-50% + ${parent.width / 2}px))`
+
+  let popoverTransform
+  if (position === 'left' || position === 'right') {
+    popoverTransform = `translateY(calc(-50% + ${parent.height / 2}px))`
+  }
+  else if (position === 'topLeft') {
+    popoverTransform = `translateX(calc(-50% + 20px))`
+  }
+  else if (position === 'topRight') {
+    popoverTransform = `translateX(-32px)`
+  }
+  else if (position === 'bottomLeft') {
+    popoverTransform = `translateX(calc(-50% + 20px))`
+  }
+  else if (position === 'bottomRight') {
+    popoverTransform = `translateX(-32px)`
+  }
+  else {
+    popoverTransform = `translateX(calc(-50% + ${parent.width / 2}px))`
+  }
+
   const caretPos = {
     left: { right: caretOffset, bottom: caretCenter },
     right: { left: caretOffset, bottom: caretCenter },
     top: { left: caretCenter, bottom: caretOffset },
-    bottom: { left: caretCenter, top: caretOffset }
+    bottom: { left: caretCenter, top: caretOffset },
+    topLeft: { left: caretCenter, bottom: caretOffset },
+    topRight: { left: caretCenter, bottom: caretOffset },
+    bottomLeft: { left: caretCenter, top: caretOffset },
+    bottomRight: { left: caretCenter, top: caretOffset }
   }
   const popoverPos = {
     left: { right: popoverOffset, transform: popoverTransform },
     right: { left: popoverOffset, transform: popoverTransform },
     top: { bottom: popoverOffset, transform: popoverTransform },
-    bottom: { top: popoverOffset, transform: popoverTransform }
+    bottom: { top: popoverOffset, transform: popoverTransform },
+    topLeft: { bottom: popoverOffset, transform: popoverTransform },
+    topRight: { bottom: popoverOffset, transform: popoverTransform },
+    bottomLeft: { top: popoverOffset, transform: popoverTransform },
+    bottomRight: { top: popoverOffset, transform: popoverTransform }
   }
 
   return {

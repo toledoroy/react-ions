@@ -20,7 +20,7 @@ export class Popover extends Component {
     /**
      * The default position of the popover.
      */
-    defaultPosition: PropTypes.oneOf(['top', 'bottom', 'right', 'left']),
+    defaultPosition: PropTypes.oneOf(['top', 'bottom', 'right', 'left', 'topLeft', 'bottomLeft', 'bottomRight', 'topRight']),
     /**
      * The content to display inside the popover.
      */
@@ -57,6 +57,10 @@ export class Popover extends Component {
     this.forceUpdate()
   }
 
+  componentWillReceiveProps = nextProps => {
+    this.setState({ position: nextProps.defaultPosition })
+  }
+
   componentDidUpdate = (prevProps, prevState) => {
     this.updateRect()
 
@@ -75,8 +79,20 @@ export class Popover extends Component {
       case 'top':
         if (this._boundingRect.top < 0) return 'bottom'
         break
+      case 'topLeft':
+        if (this._boundingRect.top < 0) return 'bottomLeft'
+        break
+      case 'topRight':
+        if (this._boundingRect.top < 0) return 'bottomRight'
+        break
       case 'bottom':
         if (this._boundingRect.bottom > window.innerHeight) return 'top'
+        break
+      case 'bottomLeft':
+        if (this._boundingRect.bottom > window.innerHeight) return 'topLeft'
+        break
+      case 'bottomRight':
+        if (this._boundingRect.bottom > window.innerHeight) return 'topRight'
         break
       case 'left':
         if (this._boundingRect.left < 0) return 'right'
@@ -85,6 +101,7 @@ export class Popover extends Component {
         if (this._boundingRect.right > window.innerWidth) return 'left'
         break
     }
+
     return defaultPosition
   }
 
