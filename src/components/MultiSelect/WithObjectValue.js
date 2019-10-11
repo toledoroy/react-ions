@@ -39,7 +39,10 @@ export const WithObjectValue = WrappedComponent => class extends Component {
     if (typeof this.props.changeCallback === 'function') {
       this.props.changeCallback({
         ...event,
-        value: this.inflate(event.target.value)
+        target: {
+          ...event.target,
+          value: this.inflate(event.target.value)
+        }
       })
     }
   }
