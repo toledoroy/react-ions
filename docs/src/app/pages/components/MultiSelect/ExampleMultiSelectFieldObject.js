@@ -16,8 +16,8 @@ class ExampleMultiSelectFieldObject extends React.Component {
     super(props)
   }
 
-  handleChange = value => {
-    console.log(value.target.options)
+  handleChange = event => {
+    console.log(event.target.value)
   }
 
   render() {
