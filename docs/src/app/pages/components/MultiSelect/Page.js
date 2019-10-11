@@ -8,12 +8,16 @@ import ExampleMultiTypeahead from './ExampleMultiTypeahead'
 import exampleMultiTypeaheadCode from '!raw!./ExampleMultiTypeahead'
 import ExampleMultiTypeaheadSearch from './ExampleMultiTypeaheadSearch'
 import exampleMultiTypeaheadSearchCode from '!raw!./ExampleMultiTypeaheadSearch'
+import ExampleMultiSelectFieldObject from './ExampleMultiSelectFieldObject'
+import exampleMultiSelectFieldObjectCode from '!raw!./ExampleMultiSelectFieldObject'
+
 import styles from 'private/css/content'
 
 const description = {
   multiSelectField: 'This is the `multi select field component`.',
   multiTypeahead: 'This is the `multi typeahead component`.',
-  multiTypeaheadSearch: 'This is the `multi typeahead component` with `searchCallback`.'
+  multiTypeaheadSearch: 'This is the `multi typeahead component` with `searchCallback`.',
+  multiSelectFieldObject: 'This is the `multi select field component` with an HOC that returns the original selected object, instead of the value.',
 }
 
 const SelectFieldPage = () => (
@@ -37,6 +41,12 @@ const SelectFieldPage = () => (
           description={description.multiTypeaheadSearch}
           markup={exampleMultiTypeaheadSearchCode}>
           <ExampleMultiTypeaheadSearch />
+        </CodeExample>
+        <CodeExample
+          title='Multi Typeahead with return object value'
+          description={description.multiSelectFieldObject}
+          markup={exampleMultiSelectFieldObjectCode}>
+          <ExampleMultiSelectFieldObject />
         </CodeExample>
         <div className={styles.block}>
           <h3>Props</h3>
