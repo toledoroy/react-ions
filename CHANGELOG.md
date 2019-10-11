@@ -1,6 +1,6 @@
 ## 5.2.7
 ###### _October 11, 2019_
-- Update MultiSelect and Select to use full object [#820](https://github.com/GetAmbassador/react-ions/pull/820)
+- Add MultiSelect HOC to return full object [#820](https://github.com/GetAmbassador/react-ions/pull/820)
 
 ## 5.2.6
 ###### _September 30, 2019_
