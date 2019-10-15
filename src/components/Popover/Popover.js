@@ -57,10 +57,6 @@ export class Popover extends Component {
     this.forceUpdate()
   }
 
-  componentWillReceiveProps = nextProps => {
-    this.setState({ position: nextProps.defaultPosition })
-  }
-
   componentDidUpdate = (prevProps, prevState) => {
     this.updateRect()
 
