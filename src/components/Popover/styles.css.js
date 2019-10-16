@@ -19,19 +19,7 @@ const styles = ({
   if (position === 'left' || position === 'right') {
     popoverTransform = `translateY(calc(-50% + ${parent.height / 2}px))`
   }
-  else if (position === 'topLeft') {
-    popoverTransform = `translateX(calc(-50% + 20px))`
-  }
-  else if (position === 'topRight') {
-    popoverTransform = `translateX(-32px)`
-  }
-  else if (position === 'bottomLeft') {
-    popoverTransform = `translateX(calc(-50% + 20px))`
-  }
-  else if (position === 'bottomRight') {
-    popoverTransform = `translateX(-32px)`
-  }
-  else {
+  else if (position === 'top' || position === 'bottom') {
     popoverTransform = `translateX(calc(-50% + ${parent.width / 2}px))`
   }
 
@@ -50,10 +38,10 @@ const styles = ({
     right: { left: popoverOffset, transform: popoverTransform },
     top: { bottom: popoverOffset, transform: popoverTransform },
     bottom: { top: popoverOffset, transform: popoverTransform },
-    topLeft: { bottom: popoverOffset, transform: popoverTransform },
-    topRight: { bottom: popoverOffset, transform: popoverTransform },
-    bottomLeft: { top: popoverOffset, transform: popoverTransform },
-    bottomRight: { top: popoverOffset, transform: popoverTransform }
+    topLeft: { bottom: popoverOffset, left: 0 },
+    topRight: { bottom: popoverOffset, right: 0 },
+    bottomLeft: { top: popoverOffset, left: 0 },
+    bottomRight: { top: popoverOffset, right: 0 }
   }
 
   return {
