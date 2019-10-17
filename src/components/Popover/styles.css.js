@@ -38,10 +38,10 @@ const styles = ({
     right: { left: popoverOffset, transform: popoverTransform },
     top: { bottom: popoverOffset, transform: popoverTransform },
     bottom: { top: popoverOffset, transform: popoverTransform },
-    topLeft: { bottom: popoverOffset, left: 0 },
-    topRight: { bottom: popoverOffset, right: 0 },
-    bottomLeft: { top: popoverOffset, left: 0 },
-    bottomRight: { top: popoverOffset, right: 0 }
+    topLeft: { bottom: popoverOffset, right: 0 },
+    topRight: { bottom: popoverOffset, left: 0 },
+    bottomLeft: { top: popoverOffset, right: 0 },
+    bottomRight: { top: popoverOffset, left: 0 }
   }
 
   return {
@@ -62,7 +62,7 @@ const styles = ({
       zIndex: zLayers.popover,
 
       '&:before': {
-        backgroundColor: colors.white,
+        backgroundColor: colors.red,
         borderRadius: '3px',
         content: '" "',
         height: '20px',
