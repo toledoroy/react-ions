@@ -62,7 +62,7 @@ const styles = ({
       zIndex: zLayers.popover,
 
       '&:before': {
-        backgroundColor: colors.red,
+        backgroundColor: colors.white,
         borderRadius: '3px',
         content: '" "',
         height: '20px',
