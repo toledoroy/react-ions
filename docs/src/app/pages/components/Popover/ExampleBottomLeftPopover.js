@@ -32,12 +32,11 @@ class ExampleBottomLeftPopover extends React.Component {
         defaultPosition='bottomLeft'
         content={this.getPopoverContent()}
         maxHeight='280px'
-        onRequestClose={this.togglePopover}>
-
+        onRequestClose={this.togglePopover}
+      >
         <Button onClick={this.togglePopover}>
           { this.state.showing.left ? 'Close' : 'Open' } Bottom Left popover
         </Button>
-
       </Popover>
     </StyledDiv>
   )
