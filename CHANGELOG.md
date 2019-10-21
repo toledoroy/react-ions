@@ -1,3 +1,7 @@
+## 5.2.7
+###### _October 11, 2019_
+- Add MultiSelect HOC to return full object [#820](https://github.com/GetAmbassador/react-ions/pull/820)
+
 ## 5.2.6
 ###### _September 30, 2019_
 - Update TagList UI [#818](https://github.com/GetAmbassador/react-ions/pull/818)
