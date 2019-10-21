@@ -89,5 +89,12 @@ describe('Popover', () => {
       expect(renderedStyle.right).to.equal('120px')
       expect(renderedStyle.transform).to.equal('translateY(calc(-50% + 25px))')
     })
+
+    it('is on the topLeft when position is topLeft', () => {
+      const renderedStyle = styles({ ...props, position: 'topLeft' })['> .popoverInner']
+
+      expect(renderedStyle.right).to.equal(0)
+      expect(renderedStyle.bottom).to.equal('70px')
+    })
   })
 })

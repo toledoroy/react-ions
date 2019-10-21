@@ -20,7 +20,7 @@ export class Popover extends Component {
     /**
      * The default position of the popover.
      */
-    defaultPosition: PropTypes.oneOf(['top', 'bottom', 'right', 'left']),
+    defaultPosition: PropTypes.oneOf(['top', 'bottom', 'right', 'left', 'topLeft', 'bottomLeft', 'bottomRight', 'topRight']),
     /**
      * The content to display inside the popover.
      */
@@ -75,8 +75,20 @@ export class Popover extends Component {
       case 'top':
         if (this._boundingRect.top < 0) return 'bottom'
         break
+      case 'topLeft':
+        if (this._boundingRect.top < 0) return 'bottomLeft'
+        break
+      case 'topRight':
+        if (this._boundingRect.top < 0) return 'bottomRight'
+        break
       case 'bottom':
         if (this._boundingRect.bottom > window.innerHeight) return 'top'
+        break
+      case 'bottomLeft':
+        if (this._boundingRect.bottom > window.innerHeight) return 'topLeft'
+        break
+      case 'bottomRight':
+        if (this._boundingRect.bottom > window.innerHeight) return 'topRight'
         break
       case 'left':
         if (this._boundingRect.left < 0) return 'right'
@@ -85,6 +97,7 @@ export class Popover extends Component {
         if (this._boundingRect.right > window.innerWidth) return 'left'
         break
     }
+
     return defaultPosition
   }
 
@@ -96,16 +109,16 @@ export class Popover extends Component {
     <StyledDiv
       css={styles({ ...this.props, ...this.state, parent: this._parentRect })}
       className={[this.props.optClass, this.props.className].join(' ').trim()}
-      innerRef={p => {this._popoverWrapper = p}}
-    >
+      innerRef={p => {this._popoverWrapper = p}}>
+
       <div
         className='popoverInner'
-        ref={c => (this._popoverElement = c)}
-      >
+        ref={c => (this._popoverElement = c)}>
         <div className='popoverContent'>
           {this.props.content}
         </div>
       </div>
+
       {this.props.children}
 
     </StyledDiv>
