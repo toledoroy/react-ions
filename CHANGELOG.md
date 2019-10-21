@@ -1,6 +1,12 @@
+## 5.2.8
+###### _October 21, 2019_
+- Add new positioning options for Popover [#820](https://github.com/GetAmbassador/react-ions/pull/820)
+- Bump eslint version [#808](https://github.com/GetAmbassador/react-ions/pull/808)
+- Ensure taglist does not display when empty [#824](https://github.com/GetAmbassador/react-ions/pull/824)
+
 ## 5.2.7
 ###### _October 11, 2019_
-- Add MultiSelect HOC to return full object [#820](https://github.com/GetAmbassador/react-ions/pull/820)
+- Add MultiSelect HOC to return full object [#822](https://github.com/GetAmbassador/react-ions/pull/822)
 
 ## 5.2.6
 ###### _September 30, 2019_
