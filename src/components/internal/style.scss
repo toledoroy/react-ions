@@ -9,6 +9,10 @@
   list-style: none;
   margin-top: 0;
   padding: 0;
+  
+  &:empty {
+    display: none;
+  }
 
   .text {
     margin-right: 8px;
