@@ -68,6 +68,7 @@ export class Popover extends Component {
   updateRect = () => {
     this._parentRect = this._popoverWrapper && this._popoverWrapper.getBoundingClientRect()
     this._boundingRect = this._popoverWrapper && this._popoverElement.getBoundingClientRect()
+    this._childRect = this._childWrapper && this._childWrapper.getBoundingClientRect()
   }
 
   getPosition = defaultPosition => {
@@ -107,7 +108,7 @@ export class Popover extends Component {
 
   render = () => (
     <StyledDiv
-      css={styles({ ...this.props, ...this.state, parent: this._parentRect })}
+      css={styles({ ...this.props, ...this.state, parent: this._parentRect, child: this._childRect })}
       className={[this.props.optClass, this.props.className].join(' ').trim()}
       innerRef={p => {this._popoverWrapper = p}}>
 
@@ -119,7 +120,9 @@ export class Popover extends Component {
         </div>
       </div>
 
-      {this.props.children}
+      <div ref={c => (this._childWrapper = c)}>
+        {this.props.children}
+      </div>
 
     </StyledDiv>
   )

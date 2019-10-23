@@ -5,10 +5,14 @@ const styles = ({
   showing,
   position,
   parent = { width: 0, height: 0 },
+  child = { width: 0, height: 0 },
   width = '300px'
 }) => {
+  const caretCenter =
+    position === 'top' || position === 'bottom' || position === 'right' || position === 'left'
+      ? 'calc(50% - 10px)'
+      : `${(child.width / 2)-10}px`
   const caretOffset = '-10px'
-  const caretCenter = 'calc(50% - 10px)'
   const popoverOffset = `${Math.ceil(
     position === 'left' || position === 'right'
       ? parent.width
@@ -28,9 +32,9 @@ const styles = ({
     right: { left: caretOffset, bottom: caretCenter },
     top: { left: caretCenter, bottom: caretOffset },
     bottom: { left: caretCenter, top: caretOffset },
-    topLeft: { left: caretCenter, bottom: caretOffset },
+    topLeft: { right: caretCenter, bottom: caretOffset },
     topRight: { left: caretCenter, bottom: caretOffset },
-    bottomLeft: { left: caretCenter, top: caretOffset },
+    bottomLeft: { right: caretCenter, top: caretOffset },
     bottomRight: { left: caretCenter, top: caretOffset }
   }
   const popoverPos = {
