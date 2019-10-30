@@ -1,3 +1,7 @@
+## 5.2.9
+###### _October 30, 2019_
+- Popover: adjust positioning of caret [#826](https://github.com/GetAmbassador/react-ions/pull/826)
+
 ## 5.2.8
 ###### _October 21, 2019_
 - Add new positioning options for Popover [#820](https://github.com/GetAmbassador/react-ions/pull/820)
