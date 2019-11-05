@@ -86,6 +86,11 @@ const styles = ({
       // eg: buttons are implemented in a child component
       'button em': {
         display: 'block'
+      },
+
+      // Handle this automatically, to allow header to flow better      
+      'h1, h2': {
+        margin: '0 0 16px'
       }
     }
   }
