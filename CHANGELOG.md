@@ -1,3 +1,8 @@
+## 5.2.10
+###### _November 5, 2019_
+- Popover: adding default margins to h1, h2 tags within content [#828](https://github.com/GetAmbassador/react-ions/pull/828)
+- Form Validation: additional helper field `FormError` to allow rendering error with border only [#828](https://github.com/GetAmbassador/react-ions/pull/828)
+
 ## 5.2.9
 ###### _October 30, 2019_
 - Popover: adjust positioning of caret [#826](https://github.com/GetAmbassador/react-ions/pull/826)
