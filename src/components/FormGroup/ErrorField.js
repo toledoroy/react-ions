@@ -17,11 +17,6 @@ const ValidatedField = WrappedComponent => {
       return (
         <div className={validatedFieldClass}>
           <WrappedComponent {...fieldProps} />
-          {fieldProps.error &&
-            <span className={style['has-error__message']}>
-              {fieldProps.error}
-            </span>
-          }
         </div>
       )
     }
