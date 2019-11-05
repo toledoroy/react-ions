@@ -18,7 +18,7 @@ class ExampleBottomPopover extends React.Component {
   }
 
   getPopoverContent = () => (
-    <div className={localStyle['popover-wrapper']}>
+    <div>
       <h1>Lorem ipsum dolor sit amet.</h1>
       <p>Lorem ipsum dolor sit amet, consectetur.</p>
       <Button onClick={this.togglePopover} optClass={localStyle['popover-btn']}>Close</Button>
