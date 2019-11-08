@@ -108,7 +108,7 @@ export class Typeahead extends React.Component {
     searchStr: this.props.value || ''
   }
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     if (typeof this.state.value !== 'undefined' && this.state.value !== '' && this.getIndex(this.state.value, this.props.options) > -1) {
       this.selectItem(this.state.value, this.props.options)
     } else {
@@ -116,7 +116,7 @@ export class Typeahead extends React.Component {
     }
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     const { allowCustomValue, changeCallback } = this.props
     const valueIsEmpty = nextProps.value === ''
     const valueChanged = nextProps.value !== this.state.value

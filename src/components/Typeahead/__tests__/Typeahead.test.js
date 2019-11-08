@@ -178,6 +178,6 @@ it('should set state when the value changes and a custom value is allowed', () =
   wrapper = shallow(<Typeahead name='typeahead' options={options} valueProp='value' displayProp='display' allowCustomValue={true} changeCallback={changeCallback} />)
   const inst = wrapper.instance()
 
-  inst.componentWillReceiveProps({ value: 'a random string', options })
+  inst.UNSAFE_componentWillReceiveProps({ value: 'a random string', options })
   expect(wrapper.state().value).toEqual('a random string')
 })

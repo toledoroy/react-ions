@@ -77,7 +77,7 @@ class Checkbox extends React.Component {
     }
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     let newState = {}
 
     if (nextProps.value !== this.props.value) {

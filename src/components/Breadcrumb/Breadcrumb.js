@@ -44,7 +44,7 @@ class Breadcrumb extends React.Component {
     routes: Immutable.fromJS(this.props.routes)
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     this.setState({
       routes: Immutable.fromJS(nextProps.routes)
     })

@@ -71,7 +71,7 @@ export class SortableList extends React.Component {
     window.removeEventListener('resize', this.handleResize)
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     this.setState({ items: nextProps.items })
   }
 

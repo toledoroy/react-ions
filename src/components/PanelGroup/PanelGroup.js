@@ -41,7 +41,7 @@ class PanelGroup extends React.Component {
     panels: []
   }
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     this.setInitialState()
   }
 
@@ -64,7 +64,7 @@ class PanelGroup extends React.Component {
     this.activatePanels(this.props.activePanels)
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     this.activatePanels(nextProps.activePanels)
   }
 
