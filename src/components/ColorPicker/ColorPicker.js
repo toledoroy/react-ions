@@ -44,13 +44,13 @@ export class ColorPicker extends React.Component {
     optClass: PropTypes.string
   }
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     if (typeof this.props.value !== 'undefined') {
       this.setState({color: this.props.value})
     }
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     if (nextProps.value !== this.props.value) {
       this.setState({ color: nextProps.value })
     }
