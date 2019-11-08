@@ -227,7 +227,7 @@ describe.skip('Tooltip', () => {
     inst = wrapper.instance()
     const showTipStub = sinon.stub(inst, 'showTip')
 
-    inst.componentWillReceiveProps({ show: true })
+    inst.UNSAFE_componentWillReceiveProps({ show: true })
     expect(showTipStub.called).to.be.true
   })
 
@@ -238,7 +238,7 @@ describe.skip('Tooltip', () => {
 
     wrapper.setState({ showing: true })
 
-    inst.componentWillReceiveProps({ show: true, content: 'test' })
+    inst.UNSAFE_componentWillReceiveProps({ show: true, content: 'test' })
     expect(showTipStub.called).to.be.true
   })
 
@@ -247,7 +247,7 @@ describe.skip('Tooltip', () => {
     inst = wrapper.instance()
     const showTipStub = sinon.stub(inst, 'showTip')
 
-    inst.componentWillReceiveProps({ show: false, content: 'test' })
+    inst.UNSAFE_componentWillReceiveProps({ show: false, content: 'test' })
     expect(showTipStub.called).to.be.false
   })
 
@@ -258,7 +258,7 @@ describe.skip('Tooltip', () => {
 
     wrapper.setState({ showing: true })
 
-    inst.componentWillReceiveProps({ show: false })
+    inst.UNSAFE_componentWillReceiveProps({ show: false })
     expect(hideTipStub.called).to.be.true
   })
 })
