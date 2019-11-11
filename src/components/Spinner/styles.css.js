@@ -1,4 +1,4 @@
-import { keyframes } from 'styled-components'
+import { keyframes, css } from 'styled-components'
 import colors from '../../styles/common/colors.css'
 import { zLayers } from '../../styles/common/functions.css'
 
@@ -8,6 +8,16 @@ const dotsRotate = keyframes`
   }
 `
 
+css`@keyframes example {
+  100% {
+    transform: rotate(360deg);
+  }
+}`
+
+const dotsRotateAnimation = () => {
+  css`${ dotsRotate } 2.0s infinite linear`
+}
+
 const dotsBounce = keyframes`
   0%, 100% {
     transform: scale(0.0);
@@ -15,6 +25,10 @@ const dotsBounce = keyframes`
     transform: scale(1.0);
   }
 `
+
+const dotsBounceAnimation = () => {
+  css`${dotsBounce} 2.0s infinite ease-in-out`
+}
 
 const bounceDelay = keyframes`
   0%, 80%, 100% {
@@ -24,6 +38,10 @@ const bounceDelay = keyframes`
   }
 `
 
+const bounceDelayAnimation = () => {
+  css`${bounceDelay} 1.4s infinite ease-in-out both`
+}
+
 const ring = keyframes`
   0% {
     transform: rotate(0deg);
@@ -32,6 +50,10 @@ const ring = keyframes`
     transform: rotate(1turn);
   }
 `
+
+const ringAnimation = () => {
+  css`${ring} .5s linear infinite`
+}
 
 const sharedSpinnerSettings = {
   alignItems: 'center',
@@ -72,13 +94,13 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
     ...hiddenStyles(!loading),
 
     '.spinner-dots': {
-      animation: `${dotsRotate} 2.0s infinite linear`,
+      animation: `${dotsRotateAnimation}`,
       height: `${size || 40}px`,
       position: 'relative',
       width: `${size || 40}px`,
 
       '.dot1, .dot2': {
-        animation: `${dotsBounce} 2.0s infinite ease-in-out`,
+        animation: `${dotsBounceAnimation}`,
         backgroundColor: color || colors.primary_1,
         borderRadius: '100%',
         display: 'inline-block',
@@ -97,7 +119,7 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
 
     '.spinner-bounce': {
       '.bounce1, .bounce2, .bounce3': {
-        animation: `${bounceDelay} 1.4s infinite ease-in-out both`,
+        animation: `${bounceDelayAnimation}`,
         backgroundColor: color || colors.neutral_4,
         borderRadius: '100%',
         display: 'inline-block',
@@ -129,7 +151,7 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
         verticalAlign: 'middle'
       },
       '.sc-inner-animation': {
-        animation: `${ring} .5s linear infinite`
+        animation: `${ringAnimation}`
       },
       '.sc-inner svg': {
         display: 'block'

@@ -125,8 +125,8 @@ class Spinner extends React.Component {
   }
 
   render = () => {
-    const { backgroundColor, className, color, optClass, position, size, type } = this.props
-    const { loading } = this.state
+    const { backgroundColor, className, color, optClass, position, size, type } = this.props;
+    const { loading } = this.state;
 
     return (
       <StyledSpan
