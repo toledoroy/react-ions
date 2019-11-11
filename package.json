@@ -146,13 +146,14 @@
     "postcss-load-config": "1.1.0",
     "postcss-loader": "1.2.2",
     "raw-loader": "~0.5.1",
-    "react": "16.11.0",
+    "react": "^16.11.0",
+    "react-codemod": "^5.1.1",
     "react-dnd-test-backend": "~1.0.2",
     "react-docgen": "2.20.0",
-    "react-dom": "16.11.0",
+    "react-dom": "^16.11.0",
     "react-highlight": "~0.8.0",
     "react-svg-inline": "~1.1.0",
-    "react-test-renderer": "16.2.0",
+    "react-test-renderer": "^16.11.0",
     "react-transform-hmr": "~1.0.0",
     "rewire": "~2.5.2",
     "rewire-webpack": "~1.0.1",
@@ -170,7 +171,7 @@
   },
   "peerDependencies": {
     "styled-components": ">= 2.0.0",
-    "react": ">= 15.3.0 <= 16.2.0",
-    "react-dom": ">= 15.3.0 <= 16.2.0"
+    "react": ">= 15.3.0 <= 16.9.0",
+    "react-dom": ">= 15.3.0 <= 16.9.0"
   }
 }
