@@ -147,6 +147,7 @@
     "postcss-loader": "1.2.2",
     "raw-loader": "~0.5.1",
     "react": "16.9.0",
+    "react-codemod": "^5.1.1",
     "react-dnd-test-backend": "~1.0.2",
     "react-docgen": "2.20.0",
     "react-dom": "16.2.1",
@@ -170,7 +171,7 @@
   },
   "peerDependencies": {
     "styled-components": ">= 2.0.0",
-    "react": ">= 15.3.0 <= 16.2.0",
-    "react-dom": ">= 15.3.0 <= 16.2.0"
+    "react": ">= 15.3.0 <= 16.9.0",
+    "react-dom": ">= 15.3.0 <= 16.9.0"
   }
 }
