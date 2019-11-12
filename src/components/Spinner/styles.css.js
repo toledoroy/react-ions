@@ -42,10 +42,10 @@ const sharedSpinnerSettings = `
   top: 0;
 `
 
-const loadingStyles = loading => loading ? { display: 'flex' } : {}
-const hiddenStyles = hidden => hidden ? { display: 'none' } : {}
+const loadingStyles = loading => loading ? `display: flex;` : ``
+const hiddenStyles = hidden => hidden ? `display: none;` : ``
 const positionStyles = position => {
-  if (position === 'inline') return ` display: inline-flex;`
+  if (position === 'inline') return `display: inline-flex;`
   if (position === 'fixed') {
     return `
       ${sharedSpinnerSettings}
@@ -77,9 +77,8 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
       width: ${size || 40}px;
     }
 
-    .spinner-dots .dot2 {
+    .spinner-dots .dot1, .dot2 {
       animation: ${dotsBounce} 2.0s infinite ease-in-out;
-      background-color: ${color || colors.primary_1};
       border-radius: 100%;
       display: inline-block;
       height: 60%;
@@ -89,44 +88,20 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
     }
 
     .spinner-dots .dot1 {
-      animation: ${dotsBounce} 2.0s infinite ease-in-out;
       background-color: ${color || colors.primary_1};
-      border-radius: 100%;
-      display: inline-block;
       height: 60%;
-      position: absolute;
       top: 0;
-      width: 60%;
     }
 
     .spinner-dots .dot2 {
       animation-delay: -1.0s;
       background-color: ${color || colors.danger};
       bottom: 0;
+      height: 60%;
       top: auto;
     }
 
-    .spinner-bounce .bounce1 .bounce2 .bounce3 {
-      animation: ${bounceDelay} 1.4s infinite ease-in-out both;
-      background-color: ${color || colors.neutral_4};
-      border-radius: 100%;
-      display: inline-block;
-      height: ${size || 12}px;
-      margin-right: 3px;
-      width: ${size || 12}px;
-    }
-
-    .spinner-bounce .bounce2 {
-      animation: ${bounceDelay} 1.4s infinite ease-in-out both;
-      background-color: ${color || colors.neutral_4};
-      border-radius: 100%;
-      display: inline-block;
-      height: ${size || 12}px;
-      margin-right: 3px;
-      width: ${size || 12}px;
-    }
-
-    .spinner-bounce .bounce3 {
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
       animation: ${bounceDelay} 1.4s infinite ease-in-out both;
       background-color: ${color || colors.neutral_4};
       border-radius: 100%;
@@ -186,91 +161,6 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
         stroke: rgba(92, 112, 128, .2);
     }
   `
-  // return {
-  //   backgroundColor: backgroundColor || colors.white,
-  //   display: 'none',
-
-  //   ...loadingStyles(loading),
-  //   ...positionStyles(position),
-  //   ...hiddenStyles(!loading),
-
-  //   '.spinner-dots': {
-  //     animation: css`${dotsRotate} 2.0s infinite linear`,
-  //     height: `${size || 40}px`,
-  //     position: 'relative',
-  //     width: `${size || 40}px`,
-
-  //     '.dot1, .dot2': {
-  //       animation: css`${dotsBounce} 2.0s infinite ease-in-out`,
-  //       backgroundColor: color || colors.primary_1,
-  //       borderRadius: '100%',
-  //       display: 'inline-block',
-  //       height: '60%',
-  //       position: 'absolute',
-  //       top: 0,
-  //       width: '60%'
-  //     },
-  //     '.dot2': {
-  //       animationDelay: '-1.0s',
-  //       backgroundColor: color || colors.danger,
-  //       bottom: 0,
-  //       top: 'auto'
-  //     }
-  //   },
-
-  //   '.spinner-bounce': {
-  //     '.bounce1, .bounce2, .bounce3': {
-  //       animation: css`${bounceDelay} 1.4s infinite ease-in-out both`,
-  //       backgroundColor: color || colors.neutral_4,
-  //       borderRadius: '100%',
-  //       display: 'inline-block',
-  //       height: `${size || 12}px`,
-  //       marginRight: '3px',
-  //       width: `${size || 12}px`
-  //     },
-  //     '.bounce1': {
-  //       animationDelay: '-0.32s'
-  //     },
-  //     '.bounce2': {
-  //       animationDelay: '-0.16s'
-  //     },
-  //     '.bounce3': {
-  //       marginRight: 0
-  //     }
-  //   },
-
-  //   '.spinner-circular': {
-  //     display: 'inline-block',
-  //     position: 'relative',
-  //     width: `${size || 16}px`,
-  //     height: `${size || 16}px`,
-  //     '.sc-inner': {
-  //       display: 'flex',
-  //       alignItems: 'center',
-  //       justifyContent: 'center',
-  //       overflow: 'visible',
-  //       verticalAlign: 'middle'
-  //     },
-  //     '.sc-inner-animation': {
-  //       animation: css`${ring} .5s linear infinite`
-  //     },
-  //     '.sc-inner svg': {
-  //       display: 'block'
-  //     },
-  //     '.sc-inner path': {
-  //       fillOpacity: '0'
-  //     },
-  //     '.sc-inner-head': {
-  //       transformOrigin: 'center',
-  //       transition: 'stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)',
-  //       stroke: `${color || colors.neutral_4}`,
-  //       strokeLinecap: 'round'
-  //     },
-  //     '.sc-inner-track': {
-  //       stroke: 'rgba(92, 112, 128, .2)'
-  //     }
-  //   }
-  // }
 }
 
 export default styles
