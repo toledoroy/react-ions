@@ -128,8 +128,6 @@ class Spinner extends React.Component {
     const { backgroundColor, className, color, optClass, position, size, type } = this.props;
     const { loading } = this.state;
 
-    console.log("STYLE", styles({ loading, hidden: !loading, position: position || 'absolute', color, size, backgroundColor }));
-
     return (
       <StyledSpan
         css={styles({ loading, hidden: !loading, position: position || 'absolute', color, size, backgroundColor })}

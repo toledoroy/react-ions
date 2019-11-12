@@ -33,32 +33,32 @@ const ring = keyframes`
   }
 `
 
-const sharedSpinnerSettings = {
-  alignItems: 'center',
-  bottom: 0,
-  justifyContent: 'center',
-  left: 0,
-  right: 0,
-  top: 0
-}
+const sharedSpinnerSettings = `
+  alignItems: 'center';
+  bottom: 0;
+  justifyContent: 'center';
+  left: 0;
+  right: 0;
+  top: 0;
+`
 
 const loadingStyles = loading => loading ? { display: 'flex' } : {}
 const hiddenStyles = hidden => hidden ? { display: 'none' } : {}
 const positionStyles = position => {
-  if (position === 'inline') return { display: 'inline-flex' }
+  if (position === 'inline') return ` display: 'inline-flex';`
   if (position === 'fixed') {
-    return {
-      ...sharedSpinnerSettings,
-      position: 'fixed',
-      zIndex: zLayers['spinner-fixed']
-    }
+    return `
+      ${sharedSpinnerSettings}
+      position: 'fixed';
+      zIndex: ${zLayers['spinner-fixed']};
+    `
   }
   if (position === 'absolute') {
-    return {
-      ...sharedSpinnerSettings,
-      position: 'absolute',
-      zIndex: zLayers['spinner-absolute']
-    }
+    return `
+      ${ sharedSpinnerSettings }
+      position: 'absolute';
+      zIndex: ${zLayers['spinner-absolute']};
+    `
   }
 }
 
@@ -66,18 +66,18 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
   return css`
     backgroundColor: ${backgroundColor || colors.white};
     display: 'none';
-    ${loadingStyles(loading)};
-    ${positionStyles(position)};
-    ${hiddenStyles(!loading)};
+    ${loadingStyles(loading)}
+    ${positionStyles(position)}
+    ${hiddenStyles(!loading)}
 
-    .spinner-dots: {
+    .spinner-dots {
       animation: ${dotsRotate} 2.0s infinite linear;
       height: ${size || 40}px;
       position: 'relative';
       width: ${size || 40}px;
     }
 
-    .spinner-dots .dot1, .dot2: {
+    .spinner-dots .dot1, .dot2 {
       animation: ${dotsBounce} 2.0s infinite ease-in-out;
       backgroundColor: ${color || colors.primary_1};
       borderRadius: '100%';
@@ -88,14 +88,14 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
       width: '60%';
     },
 
-    .spinner-dots .dot2: {
+    .spinner-dots .dot2 {
       animationDelay: '-1.0s';
       backgroundColor: ${color || colors.danger};
       bottom: 0;
       top: 'auto';
     }
 
-    .spinner-bounce .bounce1, .bounce2, .bounce3: {
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
       animation: ${bounceDelay} 1.4s infinite ease-in-out both;
       backgroundColor: ${color || colors.neutral_4};
       borderRadius: '100%';
@@ -105,26 +105,26 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
       width: ${size || 12}px;
     },
 
-    .spinner-bounce .bounce1: {
+    .spinner-bounce .bounce1 {
       animationDelay: '-0.32s';
     },
 
-    .spinner-bounce .bounce2: {
+    .spinner-bounce .bounce2 {
       animationDelay: '-0.16s';
     },
 
-    .spinner-bounce .bounce3: {
+    .spinner-bounce .bounce3 {
       marginRight: 0;
     }
 
-    .spinner-circular: {
+    .spinner-circular {
       display: 'inline-block';
       position: 'relative';
       width: ${size || 16}px;
       height: ${size || 16}px;
     }
 
-    .spinner-circular .sc-inner: {
+    .spinner-circular .sc-inner {
       display: 'flex';
       alignItems: 'center';
       justifyContent: 'center';
@@ -132,26 +132,26 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
       verticalAlign: 'middle';
     },
 
-    .spinner-circular .sc-inner-animation: {
+    .spinner-circular .sc-inner-animation {
         animation: ${ring} .5s linear infinite;
     },
 
-    .spinner-circular .sc-inner svg: {
+    .spinner-circular .sc-inner svg {
         display: 'block';
     },
 
-    .spinner-circular .sc-inner path: {
+    .spinner-circular .sc-inner path {
         fillOpacity: '0';
     },
 
-    .spinner-circular .sc-inner-head: {
+    .spinner-circular .sc-inner-head {
         transformOrigin: 'center';
         transition: 'stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)';
         stroke: ${color || colors.neutral_4};
         strokeLinecap: 'round';
     },
 
-    .spinner-circular .sc-inner-track: {
+    .spinner-circular .sc-inner-track {
         stroke: 'rgba(92, 112, 128, .2)';
     }
   `
