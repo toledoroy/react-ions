@@ -34,9 +34,9 @@ const ring = keyframes`
 `
 
 const sharedSpinnerSettings = `
-  alignItems: 'center';
+  alignItems: center;
   bottom: 0;
-  justifyContent: 'center';
+  justifyContent: center;
   left: 0;
   right: 0;
   top: 0;
@@ -45,18 +45,18 @@ const sharedSpinnerSettings = `
 const loadingStyles = loading => loading ? { display: 'flex' } : {}
 const hiddenStyles = hidden => hidden ? { display: 'none' } : {}
 const positionStyles = position => {
-  if (position === 'inline') return ` display: 'inline-flex';`
+  if (position === 'inline') return ` display: inline-flex;`
   if (position === 'fixed') {
     return `
       ${sharedSpinnerSettings}
-      position: 'fixed';
+      position: fixed;
       zIndex: ${zLayers['spinner-fixed']};
     `
   }
   if (position === 'absolute') {
     return `
       ${ sharedSpinnerSettings }
-      position: 'absolute';
+      position: absolute;
       zIndex: ${zLayers['spinner-absolute']};
     `
   }
@@ -65,7 +65,7 @@ const positionStyles = position => {
 const styles = ({ backgroundColor, color, hidden, loading, position, size }) => {
   return css`
     backgroundColor: ${backgroundColor || colors.white};
-    display: 'none';
+    display: none;
     ${loadingStyles(loading)}
     ${positionStyles(position)}
     ${hiddenStyles(!loading)}
@@ -73,86 +73,86 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
     .spinner-dots {
       animation: ${dotsRotate} 2.0s infinite linear;
       height: ${size || 40}px;
-      position: 'relative';
+      position: relative;
       width: ${size || 40}px;
     }
 
-    .spinner-dots .dot1, .dot2 {
+    .spinner-dots.dot1.dot2 {
       animation: ${dotsBounce} 2.0s infinite ease-in-out;
       backgroundColor: ${color || colors.primary_1};
-      borderRadius: '100%';
-      display: 'inline-block';
-      height: '60%';
-      position: 'absolute';
+      borderRadius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
       top: 0;
-      width: '60%';
+      width: 60%;
     },
 
-    .spinner-dots .dot2 {
-      animationDelay: '-1.0s';
+    .spinner-dots.dot2 {
+      animationDelay: -1.0s;
       backgroundColor: ${color || colors.danger};
       bottom: 0;
-      top: 'auto';
+      top: auto;
     }
 
-    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+    .spinner-bounce.bounce1.bounce2.bounce3 {
       animation: ${bounceDelay} 1.4s infinite ease-in-out both;
       backgroundColor: ${color || colors.neutral_4};
-      borderRadius: '100%';
-      display: 'inline-block';
+      borderRadius: 100%;
+      display: inline-block;
       height: ${size || 12}px;
-      marginRight: '3px';
+      marginRight: 3px;
       width: ${size || 12}px;
     },
 
-    .spinner-bounce .bounce1 {
-      animationDelay: '-0.32s';
+    .spinner-bounce.bounce1 {
+      animationDelay: -0.32s;
     },
 
-    .spinner-bounce .bounce2 {
-      animationDelay: '-0.16s';
+    .spinner-bounce.bounce2 {
+      animationDelay: -0.16s;
     },
 
-    .spinner-bounce .bounce3 {
+    .spinner-bounce.bounce3 {
       marginRight: 0;
     }
 
     .spinner-circular {
-      display: 'inline-block';
-      position: 'relative';
+      display: inline-block;
+      position: relative;
       width: ${size || 16}px;
       height: ${size || 16}px;
     }
 
-    .spinner-circular .sc-inner {
-      display: 'flex';
-      alignItems: 'center';
-      justifyContent: 'center';
-      overflow: 'visible';
-      verticalAlign: 'middle';
+    .spinner-circular.sc-inner {
+      display: flex;
+      alignItems: center;
+      justifyContent: center;
+      overflow: visible;
+      verticalAlign: middle;
     },
 
-    .spinner-circular .sc-inner-animation {
+    .spinner-circular.sc-inner-animation {
         animation: ${ring} .5s linear infinite;
     },
 
-    .spinner-circular .sc-inner svg {
-        display: 'block';
+    .spinner-circular.sc-inner svg {
+        display: block;
     },
 
     .spinner-circular .sc-inner path {
-        fillOpacity: '0';
+        fillOpacity: 0;
     },
 
-    .spinner-circular .sc-inner-head {
-        transformOrigin: 'center';
-        transition: 'stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)';
+    .spinner-circular.sc-inner-head {
+        transformOrigin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
         stroke: ${color || colors.neutral_4};
-        strokeLinecap: 'round';
+        strokeLinecap: round;
     },
 
-    .spinner-circular .sc-inner-track {
-        stroke: 'rgba(92, 112, 128, .2)';
+    .spinner-circular.sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
     }
   `
   // return {
