@@ -8,16 +8,6 @@ const dotsRotate = keyframes`
   }
 `
 
-css`@keyframes example {
-  100% {
-    transform: rotate(360deg);
-  }
-}`
-
-const dotsRotateAnimation = () => {
-  css`${ dotsRotate } 2.0s infinite linear`
-}
-
 const dotsBounce = keyframes`
   0%, 100% {
     transform: scale(0.0);
@@ -25,10 +15,6 @@ const dotsBounce = keyframes`
     transform: scale(1.0);
   }
 `
-
-const dotsBounceAnimation = () => {
-  css`${dotsBounce} 2.0s infinite ease-in-out`
-}
 
 const bounceDelay = keyframes`
   0%, 80%, 100% {
@@ -38,10 +24,6 @@ const bounceDelay = keyframes`
   }
 `
 
-const bounceDelayAnimation = () => {
-  css`${bounceDelay} 1.4s infinite ease-in-out both`
-}
-
 const ring = keyframes`
   0% {
     transform: rotate(0deg);
@@ -50,10 +32,6 @@ const ring = keyframes`
     transform: rotate(1turn);
   }
 `
-
-const ringAnimation = () => {
-  css`${ring} .5s linear infinite`
-}
 
 const sharedSpinnerSettings = {
   alignItems: 'center',
@@ -77,10 +55,10 @@ const positionStyles = position => {
   }
   if (position === 'absolute') {
     return {
-        ...sharedSpinnerSettings,
-        position: 'absolute',
-        zIndex: zLayers['spinner-absolute']
-      }
+      ...sharedSpinnerSettings,
+      position: 'absolute',
+      zIndex: zLayers['spinner-absolute']
+    }
   }
 }
 
@@ -94,13 +72,13 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
     ...hiddenStyles(!loading),
 
     '.spinner-dots': {
-      animation: `${dotsRotateAnimation}`,
+      animation: css`${dotsRotate} 2.0s infinite linear`,
       height: `${size || 40}px`,
       position: 'relative',
       width: `${size || 40}px`,
 
       '.dot1, .dot2': {
-        animation: `${dotsBounceAnimation}`,
+        animation: css`${dotsBounce} 2.0s infinite ease-in-out`,
         backgroundColor: color || colors.primary_1,
         borderRadius: '100%',
         display: 'inline-block',
@@ -119,7 +97,7 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
 
     '.spinner-bounce': {
       '.bounce1, .bounce2, .bounce3': {
-        animation: `${bounceDelayAnimation}`,
+        animation: css`${bounceDelay} 1.4s infinite ease-in-out both`,
         backgroundColor: color || colors.neutral_4,
         borderRadius: '100%',
         display: 'inline-block',
@@ -151,7 +129,7 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
         verticalAlign: 'middle'
       },
       '.sc-inner-animation': {
-        animation: `${ringAnimation}`
+        animation: css`${ring} .5s linear infinite`
       },
       '.sc-inner svg': {
         display: 'block'
