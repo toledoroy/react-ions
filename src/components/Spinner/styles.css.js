@@ -77,7 +77,7 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
       width: ${size || 40}px;
     }
 
-    .spinner-dots.dot1.dot2 {
+    .spinner-dots .dot2 {
       animation: ${dotsBounce} 2.0s infinite ease-in-out;
       background-color: ${color || colors.primary_1};
       border-radius: 100%;
@@ -88,14 +88,25 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
       width: 60%;
     }
 
-    .spinner-dots.dot2 {
+    .spinner-dots .dot1 {
+      animation: ${dotsBounce} 2.0s infinite ease-in-out;
+      background-color: ${color || colors.primary_1};
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot2 {
       animation-delay: -1.0s;
       background-color: ${color || colors.danger};
       bottom: 0;
       top: auto;
     }
 
-    .spinner-bounce.bounce1.bounce2.bounce3 {
+    .spinner-bounce .bounce1 .bounce2 .bounce3 {
       animation: ${bounceDelay} 1.4s infinite ease-in-out both;
       background-color: ${color || colors.neutral_4};
       border-radius: 100%;
@@ -105,15 +116,35 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
       width: ${size || 12}px;
     }
 
-    .spinner-bounce.bounce1 {
+    .spinner-bounce .bounce2 {
+      animation: ${bounceDelay} 1.4s infinite ease-in-out both;
+      background-color: ${color || colors.neutral_4};
+      border-radius: 100%;
+      display: inline-block;
+      height: ${size || 12}px;
+      margin-right: 3px;
+      width: ${size || 12}px;
+    }
+
+    .spinner-bounce .bounce3 {
+      animation: ${bounceDelay} 1.4s infinite ease-in-out both;
+      background-color: ${color || colors.neutral_4};
+      border-radius: 100%;
+      display: inline-block;
+      height: ${size || 12}px;
+      margin-right: 3px;
+      width: ${size || 12}px;
+    }
+
+    .spinner-bounce .bounce1 {
       animation-delay: -0.32s;
     }
 
-    .spinner-bounce.bounce2 {
+    .spinner-bounce .bounce2 {
       animation-delay: -0.16s;
     }
 
-    .spinner-bounce.bounce3 {
+    .spinner-bounce .bounce3 {
       margin-right: 0;
     }
 
@@ -124,7 +155,7 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
       height: ${size || 16}px;
     }
 
-    .spinner-circular.sc-inner {
+    .spinner-circular .sc-inner {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -132,11 +163,11 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
       vertical-align: middle;
     }
 
-    .spinner-circular.sc-inner-animation {
+    .spinner-circular .sc-inner-animation {
         animation: ${ring} .5s linear infinite;
     }
 
-    .spinner-circular.sc-inner svg {
+    .spinner-circular .sc-inner svg {
         display: block;
     }
 
@@ -144,14 +175,14 @@ const styles = ({ backgroundColor, color, hidden, loading, position, size }) => 
         fill-opacity: 0;
     }
 
-    .spinner-circular.sc-inner-head {
+    .spinner-circular .sc-inner-head {
         transform-origin: center;
         transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
         stroke: ${color || colors.neutral_4};
         stroke-linecap: round;
     }
 
-    .spinner-circular.sc-inner-track {
+    .spinner-circular .sc-inner-track {
         stroke: rgba(92, 112, 128, .2);
     }
   `
