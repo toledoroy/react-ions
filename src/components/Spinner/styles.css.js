@@ -63,91 +63,183 @@ const positionStyles = position => {
 }
 
 const styles = ({ backgroundColor, color, hidden, loading, position, size }) => {
-  return {
-    backgroundColor: backgroundColor || colors.white,
-    display: 'none',
+  return css`
+    backgroundColor: ${backgroundColor || colors.white};
+    display: 'none';
+    ${loadingStyles(loading)};
+    ${positionStyles(position)};
+    ${hiddenStyles(!loading)};
 
-    ...loadingStyles(loading),
-    ...positionStyles(position),
-    ...hiddenStyles(!loading),
-
-    '.spinner-dots': {
-      animation: css`${dotsRotate} 2.0s infinite linear`,
-      height: `${size || 40}px`,
-      position: 'relative',
-      width: `${size || 40}px`,
-
-      '.dot1, .dot2': {
-        animation: css`${dotsBounce} 2.0s infinite ease-in-out`,
-        backgroundColor: color || colors.primary_1,
-        borderRadius: '100%',
-        display: 'inline-block',
-        height: '60%',
-        position: 'absolute',
-        top: 0,
-        width: '60%'
-      },
-      '.dot2': {
-        animationDelay: '-1.0s',
-        backgroundColor: color || colors.danger,
-        bottom: 0,
-        top: 'auto'
-      }
-    },
-
-    '.spinner-bounce': {
-      '.bounce1, .bounce2, .bounce3': {
-        animation: css`${bounceDelay} 1.4s infinite ease-in-out both`,
-        backgroundColor: color || colors.neutral_4,
-        borderRadius: '100%',
-        display: 'inline-block',
-        height: `${size || 12}px`,
-        marginRight: '3px',
-        width: `${size || 12}px`
-      },
-      '.bounce1': {
-        animationDelay: '-0.32s'
-      },
-      '.bounce2': {
-        animationDelay: '-0.16s'
-      },
-      '.bounce3': {
-        marginRight: 0
-      }
-    },
-
-    '.spinner-circular': {
-      display: 'inline-block',
-      position: 'relative',
-      width: `${size || 16}px`,
-      height: `${size || 16}px`,
-      '.sc-inner': {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        overflow: 'visible',
-        verticalAlign: 'middle'
-      },
-      '.sc-inner-animation': {
-        animation: css`${ring} .5s linear infinite`
-      },
-      '.sc-inner svg': {
-        display: 'block'
-      },
-      '.sc-inner path': {
-        fillOpacity: '0'
-      },
-      '.sc-inner-head': {
-        transformOrigin: 'center',
-        transition: 'stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)',
-        stroke: `${color || colors.neutral_4}`,
-        strokeLinecap: 'round'
-      },
-      '.sc-inner-track': {
-        stroke: 'rgba(92, 112, 128, .2)'
-      }
+    .spinner-dots: {
+      animation: ${dotsRotate} 2.0s infinite linear;
+      height: ${size || 40}px;
+      position: 'relative';
+      width: ${size || 40}px;
     }
-  }
+
+    .spinner-dots .dot1, .dot2: {
+      animation: ${dotsBounce} 2.0s infinite ease-in-out;
+      backgroundColor: ${color || colors.primary_1};
+      borderRadius: '100%';
+      display: 'inline-block';
+      height: '60%';
+      position: 'absolute';
+      top: 0;
+      width: '60%';
+    },
+
+    .spinner-dots .dot2: {
+      animationDelay: '-1.0s';
+      backgroundColor: ${color || colors.danger};
+      bottom: 0;
+      top: 'auto';
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3: {
+      animation: ${bounceDelay} 1.4s infinite ease-in-out both;
+      backgroundColor: ${color || colors.neutral_4};
+      borderRadius: '100%';
+      display: 'inline-block';
+      height: ${size || 12}px;
+      marginRight: '3px';
+      width: ${size || 12}px;
+    },
+
+    .spinner-bounce .bounce1: {
+      animationDelay: '-0.32s';
+    },
+
+    .spinner-bounce .bounce2: {
+      animationDelay: '-0.16s';
+    },
+
+    .spinner-bounce .bounce3: {
+      marginRight: 0;
+    }
+
+    .spinner-circular: {
+      display: 'inline-block';
+      position: 'relative';
+      width: ${size || 16}px;
+      height: ${size || 16}px;
+    }
+
+    .spinner-circular .sc-inner: {
+      display: 'flex';
+      alignItems: 'center';
+      justifyContent: 'center';
+      overflow: 'visible';
+      verticalAlign: 'middle';
+    },
+
+    .spinner-circular .sc-inner-animation: {
+        animation: ${ring} .5s linear infinite;
+    },
+
+    .spinner-circular .sc-inner svg: {
+        display: 'block';
+    },
+
+    .spinner-circular .sc-inner path: {
+        fillOpacity: '0';
+    },
+
+    .spinner-circular .sc-inner-head: {
+        transformOrigin: 'center';
+        transition: 'stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)';
+        stroke: ${color || colors.neutral_4};
+        strokeLinecap: 'round';
+    },
+
+    .spinner-circular .sc-inner-track: {
+        stroke: 'rgba(92, 112, 128, .2)';
+    }
+  `
+  // return {
+  //   backgroundColor: backgroundColor || colors.white,
+  //   display: 'none',
+
+  //   ...loadingStyles(loading),
+  //   ...positionStyles(position),
+  //   ...hiddenStyles(!loading),
+
+  //   '.spinner-dots': {
+  //     animation: css`${dotsRotate} 2.0s infinite linear`,
+  //     height: `${size || 40}px`,
+  //     position: 'relative',
+  //     width: `${size || 40}px`,
+
+  //     '.dot1, .dot2': {
+  //       animation: css`${dotsBounce} 2.0s infinite ease-in-out`,
+  //       backgroundColor: color || colors.primary_1,
+  //       borderRadius: '100%',
+  //       display: 'inline-block',
+  //       height: '60%',
+  //       position: 'absolute',
+  //       top: 0,
+  //       width: '60%'
+  //     },
+  //     '.dot2': {
+  //       animationDelay: '-1.0s',
+  //       backgroundColor: color || colors.danger,
+  //       bottom: 0,
+  //       top: 'auto'
+  //     }
+  //   },
+
+  //   '.spinner-bounce': {
+  //     '.bounce1, .bounce2, .bounce3': {
+  //       animation: css`${bounceDelay} 1.4s infinite ease-in-out both`,
+  //       backgroundColor: color || colors.neutral_4,
+  //       borderRadius: '100%',
+  //       display: 'inline-block',
+  //       height: `${size || 12}px`,
+  //       marginRight: '3px',
+  //       width: `${size || 12}px`
+  //     },
+  //     '.bounce1': {
+  //       animationDelay: '-0.32s'
+  //     },
+  //     '.bounce2': {
+  //       animationDelay: '-0.16s'
+  //     },
+  //     '.bounce3': {
+  //       marginRight: 0
+  //     }
+  //   },
+
+  //   '.spinner-circular': {
+  //     display: 'inline-block',
+  //     position: 'relative',
+  //     width: `${size || 16}px`,
+  //     height: `${size || 16}px`,
+  //     '.sc-inner': {
+  //       display: 'flex',
+  //       alignItems: 'center',
+  //       justifyContent: 'center',
+  //       overflow: 'visible',
+  //       verticalAlign: 'middle'
+  //     },
+  //     '.sc-inner-animation': {
+  //       animation: css`${ring} .5s linear infinite`
+  //     },
+  //     '.sc-inner svg': {
+  //       display: 'block'
+  //     },
+  //     '.sc-inner path': {
+  //       fillOpacity: '0'
+  //     },
+  //     '.sc-inner-head': {
+  //       transformOrigin: 'center',
+  //       transition: 'stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)',
+  //       stroke: `${color || colors.neutral_4}`,
+  //       strokeLinecap: 'round'
+  //     },
+  //     '.sc-inner-track': {
+  //       stroke: 'rgba(92, 112, 128, .2)'
+  //     }
+  //   }
+  // }
 }
 
 export default styles
