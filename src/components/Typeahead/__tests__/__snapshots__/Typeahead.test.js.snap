@@ -4,7 +4,7 @@ exports[`should be disabled 1`] = `
 <div
   className="typeahead-component"
 >
-  <styled.div
+  <.sc-bwzfXH
     className="typeahead-component-styled"
     css={
       Object {
@@ -29,7 +29,7 @@ exports[`should be disabled 1`] = `
       size="16"
       type="spinner-circular"
     />
-  </styled.div>
+  </.sc-bwzfXH>
 </div>
 `;
 
@@ -37,7 +37,7 @@ exports[`should display a list when the user types a letter 1`] = `
 <div
   className="typeahead-component"
 >
-  <styled.div
+  <.sc-bwzfXH
     className="typeahead-component-styled"
     css={
       Object {
@@ -95,7 +95,7 @@ exports[`should display a list when the user types a letter 1`] = `
         onClick={[Function]}
       />
     </ul>
-  </styled.div>
+  </.sc-bwzfXH>
 </div>
 `;
 
@@ -103,7 +103,7 @@ exports[`should display a loader 1`] = `
 <div
   className="typeahead-component loading"
 >
-  <styled.div
+  <.sc-bwzfXH
     className="typeahead-component-styled"
     css={
       Object {
@@ -129,7 +129,7 @@ exports[`should display a loader 1`] = `
       size="16"
       type="spinner-circular"
     />
-  </styled.div>
+  </.sc-bwzfXH>
 </div>
 `;
 
@@ -140,7 +140,7 @@ exports[`should have a label 1`] = `
   <label>
     Typeahead Label
   </label>
-  <styled.div
+  <.sc-bwzfXH
     className="typeahead-component-styled"
     css={
       Object {
@@ -165,7 +165,7 @@ exports[`should have a label 1`] = `
       size="16"
       type="spinner-circular"
     />
-  </styled.div>
+  </.sc-bwzfXH>
 </div>
 `;
 
@@ -173,7 +173,7 @@ exports[`should have an extra class 1`] = `
 <div
   className="typeahead-component test-class"
 >
-  <styled.div
+  <.sc-bwzfXH
     className="typeahead-component-styled"
     css={
       Object {
@@ -198,7 +198,7 @@ exports[`should have an extra class 1`] = `
       size="16"
       type="spinner-circular"
     />
-  </styled.div>
+  </.sc-bwzfXH>
 </div>
 `;
 
@@ -206,7 +206,7 @@ exports[`should have placeholder text 1`] = `
 <div
   className="typeahead-component"
 >
-  <styled.div
+  <.sc-bwzfXH
     className="typeahead-component-styled"
     css={
       Object {
@@ -232,7 +232,7 @@ exports[`should have placeholder text 1`] = `
       size="16"
       type="spinner-circular"
     />
-  </styled.div>
+  </.sc-bwzfXH>
 </div>
 `;
 
@@ -240,7 +240,7 @@ exports[`should shallow render itself 1`] = `
 <div
   className="typeahead-component"
 >
-  <styled.div
+  <.sc-bwzfXH
     className="typeahead-component-styled"
     css={
       Object {
@@ -265,7 +265,7 @@ exports[`should shallow render itself 1`] = `
       size="16"
       type="spinner-circular"
     />
-  </styled.div>
+  </.sc-bwzfXH>
 </div>
 `;
 
@@ -273,7 +273,7 @@ exports[`should update when props are set 1`] = `
 <div
   className="typeahead-component test-class"
 >
-  <styled.div
+  <.sc-bwzfXH
     className="typeahead-component-styled"
     css={
       Object {
@@ -308,6 +308,6 @@ exports[`should update when props are set 1`] = `
       size="16"
       type="spinner-circular"
     />
-  </styled.div>
+  </.sc-bwzfXH>
 </div>
 `;
