@@ -132,11 +132,11 @@ describe('Toggle', () => {
 
     expect(wrapper.state().value).to.be.false
 
-    inst.componentWillReceiveProps({ value: false })
+    inst.UNSAFE_componentWillReceiveProps({ value: false })
     expect(wrapper.state().value).to.be.false
     expect(setStateSpy.called).to.be.false
 
-    inst.componentWillReceiveProps({ value: true })
+    inst.UNSAFE_componentWillReceiveProps({ value: true })
     expect(wrapper.state().value).to.be.true
     expect(setStateSpy.calledOnce).to.be.true
   })

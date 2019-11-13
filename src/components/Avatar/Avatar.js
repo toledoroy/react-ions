@@ -58,7 +58,7 @@ class Avatar extends React.Component {
 
   /* If the source changes, and fadeIn
    * is set, fade in the new avatar */
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     if (nextProps.src !== this.props.src && this.props.fadeIn) {
       this.setState({ loaded: false })
     }

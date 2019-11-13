@@ -69,7 +69,7 @@ class Tooltip extends React.Component {
     this.renderTipWrapper()
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     // If not currently showing and should show or already showing but the content changed
     if (nextProps.show && (!this.state.showing || (nextProps.content !== this.props.content))) {
       this.showTip()

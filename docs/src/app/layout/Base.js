@@ -25,7 +25,7 @@ class Base extends React.Component {
     svg4everybody()
   }
 
-  componentWillReceiveProps() {
+  UNSAFE_componentWillReceiveProps() {
     this.setState({sidebarCollapsed: false})
   }
 

@@ -13,7 +13,7 @@ class ExampleInputNumber extends React.Component {
     valueString: '12.34'
   }
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     this.setState({statusNumber: 'My value is: ' + this.state.valueNumber + ' and it is of type: ' + typeof this.state.valueNumber})
     this.setState({statusString: 'My value is: ' + this.state.valueString + ' and it is of type: ' + typeof this.state.valueString})
   }

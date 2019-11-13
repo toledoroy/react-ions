@@ -56,7 +56,7 @@ class MultiSelect extends React.Component {
     value: this.props.value || []
   }
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     // Set state
     if (this.state.value instanceof Array && this.state.value.length > 0 && this.containsValidValue(this.state.value, this.props.options)) {
       this.setState({selected: this.getSelectedOptions(this.state.value), value: this.state.value})
@@ -67,7 +67,7 @@ class MultiSelect extends React.Component {
     }
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     if (nextProps.value !== this.state.value) {
       // Set state
       if (nextProps.value instanceof Array && (this.containsValidValue(nextProps.value, nextProps.options) || nextProps.value.length === 0)) {

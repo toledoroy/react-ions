@@ -73,7 +73,7 @@ class Toggle extends PureComponent {
     confirmWidth: PropTypes.string
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     if (nextProps.value !== this.props.value || this.props.confirm) {
       this.setState({ value: nextProps.value })
     }

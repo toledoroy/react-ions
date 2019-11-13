@@ -33,7 +33,7 @@ describe('InputList', () => {
 
   it('should return falsy for cWRP if same props.value is passed', () => {
     wrapper = shallow(<InputList optClass='test' value={value} placeholder='Type something and hit enter' />)
-    expect(!!wrapper.instance().componentWillReceiveProps({ value })).to.be.false
+    expect(!!wrapper.instance().UNSAFE_componentWillReceiveProps({ value })).to.be.false
   })
 
   it('should build state from props', () => {

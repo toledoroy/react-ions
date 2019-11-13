@@ -75,13 +75,13 @@ class FileUpload extends React.Component {
 
   }
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     if (this.props.value && this.props.value !== '' && this.props.showPreview) {
       this.setState({ files: this._normalizeValue(this.props.value) })
     }
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     if (nextProps.value !== this.props.value) {
       this.setState({ files: this._normalizeValue(nextProps.value) })
     }

@@ -35,13 +35,13 @@ class TabWrapper extends React.Component {
     selectedIndex: this.props.initialSelectedIndex < this.props.children.length ? this.props.initialSelectedIndex : 0
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     if (nextProps.initialSelectedIndex !== this.props.initialSelectedIndex) {
       this.setState({ selectedIndex: (nextProps.initialSelectedIndex < nextProps.children.length ? nextProps.initialSelectedIndex : 0) })
     }
   }
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     this.getTabs().map((tab, index) => {
       if (tab.props.active) {
         this.setState({selectedIndex: index})

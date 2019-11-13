@@ -64,7 +64,7 @@ class FormGroup extends React.Component {
     fieldErrors: Map()
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     const nextPropsSchema = fromJS(nextProps.schema)
     const thisPropsSchema = fromJS(this.props.schema)
 
@@ -75,7 +75,7 @@ class FormGroup extends React.Component {
     }
   }
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     this.setState({
       fields: fromJS(this.props.schema)
     })

@@ -52,7 +52,7 @@ class RadioGroup extends React.Component {
     description: PropTypes.string
   }
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     // form an array of options based on the children that were passed in
     // this can be done in the case of a RadioGroup with explicit children (see docs example)
     if (this.props.children) {
@@ -71,7 +71,7 @@ class RadioGroup extends React.Component {
     }
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     if (nextProps.value !== undefined && nextProps.value !== this.state.value) {
       this.setState({value: nextProps.value}, () => {
         this.checkItem(nextProps.value, this.state.options || nextProps.options)

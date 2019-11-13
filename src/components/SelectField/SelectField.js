@@ -77,7 +77,7 @@ export class SelectField extends React.Component {
     value: this.props.value
   }
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     // Select item
     if (this.state.value !== '' && this.getIndex(this.state.value, this.props.options) > -1) {
       this.selectItem(this.state.value, this.props.options)
@@ -88,7 +88,7 @@ export class SelectField extends React.Component {
     }
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     if (nextProps.value === this.state.value) {
       return
     }

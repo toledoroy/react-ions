@@ -49,7 +49,7 @@ class AlertSystem extends React.Component {
     this.setState({ alerts: alerts })
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     let alerts = nextProps.alerts
 
     alerts.map((alert, index) => {
