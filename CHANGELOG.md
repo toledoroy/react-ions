@@ -1,3 +1,7 @@
+## 5.3.0
+###### _November 21, 2019_
+- Upgraded libraries in package.json and syntax for libraries, including React and styled-components [#831](https://github.com/GetAmbassador/react-ions/pull/831)
+
 ## 5.2.10
 ###### _November 5, 2019_
 - Popover: adding default margins to h1, h2 tags within content [#828](https://github.com/GetAmbassador/react-ions/pull/828)
