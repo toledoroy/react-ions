@@ -125,7 +125,7 @@ class TextEditor extends PureComponent {
     })
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     // Enable/disable the editor
     this.state.textEditor.enable(!nextProps.disabled)
 

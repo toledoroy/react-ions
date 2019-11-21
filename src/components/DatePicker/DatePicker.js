@@ -336,11 +336,11 @@ class DatePicker extends React.Component {
     }
   }
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     this._initDate(this.props.value, this.props.format)
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     if (nextProps.value !== this.props.value) {
       this._initDate(nextProps.value, this.props.format)
     }

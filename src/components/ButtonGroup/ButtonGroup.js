@@ -66,13 +66,13 @@ class ButtonGroup extends React.Component {
     buttonStyle: PropTypes.string
   }
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     if (typeof this.props.defaultOption !== 'undefined') {
       this.props.options[this.props.defaultOption].checked = true
     }
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     if (typeof nextProps.defaultOption !== 'undefined' && nextProps.options[nextProps.defaultOption][nextProps.valueProp] !== this.state.checkedOption) {
       nextProps.options[nextProps.defaultOption].checked = true
       this.setState({checkedOption: nextProps.options[nextProps.defaultOption][nextProps.valueProp]})

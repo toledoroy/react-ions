@@ -1,94 +1,191 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Spinner bounce displays a spinner-bounce class 1`] = `
-<styled.span
+<.sc-bdVaJa
   className=""
   css={
-    Object {
-      ".spinner-bounce": Object {
-        ".bounce1": Object {
-          "animationDelay": "-0.32s",
-        },
-        ".bounce1, .bounce2, .bounce3": Object {
-          "animation": "ghjfcd 1.4s infinite ease-in-out both",
-          "backgroundColor": "#9198A0",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "12px",
-          "marginRight": "3px",
-          "width": "12px",
-        },
-        ".bounce2": Object {
-          "animationDelay": "-0.16s",
-        },
-        ".bounce3": Object {
-          "marginRight": 0,
-        },
+    Array [
+      "
+    background-color: ",
+      "#fff",
+      ";
+    display: none;
+    ",
+      "
+    ",
+      "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+      "
+    ",
+      "display: none;",
+      "
+
+    .spinner-dots {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-cZxgpV",
+        "inject": [Function],
+        "name": "cZxgpV",
+        "rules": Array [
+          "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+          "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+        ],
+        "toString": [Function],
       },
-      ".spinner-circular": Object {
-        ".sc-inner": Object {
-          "alignItems": "center",
-          "display": "flex",
-          "justifyContent": "center",
-          "overflow": "visible",
-          "verticalAlign": "middle",
-        },
-        ".sc-inner path": Object {
-          "fillOpacity": "0",
-        },
-        ".sc-inner svg": Object {
-          "display": "block",
-        },
-        ".sc-inner-animation": Object {
-          "animation": "gWPqvk .5s linear infinite",
-        },
-        ".sc-inner-head": Object {
-          "stroke": "#9198A0",
-          "strokeLinecap": "round",
-          "transformOrigin": "center",
-          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
-        },
-        ".sc-inner-track": Object {
-          "stroke": "rgba(92, 112, 128, .2)",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
-      ".spinner-dots": Object {
-        ".dot1, .dot2": Object {
-          "animation": "iQfAUB 2.0s infinite ease-in-out",
-          "backgroundColor": "#3C97D3",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "60%",
-          "position": "absolute",
-          "top": 0,
-          "width": "60%",
-        },
-        ".dot2": Object {
-          "animationDelay": "-1.0s",
-          "backgroundColor": "#E54C3B",
-          "bottom": 0,
-          "top": "auto",
-        },
-        "animation": "cZxgpV 2.0s infinite linear",
-        "height": "40px",
-        "position": "relative",
-        "width": "40px",
-      },
-      "alignItems": "center",
-      "backgroundColor": "#fff",
-      "bottom": 0,
-      "display": "none",
-      "justifyContent": "center",
-      "left": 0,
-      "position": "absolute",
-      "right": 0,
-      "top": 0,
-      "zIndex": 1000,
+      " 2.0s infinite linear;
+      height: ",
+      "40",
+      "px;
+      position: relative;
+      width: ",
+      "40",
+      "px;
     }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-iQfAUB",
+        "inject": [Function],
+        "name": "iQfAUB",
+        "rules": Array [
+          "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+      "#3C97D3",
+      ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+      "#E54C3B",
+      ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-ghjfcd",
+        "inject": [Function],
+        "name": "ghjfcd",
+        "rules": Array [
+          "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 1.4s infinite ease-in-out both;
+      background-color: ",
+      "#9198A0",
+      ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+      "12",
+      "px;
+      margin-right: 3px;
+      width: ",
+      "12",
+      "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+      "16",
+      "px;
+      height: ",
+      "16",
+      "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+      Keyframes {
+        "id": "sc-keyframes-gWPqvk",
+        "inject": [Function],
+        "name": "gWPqvk",
+        "rules": Array [
+          "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+          "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+        ],
+        "toString": [Function],
+      },
+      " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+      "#9198A0",
+      ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+    ]
   }
 >
   <span
@@ -106,98 +203,195 @@ exports[`Spinner bounce displays a spinner-bounce class 1`] = `
       />
     </span>
   </span>
-</styled.span>
+</.sc-bdVaJa>
 `;
 
 exports[`Spinner circular displays a spinner-circular class 1`] = `
-<styled.span
+<.sc-bdVaJa
   className=""
   css={
-    Object {
-      ".spinner-bounce": Object {
-        ".bounce1": Object {
-          "animationDelay": "-0.32s",
-        },
-        ".bounce1, .bounce2, .bounce3": Object {
-          "animation": "ghjfcd 1.4s infinite ease-in-out both",
-          "backgroundColor": "#9198A0",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "12px",
-          "marginRight": "3px",
-          "width": "12px",
-        },
-        ".bounce2": Object {
-          "animationDelay": "-0.16s",
-        },
-        ".bounce3": Object {
-          "marginRight": 0,
-        },
+    Array [
+      "
+    background-color: ",
+      "#fff",
+      ";
+    display: none;
+    ",
+      "
+    ",
+      "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+      "
+    ",
+      "display: none;",
+      "
+
+    .spinner-dots {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-cZxgpV",
+        "inject": [Function],
+        "name": "cZxgpV",
+        "rules": Array [
+          "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+          "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+        ],
+        "toString": [Function],
       },
-      ".spinner-circular": Object {
-        ".sc-inner": Object {
-          "alignItems": "center",
-          "display": "flex",
-          "justifyContent": "center",
-          "overflow": "visible",
-          "verticalAlign": "middle",
-        },
-        ".sc-inner path": Object {
-          "fillOpacity": "0",
-        },
-        ".sc-inner svg": Object {
-          "display": "block",
-        },
-        ".sc-inner-animation": Object {
-          "animation": "gWPqvk .5s linear infinite",
-        },
-        ".sc-inner-head": Object {
-          "stroke": "#9198A0",
-          "strokeLinecap": "round",
-          "transformOrigin": "center",
-          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
-        },
-        ".sc-inner-track": Object {
-          "stroke": "rgba(92, 112, 128, .2)",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
-      ".spinner-dots": Object {
-        ".dot1, .dot2": Object {
-          "animation": "iQfAUB 2.0s infinite ease-in-out",
-          "backgroundColor": "#3C97D3",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "60%",
-          "position": "absolute",
-          "top": 0,
-          "width": "60%",
-        },
-        ".dot2": Object {
-          "animationDelay": "-1.0s",
-          "backgroundColor": "#E54C3B",
-          "bottom": 0,
-          "top": "auto",
-        },
-        "animation": "cZxgpV 2.0s infinite linear",
-        "height": "40px",
-        "position": "relative",
-        "width": "40px",
-      },
-      "alignItems": "center",
-      "backgroundColor": "#fff",
-      "bottom": 0,
-      "display": "none",
-      "justifyContent": "center",
-      "left": 0,
-      "position": "absolute",
-      "right": 0,
-      "top": 0,
-      "zIndex": 1000,
+      " 2.0s infinite linear;
+      height: ",
+      "40",
+      "px;
+      position: relative;
+      width: ",
+      "40",
+      "px;
     }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-iQfAUB",
+        "inject": [Function],
+        "name": "iQfAUB",
+        "rules": Array [
+          "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+      "#3C97D3",
+      ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+      "#E54C3B",
+      ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-ghjfcd",
+        "inject": [Function],
+        "name": "ghjfcd",
+        "rules": Array [
+          "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 1.4s infinite ease-in-out both;
+      background-color: ",
+      "#9198A0",
+      ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+      "12",
+      "px;
+      margin-right: 3px;
+      width: ",
+      "12",
+      "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+      "16",
+      "px;
+      height: ",
+      "16",
+      "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+      Keyframes {
+        "id": "sc-keyframes-gWPqvk",
+        "inject": [Function],
+        "name": "gWPqvk",
+        "rules": Array [
+          "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+          "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+        ],
+        "toString": [Function],
+      },
+      " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+      "#9198A0",
+      ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+    ]
   }
 >
   <span
@@ -230,98 +424,195 @@ exports[`Spinner circular displays a spinner-circular class 1`] = `
       </div>
     </div>
   </span>
-</styled.span>
+</.sc-bdVaJa>
 `;
 
 exports[`Spinner displays an is-hidden class 1`] = `
-<styled.span
+<.sc-bdVaJa
   className=""
   css={
-    Object {
-      ".spinner-bounce": Object {
-        ".bounce1": Object {
-          "animationDelay": "-0.32s",
-        },
-        ".bounce1, .bounce2, .bounce3": Object {
-          "animation": "ghjfcd 1.4s infinite ease-in-out both",
-          "backgroundColor": "#9198A0",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "12px",
-          "marginRight": "3px",
-          "width": "12px",
-        },
-        ".bounce2": Object {
-          "animationDelay": "-0.16s",
-        },
-        ".bounce3": Object {
-          "marginRight": 0,
-        },
+    Array [
+      "
+    background-color: ",
+      "#fff",
+      ";
+    display: none;
+    ",
+      "
+    ",
+      "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+      "
+    ",
+      "display: none;",
+      "
+
+    .spinner-dots {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-cZxgpV",
+        "inject": [Function],
+        "name": "cZxgpV",
+        "rules": Array [
+          "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+          "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+        ],
+        "toString": [Function],
       },
-      ".spinner-circular": Object {
-        ".sc-inner": Object {
-          "alignItems": "center",
-          "display": "flex",
-          "justifyContent": "center",
-          "overflow": "visible",
-          "verticalAlign": "middle",
-        },
-        ".sc-inner path": Object {
-          "fillOpacity": "0",
-        },
-        ".sc-inner svg": Object {
-          "display": "block",
-        },
-        ".sc-inner-animation": Object {
-          "animation": "gWPqvk .5s linear infinite",
-        },
-        ".sc-inner-head": Object {
-          "stroke": "#9198A0",
-          "strokeLinecap": "round",
-          "transformOrigin": "center",
-          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
-        },
-        ".sc-inner-track": Object {
-          "stroke": "rgba(92, 112, 128, .2)",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
-      ".spinner-dots": Object {
-        ".dot1, .dot2": Object {
-          "animation": "iQfAUB 2.0s infinite ease-in-out",
-          "backgroundColor": "#3C97D3",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "60%",
-          "position": "absolute",
-          "top": 0,
-          "width": "60%",
-        },
-        ".dot2": Object {
-          "animationDelay": "-1.0s",
-          "backgroundColor": "#E54C3B",
-          "bottom": 0,
-          "top": "auto",
-        },
-        "animation": "cZxgpV 2.0s infinite linear",
-        "height": "40px",
-        "position": "relative",
-        "width": "40px",
-      },
-      "alignItems": "center",
-      "backgroundColor": "#fff",
-      "bottom": 0,
-      "display": "none",
-      "justifyContent": "center",
-      "left": 0,
-      "position": "absolute",
-      "right": 0,
-      "top": 0,
-      "zIndex": 1000,
+      " 2.0s infinite linear;
+      height: ",
+      "40",
+      "px;
+      position: relative;
+      width: ",
+      "40",
+      "px;
     }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-iQfAUB",
+        "inject": [Function],
+        "name": "iQfAUB",
+        "rules": Array [
+          "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+      "#3C97D3",
+      ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+      "#E54C3B",
+      ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-ghjfcd",
+        "inject": [Function],
+        "name": "ghjfcd",
+        "rules": Array [
+          "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 1.4s infinite ease-in-out both;
+      background-color: ",
+      "#9198A0",
+      ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+      "12",
+      "px;
+      margin-right: 3px;
+      width: ",
+      "12",
+      "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+      "16",
+      "px;
+      height: ",
+      "16",
+      "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+      Keyframes {
+        "id": "sc-keyframes-gWPqvk",
+        "inject": [Function],
+        "name": "gWPqvk",
+        "rules": Array [
+          "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+          "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+        ],
+        "toString": [Function],
+      },
+      " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+      "#9198A0",
+      ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+    ]
   }
 >
   <span
@@ -339,98 +630,195 @@ exports[`Spinner displays an is-hidden class 1`] = `
       />
     </span>
   </span>
-</styled.span>
+</.sc-bdVaJa>
 `;
 
 exports[`Spinner dots displays a spinner-dots class 1`] = `
-<styled.span
+<.sc-bdVaJa
   className=""
   css={
-    Object {
-      ".spinner-bounce": Object {
-        ".bounce1": Object {
-          "animationDelay": "-0.32s",
-        },
-        ".bounce1, .bounce2, .bounce3": Object {
-          "animation": "ghjfcd 1.4s infinite ease-in-out both",
-          "backgroundColor": "#9198A0",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "12px",
-          "marginRight": "3px",
-          "width": "12px",
-        },
-        ".bounce2": Object {
-          "animationDelay": "-0.16s",
-        },
-        ".bounce3": Object {
-          "marginRight": 0,
-        },
+    Array [
+      "
+    background-color: ",
+      "#fff",
+      ";
+    display: none;
+    ",
+      "
+    ",
+      "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+      "
+    ",
+      "display: none;",
+      "
+
+    .spinner-dots {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-cZxgpV",
+        "inject": [Function],
+        "name": "cZxgpV",
+        "rules": Array [
+          "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+          "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+        ],
+        "toString": [Function],
       },
-      ".spinner-circular": Object {
-        ".sc-inner": Object {
-          "alignItems": "center",
-          "display": "flex",
-          "justifyContent": "center",
-          "overflow": "visible",
-          "verticalAlign": "middle",
-        },
-        ".sc-inner path": Object {
-          "fillOpacity": "0",
-        },
-        ".sc-inner svg": Object {
-          "display": "block",
-        },
-        ".sc-inner-animation": Object {
-          "animation": "gWPqvk .5s linear infinite",
-        },
-        ".sc-inner-head": Object {
-          "stroke": "#9198A0",
-          "strokeLinecap": "round",
-          "transformOrigin": "center",
-          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
-        },
-        ".sc-inner-track": Object {
-          "stroke": "rgba(92, 112, 128, .2)",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
-      ".spinner-dots": Object {
-        ".dot1, .dot2": Object {
-          "animation": "iQfAUB 2.0s infinite ease-in-out",
-          "backgroundColor": "#3C97D3",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "60%",
-          "position": "absolute",
-          "top": 0,
-          "width": "60%",
-        },
-        ".dot2": Object {
-          "animationDelay": "-1.0s",
-          "backgroundColor": "#E54C3B",
-          "bottom": 0,
-          "top": "auto",
-        },
-        "animation": "cZxgpV 2.0s infinite linear",
-        "height": "40px",
-        "position": "relative",
-        "width": "40px",
-      },
-      "alignItems": "center",
-      "backgroundColor": "#fff",
-      "bottom": 0,
-      "display": "none",
-      "justifyContent": "center",
-      "left": 0,
-      "position": "absolute",
-      "right": 0,
-      "top": 0,
-      "zIndex": 1000,
+      " 2.0s infinite linear;
+      height: ",
+      "40",
+      "px;
+      position: relative;
+      width: ",
+      "40",
+      "px;
     }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-iQfAUB",
+        "inject": [Function],
+        "name": "iQfAUB",
+        "rules": Array [
+          "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+      "#3C97D3",
+      ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+      "#E54C3B",
+      ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-ghjfcd",
+        "inject": [Function],
+        "name": "ghjfcd",
+        "rules": Array [
+          "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 1.4s infinite ease-in-out both;
+      background-color: ",
+      "#9198A0",
+      ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+      "12",
+      "px;
+      margin-right: 3px;
+      width: ",
+      "12",
+      "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+      "16",
+      "px;
+      height: ",
+      "16",
+      "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+      Keyframes {
+        "id": "sc-keyframes-gWPqvk",
+        "inject": [Function],
+        "name": "gWPqvk",
+        "rules": Array [
+          "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+          "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+        ],
+        "toString": [Function],
+      },
+      " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+      "#9198A0",
+      ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+    ]
   }
 >
   <span
@@ -445,98 +833,195 @@ exports[`Spinner dots displays a spinner-dots class 1`] = `
       />
     </span>
   </span>
-</styled.span>
+</.sc-bdVaJa>
 `;
 
 exports[`Spinner has an className 1`] = `
-<styled.span
+<.sc-bdVaJa
   className="testing"
   css={
-    Object {
-      ".spinner-bounce": Object {
-        ".bounce1": Object {
-          "animationDelay": "-0.32s",
-        },
-        ".bounce1, .bounce2, .bounce3": Object {
-          "animation": "ghjfcd 1.4s infinite ease-in-out both",
-          "backgroundColor": "#9198A0",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "12px",
-          "marginRight": "3px",
-          "width": "12px",
-        },
-        ".bounce2": Object {
-          "animationDelay": "-0.16s",
-        },
-        ".bounce3": Object {
-          "marginRight": 0,
-        },
+    Array [
+      "
+    background-color: ",
+      "#fff",
+      ";
+    display: none;
+    ",
+      "display: flex;",
+      "
+    ",
+      "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+      "
+    ",
+      "
+
+    .spinner-dots {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-cZxgpV",
+        "inject": [Function],
+        "name": "cZxgpV",
+        "rules": Array [
+          "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+          "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+        ],
+        "toString": [Function],
       },
-      ".spinner-circular": Object {
-        ".sc-inner": Object {
-          "alignItems": "center",
-          "display": "flex",
-          "justifyContent": "center",
-          "overflow": "visible",
-          "verticalAlign": "middle",
-        },
-        ".sc-inner path": Object {
-          "fillOpacity": "0",
-        },
-        ".sc-inner svg": Object {
-          "display": "block",
-        },
-        ".sc-inner-animation": Object {
-          "animation": "gWPqvk .5s linear infinite",
-        },
-        ".sc-inner-head": Object {
-          "stroke": "#9198A0",
-          "strokeLinecap": "round",
-          "transformOrigin": "center",
-          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
-        },
-        ".sc-inner-track": Object {
-          "stroke": "rgba(92, 112, 128, .2)",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
-      ".spinner-dots": Object {
-        ".dot1, .dot2": Object {
-          "animation": "iQfAUB 2.0s infinite ease-in-out",
-          "backgroundColor": "#3C97D3",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "60%",
-          "position": "absolute",
-          "top": 0,
-          "width": "60%",
-        },
-        ".dot2": Object {
-          "animationDelay": "-1.0s",
-          "backgroundColor": "#E54C3B",
-          "bottom": 0,
-          "top": "auto",
-        },
-        "animation": "cZxgpV 2.0s infinite linear",
-        "height": "40px",
-        "position": "relative",
-        "width": "40px",
-      },
-      "alignItems": "center",
-      "backgroundColor": "#fff",
-      "bottom": 0,
-      "display": "flex",
-      "justifyContent": "center",
-      "left": 0,
-      "position": "absolute",
-      "right": 0,
-      "top": 0,
-      "zIndex": 1000,
+      " 2.0s infinite linear;
+      height: ",
+      "40",
+      "px;
+      position: relative;
+      width: ",
+      "40",
+      "px;
     }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-iQfAUB",
+        "inject": [Function],
+        "name": "iQfAUB",
+        "rules": Array [
+          "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+      "#3C97D3",
+      ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+      "#E54C3B",
+      ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-ghjfcd",
+        "inject": [Function],
+        "name": "ghjfcd",
+        "rules": Array [
+          "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 1.4s infinite ease-in-out both;
+      background-color: ",
+      "#9198A0",
+      ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+      "12",
+      "px;
+      margin-right: 3px;
+      width: ",
+      "12",
+      "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+      "16",
+      "px;
+      height: ",
+      "16",
+      "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+      Keyframes {
+        "id": "sc-keyframes-gWPqvk",
+        "inject": [Function],
+        "name": "gWPqvk",
+        "rules": Array [
+          "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+          "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+        ],
+        "toString": [Function],
+      },
+      " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+      "#9198A0",
+      ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+    ]
   }
 >
   <span
@@ -554,98 +1039,195 @@ exports[`Spinner has an className 1`] = `
       />
     </span>
   </span>
-</styled.span>
+</.sc-bdVaJa>
 `;
 
 exports[`Spinner has custom background color 1`] = `
-<styled.span
+<.sc-bdVaJa
   className=""
   css={
-    Object {
-      ".spinner-bounce": Object {
-        ".bounce1": Object {
-          "animationDelay": "-0.32s",
-        },
-        ".bounce1, .bounce2, .bounce3": Object {
-          "animation": "ghjfcd 1.4s infinite ease-in-out both",
-          "backgroundColor": "#3C97D3",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "12px",
-          "marginRight": "3px",
-          "width": "12px",
-        },
-        ".bounce2": Object {
-          "animationDelay": "-0.16s",
-        },
-        ".bounce3": Object {
-          "marginRight": 0,
-        },
+    Array [
+      "
+    background-color: ",
+      "#fff",
+      ";
+    display: none;
+    ",
+      "display: flex;",
+      "
+    ",
+      "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+      "
+    ",
+      "
+
+    .spinner-dots {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-cZxgpV",
+        "inject": [Function],
+        "name": "cZxgpV",
+        "rules": Array [
+          "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+          "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+        ],
+        "toString": [Function],
       },
-      ".spinner-circular": Object {
-        ".sc-inner": Object {
-          "alignItems": "center",
-          "display": "flex",
-          "justifyContent": "center",
-          "overflow": "visible",
-          "verticalAlign": "middle",
-        },
-        ".sc-inner path": Object {
-          "fillOpacity": "0",
-        },
-        ".sc-inner svg": Object {
-          "display": "block",
-        },
-        ".sc-inner-animation": Object {
-          "animation": "gWPqvk .5s linear infinite",
-        },
-        ".sc-inner-head": Object {
-          "stroke": "#3C97D3",
-          "strokeLinecap": "round",
-          "transformOrigin": "center",
-          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
-        },
-        ".sc-inner-track": Object {
-          "stroke": "rgba(92, 112, 128, .2)",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
-      ".spinner-dots": Object {
-        ".dot1, .dot2": Object {
-          "animation": "iQfAUB 2.0s infinite ease-in-out",
-          "backgroundColor": "#3C97D3",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "60%",
-          "position": "absolute",
-          "top": 0,
-          "width": "60%",
-        },
-        ".dot2": Object {
-          "animationDelay": "-1.0s",
-          "backgroundColor": "#3C97D3",
-          "bottom": 0,
-          "top": "auto",
-        },
-        "animation": "cZxgpV 2.0s infinite linear",
-        "height": "40px",
-        "position": "relative",
-        "width": "40px",
-      },
-      "alignItems": "center",
-      "backgroundColor": "#fff",
-      "bottom": 0,
-      "display": "flex",
-      "justifyContent": "center",
-      "left": 0,
-      "position": "absolute",
-      "right": 0,
-      "top": 0,
-      "zIndex": 1000,
+      " 2.0s infinite linear;
+      height: ",
+      "40",
+      "px;
+      position: relative;
+      width: ",
+      "40",
+      "px;
     }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-iQfAUB",
+        "inject": [Function],
+        "name": "iQfAUB",
+        "rules": Array [
+          "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+      "#3C97D3",
+      ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+      "#3C97D3",
+      ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-ghjfcd",
+        "inject": [Function],
+        "name": "ghjfcd",
+        "rules": Array [
+          "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 1.4s infinite ease-in-out both;
+      background-color: ",
+      "#3C97D3",
+      ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+      "12",
+      "px;
+      margin-right: 3px;
+      width: ",
+      "12",
+      "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+      "16",
+      "px;
+      height: ",
+      "16",
+      "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+      Keyframes {
+        "id": "sc-keyframes-gWPqvk",
+        "inject": [Function],
+        "name": "gWPqvk",
+        "rules": Array [
+          "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+          "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+        ],
+        "toString": [Function],
+      },
+      " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+      "#3C97D3",
+      ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+    ]
   }
 >
   <span
@@ -663,98 +1245,195 @@ exports[`Spinner has custom background color 1`] = `
       />
     </span>
   </span>
-</styled.span>
+</.sc-bdVaJa>
 `;
 
 exports[`Spinner with fixed position has a loading class 1`] = `
-<styled.span
+<.sc-bdVaJa
   className=""
   css={
-    Object {
-      ".spinner-bounce": Object {
-        ".bounce1": Object {
-          "animationDelay": "-0.32s",
-        },
-        ".bounce1, .bounce2, .bounce3": Object {
-          "animation": "ghjfcd 1.4s infinite ease-in-out both",
-          "backgroundColor": "#9198A0",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "12px",
-          "marginRight": "3px",
-          "width": "12px",
-        },
-        ".bounce2": Object {
-          "animationDelay": "-0.16s",
-        },
-        ".bounce3": Object {
-          "marginRight": 0,
-        },
+    Array [
+      "
+    background-color: ",
+      "#fff",
+      ";
+    display: none;
+    ",
+      "display: flex;",
+      "
+    ",
+      "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: fixed;
+      z-index: 4000;
+    ",
+      "
+    ",
+      "
+
+    .spinner-dots {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-cZxgpV",
+        "inject": [Function],
+        "name": "cZxgpV",
+        "rules": Array [
+          "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+          "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+        ],
+        "toString": [Function],
       },
-      ".spinner-circular": Object {
-        ".sc-inner": Object {
-          "alignItems": "center",
-          "display": "flex",
-          "justifyContent": "center",
-          "overflow": "visible",
-          "verticalAlign": "middle",
-        },
-        ".sc-inner path": Object {
-          "fillOpacity": "0",
-        },
-        ".sc-inner svg": Object {
-          "display": "block",
-        },
-        ".sc-inner-animation": Object {
-          "animation": "gWPqvk .5s linear infinite",
-        },
-        ".sc-inner-head": Object {
-          "stroke": "#9198A0",
-          "strokeLinecap": "round",
-          "transformOrigin": "center",
-          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
-        },
-        ".sc-inner-track": Object {
-          "stroke": "rgba(92, 112, 128, .2)",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
-      ".spinner-dots": Object {
-        ".dot1, .dot2": Object {
-          "animation": "iQfAUB 2.0s infinite ease-in-out",
-          "backgroundColor": "#3C97D3",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "60%",
-          "position": "absolute",
-          "top": 0,
-          "width": "60%",
-        },
-        ".dot2": Object {
-          "animationDelay": "-1.0s",
-          "backgroundColor": "#E54C3B",
-          "bottom": 0,
-          "top": "auto",
-        },
-        "animation": "cZxgpV 2.0s infinite linear",
-        "height": "40px",
-        "position": "relative",
-        "width": "40px",
-      },
-      "alignItems": "center",
-      "backgroundColor": "#fff",
-      "bottom": 0,
-      "display": "flex",
-      "justifyContent": "center",
-      "left": 0,
-      "position": "fixed",
-      "right": 0,
-      "top": 0,
-      "zIndex": 4000,
+      " 2.0s infinite linear;
+      height: ",
+      "40",
+      "px;
+      position: relative;
+      width: ",
+      "40",
+      "px;
     }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-iQfAUB",
+        "inject": [Function],
+        "name": "iQfAUB",
+        "rules": Array [
+          "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+      "#3C97D3",
+      ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+      "#E54C3B",
+      ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-ghjfcd",
+        "inject": [Function],
+        "name": "ghjfcd",
+        "rules": Array [
+          "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 1.4s infinite ease-in-out both;
+      background-color: ",
+      "#9198A0",
+      ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+      "12",
+      "px;
+      margin-right: 3px;
+      width: ",
+      "12",
+      "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+      "16",
+      "px;
+      height: ",
+      "16",
+      "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+      Keyframes {
+        "id": "sc-keyframes-gWPqvk",
+        "inject": [Function],
+        "name": "gWPqvk",
+        "rules": Array [
+          "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+          "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+        ],
+        "toString": [Function],
+      },
+      " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+      "#9198A0",
+      ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+    ]
   }
 >
   <span
@@ -772,90 +1451,184 @@ exports[`Spinner with fixed position has a loading class 1`] = `
       />
     </span>
   </span>
-</styled.span>
+</.sc-bdVaJa>
 `;
 
 exports[`Spinner with inline position has a loading class 1`] = `
-<styled.span
+<.sc-bdVaJa
   className=""
   css={
-    Object {
-      ".spinner-bounce": Object {
-        ".bounce1": Object {
-          "animationDelay": "-0.32s",
-        },
-        ".bounce1, .bounce2, .bounce3": Object {
-          "animation": "ghjfcd 1.4s infinite ease-in-out both",
-          "backgroundColor": "#9198A0",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "12px",
-          "marginRight": "3px",
-          "width": "12px",
-        },
-        ".bounce2": Object {
-          "animationDelay": "-0.16s",
-        },
-        ".bounce3": Object {
-          "marginRight": 0,
-        },
+    Array [
+      "
+    background-color: ",
+      "#fff",
+      ";
+    display: none;
+    ",
+      "display: flex;",
+      "
+    ",
+      "display: inline-flex;",
+      "
+    ",
+      "
+
+    .spinner-dots {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-cZxgpV",
+        "inject": [Function],
+        "name": "cZxgpV",
+        "rules": Array [
+          "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+          "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+        ],
+        "toString": [Function],
       },
-      ".spinner-circular": Object {
-        ".sc-inner": Object {
-          "alignItems": "center",
-          "display": "flex",
-          "justifyContent": "center",
-          "overflow": "visible",
-          "verticalAlign": "middle",
-        },
-        ".sc-inner path": Object {
-          "fillOpacity": "0",
-        },
-        ".sc-inner svg": Object {
-          "display": "block",
-        },
-        ".sc-inner-animation": Object {
-          "animation": "gWPqvk .5s linear infinite",
-        },
-        ".sc-inner-head": Object {
-          "stroke": "#9198A0",
-          "strokeLinecap": "round",
-          "transformOrigin": "center",
-          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
-        },
-        ".sc-inner-track": Object {
-          "stroke": "rgba(92, 112, 128, .2)",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
-      ".spinner-dots": Object {
-        ".dot1, .dot2": Object {
-          "animation": "iQfAUB 2.0s infinite ease-in-out",
-          "backgroundColor": "#3C97D3",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "60%",
-          "position": "absolute",
-          "top": 0,
-          "width": "60%",
-        },
-        ".dot2": Object {
-          "animationDelay": "-1.0s",
-          "backgroundColor": "#E54C3B",
-          "bottom": 0,
-          "top": "auto",
-        },
-        "animation": "cZxgpV 2.0s infinite linear",
-        "height": "40px",
-        "position": "relative",
-        "width": "40px",
-      },
-      "backgroundColor": "#fff",
-      "display": "inline-flex",
+      " 2.0s infinite linear;
+      height: ",
+      "40",
+      "px;
+      position: relative;
+      width: ",
+      "40",
+      "px;
     }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-iQfAUB",
+        "inject": [Function],
+        "name": "iQfAUB",
+        "rules": Array [
+          "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+      "#3C97D3",
+      ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+      "#E54C3B",
+      ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-ghjfcd",
+        "inject": [Function],
+        "name": "ghjfcd",
+        "rules": Array [
+          "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 1.4s infinite ease-in-out both;
+      background-color: ",
+      "#9198A0",
+      ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+      "12",
+      "px;
+      margin-right: 3px;
+      width: ",
+      "12",
+      "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+      "16",
+      "px;
+      height: ",
+      "16",
+      "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+      Keyframes {
+        "id": "sc-keyframes-gWPqvk",
+        "inject": [Function],
+        "name": "gWPqvk",
+        "rules": Array [
+          "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+          "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+        ],
+        "toString": [Function],
+      },
+      " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+      "#9198A0",
+      ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+    ]
   }
 >
   <span
@@ -873,98 +1646,195 @@ exports[`Spinner with inline position has a loading class 1`] = `
       />
     </span>
   </span>
-</styled.span>
+</.sc-bdVaJa>
 `;
 
 exports[`Spinner with loading true has a loading class 1`] = `
-<styled.span
+<.sc-bdVaJa
   className=""
   css={
-    Object {
-      ".spinner-bounce": Object {
-        ".bounce1": Object {
-          "animationDelay": "-0.32s",
-        },
-        ".bounce1, .bounce2, .bounce3": Object {
-          "animation": "ghjfcd 1.4s infinite ease-in-out both",
-          "backgroundColor": "#9198A0",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "12px",
-          "marginRight": "3px",
-          "width": "12px",
-        },
-        ".bounce2": Object {
-          "animationDelay": "-0.16s",
-        },
-        ".bounce3": Object {
-          "marginRight": 0,
-        },
+    Array [
+      "
+    background-color: ",
+      "#fff",
+      ";
+    display: none;
+    ",
+      "display: flex;",
+      "
+    ",
+      "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+      "
+    ",
+      "
+
+    .spinner-dots {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-cZxgpV",
+        "inject": [Function],
+        "name": "cZxgpV",
+        "rules": Array [
+          "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+          "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+        ],
+        "toString": [Function],
       },
-      ".spinner-circular": Object {
-        ".sc-inner": Object {
-          "alignItems": "center",
-          "display": "flex",
-          "justifyContent": "center",
-          "overflow": "visible",
-          "verticalAlign": "middle",
-        },
-        ".sc-inner path": Object {
-          "fillOpacity": "0",
-        },
-        ".sc-inner svg": Object {
-          "display": "block",
-        },
-        ".sc-inner-animation": Object {
-          "animation": "gWPqvk .5s linear infinite",
-        },
-        ".sc-inner-head": Object {
-          "stroke": "#9198A0",
-          "strokeLinecap": "round",
-          "transformOrigin": "center",
-          "transition": "stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9)",
-        },
-        ".sc-inner-track": Object {
-          "stroke": "rgba(92, 112, 128, .2)",
-        },
-        "display": "inline-block",
-        "height": "16px",
-        "position": "relative",
-        "width": "16px",
-      },
-      ".spinner-dots": Object {
-        ".dot1, .dot2": Object {
-          "animation": "iQfAUB 2.0s infinite ease-in-out",
-          "backgroundColor": "#3C97D3",
-          "borderRadius": "100%",
-          "display": "inline-block",
-          "height": "60%",
-          "position": "absolute",
-          "top": 0,
-          "width": "60%",
-        },
-        ".dot2": Object {
-          "animationDelay": "-1.0s",
-          "backgroundColor": "#E54C3B",
-          "bottom": 0,
-          "top": "auto",
-        },
-        "animation": "cZxgpV 2.0s infinite linear",
-        "height": "40px",
-        "position": "relative",
-        "width": "40px",
-      },
-      "alignItems": "center",
-      "backgroundColor": "#fff",
-      "bottom": 0,
-      "display": "flex",
-      "justifyContent": "center",
-      "left": 0,
-      "position": "absolute",
-      "right": 0,
-      "top": 0,
-      "zIndex": 1000,
+      " 2.0s infinite linear;
+      height: ",
+      "40",
+      "px;
+      position: relative;
+      width: ",
+      "40",
+      "px;
     }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-iQfAUB",
+        "inject": [Function],
+        "name": "iQfAUB",
+        "rules": Array [
+          "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+      "#3C97D3",
+      ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+      "#E54C3B",
+      ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+      Keyframes {
+        "id": "sc-keyframes-ghjfcd",
+        "inject": [Function],
+        "name": "ghjfcd",
+        "rules": Array [
+          "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+          "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+        ],
+        "toString": [Function],
+      },
+      " 1.4s infinite ease-in-out both;
+      background-color: ",
+      "#9198A0",
+      ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+      "12",
+      "px;
+      margin-right: 3px;
+      width: ",
+      "12",
+      "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+      "16",
+      "px;
+      height: ",
+      "16",
+      "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+      Keyframes {
+        "id": "sc-keyframes-gWPqvk",
+        "inject": [Function],
+        "name": "gWPqvk",
+        "rules": Array [
+          "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+          "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+        ],
+        "toString": [Function],
+      },
+      " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+      "#9198A0",
+      ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+    ]
   }
 >
   <span
@@ -982,5 +1852,5 @@ exports[`Spinner with loading true has a loading class 1`] = `
       />
     </span>
   </span>
-</styled.span>
+</.sc-bdVaJa>
 `;

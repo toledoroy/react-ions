@@ -53,7 +53,7 @@ class InputList extends React.Component {
 
   state = this.buildStatefromProps(this.props.value)
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     if (nextProps.value === this.state.value) {
       return
     }

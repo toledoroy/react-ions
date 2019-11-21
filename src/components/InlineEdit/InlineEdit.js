@@ -110,7 +110,7 @@ class InlineEdit extends React.Component {
     copied: false
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     const newState = {}
 
     if (nextProps.isEditing && !this.state.isEditing) {

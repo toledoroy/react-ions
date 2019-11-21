@@ -126,7 +126,7 @@ class Input extends React.Component {
     return (props.value === null && typeof props.nullValue !== 'undefined') ? props.nullValue : props.value
   }
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     this.setState({ value: this._getValue(this.props) })
   }
 
@@ -134,7 +134,7 @@ class Input extends React.Component {
     this.handleInlineStyles()
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     if (nextProps.value !== this.props.value) {
       this.setState({ value: this._getValue(nextProps) })
     }

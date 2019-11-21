@@ -58,11 +58,11 @@ class Spinner extends React.Component {
     size: PropTypes.string
   }
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     this.getLoadingState(this.props)
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     this.getLoadingState(nextProps)
   }
 

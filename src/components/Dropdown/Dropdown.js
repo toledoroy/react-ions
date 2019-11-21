@@ -67,7 +67,7 @@ export class Dropdown extends React.Component {
     clickedItem: null
   }
 
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     if (nextProps.isOpened !== this.state.isOpened) {
       this.setState({ isOpened: !!nextProps.isOpened })
     }

@@ -32,14 +32,14 @@ class PanelSlider extends React.Component {
     isTransitioning: false
   }
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     this.activatePanel(this.props.activePanel)
   }
 
   // No sCU on this component because
   // nested child components need to be
   // able to update as needed
-  componentWillReceiveProps = nextProps => {
+  UNSAFE_componentWillReceiveProps = nextProps => {
     if (nextProps.activePanel !== this.props.activePanel) {
       this.setState({
         isTransitioning: true
