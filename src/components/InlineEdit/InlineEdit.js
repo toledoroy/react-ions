@@ -7,6 +7,7 @@ import Icon from '../Icon'
 import Spinner from '../Spinner'
 import Tooltip from '../Tooltip'
 import SelectField from '../SelectField'
+import DatePicker from '../DatePicker/DatePicker';
 
 class InlineEdit extends React.Component {
   constructor(props) {
@@ -84,11 +85,15 @@ class InlineEdit extends React.Component {
     /**
      * Type of the field.
      */
-    type: PropTypes.oneOf(['text', 'select']),
+    type: PropTypes.oneOf(['text', 'select', 'date']),
     /**
      * Options for the dropdown menu (required if type is 'select').
      */
-    selectOptions: PropTypes.array
+    selectOptions: PropTypes.array,
+    /**
+     * Date config for the datepicker (optional if type is 'date').
+     */
+    dateConfig: PropTypes.object
   }
 
   static defaultProps = {
@@ -240,6 +245,8 @@ class InlineEdit extends React.Component {
   getField = () => {
     if (this.props.type === 'select') {
       return this.getSelect()
+    } else if (this.props.type === 'date') {
+      return this.getDatepicker()
     }
     return this.getSpan()
 
@@ -273,6 +280,26 @@ class InlineEdit extends React.Component {
           : <span>{this.state.value || this.props.placeholder}</span>
         }
       </span>
+    )
+  }
+
+  getDatepicker = () => {
+    const dateClass = classNames.bind(style)(style['inline-edit-date'], this.state.loading ? 'loading' : '')
+    const dateRange = {
+      min: { month: '0', day: '1', year: '1937'},
+      max: { month: '+0', day: '+0', year: '+10' }
+    }
+
+    return (
+      <DatePicker
+        value={this.state.value}
+        min={this.props.dateConfig ? this.props.dateConfig.min : dateRange.min}
+        max={this.props.dateConfig ? this.props.dateConfig.max : dateRange.max}
+        changeCallback={this.handleSave}
+        inlineSmallScreen={true}
+        optClass={dateClass}
+        disabled={this.props.readonly}
+      />
     )
   }
 
@@ -378,7 +405,7 @@ class InlineEdit extends React.Component {
     const copyDisabledClass = this.state.value === '' ? 'disabled' : ''
     const copyIconClass = cx(style['copy-icon'], copyDisabledClass, this.state.copied ? 'copied' : '')
     const inlineEditClass = cx(style['inline-edit-wrapper'], this.props.optClass, readonlyClass, errorClass, placeholderClass)
-    const overflowWrapperClass = cx(style['inline-text-overflow-wrapper'], this.props.type === 'select' ? style['visible'] : '')
+    const overflowWrapperClass = cx(style['inline-text-overflow-wrapper'], ['select', 'date'].includes(this.props.type) ? style['visible'] : '')
     const copyValue = typeof this.props.copyToClipboard === 'string' ? this.props.copyToClipboard : this.state.value
 
     return (

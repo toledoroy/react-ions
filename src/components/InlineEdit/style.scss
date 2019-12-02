@@ -187,4 +187,29 @@
       }
     }
   }
+
+  .inline-edit-date {
+    z-index: 1;
+
+    ul {
+      min-width: 38px;
+      width: auto;
+    }
+
+    [class^='selectfield-value'] {
+      border: none;
+      padding: 0 4px 0 0;
+      color: $navy-text;
+      [class^='display-text'] {
+        padding-right: 0;
+      }
+    }
+
+    [class*='selectfield-disabled'] {
+      > [class^='selectfield-value'] {
+        background-color: $white;
+        color: $navy-text;
+      }
+    }
+  }
 }

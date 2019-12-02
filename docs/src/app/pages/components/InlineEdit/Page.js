@@ -22,6 +22,8 @@ import ExampleInlineEditEmpty from './ExampleInlineEditEmpty'
 import exampleInlineEditEmptyCode from '!raw!./ExampleInlineEditEmpty'
 import ExampleInlineEditSelect from './ExampleInlineEditSelect'
 import exampleInlineEditSelectCode from '!raw!./ExampleInlineEditSelect'
+import ExampleInlineEditDate from './ExampleInlineEditDate'
+import exampleInlineEditDateCode from '!raw!./ExampleInlineEditDate'
 import styles from 'private/css/content'
 
 const description = {
@@ -34,7 +36,8 @@ const description = {
   inlineEditCopy: 'This is the **inline edit component** with a copy to clipboard icon.',
   inlineEditTooltip: 'This is the **inline edit component** with a tooltip.',
   inlineEditEmpty: 'This is the empty (value is null) **inline edit component**.',
-  inlineEditSelect: 'This is the select **inline edit component**.'
+  inlineEditSelect: 'This is the select **inline edit component**.',
+  inlineEditDate: 'This is the date **inline edit component**.'
 }
 
 const InlineEditPage = () => (
@@ -100,6 +103,12 @@ const InlineEditPage = () => (
           description={description.inlineEditSelect}
           markup={exampleInlineEditSelectCode}>
           <ExampleInlineEditSelect />
+        </CodeExample>
+        <CodeExample
+          title='Date Inline Edit'
+          description={description.inlineEditSelect}
+          markup={exampleInlineEditDateCode}>
+          <ExampleInlineEditDate />
         </CodeExample>
       </div>
       <div className={styles.block}>
