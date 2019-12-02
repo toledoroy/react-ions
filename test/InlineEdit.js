@@ -352,4 +352,54 @@ describe('InlineEdit', () => {
 
     expect(field.props.optClass).to.equal('inline-edit-select loading')
   })
+
+  it('should render a datepicker', () => {
+    const wrapper = mount(<InlineEdit name='test' value='2005-04-26' type='date' />)
+
+    expect(wrapper.find('DatePicker')).to.have.length(1)
+    expect(wrapper.find('DatePicker').at(0).props().value).to.equal('2005-04-26')
+  })
+
+  it('should update the state when date is updated', () => {
+
+
+    const wrapper = mount(<InlineEdit name='test' value='2005-04-26' type='date' />)
+
+    expect(wrapper.state().value).to.equal('2005-04-26')
+
+    wrapper.instance().handleSave({ target: { value: '2007-02-06' } })
+
+    expect(wrapper.state().value).to.equal('2007-02-06')
+  })
+
+  it('should trigger the change callback when when date is updated', () => {
+    const changeCallback = sinon.spy()
+
+
+    const wrapper = mount(<InlineEdit name='test' value='2005-04-26' type='date' changeCallback={changeCallback} />)
+
+    expect(wrapper.state().value).to.equal('2005-04-26')
+
+    wrapper.instance().handleSave({ target: { value: '2007-02-06' } })
+
+    expect(wrapper.state().value).to.equal('2007-02-06')
+    expect(changeCallback.calledWithExactly({ target: { name: 'test', value: '2007-02-06' } })).to.be.true
+
+    wrapper.instance().handleSave({ target: { value: '2007-02-06' } })
+    expect(changeCallback.calledTwice).to.be.false
+  })
+
+  it('should set classes on the datepicker', () => {
+
+
+    let wrapper = mount(<InlineEdit name='test' value='2005-04-26' type='date' />)
+    let field = wrapper.instance().getDatepicker()
+
+    expect(field.props.optClass).to.equal('inline-edit-date')
+
+    wrapper = mount(<InlineEdit name='test' value='2005-04-26' type='date' loading={true} />)
+    field = wrapper.instance().getDatepicker()
+
+    expect(field.props.optClass).to.equal('inline-edit-date loading')
+  })
 })
