@@ -1,3 +1,7 @@
+## 5.3.1
+###### _December 3, 2019_
+- Add date type (DatePicker) to InlineEdit component [#833](https://github.com/GetAmbassador/react-ions/pull/833)
+
 ## 5.3.0
 ###### _November 21, 2019_
 - Upgraded libraries in package.json and syntax for libraries, including React and styled-components [#831](https://github.com/GetAmbassador/react-ions/pull/831)
