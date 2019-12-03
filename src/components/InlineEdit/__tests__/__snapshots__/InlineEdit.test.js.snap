@@ -1,0 +1,5014 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InlineEdit should be readonly 1`] = `
+<InlineEdit
+  changeCallback={[Function]}
+  error=""
+  isEditing={false}
+  loading={false}
+  name="test"
+  placeholder="Click to edit"
+  readonly={true}
+  tooltipPlacement="right"
+  type="text"
+  value="test value"
+>
+  <div
+    className="inline-edit-wrapper readonly"
+  >
+    <div
+      className="inline-edit-wrapper-inner"
+    >
+      <div
+        className="inline-text-overflow-wrapper"
+        style={
+          Object {
+            "maxWidth": "calc(100% - 0px)",
+          }
+        }
+      >
+        <span
+          className="inline-text-wrapper-hover"
+          id="span_id"
+          onClick={[Function]}
+        >
+          <span>
+            test value
+          </span>
+        </span>
+        <div
+          className="loader-wrapper"
+        >
+          <Spinner
+            color="#9198A0"
+            loading={false}
+            size="14"
+            type="spinner-circular"
+          >
+            <.sc-bdVaJa
+              className=""
+              css={
+                Array [
+                  "
+    background-color: ",
+                  "#fff",
+                  ";
+    display: none;
+    ",
+                  "
+    ",
+                  "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+                  "
+    ",
+                  "display: none;",
+                  "
+
+    .spinner-dots {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-cZxgpV",
+                    "inject": [Function],
+                    "name": "cZxgpV",
+                    "rules": Array [
+                      "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                      "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 2.0s infinite linear;
+      height: ",
+                  "14",
+                  "px;
+      position: relative;
+      width: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-iQfAUB",
+                    "inject": [Function],
+                    "name": "iQfAUB",
+                    "rules": Array [
+                      "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+                  "#9198A0",
+                  ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+                  "#9198A0",
+                  ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-ghjfcd",
+                    "inject": [Function],
+                    "name": "ghjfcd",
+                    "rules": Array [
+                      "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 1.4s infinite ease-in-out both;
+      background-color: ",
+                  "#9198A0",
+                  ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+                  "14",
+                  "px;
+      margin-right: 3px;
+      width: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+                  "14",
+                  "px;
+      height: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-gWPqvk",
+                    "inject": [Function],
+                    "name": "gWPqvk",
+                    "rules": Array [
+                      "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                      "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+                  "#9198A0",
+                  ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+                ]
+              }
+            >
+              <StyledComponent
+                className=""
+                css={
+                  Array [
+                    "
+    background-color: ",
+                    "#fff",
+                    ";
+    display: none;
+    ",
+                    "
+    ",
+                    "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+                    "
+    ",
+                    "display: none;",
+                    "
+
+    .spinner-dots {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-cZxgpV",
+                      "inject": [Function],
+                      "name": "cZxgpV",
+                      "rules": Array [
+                        "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                        "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 2.0s infinite linear;
+      height: ",
+                    "14",
+                    "px;
+      position: relative;
+      width: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-iQfAUB",
+                      "inject": [Function],
+                      "name": "iQfAUB",
+                      "rules": Array [
+                        "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                        "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+                    "#9198A0",
+                    ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+                    "#9198A0",
+                    ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-ghjfcd",
+                      "inject": [Function],
+                      "name": "ghjfcd",
+                      "rules": Array [
+                        "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                        "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 1.4s infinite ease-in-out both;
+      background-color: ",
+                    "#9198A0",
+                    ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+                    "14",
+                    "px;
+      margin-right: 3px;
+      width: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+                    "14",
+                    "px;
+      height: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-gWPqvk",
+                      "inject": [Function],
+                      "name": "gWPqvk",
+                      "rules": Array [
+                        "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                        "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+                    "#9198A0",
+                    ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+                  ]
+                }
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-bdVaJa",
+                      "isStatic": false,
+                      "lastClassName": "cGeTuw",
+                      "rules": Array [
+                        [Function],
+                      ],
+                    },
+                    "displayName": "styled.span",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-bdVaJa",
+                    "target": "span",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+              >
+                <span
+                  className="sc-bdVaJa cGeTuw"
+                >
+                  <span
+                    className="spinner-circular"
+                  >
+                    <div
+                      className="sc-inner"
+                    >
+                      <div
+                        className="sc-inner-animation"
+                      >
+                        <svg
+                          height="14"
+                          strokeWidth="16.00"
+                          viewBox="-3.00 -3.00 106.00 106.00"
+                          width="14"
+                        >
+                          <path
+                            className="sc-inner-track"
+                            d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+                          />
+                          <path
+                            className="sc-inner-head"
+                            d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+                            pathLength="280"
+                            strokeDasharray="280 280"
+                            strokeDashoffset="210"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </span>
+                </span>
+              </StyledComponent>
+            </.sc-bdVaJa>
+          </Spinner>
+        </div>
+      </div>
+    </div>
+  </div>
+</InlineEdit>
+`;
+
+exports[`InlineEdit should have an inline icon and label 1`] = `
+<InlineEdit
+  error=""
+  icon="md-mail"
+  isEditing={false}
+  label="Email"
+  loading={false}
+  name="test"
+  placeholder="Click to edit"
+  readonly={false}
+  tooltipPlacement="right"
+  type="text"
+  value="test value"
+>
+  <div
+    className="inline-edit-wrapper"
+  >
+    <div
+      className="inline-edit-wrapper-inner"
+    >
+      <span
+        className="inline-icon"
+      >
+        <Icon
+          fill="#9198A0"
+          height="14"
+          name="md-mail"
+          width="14"
+        >
+          <svg
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": undefined,
+              }
+            }
+            fill="#9198A0"
+            height="14"
+            name="md-mail"
+            role="img"
+            viewBox="0 0 24 24"
+            width="14"
+          />
+        </Icon>
+      </span>
+      <label
+        className="inline-label"
+      >
+        Email
+      </label>
+      <div
+        className="inline-text-overflow-wrapper"
+        style={
+          Object {
+            "maxWidth": "calc(100% - 15px)",
+          }
+        }
+      >
+        <span
+          className="inline-text-wrapper-hover"
+          id="span_id"
+          onClick={[Function]}
+        >
+          <span>
+            test value
+          </span>
+        </span>
+        <div
+          className="loader-wrapper"
+        >
+          <Spinner
+            color="#9198A0"
+            loading={false}
+            size="14"
+            type="spinner-circular"
+          >
+            <.sc-bdVaJa
+              className=""
+              css={
+                Array [
+                  "
+    background-color: ",
+                  "#fff",
+                  ";
+    display: none;
+    ",
+                  "
+    ",
+                  "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+                  "
+    ",
+                  "display: none;",
+                  "
+
+    .spinner-dots {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-cZxgpV",
+                    "inject": [Function],
+                    "name": "cZxgpV",
+                    "rules": Array [
+                      "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                      "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 2.0s infinite linear;
+      height: ",
+                  "14",
+                  "px;
+      position: relative;
+      width: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-iQfAUB",
+                    "inject": [Function],
+                    "name": "iQfAUB",
+                    "rules": Array [
+                      "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+                  "#9198A0",
+                  ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+                  "#9198A0",
+                  ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-ghjfcd",
+                    "inject": [Function],
+                    "name": "ghjfcd",
+                    "rules": Array [
+                      "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 1.4s infinite ease-in-out both;
+      background-color: ",
+                  "#9198A0",
+                  ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+                  "14",
+                  "px;
+      margin-right: 3px;
+      width: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+                  "14",
+                  "px;
+      height: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-gWPqvk",
+                    "inject": [Function],
+                    "name": "gWPqvk",
+                    "rules": Array [
+                      "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                      "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+                  "#9198A0",
+                  ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+                ]
+              }
+            >
+              <StyledComponent
+                className=""
+                css={
+                  Array [
+                    "
+    background-color: ",
+                    "#fff",
+                    ";
+    display: none;
+    ",
+                    "
+    ",
+                    "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+                    "
+    ",
+                    "display: none;",
+                    "
+
+    .spinner-dots {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-cZxgpV",
+                      "inject": [Function],
+                      "name": "cZxgpV",
+                      "rules": Array [
+                        "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                        "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 2.0s infinite linear;
+      height: ",
+                    "14",
+                    "px;
+      position: relative;
+      width: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-iQfAUB",
+                      "inject": [Function],
+                      "name": "iQfAUB",
+                      "rules": Array [
+                        "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                        "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+                    "#9198A0",
+                    ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+                    "#9198A0",
+                    ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-ghjfcd",
+                      "inject": [Function],
+                      "name": "ghjfcd",
+                      "rules": Array [
+                        "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                        "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 1.4s infinite ease-in-out both;
+      background-color: ",
+                    "#9198A0",
+                    ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+                    "14",
+                    "px;
+      margin-right: 3px;
+      width: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+                    "14",
+                    "px;
+      height: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-gWPqvk",
+                      "inject": [Function],
+                      "name": "gWPqvk",
+                      "rules": Array [
+                        "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                        "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+                    "#9198A0",
+                    ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+                  ]
+                }
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-bdVaJa",
+                      "isStatic": false,
+                      "lastClassName": "cGeTuw",
+                      "rules": Array [
+                        [Function],
+                      ],
+                    },
+                    "displayName": "styled.span",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-bdVaJa",
+                    "target": "span",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+              >
+                <span
+                  className="sc-bdVaJa cGeTuw"
+                >
+                  <span
+                    className="spinner-circular"
+                  >
+                    <div
+                      className="sc-inner"
+                    >
+                      <div
+                        className="sc-inner-animation"
+                      >
+                        <svg
+                          height="14"
+                          strokeWidth="16.00"
+                          viewBox="-3.00 -3.00 106.00 106.00"
+                          width="14"
+                        >
+                          <path
+                            className="sc-inner-track"
+                            d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+                          />
+                          <path
+                            className="sc-inner-head"
+                            d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+                            pathLength="280"
+                            strokeDasharray="280 280"
+                            strokeDashoffset="210"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </span>
+                </span>
+              </StyledComponent>
+            </.sc-bdVaJa>
+          </Spinner>
+        </div>
+      </div>
+    </div>
+  </div>
+</InlineEdit>
+`;
+
+exports[`InlineEdit should not render buttons 1`] = `
+<InlineEdit
+  error=""
+  isEditing={false}
+  loading={false}
+  name="test"
+  placeholder="Click to edit"
+  readonly={false}
+  tooltipPlacement="right"
+  type="text"
+  value="test value"
+>
+  <div
+    className="inline-edit-wrapper"
+  >
+    <div
+      className="inline-edit-wrapper-inner"
+    >
+      <div
+        className="inline-text-overflow-wrapper"
+        style={
+          Object {
+            "maxWidth": "calc(100% - 0px)",
+          }
+        }
+      >
+        <span
+          className="inline-text-wrapper-hover"
+          id="span_id"
+          onClick={[Function]}
+        >
+          <span>
+            test value
+          </span>
+        </span>
+        <div
+          className="loader-wrapper"
+        >
+          <Spinner
+            color="#9198A0"
+            loading={false}
+            size="14"
+            type="spinner-circular"
+          >
+            <.sc-bdVaJa
+              className=""
+              css={
+                Array [
+                  "
+    background-color: ",
+                  "#fff",
+                  ";
+    display: none;
+    ",
+                  "
+    ",
+                  "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+                  "
+    ",
+                  "display: none;",
+                  "
+
+    .spinner-dots {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-cZxgpV",
+                    "inject": [Function],
+                    "name": "cZxgpV",
+                    "rules": Array [
+                      "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                      "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 2.0s infinite linear;
+      height: ",
+                  "14",
+                  "px;
+      position: relative;
+      width: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-iQfAUB",
+                    "inject": [Function],
+                    "name": "iQfAUB",
+                    "rules": Array [
+                      "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+                  "#9198A0",
+                  ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+                  "#9198A0",
+                  ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-ghjfcd",
+                    "inject": [Function],
+                    "name": "ghjfcd",
+                    "rules": Array [
+                      "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 1.4s infinite ease-in-out both;
+      background-color: ",
+                  "#9198A0",
+                  ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+                  "14",
+                  "px;
+      margin-right: 3px;
+      width: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+                  "14",
+                  "px;
+      height: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-gWPqvk",
+                    "inject": [Function],
+                    "name": "gWPqvk",
+                    "rules": Array [
+                      "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                      "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+                  "#9198A0",
+                  ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+                ]
+              }
+            >
+              <StyledComponent
+                className=""
+                css={
+                  Array [
+                    "
+    background-color: ",
+                    "#fff",
+                    ";
+    display: none;
+    ",
+                    "
+    ",
+                    "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+                    "
+    ",
+                    "display: none;",
+                    "
+
+    .spinner-dots {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-cZxgpV",
+                      "inject": [Function],
+                      "name": "cZxgpV",
+                      "rules": Array [
+                        "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                        "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 2.0s infinite linear;
+      height: ",
+                    "14",
+                    "px;
+      position: relative;
+      width: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-iQfAUB",
+                      "inject": [Function],
+                      "name": "iQfAUB",
+                      "rules": Array [
+                        "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                        "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+                    "#9198A0",
+                    ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+                    "#9198A0",
+                    ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-ghjfcd",
+                      "inject": [Function],
+                      "name": "ghjfcd",
+                      "rules": Array [
+                        "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                        "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 1.4s infinite ease-in-out both;
+      background-color: ",
+                    "#9198A0",
+                    ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+                    "14",
+                    "px;
+      margin-right: 3px;
+      width: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+                    "14",
+                    "px;
+      height: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-gWPqvk",
+                      "inject": [Function],
+                      "name": "gWPqvk",
+                      "rules": Array [
+                        "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                        "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+                    "#9198A0",
+                    ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+                  ]
+                }
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-bdVaJa",
+                      "isStatic": false,
+                      "lastClassName": "cGeTuw",
+                      "rules": Array [
+                        [Function],
+                      ],
+                    },
+                    "displayName": "styled.span",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-bdVaJa",
+                    "target": "span",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+              >
+                <span
+                  className="sc-bdVaJa cGeTuw"
+                >
+                  <span
+                    className="spinner-circular"
+                  >
+                    <div
+                      className="sc-inner"
+                    >
+                      <div
+                        className="sc-inner-animation"
+                      >
+                        <svg
+                          height="14"
+                          strokeWidth="16.00"
+                          viewBox="-3.00 -3.00 106.00 106.00"
+                          width="14"
+                        >
+                          <path
+                            className="sc-inner-track"
+                            d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+                          />
+                          <path
+                            className="sc-inner-head"
+                            d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+                            pathLength="280"
+                            strokeDasharray="280 280"
+                            strokeDashoffset="210"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </span>
+                </span>
+              </StyledComponent>
+            </.sc-bdVaJa>
+          </Spinner>
+        </div>
+      </div>
+    </div>
+  </div>
+</InlineEdit>
+`;
+
+exports[`InlineEdit should render a datepicker 1`] = `
+<InlineEdit
+  error=""
+  isEditing={false}
+  loading={false}
+  name="test"
+  placeholder="Click to edit"
+  readonly={false}
+  tooltipPlacement="right"
+  type="date"
+  value="2005-04-26"
+>
+  <div
+    className="inline-edit-wrapper"
+  >
+    <div
+      className="inline-edit-wrapper-inner"
+    >
+      <div
+        className="inline-text-overflow-wrapper visible"
+        style={
+          Object {
+            "maxWidth": "calc(100% - 0px)",
+          }
+        }
+      >
+        <DatePicker
+          changeCallback={[Function]}
+          disabled={false}
+          format="YYYY-MM-DD"
+          inlineSmallScreen={true}
+          max={
+            Object {
+              "day": "+0",
+              "month": "+0",
+              "year": "+10",
+            }
+          }
+          min={
+            Object {
+              "day": "1",
+              "month": "0",
+              "year": "1937",
+            }
+          }
+          optClass="inline-edit-date"
+          placeholder={
+            Object {
+              "day": "Day",
+              "month": "Month",
+              "year": "Year",
+            }
+          }
+          value="2005-04-26"
+        >
+          <div
+            className="datepicker-component inline-small-screen inline-edit-date"
+          >
+            <div
+              className="datepicker"
+            >
+              <WrappedSelectField
+                changeCallback={[Function]}
+                disabled={false}
+                displayProp="display"
+                options={
+                  Array [
+                    Object {
+                      "display": "Jan",
+                      "value": "0",
+                    },
+                    Object {
+                      "display": "Feb",
+                      "value": "1",
+                    },
+                    Object {
+                      "display": "Mar",
+                      "value": "2",
+                    },
+                    Object {
+                      "display": "Apr",
+                      "value": "3",
+                    },
+                    Object {
+                      "display": "May",
+                      "value": "4",
+                    },
+                    Object {
+                      "display": "Jun",
+                      "value": "5",
+                    },
+                    Object {
+                      "display": "Jul",
+                      "value": "6",
+                    },
+                    Object {
+                      "display": "Aug",
+                      "value": "7",
+                    },
+                    Object {
+                      "display": "Sep",
+                      "value": "8",
+                    },
+                    Object {
+                      "display": "Oct",
+                      "value": "9",
+                    },
+                    Object {
+                      "display": "Nov",
+                      "value": "10",
+                    },
+                    Object {
+                      "display": "Dec",
+                      "value": "11",
+                    },
+                  ]
+                }
+                placeholder="Month"
+                value="3"
+                valueProp="value"
+              >
+                <SelectField
+                  changeCallback={[Function]}
+                  disabled={false}
+                  displayProp="display"
+                  options={
+                    Array [
+                      Object {
+                        "display": "Jan",
+                        "value": "0",
+                      },
+                      Object {
+                        "display": "Feb",
+                        "value": "1",
+                      },
+                      Object {
+                        "display": "Mar",
+                        "value": "2",
+                      },
+                      Object {
+                        "display": "Apr",
+                        "value": "3",
+                      },
+                      Object {
+                        "display": "May",
+                        "value": "4",
+                      },
+                      Object {
+                        "display": "Jun",
+                        "value": "5",
+                      },
+                      Object {
+                        "display": "Jul",
+                        "value": "6",
+                      },
+                      Object {
+                        "display": "Aug",
+                        "value": "7",
+                      },
+                      Object {
+                        "display": "Sep",
+                        "value": "8",
+                      },
+                      Object {
+                        "display": "Oct",
+                        "value": "9",
+                      },
+                      Object {
+                        "display": "Nov",
+                        "value": "10",
+                      },
+                      Object {
+                        "display": "Dec",
+                        "value": "11",
+                      },
+                    ]
+                  }
+                  placeholder="Month"
+                  value="3"
+                  valueProp="value"
+                >
+                  <div
+                    className="selectfield-component"
+                  >
+                    <input
+                      name="selectfield-value"
+                      type="hidden"
+                      value="3"
+                    />
+                    <div
+                      className="selectfield-value"
+                      onClick={[Function]}
+                      style={null}
+                    >
+                      <span
+                        className="display-text"
+                      >
+                        Apr
+                      </span>
+                      <Icon
+                        height="16"
+                        name="md-keyboard-down"
+                        width="16"
+                      >
+                        <svg
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<path d=\\"M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z\\"></path>",
+                            }
+                          }
+                          height="16"
+                          name="md-keyboard-down"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="16"
+                        />
+                      </Icon>
+                    </div>
+                    <ul
+                      style={null}
+                    >
+                      <li
+                        key="0"
+                        onClick={[Function]}
+                      >
+                        Jan
+                      </li>
+                      <li
+                        key="1"
+                        onClick={[Function]}
+                      >
+                        Feb
+                      </li>
+                      <li
+                        key="2"
+                        onClick={[Function]}
+                      >
+                        Mar
+                      </li>
+                      <li
+                        key="3"
+                        onClick={[Function]}
+                      >
+                        Apr
+                      </li>
+                      <li
+                        key="4"
+                        onClick={[Function]}
+                      >
+                        May
+                      </li>
+                      <li
+                        key="5"
+                        onClick={[Function]}
+                      >
+                        Jun
+                      </li>
+                      <li
+                        key="6"
+                        onClick={[Function]}
+                      >
+                        Jul
+                      </li>
+                      <li
+                        key="7"
+                        onClick={[Function]}
+                      >
+                        Aug
+                      </li>
+                      <li
+                        key="8"
+                        onClick={[Function]}
+                      >
+                        Sep
+                      </li>
+                      <li
+                        key="9"
+                        onClick={[Function]}
+                      >
+                        Oct
+                      </li>
+                      <li
+                        key="10"
+                        onClick={[Function]}
+                      >
+                        Nov
+                      </li>
+                      <li
+                        key="11"
+                        onClick={[Function]}
+                      >
+                        Dec
+                      </li>
+                    </ul>
+                  </div>
+                </SelectField>
+              </WrappedSelectField>
+              <WrappedSelectField
+                changeCallback={[Function]}
+                disabled={false}
+                displayProp="value"
+                options={
+                  Array [
+                    Object {
+                      "value": "1",
+                    },
+                    Object {
+                      "value": "2",
+                    },
+                    Object {
+                      "value": "3",
+                    },
+                    Object {
+                      "value": "4",
+                    },
+                    Object {
+                      "value": "5",
+                    },
+                    Object {
+                      "value": "6",
+                    },
+                    Object {
+                      "value": "7",
+                    },
+                    Object {
+                      "value": "8",
+                    },
+                    Object {
+                      "value": "9",
+                    },
+                    Object {
+                      "value": "10",
+                    },
+                    Object {
+                      "value": "11",
+                    },
+                    Object {
+                      "value": "12",
+                    },
+                    Object {
+                      "value": "13",
+                    },
+                    Object {
+                      "value": "14",
+                    },
+                    Object {
+                      "value": "15",
+                    },
+                    Object {
+                      "value": "16",
+                    },
+                    Object {
+                      "value": "17",
+                    },
+                    Object {
+                      "value": "18",
+                    },
+                    Object {
+                      "value": "19",
+                    },
+                    Object {
+                      "value": "20",
+                    },
+                    Object {
+                      "value": "21",
+                    },
+                    Object {
+                      "value": "22",
+                    },
+                    Object {
+                      "value": "23",
+                    },
+                    Object {
+                      "value": "24",
+                    },
+                    Object {
+                      "value": "25",
+                    },
+                    Object {
+                      "value": "26",
+                    },
+                    Object {
+                      "value": "27",
+                    },
+                    Object {
+                      "value": "28",
+                    },
+                    Object {
+                      "value": "29",
+                    },
+                    Object {
+                      "value": "30",
+                    },
+                  ]
+                }
+                placeholder="Day"
+                value="26"
+                valueProp="value"
+              >
+                <SelectField
+                  changeCallback={[Function]}
+                  disabled={false}
+                  displayProp="value"
+                  options={
+                    Array [
+                      Object {
+                        "value": "1",
+                      },
+                      Object {
+                        "value": "2",
+                      },
+                      Object {
+                        "value": "3",
+                      },
+                      Object {
+                        "value": "4",
+                      },
+                      Object {
+                        "value": "5",
+                      },
+                      Object {
+                        "value": "6",
+                      },
+                      Object {
+                        "value": "7",
+                      },
+                      Object {
+                        "value": "8",
+                      },
+                      Object {
+                        "value": "9",
+                      },
+                      Object {
+                        "value": "10",
+                      },
+                      Object {
+                        "value": "11",
+                      },
+                      Object {
+                        "value": "12",
+                      },
+                      Object {
+                        "value": "13",
+                      },
+                      Object {
+                        "value": "14",
+                      },
+                      Object {
+                        "value": "15",
+                      },
+                      Object {
+                        "value": "16",
+                      },
+                      Object {
+                        "value": "17",
+                      },
+                      Object {
+                        "value": "18",
+                      },
+                      Object {
+                        "value": "19",
+                      },
+                      Object {
+                        "value": "20",
+                      },
+                      Object {
+                        "value": "21",
+                      },
+                      Object {
+                        "value": "22",
+                      },
+                      Object {
+                        "value": "23",
+                      },
+                      Object {
+                        "value": "24",
+                      },
+                      Object {
+                        "value": "25",
+                      },
+                      Object {
+                        "value": "26",
+                      },
+                      Object {
+                        "value": "27",
+                      },
+                      Object {
+                        "value": "28",
+                      },
+                      Object {
+                        "value": "29",
+                      },
+                      Object {
+                        "value": "30",
+                      },
+                    ]
+                  }
+                  placeholder="Day"
+                  value="26"
+                  valueProp="value"
+                >
+                  <div
+                    className="selectfield-component"
+                  >
+                    <input
+                      name="selectfield-value"
+                      type="hidden"
+                      value="26"
+                    />
+                    <div
+                      className="selectfield-value"
+                      onClick={[Function]}
+                      style={null}
+                    >
+                      <span
+                        className="display-text"
+                      >
+                        26
+                      </span>
+                      <Icon
+                        height="16"
+                        name="md-keyboard-down"
+                        width="16"
+                      >
+                        <svg
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<path d=\\"M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z\\"></path>",
+                            }
+                          }
+                          height="16"
+                          name="md-keyboard-down"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="16"
+                        />
+                      </Icon>
+                    </div>
+                    <ul
+                      style={null}
+                    >
+                      <li
+                        key="0"
+                        onClick={[Function]}
+                      >
+                        1
+                      </li>
+                      <li
+                        key="1"
+                        onClick={[Function]}
+                      >
+                        2
+                      </li>
+                      <li
+                        key="2"
+                        onClick={[Function]}
+                      >
+                        3
+                      </li>
+                      <li
+                        key="3"
+                        onClick={[Function]}
+                      >
+                        4
+                      </li>
+                      <li
+                        key="4"
+                        onClick={[Function]}
+                      >
+                        5
+                      </li>
+                      <li
+                        key="5"
+                        onClick={[Function]}
+                      >
+                        6
+                      </li>
+                      <li
+                        key="6"
+                        onClick={[Function]}
+                      >
+                        7
+                      </li>
+                      <li
+                        key="7"
+                        onClick={[Function]}
+                      >
+                        8
+                      </li>
+                      <li
+                        key="8"
+                        onClick={[Function]}
+                      >
+                        9
+                      </li>
+                      <li
+                        key="9"
+                        onClick={[Function]}
+                      >
+                        10
+                      </li>
+                      <li
+                        key="10"
+                        onClick={[Function]}
+                      >
+                        11
+                      </li>
+                      <li
+                        key="11"
+                        onClick={[Function]}
+                      >
+                        12
+                      </li>
+                      <li
+                        key="12"
+                        onClick={[Function]}
+                      >
+                        13
+                      </li>
+                      <li
+                        key="13"
+                        onClick={[Function]}
+                      >
+                        14
+                      </li>
+                      <li
+                        key="14"
+                        onClick={[Function]}
+                      >
+                        15
+                      </li>
+                      <li
+                        key="15"
+                        onClick={[Function]}
+                      >
+                        16
+                      </li>
+                      <li
+                        key="16"
+                        onClick={[Function]}
+                      >
+                        17
+                      </li>
+                      <li
+                        key="17"
+                        onClick={[Function]}
+                      >
+                        18
+                      </li>
+                      <li
+                        key="18"
+                        onClick={[Function]}
+                      >
+                        19
+                      </li>
+                      <li
+                        key="19"
+                        onClick={[Function]}
+                      >
+                        20
+                      </li>
+                      <li
+                        key="20"
+                        onClick={[Function]}
+                      >
+                        21
+                      </li>
+                      <li
+                        key="21"
+                        onClick={[Function]}
+                      >
+                        22
+                      </li>
+                      <li
+                        key="22"
+                        onClick={[Function]}
+                      >
+                        23
+                      </li>
+                      <li
+                        key="23"
+                        onClick={[Function]}
+                      >
+                        24
+                      </li>
+                      <li
+                        key="24"
+                        onClick={[Function]}
+                      >
+                        25
+                      </li>
+                      <li
+                        key="25"
+                        onClick={[Function]}
+                      >
+                        26
+                      </li>
+                      <li
+                        key="26"
+                        onClick={[Function]}
+                      >
+                        27
+                      </li>
+                      <li
+                        key="27"
+                        onClick={[Function]}
+                      >
+                        28
+                      </li>
+                      <li
+                        key="28"
+                        onClick={[Function]}
+                      >
+                        29
+                      </li>
+                      <li
+                        key="29"
+                        onClick={[Function]}
+                      >
+                        30
+                      </li>
+                    </ul>
+                  </div>
+                </SelectField>
+              </WrappedSelectField>
+              <WrappedSelectField
+                changeCallback={[Function]}
+                disabled={false}
+                displayProp="value"
+                options={
+                  Array [
+                    Object {
+                      "value": "1937",
+                    },
+                    Object {
+                      "value": "1938",
+                    },
+                    Object {
+                      "value": "1939",
+                    },
+                    Object {
+                      "value": "1940",
+                    },
+                    Object {
+                      "value": "1941",
+                    },
+                    Object {
+                      "value": "1942",
+                    },
+                    Object {
+                      "value": "1943",
+                    },
+                    Object {
+                      "value": "1944",
+                    },
+                    Object {
+                      "value": "1945",
+                    },
+                    Object {
+                      "value": "1946",
+                    },
+                    Object {
+                      "value": "1947",
+                    },
+                    Object {
+                      "value": "1948",
+                    },
+                    Object {
+                      "value": "1949",
+                    },
+                    Object {
+                      "value": "1950",
+                    },
+                    Object {
+                      "value": "1951",
+                    },
+                    Object {
+                      "value": "1952",
+                    },
+                    Object {
+                      "value": "1953",
+                    },
+                    Object {
+                      "value": "1954",
+                    },
+                    Object {
+                      "value": "1955",
+                    },
+                    Object {
+                      "value": "1956",
+                    },
+                    Object {
+                      "value": "1957",
+                    },
+                    Object {
+                      "value": "1958",
+                    },
+                    Object {
+                      "value": "1959",
+                    },
+                    Object {
+                      "value": "1960",
+                    },
+                    Object {
+                      "value": "1961",
+                    },
+                    Object {
+                      "value": "1962",
+                    },
+                    Object {
+                      "value": "1963",
+                    },
+                    Object {
+                      "value": "1964",
+                    },
+                    Object {
+                      "value": "1965",
+                    },
+                    Object {
+                      "value": "1966",
+                    },
+                    Object {
+                      "value": "1967",
+                    },
+                    Object {
+                      "value": "1968",
+                    },
+                    Object {
+                      "value": "1969",
+                    },
+                    Object {
+                      "value": "1970",
+                    },
+                    Object {
+                      "value": "1971",
+                    },
+                    Object {
+                      "value": "1972",
+                    },
+                    Object {
+                      "value": "1973",
+                    },
+                    Object {
+                      "value": "1974",
+                    },
+                    Object {
+                      "value": "1975",
+                    },
+                    Object {
+                      "value": "1976",
+                    },
+                    Object {
+                      "value": "1977",
+                    },
+                    Object {
+                      "value": "1978",
+                    },
+                    Object {
+                      "value": "1979",
+                    },
+                    Object {
+                      "value": "1980",
+                    },
+                    Object {
+                      "value": "1981",
+                    },
+                    Object {
+                      "value": "1982",
+                    },
+                    Object {
+                      "value": "1983",
+                    },
+                    Object {
+                      "value": "1984",
+                    },
+                    Object {
+                      "value": "1985",
+                    },
+                    Object {
+                      "value": "1986",
+                    },
+                    Object {
+                      "value": "1987",
+                    },
+                    Object {
+                      "value": "1988",
+                    },
+                    Object {
+                      "value": "1989",
+                    },
+                    Object {
+                      "value": "1990",
+                    },
+                    Object {
+                      "value": "1991",
+                    },
+                    Object {
+                      "value": "1992",
+                    },
+                    Object {
+                      "value": "1993",
+                    },
+                    Object {
+                      "value": "1994",
+                    },
+                    Object {
+                      "value": "1995",
+                    },
+                    Object {
+                      "value": "1996",
+                    },
+                    Object {
+                      "value": "1997",
+                    },
+                    Object {
+                      "value": "1998",
+                    },
+                    Object {
+                      "value": "1999",
+                    },
+                    Object {
+                      "value": "2000",
+                    },
+                    Object {
+                      "value": "2001",
+                    },
+                    Object {
+                      "value": "2002",
+                    },
+                    Object {
+                      "value": "2003",
+                    },
+                    Object {
+                      "value": "2004",
+                    },
+                    Object {
+                      "value": "2005",
+                    },
+                    Object {
+                      "value": "2006",
+                    },
+                    Object {
+                      "value": "2007",
+                    },
+                    Object {
+                      "value": "2008",
+                    },
+                    Object {
+                      "value": "2009",
+                    },
+                    Object {
+                      "value": "2010",
+                    },
+                    Object {
+                      "value": "2011",
+                    },
+                    Object {
+                      "value": "2012",
+                    },
+                    Object {
+                      "value": "2013",
+                    },
+                    Object {
+                      "value": "2014",
+                    },
+                    Object {
+                      "value": "2015",
+                    },
+                    Object {
+                      "value": "2016",
+                    },
+                    Object {
+                      "value": "2017",
+                    },
+                    Object {
+                      "value": "2018",
+                    },
+                    Object {
+                      "value": "2019",
+                    },
+                    Object {
+                      "value": "2020",
+                    },
+                    Object {
+                      "value": "2021",
+                    },
+                    Object {
+                      "value": "2022",
+                    },
+                    Object {
+                      "value": "2023",
+                    },
+                    Object {
+                      "value": "2024",
+                    },
+                    Object {
+                      "value": "2025",
+                    },
+                    Object {
+                      "value": "2026",
+                    },
+                    Object {
+                      "value": "2027",
+                    },
+                    Object {
+                      "value": "2028",
+                    },
+                    Object {
+                      "value": "2029",
+                    },
+                  ]
+                }
+                placeholder="Year"
+                value="2005"
+                valueProp="value"
+              >
+                <SelectField
+                  changeCallback={[Function]}
+                  disabled={false}
+                  displayProp="value"
+                  options={
+                    Array [
+                      Object {
+                        "value": "1937",
+                      },
+                      Object {
+                        "value": "1938",
+                      },
+                      Object {
+                        "value": "1939",
+                      },
+                      Object {
+                        "value": "1940",
+                      },
+                      Object {
+                        "value": "1941",
+                      },
+                      Object {
+                        "value": "1942",
+                      },
+                      Object {
+                        "value": "1943",
+                      },
+                      Object {
+                        "value": "1944",
+                      },
+                      Object {
+                        "value": "1945",
+                      },
+                      Object {
+                        "value": "1946",
+                      },
+                      Object {
+                        "value": "1947",
+                      },
+                      Object {
+                        "value": "1948",
+                      },
+                      Object {
+                        "value": "1949",
+                      },
+                      Object {
+                        "value": "1950",
+                      },
+                      Object {
+                        "value": "1951",
+                      },
+                      Object {
+                        "value": "1952",
+                      },
+                      Object {
+                        "value": "1953",
+                      },
+                      Object {
+                        "value": "1954",
+                      },
+                      Object {
+                        "value": "1955",
+                      },
+                      Object {
+                        "value": "1956",
+                      },
+                      Object {
+                        "value": "1957",
+                      },
+                      Object {
+                        "value": "1958",
+                      },
+                      Object {
+                        "value": "1959",
+                      },
+                      Object {
+                        "value": "1960",
+                      },
+                      Object {
+                        "value": "1961",
+                      },
+                      Object {
+                        "value": "1962",
+                      },
+                      Object {
+                        "value": "1963",
+                      },
+                      Object {
+                        "value": "1964",
+                      },
+                      Object {
+                        "value": "1965",
+                      },
+                      Object {
+                        "value": "1966",
+                      },
+                      Object {
+                        "value": "1967",
+                      },
+                      Object {
+                        "value": "1968",
+                      },
+                      Object {
+                        "value": "1969",
+                      },
+                      Object {
+                        "value": "1970",
+                      },
+                      Object {
+                        "value": "1971",
+                      },
+                      Object {
+                        "value": "1972",
+                      },
+                      Object {
+                        "value": "1973",
+                      },
+                      Object {
+                        "value": "1974",
+                      },
+                      Object {
+                        "value": "1975",
+                      },
+                      Object {
+                        "value": "1976",
+                      },
+                      Object {
+                        "value": "1977",
+                      },
+                      Object {
+                        "value": "1978",
+                      },
+                      Object {
+                        "value": "1979",
+                      },
+                      Object {
+                        "value": "1980",
+                      },
+                      Object {
+                        "value": "1981",
+                      },
+                      Object {
+                        "value": "1982",
+                      },
+                      Object {
+                        "value": "1983",
+                      },
+                      Object {
+                        "value": "1984",
+                      },
+                      Object {
+                        "value": "1985",
+                      },
+                      Object {
+                        "value": "1986",
+                      },
+                      Object {
+                        "value": "1987",
+                      },
+                      Object {
+                        "value": "1988",
+                      },
+                      Object {
+                        "value": "1989",
+                      },
+                      Object {
+                        "value": "1990",
+                      },
+                      Object {
+                        "value": "1991",
+                      },
+                      Object {
+                        "value": "1992",
+                      },
+                      Object {
+                        "value": "1993",
+                      },
+                      Object {
+                        "value": "1994",
+                      },
+                      Object {
+                        "value": "1995",
+                      },
+                      Object {
+                        "value": "1996",
+                      },
+                      Object {
+                        "value": "1997",
+                      },
+                      Object {
+                        "value": "1998",
+                      },
+                      Object {
+                        "value": "1999",
+                      },
+                      Object {
+                        "value": "2000",
+                      },
+                      Object {
+                        "value": "2001",
+                      },
+                      Object {
+                        "value": "2002",
+                      },
+                      Object {
+                        "value": "2003",
+                      },
+                      Object {
+                        "value": "2004",
+                      },
+                      Object {
+                        "value": "2005",
+                      },
+                      Object {
+                        "value": "2006",
+                      },
+                      Object {
+                        "value": "2007",
+                      },
+                      Object {
+                        "value": "2008",
+                      },
+                      Object {
+                        "value": "2009",
+                      },
+                      Object {
+                        "value": "2010",
+                      },
+                      Object {
+                        "value": "2011",
+                      },
+                      Object {
+                        "value": "2012",
+                      },
+                      Object {
+                        "value": "2013",
+                      },
+                      Object {
+                        "value": "2014",
+                      },
+                      Object {
+                        "value": "2015",
+                      },
+                      Object {
+                        "value": "2016",
+                      },
+                      Object {
+                        "value": "2017",
+                      },
+                      Object {
+                        "value": "2018",
+                      },
+                      Object {
+                        "value": "2019",
+                      },
+                      Object {
+                        "value": "2020",
+                      },
+                      Object {
+                        "value": "2021",
+                      },
+                      Object {
+                        "value": "2022",
+                      },
+                      Object {
+                        "value": "2023",
+                      },
+                      Object {
+                        "value": "2024",
+                      },
+                      Object {
+                        "value": "2025",
+                      },
+                      Object {
+                        "value": "2026",
+                      },
+                      Object {
+                        "value": "2027",
+                      },
+                      Object {
+                        "value": "2028",
+                      },
+                      Object {
+                        "value": "2029",
+                      },
+                    ]
+                  }
+                  placeholder="Year"
+                  value="2005"
+                  valueProp="value"
+                >
+                  <div
+                    className="selectfield-component"
+                  >
+                    <input
+                      name="selectfield-value"
+                      type="hidden"
+                      value="2005"
+                    />
+                    <div
+                      className="selectfield-value"
+                      onClick={[Function]}
+                      style={null}
+                    >
+                      <span
+                        className="display-text"
+                      >
+                        2005
+                      </span>
+                      <Icon
+                        height="16"
+                        name="md-keyboard-down"
+                        width="16"
+                      >
+                        <svg
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<path d=\\"M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z\\"></path>",
+                            }
+                          }
+                          height="16"
+                          name="md-keyboard-down"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="16"
+                        />
+                      </Icon>
+                    </div>
+                    <ul
+                      style={null}
+                    >
+                      <li
+                        key="0"
+                        onClick={[Function]}
+                      >
+                        1937
+                      </li>
+                      <li
+                        key="1"
+                        onClick={[Function]}
+                      >
+                        1938
+                      </li>
+                      <li
+                        key="2"
+                        onClick={[Function]}
+                      >
+                        1939
+                      </li>
+                      <li
+                        key="3"
+                        onClick={[Function]}
+                      >
+                        1940
+                      </li>
+                      <li
+                        key="4"
+                        onClick={[Function]}
+                      >
+                        1941
+                      </li>
+                      <li
+                        key="5"
+                        onClick={[Function]}
+                      >
+                        1942
+                      </li>
+                      <li
+                        key="6"
+                        onClick={[Function]}
+                      >
+                        1943
+                      </li>
+                      <li
+                        key="7"
+                        onClick={[Function]}
+                      >
+                        1944
+                      </li>
+                      <li
+                        key="8"
+                        onClick={[Function]}
+                      >
+                        1945
+                      </li>
+                      <li
+                        key="9"
+                        onClick={[Function]}
+                      >
+                        1946
+                      </li>
+                      <li
+                        key="10"
+                        onClick={[Function]}
+                      >
+                        1947
+                      </li>
+                      <li
+                        key="11"
+                        onClick={[Function]}
+                      >
+                        1948
+                      </li>
+                      <li
+                        key="12"
+                        onClick={[Function]}
+                      >
+                        1949
+                      </li>
+                      <li
+                        key="13"
+                        onClick={[Function]}
+                      >
+                        1950
+                      </li>
+                      <li
+                        key="14"
+                        onClick={[Function]}
+                      >
+                        1951
+                      </li>
+                      <li
+                        key="15"
+                        onClick={[Function]}
+                      >
+                        1952
+                      </li>
+                      <li
+                        key="16"
+                        onClick={[Function]}
+                      >
+                        1953
+                      </li>
+                      <li
+                        key="17"
+                        onClick={[Function]}
+                      >
+                        1954
+                      </li>
+                      <li
+                        key="18"
+                        onClick={[Function]}
+                      >
+                        1955
+                      </li>
+                      <li
+                        key="19"
+                        onClick={[Function]}
+                      >
+                        1956
+                      </li>
+                      <li
+                        key="20"
+                        onClick={[Function]}
+                      >
+                        1957
+                      </li>
+                      <li
+                        key="21"
+                        onClick={[Function]}
+                      >
+                        1958
+                      </li>
+                      <li
+                        key="22"
+                        onClick={[Function]}
+                      >
+                        1959
+                      </li>
+                      <li
+                        key="23"
+                        onClick={[Function]}
+                      >
+                        1960
+                      </li>
+                      <li
+                        key="24"
+                        onClick={[Function]}
+                      >
+                        1961
+                      </li>
+                      <li
+                        key="25"
+                        onClick={[Function]}
+                      >
+                        1962
+                      </li>
+                      <li
+                        key="26"
+                        onClick={[Function]}
+                      >
+                        1963
+                      </li>
+                      <li
+                        key="27"
+                        onClick={[Function]}
+                      >
+                        1964
+                      </li>
+                      <li
+                        key="28"
+                        onClick={[Function]}
+                      >
+                        1965
+                      </li>
+                      <li
+                        key="29"
+                        onClick={[Function]}
+                      >
+                        1966
+                      </li>
+                      <li
+                        key="30"
+                        onClick={[Function]}
+                      >
+                        1967
+                      </li>
+                      <li
+                        key="31"
+                        onClick={[Function]}
+                      >
+                        1968
+                      </li>
+                      <li
+                        key="32"
+                        onClick={[Function]}
+                      >
+                        1969
+                      </li>
+                      <li
+                        key="33"
+                        onClick={[Function]}
+                      >
+                        1970
+                      </li>
+                      <li
+                        key="34"
+                        onClick={[Function]}
+                      >
+                        1971
+                      </li>
+                      <li
+                        key="35"
+                        onClick={[Function]}
+                      >
+                        1972
+                      </li>
+                      <li
+                        key="36"
+                        onClick={[Function]}
+                      >
+                        1973
+                      </li>
+                      <li
+                        key="37"
+                        onClick={[Function]}
+                      >
+                        1974
+                      </li>
+                      <li
+                        key="38"
+                        onClick={[Function]}
+                      >
+                        1975
+                      </li>
+                      <li
+                        key="39"
+                        onClick={[Function]}
+                      >
+                        1976
+                      </li>
+                      <li
+                        key="40"
+                        onClick={[Function]}
+                      >
+                        1977
+                      </li>
+                      <li
+                        key="41"
+                        onClick={[Function]}
+                      >
+                        1978
+                      </li>
+                      <li
+                        key="42"
+                        onClick={[Function]}
+                      >
+                        1979
+                      </li>
+                      <li
+                        key="43"
+                        onClick={[Function]}
+                      >
+                        1980
+                      </li>
+                      <li
+                        key="44"
+                        onClick={[Function]}
+                      >
+                        1981
+                      </li>
+                      <li
+                        key="45"
+                        onClick={[Function]}
+                      >
+                        1982
+                      </li>
+                      <li
+                        key="46"
+                        onClick={[Function]}
+                      >
+                        1983
+                      </li>
+                      <li
+                        key="47"
+                        onClick={[Function]}
+                      >
+                        1984
+                      </li>
+                      <li
+                        key="48"
+                        onClick={[Function]}
+                      >
+                        1985
+                      </li>
+                      <li
+                        key="49"
+                        onClick={[Function]}
+                      >
+                        1986
+                      </li>
+                      <li
+                        key="50"
+                        onClick={[Function]}
+                      >
+                        1987
+                      </li>
+                      <li
+                        key="51"
+                        onClick={[Function]}
+                      >
+                        1988
+                      </li>
+                      <li
+                        key="52"
+                        onClick={[Function]}
+                      >
+                        1989
+                      </li>
+                      <li
+                        key="53"
+                        onClick={[Function]}
+                      >
+                        1990
+                      </li>
+                      <li
+                        key="54"
+                        onClick={[Function]}
+                      >
+                        1991
+                      </li>
+                      <li
+                        key="55"
+                        onClick={[Function]}
+                      >
+                        1992
+                      </li>
+                      <li
+                        key="56"
+                        onClick={[Function]}
+                      >
+                        1993
+                      </li>
+                      <li
+                        key="57"
+                        onClick={[Function]}
+                      >
+                        1994
+                      </li>
+                      <li
+                        key="58"
+                        onClick={[Function]}
+                      >
+                        1995
+                      </li>
+                      <li
+                        key="59"
+                        onClick={[Function]}
+                      >
+                        1996
+                      </li>
+                      <li
+                        key="60"
+                        onClick={[Function]}
+                      >
+                        1997
+                      </li>
+                      <li
+                        key="61"
+                        onClick={[Function]}
+                      >
+                        1998
+                      </li>
+                      <li
+                        key="62"
+                        onClick={[Function]}
+                      >
+                        1999
+                      </li>
+                      <li
+                        key="63"
+                        onClick={[Function]}
+                      >
+                        2000
+                      </li>
+                      <li
+                        key="64"
+                        onClick={[Function]}
+                      >
+                        2001
+                      </li>
+                      <li
+                        key="65"
+                        onClick={[Function]}
+                      >
+                        2002
+                      </li>
+                      <li
+                        key="66"
+                        onClick={[Function]}
+                      >
+                        2003
+                      </li>
+                      <li
+                        key="67"
+                        onClick={[Function]}
+                      >
+                        2004
+                      </li>
+                      <li
+                        key="68"
+                        onClick={[Function]}
+                      >
+                        2005
+                      </li>
+                      <li
+                        key="69"
+                        onClick={[Function]}
+                      >
+                        2006
+                      </li>
+                      <li
+                        key="70"
+                        onClick={[Function]}
+                      >
+                        2007
+                      </li>
+                      <li
+                        key="71"
+                        onClick={[Function]}
+                      >
+                        2008
+                      </li>
+                      <li
+                        key="72"
+                        onClick={[Function]}
+                      >
+                        2009
+                      </li>
+                      <li
+                        key="73"
+                        onClick={[Function]}
+                      >
+                        2010
+                      </li>
+                      <li
+                        key="74"
+                        onClick={[Function]}
+                      >
+                        2011
+                      </li>
+                      <li
+                        key="75"
+                        onClick={[Function]}
+                      >
+                        2012
+                      </li>
+                      <li
+                        key="76"
+                        onClick={[Function]}
+                      >
+                        2013
+                      </li>
+                      <li
+                        key="77"
+                        onClick={[Function]}
+                      >
+                        2014
+                      </li>
+                      <li
+                        key="78"
+                        onClick={[Function]}
+                      >
+                        2015
+                      </li>
+                      <li
+                        key="79"
+                        onClick={[Function]}
+                      >
+                        2016
+                      </li>
+                      <li
+                        key="80"
+                        onClick={[Function]}
+                      >
+                        2017
+                      </li>
+                      <li
+                        key="81"
+                        onClick={[Function]}
+                      >
+                        2018
+                      </li>
+                      <li
+                        key="82"
+                        onClick={[Function]}
+                      >
+                        2019
+                      </li>
+                      <li
+                        key="83"
+                        onClick={[Function]}
+                      >
+                        2020
+                      </li>
+                      <li
+                        key="84"
+                        onClick={[Function]}
+                      >
+                        2021
+                      </li>
+                      <li
+                        key="85"
+                        onClick={[Function]}
+                      >
+                        2022
+                      </li>
+                      <li
+                        key="86"
+                        onClick={[Function]}
+                      >
+                        2023
+                      </li>
+                      <li
+                        key="87"
+                        onClick={[Function]}
+                      >
+                        2024
+                      </li>
+                      <li
+                        key="88"
+                        onClick={[Function]}
+                      >
+                        2025
+                      </li>
+                      <li
+                        key="89"
+                        onClick={[Function]}
+                      >
+                        2026
+                      </li>
+                      <li
+                        key="90"
+                        onClick={[Function]}
+                      >
+                        2027
+                      </li>
+                      <li
+                        key="91"
+                        onClick={[Function]}
+                      >
+                        2028
+                      </li>
+                      <li
+                        key="92"
+                        onClick={[Function]}
+                      >
+                        2029
+                      </li>
+                    </ul>
+                  </div>
+                </SelectField>
+              </WrappedSelectField>
+            </div>
+          </div>
+        </DatePicker>
+        <div
+          className="loader-wrapper"
+        >
+          <Spinner
+            color="#9198A0"
+            loading={false}
+            size="14"
+            type="spinner-circular"
+          >
+            <.sc-bdVaJa
+              className=""
+              css={
+                Array [
+                  "
+    background-color: ",
+                  "#fff",
+                  ";
+    display: none;
+    ",
+                  "
+    ",
+                  "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+                  "
+    ",
+                  "display: none;",
+                  "
+
+    .spinner-dots {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-cZxgpV",
+                    "inject": [Function],
+                    "name": "cZxgpV",
+                    "rules": Array [
+                      "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                      "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 2.0s infinite linear;
+      height: ",
+                  "14",
+                  "px;
+      position: relative;
+      width: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-iQfAUB",
+                    "inject": [Function],
+                    "name": "iQfAUB",
+                    "rules": Array [
+                      "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+                  "#9198A0",
+                  ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+                  "#9198A0",
+                  ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-ghjfcd",
+                    "inject": [Function],
+                    "name": "ghjfcd",
+                    "rules": Array [
+                      "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 1.4s infinite ease-in-out both;
+      background-color: ",
+                  "#9198A0",
+                  ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+                  "14",
+                  "px;
+      margin-right: 3px;
+      width: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+                  "14",
+                  "px;
+      height: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-gWPqvk",
+                    "inject": [Function],
+                    "name": "gWPqvk",
+                    "rules": Array [
+                      "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                      "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+                  "#9198A0",
+                  ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+                ]
+              }
+            >
+              <StyledComponent
+                className=""
+                css={
+                  Array [
+                    "
+    background-color: ",
+                    "#fff",
+                    ";
+    display: none;
+    ",
+                    "
+    ",
+                    "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+                    "
+    ",
+                    "display: none;",
+                    "
+
+    .spinner-dots {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-cZxgpV",
+                      "inject": [Function],
+                      "name": "cZxgpV",
+                      "rules": Array [
+                        "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                        "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 2.0s infinite linear;
+      height: ",
+                    "14",
+                    "px;
+      position: relative;
+      width: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-iQfAUB",
+                      "inject": [Function],
+                      "name": "iQfAUB",
+                      "rules": Array [
+                        "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                        "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+                    "#9198A0",
+                    ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+                    "#9198A0",
+                    ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-ghjfcd",
+                      "inject": [Function],
+                      "name": "ghjfcd",
+                      "rules": Array [
+                        "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                        "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 1.4s infinite ease-in-out both;
+      background-color: ",
+                    "#9198A0",
+                    ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+                    "14",
+                    "px;
+      margin-right: 3px;
+      width: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+                    "14",
+                    "px;
+      height: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-gWPqvk",
+                      "inject": [Function],
+                      "name": "gWPqvk",
+                      "rules": Array [
+                        "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                        "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+                    "#9198A0",
+                    ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+                  ]
+                }
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-bdVaJa",
+                      "isStatic": false,
+                      "lastClassName": "cGeTuw",
+                      "rules": Array [
+                        [Function],
+                      ],
+                    },
+                    "displayName": "styled.span",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-bdVaJa",
+                    "target": "span",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+              >
+                <span
+                  className="sc-bdVaJa cGeTuw"
+                >
+                  <span
+                    className="spinner-circular"
+                  >
+                    <div
+                      className="sc-inner"
+                    >
+                      <div
+                        className="sc-inner-animation"
+                      >
+                        <svg
+                          height="14"
+                          strokeWidth="16.00"
+                          viewBox="-3.00 -3.00 106.00 106.00"
+                          width="14"
+                        >
+                          <path
+                            className="sc-inner-track"
+                            d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+                          />
+                          <path
+                            className="sc-inner-head"
+                            d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+                            pathLength="280"
+                            strokeDasharray="280 280"
+                            strokeDashoffset="210"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </span>
+                </span>
+              </StyledComponent>
+            </.sc-bdVaJa>
+          </Spinner>
+        </div>
+      </div>
+    </div>
+  </div>
+</InlineEdit>
+`;
+
+exports[`InlineEdit should render a select field 1`] = `
+<InlineEdit
+  error=""
+  isEditing={false}
+  loading={false}
+  name="test"
+  options={
+    Array [
+      Object {
+        "label": "Item 1",
+        "value": "item_1",
+      },
+      Object {
+        "label": "Item 2",
+        "value": "item_2",
+      },
+      Object {
+        "label": "Item 3",
+        "value": "item_3",
+      },
+      Object {
+        "label": "Item 4",
+        "value": "item_4",
+      },
+    ]
+  }
+  placeholder="Click to edit"
+  readonly={false}
+  tooltipPlacement="right"
+  type="select"
+  value="item_3"
+>
+  <div
+    className="inline-edit-wrapper"
+  >
+    <div
+      className="inline-edit-wrapper-inner"
+    >
+      <div
+        className="inline-text-overflow-wrapper visible"
+        style={
+          Object {
+            "maxWidth": "calc(100% - 0px)",
+          }
+        }
+      >
+        <WrappedSelectField
+          changeCallback={[Function]}
+          disabled={false}
+          displayProp="label"
+          optClass="inline-edit-select"
+          options={
+            Array [
+              Object {
+                "label": "Item 1",
+                "value": "item_1",
+              },
+              Object {
+                "label": "Item 2",
+                "value": "item_2",
+              },
+              Object {
+                "label": "Item 3",
+                "value": "item_3",
+              },
+              Object {
+                "label": "Item 4",
+                "value": "item_4",
+              },
+            ]
+          }
+          value="item_3"
+          valueProp="value"
+        >
+          <SelectField
+            changeCallback={[Function]}
+            disabled={false}
+            displayProp="label"
+            optClass="inline-edit-select"
+            options={
+              Array [
+                Object {
+                  "label": "Item 1",
+                  "value": "item_1",
+                },
+                Object {
+                  "label": "Item 2",
+                  "value": "item_2",
+                },
+                Object {
+                  "label": "Item 3",
+                  "value": "item_3",
+                },
+                Object {
+                  "label": "Item 4",
+                  "value": "item_4",
+                },
+              ]
+            }
+            value="item_3"
+            valueProp="value"
+          >
+            <div
+              className="selectfield-component inline-edit-select"
+            >
+              <input
+                name="selectfield-value"
+                type="hidden"
+                value="item_3"
+              />
+              <div
+                className="selectfield-value"
+                onClick={[Function]}
+                style={null}
+              >
+                <span
+                  className="display-text"
+                >
+                  Item 3
+                </span>
+                <Icon
+                  height="16"
+                  name="md-keyboard-down"
+                  width="16"
+                >
+                  <svg
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "<path d=\\"M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z\\"></path>",
+                      }
+                    }
+                    height="16"
+                    name="md-keyboard-down"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="16"
+                  />
+                </Icon>
+              </div>
+              <ul
+                style={null}
+              >
+                <li
+                  key="0"
+                  onClick={[Function]}
+                >
+                  Item 1
+                </li>
+                <li
+                  key="1"
+                  onClick={[Function]}
+                >
+                  Item 2
+                </li>
+                <li
+                  key="2"
+                  onClick={[Function]}
+                >
+                  Item 3
+                </li>
+                <li
+                  key="3"
+                  onClick={[Function]}
+                >
+                  Item 4
+                </li>
+              </ul>
+            </div>
+          </SelectField>
+        </WrappedSelectField>
+        <div
+          className="loader-wrapper"
+        >
+          <Spinner
+            color="#9198A0"
+            loading={false}
+            size="14"
+            type="spinner-circular"
+          >
+            <.sc-bdVaJa
+              className=""
+              css={
+                Array [
+                  "
+    background-color: ",
+                  "#fff",
+                  ";
+    display: none;
+    ",
+                  "
+    ",
+                  "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+                  "
+    ",
+                  "display: none;",
+                  "
+
+    .spinner-dots {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-cZxgpV",
+                    "inject": [Function],
+                    "name": "cZxgpV",
+                    "rules": Array [
+                      "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                      "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 2.0s infinite linear;
+      height: ",
+                  "14",
+                  "px;
+      position: relative;
+      width: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-iQfAUB",
+                    "inject": [Function],
+                    "name": "iQfAUB",
+                    "rules": Array [
+                      "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+                  "#9198A0",
+                  ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+                  "#9198A0",
+                  ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-ghjfcd",
+                    "inject": [Function],
+                    "name": "ghjfcd",
+                    "rules": Array [
+                      "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 1.4s infinite ease-in-out both;
+      background-color: ",
+                  "#9198A0",
+                  ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+                  "14",
+                  "px;
+      margin-right: 3px;
+      width: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+                  "14",
+                  "px;
+      height: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-gWPqvk",
+                    "inject": [Function],
+                    "name": "gWPqvk",
+                    "rules": Array [
+                      "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                      "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+                  "#9198A0",
+                  ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+                ]
+              }
+            >
+              <StyledComponent
+                className=""
+                css={
+                  Array [
+                    "
+    background-color: ",
+                    "#fff",
+                    ";
+    display: none;
+    ",
+                    "
+    ",
+                    "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+                    "
+    ",
+                    "display: none;",
+                    "
+
+    .spinner-dots {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-cZxgpV",
+                      "inject": [Function],
+                      "name": "cZxgpV",
+                      "rules": Array [
+                        "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                        "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 2.0s infinite linear;
+      height: ",
+                    "14",
+                    "px;
+      position: relative;
+      width: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-iQfAUB",
+                      "inject": [Function],
+                      "name": "iQfAUB",
+                      "rules": Array [
+                        "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                        "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+                    "#9198A0",
+                    ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+                    "#9198A0",
+                    ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-ghjfcd",
+                      "inject": [Function],
+                      "name": "ghjfcd",
+                      "rules": Array [
+                        "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                        "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 1.4s infinite ease-in-out both;
+      background-color: ",
+                    "#9198A0",
+                    ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+                    "14",
+                    "px;
+      margin-right: 3px;
+      width: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+                    "14",
+                    "px;
+      height: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-gWPqvk",
+                      "inject": [Function],
+                      "name": "gWPqvk",
+                      "rules": Array [
+                        "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                        "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+                    "#9198A0",
+                    ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+                  ]
+                }
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-bdVaJa",
+                      "isStatic": false,
+                      "lastClassName": "cGeTuw",
+                      "rules": Array [
+                        [Function],
+                      ],
+                    },
+                    "displayName": "styled.span",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-bdVaJa",
+                    "target": "span",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+              >
+                <span
+                  className="sc-bdVaJa cGeTuw"
+                >
+                  <span
+                    className="spinner-circular"
+                  >
+                    <div
+                      className="sc-inner"
+                    >
+                      <div
+                        className="sc-inner-animation"
+                      >
+                        <svg
+                          height="14"
+                          strokeWidth="16.00"
+                          viewBox="-3.00 -3.00 106.00 106.00"
+                          width="14"
+                        >
+                          <path
+                            className="sc-inner-track"
+                            d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+                          />
+                          <path
+                            className="sc-inner-head"
+                            d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+                            pathLength="280"
+                            strokeDasharray="280 280"
+                            strokeDashoffset="210"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </span>
+                </span>
+              </StyledComponent>
+            </.sc-bdVaJa>
+          </Spinner>
+        </div>
+      </div>
+    </div>
+  </div>
+</InlineEdit>
+`;
+
+exports[`InlineEdit should render a span and buttons 1`] = `
+<InlineEdit
+  error=""
+  isEditing={true}
+  loading={false}
+  name="test"
+  placeholder="Click to edit"
+  readonly={false}
+  tooltipPlacement="right"
+  type="text"
+  value="test value"
+>
+  <div
+    className="inline-edit-wrapper"
+  >
+    <div
+      className="inline-edit-wrapper-inner"
+    >
+      <div
+        className="inline-text-overflow-wrapper"
+        style={
+          Object {
+            "maxWidth": "calc(100% - 0px)",
+          }
+        }
+      >
+        <span
+          className="inline-text-wrapper"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "test value",
+            }
+          }
+          id="span_id"
+        />
+        <div
+          className="inline-button-wrapper"
+        >
+          <Icon
+            className="save-button"
+            height="20"
+            name="md-check"
+            onClick={[Function]}
+            width="20"
+          >
+            <svg
+              className="save-button"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<path d=\\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\\"></path>",
+                }
+              }
+              height="20"
+              name="md-check"
+              onClick={[Function]}
+              role="img"
+              style={
+                Object {
+                  "cursor": "pointer",
+                }
+              }
+              viewBox="0 0 24 24"
+              width="20"
+            />
+          </Icon>
+          <Icon
+            className="cancel-button"
+            height="20"
+            name="md-close"
+            onClick={[Function]}
+            width="20"
+          >
+            <svg
+              className="cancel-button"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<path d=\\"M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z\\"></path>",
+                }
+              }
+              height="20"
+              name="md-close"
+              onClick={[Function]}
+              role="img"
+              style={
+                Object {
+                  "cursor": "pointer",
+                }
+              }
+              viewBox="0 0 24 24"
+              width="20"
+            />
+          </Icon>
+        </div>
+        <div
+          className="loader-wrapper"
+        >
+          <Spinner
+            color="#9198A0"
+            loading={false}
+            size="14"
+            type="spinner-circular"
+          >
+            <.sc-bdVaJa
+              className=""
+              css={
+                Array [
+                  "
+    background-color: ",
+                  "#fff",
+                  ";
+    display: none;
+    ",
+                  "
+    ",
+                  "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+                  "
+    ",
+                  "display: none;",
+                  "
+
+    .spinner-dots {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-cZxgpV",
+                    "inject": [Function],
+                    "name": "cZxgpV",
+                    "rules": Array [
+                      "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                      "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 2.0s infinite linear;
+      height: ",
+                  "14",
+                  "px;
+      position: relative;
+      width: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-iQfAUB",
+                    "inject": [Function],
+                    "name": "iQfAUB",
+                    "rules": Array [
+                      "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+                  "#9198A0",
+                  ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+                  "#9198A0",
+                  ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-ghjfcd",
+                    "inject": [Function],
+                    "name": "ghjfcd",
+                    "rules": Array [
+                      "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " 1.4s infinite ease-in-out both;
+      background-color: ",
+                  "#9198A0",
+                  ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+                  "14",
+                  "px;
+      margin-right: 3px;
+      width: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+                  "14",
+                  "px;
+      height: ",
+                  "14",
+                  "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+                  Keyframes {
+                    "id": "sc-keyframes-gWPqvk",
+                    "inject": [Function],
+                    "name": "gWPqvk",
+                    "rules": Array [
+                      "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                      "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                    ],
+                    "toString": [Function],
+                  },
+                  " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+                  "#9198A0",
+                  ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+                ]
+              }
+            >
+              <StyledComponent
+                className=""
+                css={
+                  Array [
+                    "
+    background-color: ",
+                    "#fff",
+                    ";
+    display: none;
+    ",
+                    "
+    ",
+                    "
+      
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+
+      position: absolute;
+      z-index: 1000;
+    ",
+                    "
+    ",
+                    "display: none;",
+                    "
+
+    .spinner-dots {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-cZxgpV",
+                      "inject": [Function],
+                      "name": "cZxgpV",
+                      "rules": Array [
+                        "@-webkit-keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                        "@keyframes cZxgpV{100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 2.0s infinite linear;
+      height: ",
+                    "14",
+                    "px;
+      position: relative;
+      width: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-dots .dot1, .dot2 {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-iQfAUB",
+                      "inject": [Function],
+                      "name": "iQfAUB",
+                      "rules": Array [
+                        "@-webkit-keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                        "@keyframes iQfAUB{0%,100%{-webkit-transform:scale(0.0);-ms-transform:scale(0.0);transform:scale(0.0);}50%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 2.0s infinite ease-in-out;
+      border-radius: 100%;
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+
+    .spinner-dots .dot1 {
+      background-color: ",
+                    "#9198A0",
+                    ";
+      height: 60%;
+      top: 0;
+    }
+
+    .spinner-dots .dot2 {
+      animation-delay: -1.0s;
+      background-color: ",
+                    "#9198A0",
+                    ";
+      bottom: 0;
+      height: 60%;
+      top: auto;
+    }
+
+    .spinner-bounce .bounce1, .bounce2, .bounce3 {
+      animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-ghjfcd",
+                      "inject": [Function],
+                      "name": "ghjfcd",
+                      "rules": Array [
+                        "@-webkit-keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                        "@keyframes ghjfcd{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1.0);-ms-transform:scale(1.0);transform:scale(1.0);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " 1.4s infinite ease-in-out both;
+      background-color: ",
+                    "#9198A0",
+                    ";
+      border-radius: 100%;
+      display: inline-block;
+      height: ",
+                    "14",
+                    "px;
+      margin-right: 3px;
+      width: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-bounce .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner-bounce .bounce2 {
+      animation-delay: -0.16s;
+    }
+
+    .spinner-bounce .bounce3 {
+      margin-right: 0;
+    }
+
+    .spinner-circular {
+      display: inline-block;
+      position: relative;
+      width: ",
+                    "14",
+                    "px;
+      height: ",
+                    "14",
+                    "px;
+    }
+
+    .spinner-circular .sc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      vertical-align: middle;
+    }
+
+    .spinner-circular .sc-inner-animation {
+        animation: ",
+                    Keyframes {
+                      "id": "sc-keyframes-gWPqvk",
+                      "inject": [Function],
+                      "name": "gWPqvk",
+                      "rules": Array [
+                        "@-webkit-keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                        "@keyframes gWPqvk{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}to{-webkit-transform:rotate(1turn);-ms-transform:rotate(1turn);transform:rotate(1turn);}}",
+                      ],
+                      "toString": [Function],
+                    },
+                    " .5s linear infinite;
+    }
+
+    .spinner-circular .sc-inner svg {
+        display: block;
+    }
+
+    .spinner-circular .sc-inner path {
+        fill-opacity: 0;
+    }
+
+    .spinner-circular .sc-inner-head {
+        transform-origin: center;
+        transition: stroke-dashoffset .2s cubic-bezier(.4, 1, .75, .9);
+        stroke: ",
+                    "#9198A0",
+                    ";
+        stroke-linecap: round;
+    }
+
+    .spinner-circular .sc-inner-track {
+        stroke: rgba(92, 112, 128, .2);
+    }
+  ",
+                  ]
+                }
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-bdVaJa",
+                      "isStatic": false,
+                      "lastClassName": "cGeTuw",
+                      "rules": Array [
+                        [Function],
+                      ],
+                    },
+                    "displayName": "styled.span",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-bdVaJa",
+                    "target": "span",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+              >
+                <span
+                  className="sc-bdVaJa cGeTuw"
+                >
+                  <span
+                    className="spinner-circular"
+                  >
+                    <div
+                      className="sc-inner"
+                    >
+                      <div
+                        className="sc-inner-animation"
+                      >
+                        <svg
+                          height="14"
+                          strokeWidth="16.00"
+                          viewBox="-3.00 -3.00 106.00 106.00"
+                          width="14"
+                        >
+                          <path
+                            className="sc-inner-track"
+                            d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+                          />
+                          <path
+                            className="sc-inner-head"
+                            d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+                            pathLength="280"
+                            strokeDasharray="280 280"
+                            strokeDashoffset="210"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </span>
+                </span>
+              </StyledComponent>
+            </.sc-bdVaJa>
+          </Spinner>
+        </div>
+      </div>
+    </div>
+  </div>
+</InlineEdit>
+`;

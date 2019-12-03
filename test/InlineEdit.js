@@ -4,28 +4,6 @@ import Icon from '../src/components/Icon/Icon'
 
 describe('InlineEdit', () => {
 
-  it('should render a span and buttons', () => {
-    const wrapper = mount(<InlineEdit name='test' value='test value' isEditing={true} />)
-
-    expect(wrapper.hasClass('readonly')).to.be.false
-    expect(wrapper.find('.inline-text-wrapper')).to.have.length(1)
-    expect(wrapper.find('.inline-text-wrapper-hover')).to.have.length(0)
-    expect(wrapper.find(Icon)).to.have.length(2)
-    expect(wrapper.find('.inline-button-wrapper .save-button')).to.have.length(2)
-    expect(wrapper.find('.inline-button-wrapper .cancel-button')).to.have.length(2)
-    expect(wrapper.find('.copy-icon')).to.have.length(0)
-    expect(wrapper.find('.inline-icon')).to.have.length(0)
-    expect(wrapper.find('.inline-label')).to.have.length(0)
-    expect(wrapper.find('Tooltip')).to.have.length(0)
-  })
-
-  it('should not render buttons', () => {
-    const wrapper = mount(<InlineEdit name='test' value='test value' />)
-
-    expect(wrapper.find('.inline-text-wrapper-hover')).to.have.length(1)
-    expect(wrapper.find(Icon)).to.have.length(0)
-  })
-
   // TODO: May need to refactor the component for this test to work
   // currently the component compares local state to and private value to determine whether to fire the changeCallback
   // no good way to mock _textValue since node is deprecated
@@ -38,26 +16,6 @@ describe('InlineEdit', () => {
     trigger.simulate('click')
 
     expect(changeCallback.calledWithExactly({ target: { name: 'test', value: 'test value' }})).to.be.true
-  })
-
-  it('should not trigger the callback if the edit was canceled', () => {
-    const changeCallback = sinon.spy()
-    const wrapper = mount(<InlineEdit name='test' isEditing={true} value='test value' changeCallback={changeCallback} />)
-
-    wrapper.update()
-    wrapper.instance().handleSave()
-
-    expect(changeCallback.called).to.be.false
-  })
-
-  it('should not trigger the callback if the value hasn\'t changed', () => {
-    const changeCallback = sinon.spy()
-    const wrapper = mount(<InlineEdit name='test' isEditing={true} value='test value' changeCallback={changeCallback} />)
-    const trigger = wrapper.find('.inline-button-wrapper').at(0).childAt(0)
-
-    trigger.simulate('click')
-
-    expect(changeCallback.called).to.be.false
   })
 
   it('should show the placeholder when the value is empty', () => {
@@ -81,18 +39,6 @@ describe('InlineEdit', () => {
     wrapper.setProps({ isEditing: true })
 
     expect(wrapper.childAt(0).childAt(0).text()).to.equal('')
-  })
-
-  it('should be readonly', () => {
-    const spy = sinon.spy()
-    const wrapper = mount(<InlineEdit name='test' changeCallback={spy} value='test value' readonly />)
-    const editTrigger = wrapper.childAt(0)
-
-    expect(wrapper.find('.readonly')).to.have.length(1)
-
-    editTrigger.simulate('click')
-
-    expect(spy.called).to.be.false
   })
 
   it('should have a loader', () => {
@@ -196,23 +142,6 @@ describe('InlineEdit', () => {
     }, 1900)
   })
 
-  it('should have an inline icon and label', () => {
-    const wrapper = mount(<InlineEdit name='test' value='test value' label='Email' icon='md-mail' />)
-
-    expect(wrapper.find('.inline-icon')).to.have.length(1)
-    expect(wrapper.find('.inline-label')).to.have.length(1)
-  })
-
-  it('should set max-width for the edit component', () => {
-    let wrapper = mount(<InlineEdit name='test' value='test value' />)
-
-    expect(wrapper.state().inlineEditMaxWidth).to.equal('calc(100% - 0px)')
-
-    wrapper = mount(<InlineEdit name='test' value='test value' label='Email' icon='md-mail' />)
-
-    expect(wrapper.state().inlineEditMaxWidth).to.not.equal('calc(100% - 0px)')
-  })
-
   it('should have a tooltip', () => {
     const wrapper = mount(<InlineEdit name='test' value='test value' tooltipText='test tooltip' tooltipPlacement='top' tooltipClass='test-class' />)
 
@@ -280,126 +209,4 @@ describe('InlineEdit', () => {
     expect(cancelStub.calledThrice).to.be.false
   })
 
-  it('should render a select field', () => {
-    const options = [
-      { label: 'Item 1', value: 'item_1' },
-      { label: 'Item 2', value: 'item_2' },
-      { label: 'Item 3', value: 'item_3' },
-      { label: 'Item 4', value: 'item_4' }
-    ]
-
-    const wrapper = mount(<InlineEdit name='test' value='item_3' type='select' options={options} />)
-
-    expect(wrapper.find('SelectField')).to.have.length(1)
-    expect(wrapper.find('SelectField').at(0).props().value).to.equal('item_3')
-    expect(wrapper.find('SelectField').at(0).props().options).to.deep.equal(options)
-  })
-
-  it('should update the state when an item is selected', () => {
-    const options = [
-      { label: 'Item 1', value: 'item_1' },
-      { label: 'Item 2', value: 'item_2' },
-      { label: 'Item 3', value: 'item_3' },
-      { label: 'Item 4', value: 'item_4' }
-    ]
-
-    const wrapper = mount(<InlineEdit name='test' value='item_3' type='select' options={options} />)
-
-    expect(wrapper.state().value).to.equal('item_3')
-
-    wrapper.instance().handleSave({ target: { value: 'item_1' } })
-
-    expect(wrapper.state().value).to.equal('item_1')
-  })
-
-  it('should trigger the change callback when an item is selected', () => {
-    const changeCallback = sinon.spy()
-    const options = [
-      { label: 'Item 1', value: 'item_1' },
-      { label: 'Item 2', value: 'item_2' },
-      { label: 'Item 3', value: 'item_3' },
-      { label: 'Item 4', value: 'item_4' }
-    ]
-
-    const wrapper = mount(<InlineEdit name='test' value='item_3' type='select' options={options} changeCallback={changeCallback} />)
-
-    expect(wrapper.state().value).to.equal('item_3')
-
-    wrapper.instance().handleSave({ target: { value: 'item_1' } })
-
-    expect(wrapper.state().value).to.equal('item_1')
-    expect(changeCallback.calledWithExactly({ target: { name: 'test', value: 'item_1' } })).to.be.true
-
-    wrapper.instance().handleSave({ target: { value: 'item_1' } })
-    expect(changeCallback.calledTwice).to.be.false
-  })
-
-  it('should set classes on the select field', () => {
-    const options = [
-      { label: 'Item 1', value: 'item_1' },
-      { label: 'Item 2', value: 'item_2' },
-      { label: 'Item 3', value: 'item_3' },
-      { label: 'Item 4', value: 'item_4' }
-    ]
-
-    let wrapper = mount(<InlineEdit name='test' value='item_3' type='select' options={options} />)
-    let field = wrapper.instance().getSelect()
-
-    expect(field.props.optClass).to.equal('inline-edit-select')
-
-    wrapper = mount(<InlineEdit name='test' value='item_3' type='select' options={options} loading={true} />)
-    field = wrapper.instance().getSelect()
-
-    expect(field.props.optClass).to.equal('inline-edit-select loading')
-  })
-
-  it('should render a datepicker', () => {
-    const wrapper = mount(<InlineEdit name='test' value='2005-04-26' type='date' />)
-
-    expect(wrapper.find('DatePicker')).to.have.length(1)
-    expect(wrapper.find('DatePicker').at(0).props().value).to.equal('2005-04-26')
-  })
-
-  it('should update the state when date is updated', () => {
-
-
-    const wrapper = mount(<InlineEdit name='test' value='2005-04-26' type='date' />)
-
-    expect(wrapper.state().value).to.equal('2005-04-26')
-
-    wrapper.instance().handleSave({ target: { value: '2007-02-06' } })
-
-    expect(wrapper.state().value).to.equal('2007-02-06')
-  })
-
-  it('should trigger the change callback when when date is updated', () => {
-    const changeCallback = sinon.spy()
-
-
-    const wrapper = mount(<InlineEdit name='test' value='2005-04-26' type='date' changeCallback={changeCallback} />)
-
-    expect(wrapper.state().value).to.equal('2005-04-26')
-
-    wrapper.instance().handleSave({ target: { value: '2007-02-06' } })
-
-    expect(wrapper.state().value).to.equal('2007-02-06')
-    expect(changeCallback.calledWithExactly({ target: { name: 'test', value: '2007-02-06' } })).to.be.true
-
-    wrapper.instance().handleSave({ target: { value: '2007-02-06' } })
-    expect(changeCallback.calledTwice).to.be.false
-  })
-
-  it('should set classes on the datepicker', () => {
-
-
-    let wrapper = mount(<InlineEdit name='test' value='2005-04-26' type='date' />)
-    let field = wrapper.instance().getDatepicker()
-
-    expect(field.props.optClass).to.equal('inline-edit-date')
-
-    wrapper = mount(<InlineEdit name='test' value='2005-04-26' type='date' loading={true} />)
-    field = wrapper.instance().getDatepicker()
-
-    expect(field.props.optClass).to.equal('inline-edit-date loading')
-  })
 })
