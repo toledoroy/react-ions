@@ -1,3 +1,7 @@
+## 5.3.2
+###### _January 8, 2020_
+- Fix persisting errors after resetting [#836](https://github.com/GetAmbassador/react-ions/pull/836)
+
 ## 5.3.1
 ###### _December 3, 2019_
 - Add date type (DatePicker) to InlineEdit component [#833](https://github.com/GetAmbassador/react-ions/pull/833)
