@@ -2497,6 +2497,9 @@ exports[`InlineEdit should render a datepicker 1`] = `
                     Object {
                       "value": "2029",
                     },
+                    Object {
+                      "value": "2030",
+                    },
                   ]
                 }
                 placeholder="Year"
@@ -2787,6 +2790,9 @@ exports[`InlineEdit should render a datepicker 1`] = `
                       },
                       Object {
                         "value": "2029",
+                      },
+                      Object {
+                        "value": "2030",
                       },
                     ]
                   }
@@ -3391,6 +3397,12 @@ exports[`InlineEdit should render a datepicker 1`] = `
                         onClick={[Function]}
                       >
                         2029
+                      </li>
+                      <li
+                        key="93"
+                        onClick={[Function]}
+                      >
+                        2030
                       </li>
                     </ul>
                   </div>

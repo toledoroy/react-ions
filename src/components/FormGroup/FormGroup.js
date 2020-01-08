@@ -67,12 +67,20 @@ class FormGroup extends React.Component {
   UNSAFE_componentWillReceiveProps = nextProps => {
     const nextPropsSchema = fromJS(nextProps.schema)
     const thisPropsSchema = fromJS(this.props.schema)
+    const nextPropsErrors = fromJS(nextProps.fieldErrors)
+    const thisPropsErrors = fromJS(this.props.fieldErrors)
+
+    let updatedState = {}
 
     if (!is(nextPropsSchema, thisPropsSchema)) {
-      this.setState({
-        fields: fromJS(nextProps.schema)
-      })
+      updatedState.fields = fromJS(nextProps.schema)
     }
+
+    if (!is(nextPropsErrors, thisPropsErrors)) {
+      updatedState.fieldErrors = nextProps.fieldErrors
+    }
+
+    if (updatedState.fields || updatedState.fieldErrors) this.setState(updatedState)
   }
 
   UNSAFE_componentWillMount = () => {
