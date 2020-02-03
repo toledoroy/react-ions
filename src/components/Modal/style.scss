@@ -42,7 +42,7 @@
     position: relative;
     padding: 24px;
     transform: scale(0.7);
-    transition: scale 0.3s, opacity 0.3s, transform 0.3s;
+    transition: scale 0.3s, opacity 0.3s, transform 0.3s, width 0.3s, max-width 0.3s;
     visibility: hidden;
     width: 75%;
     will-change: scale, opacity, transform;
