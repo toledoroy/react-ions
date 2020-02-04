@@ -1,3 +1,7 @@
+## 5.3.3
+###### _February 3, 2020_
+- Make adjustments to the MultiSelect component [#838](https://github.com/GetAmbassador/react-ions/pull/838)
+
 ## 5.3.2
 ###### _January 8, 2020_
 - Fix persisting errors after resetting [#836](https://github.com/GetAmbassador/react-ions/pull/836)
