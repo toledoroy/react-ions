@@ -95,7 +95,7 @@ class DatePicker extends React.Component {
     placeholder: PropTypes.object
   }
 
-  _initDate = (date, format) => {
+  _initDate = (date, format, props) => {
     let dateObj = {
       year: {
         min: 0,
@@ -128,12 +128,12 @@ class DatePicker extends React.Component {
     dateObj.value = mDate.format(format)
 
     // min & max values
-    dateObj.year.min = this._getMinOrMax(this.props.min, 'year')
-    dateObj.year.max = this._getMinOrMax(this.props.max, 'year')
-    dateObj.month.min = this._getMinOrMax(this.props.min, 'month')
-    dateObj.month.max = this._getMinOrMax(this.props.max, 'month')
-    dateObj.day.min = this._getMinOrMax(this.props.min, 'day')
-    dateObj.day.max = this._getMinOrMax(this.props.max, 'day')
+    dateObj.year.min = this._getMinOrMax(props.min, 'year')
+    dateObj.year.max = this._getMinOrMax(props.max, 'year')
+    dateObj.month.min = this._getMinOrMax(props.min, 'month')
+    dateObj.month.max = this._getMinOrMax(props.max, 'month')
+    dateObj.day.min = this._getMinOrMax(props.min, 'day')
+    dateObj.day.max = this._getMinOrMax(props.max, 'day')
 
     // options
     dateObj.year.options = this._getYears(dateObj.year.min, dateObj.year.max)
@@ -337,12 +337,12 @@ class DatePicker extends React.Component {
   }
 
   UNSAFE_componentWillMount = () => {
-    this._initDate(this.props.value, this.props.format)
+    this._initDate(this.props.value, this.props.format, this.props)
   }
 
   UNSAFE_componentWillReceiveProps = nextProps => {
-    if (nextProps.value !== this.props.value) {
-      this._initDate(nextProps.value, this.props.format)
+    if (nextProps.value !== this.props.value || nextProps.min !== this.props.min || nextProps.max !== this.props.max) {
+      this._initDate(nextProps.value, nextProps.format, nextProps)
     }
   }
 
