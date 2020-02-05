@@ -1,3 +1,7 @@
+## 5.3.4
+###### _February 5, 2020_
+- Update datepicker when min or max props are updated [#840](https://github.com/GetAmbassador/react-ions/pull/840)
+
 ## 5.3.3
 ###### _February 3, 2020_
 - Make adjustments to the MultiSelect component [#838](https://github.com/GetAmbassador/react-ions/pull/838)
