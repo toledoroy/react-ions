@@ -1,6 +1,6 @@
 ## 5.3.5
 ###### _February 14, 2020_
-- Add refresh icon
+- Add refresh icon [#844](https://github.com/GetAmbassador/react-ions/pull/844)
 
 ## 5.3.4
 ###### _February 5, 2020_
