@@ -1,3 +1,7 @@
+## 5.3.5
+###### _February 14, 2020_
+- Add refresh icon
+
 ## 5.3.4
 ###### _February 5, 2020_
 - Update datepicker when min or max props are updated [#840](https://github.com/GetAmbassador/react-ions/pull/840)
