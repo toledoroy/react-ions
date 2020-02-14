@@ -83,6 +83,7 @@ var list = {
     materialPath + '/navigation/svg/production/ic_close_24px.svg#md-close',
     materialPath + '/navigation/svg/production/ic_chevron_left_24px.svg#md-chevron-left',
     materialPath + '/navigation/svg/production/ic_chevron_right_24px.svg#md-chevron-right',
+    materialPath + '/navigation/svg/production/ic_refresh_24px.svg#md-refresh',
     materialPath + '/notification/svg/production/ic_do_not_disturb_24px.svg#md-no-access',
     materialPath + '/social/svg/production/ic_notifications_none_24px.svg#md-notifications',
     materialPath + '/social/svg/production/ic_person_outline_24px.svg#md-person-outline',
@@ -96,7 +97,7 @@ var list = {
     materialPath + '/toggle/svg/production/ic_check_box_outline_blank_24px.svg#md-checkbox-unchecked',
     materialPath + '/toggle/svg/production/ic_indeterminate_check_box_24px.svg#md-checkbox-ind',
     materialPath + '/toggle/svg/production/ic_radio_button_checked_24px.svg#md-radio-checked',
-    materialPath + '/toggle/svg/production/ic_radio_button_unchecked_24px.svg#md-radio-unchecked'
+    materialPath + '/toggle/svg/production/ic_radio_button_unchecked_24px.svg#md-radio-unchecked',
   ],
   mbsy: [
     mbsyPath + '/check_circle_outline.svg#md-check-circle-outline',
