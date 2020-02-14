@@ -97,7 +97,7 @@ var list = {
     materialPath + '/toggle/svg/production/ic_check_box_outline_blank_24px.svg#md-checkbox-unchecked',
     materialPath + '/toggle/svg/production/ic_indeterminate_check_box_24px.svg#md-checkbox-ind',
     materialPath + '/toggle/svg/production/ic_radio_button_checked_24px.svg#md-radio-checked',
-    materialPath + '/toggle/svg/production/ic_radio_button_unchecked_24px.svg#md-radio-unchecked',
+    materialPath + '/toggle/svg/production/ic_radio_button_unchecked_24px.svg#md-radio-unchecked'
   ],
   mbsy: [
     mbsyPath + '/check_circle_outline.svg#md-check-circle-outline',
