@@ -48,6 +48,13 @@ class MultiSelect extends React.Component {
     optClass: PropTypes.oneOfType([
       PropTypes.array,
       PropTypes.string
+    ]),
+    /**
+     * A customized list of selected items.
+     */
+    tagList: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.node
     ])
   }
 
@@ -188,11 +195,12 @@ class MultiSelect extends React.Component {
   render() {
     const multiSelectClasses = optclass(style, 'multi-select', this.props.optClass)
     const elements = this.getElements(this.props.children)
+    const TagListComponent = this.props.tagList || TagList
 
     return (
       <div className={multiSelectClasses}>
         {elements}
-        <TagList tags={this.state.selected} displayProp={this.props.displayProp} onRemove={this.onRemove} />
+        <TagListComponent tags={this.state.selected} displayProp={this.props.displayProp} onRemove={this.onRemove} />
       </div>
     )
   }
