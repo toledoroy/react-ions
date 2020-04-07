@@ -1,3 +1,7 @@
+## 5.3.6
+###### _April 7, 2020_
+- Allow a tagList component to be passed to the MultiSelect component [#846](https://github.com/GetAmbassador/react-ions/pull/846)
+
 ## 5.3.5
 ###### _February 14, 2020_
 - Add refresh icon [#844](https://github.com/GetAmbassador/react-ions/pull/844)
