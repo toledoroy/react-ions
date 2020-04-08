@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import style from './style.scss'
-import classNames from 'classnames/bind'
+import React, { Component } from 'react'
+import { bool, func, number, oneOf } from 'prop-types'
 import Icon from '../Icon'
+import StyledDiv from '../StyledDiv'
+import { alertWrapper, closeIcon, countdownBar, countdownBarWrapper } from './styles.css'
 
-class Alert extends React.Component {
+class Alert extends Component {
   constructor(props) {
     super(props)
   }
@@ -21,25 +21,21 @@ class Alert extends React.Component {
 
   static propTypes = {
     /**
-     * The alert type.
-     */
-    type: PropTypes.oneOf(['success', 'warning', 'info', 'danger']),
-    /**
-     * Optional styles to add to the alert component.
-     */
-    optClass: PropTypes.string,
-    /**
      * Whether the alert can be closed.
      */
-    closable: PropTypes.bool,
-    /**
-     * How long before the alert disappears.
-     */
-    timeout: PropTypes.number,
+    closable: bool,
     /**
      * A callback to be triggered when the close icon is clicked or when the timeout expires.
      */
-    onClose: PropTypes.func
+    onClose: func,
+    /**
+     * How long before the alert disappears.
+     */
+    timeout: number,
+    /**
+     * The alert type.
+     */
+    type: oneOf(['success', 'warning', 'info', 'danger'])
 
   }
 
@@ -69,24 +65,24 @@ class Alert extends React.Component {
     this.startTimer()
   }
 
-  render() {
-    const cx = classNames.bind(style)
-    const alertClasses = cx(style.alert, this.props.optClass, this.props.type, (this.props.closable ? 'closable' : ''))
-    const alertIcons = {
-      success: 'md-success',
-      warning: 'md-warning',
-      info: 'md-info',
-      danger: 'md-danger'
-    }
-
-    return (
-      <div className={alertClasses} onMouseOver={this.pauseTimer} onMouseOut={this.startTimer}>
-        {this.props.closable ? <div className={style['close-icon']} onClick={this.closeAlert}><Icon name='md-close' width='12' height='12' /></div> : null}
-        <Icon name={alertIcons[this.props.type]} width='17' height='17' />
-        <div>{this.props.children}</div>
-      </div>
-    )
-  }
+  render = () => (
+    <StyledDiv className={this.props.className} css={alertWrapper(this.props.type, this.props.closable)} onMouseOver={this.pauseTimer} onMouseOut={this.startTimer}>
+      <Icon name={`md-${this.props.type}`} width='17' height='17' />
+      <div>{this.props.children}</div>
+      {
+        this.props.closable &&
+        <StyledDiv css={closeIcon} onClick={this.closeAlert}>
+          <Icon name='md-close' width='12' height='12' />
+        </StyledDiv>
+      }
+      {
+        !!this.props.timeout &&
+        <StyledDiv css={countdownBarWrapper}>
+          <StyledDiv className='countdown-bar' css={countdownBar(this.props.type, this.props.timeout)}></StyledDiv>
+        </StyledDiv>
+      }
+    </StyledDiv>
+  )
 }
 
 export default Alert

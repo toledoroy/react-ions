@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { object } from 'prop-types'
+import { array, object, oneOfType } from 'prop-types'
 
 export const StyledDiv = styled.div`${props => props.css}`
 
@@ -8,7 +8,7 @@ StyledDiv.defaultProps = {
 }
 
 StyledDiv.propTypes = {
-  css: object
+  css: oneOfType([array, object])
 }
 
 export default StyledDiv
