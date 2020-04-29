@@ -1,0 +1,423 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alerts::Styles alertSystemWrapper should return styles for alerts that do not slide in from the right 1`] = `Object {}`;
+
+exports[`Alerts::Styles alertSystemWrapper should return styles for alerts that slide in from the right 1`] = `
+Object {
+  "position": "fixed",
+  "right": "15px",
+  "top": "15px",
+  "zIndex": 3850,
+}
+`;
+
+exports[`Alerts::Styles alertWrapper should return styles for a danger alert 1`] = `
+Array [
+  "
+  display: flex;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background-color: ",
+  "#fff",
+  ";
+  color: ",
+  "#243140",
+  ";
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 200;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+
+  ",
+  "
+  
+  > svg {
+    fill: ",
+  "#E54C3B",
+  ";
+    margin-top: 1px;
+    min-width: 17px;
+
+    + div {
+      margin-left: 10px;
+      margin-right: ",
+  "0",
+  ";
+    }
+  }
+
+  &:hover .countdown-bar {
+    animation-play-state: paused;
+  }
+",
+]
+`;
+
+exports[`Alerts::Styles alertWrapper should return styles for a success alert 1`] = `
+Array [
+  "
+  display: flex;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background-color: ",
+  "#fff",
+  ";
+  color: ",
+  "#243140",
+  ";
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 200;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+
+  ",
+  "
+  
+  > svg {
+    fill: ",
+  "#26B894",
+  ";
+    margin-top: 1px;
+    min-width: 17px;
+
+    + div {
+      margin-left: 10px;
+      margin-right: ",
+  "0",
+  ";
+    }
+  }
+
+  &:hover .countdown-bar {
+    animation-play-state: paused;
+  }
+",
+]
+`;
+
+exports[`Alerts::Styles alertWrapper should return styles for a warning alert 1`] = `
+Array [
+  "
+  display: flex;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background-color: ",
+  "#fff",
+  ";
+  color: ",
+  "#243140",
+  ";
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 200;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+
+  ",
+  "
+  
+  > svg {
+    fill: ",
+  "#F29C1E",
+  ";
+    margin-top: 1px;
+    min-width: 17px;
+
+    + div {
+      margin-left: 10px;
+      margin-right: ",
+  "0",
+  ";
+    }
+  }
+
+  &:hover .countdown-bar {
+    animation-play-state: paused;
+  }
+",
+]
+`;
+
+exports[`Alerts::Styles alertWrapper should return styles for an alert that is closable 1`] = `
+Array [
+  "
+  display: flex;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background-color: ",
+  "#fff",
+  ";
+  color: ",
+  "#243140",
+  ";
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 200;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+
+  ",
+  "
+  
+  > svg {
+    fill: ",
+  "#26B894",
+  ";
+    margin-top: 1px;
+    min-width: 17px;
+
+    + div {
+      margin-left: 10px;
+      margin-right: ",
+  "20px",
+  ";
+    }
+  }
+
+  &:hover .countdown-bar {
+    animation-play-state: paused;
+  }
+",
+]
+`;
+
+exports[`Alerts::Styles alertWrapper should return styles for an alert that slides in from the right 1`] = `
+Array [
+  "
+  display: flex;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background-color: ",
+  "#fff",
+  ";
+  color: ",
+  "#243140",
+  ";
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 200;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+
+  ",
+  "
+      animation: ",
+  "
+  ",
+  Keyframes {
+    "id": "sc-keyframes-dAZqjE",
+    "inject": [Function],
+    "name": "dAZqjE",
+    "rules": Array [
+      "@-webkit-keyframes dAZqjE{0%{opacity:0;-webkit-transform:translate3d(3000px,0,0);-ms-transform:translate3d(3000px,0,0);transform:translate3d(3000px,0,0);}80%{opacity:1;-webkit-transform:translate3d(-25px,0,0);-ms-transform:translate3d(-25px,0,0);transform:translate3d(-25px,0,0);}100%{-webkit-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);transform:translate3d(0,0,0);}}",
+      "@keyframes dAZqjE{0%{opacity:0;-webkit-transform:translate3d(3000px,0,0);-ms-transform:translate3d(3000px,0,0);transform:translate3d(3000px,0,0);}80%{opacity:1;-webkit-transform:translate3d(-25px,0,0);-ms-transform:translate3d(-25px,0,0);transform:translate3d(-25px,0,0);}100%{-webkit-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);transform:translate3d(0,0,0);}}",
+    ],
+    "toString": [Function],
+  },
+  " .75s ease-out;
+",
+  ";
+      animation-iteration-count: 1;
+      max-width: 350px;
+      margin-left: 15px;
+    ",
+  "
+  
+  > svg {
+    fill: ",
+  "#26B894",
+  ";
+    margin-top: 1px;
+    min-width: 17px;
+
+    + div {
+      margin-left: 10px;
+      margin-right: ",
+  "20px",
+  ";
+    }
+  }
+
+  &:hover .countdown-bar {
+    animation-play-state: paused;
+  }
+",
+]
+`;
+
+exports[`Alerts::Styles alertWrapper should return styles for an info alert 1`] = `
+Array [
+  "
+  display: flex;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background-color: ",
+  "#fff",
+  ";
+  color: ",
+  "#243140",
+  ";
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 200;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+
+  ",
+  "
+  
+  > svg {
+    fill: ",
+  "#62CAF3",
+  ";
+    margin-top: 1px;
+    min-width: 17px;
+
+    + div {
+      margin-left: 10px;
+      margin-right: ",
+  "0",
+  ";
+    }
+  }
+
+  &:hover .countdown-bar {
+    animation-play-state: paused;
+  }
+",
+]
+`;
+
+exports[`Alerts::Styles countdownBar should return countdown bar styles for a danger alert 1`] = `
+Array [
+  "
+  animation: ",
+  "
+  ",
+  Keyframes {
+    "id": "sc-keyframes-xYoGr",
+    "inject": [Function],
+    "name": "xYoGr",
+    "rules": Array [
+      "@-webkit-keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+      "@keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+    ],
+    "toString": [Function],
+  },
+  " ",
+  "4",
+  "s linear 1;
+",
+  ";
+  height: 100%;
+  position: absolute;
+  background-color: ",
+  "#E54C3B",
+  "
+",
+]
+`;
+
+exports[`Alerts::Styles countdownBar should return countdown bar styles for a success alert 1`] = `
+Array [
+  "
+  animation: ",
+  "
+  ",
+  Keyframes {
+    "id": "sc-keyframes-xYoGr",
+    "inject": [Function],
+    "name": "xYoGr",
+    "rules": Array [
+      "@-webkit-keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+      "@keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+    ],
+    "toString": [Function],
+  },
+  " ",
+  "1",
+  "s linear 1;
+",
+  ";
+  height: 100%;
+  position: absolute;
+  background-color: ",
+  "#26B894",
+  "
+",
+]
+`;
+
+exports[`Alerts::Styles countdownBar should return countdown bar styles for a warning alert 1`] = `
+Array [
+  "
+  animation: ",
+  "
+  ",
+  Keyframes {
+    "id": "sc-keyframes-xYoGr",
+    "inject": [Function],
+    "name": "xYoGr",
+    "rules": Array [
+      "@-webkit-keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+      "@keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+    ],
+    "toString": [Function],
+  },
+  " ",
+  "2",
+  "s linear 1;
+",
+  ";
+  height: 100%;
+  position: absolute;
+  background-color: ",
+  "#F29C1E",
+  "
+",
+]
+`;
+
+exports[`Alerts::Styles countdownBar should return countdown bar styles for an info alert 1`] = `
+Array [
+  "
+  animation: ",
+  "
+  ",
+  Keyframes {
+    "id": "sc-keyframes-xYoGr",
+    "inject": [Function],
+    "name": "xYoGr",
+    "rules": Array [
+      "@-webkit-keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+      "@keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+    ],
+    "toString": [Function],
+  },
+  " ",
+  "3",
+  "s linear 1;
+",
+  ";
+  height: 100%;
+  position: absolute;
+  background-color: ",
+  "#62CAF3",
+  "
+",
+]
+`;

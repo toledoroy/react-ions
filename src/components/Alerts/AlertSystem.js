@@ -1,14 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import style from './style.scss'
-import classNames from 'classnames/bind'
+import React, { Component } from 'react'
+import { array, bool, string } from 'prop-types'
+import StyledDiv from '../StyledDiv'
 import Alert from './Alert'
+import { alertSystemWrapper } from './styles.css'
 
-class AlertSystem extends React.Component {
+class AlertSystem extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      alerts: props.alerts
+
+    if (props.optClass && process.env.NODE_ENV !== 'production') {
+      console.warn('AlertSystem: Use of optClass will be deprecated as of react-ions 6.0.0, please use `className` instead')
     }
   }
 
@@ -16,62 +17,72 @@ class AlertSystem extends React.Component {
     /**
      * The alerts to display.
      */
-    alerts: PropTypes.array.isRequired,
+    alerts: array.isRequired,
     /**
-     * Optional styles to add to the alert system component.
+     * A class to add to the alert system component.
      */
-    optClass: PropTypes.string,
+    className: string,
     /**
      * Whether or not to slide the alerts in from the right
      */
-    slideIn: PropTypes.bool
+    slideIn: bool
   }
 
-  getAlerts = () => {
-    return this.state.alerts.map((alert, index) =>
-      !alert.hidden ? <Alert key={alert.key} type={alert.type || 'success'} optClass={alert.class || ''} closable={typeof alert.closable !== 'undefined' ? alert.closable : true} timeout={alert.timeout} onClose={this.removeAlert.bind(this, alert)}>{alert.content}</Alert> : null
-    )
+  state = {
+    alerts: this.props.alerts
   }
+
+  static getDerivedStateFromProps(nextProps) {
+    const { alerts } = nextProps
+
+    alerts.map(alert => {
+      // Add a unique key to the alert if one is not provided
+      if (!alert.key) {
+        alert.key = (alert.type || 'success') + '-' + new Date().getTime()
+      }
+    })
+
+    return { alerts }
+  }
+
+  getAlerts = () => this.state.alerts.map(alert =>
+    !alert.hidden &&
+    <Alert
+      key={alert.key}
+      type={alert.type}
+      className={alert.class || ''}
+      closable={alert.closable}
+      timeout={alert.timeout}
+      onClose={this.removeAlert.bind(this, alert)}
+      slideIn={this.props.slideIn}
+    >
+      {alert.content}
+    </Alert>
+  )
 
   removeAlert = alert => {
-    let alerts = this.state.alerts
+    const { alerts } = this.state
 
-    alerts.map((a, index) => {
+    alerts.map(a => {
       if (alert.key === a.key) {
+        // Hide the alert
         a.hidden = true
 
+        // Call its onCose callback if provided
         if (typeof a.onClose === 'function') {
           a.onClose(alert)
         }
       }
     })
 
-    this.setState({ alerts: alerts })
+    this.setState({ alerts })
   }
 
-  UNSAFE_componentWillReceiveProps = nextProps => {
-    let alerts = nextProps.alerts
-
-    alerts.map((alert, index) => {
-      if (!alert.key) {
-        alert.key = (alert.type || 'success') + '-' + new Date().getTime()
-      }
-    })
-
-    this.setState({ alerts: alerts })
-  }
-
-  render() {
-    const cx = classNames.bind(style)
-    const slideInClass = this.props.slideIn ? style['slide-in-right'] : null
-    const alertSystemClasses = cx(style['alert-system'], slideInClass, this.props.optClass)
-
-    return (
-      <div className={alertSystemClasses}>
-        {this.getAlerts()}
-      </div>
-    )
-  }
+  render = () => (
+    <StyledDiv className={this.props.className} css={alertSystemWrapper(this.props.slideIn)}>
+      {this.getAlerts()}
+    </StyledDiv>
+  )
 }
 
 export default AlertSystem
