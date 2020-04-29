@@ -9,7 +9,6 @@ describe('AlertSystem', () => {
 
     it('should render an alert system with alerts', () => {
       const clock = sinon.useFakeTimers(1588161287485 * 1000)
-
       const alerts = [
         { content: 'Test success' },
         { type: 'warning', content: 'Test warning' },
@@ -18,6 +17,21 @@ describe('AlertSystem', () => {
       ]
   
       expect(shallow(<AlertSystem alerts={alerts}/>)).toMatchSnapshot()
+
+      clock.restore()
+    })
+
+    it('should upadate when the alerts prop changes', () => {
+      const clock = sinon.useFakeTimers(1588161287485 * 1000)
+      const alerts = [{ content: 'Test success' }]
+      const wrapper = shallow(<AlertSystem alerts={alerts}/>)
+
+      expect(wrapper).toMatchSnapshot()
+
+      alerts.push({ type: 'warning', content: 'Test warning' })
+      wrapper.setProps({ alerts })
+
+      expect(wrapper).toMatchSnapshot()
 
       clock.restore()
     })

@@ -94,3 +94,47 @@ exports[`AlertSystem render should render an empty alert system 1`] = `
   css={Object {}}
 />
 `;
+
+exports[`AlertSystem render should upadate when the alerts prop changes 1`] = `
+<.sc-bdVaJa
+  css={Object {}}
+>
+  <Alert
+    className=""
+    closable={true}
+    countdownBar={true}
+    key="success-1588161287485000"
+    onClose={[Function]}
+    type="success"
+  >
+    Test success
+  </Alert>
+</.sc-bdVaJa>
+`;
+
+exports[`AlertSystem render should upadate when the alerts prop changes 2`] = `
+<.sc-bdVaJa
+  css={Object {}}
+>
+  <Alert
+    className=""
+    closable={true}
+    countdownBar={true}
+    key="success-1588161287485000"
+    onClose={[Function]}
+    type="success"
+  >
+    Test success
+  </Alert>
+  <Alert
+    className=""
+    closable={true}
+    countdownBar={true}
+    key="warning-1588161287485000"
+    onClose={[Function]}
+    type="warning"
+  >
+    Test warning
+  </Alert>
+</.sc-bdVaJa>
+`;
