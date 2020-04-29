@@ -121,7 +121,8 @@ var list = {
     mbsyPath + '/megaphone.svg#mbsy-megaphone',
     mbsyPath + '/ambassabot.svg#mbsy-ambassabot',
     mbsyPath + '/test.svg#mbsy-test',
-    mbsyPath + '/native_share.svg#mbsy-native-share'
+    mbsyPath + '/native_share.svg#mbsy-native-share',
+    mbsyPath + '/boost.svg#mbsy-boost'
   ]
 }
 
