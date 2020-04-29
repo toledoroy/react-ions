@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { bool, func, number, oneOf } from 'prop-types'
+import { bool, func, number, oneOf, string } from 'prop-types'
 import Icon from '../Icon'
 import StyledDiv from '../StyledDiv'
 import { alertWrapper, closeIcon, countdownBar, countdownBarWrapper } from './styles.css'
@@ -9,25 +9,27 @@ class Alert extends Component {
     super(props)
   }
 
-  state = {
-    timerStart: 0,
-    timeout: this.props.timeout,
-    timer: false
-  }
-
-  static defaultProps = {
-    type: 'success'
-  }
-
   static propTypes = {
+    /**
+     * A class to add to the alert component.
+     */
+    className: string,
     /**
      * Whether the alert can be closed.
      */
     closable: bool,
     /**
+     * Whether to show the countdown bar.
+     */
+    countdownBar: bool,
+    /**
      * A callback to be triggered when the close icon is clicked or when the timeout expires.
      */
     onClose: func,
+    /**
+     * Whether or not to slide the alert in from the right.
+     */
+    slideIn: bool,
     /**
      * How long before the alert disappears.
      */
@@ -36,37 +38,51 @@ class Alert extends Component {
      * The alert type.
      */
     type: oneOf(['success', 'warning', 'info', 'danger'])
-
   }
 
-  startTimer = () => {
-    if (this.props.timeout) {
-      this.setState({ timerStart: new Date(), timer: setTimeout(this.closeAlert, this.state.timeout) })
-    }
+  static defaultProps = {
+    closable: true,
+    countdownBar: true,
+    type: 'success'
   }
 
-  pauseTimer = () => {
-    clearTimeout(this.state.timer)
-    let timeout = this.state.timeout
-
-    timeout -= new Date() - this.state.timerStart
-
-    this.setState({ timeout: timeout })
-  }
-
-  closeAlert = () => {
-    if (this.state.timer) {
-      clearTimeout(this.state.timer)
-    }
-    this.props.onClose()
+  state = {
+    timerStart: 0,
+    timeout: this.props.timeout,
+    timer: false
   }
 
   componentDidMount = () => {
     this.startTimer()
   }
 
+  startTimer = () => {
+    if (!this.props.timeout) return 
+
+    this.setState({
+      timerStart: new Date(),
+      timer: setTimeout(this.closeAlert, this.state.timeout)
+    })
+  }
+
+  pauseTimer = () => {
+    if (!this.state.timer) return
+
+    clearTimeout(this.state.timer)
+
+    let timeout = this.state.timeout
+    timeout -= new Date() - this.state.timerStart
+
+    this.setState({ timeout })
+  }
+
+  closeAlert = () => {
+    if (this.state.timer) clearTimeout(this.state.timer)
+    if (this.props.onClose) this.props.onClose()
+  }
+
   render = () => (
-    <StyledDiv className={this.props.className} css={alertWrapper(this.props.type, this.props.closable)} onMouseOver={this.pauseTimer} onMouseOut={this.startTimer}>
+    <StyledDiv className={this.props.className} css={alertWrapper(this.props.type, this.props.closable, this.props.slideIn)} onMouseEnter={this.pauseTimer} onMouseLeave={this.startTimer}>
       <Icon name={`md-${this.props.type}`} width='17' height='17' />
       <div>{this.props.children}</div>
       {
@@ -76,7 +92,7 @@ class Alert extends Component {
         </StyledDiv>
       }
       {
-        !!this.props.timeout &&
+        this.props.countdownBar && !!this.props.timeout &&
         <StyledDiv css={countdownBarWrapper}>
           <StyledDiv className='countdown-bar' css={countdownBar(this.props.type, this.props.timeout)}></StyledDiv>
         </StyledDiv>

@@ -1,0 +1,823 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert pauseTimer should pause the timer if timer is set in state 1`] = `
+Object {
+  "timeout": 3000,
+  "timer": 3,
+  "timerStart": 1970-01-01T00:00:00.000Z,
+}
+`;
+
+exports[`Alert render should not render the countdown bar if countdownBar prop is set to false 1`] = `
+<.sc-bdVaJa
+  css={
+    Array [
+      "
+  display: flex;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background-color: ",
+      "#fff",
+      ";
+  color: ",
+      "#243140",
+      ";
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 200;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+
+  ",
+      "
+  
+  > svg {
+    fill: ",
+      "#26B894",
+      ";
+    margin-top: 1px;
+    min-width: 17px;
+
+    + div {
+      margin-left: 10px;
+      margin-right: ",
+      "20px",
+      ";
+    }
+  }
+
+  &:hover .countdown-bar {
+    animation-play-state: paused;
+  }
+",
+    ]
+  }
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <Icon
+    height="17"
+    name="md-success"
+    width="17"
+  />
+  <div>
+    Test alert
+  </div>
+  <.sc-bdVaJa
+    css={
+      Object {
+        "> svg": Object {
+          "fill": "#9198A0",
+          "marginTop": 0,
+        },
+        "cursor": "pointer",
+        "height": "15px",
+        "margin": 0,
+        "position": "absolute",
+        "right": "10px",
+        "top": "9px",
+      }
+    }
+    onClick={[Function]}
+  >
+    <Icon
+      height="12"
+      name="md-close"
+      width="12"
+    />
+  </.sc-bdVaJa>
+</.sc-bdVaJa>
+`;
+
+exports[`Alert render should not render the countdown bar if timeout prop is not provided 1`] = `
+<.sc-bdVaJa
+  css={
+    Array [
+      "
+  display: flex;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background-color: ",
+      "#fff",
+      ";
+  color: ",
+      "#243140",
+      ";
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 200;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+
+  ",
+      "
+  
+  > svg {
+    fill: ",
+      "#26B894",
+      ";
+    margin-top: 1px;
+    min-width: 17px;
+
+    + div {
+      margin-left: 10px;
+      margin-right: ",
+      "20px",
+      ";
+    }
+  }
+
+  &:hover .countdown-bar {
+    animation-play-state: paused;
+  }
+",
+    ]
+  }
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <Icon
+    height="17"
+    name="md-success"
+    width="17"
+  />
+  <div>
+    Test alert
+  </div>
+  <.sc-bdVaJa
+    css={
+      Object {
+        "> svg": Object {
+          "fill": "#9198A0",
+          "marginTop": 0,
+        },
+        "cursor": "pointer",
+        "height": "15px",
+        "margin": 0,
+        "position": "absolute",
+        "right": "10px",
+        "top": "9px",
+      }
+    }
+    onClick={[Function]}
+  >
+    <Icon
+      height="12"
+      name="md-close"
+      width="12"
+    />
+  </.sc-bdVaJa>
+</.sc-bdVaJa>
+`;
+
+exports[`Alert render should render a danger alert 1`] = `
+<.sc-bdVaJa
+  css={
+    Array [
+      "
+  display: flex;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background-color: ",
+      "#fff",
+      ";
+  color: ",
+      "#243140",
+      ";
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 200;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+
+  ",
+      "
+  
+  > svg {
+    fill: ",
+      "#E54C3B",
+      ";
+    margin-top: 1px;
+    min-width: 17px;
+
+    + div {
+      margin-left: 10px;
+      margin-right: ",
+      "20px",
+      ";
+    }
+  }
+
+  &:hover .countdown-bar {
+    animation-play-state: paused;
+  }
+",
+    ]
+  }
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <Icon
+    height="17"
+    name="md-danger"
+    width="17"
+  />
+  <div>
+    Test alert
+  </div>
+  <.sc-bdVaJa
+    css={
+      Object {
+        "> svg": Object {
+          "fill": "#9198A0",
+          "marginTop": 0,
+        },
+        "cursor": "pointer",
+        "height": "15px",
+        "margin": 0,
+        "position": "absolute",
+        "right": "10px",
+        "top": "9px",
+      }
+    }
+    onClick={[Function]}
+  >
+    <Icon
+      height="12"
+      name="md-close"
+      width="12"
+    />
+  </.sc-bdVaJa>
+  <.sc-bdVaJa
+    css={
+      Object {
+        "bottom": 0,
+        "height": "2px",
+        "left": 0,
+        "margin": 0,
+        "position": "absolute",
+        "right": 0,
+      }
+    }
+  >
+    <.sc-bdVaJa
+      className="countdown-bar"
+      css={
+        Array [
+          "
+  animation: ",
+          "
+  ",
+          Keyframes {
+            "id": "sc-keyframes-xYoGr",
+            "inject": [Function],
+            "name": "xYoGr",
+            "rules": Array [
+              "@-webkit-keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+              "@keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+            ],
+            "toString": [Function],
+          },
+          " ",
+          "5",
+          "s linear 1;
+",
+          ";
+  height: 100%;
+  position: absolute;
+  background-color: ",
+          "#E54C3B",
+          "
+",
+        ]
+      }
+    />
+  </.sc-bdVaJa>
+</.sc-bdVaJa>
+`;
+
+exports[`Alert render should render a default alert (success) 1`] = `
+<.sc-bdVaJa
+  css={
+    Array [
+      "
+  display: flex;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background-color: ",
+      "#fff",
+      ";
+  color: ",
+      "#243140",
+      ";
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 200;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+
+  ",
+      "
+  
+  > svg {
+    fill: ",
+      "#26B894",
+      ";
+    margin-top: 1px;
+    min-width: 17px;
+
+    + div {
+      margin-left: 10px;
+      margin-right: ",
+      "20px",
+      ";
+    }
+  }
+
+  &:hover .countdown-bar {
+    animation-play-state: paused;
+  }
+",
+    ]
+  }
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <Icon
+    height="17"
+    name="md-success"
+    width="17"
+  />
+  <div>
+    Test alert
+  </div>
+  <.sc-bdVaJa
+    css={
+      Object {
+        "> svg": Object {
+          "fill": "#9198A0",
+          "marginTop": 0,
+        },
+        "cursor": "pointer",
+        "height": "15px",
+        "margin": 0,
+        "position": "absolute",
+        "right": "10px",
+        "top": "9px",
+      }
+    }
+    onClick={[Function]}
+  >
+    <Icon
+      height="12"
+      name="md-close"
+      width="12"
+    />
+  </.sc-bdVaJa>
+  <.sc-bdVaJa
+    css={
+      Object {
+        "bottom": 0,
+        "height": "2px",
+        "left": 0,
+        "margin": 0,
+        "position": "absolute",
+        "right": 0,
+      }
+    }
+  >
+    <.sc-bdVaJa
+      className="countdown-bar"
+      css={
+        Array [
+          "
+  animation: ",
+          "
+  ",
+          Keyframes {
+            "id": "sc-keyframes-xYoGr",
+            "inject": [Function],
+            "name": "xYoGr",
+            "rules": Array [
+              "@-webkit-keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+              "@keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+            ],
+            "toString": [Function],
+          },
+          " ",
+          "5",
+          "s linear 1;
+",
+          ";
+  height: 100%;
+  position: absolute;
+  background-color: ",
+          "#26B894",
+          "
+",
+        ]
+      }
+    />
+  </.sc-bdVaJa>
+</.sc-bdVaJa>
+`;
+
+exports[`Alert render should render a success alert 1`] = `
+<.sc-bdVaJa
+  css={
+    Array [
+      "
+  display: flex;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background-color: ",
+      "#fff",
+      ";
+  color: ",
+      "#243140",
+      ";
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 200;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+
+  ",
+      "
+  
+  > svg {
+    fill: ",
+      "#26B894",
+      ";
+    margin-top: 1px;
+    min-width: 17px;
+
+    + div {
+      margin-left: 10px;
+      margin-right: ",
+      "20px",
+      ";
+    }
+  }
+
+  &:hover .countdown-bar {
+    animation-play-state: paused;
+  }
+",
+    ]
+  }
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <Icon
+    height="17"
+    name="md-success"
+    width="17"
+  />
+  <div>
+    Test alert
+  </div>
+  <.sc-bdVaJa
+    css={
+      Object {
+        "> svg": Object {
+          "fill": "#9198A0",
+          "marginTop": 0,
+        },
+        "cursor": "pointer",
+        "height": "15px",
+        "margin": 0,
+        "position": "absolute",
+        "right": "10px",
+        "top": "9px",
+      }
+    }
+    onClick={[Function]}
+  >
+    <Icon
+      height="12"
+      name="md-close"
+      width="12"
+    />
+  </.sc-bdVaJa>
+  <.sc-bdVaJa
+    css={
+      Object {
+        "bottom": 0,
+        "height": "2px",
+        "left": 0,
+        "margin": 0,
+        "position": "absolute",
+        "right": 0,
+      }
+    }
+  >
+    <.sc-bdVaJa
+      className="countdown-bar"
+      css={
+        Array [
+          "
+  animation: ",
+          "
+  ",
+          Keyframes {
+            "id": "sc-keyframes-xYoGr",
+            "inject": [Function],
+            "name": "xYoGr",
+            "rules": Array [
+              "@-webkit-keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+              "@keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+            ],
+            "toString": [Function],
+          },
+          " ",
+          "5",
+          "s linear 1;
+",
+          ";
+  height: 100%;
+  position: absolute;
+  background-color: ",
+          "#26B894",
+          "
+",
+        ]
+      }
+    />
+  </.sc-bdVaJa>
+</.sc-bdVaJa>
+`;
+
+exports[`Alert render should render a warning alert 1`] = `
+<.sc-bdVaJa
+  css={
+    Array [
+      "
+  display: flex;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background-color: ",
+      "#fff",
+      ";
+  color: ",
+      "#243140",
+      ";
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 200;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+
+  ",
+      "
+  
+  > svg {
+    fill: ",
+      "#F29C1E",
+      ";
+    margin-top: 1px;
+    min-width: 17px;
+
+    + div {
+      margin-left: 10px;
+      margin-right: ",
+      "20px",
+      ";
+    }
+  }
+
+  &:hover .countdown-bar {
+    animation-play-state: paused;
+  }
+",
+    ]
+  }
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <Icon
+    height="17"
+    name="md-warning"
+    width="17"
+  />
+  <div>
+    Test alert
+  </div>
+  <.sc-bdVaJa
+    css={
+      Object {
+        "> svg": Object {
+          "fill": "#9198A0",
+          "marginTop": 0,
+        },
+        "cursor": "pointer",
+        "height": "15px",
+        "margin": 0,
+        "position": "absolute",
+        "right": "10px",
+        "top": "9px",
+      }
+    }
+    onClick={[Function]}
+  >
+    <Icon
+      height="12"
+      name="md-close"
+      width="12"
+    />
+  </.sc-bdVaJa>
+  <.sc-bdVaJa
+    css={
+      Object {
+        "bottom": 0,
+        "height": "2px",
+        "left": 0,
+        "margin": 0,
+        "position": "absolute",
+        "right": 0,
+      }
+    }
+  >
+    <.sc-bdVaJa
+      className="countdown-bar"
+      css={
+        Array [
+          "
+  animation: ",
+          "
+  ",
+          Keyframes {
+            "id": "sc-keyframes-xYoGr",
+            "inject": [Function],
+            "name": "xYoGr",
+            "rules": Array [
+              "@-webkit-keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+              "@keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+            ],
+            "toString": [Function],
+          },
+          " ",
+          "5",
+          "s linear 1;
+",
+          ";
+  height: 100%;
+  position: absolute;
+  background-color: ",
+          "#F29C1E",
+          "
+",
+        ]
+      }
+    />
+  </.sc-bdVaJa>
+</.sc-bdVaJa>
+`;
+
+exports[`Alert render should render an info alert 1`] = `
+<.sc-bdVaJa
+  css={
+    Array [
+      "
+  display: flex;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background-color: ",
+      "#fff",
+      ";
+  color: ",
+      "#243140",
+      ";
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 200;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+
+  ",
+      "
+  
+  > svg {
+    fill: ",
+      "#62CAF3",
+      ";
+    margin-top: 1px;
+    min-width: 17px;
+
+    + div {
+      margin-left: 10px;
+      margin-right: ",
+      "20px",
+      ";
+    }
+  }
+
+  &:hover .countdown-bar {
+    animation-play-state: paused;
+  }
+",
+    ]
+  }
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <Icon
+    height="17"
+    name="md-info"
+    width="17"
+  />
+  <div>
+    Test alert
+  </div>
+  <.sc-bdVaJa
+    css={
+      Object {
+        "> svg": Object {
+          "fill": "#9198A0",
+          "marginTop": 0,
+        },
+        "cursor": "pointer",
+        "height": "15px",
+        "margin": 0,
+        "position": "absolute",
+        "right": "10px",
+        "top": "9px",
+      }
+    }
+    onClick={[Function]}
+  >
+    <Icon
+      height="12"
+      name="md-close"
+      width="12"
+    />
+  </.sc-bdVaJa>
+  <.sc-bdVaJa
+    css={
+      Object {
+        "bottom": 0,
+        "height": "2px",
+        "left": 0,
+        "margin": 0,
+        "position": "absolute",
+        "right": 0,
+      }
+    }
+  >
+    <.sc-bdVaJa
+      className="countdown-bar"
+      css={
+        Array [
+          "
+  animation: ",
+          "
+  ",
+          Keyframes {
+            "id": "sc-keyframes-xYoGr",
+            "inject": [Function],
+            "name": "xYoGr",
+            "rules": Array [
+              "@-webkit-keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+              "@keyframes xYoGr{0%{width:100%;}100%{width:0%;}}",
+            ],
+            "toString": [Function],
+          },
+          " ",
+          "5",
+          "s linear 1;
+",
+          ";
+  height: 100%;
+  position: absolute;
+  background-color: ",
+          "#62CAF3",
+          "
+",
+        ]
+      }
+    />
+  </.sc-bdVaJa>
+</.sc-bdVaJa>
+`;
+
+exports[`Alert startTimer should start the timer if the timeout prop is provided 1`] = `
+Object {
+  "timeout": 5000,
+  "timer": 2,
+  "timerStart": 1970-01-01T00:00:00.000Z,
+}
+`;
