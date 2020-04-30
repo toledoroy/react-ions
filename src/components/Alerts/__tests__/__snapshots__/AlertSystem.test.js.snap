@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlertSystem getAlerts should get alerts that are not hidden 1`] = `
+Array [
+  <Alert
+    className=""
+    closable={true}
+    countdownBar={true}
+    onClose={[Function]}
+    type="success"
+  >
+    Test success
+  </Alert>,
+  false,
+  false,
+  <Alert
+    className=""
+    closable={true}
+    countdownBar={true}
+    onClose={[Function]}
+    type="danger"
+  >
+    Test danger
+  </Alert>,
+]
+`;
+
+exports[`AlertSystem removeAlert should hide an alert and call its onClose callback if provided 1`] = `
+Object {
+  "content": "Test success",
+  "key": "ALERT_KEY",
+  "onClose": [Function],
+}
+`;
+
+exports[`AlertSystem removeAlert should hide an alert and call its onClose callback if provided 2`] = `
+Object {
+  "content": "Test success",
+  "hidden": true,
+  "key": "ALERT_KEY",
+  "onClose": [Function],
+}
+`;
+
+exports[`AlertSystem render should render an alert system with alerts 1`] = `
+<.sc-bdVaJa
+  css={Object {}}
+>
+  <Alert
+    className=""
+    closable={true}
+    countdownBar={true}
+    key="success-1588161287485000"
+    onClose={[Function]}
+    type="success"
+  >
+    Test success
+  </Alert>
+  <Alert
+    className=""
+    closable={true}
+    countdownBar={true}
+    key="warning-1588161287485000"
+    onClose={[Function]}
+    type="warning"
+  >
+    Test warning
+  </Alert>
+  <Alert
+    className=""
+    closable={true}
+    countdownBar={true}
+    key="info-1588161287485000"
+    onClose={[Function]}
+    type="info"
+  >
+    Test info
+  </Alert>
+  <Alert
+    className=""
+    closable={true}
+    countdownBar={true}
+    key="danger-1588161287485000"
+    onClose={[Function]}
+    type="danger"
+  >
+    Test danger
+  </Alert>
+</.sc-bdVaJa>
+`;
+
+exports[`AlertSystem render should render an empty alert system 1`] = `
+<.sc-bdVaJa
+  css={Object {}}
+/>
+`;
+
+exports[`AlertSystem render should upadate when the alerts prop changes 1`] = `
+<.sc-bdVaJa
+  css={Object {}}
+>
+  <Alert
+    className=""
+    closable={true}
+    countdownBar={true}
+    key="success-1588161287485000"
+    onClose={[Function]}
+    type="success"
+  >
+    Test success
+  </Alert>
+</.sc-bdVaJa>
+`;
+
+exports[`AlertSystem render should upadate when the alerts prop changes 2`] = `
+<.sc-bdVaJa
+  css={Object {}}
+>
+  <Alert
+    className=""
+    closable={true}
+    countdownBar={true}
+    key="success-1588161287485000"
+    onClose={[Function]}
+    type="success"
+  >
+    Test success
+  </Alert>
+  <Alert
+    className=""
+    closable={true}
+    countdownBar={true}
+    key="warning-1588161287485000"
+    onClose={[Function]}
+    type="warning"
+  >
+    Test warning
+  </Alert>
+</.sc-bdVaJa>
+`;
