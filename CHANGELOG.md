@@ -1,3 +1,8 @@
+## 5.3.7
+###### _April 30, 2020_
+- Add the new Boost icon to the list of icons [#850](https://github.com/GetAmbassador/react-ions/pull/850)
+- Convert alerts to styled components [#849](https://github.com/GetAmbassador/react-ions/pull/849)
+
 ## 5.3.6
 ###### _April 7, 2020_
 - Allow a tagList component to be passed to the MultiSelect component [#846](https://github.com/GetAmbassador/react-ions/pull/846)
