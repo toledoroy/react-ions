@@ -22,7 +22,7 @@ class RadioGroup extends React.Component {
     /**
      * Text shown above the radio group.
      */
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     /**
      * The name that will be applied to all radio buttons inside it.
      */

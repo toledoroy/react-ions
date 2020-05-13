@@ -33,7 +33,7 @@ class FileUpload extends React.Component {
     /**
      * Text shown above the FileUpload.
      */
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     /**
      * Value of the FileUpload (can be path string or an array of file objects).
      */

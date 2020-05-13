@@ -40,7 +40,7 @@ class Textarea extends React.Component {
     /**
      * Text shown above the textarea.
      */
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     /**
      * Value of the textarea.
      */

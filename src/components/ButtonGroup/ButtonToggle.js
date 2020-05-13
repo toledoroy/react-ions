@@ -29,7 +29,7 @@ class ButtonToggle extends React.Component {
     /**
      * Text shown inside the button toggle element.
      */
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     /**
      * Value of the option.
      */

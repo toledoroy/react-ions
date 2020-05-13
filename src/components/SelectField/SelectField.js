@@ -61,7 +61,7 @@ export class SelectField extends React.Component {
     /**
      * Text shown above the select field.
      */
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     /**
      * An optional style object to render inline CSS.
      */

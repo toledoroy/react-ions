@@ -84,7 +84,7 @@ class DatePicker extends React.Component {
     /**
      * Text shown above the date picker.
      */
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     /**
      * Whether the select field is disabled.
      */

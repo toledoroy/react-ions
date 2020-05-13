@@ -38,7 +38,7 @@ class Toggle extends PureComponent {
     /**
      * Text displayed with the toggle.
      */
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     /**
      * Whether the toggle is disabled.
      */

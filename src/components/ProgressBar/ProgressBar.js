@@ -40,7 +40,7 @@ ProgressBar.propTypes = {
   /**
    * Text shown above the progress bar.
    */
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   /**
    * Show or hide the percentage with the progress bar.
    */

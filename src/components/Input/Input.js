@@ -34,7 +34,7 @@ class Input extends React.Component {
     /**
      * Text shown above the input.
      */
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     /**
      * Value of the input.
      */

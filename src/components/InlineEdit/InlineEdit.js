@@ -65,7 +65,7 @@ class InlineEdit extends React.Component {
     /**
      * A label to display next to the component.
      */
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     /**
      * An icon to display next to the component.
      */
