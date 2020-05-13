@@ -89,7 +89,7 @@ export class Typeahead extends React.Component {
     /**
      * Text shown above the typeahead.
      */
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     /**
      * When set to true, the component (input) will accept a custom value
      */

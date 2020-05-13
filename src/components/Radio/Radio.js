@@ -74,7 +74,7 @@ Radio.propTypes = {
   /**
    * Text shown next to the radio input element.
    */
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   /**
    * Value of the option.
    */
