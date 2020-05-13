@@ -1,3 +1,7 @@
+## 5.3.8
+###### _May 13, 2020_
+- Allow form field labels to be nodes [#852](https://github.com/GetAmbassador/react-ions/pull/852)
+
 ## 5.3.7
 ###### _April 30, 2020_
 - Add the new Boost icon to the list of icons [#850](https://github.com/GetAmbassador/react-ions/pull/850)
